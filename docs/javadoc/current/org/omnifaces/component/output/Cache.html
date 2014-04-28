@@ -231,17 +231,21 @@ extends <a href="../../../../org/omnifaces/component/output/OutputFamily.html" t
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Boolean.html?is-external=true" title="class or interface in java.lang">Boolean</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/omnifaces/component/output/Cache.html#isReset()">isReset</a></strong>()</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../org/omnifaces/component/output/Cache.html#isDisabled()">isDisabled</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Boolean.html?is-external=true" title="class or interface in java.lang">Boolean</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/omnifaces/component/output/Cache.html#isUseBuffer()">isUseBuffer</a></strong>()</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../org/omnifaces/component/output/Cache.html#isReset()">isReset</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Boolean.html?is-external=true" title="class or interface in java.lang">Boolean</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/omnifaces/component/output/Cache.html#isUseBuffer()">isUseBuffer</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code>protected boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/omnifaces/component/output/Cache.html#isVisitable(javax.faces.component.visit.VisitContext)">isVisitable</a></strong>(<a href="http://docs.oracle.com/javaee/6/api/javax/faces/component/visit/VisitContext.html?is-external=true" title="class or interface in javax.faces.component.visit">VisitContext</a>&nbsp;visitContext)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/omnifaces/component/output/Cache.html#setCacheAttribute(javax.faces.context.FacesContext, java.lang.String, java.lang.Object)">setCacheAttribute</a></strong>(<a href="http://docs.oracle.com/javaee/6/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context,
                  <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
@@ -249,6 +253,10 @@ extends <a href="../../../../org/omnifaces/component/output/OutputFamily.html" t
 <div class="block">Sets a named attribute associated with the main cache entry this component is using to store
  the rendering of its child components.</div>
 </td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/omnifaces/component/output/Cache.html#setDisabled(java.lang.Boolean)">setDisabled</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Boolean.html?is-external=true" title="class or interface in java.lang">Boolean</a>&nbsp;disabledValue)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
@@ -530,10 +538,32 @@ extends <a href="../../../../org/omnifaces/component/output/OutputFamily.html" t
 <a name="setReset(java.lang.Boolean)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>setReset</h4>
 <pre>public&nbsp;void&nbsp;setReset(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Boolean.html?is-external=true" title="class or interface in java.lang">Boolean</a>&nbsp;resetValue)</pre>
+</li>
+</ul>
+<a name="isDisabled()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isDisabled</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Boolean.html?is-external=true" title="class or interface in java.lang">Boolean</a>&nbsp;isDisabled()</pre>
+<dl><dt><span class="strong">Since:</span></dt>
+  <dd>1.8</dd></dl>
+</li>
+</ul>
+<a name="setDisabled(java.lang.Boolean)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>setDisabled</h4>
+<pre>public&nbsp;void&nbsp;setDisabled(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Boolean.html?is-external=true" title="class or interface in java.lang">Boolean</a>&nbsp;disabledValue)</pre>
+<dl><dt><span class="strong">Since:</span></dt>
+  <dd>1.8</dd></dl>
 </li>
 </ul>
 </li>

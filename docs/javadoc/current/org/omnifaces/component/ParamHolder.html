@@ -135,7 +135,7 @@ extends <a href="http://docs.oracle.com/javaee/6/api/javax/faces/component/Value
 </td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/component/ParamHolder.html#getValue()">getValue</a></strong>()</code>
 <div class="block">Returns the converted value of the parameter.</div>
 </td>
@@ -193,16 +193,15 @@ extends <a href="http://docs.oracle.com/javaee/6/api/javax/faces/component/Value
 <ul class="blockListLast">
 <li class="blockList">
 <h4>getValue</h4>
-<pre><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getValue()</pre>
+<pre><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;getValue()</pre>
 <div class="block">Returns the converted value of the parameter. If the converter is set, or if any converter is available by
  <a href="http://docs.oracle.com/javaee/6/api/javax/faces/application/Application.html?is-external=true#createConverter(java.lang.Class)" title="class or interface in javax.faces.application"><code>Application.createConverter(Class)</code></a>, passing the value's class, then return the result of
  <a href="http://docs.oracle.com/javaee/6/api/javax/faces/convert/Converter.html?is-external=true#getAsString(javax.faces.context.FacesContext, javax.faces.component.UIComponent, java.lang.Object)" title="class or interface in javax.faces.convert"><code>Converter.getAsString(javax.faces.context.FacesContext, javax.faces.component.UIComponent, Object)</code></a>,
- otherwise if the value is not <code>null</code>, then return the value's <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang"><code>Object.toString()</code></a>, else return
- an empty string.</div>
+ otherwise return the original value of the parameter.</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="http://docs.oracle.com/javaee/6/api/javax/faces/component/ValueHolder.html?is-external=true#getValue()" title="class or interface in javax.faces.component">getValue</a></code>&nbsp;in interface&nbsp;<code><a href="http://docs.oracle.com/javaee/6/api/javax/faces/component/ValueHolder.html?is-external=true" title="class or interface in javax.faces.component">ValueHolder</a></code></dd>
-<dt><span class="strong">Returns:</span></dt><dd>The converted value of the parameter, which should never be <code>null</code>.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/6/api/javax/faces/convert/Converter.html?is-external=true#getAsString(javax.faces.context.FacesContext, javax.faces.component.UIComponent, java.lang.Object)" title="class or interface in javax.faces.convert"><code>Converter.getAsString(javax.faces.context.FacesContext, javax.faces.component.UIComponent, Object)</code></a></dd></dl>
+<dt><span class="strong">Returns:</span></dt><dd>The converted value of the parameter, or the original value if the converter is not available.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/6/api/javax/faces/convert/Converter.html?is-external=true#getAsString(javax.faces.context.FacesContext, javax.faces.component.UIComponent, java.lang.Object)" title="class or interface in javax.faces.convert"><code>Converter.getAsString(javax.faces.context.FacesContext, javax.faces.component.UIComponent, Object)</code></a></dd></dl>
 </li>
 </ul>
 </li>

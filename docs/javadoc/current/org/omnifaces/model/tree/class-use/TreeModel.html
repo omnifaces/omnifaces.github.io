@@ -169,8 +169,8 @@
 <tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../../org/omnifaces/model/tree/TreeModel.html" title="interface in org.omnifaces.model.tree">TreeModel</a>&lt;<a href="../../../../../org/omnifaces/model/tree/SortedTreeModel.html" title="type parameter in SortedTreeModel">T</a>&gt;</code></td>
 <td class="colLast"><span class="strong">SortedTreeModel.</span><code><strong><a href="../../../../../org/omnifaces/model/tree/SortedTreeModel.html#addChild(T)">addChild</a></strong>(<a href="../../../../../org/omnifaces/model/tree/SortedTreeModel.html" title="type parameter in SortedTreeModel">T</a>&nbsp;data)</code>
-<div class="block">An override which throws <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang"><code>IllegalArgumentException</code></a> when given data is not <code>null</code> and not an
- instance of <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Comparable.html?is-external=true" title="class or interface in java.lang"><code>Comparable</code></a>.</div>
+<div class="block">An override which throws <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang"><code>IllegalArgumentException</code></a> when given data is not <code>null</code>
+ <strong>and</strong> not an instance of <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Comparable.html?is-external=true" title="class or interface in java.lang"><code>Comparable</code></a>.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -237,16 +237,22 @@
 </tr>
 <tbody>
 <tr class="altColor">
-<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;<a href="../../../../../org/omnifaces/model/tree/TreeModel.html" title="interface in org.omnifaces.model.tree">TreeModel</a>&lt;<a href="../../../../../org/omnifaces/model/tree/SortedTreeModel.html" title="type parameter in SortedTreeModel">T</a>&gt;&gt;</code></td>
-<td class="colLast"><span class="strong">SortedTreeModel.</span><code><strong><a href="../../../../../org/omnifaces/model/tree/SortedTreeModel.html#createChildren()">createChildren</a></strong>()</code>&nbsp;</td>
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;<a href="../../../../../org/omnifaces/model/tree/TreeModel.html" title="interface in org.omnifaces.model.tree">TreeModel</a>&lt;<a href="../../../../../org/omnifaces/model/tree/ListTreeModel.html" title="type parameter in ListTreeModel">T</a>&gt;&gt;</code></td>
+<td class="colLast"><span class="strong">ListTreeModel.</span><code><strong><a href="../../../../../org/omnifaces/model/tree/ListTreeModel.html#createChildren()">createChildren</a></strong>()</code>
+<div class="block">Returns a new <a href="http://docs.oracle.com/javase/7/docs/api/java/util/ArrayList.html?is-external=true" title="class or interface in java.util"><code>ArrayList</code></a>.</div>
+</td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;<a href="../../../../../org/omnifaces/model/tree/TreeModel.html" title="interface in org.omnifaces.model.tree">TreeModel</a>&lt;<a href="../../../../../org/omnifaces/model/tree/ListTreeModel.html" title="type parameter in ListTreeModel">T</a>&gt;&gt;</code></td>
-<td class="colLast"><span class="strong">ListTreeModel.</span><code><strong><a href="../../../../../org/omnifaces/model/tree/ListTreeModel.html#createChildren()">createChildren</a></strong>()</code>&nbsp;</td>
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;<a href="../../../../../org/omnifaces/model/tree/TreeModel.html" title="interface in org.omnifaces.model.tree">TreeModel</a>&lt;<a href="../../../../../org/omnifaces/model/tree/SortedTreeModel.html" title="type parameter in SortedTreeModel">T</a>&gt;&gt;</code></td>
+<td class="colLast"><span class="strong">SortedTreeModel.</span><code><strong><a href="../../../../../org/omnifaces/model/tree/SortedTreeModel.html#createChildren()">createChildren</a></strong>()</code>
+<div class="block">Returns a new <a href="http://docs.oracle.com/javase/7/docs/api/java/util/TreeSet.html?is-external=true" title="class or interface in java.util"><code>TreeSet</code></a>.</div>
+</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>protected abstract <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;<a href="../../../../../org/omnifaces/model/tree/TreeModel.html" title="interface in org.omnifaces.model.tree">TreeModel</a>&lt;<a href="../../../../../org/omnifaces/model/tree/AbstractTreeModel.html" title="type parameter in AbstractTreeModel">T</a>&gt;&gt;</code></td>
-<td class="colLast"><span class="strong">AbstractTreeModel.</span><code><strong><a href="../../../../../org/omnifaces/model/tree/AbstractTreeModel.html#createChildren()">createChildren</a></strong>()</code>&nbsp;</td>
+<td class="colLast"><span class="strong">AbstractTreeModel.</span><code><strong><a href="../../../../../org/omnifaces/model/tree/AbstractTreeModel.html#createChildren()">createChildren</a></strong>()</code>
+<div class="block">Returns a concrete (and usually empty) <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util"><code>Collection</code></a> instance which should hold the tree's children.</div>
+</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../../../../org/omnifaces/model/tree/TreeModel.html" title="interface in org.omnifaces.model.tree">TreeModel</a>&lt;<a href="../../../../../org/omnifaces/model/tree/TreeModel.html" title="type parameter in TreeModel">T</a>&gt;&gt;</code></td>

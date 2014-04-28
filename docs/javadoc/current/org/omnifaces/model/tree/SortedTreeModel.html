@@ -151,8 +151,8 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Comparabl
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../org/omnifaces/model/tree/TreeModel.html" title="interface in org.omnifaces.model.tree">TreeModel</a>&lt;<a href="../../../../org/omnifaces/model/tree/SortedTreeModel.html" title="type parameter in SortedTreeModel">T</a>&gt;</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/omnifaces/model/tree/SortedTreeModel.html#addChild(T)">addChild</a></strong>(<a href="../../../../org/omnifaces/model/tree/SortedTreeModel.html" title="type parameter in SortedTreeModel">T</a>&nbsp;data)</code>
-<div class="block">An override which throws <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang"><code>IllegalArgumentException</code></a> when given data is not <code>null</code> and not an
- instance of <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Comparable.html?is-external=true" title="class or interface in java.lang"><code>Comparable</code></a>.</div>
+<div class="block">An override which throws <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang"><code>IllegalArgumentException</code></a> when given data is not <code>null</code>
+ <strong>and</strong> not an instance of <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Comparable.html?is-external=true" title="class or interface in java.lang"><code>Comparable</code></a>.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -161,7 +161,9 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Comparabl
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;<a href="../../../../org/omnifaces/model/tree/TreeModel.html" title="interface in org.omnifaces.model.tree">TreeModel</a>&lt;<a href="../../../../org/omnifaces/model/tree/SortedTreeModel.html" title="type parameter in SortedTreeModel">T</a>&gt;&gt;</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/omnifaces/model/tree/SortedTreeModel.html#createChildren()">createChildren</a></strong>()</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../org/omnifaces/model/tree/SortedTreeModel.html#createChildren()">createChildren</a></strong>()</code>
+<div class="block">Returns a new <a href="http://docs.oracle.com/javase/7/docs/api/java/util/TreeSet.html?is-external=true" title="class or interface in java.util"><code>TreeSet</code></a>.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -216,10 +218,11 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Comparabl
 <li class="blockList">
 <h4>createChildren</h4>
 <pre>protected&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;<a href="../../../../org/omnifaces/model/tree/TreeModel.html" title="interface in org.omnifaces.model.tree">TreeModel</a>&lt;<a href="../../../../org/omnifaces/model/tree/SortedTreeModel.html" title="type parameter in SortedTreeModel">T</a>&gt;&gt;&nbsp;createChildren()</pre>
+<div class="block">Returns a new <a href="http://docs.oracle.com/javase/7/docs/api/java/util/TreeSet.html?is-external=true" title="class or interface in java.util"><code>TreeSet</code></a>.</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../org/omnifaces/model/tree/AbstractTreeModel.html#createChildren()">createChildren</a></code>&nbsp;in class&nbsp;<code><a href="../../../../org/omnifaces/model/tree/AbstractTreeModel.html" title="class in org.omnifaces.model.tree">AbstractTreeModel</a>&lt;<a href="../../../../org/omnifaces/model/tree/SortedTreeModel.html" title="type parameter in SortedTreeModel">T</a>&gt;</code></dd>
-</dl>
+<dt><span class="strong">Returns:</span></dt><dd>A concrete (and usually empty) <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util"><code>Collection</code></a> instance which should hold the tree's children.</dd></dl>
 </li>
 </ul>
 <a name="addChild(java.lang.Object)">
@@ -231,8 +234,9 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Comparabl
 <li class="blockList">
 <h4>addChild</h4>
 <pre>public&nbsp;<a href="../../../../org/omnifaces/model/tree/TreeModel.html" title="interface in org.omnifaces.model.tree">TreeModel</a>&lt;<a href="../../../../org/omnifaces/model/tree/SortedTreeModel.html" title="type parameter in SortedTreeModel">T</a>&gt;&nbsp;addChild(<a href="../../../../org/omnifaces/model/tree/SortedTreeModel.html" title="type parameter in SortedTreeModel">T</a>&nbsp;data)</pre>
-<div class="block">An override which throws <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang"><code>IllegalArgumentException</code></a> when given data is not <code>null</code> and not an
- instance of <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Comparable.html?is-external=true" title="class or interface in java.lang"><code>Comparable</code></a>.</div>
+<div class="block">An override which throws <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang"><code>IllegalArgumentException</code></a> when given data is not <code>null</code>
+ <strong>and</strong> not an instance of <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Comparable.html?is-external=true" title="class or interface in java.lang"><code>Comparable</code></a>. In other words, it only accepts <code>null</code>
+ or an instance of <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Comparable.html?is-external=true" title="class or interface in java.lang"><code>Comparable</code></a>.</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../org/omnifaces/model/tree/TreeModel.html#addChild(T)">addChild</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/omnifaces/model/tree/TreeModel.html" title="interface in org.omnifaces.model.tree">TreeModel</a>&lt;<a href="../../../../org/omnifaces/model/tree/SortedTreeModel.html" title="type parameter in SortedTreeModel">T</a>&gt;</code></dd>

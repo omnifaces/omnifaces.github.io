@@ -119,12 +119,6 @@
 <dd>
 <div class="block">Returns the application scope attribute value associated with the given name.</div>
 </dd>
-<dt><span class="strong"><a href="../org/omnifaces/util/Faces.html#getApplicationAttribute(javax.faces.context.FacesContext, java.lang.String)">getApplicationAttribute(FacesContext, String)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Faces.html" title="class in org.omnifaces.util">Faces</a></dt>
-<dd>
-<div class="block"><span class="strong">Deprecated.</span>
-<div class="block"><i>Use <a href="../org/omnifaces/util/FacesLocal.html#getApplicationAttribute(javax.faces.context.FacesContext, java.lang.String)"><code>FacesLocal.getApplicationAttribute(FacesContext, String)</code></a> instead.</i></div>
-</div>
-</dd>
 <dt><span class="strong"><a href="../org/omnifaces/util/FacesLocal.html#getApplicationAttribute(javax.faces.context.FacesContext, java.lang.String)">getApplicationAttribute(FacesContext, String)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/FacesLocal.html" title="class in org.omnifaces.util">FacesLocal</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="../org/omnifaces/util/Servlets.html#getApplicationAttribute(javax.servlet.ServletContext, java.lang.String)">getApplicationAttribute(ServletContext, String)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Servlets.html" title="class in org.omnifaces.util">Servlets</a></dt>
@@ -378,6 +372,10 @@
 <dd>
 <div class="block">Returns a mapping of all error page locations by exception type.</div>
 </dd>
+<dt><span class="strong"><a href="../org/omnifaces/exceptionhandler/FacesMessageExceptionHandlerFactory.html#getExceptionHandler()">getExceptionHandler()</a></span> - Method in class org.omnifaces.exceptionhandler.<a href="../org/omnifaces/exceptionhandler/FacesMessageExceptionHandlerFactory.html" title="class in org.omnifaces.exceptionhandler">FacesMessageExceptionHandlerFactory</a></dt>
+<dd>
+<div class="block">Returns a new instance of <a href="../org/omnifaces/exceptionhandler/FacesMessageExceptionHandler.html" title="class in org.omnifaces.exceptionhandler"><code>FacesMessageExceptionHandler</code></a> which wraps the original exception handler.</div>
+</dd>
 <dt><span class="strong"><a href="../org/omnifaces/exceptionhandler/FullAjaxExceptionHandlerFactory.html#getExceptionHandler()">getExceptionHandler()</a></span> - Method in class org.omnifaces.exceptionhandler.<a href="../org/omnifaces/exceptionhandler/FullAjaxExceptionHandlerFactory.html" title="class in org.omnifaces.exceptionhandler">FullAjaxExceptionHandlerFactory</a></dt>
 <dd>
 <div class="block">Returns a new instance of <a href="../org/omnifaces/exceptionhandler/FullAjaxExceptionHandler.html" title="class in org.omnifaces.exceptionhandler"><code>FullAjaxExceptionHandler</code></a> which wraps the original exception handler.</div>
@@ -436,7 +434,7 @@
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="../org/omnifaces/facesviews/FacesViews.html#getFacesServletExtensions(javax.servlet.ServletContext)">getFacesServletExtensions(ServletContext)</a></span> - Static method in class org.omnifaces.facesviews.<a href="../org/omnifaces/facesviews/FacesViews.html" title="class in org.omnifaces.facesviews">FacesViews</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="../org/omnifaces/util/Faces.html#getFacesServletRegistration(javax.servlet.ServletContext)">getFacesServletRegistration(ServletContext)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Faces.html" title="class in org.omnifaces.util">Faces</a></dt>
+<dt><span class="strong"><a href="../org/omnifaces/util/Platform.html#getFacesServletRegistration(javax.servlet.ServletContext)">getFacesServletRegistration(ServletContext)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Platform.html" title="class in org.omnifaces.util">Platform</a></dt>
 <dd>
 <div class="block">Returns the <a href="http://docs.oracle.com/javaee/6/api/javax/servlet/ServletRegistration.html?is-external=true" title="class or interface in javax.servlet"><code>ServletRegistration</code></a> associated with the <a href="http://docs.oracle.com/javaee/6/api/javax/faces/webapp/FacesServlet.html?is-external=true" title="class or interface in javax.faces.webapp"><code>FacesServlet</code></a>.</div>
 </dd>
@@ -477,9 +475,43 @@
 </dd>
 <dt><span class="strong"><a href="../org/omnifaces/util/FacesLocal.html#getFlashAttribute(javax.faces.context.FacesContext, java.lang.String)">getFlashAttribute(FacesContext, String)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/FacesLocal.html" title="class in org.omnifaces.util">FacesLocal</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="strong"><a href="../org/omnifaces/config/WebXml.html#getFormErrorPage()">getFormErrorPage()</a></span> - Method in enum org.omnifaces.config.<a href="../org/omnifaces/config/WebXml.html" title="enum in org.omnifaces.config">WebXml</a></dt>
+<dd>
+<div class="block">Returns the location of the FORM authentication error page, or <code>null</code> if it is not defined.</div>
+</dd>
 <dt><span class="strong"><a href="../org/omnifaces/config/WebXml.html#getFormLoginPage()">getFormLoginPage()</a></span> - Method in enum org.omnifaces.config.<a href="../org/omnifaces/config/WebXml.html" title="enum in org.omnifaces.config">WebXml</a></dt>
 <dd>
 <div class="block">Returns the location of the FORM authentication login page, or <code>null</code> if it is not defined.</div>
+</dd>
+<dt><span class="strong"><a href="../org/omnifaces/util/Faces.html#getForwardRequestQueryString()">getForwardRequestQueryString()</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Faces.html" title="class in org.omnifaces.util">Faces</a></dt>
+<dd>
+<div class="block">Returns the original HTTP request query string behind this forwarded request, if any.</div>
+</dd>
+<dt><span class="strong"><a href="../org/omnifaces/util/FacesLocal.html#getForwardRequestQueryString(javax.faces.context.FacesContext)">getForwardRequestQueryString(FacesContext)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/FacesLocal.html" title="class in org.omnifaces.util">FacesLocal</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="../org/omnifaces/util/Servlets.html#getForwardRequestQueryString(javax.servlet.http.HttpServletRequest)">getForwardRequestQueryString(HttpServletRequest)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Servlets.html" title="class in org.omnifaces.util">Servlets</a></dt>
+<dd>
+<div class="block">Returns the original HTTP request query string behind this forwarded request, if any.</div>
+</dd>
+<dt><span class="strong"><a href="../org/omnifaces/util/Faces.html#getForwardRequestURI()">getForwardRequestURI()</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Faces.html" title="class in org.omnifaces.util">Faces</a></dt>
+<dd>
+<div class="block">Returns the original HTTP request URI behind this forwarded request, if any.</div>
+</dd>
+<dt><span class="strong"><a href="../org/omnifaces/util/FacesLocal.html#getForwardRequestURI(javax.faces.context.FacesContext)">getForwardRequestURI(FacesContext)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/FacesLocal.html" title="class in org.omnifaces.util">FacesLocal</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="../org/omnifaces/util/Servlets.html#getForwardRequestURI(javax.servlet.http.HttpServletRequest)">getForwardRequestURI(HttpServletRequest)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Servlets.html" title="class in org.omnifaces.util">Servlets</a></dt>
+<dd>
+<div class="block">Returns the original HTTP request URI behind this forwarded request, if any.</div>
+</dd>
+<dt><span class="strong"><a href="../org/omnifaces/util/Faces.html#getForwardRequestURIWithQueryString()">getForwardRequestURIWithQueryString()</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Faces.html" title="class in org.omnifaces.util">Faces</a></dt>
+<dd>
+<div class="block">Returns the original HTTP request URI with query string behind this forwarded request, if any.</div>
+</dd>
+<dt><span class="strong"><a href="../org/omnifaces/util/FacesLocal.html#getForwardRequestURIWithQueryString(javax.faces.context.FacesContext)">getForwardRequestURIWithQueryString(FacesContext)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/FacesLocal.html" title="class in org.omnifaces.util">FacesLocal</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="../org/omnifaces/util/Servlets.html#getForwardRequestURIWithQueryString(javax.servlet.http.HttpServletRequest)">getForwardRequestURIWithQueryString(HttpServletRequest)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Servlets.html" title="class in org.omnifaces.util">Servlets</a></dt>
+<dd>
+<div class="block">Returns the original HTTP request URI with query string behind this forwarded request, if any.</div>
 </dd>
 <dt><span class="strong"><a href="../org/omnifaces/el/ELContextWrapper.html#getFunctionMapper()">getFunctionMapper()</a></span> - Method in class org.omnifaces.el.<a href="../org/omnifaces/el/ELContextWrapper.html" title="class in org.omnifaces.el">ELContextWrapper</a></dt>
 <dt><span class="strong"><a href="../org/omnifaces/component/output/ConditionalComment.html#getIf()">getIf()</a></span> - Method in class org.omnifaces.component.output.<a href="../org/omnifaces/component/output/ConditionalComment.html" title="class in org.omnifaces.component.output">ConditionalComment</a></dt>
@@ -747,6 +779,10 @@
 </dd>
 <dt><span class="strong"><a href="../org/omnifaces/renderkit/Html5RenderKitFactory.html#getRenderKitIds()">getRenderKitIds()</a></span> - Method in class org.omnifaces.renderkit.<a href="../org/omnifaces/renderkit/Html5RenderKitFactory.html" title="class in org.omnifaces.renderkit">Html5RenderKitFactory</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="strong"><a href="../org/omnifaces/component/messages/OmniMessages.html#getRendersChildren()">getRendersChildren()</a></span> - Method in class org.omnifaces.component.messages.<a href="../org/omnifaces/component/messages/OmniMessages.html" title="class in org.omnifaces.component.messages">OmniMessages</a></dt>
+<dd>
+<div class="block">Returns <code>true</code>.</div>
+</dd>
 <dt><span class="strong"><a href="../org/omnifaces/component/output/OutputFamily.html#getRendersChildren()">getRendersChildren()</a></span> - Method in class org.omnifaces.component.output.<a href="../org/omnifaces/component/output/OutputFamily.html" title="class in org.omnifaces.component.output">OutputFamily</a></dt>
 <dd>
 <div class="block">Returns <code>true</code>.</div>
@@ -780,12 +816,6 @@
 <dt><span class="strong"><a href="../org/omnifaces/util/Faces.html#getRequestAttribute(java.lang.String)">getRequestAttribute(String)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Faces.html" title="class in org.omnifaces.util">Faces</a></dt>
 <dd>
 <div class="block">Returns the request scope attribute value associated with the given name.</div>
-</dd>
-<dt><span class="strong"><a href="../org/omnifaces/util/Faces.html#getRequestAttribute(javax.faces.context.FacesContext, java.lang.String)">getRequestAttribute(FacesContext, String)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Faces.html" title="class in org.omnifaces.util">Faces</a></dt>
-<dd>
-<div class="block"><span class="strong">Deprecated.</span>
-<div class="block"><i>Use <a href="../org/omnifaces/util/FacesLocal.html#getRequestAttribute(javax.faces.context.FacesContext, java.lang.String)"><code>FacesLocal.getRequestAttribute(FacesContext, String)</code></a> instead.</i></div>
-</div>
 </dd>
 <dt><span class="strong"><a href="../org/omnifaces/util/FacesLocal.html#getRequestAttribute(javax.faces.context.FacesContext, java.lang.String)">getRequestAttribute(FacesContext, String)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/FacesLocal.html" title="class in org.omnifaces.util">FacesLocal</a></dt>
 <dd>&nbsp;</dd>
@@ -1221,6 +1251,12 @@
 </dd>
 <dt><span class="strong"><a href="../org/omnifaces/util/FacesLocal.html#getViewAttribute(javax.faces.context.FacesContext, java.lang.String)">getViewAttribute(FacesContext, String)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/FacesLocal.html" title="class in org.omnifaces.util">FacesLocal</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="strong"><a href="../org/omnifaces/util/Faces.html#getViewDeclarationLanguage()">getViewDeclarationLanguage()</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Faces.html" title="class in org.omnifaces.util">Faces</a></dt>
+<dd>
+<div class="block">Returns the <a href="http://docs.oracle.com/javaee/6/api/javax/faces/view/ViewDeclarationLanguage.html?is-external=true" title="class or interface in javax.faces.view"><code>ViewDeclarationLanguage</code></a> associated with the "current" view ID.</div>
+</dd>
+<dt><span class="strong"><a href="../org/omnifaces/util/FacesLocal.html#getViewDeclarationLanguage(javax.faces.context.FacesContext)">getViewDeclarationLanguage(FacesContext)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/FacesLocal.html" title="class in org.omnifaces.util">FacesLocal</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="strong"><a href="../org/omnifaces/facesviews/FacesViews.html#getViewHandlerMode(javax.faces.context.FacesContext)">getViewHandlerMode(FacesContext)</a></span> - Static method in class org.omnifaces.facesviews.<a href="../org/omnifaces/facesviews/FacesViews.html" title="class in org.omnifaces.facesviews">FacesViews</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="../org/omnifaces/facesviews/FacesViews.html#getViewHandlerMode(javax.servlet.ServletContext)">getViewHandlerMode(ServletContext)</a></span> - Static method in class org.omnifaces.facesviews.<a href="../org/omnifaces/facesviews/FacesViews.html" title="class in org.omnifaces.facesviews">FacesViews</a></dt>
@@ -1279,6 +1315,12 @@
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="../org/omnifaces/event/FacesEventWrapper.html#getWrapped()">getWrapped()</a></span> - Method in class org.omnifaces.event.<a href="../org/omnifaces/event/FacesEventWrapper.html" title="class in org.omnifaces.event">FacesEventWrapper</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="strong"><a href="../org/omnifaces/exceptionhandler/FacesMessageExceptionHandler.html#getWrapped()">getWrapped()</a></span> - Method in class org.omnifaces.exceptionhandler.<a href="../org/omnifaces/exceptionhandler/FacesMessageExceptionHandler.html" title="class in org.omnifaces.exceptionhandler">FacesMessageExceptionHandler</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="../org/omnifaces/exceptionhandler/FacesMessageExceptionHandlerFactory.html#getWrapped()">getWrapped()</a></span> - Method in class org.omnifaces.exceptionhandler.<a href="../org/omnifaces/exceptionhandler/FacesMessageExceptionHandlerFactory.html" title="class in org.omnifaces.exceptionhandler">FacesMessageExceptionHandlerFactory</a></dt>
+<dd>
+<div class="block">Returns the wrapped factory.</div>
+</dd>
 <dt><span class="strong"><a href="../org/omnifaces/exceptionhandler/FullAjaxExceptionHandler.html#getWrapped()">getWrapped()</a></span> - Method in class org.omnifaces.exceptionhandler.<a href="../org/omnifaces/exceptionhandler/FullAjaxExceptionHandler.html" title="class in org.omnifaces.exceptionhandler">FullAjaxExceptionHandler</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="../org/omnifaces/exceptionhandler/FullAjaxExceptionHandlerFactory.html#getWrapped()">getWrapped()</a></span> - Method in class org.omnifaces.exceptionhandler.<a href="../org/omnifaces/exceptionhandler/FullAjaxExceptionHandlerFactory.html" title="class in org.omnifaces.exceptionhandler">FullAjaxExceptionHandlerFactory</a></dt>

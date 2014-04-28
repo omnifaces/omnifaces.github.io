@@ -130,8 +130,8 @@
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="../org/omnifaces/model/tree/SortedTreeModel.html#addChild(T)">addChild(T)</a></span> - Method in class org.omnifaces.model.tree.<a href="../org/omnifaces/model/tree/SortedTreeModel.html" title="class in org.omnifaces.model.tree">SortedTreeModel</a></dt>
 <dd>
-<div class="block">An override which throws <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang"><code>IllegalArgumentException</code></a> when given data is not <code>null</code> and not an
- instance of <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Comparable.html?is-external=true" title="class or interface in java.lang"><code>Comparable</code></a>.</div>
+<div class="block">An override which throws <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang"><code>IllegalArgumentException</code></a> when given data is not <code>null</code>
+ <strong>and</strong> not an instance of <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Comparable.html?is-external=true" title="class or interface in java.lang"><code>Comparable</code></a>.</div>
 </dd>
 <dt><span class="strong"><a href="../org/omnifaces/model/tree/TreeModel.html#addChild(T)">addChild(T)</a></span> - Method in interface org.omnifaces.model.tree.<a href="../org/omnifaces/model/tree/TreeModel.html" title="interface in org.omnifaces.model.tree">TreeModel</a></dt>
 <dd>
@@ -260,11 +260,23 @@
 </dd>
 <dt><span class="strong"><a href="../org/omnifaces/renderkit/Html5RenderKitFactory.html#addRenderKit(java.lang.String, javax.faces.render.RenderKit)">addRenderKit(String, RenderKit)</a></span> - Method in class org.omnifaces.renderkit.<a href="../org/omnifaces/renderkit/Html5RenderKitFactory.html" title="class in org.omnifaces.renderkit">Html5RenderKitFactory</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="strong"><a href="../org/omnifaces/util/Faces.html#addResponseCookie(java.lang.String, java.lang.String, int)">addResponseCookie(String, String, int)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Faces.html" title="class in org.omnifaces.util">Faces</a></dt>
+<dd>
+<div class="block">Add a cookie with given name, value and maxage to the HTTP response.</div>
+</dd>
 <dt><span class="strong"><a href="../org/omnifaces/util/Faces.html#addResponseCookie(java.lang.String, java.lang.String, java.lang.String, int)">addResponseCookie(String, String, String, int)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Faces.html" title="class in org.omnifaces.util">Faces</a></dt>
 <dd>
 <div class="block">Add a cookie with given name, value, path and maxage to the HTTP response.</div>
 </dd>
+<dt><span class="strong"><a href="../org/omnifaces/util/Faces.html#addResponseCookie(java.lang.String, java.lang.String, java.lang.String, java.lang.String, int)">addResponseCookie(String, String, String, String, int)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Faces.html" title="class in org.omnifaces.util">Faces</a></dt>
+<dd>
+<div class="block">Add a cookie with given name, value, domain, path and maxage to the HTTP response.</div>
+</dd>
+<dt><span class="strong"><a href="../org/omnifaces/util/FacesLocal.html#addResponseCookie(javax.faces.context.FacesContext, java.lang.String, java.lang.String, int)">addResponseCookie(FacesContext, String, String, int)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/FacesLocal.html" title="class in org.omnifaces.util">FacesLocal</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="strong"><a href="../org/omnifaces/util/FacesLocal.html#addResponseCookie(javax.faces.context.FacesContext, java.lang.String, java.lang.String, java.lang.String, int)">addResponseCookie(FacesContext, String, String, String, int)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/FacesLocal.html" title="class in org.omnifaces.util">FacesLocal</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="../org/omnifaces/util/FacesLocal.html#addResponseCookie(javax.faces.context.FacesContext, java.lang.String, java.lang.String, java.lang.String, java.lang.String, int)">addResponseCookie(FacesContext, String, String, String, String, int)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/FacesLocal.html" title="class in org.omnifaces.util">FacesLocal</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="../org/omnifaces/util/Faces.html#addResponseHeader(java.lang.String, java.lang.String)">addResponseHeader(String, String)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Faces.html" title="class in org.omnifaces.util">Faces</a></dt>
 <dd>
@@ -347,6 +359,8 @@
 <div class="block">Register a new <a href="http://docs.oracle.com/javaee/6/api/javax/el/FunctionMapper.html?is-external=true" title="class or interface in javax.el"><code>FunctionMapper</code></a> which checks if the given prefix matches our own <code>var</code> and then
  find the associated method based on the given method name.</div>
 </dd>
+<dt><span class="strong"><a href="../org/omnifaces/taghandler/MassAttribute.html#apply(javax.faces.view.facelets.FaceletContext, javax.faces.component.UIComponent)">apply(FaceletContext, UIComponent)</a></span> - Method in class org.omnifaces.taghandler.<a href="../org/omnifaces/taghandler/MassAttribute.html" title="class in org.omnifaces.taghandler">MassAttribute</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="strong"><a href="../org/omnifaces/taghandler/MethodParam.html#apply(javax.faces.view.facelets.FaceletContext, javax.faces.component.UIComponent)">apply(FaceletContext, UIComponent)</a></span> - Method in class org.omnifaces.taghandler.<a href="../org/omnifaces/taghandler/MethodParam.html" title="class in org.omnifaces.taghandler">MethodParam</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="../org/omnifaces/taghandler/ValidateBean.html#apply(javax.faces.view.facelets.FaceletContext, javax.faces.component.UIComponent)">apply(FaceletContext, UIComponent)</a></span> - Method in class org.omnifaces.taghandler.<a href="../org/omnifaces/taghandler/ValidateBean.html" title="class in org.omnifaces.taghandler">ValidateBean</a></dt>

@@ -272,7 +272,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
                          <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;libraryName,
                          <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;resourceName,
                          <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;id)</code>
-<div class="block">Create and include the composite component of the given library ane resource name as child of the given UI
+<div class="block">Create and include the composite component of the given library and resource name as child of the given UI
  component parent and return the created composite component.</div>
 </td>
 </tr>
@@ -291,24 +291,30 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Components.html#isRendered(javax.faces.component.UIComponent)">isRendered</a></strong>(<a href="http://docs.oracle.com/javaee/6/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;component)</code>
+<div class="block">Returns whether the given UI component and all of its parents is rendered.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Components.html#shouldVisitSkipIteration(javax.faces.component.visit.VisitContext)">shouldVisitSkipIteration</a></strong>(<a href="http://docs.oracle.com/javaee/6/api/javax/faces/component/visit/VisitContext.html?is-external=true" title="class or interface in javax.faces.component.visit">VisitContext</a>&nbsp;context)</code>
 <div class="block">Returns true if the given visit context contains the visit hint that iteration should be skipped.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static &lt;T extends <a href="http://docs.oracle.com/javaee/6/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&gt;&nbsp;<br>void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Components.html#validateHasDirectParent(javax.faces.component.UIComponent, java.lang.Class)">validateHasDirectParent</a></strong>(<a href="http://docs.oracle.com/javaee/6/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;component,
                        <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;parentType)</code>
 <div class="block">Validate if the given component has a direct parent of the given parent type.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Components.html#validateHasNoChildren(javax.faces.component.UIComponent)">validateHasNoChildren</a></strong>(<a href="http://docs.oracle.com/javaee/6/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;component)</code>
 <div class="block">Validate if the given component has no children.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static &lt;T extends <a href="http://docs.oracle.com/javaee/6/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&gt;&nbsp;<br>void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Components.html#validateHasParent(javax.faces.component.UIComponent, java.lang.Class)">validateHasParent</a></strong>(<a href="http://docs.oracle.com/javaee/6/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;component,
                  <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;parentType)</code>
@@ -362,6 +368,20 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/ClassCastException.html?is-external=true" title="class or interface in java.lang">ClassCastException</a></code> - When <code>T</code> is of wrong type.</dd><dt><span class="strong">Since:</span></dt>
   <dd>1.5</dd></dl>
+</li>
+</ul>
+<a name="isRendered(javax.faces.component.UIComponent)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isRendered</h4>
+<pre>public static&nbsp;boolean&nbsp;isRendered(<a href="http://docs.oracle.com/javaee/6/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;component)</pre>
+<div class="block">Returns whether the given UI component and all of its parents is rendered. This thus not only checks the
+ component's own <code>rendered</code> attribute, but also of all of its parents.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>component</code> - The component to be checked.</dd>
+<dt><span class="strong">Returns:</span></dt><dd><code>true</code> if the given UI component and all of its parents is rendered.</dd><dt><span class="strong">Since:</span></dt>
+  <dd>1.8</dd></dl>
 </li>
 </ul>
 <a name="findComponent(java.lang.String)">
@@ -502,7 +522,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
                                     <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;libraryName,
                                     <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;resourceName,
                                     <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;id)</pre>
-<div class="block">Create and include the composite component of the given library ane resource name as child of the given UI
+<div class="block">Create and include the composite component of the given library and resource name as child of the given UI
  component parent and return the created composite component.
  This has the same effect as using <code>&lt;my:resourceName&gt;</code>. The given component ID must be unique
  relative to the current naming container parent and is mandatory for functioning of input components inside the

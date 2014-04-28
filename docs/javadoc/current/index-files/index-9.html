@@ -96,7 +96,7 @@
 </dd>
 <dt><span class="strong"><a href="../org/omnifaces/util/Components.html#includeCompositeComponent(javax.faces.component.UIComponent, java.lang.String, java.lang.String, java.lang.String)">includeCompositeComponent(UIComponent, String, String, String)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Components.html" title="class in org.omnifaces.util">Components</a></dt>
 <dd>
-<div class="block">Create and include the composite component of the given library ane resource name as child of the given UI
+<div class="block">Create and include the composite component of the given library and resource name as child of the given UI
  component parent and return the created composite component.</div>
 </dd>
 <dt><span class="strong"><a href="../org/omnifaces/util/Components.html#includeFacelet(javax.faces.component.UIComponent, java.lang.String)">includeFacelet(UIComponent, String)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Components.html" title="class in org.omnifaces.util">Components</a></dt>
@@ -240,6 +240,8 @@
 <div class="block">Checks if the given resource path obtained from <a href="http://docs.oracle.com/javaee/6/api/javax/servlet/ServletContext.html?is-external=true#getResourcePaths(java.lang.String)" title="class or interface in javax.servlet"><code>ServletContext.getResourcePaths(String)</code></a> represents a
  directory.</div>
 </dd>
+<dt><span class="strong"><a href="../org/omnifaces/component/output/Cache.html#isDisabled()">isDisabled()</a></span> - Method in class org.omnifaces.component.output.<a href="../org/omnifaces/component/output/Cache.html" title="class in org.omnifaces.component.output">Cache</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="strong"><a href="../org/omnifaces/component/validator/ValidateMultipleFields.html#isDisabled()">isDisabled()</a></span> - Method in class org.omnifaces.component.validator.<a href="../org/omnifaces/component/validator/ValidateMultipleFields.html" title="class in org.omnifaces.component.validator">ValidateMultipleFields</a></dt>
 <dd>
 <div class="block">Returns whether the validation should be disabled or not.</div>
@@ -359,6 +361,10 @@
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="../org/omnifaces/el/ValueExpressionWrapper.html#isLiteralText()">isLiteralText()</a></span> - Method in class org.omnifaces.el.<a href="../org/omnifaces/el/ValueExpressionWrapper.html" title="class in org.omnifaces.el">ValueExpressionWrapper</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="strong"><a href="../org/omnifaces/util/Hacks.html#isMyFacesUsed()">isMyFacesUsed()</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Hacks.html" title="class in org.omnifaces.util">Hacks</a></dt>
+<dd>
+<div class="block">Returns true if MyFaces is used.</div>
+</dd>
 <dt><span class="strong"><a href="../org/omnifaces/util/Utils.html#isNumber(java.lang.String)">isNumber(String)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Utils.html" title="class in org.omnifaces.util">Utils</a></dt>
 <dd>
 <div class="block">Returns true if the given string is parseable as a number.</div>
@@ -385,12 +391,20 @@
 </dd>
 <dt><span class="strong"><a href="../org/omnifaces/util/FacesLocal.html#isPrefixMapping(javax.faces.context.FacesContext)">isPrefixMapping(FacesContext)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/FacesLocal.html" title="class in org.omnifaces.util">FacesLocal</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="strong"><a href="../org/omnifaces/util/Hacks.html#isPrimeFacesDynamicResourceRequest(javax.faces.context.FacesContext)">isPrimeFacesDynamicResourceRequest(FacesContext)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Hacks.html" title="class in org.omnifaces.util">Hacks</a></dt>
+<dd>
+<div class="block">Returns true if the current request is a PrimeFaces dynamic resource request.</div>
+</dd>
 <dt><span class="strong"><a href="../org/omnifaces/el/ELContextWrapper.html#isPropertyResolved()">isPropertyResolved()</a></span> - Method in class org.omnifaces.el.<a href="../org/omnifaces/el/ELContextWrapper.html" title="class in org.omnifaces.el">ELContextWrapper</a></dt>
 <dt><span class="strong"><a href="../org/omnifaces/el/ELResolverWrapper.html#isReadOnly(javax.el.ELContext, java.lang.Object, java.lang.Object)">isReadOnly(ELContext, Object, Object)</a></span> - Method in class org.omnifaces.el.<a href="../org/omnifaces/el/ELResolverWrapper.html" title="class in org.omnifaces.el">ELResolverWrapper</a></dt>
 <dt><span class="strong"><a href="../org/omnifaces/el/ValueExpressionMethodWrapper.html#isReadOnly(javax.el.ELContext)">isReadOnly(ELContext)</a></span> - Method in class org.omnifaces.el.<a href="../org/omnifaces/el/ValueExpressionMethodWrapper.html" title="class in org.omnifaces.el">ValueExpressionMethodWrapper</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="../org/omnifaces/el/ValueExpressionWrapper.html#isReadOnly(javax.el.ELContext)">isReadOnly(ELContext)</a></span> - Method in class org.omnifaces.el.<a href="../org/omnifaces/el/ValueExpressionWrapper.html" title="class in org.omnifaces.el">ValueExpressionWrapper</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="strong"><a href="../org/omnifaces/util/Components.html#isRendered(javax.faces.component.UIComponent)">isRendered(UIComponent)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Components.html" title="class in org.omnifaces.util">Components</a></dt>
+<dd>
+<div class="block">Returns whether the given UI component and all of its parents is rendered.</div>
+</dd>
 <dt><span class="strong"><a href="../org/omnifaces/util/Faces.html#isRenderResponse()">isRenderResponse()</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Faces.html" title="class in org.omnifaces.util">Faces</a></dt>
 <dd>
 <div class="block">Returns <code>true</code> if we're currently in the render response phase.</div>
@@ -452,6 +466,10 @@
 </dd>
 <dt><span class="strong"><a href="../org/omnifaces/facesviews/FacesViews.html#isScannedViewsAlwaysExtensionless(javax.faces.context.FacesContext)">isScannedViewsAlwaysExtensionless(FacesContext)</a></span> - Static method in class org.omnifaces.facesviews.<a href="../org/omnifaces/facesviews/FacesViews.html" title="class in org.omnifaces.facesviews">FacesViews</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="strong"><a href="../org/omnifaces/util/Hacks.html#isScriptResourceRendered(javax.faces.context.FacesContext, java.lang.String, java.lang.String)">isScriptResourceRendered(FacesContext, String, String)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Hacks.html" title="class in org.omnifaces.util">Hacks</a></dt>
+<dd>
+<div class="block">Returns whether the given script resource is rendered.</div>
+</dd>
 <dt><span class="strong"><a href="../org/omnifaces/util/Faces.html#isSessionNew()">isSessionNew()</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Faces.html" title="class in org.omnifaces.util">Faces</a></dt>
 <dd>
 <div class="block">Returns whether the HTTP session has been created for the first time in the current request.</div>

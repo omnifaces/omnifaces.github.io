@@ -163,48 +163,54 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Enum.html?is
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/config/WebXml.html#getFormErrorPage()">getFormErrorPage</a></strong>()</code>
+<div class="block">Returns the location of the FORM authentication error page, or <code>null</code> if it is not defined.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/config/WebXml.html#getFormLoginPage()">getFormLoginPage</a></strong>()</code>
 <div class="block">Returns the location of the FORM authentication login page, or <code>null</code> if it is not defined.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&gt;</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/config/WebXml.html#getSecurityConstraints()">getSecurityConstraints</a></strong>()</code>
 <div class="block">Returns a mapping of all security constraint URL patterns and the associated roles in the declared order.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/config/WebXml.html#getSessionTimeout()">getSessionTimeout</a></strong>()</code>
 <div class="block">Returns the configured session timeout in minutes, or <code>-1</code> if it is not defined.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/config/WebXml.html#getWelcomeFiles()">getWelcomeFiles</a></strong>()</code>
 <div class="block">Returns a list of all welcome files.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../org/omnifaces/config/WebXml.html" title="enum in org.omnifaces.config">WebXml</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/config/WebXml.html#init(javax.servlet.ServletContext)">init</a></strong>(<a href="http://docs.oracle.com/javaee/6/api/javax/servlet/ServletContext.html?is-external=true" title="class or interface in javax.servlet">ServletContext</a>&nbsp;servletContext)</code>
 <div class="block">Perform manual initialization with the given servlet context, if not null and not already initialized yet.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/config/WebXml.html#isAccessAllowed(java.lang.String, java.lang.String)">isAccessAllowed</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;url,
                <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;role)</code>
 <div class="block">Returns <code>true</code> if access to the given URL is allowed for the given role.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static <a href="../../../org/omnifaces/config/WebXml.html" title="enum in org.omnifaces.config">WebXml</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/config/WebXml.html#valueOf(java.lang.String)">valueOf</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
 <div class="block">Returns the enum constant of this type with the specified name.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static <a href="../../../org/omnifaces/config/WebXml.html" title="enum in org.omnifaces.config">WebXml</a>[]</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/config/WebXml.html#values()">values</a></strong>()</code>
 <div class="block">Returns an array containing the constants of this enum type, in
@@ -393,6 +399,18 @@ with the specified name</dd>
 <pre>public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getFormLoginPage()</pre>
 <div class="block">Returns the location of the FORM authentication login page, or <code>null</code> if it is not defined.</div>
 <dl><dt><span class="strong">Returns:</span></dt><dd>The location of the FORM authentication login page, or <code>null</code> if it is not defined.</dd></dl>
+</li>
+</ul>
+<a name="getFormErrorPage()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getFormErrorPage</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getFormErrorPage()</pre>
+<div class="block">Returns the location of the FORM authentication error page, or <code>null</code> if it is not defined.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>The location of the FORM authentication error page, or <code>null</code> if it is not defined.</dd><dt><span class="strong">Since:</span></dt>
+  <dd>1.8</dd></dl>
 </li>
 </ul>
 <a name="getSecurityConstraints()">

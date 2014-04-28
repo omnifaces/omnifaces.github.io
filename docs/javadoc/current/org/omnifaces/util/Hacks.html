@@ -158,6 +158,18 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Hacks.html#isMyFacesUsed()">isMyFacesUsed</a></strong>()</code>
+<div class="block">Returns true if MyFaces is used.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Hacks.html#isPrimeFacesDynamicResourceRequest(javax.faces.context.FacesContext)">isPrimeFacesDynamicResourceRequest</a></strong>(<a href="http://docs.oracle.com/javaee/6/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context)</code>
+<div class="block">Returns true if the current request is a PrimeFaces dynamic resource request.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Hacks.html#isRichFacesInstalled()">isRichFacesInstalled</a></strong>()</code>
 <div class="block">Returns true if RichFaces is installed.</div>
 </td>
@@ -182,16 +194,32 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code>static boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Hacks.html#isScriptResourceRendered(javax.faces.context.FacesContext, java.lang.String, java.lang.String)">isScriptResourceRendered</a></strong>(<a href="http://docs.oracle.com/javaee/6/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context,
+                        <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;library,
+                        <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
+<div class="block">Returns whether the given script resource is rendered.</div>
+</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/reflect/Method.html?is-external=true" title="class or interface in java.lang.reflect">Method</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Hacks.html#methodExpressionToStaticMethod(javax.el.ELContext, javax.el.MethodExpression)">methodExpressionToStaticMethod</a></strong>(<a href="http://docs.oracle.com/javaee/6/api/javax/el/ELContext.html?is-external=true" title="class or interface in javax.el">ELContext</a>&nbsp;context,
                               <a href="http://docs.oracle.com/javaee/6/api/javax/el/MethodExpression.html?is-external=true" title="class or interface in javax.el">MethodExpression</a>&nbsp;methodExpression)</code>
 <div class="block">This method wraps a <code>MethodExpression</code> in a <code>Method</code> which can be statically invoked.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Hacks.html#removeResourceDependencyState(javax.faces.context.FacesContext)">removeResourceDependencyState</a></strong>(<a href="http://docs.oracle.com/javaee/6/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context)</code>
 <div class="block">Remove the resource dependency processing related attributes from the given faces context.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Hacks.html#setScriptResourceRendered(javax.faces.context.FacesContext, java.lang.String, java.lang.String)">setScriptResourceRendered</a></strong>(<a href="http://docs.oracle.com/javaee/6/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context,
+                         <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;library,
+                         <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
+<div class="block">Set the given script resource as rendered.</div>
 </td>
 </tr>
 </table>
@@ -362,15 +390,69 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <dt><span class="strong">Returns:</span></dt><dd>a Method instance that when invoked causes the wrapped method expression to be invoked.</dd></dl>
 </li>
 </ul>
+<a name="isMyFacesUsed()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isMyFacesUsed</h4>
+<pre>public static&nbsp;boolean&nbsp;isMyFacesUsed()</pre>
+<div class="block">Returns true if MyFaces is used. That is, when the FacesContext instance is from the MyFaces specific package.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>Whether MyFaces is used.</dd><dt><span class="strong">Since:</span></dt>
+  <dd>1.8</dd></dl>
+</li>
+</ul>
+<a name="setScriptResourceRendered(javax.faces.context.FacesContext, java.lang.String, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setScriptResourceRendered</h4>
+<pre>public static&nbsp;void&nbsp;setScriptResourceRendered(<a href="http://docs.oracle.com/javaee/6/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context,
+                             <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;library,
+                             <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
+<div class="block">Set the given script resource as rendered.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>context</code> - The involved faces context.</dd><dd><code>library</code> - The resource library.</dd><dd><code>name</code> - The resource name.</dd><dt><span class="strong">Since:</span></dt>
+  <dd>1.8</dd></dl>
+</li>
+</ul>
+<a name="isScriptResourceRendered(javax.faces.context.FacesContext, java.lang.String, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isScriptResourceRendered</h4>
+<pre>public static&nbsp;boolean&nbsp;isScriptResourceRendered(<a href="http://docs.oracle.com/javaee/6/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context,
+                               <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;library,
+                               <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
+<div class="block">Returns whether the given script resource is rendered.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>context</code> - The involved faces context.</dd><dd><code>library</code> - The resource library.</dd><dd><code>name</code> - The resource name.</dd>
+<dt><span class="strong">Returns:</span></dt><dd>Whether the given script resource is rendered.</dd><dt><span class="strong">Since:</span></dt>
+  <dd>1.8</dd></dl>
+</li>
+</ul>
 <a name="removeResourceDependencyState(javax.faces.context.FacesContext)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>removeResourceDependencyState</h4>
 <pre>public static&nbsp;void&nbsp;removeResourceDependencyState(<a href="http://docs.oracle.com/javaee/6/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context)</pre>
 <div class="block">Remove the resource dependency processing related attributes from the given faces context.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>context</code> - The involved faces context.</dd></dl>
+</li>
+</ul>
+<a name="isPrimeFacesDynamicResourceRequest(javax.faces.context.FacesContext)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>isPrimeFacesDynamicResourceRequest</h4>
+<pre>public static&nbsp;boolean&nbsp;isPrimeFacesDynamicResourceRequest(<a href="http://docs.oracle.com/javaee/6/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context)</pre>
+<div class="block">Returns true if the current request is a PrimeFaces dynamic resource request.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>context</code> - The involved faces context.</dd>
+<dt><span class="strong">Returns:</span></dt><dd>Whether the current request is a PrimeFaces dynamic resource request.</dd><dt><span class="strong">Since:</span></dt>
+  <dd>1.8</dd></dl>
 </li>
 </ul>
 </li>
