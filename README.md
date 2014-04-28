@@ -1,1 +1,1 @@
-Homepage of omnifaces.org
+[Homepage of **omnifaces.org**](http://omnifaces.org).
