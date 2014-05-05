@@ -24,8 +24,8 @@
 	This is actually not supposed to be a public web page.
 </p>
 <p>
-	The <code>http://omnifaces.org/functions</code> is supposed to be the XML namespace of OmniFaces functions.
-	Usually, you declare this URI in the XML root element of your XHTML file as below in order to use OmniFaces functions.
+	The <code>http://omnifaces.org/functions</code> is supposed to be the XML namespace URI of OmniFaces functions.
+	Usually, you declare this URI in the XML root element of your XHTML file as below in order to use OmniFaces functions within the element.
 </p>
 
 <div class="highlight highlight-XML"><pre>&lt;html ... xmlns:of="http://omnifaces.org/functions"&gt;</pre></div>
@@ -39,7 +39,7 @@
 
 <p>
 	During webapp's startup, Facelets will parse any <code>.taglib.xml</code> file found in the web application and remember its structure by the <code>&lt;namespace&gt;</code> entry.
-	This way Facelets can find the appropriate classes and method signatures for any <code>&lt;of:xxx()&gt;</code> function.
+	This way Facelets can find the appropriate classes and method signatures for any <code>of:xxx()</code> function.
 	Also, this way any IDE such as Eclipse can load the appropriate function/argument listing/documentation which is displayed on mouseover or autocomplete.
 	You can find the OmniFaces functions <code>.taglib.xml</code> source code <a href="https://github.com/omnifaces/omnifaces/blob/master/src/META-INF/omnifaces-functions.taglib.xml">here</a>. 
 </p>
@@ -51,7 +51,7 @@
 	Well, apparently the OmniFaces JAR is just missing in webapp's runtime classpath.
 	Make sure that the JAR file is present in <code>/WEB-INF/lib</code> folder of the built WAR file.
 	If you're not using a dependency management framework such as Maven, 
-	this is usually to be achieved by manually placing a copy of the JAR file straight in the <code>/WEB-INF/lib</code> folder of your webapp project.
+	then this is usually to be achieved by manually placing a copy of the JAR file straight in the <code>/WEB-INF/lib</code> folder of your webapp project.
 </p>
 
 <h2>Got it</h2>
