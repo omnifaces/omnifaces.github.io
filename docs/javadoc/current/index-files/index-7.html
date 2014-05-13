@@ -107,6 +107,14 @@
 <dd>
 <div class="block">Returns all active CDI managed bean instances in the given CDI managed bean scope.</div>
 </dd>
+<dt><span class="strong"><a href="../org/omnifaces/util/Beans.html#getAnnotation(javax.enterprise.inject.spi.BeanManager, javax.enterprise.inject.spi.Annotated, java.lang.Class)">getAnnotation(BeanManager, Annotated, Class&lt;T&gt;)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Beans.html" title="class in org.omnifaces.util">Beans</a></dt>
+<dd>
+<div class="block">Get program element annotation of a certain annotation type.</div>
+</dd>
+<dt><span class="strong"><a href="../org/omnifaces/util/Beans.html#getAnnotation(javax.enterprise.inject.spi.BeanManager, java.util.Collection, java.lang.Class)">getAnnotation(BeanManager, Collection&lt;Annotation&gt;, Class&lt;T&gt;)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Beans.html" title="class in org.omnifaces.util">Beans</a></dt>
+<dd>
+<div class="block">Get program element annotation of a certain annotation type from a collection of annotations.</div>
+</dd>
 <dt><span class="strong"><a href="../org/omnifaces/application/OmniApplicationFactory.html#getApplication()">getApplication()</a></span> - Method in class org.omnifaces.application.<a href="../org/omnifaces/application/OmniApplicationFactory.html" title="class in org.omnifaces.application">OmniApplicationFactory</a></dt>
 <dd>
 <div class="block">Returns an instance of <a href="../org/omnifaces/application/OmniApplication.html" title="class in org.omnifaces.application"><code>OmniApplication</code></a> which wraps the original application.</div>
@@ -549,6 +557,11 @@
 </dd>
 <dt><span class="strong"><a href="../org/omnifaces/util/FacesLocal.html#getInitParameterMap(javax.faces.context.FacesContext)">getInitParameterMap(FacesContext)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/FacesLocal.html" title="class in org.omnifaces.util">FacesLocal</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="strong"><a href="../org/omnifaces/util/Beans.html#getInstance(javax.enterprise.inject.spi.BeanManager, java.lang.Class)">getInstance(BeanManager, Class&lt;T&gt;)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Beans.html" title="class in org.omnifaces.util">Beans</a></dt>
+<dd>
+<div class="block">Returns the CDI managed bean instance of the given class from the given bean manager and creates one if
+ one doesn't exist.</div>
+</dd>
 <dt><span class="strong"><a href="../org/omnifaces/util/Beans.html#getInstance(javax.enterprise.inject.spi.BeanManager, java.lang.Class, boolean)">getInstance(BeanManager, Class&lt;T&gt;, boolean)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Beans.html" title="class in org.omnifaces.util">Beans</a></dt>
 <dd>
 <div class="block">Returns the CDI managed bean instance of the given class from the given bean manager and creates one if
@@ -936,6 +949,10 @@
 <dt><span class="strong"><a href="../org/omnifaces/util/Servlets.html#getRequestQueryStringMap(javax.servlet.http.HttpServletRequest)">getRequestQueryStringMap(HttpServletRequest)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Servlets.html" title="class in org.omnifaces.util">Servlets</a></dt>
 <dd>
 <div class="block">Returns the HTTP request query string as parameter values map.</div>
+</dd>
+<dt><span class="strong"><a href="../org/omnifaces/util/Servlets.html#getRequestRelativeURI(javax.servlet.http.HttpServletRequest)">getRequestRelativeURI(HttpServletRequest)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Servlets.html" title="class in org.omnifaces.util">Servlets</a></dt>
+<dd>
+<div class="block">Returns the HTTP request URI relative to the context root of a web application.</div>
 </dd>
 <dt><span class="strong"><a href="../org/omnifaces/util/Faces.html#getRequestServletPath()">getRequestServletPath()</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Faces.html" title="class in org.omnifaces.util">Faces</a></dt>
 <dd>

@@ -200,111 +200,117 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static boolean</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Utils.html#isBlank(java.lang.String)">isBlank</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;string)</code>
-<div class="block">Returns true if the given string is null or is empty or contains whitespace only.</div>
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Utils.html#isAnyEmpty(java.lang.Object...)">isAnyEmpty</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;values)</code>
+<div class="block">Returns <code>true</code> if at least one value is empty.</div>
 </td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>static boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Utils.html#isBlank(java.lang.String)">isBlank</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;string)</code>
+<div class="block">Returns <code>true</code> if the given string is null or is empty or contains whitespace only.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Utils.html#isDecimal(java.lang.String)">isDecimal</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;string)</code>
-<div class="block">Returns true if the given string is parseable as a decimal.</div>
+<div class="block">Returns <code>true</code> if the given string is parseable as a decimal.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Utils.html#isEmpty(java.util.Collection)">isEmpty</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;?&gt;&nbsp;collection)</code>
-<div class="block">Returns true if the given collection is null or is empty.</div>
+<div class="block">Returns <code>true</code> if the given collection is null or is empty.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Utils.html#isEmpty(java.util.Map)">isEmpty</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;?,?&gt;&nbsp;map)</code>
-<div class="block">Returns true if the given map is null or is empty.</div>
+<div class="block">Returns <code>true</code> if the given map is null or is empty.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Utils.html#isEmpty(java.lang.Object)">isEmpty</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)</code>
-<div class="block">Returns true if the given value is null or is empty.</div>
+<div class="block">Returns <code>true</code> if the given value is null or is empty.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Utils.html#isEmpty(java.lang.Object[])">isEmpty</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>[]&nbsp;array)</code>
-<div class="block">Returns true if the given array is null or is empty.</div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>static boolean</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Utils.html#isEmpty(java.lang.String)">isEmpty</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;string)</code>
-<div class="block">Returns true if the given string is null or is empty.</div>
+<div class="block">Returns <code>true</code> if the given array is null or is empty.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static boolean</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Utils.html#isNumber(java.lang.String)">isNumber</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;string)</code>
-<div class="block">Returns true if the given string is parseable as a number.</div>
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Utils.html#isEmpty(java.lang.String)">isEmpty</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;string)</code>
+<div class="block">Returns <code>true</code> if the given string is null or is empty.</div>
 </td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code>static boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Utils.html#isNumber(java.lang.String)">isNumber</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;string)</code>
+<div class="block">Returns <code>true</code> if the given string is parseable as a number.</div>
+</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Utils.html#isOneOf(T, T...)">isOneOf</a></strong>(T&nbsp;object,
        T...&nbsp;objects)</code>
 <div class="block">Returns <code>true</code> if the given object equals one of the given objects.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;T&gt;</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Utils.html#iterableToList(java.lang.Iterable)">iterableToList</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Iterable.html?is-external=true" title="class or interface in java.lang">Iterable</a>&lt;T&gt;&nbsp;iterable)</code>
 <div class="block">Converts an iterable into a list.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static &lt;T extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Comparable.html?is-external=true" title="class or interface in java.lang">Comparable</a>&lt;T&gt;&gt;&nbsp;<br><a href="http://docs.oracle.com/javase/7/docs/api/java/util/TreeSet.html?is-external=true" title="class or interface in java.util">TreeSet</a>&lt;T&gt;</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Utils.html#nullSafeTreeSet(java.util.Collection)">nullSafeTreeSet</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;T&gt;&nbsp;collection)</code>
 <div class="block">Create a new <a href="http://docs.oracle.com/javase/7/docs/api/java/util/TreeSet.html?is-external=true" title="class or interface in java.util"><code>TreeSet</code></a> which uses <a href="../../../org/omnifaces/util/Utils.html#NULL_COMPARATOR"><code>NULL_COMPARATOR</code></a>, add the given collection to it and return
  the <a href="http://docs.oracle.com/javase/7/docs/api/java/util/TreeSet.html?is-external=true" title="class or interface in java.util"><code>TreeSet</code></a>.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Utils.html#parseRFC1123(java.lang.String)">parseRFC1123</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;string)</code>
 <div class="block">Parses the given string in RFC1123 format to a <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util"><code>Date</code></a> object.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;T,T&gt;</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Utils.html#reverse(java.util.Map)">reverse</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;T,T&gt;&nbsp;source)</code>
 <div class="block">Returns a new map that contains the reverse of the given map.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Utils.html#serializeURLSafe(java.lang.String)">serializeURLSafe</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;string)</code>
 <div class="block">Serialize the given string to the short possible unique URL-safe representation.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Utils.html#startsWithOneOf(java.lang.String, java.lang.String...)">startsWithOneOf</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;string,
                <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>...&nbsp;prefixes)</code>
 <div class="block">Returns <code>true</code> if the given string starts with one of the given prefixes.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static long</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Utils.html#stream(java.io.InputStream, java.io.OutputStream)">stream</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;input,
       <a href="http://docs.oracle.com/javase/7/docs/api/java/io/OutputStream.html?is-external=true" title="class or interface in java.io">OutputStream</a>&nbsp;output)</code>
 <div class="block">Stream the given input to the given output by NIO <a href="http://docs.oracle.com/javase/7/docs/api/java/nio/ByteBuffer.html?is-external=true" title="class or interface in java.nio"><code>ByteBuffer</code></a>.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;T&gt;</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Utils.html#unmodifiableSet(java.lang.Object...)">unmodifiableSet</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;values)</code>
 <div class="block">Creates an unmodifiable set based on the given values.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Utils.html#unserializeURLSafe(java.lang.String)">unserializeURLSafe</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;string)</code>
 <div class="block">Unserialize the given serialized URL-safe string.</div>
@@ -359,9 +365,9 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <li class="blockList">
 <h4>isEmpty</h4>
 <pre>public static&nbsp;boolean&nbsp;isEmpty(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;string)</pre>
-<div class="block">Returns true if the given string is null or is empty.</div>
+<div class="block">Returns <code>true</code> if the given string is null or is empty.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>string</code> - The string to be checked on emptiness.</dd>
-<dt><span class="strong">Returns:</span></dt><dd>True if the given string is null or is empty.</dd></dl>
+<dt><span class="strong">Returns:</span></dt><dd><code>true</code> if the given string is null or is empty.</dd></dl>
 </li>
 </ul>
 <a name="isEmpty(java.lang.Object[])">
@@ -371,9 +377,9 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <li class="blockList">
 <h4>isEmpty</h4>
 <pre>public static&nbsp;boolean&nbsp;isEmpty(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>[]&nbsp;array)</pre>
-<div class="block">Returns true if the given array is null or is empty.</div>
+<div class="block">Returns <code>true</code> if the given array is null or is empty.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>array</code> - The array to be checked on emptiness.</dd>
-<dt><span class="strong">Returns:</span></dt><dd>True if the given array is null or is empty.</dd></dl>
+<dt><span class="strong">Returns:</span></dt><dd><code>true</code> if the given array is null or is empty.</dd></dl>
 </li>
 </ul>
 <a name="isEmpty(java.util.Collection)">
@@ -383,9 +389,9 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <li class="blockList">
 <h4>isEmpty</h4>
 <pre>public static&nbsp;boolean&nbsp;isEmpty(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;?&gt;&nbsp;collection)</pre>
-<div class="block">Returns true if the given collection is null or is empty.</div>
+<div class="block">Returns <code>true</code> if the given collection is null or is empty.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>collection</code> - The collection to be checked on emptiness.</dd>
-<dt><span class="strong">Returns:</span></dt><dd>True if the given collection is null or is empty.</dd></dl>
+<dt><span class="strong">Returns:</span></dt><dd><code>true</code> if the given collection is null or is empty.</dd></dl>
 </li>
 </ul>
 <a name="isEmpty(java.util.Map)">
@@ -395,9 +401,9 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <li class="blockList">
 <h4>isEmpty</h4>
 <pre>public static&nbsp;boolean&nbsp;isEmpty(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;?,?&gt;&nbsp;map)</pre>
-<div class="block">Returns true if the given map is null or is empty.</div>
+<div class="block">Returns <code>true</code> if the given map is null or is empty.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>map</code> - The map to be checked on emptiness.</dd>
-<dt><span class="strong">Returns:</span></dt><dd>True if the given map is null or is empty.</dd></dl>
+<dt><span class="strong">Returns:</span></dt><dd><code>true</code> if the given map is null or is empty.</dd></dl>
 </li>
 </ul>
 <a name="isEmpty(java.lang.Object)">
@@ -407,10 +413,23 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <li class="blockList">
 <h4>isEmpty</h4>
 <pre>public static&nbsp;boolean&nbsp;isEmpty(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)</pre>
-<div class="block">Returns true if the given value is null or is empty. Types of String, Collection, Map and Array are
+<div class="block">Returns <code>true</code> if the given value is null or is empty. Types of String, Collection, Map and Array are
  recognized. If none is recognized, then examine the emptiness of the toString() representation instead.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>value</code> - The value to be checked on emptiness.</dd>
-<dt><span class="strong">Returns:</span></dt><dd>True if the given value is null or is empty.</dd></dl>
+<dt><span class="strong">Returns:</span></dt><dd><code>true</code> if the given value is null or is empty.</dd></dl>
+</li>
+</ul>
+<a name="isAnyEmpty(java.lang.Object...)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isAnyEmpty</h4>
+<pre>public static&nbsp;boolean&nbsp;isAnyEmpty(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;values)</pre>
+<div class="block">Returns <code>true</code> if at least one value is empty.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>values</code> - the values to be checked on emptiness</dd>
+<dt><span class="strong">Returns:</span></dt><dd><code>true</code> if any value is empty and <code>false</code> if no values are empty</dd><dt><span class="strong">Since:</span></dt>
+  <dd>1.8</dd></dl>
 </li>
 </ul>
 <a name="isBlank(java.lang.String)">
@@ -420,7 +439,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <li class="blockList">
 <h4>isBlank</h4>
 <pre>public static&nbsp;boolean&nbsp;isBlank(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;string)</pre>
-<div class="block">Returns true if the given string is null or is empty or contains whitespace only. In addition to
+<div class="block">Returns <code>true</code> if the given string is null or is empty or contains whitespace only. In addition to
  <a href="../../../org/omnifaces/util/Utils.html#isEmpty(java.lang.String)"><code>isEmpty(String)</code></a>, this thus also returns <code>true</code> when <code>string.trim().isEmpty()</code>
  returns <code>true</code>.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>string</code> - The string to be checked on blankness.</dd>
@@ -435,10 +454,10 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <li class="blockList">
 <h4>isNumber</h4>
 <pre>public static&nbsp;boolean&nbsp;isNumber(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;string)</pre>
-<div class="block">Returns true if the given string is parseable as a number. I.e. it is not null, nor blank and contains solely
+<div class="block">Returns <code>true</code> if the given string is parseable as a number. I.e. it is not null, nor blank and contains solely
  digits. I.e., it won't throw a <code>NumberFormatException</code> when parsing as <code>Long</code>.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>string</code> - The string to be checked as number.</dd>
-<dt><span class="strong">Returns:</span></dt><dd>True if the given string is parseable as a number.</dd><dt><span class="strong">Since:</span></dt>
+<dt><span class="strong">Returns:</span></dt><dd><code>true</code> if the given string is parseable as a number.</dd><dt><span class="strong">Since:</span></dt>
   <dd>1.5.</dd></dl>
 </li>
 </ul>
@@ -449,10 +468,10 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <li class="blockList">
 <h4>isDecimal</h4>
 <pre>public static&nbsp;boolean&nbsp;isDecimal(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;string)</pre>
-<div class="block">Returns true if the given string is parseable as a decimal. I.e. it is not null, nor blank and contains solely
+<div class="block">Returns <code>true</code> if the given string is parseable as a decimal. I.e. it is not null, nor blank and contains solely
  digits. I.e., it won't throw a <code>NumberFormatException</code> when parsing as <code>Double</code>.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>string</code> - The string to be checked as decimal.</dd>
-<dt><span class="strong">Returns:</span></dt><dd>True if the given string is parseable as a decimal.</dd><dt><span class="strong">Since:</span></dt>
+<dt><span class="strong">Returns:</span></dt><dd><code>true</code> if the given string is parseable as a decimal.</dd><dt><span class="strong">Since:</span></dt>
   <dd>1.5.</dd></dl>
 </li>
 </ul>

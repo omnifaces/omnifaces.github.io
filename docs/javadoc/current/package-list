@@ -2,6 +2,7 @@ org.omnifaces
 org.omnifaces.application
 org.omnifaces.cdi
 org.omnifaces.cdi.converter
+org.omnifaces.cdi.eager
 org.omnifaces.cdi.param
 org.omnifaces.cdi.validator
 org.omnifaces.cdi.viewscope

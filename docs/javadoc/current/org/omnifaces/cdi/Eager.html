@@ -82,10 +82,68 @@
 <li class="blockList">
 <hr>
 <br>
-<pre><a href="http://docs.oracle.com/javaee/6/api/javax/inject/Qualifier.html?is-external=true" title="class or interface in javax.inject">@Qualifier</a>
-<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/annotation/Retention.html?is-external=true" title="class or interface in java.lang.annotation">@Retention</a>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/annotation/Retention.html?is-external=true#value()" title="class or interface in java.lang.annotation">value</a>=<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/annotation/RetentionPolicy.html?is-external=true#RUNTIME" title="class or interface in java.lang.annotation">RUNTIME</a>)
+<pre><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/annotation/Retention.html?is-external=true" title="class or interface in java.lang.annotation">@Retention</a>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/annotation/Retention.html?is-external=true#value()" title="class or interface in java.lang.annotation">value</a>=<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/annotation/RetentionPolicy.html?is-external=true#RUNTIME" title="class or interface in java.lang.annotation">RUNTIME</a>)
 <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/annotation/Target.html?is-external=true" title="class or interface in java.lang.annotation">@Target</a>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/annotation/Target.html?is-external=true#value()" title="class or interface in java.lang.annotation">value</a>=<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/annotation/ElementType.html?is-external=true#TYPE" title="class or interface in java.lang.annotation">TYPE</a>)
 public @interface <span class="strong">Eager</span></pre>
+<div class="block">Specifies that a scoped bean is to be eagerly instantiated.
+ <p>
+ Currently supported scopes:
+ <ol>
+ <li> <a href="http://docs.oracle.com/javaee/6/api/javax/enterprise/context/RequestScoped.html?is-external=true" title="class or interface in javax.enterprise.context"><code>RequestScoped</code></a>
+ <li> <a href="../../../org/omnifaces/cdi/ViewScoped.html" title="annotation in org.omnifaces.cdi"><code>ViewScoped</code></a>
+ <li> <a href="http://docs.oracle.com/javaee/6/api/javax/enterprise/context/SessionScoped.html?is-external=true" title="class or interface in javax.enterprise.context"><code>SessionScoped</code></a>
+ <li> <a href="http://docs.oracle.com/javaee/6/api/javax/enterprise/context/ApplicationScoped.html?is-external=true" title="class or interface in javax.enterprise.context"><code>ApplicationScoped</code></a>
+ </ol>
+ <p>
+ E.g.
+ The following bean will be instantiated during application's startup:
+ <pre>
+ @Eager
+ @ApplicationScoped
+ public class MyEagerApplicationScopedBean {
+
+     @PostConstruct
+     public void init() {
+         System.out.println("Application scoped init!");
+     }
+ }
+ </pre>
+ <p>
+ <em>Note: you can also use the stereotype <a href="../../../org/omnifaces/cdi/Startup.html" title="annotation in org.omnifaces.cdi"><code>Startup</code></a> for this instead.</em>
+ <p>
+ The following bean will be instantiated whenever a session is created:
+ <pre>
+ @Eager
+ @SessionScoped
+ public class MyEagerSessionScopedBean implements Serializable {
+
+     private static final long serialVersionUID = 1L;
+
+     @PostConstruct
+     public void init() {
+         System.out.println("Session scoped init!");
+     }
+ }
+ </pre>
+ <p>
+ The following bean will be instantiated whenever the URI <code>/components/cache</code> (relatively to the
+ application root) is requested, i.e. when an app is deployed to <code>/myapp</code> at localhost this will correspond to
+ a URL like <code>http://localhost:8080/myapp/components/cache</code>:
+ <pre>
+ @Eager(requestURI = "/components/cache")
+ @RequestScoped
+ public class MyEagerRequestScopedBean {
+
+     @PostConstruct
+     public void init() {
+         System.out.println("/components/cache requested");
+     }
+ }
+ </pre></div>
+<dl><dt><span class="strong">Since:</span></dt>
+  <dd>1.8</dd>
+<dt><span class="strong">Author:</span></dt>
+  <dd>Arjan Tijms</dd></dl>
 </li>
 </ul>
 </div>
@@ -106,7 +164,17 @@ public @interface <span class="strong">Eager</span></pre>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/cdi/Eager.html#viewId()">viewId</a></strong></code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/cdi/Eager.html#requestURI()">requestURI</a></strong></code>
+<div class="block">(Required when combined with <a href="http://docs.oracle.com/javaee/6/api/javax/enterprise/context/RequestScoped.html?is-external=true" title="class or interface in javax.enterprise.context"><code>RequestScoped</code></a>) The URI (relative to the root of the web app) for which a
+ request scoped bean should be instantiated.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/cdi/Eager.html#viewId()">viewId</a></strong></code>
+<div class="block">(Required when combined with <a href="http://docs.oracle.com/javaee/6/api/javax/enterprise/context/RequestScoped.html?is-external=true" title="class or interface in javax.enterprise.context"><code>RequestScoped</code></a> or <a href="../../../org/omnifaces/cdi/ViewScoped.html" title="annotation in org.omnifaces.cdi"><code>ViewScoped</code></a>) The id of the view for which a request or view scoped bean
+ should be instantiated.</div>
+</td>
 </tr>
 </table>
 </li>
@@ -123,6 +191,27 @@ public @interface <span class="strong">Eager</span></pre>
 <!--   -->
 </a>
 <h3>Element Detail</h3>
+<a name="requestURI()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>requestURI</h4>
+<pre>public abstract&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;requestURI</pre>
+<div class="block">(Required when combined with <a href="http://docs.oracle.com/javaee/6/api/javax/enterprise/context/RequestScoped.html?is-external=true" title="class or interface in javax.enterprise.context"><code>RequestScoped</code></a>) The URI (relative to the root of the web app) for which a
+ request scoped bean should be instantiated. When this attribute is specified the bean will be instantiated very
+ early during request processing, namely just before the first Servlet Filter is invoked, but after a SAM.
+ <p>
+ JSF services will not be available (yet) when the bean is instantiated this way.
+ <p>
+ If both this attribute and <a href="../../../org/omnifaces/cdi/Eager.html#viewId()"><code>viewId()</code></a> is specified, this attribute takes precedence for <a href="http://docs.oracle.com/javaee/6/api/javax/enterprise/context/RequestScoped.html?is-external=true" title="class or interface in javax.enterprise.context"><code>RequestScoped</code></a>.
+ This attribute <b>can not</b> be used for <a href="../../../org/omnifaces/cdi/ViewScoped.html" title="annotation in org.omnifaces.cdi"><code>ViewScoped</code></a> beans.</div>
+<dl>
+<dt>Default:</dt>
+<dd>""</dd>
+</dl>
+</li>
+</ul>
 <a name="viewId()">
 <!--   -->
 </a>
@@ -130,6 +219,17 @@ public @interface <span class="strong">Eager</span></pre>
 <li class="blockList">
 <h4>viewId</h4>
 <pre>public abstract&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;viewId</pre>
+<div class="block">(Required when combined with <a href="http://docs.oracle.com/javaee/6/api/javax/enterprise/context/RequestScoped.html?is-external=true" title="class or interface in javax.enterprise.context"><code>RequestScoped</code></a> or <a href="../../../org/omnifaces/cdi/ViewScoped.html" title="annotation in org.omnifaces.cdi"><code>ViewScoped</code></a>) The id of the view for which a request or view scoped bean
+ should be instantiated. When this attribute is specified the bean will be instantiated during invocation of the
+ <a href="http://docs.oracle.com/javaee/6/api/javax/faces/webapp/FacesServlet.html?is-external=true" title="class or interface in javax.faces.webapp"><code>FacesServlet</code></a>, namely right after the RESTORE_VIEW phase (see <a href="http://docs.oracle.com/javaee/6/api/javax/faces/event/PhaseId.html?is-external=true#RESTORE_VIEW" title="class or interface in javax.faces.event"><code>PhaseId.RESTORE_VIEW</code></a>).
+
+ <p>
+ JSF services are available when the bean is instantiated this way.
+
+ <p>
+ If both this attribute and <a href="../../../org/omnifaces/cdi/Eager.html#requestURI()"><code>requestURI()</code></a> is specified and the scope is <a href="http://docs.oracle.com/javaee/6/api/javax/enterprise/context/RequestScoped.html?is-external=true" title="class or interface in javax.enterprise.context"><code>RequestScoped</code></a>, the
+ <code>requestURI</code> attribute takes precedence. If the scope is <a href="../../../org/omnifaces/cdi/ViewScoped.html" title="annotation in org.omnifaces.cdi"><code>ViewScoped</code></a> <code>requestURI</code> is ignored and only
+ this attribute is considered.</div>
 <dl>
 <dt>Default:</dt>
 <dd>""</dd>
