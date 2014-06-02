@@ -187,21 +187,6 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>static boolean</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Hacks.html#isSameOrHigherVersion(java.lang.String, java.lang.String)">isSameOrHigherVersion</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;version1,
-                     <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;version2)</code>
-<div class="block">Checks if the given version1 is the same or a higher version than version2.</div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>static boolean</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Hacks.html#isScriptResourceRendered(javax.faces.context.FacesContext, java.lang.String, java.lang.String)">isScriptResourceRendered</a></strong>(<a href="http://docs.oracle.com/javaee/6/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context,
-                        <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;library,
-                        <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
-<div class="block">Returns whether the given script resource is rendered.</div>
-</td>
-</tr>
-<tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/reflect/Method.html?is-external=true" title="class or interface in java.lang.reflect">Method</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Hacks.html#methodExpressionToStaticMethod(javax.el.ELContext, javax.el.MethodExpression)">methodExpressionToStaticMethod</a></strong>(<a href="http://docs.oracle.com/javaee/6/api/javax/el/ELContext.html?is-external=true" title="class or interface in javax.el">ELContext</a>&nbsp;context,
                               <a href="http://docs.oracle.com/javaee/6/api/javax/el/MethodExpression.html?is-external=true" title="class or interface in javax.el">MethodExpression</a>&nbsp;methodExpression)</code>
@@ -216,10 +201,16 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Hacks.html#setScriptResourceRendered(javax.faces.context.FacesContext, java.lang.String, java.lang.String)">setScriptResourceRendered</a></strong>(<a href="http://docs.oracle.com/javaee/6/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context,
-                         <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;library,
-                         <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Hacks.html#setScriptResourceRendered(javax.faces.context.FacesContext, org.omnifaces.resourcehandler.ResourceIdentifier)">setScriptResourceRendered</a></strong>(<a href="http://docs.oracle.com/javaee/6/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context,
+                         <a href="../../../org/omnifaces/resourcehandler/ResourceIdentifier.html" title="class in org.omnifaces.resourcehandler">ResourceIdentifier</a>&nbsp;id)</code>
 <div class="block">Set the given script resource as rendered.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Hacks.html#setStylesheetResourceRendered(javax.faces.context.FacesContext, org.omnifaces.resourcehandler.ResourceIdentifier)">setStylesheetResourceRendered</a></strong>(<a href="http://docs.oracle.com/javaee/6/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context,
+                             <a href="../../../org/omnifaces/resourcehandler/ResourceIdentifier.html" title="class in org.omnifaces.resourcehandler">ResourceIdentifier</a>&nbsp;id)</code>
+<div class="block">Set the given stylesheet resource as rendered.</div>
 </td>
 </tr>
 </table>
@@ -359,19 +350,6 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <pre>public static&nbsp;boolean&nbsp;isJUELSupportingMethodExpression()</pre>
 </li>
 </ul>
-<a name="isSameOrHigherVersion(java.lang.String, java.lang.String)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>isSameOrHigherVersion</h4>
-<pre>public static&nbsp;boolean&nbsp;isSameOrHigherVersion(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;version1,
-                            <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;version2)</pre>
-<div class="block">Checks if the given version1 is the same or a higher version than version2.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>version1</code> - the first version in the comparison</dd><dd><code>version2</code> - the second version in the comparison</dd>
-<dt><span class="strong">Returns:</span></dt><dd>true if version1 is the same or a higher version than version2, false otherwise</dd></dl>
-</li>
-</ul>
 <a name="methodExpressionToStaticMethod(javax.el.ELContext, javax.el.MethodExpression)">
 <!--   -->
 </a>
@@ -402,32 +380,29 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
   <dd>1.8</dd></dl>
 </li>
 </ul>
-<a name="setScriptResourceRendered(javax.faces.context.FacesContext, java.lang.String, java.lang.String)">
+<a name="setScriptResourceRendered(javax.faces.context.FacesContext, org.omnifaces.resourcehandler.ResourceIdentifier)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>setScriptResourceRendered</h4>
 <pre>public static&nbsp;void&nbsp;setScriptResourceRendered(<a href="http://docs.oracle.com/javaee/6/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context,
-                             <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;library,
-                             <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
+                             <a href="../../../org/omnifaces/resourcehandler/ResourceIdentifier.html" title="class in org.omnifaces.resourcehandler">ResourceIdentifier</a>&nbsp;id)</pre>
 <div class="block">Set the given script resource as rendered.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>context</code> - The involved faces context.</dd><dd><code>library</code> - The resource library.</dd><dd><code>name</code> - The resource name.</dd><dt><span class="strong">Since:</span></dt>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>context</code> - The involved faces context.</dd><dd><code>id</code> - The resource identifier.</dd><dt><span class="strong">Since:</span></dt>
   <dd>1.8</dd></dl>
 </li>
 </ul>
-<a name="isScriptResourceRendered(javax.faces.context.FacesContext, java.lang.String, java.lang.String)">
+<a name="setStylesheetResourceRendered(javax.faces.context.FacesContext, org.omnifaces.resourcehandler.ResourceIdentifier)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>isScriptResourceRendered</h4>
-<pre>public static&nbsp;boolean&nbsp;isScriptResourceRendered(<a href="http://docs.oracle.com/javaee/6/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context,
-                               <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;library,
-                               <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
-<div class="block">Returns whether the given script resource is rendered.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>context</code> - The involved faces context.</dd><dd><code>library</code> - The resource library.</dd><dd><code>name</code> - The resource name.</dd>
-<dt><span class="strong">Returns:</span></dt><dd>Whether the given script resource is rendered.</dd><dt><span class="strong">Since:</span></dt>
+<h4>setStylesheetResourceRendered</h4>
+<pre>public static&nbsp;void&nbsp;setStylesheetResourceRendered(<a href="http://docs.oracle.com/javaee/6/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context,
+                                 <a href="../../../org/omnifaces/resourcehandler/ResourceIdentifier.html" title="class in org.omnifaces.resourcehandler">ResourceIdentifier</a>&nbsp;id)</pre>
+<div class="block">Set the given stylesheet resource as rendered.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>context</code> - The involved faces context.</dd><dd><code>id</code> - The resource identifier.</dd><dt><span class="strong">Since:</span></dt>
   <dd>1.8</dd></dl>
 </li>
 </ul>

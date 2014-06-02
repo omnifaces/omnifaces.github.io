@@ -139,7 +139,48 @@ public @interface <span class="strong">Eager</span></pre>
          System.out.println("/components/cache requested");
      }
  }
- </pre></div>
+ </pre>
+ 
+ <h3> Compatibility </h3>
+ 
+ <p>
+ In some (older) containers, most notably GlassFish 3, the CDI request scope is not available in a <a href="http://docs.oracle.com/javaee/6/api/javax/servlet/ServletRequestListener.html?is-external=true" title="class or interface in javax.servlet"><code>ServletRequestListener</code></a> 
+ (this is actually not spec complicant, as CDI demands this scope to be active then, but it is what it is).
+ <p>
+ Additionally in some containers, most notably GlassFish 3 again, instantiating session scoped beans from a <a href="http://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpSessionListener.html?is-external=true" title="class or interface in javax.servlet.http"><code>HttpSessionListener</code></a>
+ will corrupt "something" in the container. The instantiating of the beans will succeed, but if the session is later accessed an
+ exception like the following will be thrown:
+ 
+ <pre>
+ java.lang.IllegalArgumentException: Should never reach here
+  at org.apache.catalina.connector.SessionTracker.track(SessionTracker.java:168)
+  at org.apache.catalina.connector.Request.doGetSession(Request.java:2939)
+  at org.apache.catalina.connector.Request.getSession(Request.java:2583)
+  at org.apache.catalina.connector.RequestFacade.getSession(RequestFacade.java:920)
+  at javax.servlet.http.HttpServletRequestWrapper.getSession(HttpServletRequestWrapper.java:259)
+  at com.sun.faces.context.ExternalContextImpl.getSession(ExternalContextImpl.java:155)
+  at javax.faces.context.ExternalContextWrapper.getSession(ExternalContextWrapper.java:396)
+  at javax.faces.context.ExternalContextWrapper.getSession(ExternalContextWrapper.java:396)
+  </pre>
+ 
+ If any or both of those problems occur, a filter needs to be installed instead in <code>web.xml</code> as follows:
+ 
+ <pre>
+ &lt;filter&gt;
+     &lt;filter-name&gt;eagerBeansFilter&lt;/filter-name&gt;
+     &lt;filter-class&gt;org.omnifaces.cdi.eager.EagerBeansFilter&lt;/filter-class&gt;
+ &lt;/filter&gt;
+ &lt;filter-mapping&gt;
+ &lt;filter-name&gt;eagerBeansFilter&lt;/filter-name&gt;
+     &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+ &lt;/filter-mapping&gt;
+</pre>
+
+ Note that the <a href="../../../org/omnifaces/cdi/eager/EagerBeansFilter.html" title="class in org.omnifaces.cdi.eager"><code>EagerBeansFilter</code></a> will automatically disable the request listener by calling 
+ <a href="../../../org/omnifaces/cdi/eager/EagerBeansRequestListener.html#setEnabled(boolean)"><code>EagerBeansRequestListener.setEnabled(boolean)</code></a> and disable instantiating beans from the session listener by
+ calling <a href="../../../org/omnifaces/cdi/eager/EagerBeansSessionListener.html#setEnabled(boolean)"><code>EagerBeansSessionListener.setEnabled(boolean)</code></a>.
+ <p>
+ If so needed the listeners can also be disabled in the same way via user code.</div>
 <dl><dt><span class="strong">Since:</span></dt>
   <dd>1.8</dd>
 <dt><span class="strong">Author:</span></dt>

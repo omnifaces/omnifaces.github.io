@@ -129,14 +129,18 @@
 <br>
 <pre>public class <span class="strong">ViewParam</span>
 extends <a href="http://docs.oracle.com/javaee/6/api/javax/faces/component/UIViewParameter.html?is-external=true" title="class or interface in javax.faces.component">UIViewParameter</a></pre>
-<div class="block"><strong>ViewParameter</strong> is a component that extends the standard <a href="http://docs.oracle.com/javaee/6/api/javax/faces/component/UIViewParameter.html?is-external=true" title="class or interface in javax.faces.component"><code>UIViewParameter</code></a> and provides a stateless
- mode of operation.
+<div class="block"><strong>ViewParameter</strong> is a component that extends the standard <a href="http://docs.oracle.com/javaee/6/api/javax/faces/component/UIViewParameter.html?is-external=true" title="class or interface in javax.faces.component"><code>UIViewParameter</code></a> and provides a
+ stateless mode of operation and fixes the issue wherein null model values are converted to empty string parameters
+ in query string (e.g. when <code>includeViewParams=true</code>).
  <p>
- The standard UIViewParameter implementation calls the model setter again after postback. This is not always desired when being
- bound to a view scoped bean and can lead to performance problems when combined with an expensive converter.
+ The standard UIViewParameter implementation calls the model setter again after postback. This is not always desired
+ when being bound to a view scoped bean and can lead to performance problems when combined with an expensive converter.
+ To solve this, this component by default stores the submitted value as a component property instead of in the model
+ (and thus in the view state in case the binding is to a view scoped bean).
  <p>
- To solve this, this component by default stores the submitted value as a component property instead of in the model (and thus
- in the view state in case the binding is to a view scoped bean).
+ The standard UIViewParameter implementation calls the converter regardless of whether the evaluated model value is
+ <code>null</code> or not. As converters by specification return an empty string in case of <code>null</code> value,
+ this is being added to the query string as an empty parameter. This is not desired.
  <p>
  You can use it the same way as <code>&lt;f:viewParam&gt;</code>, you only need to change <code>f:</code> to
  <code>o:</code>.</div>
@@ -238,21 +242,29 @@ extends <a href="http://docs.oracle.com/javaee/6/api/javax/faces/component/UIVie
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/omnifaces/component/input/ViewParam.html#getSubmittedValue()">getSubmittedValue</a></strong>()</code>&nbsp;</td>
+<td class="colLast"><code><strong><a href="../../../../org/omnifaces/component/input/ViewParam.html#getStringValueFromModel(javax.faces.context.FacesContext)">getStringValueFromModel</a></strong>(<a href="http://docs.oracle.com/javaee/6/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context)</code>
+<div class="block">When there's a value expression and the evaluated model value is <code>null</code>, then just return
+ <code>null</code> instead of delegating to default implementation which would return an empty string when a
+ converter is attached.</div>
+</td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../../org/omnifaces/component/input/ViewParam.html#getSubmittedValue()">getSubmittedValue</a></strong>()</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/omnifaces/component/input/ViewParam.html#isRequired()">isRequired</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/omnifaces/component/input/ViewParam.html#processDecodes(javax.faces.context.FacesContext)">processDecodes</a></strong>(<a href="http://docs.oracle.com/javaee/6/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/omnifaces/component/input/ViewParam.html#processValidators(javax.faces.context.FacesContext)">processValidators</a></strong>(<a href="http://docs.oracle.com/javaee/6/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context)</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/omnifaces/component/input/ViewParam.html#setSubmittedValue(java.lang.Object)">setSubmittedValue</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;submittedValue)</code>&nbsp;</td>
 </tr>
@@ -262,7 +274,7 @@ extends <a href="http://docs.oracle.com/javaee/6/api/javax/faces/component/UIVie
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;javax.faces.component.<a href="http://docs.oracle.com/javaee/6/api/javax/faces/component/UIViewParameter.html?is-external=true" title="class or interface in javax.faces.component">UIViewParameter</a></h3>
-<code><a href="http://docs.oracle.com/javaee/6/api/javax/faces/component/UIViewParameter.html?is-external=true#decode(javax.faces.context.FacesContext)" title="class or interface in javax.faces.component">decode</a>, <a href="http://docs.oracle.com/javaee/6/api/javax/faces/component/UIViewParameter.html?is-external=true#encodeAll(javax.faces.context.FacesContext)" title="class or interface in javax.faces.component">encodeAll</a>, <a href="http://docs.oracle.com/javaee/6/api/javax/faces/component/UIViewParameter.html?is-external=true#getConvertedValue(javax.faces.context.FacesContext, java.lang.Object)" title="class or interface in javax.faces.component">getConvertedValue</a>, <a href="http://docs.oracle.com/javaee/6/api/javax/faces/component/UIViewParameter.html?is-external=true#getFamily()" title="class or interface in javax.faces.component">getFamily</a>, <a href="http://docs.oracle.com/javaee/6/api/javax/faces/component/UIViewParameter.html?is-external=true#getName()" title="class or interface in javax.faces.component">getName</a>, <a href="http://docs.oracle.com/javaee/6/api/javax/faces/component/UIViewParameter.html?is-external=true#getStringValue(javax.faces.context.FacesContext)" title="class or interface in javax.faces.component">getStringValue</a>, <a href="http://docs.oracle.com/javaee/6/api/javax/faces/component/UIViewParameter.html?is-external=true#getStringValueFromModel(javax.faces.context.FacesContext)" title="class or interface in javax.faces.component">getStringValueFromModel</a>, <a href="http://docs.oracle.com/javaee/6/api/javax/faces/component/UIViewParameter.html?is-external=true#isImmediate()" title="class or interface in javax.faces.component">isImmediate</a>, <a href="http://docs.oracle.com/javaee/6/api/javax/faces/component/UIViewParameter.html?is-external=true#setName(java.lang.String)" title="class or interface in javax.faces.component">setName</a>, <a href="http://docs.oracle.com/javaee/6/api/javax/faces/component/UIViewParameter.html?is-external=true#updateModel(javax.faces.context.FacesContext)" title="class or interface in javax.faces.component">updateModel</a></code></li>
+<code><a href="http://docs.oracle.com/javaee/6/api/javax/faces/component/UIViewParameter.html?is-external=true#decode(javax.faces.context.FacesContext)" title="class or interface in javax.faces.component">decode</a>, <a href="http://docs.oracle.com/javaee/6/api/javax/faces/component/UIViewParameter.html?is-external=true#encodeAll(javax.faces.context.FacesContext)" title="class or interface in javax.faces.component">encodeAll</a>, <a href="http://docs.oracle.com/javaee/6/api/javax/faces/component/UIViewParameter.html?is-external=true#getConvertedValue(javax.faces.context.FacesContext, java.lang.Object)" title="class or interface in javax.faces.component">getConvertedValue</a>, <a href="http://docs.oracle.com/javaee/6/api/javax/faces/component/UIViewParameter.html?is-external=true#getFamily()" title="class or interface in javax.faces.component">getFamily</a>, <a href="http://docs.oracle.com/javaee/6/api/javax/faces/component/UIViewParameter.html?is-external=true#getName()" title="class or interface in javax.faces.component">getName</a>, <a href="http://docs.oracle.com/javaee/6/api/javax/faces/component/UIViewParameter.html?is-external=true#getStringValue(javax.faces.context.FacesContext)" title="class or interface in javax.faces.component">getStringValue</a>, <a href="http://docs.oracle.com/javaee/6/api/javax/faces/component/UIViewParameter.html?is-external=true#isImmediate()" title="class or interface in javax.faces.component">isImmediate</a>, <a href="http://docs.oracle.com/javaee/6/api/javax/faces/component/UIViewParameter.html?is-external=true#setName(java.lang.String)" title="class or interface in javax.faces.component">setName</a>, <a href="http://docs.oracle.com/javaee/6/api/javax/faces/component/UIViewParameter.html?is-external=true#updateModel(javax.faces.context.FacesContext)" title="class or interface in javax.faces.component">updateModel</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods_inherited_from_class_javax.faces.component.UIInput">
@@ -429,7 +441,7 @@ extends <a href="http://docs.oracle.com/javaee/6/api/javax/faces/component/UIVie
 <a name="getAttributes()">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>getAttributes</h4>
 <pre>public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;getAttributes()</pre>
@@ -437,6 +449,25 @@ extends <a href="http://docs.oracle.com/javaee/6/api/javax/faces/component/UIVie
 <dt><strong>Overrides:</strong></dt>
 <dd><code><a href="http://docs.oracle.com/javaee/6/api/javax/faces/component/UIComponentBase.html?is-external=true#getAttributes()" title="class or interface in javax.faces.component">getAttributes</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javaee/6/api/javax/faces/component/UIComponentBase.html?is-external=true" title="class or interface in javax.faces.component">UIComponentBase</a></code></dd>
 </dl>
+</li>
+</ul>
+<a name="getStringValueFromModel(javax.faces.context.FacesContext)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getStringValueFromModel</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getStringValueFromModel(<a href="http://docs.oracle.com/javaee/6/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context)
+                               throws <a href="http://docs.oracle.com/javaee/6/api/javax/faces/convert/ConverterException.html?is-external=true" title="class or interface in javax.faces.convert">ConverterException</a></pre>
+<div class="block">When there's a value expression and the evaluated model value is <code>null</code>, then just return
+ <code>null</code> instead of delegating to default implementation which would return an empty string when a
+ converter is attached.</div>
+<dl>
+<dt><strong>Overrides:</strong></dt>
+<dd><code><a href="http://docs.oracle.com/javaee/6/api/javax/faces/component/UIViewParameter.html?is-external=true#getStringValueFromModel(javax.faces.context.FacesContext)" title="class or interface in javax.faces.component">getStringValueFromModel</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javaee/6/api/javax/faces/component/UIViewParameter.html?is-external=true" title="class or interface in javax.faces.component">UIViewParameter</a></code></dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javaee/6/api/javax/faces/convert/ConverterException.html?is-external=true" title="class or interface in javax.faces.convert">ConverterException</a></code></dd><dt><span class="strong">Since:</span></dt>
+  <dd>1.8</dd></dl>
 </li>
 </ul>
 </li>

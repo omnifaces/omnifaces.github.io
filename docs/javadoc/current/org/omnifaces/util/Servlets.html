@@ -176,17 +176,23 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Servlets.html#getRequestRelativeURIWithoutPathParameters(javax.servlet.http.HttpServletRequest)">getRequestRelativeURIWithoutPathParameters</a></strong>(<a href="http://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request)</code>
+<div class="block">Returns the HTTP request URI relative to the context root of a web application.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Servlets.html#getRequestURIWithQueryString(javax.servlet.http.HttpServletRequest)">getRequestURIWithQueryString</a></strong>(<a href="http://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request)</code>
 <div class="block">Returns the HTTP request URI with query string.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Servlets.html#getRequestURLWithQueryString(javax.servlet.http.HttpServletRequest)">getRequestURLWithQueryString</a></strong>(<a href="http://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request)</code>
 <div class="block">Returns the HTTP request URL with query string.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&gt;</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Servlets.html#toParameterMap(java.lang.String)">toParameterMap</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;queryString)</code>
 <div class="block">Converts the given query string to request parameter values map.</div>
@@ -267,7 +273,21 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <h4>getRequestRelativeURI</h4>
 <pre>public static&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getRequestRelativeURI(<a href="http://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request)</pre>
 <div class="block">Returns the HTTP request URI relative to the context root of a web application. This is the request URI
- minus the context path.</div>
+ minus the context path. Note that this includes path parameters.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>request</code> - The involved HTTP servlet request.</dd>
+<dt><span class="strong">Returns:</span></dt><dd>the request URI relative to the context root</dd><dt><span class="strong">Since:</span></dt>
+  <dd>1.8</dd></dl>
+</li>
+</ul>
+<a name="getRequestRelativeURIWithoutPathParameters(javax.servlet.http.HttpServletRequest)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getRequestRelativeURIWithoutPathParameters</h4>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getRequestRelativeURIWithoutPathParameters(<a href="http://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request)</pre>
+<div class="block">Returns the HTTP request URI relative to the context root of a web application. This is the servlet path
+ plus the path info (if any).</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>request</code> - The involved HTTP servlet request.</dd>
 <dt><span class="strong">Returns:</span></dt><dd>the request URI relative to the context root</dd><dt><span class="strong">Since:</span></dt>
   <dd>1.8</dd></dl>

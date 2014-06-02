@@ -68,7 +68,7 @@
 <dt><a href="../org/omnifaces/converter/GenericEnumConverter.html" title="class in org.omnifaces.converter"><span class="strong">GenericEnumConverter</span></a> - Class in <a href="../org/omnifaces/converter/package-summary.html">org.omnifaces.converter</a></dt>
 <dd>
 <div class="block">This generic enum converter is intended for use in <a href="http://docs.oracle.com/javaee/6/api/javax/faces/component/UISelectMany.html?is-external=true" title="class or interface in javax.faces.component"><code>UISelectMany</code></a> components whose value is been bound to a
- <code>List&lt;T&gt;</code> property.</div>
+ <code>List&lt;E&gt;</code> property where <code>E</code> is an enum.</div>
 </dd>
 <dt><span class="strong"><a href="../org/omnifaces/converter/GenericEnumConverter.html#GenericEnumConverter()">GenericEnumConverter()</a></span> - Constructor for class org.omnifaces.converter.<a href="../org/omnifaces/converter/GenericEnumConverter.html" title="class in org.omnifaces.converter">GenericEnumConverter</a></dt>
 <dd>&nbsp;</dd>
@@ -962,6 +962,10 @@
 <dd>
 <div class="block">Returns the HTTP request URI relative to the context root of a web application.</div>
 </dd>
+<dt><span class="strong"><a href="../org/omnifaces/util/Servlets.html#getRequestRelativeURIWithoutPathParameters(javax.servlet.http.HttpServletRequest)">getRequestRelativeURIWithoutPathParameters(HttpServletRequest)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Servlets.html" title="class in org.omnifaces.util">Servlets</a></dt>
+<dd>
+<div class="block">Returns the HTTP request URI relative to the context root of a web application.</div>
+</dd>
 <dt><span class="strong"><a href="../org/omnifaces/util/Faces.html#getRequestServletPath()">getRequestServletPath()</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Faces.html" title="class in org.omnifaces.util">Faces</a></dt>
 <dd>
 <div class="block">Returns the HTTP request servlet path.</div>
@@ -1168,6 +1172,12 @@
 <dt><span class="strong"><a href="../org/omnifaces/component/validator/ValidateMultipleFields.html#getShowMessageFor()">getShowMessageFor()</a></span> - Method in class org.omnifaces.component.validator.<a href="../org/omnifaces/component/validator/ValidateMultipleFields.html" title="class in org.omnifaces.component.validator">ValidateMultipleFields</a></dt>
 <dd>
 <div class="block">Returns the client identifiers to show the validation message for.</div>
+</dd>
+<dt><span class="strong"><a href="../org/omnifaces/component/input/ViewParam.html#getStringValueFromModel(javax.faces.context.FacesContext)">getStringValueFromModel(FacesContext)</a></span> - Method in class org.omnifaces.component.input.<a href="../org/omnifaces/component/input/ViewParam.html" title="class in org.omnifaces.component.input">ViewParam</a></dt>
+<dd>
+<div class="block">When there's a value expression and the evaluated model value is <code>null</code>, then just return
+ <code>null</code> instead of delegating to default implementation which would return an empty string when a
+ converter is attached.</div>
 </dd>
 <dt><span class="strong"><a href="../org/omnifaces/component/script/Highlight.html#getStyleClass()">getStyleClass()</a></span> - Method in class org.omnifaces.component.script.<a href="../org/omnifaces/component/script/Highlight.html" title="class in org.omnifaces.component.script">Highlight</a></dt>
 <dd>

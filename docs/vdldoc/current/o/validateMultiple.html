@@ -78,7 +78,7 @@ public boolean validateValues(FacesContext context, List&lt;UIInput&gt; componen
     // ...
 }
 				</pre>
-				<p>Or by a managed bean instance which implements the {@link MultiFieldValidator} interface:
+				<p>Or by a managed bean instance which implements the <code>MultiFieldValidator</code> interface:
 				<pre>
 &lt;o:validateMultiple id="myId" components="foo bar baz" validator="#{validateValuesBean}" /&gt;
 &lt;h:message for="myId" /&gt;
