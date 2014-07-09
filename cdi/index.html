@@ -23,6 +23,8 @@
 <p>So, you got the following error in server log?</p>
 
 <div class="highlight highlight-sh"><pre>
+org.omnifaces.ApplicationInitializer onStartup
+SEVERE: 
 ████████████████████████████████████████████████████████████████████████████████
 ▌                         ▐█     ▐                                             ▐
 ▌    ▄                  ▄█▓█▌    ▐ OmniFaces failed to initialize!             ▐
@@ -56,18 +58,24 @@
 ████████████████████████████████████████████████████████████████████████████████
 </pre></div> 
 
-<p>So, you have the following options:</p>
+<p>Well, here are the additional instructions:</p>
 <ol>
 <li><strong>Downgrade to OmniFaces 1.x.</strong>
-<br/>This version doesn't require CDI. So you should be able to run it on CDI-less environments.
+<br/>This version doesn't require CDI. So you should be able to run it on CDI-less environments. You can find download links in the <a href="http://omnifaces.org">homepage</a>.
 </li>
 <li><strong>Install CDI in this environment.</strong>
 <br/>For Tomcat users who don't have freedom in server choice, refer this article: <a href="http://balusc.blogspot.com/2013/10/how-to-install-cdi-in-tomcat.html">How to install CDI in Tomcat?</a>
 </li>
 <li><strong>Switch to a CDI capable environment.</strong>
-<br/>For Tomcat users who have full freedom in server choice, just replace Tomcat by <a href="http://tomee.apache.org/">TomEE</a>, or perhaps even <a href="http://wildfly.org/">WildFly</a>
+<br/>For Tomcat users who have full freedom in server choice, just replace Tomcat by <a href="http://tomee.apache.org/">TomEE</a>, or perhaps even <a href="http://wildfly.org/">WildFly</a>.
 </li>
 </ol>
+
+<h2>Got it</h2>
+
+<p>
+	Go back to <a href="http://omnifaces.org">OmniFaces homepage</a> then :)
+</p>
 
 			</section>
 		</div>
