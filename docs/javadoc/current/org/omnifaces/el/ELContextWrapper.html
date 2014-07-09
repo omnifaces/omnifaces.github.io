@@ -85,7 +85,7 @@
 <li><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</a></li>
 <li>
 <ul class="inheritance">
-<li><a href="http://docs.oracle.com/javaee/6/api/javax/el/ELContext.html?is-external=true" title="class or interface in javax.el">javax.el.ELContext</a></li>
+<li><a href="http://docs.oracle.com/javaee/7/api/javax/el/ELContext.html?is-external=true" title="class or interface in javax.el">javax.el.ELContext</a></li>
 <li>
 <ul class="inheritance">
 <li>org.omnifaces.el.ELContextWrapper</li>
@@ -99,18 +99,18 @@
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><a href="http://docs.oracle.com/javaee/6/api/javax/faces/FacesWrapper.html?is-external=true" title="class or interface in javax.faces">FacesWrapper</a>&lt;<a href="http://docs.oracle.com/javaee/6/api/javax/el/ELContext.html?is-external=true" title="class or interface in javax.el">ELContext</a>&gt;</dd>
+<dd><a href="http://docs.oracle.com/javaee/7/api/javax/faces/FacesWrapper.html?is-external=true" title="class or interface in javax.faces">FacesWrapper</a>&lt;<a href="http://docs.oracle.com/javaee/7/api/javax/el/ELContext.html?is-external=true" title="class or interface in javax.el">ELContext</a>&gt;</dd>
 </dl>
 <hr>
 <br>
 <pre>public class <span class="strong">ELContextWrapper</span>
-extends <a href="http://docs.oracle.com/javaee/6/api/javax/el/ELContext.html?is-external=true" title="class or interface in javax.el">ELContext</a>
-implements <a href="http://docs.oracle.com/javaee/6/api/javax/faces/FacesWrapper.html?is-external=true" title="class or interface in javax.faces">FacesWrapper</a>&lt;<a href="http://docs.oracle.com/javaee/6/api/javax/el/ELContext.html?is-external=true" title="class or interface in javax.el">ELContext</a>&gt;</pre>
-<div class="block"><p>Provides a simple implementation of <a href="http://docs.oracle.com/javaee/6/api/javax/el/ELContext.html?is-external=true" title="class or interface in javax.el"><code>ELContext</code></a> that can
+extends <a href="http://docs.oracle.com/javaee/7/api/javax/el/ELContext.html?is-external=true" title="class or interface in javax.el">ELContext</a>
+implements <a href="http://docs.oracle.com/javaee/7/api/javax/faces/FacesWrapper.html?is-external=true" title="class or interface in javax.faces">FacesWrapper</a>&lt;<a href="http://docs.oracle.com/javaee/7/api/javax/el/ELContext.html?is-external=true" title="class or interface in javax.el">ELContext</a>&gt;</pre>
+<div class="block"><p>Provides a simple implementation of <a href="http://docs.oracle.com/javaee/7/api/javax/el/ELContext.html?is-external=true" title="class or interface in javax.el"><code>ELContext</code></a> that can
  be sub-classed by developers wishing to provide specialized behavior
- to an existing <a href="http://docs.oracle.com/javaee/6/api/javax/el/ELContext.html?is-external=true" title="class or interface in javax.el"><code>ELContext</code></a> instance. The default
+ to an existing <a href="http://docs.oracle.com/javaee/7/api/javax/el/ELContext.html?is-external=true" title="class or interface in javax.el"><code>ELContext</code></a> instance. The default
  implementation of all methods is to call through to the wrapped
- <a href="http://docs.oracle.com/javaee/6/api/javax/faces/application/ViewHandler.html?is-external=true" title="class or interface in javax.faces.application"><code>ViewHandler</code></a>.</p>
+ <a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/ViewHandler.html?is-external=true" title="class or interface in javax.faces.application"><code>ViewHandler</code></a>.</p>
 
  <p>Usage: extend this class and override <a href="../../../org/omnifaces/el/ELContextWrapper.html#getWrapped()"><code>getWrapped()</code></a> to
  return the instance we are wrapping, or provide this instance to the overloaded constructor.</p></div>
@@ -137,7 +137,7 @@ implements <a href="http://docs.oracle.com/javaee/6/api/javax/faces/FacesWrapper
 <td class="colOne"><code><strong><a href="../../../org/omnifaces/el/ELContextWrapper.html#ELContextWrapper()">ELContextWrapper</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colOne"><code><strong><a href="../../../org/omnifaces/el/ELContextWrapper.html#ELContextWrapper(javax.el.ELContext)">ELContextWrapper</a></strong>(<a href="http://docs.oracle.com/javaee/6/api/javax/el/ELContext.html?is-external=true" title="class or interface in javax.el">ELContext</a>&nbsp;elContext)</code>&nbsp;</td>
+<td class="colOne"><code><strong><a href="../../../org/omnifaces/el/ELContextWrapper.html#ELContextWrapper(javax.el.ELContext)">ELContextWrapper</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/el/ELContext.html?is-external=true" title="class or interface in javax.el">ELContext</a>&nbsp;elContext)</code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -159,11 +159,11 @@ implements <a href="http://docs.oracle.com/javaee/6/api/javax/faces/FacesWrapper
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/el/ELContextWrapper.html#getContext(java.lang.Class)">getContext</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;key)</code></td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code><a href="http://docs.oracle.com/javaee/6/api/javax/el/ELResolver.html?is-external=true" title="class or interface in javax.el">ELResolver</a></code></td>
+<td class="colFirst"><code><a href="http://docs.oracle.com/javaee/7/api/javax/el/ELResolver.html?is-external=true" title="class or interface in javax.el">ELResolver</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/el/ELContextWrapper.html#getELResolver()">getELResolver</a></strong>()</code></td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code><a href="http://docs.oracle.com/javaee/6/api/javax/el/FunctionMapper.html?is-external=true" title="class or interface in javax.el">FunctionMapper</a></code></td>
+<td class="colFirst"><code><a href="http://docs.oracle.com/javaee/7/api/javax/el/FunctionMapper.html?is-external=true" title="class or interface in javax.el">FunctionMapper</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/el/ELContextWrapper.html#getFunctionMapper()">getFunctionMapper</a></strong>()</code></td>
 </tr>
 <tr class="rowColor">
@@ -171,11 +171,11 @@ implements <a href="http://docs.oracle.com/javaee/6/api/javax/faces/FacesWrapper
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/el/ELContextWrapper.html#getLocale()">getLocale</a></strong>()</code></td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code><a href="http://docs.oracle.com/javaee/6/api/javax/el/VariableMapper.html?is-external=true" title="class or interface in javax.el">VariableMapper</a></code></td>
+<td class="colFirst"><code><a href="http://docs.oracle.com/javaee/7/api/javax/el/VariableMapper.html?is-external=true" title="class or interface in javax.el">VariableMapper</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/el/ELContextWrapper.html#getVariableMapper()">getVariableMapper</a></strong>()</code></td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code><a href="http://docs.oracle.com/javaee/6/api/javax/el/ELContext.html?is-external=true" title="class or interface in javax.el">ELContext</a></code></td>
+<td class="colFirst"><code><a href="http://docs.oracle.com/javaee/7/api/javax/el/ELContext.html?is-external=true" title="class or interface in javax.el">ELContext</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/el/ELContextWrapper.html#getWrapped()">getWrapped</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
@@ -196,6 +196,13 @@ implements <a href="http://docs.oracle.com/javaee/6/api/javax/faces/FacesWrapper
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/el/ELContextWrapper.html#setPropertyResolved(boolean)">setPropertyResolved</a></strong>(boolean&nbsp;resolved)</code></td>
 </tr>
 </table>
+<ul class="blockList">
+<li class="blockList"><a name="methods_inherited_from_class_javax.el.ELContext">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;javax.el.<a href="http://docs.oracle.com/javaee/7/api/javax/el/ELContext.html?is-external=true" title="class or interface in javax.el">ELContext</a></h3>
+<code><a href="http://docs.oracle.com/javaee/7/api/javax/el/ELContext.html?is-external=true#addEvaluationListener(javax.el.EvaluationListener)" title="class or interface in javax.el">addEvaluationListener</a>, <a href="http://docs.oracle.com/javaee/7/api/javax/el/ELContext.html?is-external=true#convertToType(java.lang.Object, java.lang.Class)" title="class or interface in javax.el">convertToType</a>, <a href="http://docs.oracle.com/javaee/7/api/javax/el/ELContext.html?is-external=true#enterLambdaScope(java.util.Map)" title="class or interface in javax.el">enterLambdaScope</a>, <a href="http://docs.oracle.com/javaee/7/api/javax/el/ELContext.html?is-external=true#exitLambdaScope()" title="class or interface in javax.el">exitLambdaScope</a>, <a href="http://docs.oracle.com/javaee/7/api/javax/el/ELContext.html?is-external=true#getEvaluationListeners()" title="class or interface in javax.el">getEvaluationListeners</a>, <a href="http://docs.oracle.com/javaee/7/api/javax/el/ELContext.html?is-external=true#getImportHandler()" title="class or interface in javax.el">getImportHandler</a>, <a href="http://docs.oracle.com/javaee/7/api/javax/el/ELContext.html?is-external=true#getLambdaArgument(java.lang.String)" title="class or interface in javax.el">getLambdaArgument</a>, <a href="http://docs.oracle.com/javaee/7/api/javax/el/ELContext.html?is-external=true#isLambdaArgument(java.lang.String)" title="class or interface in javax.el">isLambdaArgument</a>, <a href="http://docs.oracle.com/javaee/7/api/javax/el/ELContext.html?is-external=true#notifyAfterEvaluation(java.lang.String)" title="class or interface in javax.el">notifyAfterEvaluation</a>, <a href="http://docs.oracle.com/javaee/7/api/javax/el/ELContext.html?is-external=true#notifyBeforeEvaluation(java.lang.String)" title="class or interface in javax.el">notifyBeforeEvaluation</a>, <a href="http://docs.oracle.com/javaee/7/api/javax/el/ELContext.html?is-external=true#notifyPropertyResolved(java.lang.Object, java.lang.Object)" title="class or interface in javax.el">notifyPropertyResolved</a>, <a href="http://docs.oracle.com/javaee/7/api/javax/el/ELContext.html?is-external=true#setPropertyResolved(java.lang.Object, java.lang.Object)" title="class or interface in javax.el">setPropertyResolved</a></code></li>
+</ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
 <!--   -->
@@ -232,7 +239,7 @@ implements <a href="http://docs.oracle.com/javaee/6/api/javax/faces/FacesWrapper
 <ul class="blockListLast">
 <li class="blockList">
 <h4>ELContextWrapper</h4>
-<pre>public&nbsp;ELContextWrapper(<a href="http://docs.oracle.com/javaee/6/api/javax/el/ELContext.html?is-external=true" title="class or interface in javax.el">ELContext</a>&nbsp;elContext)</pre>
+<pre>public&nbsp;ELContextWrapper(<a href="http://docs.oracle.com/javaee/7/api/javax/el/ELContext.html?is-external=true" title="class or interface in javax.el">ELContext</a>&nbsp;elContext)</pre>
 </li>
 </ul>
 </li>
@@ -249,10 +256,10 @@ implements <a href="http://docs.oracle.com/javaee/6/api/javax/faces/FacesWrapper
 <ul class="blockList">
 <li class="blockList">
 <h4>getWrapped</h4>
-<pre>public&nbsp;<a href="http://docs.oracle.com/javaee/6/api/javax/el/ELContext.html?is-external=true" title="class or interface in javax.el">ELContext</a>&nbsp;getWrapped()</pre>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javaee/7/api/javax/el/ELContext.html?is-external=true" title="class or interface in javax.el">ELContext</a>&nbsp;getWrapped()</pre>
 <dl>
 <dt><strong>Specified by:</strong></dt>
-<dd><code><a href="http://docs.oracle.com/javaee/6/api/javax/faces/FacesWrapper.html?is-external=true#getWrapped()" title="class or interface in javax.faces">getWrapped</a></code>&nbsp;in interface&nbsp;<code><a href="http://docs.oracle.com/javaee/6/api/javax/faces/FacesWrapper.html?is-external=true" title="class or interface in javax.faces">FacesWrapper</a>&lt;<a href="http://docs.oracle.com/javaee/6/api/javax/el/ELContext.html?is-external=true" title="class or interface in javax.el">ELContext</a>&gt;</code></dd>
+<dd><code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/FacesWrapper.html?is-external=true#getWrapped()" title="class or interface in javax.faces">getWrapped</a></code>&nbsp;in interface&nbsp;<code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/FacesWrapper.html?is-external=true" title="class or interface in javax.faces">FacesWrapper</a>&lt;<a href="http://docs.oracle.com/javaee/7/api/javax/el/ELContext.html?is-external=true" title="class or interface in javax.el">ELContext</a>&gt;</code></dd>
 </dl>
 </li>
 </ul>
@@ -265,7 +272,7 @@ implements <a href="http://docs.oracle.com/javaee/6/api/javax/faces/FacesWrapper
 <pre>public&nbsp;void&nbsp;setPropertyResolved(boolean&nbsp;resolved)</pre>
 <dl>
 <dt><strong>Overrides:</strong></dt>
-<dd><code><a href="http://docs.oracle.com/javaee/6/api/javax/el/ELContext.html?is-external=true#setPropertyResolved(boolean)" title="class or interface in javax.el">setPropertyResolved</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javaee/6/api/javax/el/ELContext.html?is-external=true" title="class or interface in javax.el">ELContext</a></code></dd>
+<dd><code><a href="http://docs.oracle.com/javaee/7/api/javax/el/ELContext.html?is-external=true#setPropertyResolved(boolean)" title="class or interface in javax.el">setPropertyResolved</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javaee/7/api/javax/el/ELContext.html?is-external=true" title="class or interface in javax.el">ELContext</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -278,7 +285,7 @@ implements <a href="http://docs.oracle.com/javaee/6/api/javax/faces/FacesWrapper
 <pre>public&nbsp;boolean&nbsp;isPropertyResolved()</pre>
 <dl>
 <dt><strong>Overrides:</strong></dt>
-<dd><code><a href="http://docs.oracle.com/javaee/6/api/javax/el/ELContext.html?is-external=true#isPropertyResolved()" title="class or interface in javax.el">isPropertyResolved</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javaee/6/api/javax/el/ELContext.html?is-external=true" title="class or interface in javax.el">ELContext</a></code></dd>
+<dd><code><a href="http://docs.oracle.com/javaee/7/api/javax/el/ELContext.html?is-external=true#isPropertyResolved()" title="class or interface in javax.el">isPropertyResolved</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javaee/7/api/javax/el/ELContext.html?is-external=true" title="class or interface in javax.el">ELContext</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -292,7 +299,7 @@ implements <a href="http://docs.oracle.com/javaee/6/api/javax/faces/FacesWrapper
               <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;contextObject)</pre>
 <dl>
 <dt><strong>Overrides:</strong></dt>
-<dd><code><a href="http://docs.oracle.com/javaee/6/api/javax/el/ELContext.html?is-external=true#putContext(java.lang.Class, java.lang.Object)" title="class or interface in javax.el">putContext</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javaee/6/api/javax/el/ELContext.html?is-external=true" title="class or interface in javax.el">ELContext</a></code></dd>
+<dd><code><a href="http://docs.oracle.com/javaee/7/api/javax/el/ELContext.html?is-external=true#putContext(java.lang.Class, java.lang.Object)" title="class or interface in javax.el">putContext</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javaee/7/api/javax/el/ELContext.html?is-external=true" title="class or interface in javax.el">ELContext</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -305,7 +312,7 @@ implements <a href="http://docs.oracle.com/javaee/6/api/javax/faces/FacesWrapper
 <pre>public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;getContext(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&nbsp;key)</pre>
 <dl>
 <dt><strong>Overrides:</strong></dt>
-<dd><code><a href="http://docs.oracle.com/javaee/6/api/javax/el/ELContext.html?is-external=true#getContext(java.lang.Class)" title="class or interface in javax.el">getContext</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javaee/6/api/javax/el/ELContext.html?is-external=true" title="class or interface in javax.el">ELContext</a></code></dd>
+<dd><code><a href="http://docs.oracle.com/javaee/7/api/javax/el/ELContext.html?is-external=true#getContext(java.lang.Class)" title="class or interface in javax.el">getContext</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javaee/7/api/javax/el/ELContext.html?is-external=true" title="class or interface in javax.el">ELContext</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -315,10 +322,10 @@ implements <a href="http://docs.oracle.com/javaee/6/api/javax/faces/FacesWrapper
 <ul class="blockList">
 <li class="blockList">
 <h4>getELResolver</h4>
-<pre>public&nbsp;<a href="http://docs.oracle.com/javaee/6/api/javax/el/ELResolver.html?is-external=true" title="class or interface in javax.el">ELResolver</a>&nbsp;getELResolver()</pre>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javaee/7/api/javax/el/ELResolver.html?is-external=true" title="class or interface in javax.el">ELResolver</a>&nbsp;getELResolver()</pre>
 <dl>
 <dt><strong>Specified by:</strong></dt>
-<dd><code><a href="http://docs.oracle.com/javaee/6/api/javax/el/ELContext.html?is-external=true#getELResolver()" title="class or interface in javax.el">getELResolver</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javaee/6/api/javax/el/ELContext.html?is-external=true" title="class or interface in javax.el">ELContext</a></code></dd>
+<dd><code><a href="http://docs.oracle.com/javaee/7/api/javax/el/ELContext.html?is-external=true#getELResolver()" title="class or interface in javax.el">getELResolver</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javaee/7/api/javax/el/ELContext.html?is-external=true" title="class or interface in javax.el">ELContext</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -328,10 +335,10 @@ implements <a href="http://docs.oracle.com/javaee/6/api/javax/faces/FacesWrapper
 <ul class="blockList">
 <li class="blockList">
 <h4>getFunctionMapper</h4>
-<pre>public&nbsp;<a href="http://docs.oracle.com/javaee/6/api/javax/el/FunctionMapper.html?is-external=true" title="class or interface in javax.el">FunctionMapper</a>&nbsp;getFunctionMapper()</pre>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javaee/7/api/javax/el/FunctionMapper.html?is-external=true" title="class or interface in javax.el">FunctionMapper</a>&nbsp;getFunctionMapper()</pre>
 <dl>
 <dt><strong>Specified by:</strong></dt>
-<dd><code><a href="http://docs.oracle.com/javaee/6/api/javax/el/ELContext.html?is-external=true#getFunctionMapper()" title="class or interface in javax.el">getFunctionMapper</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javaee/6/api/javax/el/ELContext.html?is-external=true" title="class or interface in javax.el">ELContext</a></code></dd>
+<dd><code><a href="http://docs.oracle.com/javaee/7/api/javax/el/ELContext.html?is-external=true#getFunctionMapper()" title="class or interface in javax.el">getFunctionMapper</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javaee/7/api/javax/el/ELContext.html?is-external=true" title="class or interface in javax.el">ELContext</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -344,7 +351,7 @@ implements <a href="http://docs.oracle.com/javaee/6/api/javax/faces/FacesWrapper
 <pre>public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Locale.html?is-external=true" title="class or interface in java.util">Locale</a>&nbsp;getLocale()</pre>
 <dl>
 <dt><strong>Overrides:</strong></dt>
-<dd><code><a href="http://docs.oracle.com/javaee/6/api/javax/el/ELContext.html?is-external=true#getLocale()" title="class or interface in javax.el">getLocale</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javaee/6/api/javax/el/ELContext.html?is-external=true" title="class or interface in javax.el">ELContext</a></code></dd>
+<dd><code><a href="http://docs.oracle.com/javaee/7/api/javax/el/ELContext.html?is-external=true#getLocale()" title="class or interface in javax.el">getLocale</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javaee/7/api/javax/el/ELContext.html?is-external=true" title="class or interface in javax.el">ELContext</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -357,7 +364,7 @@ implements <a href="http://docs.oracle.com/javaee/6/api/javax/faces/FacesWrapper
 <pre>public&nbsp;void&nbsp;setLocale(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Locale.html?is-external=true" title="class or interface in java.util">Locale</a>&nbsp;locale)</pre>
 <dl>
 <dt><strong>Overrides:</strong></dt>
-<dd><code><a href="http://docs.oracle.com/javaee/6/api/javax/el/ELContext.html?is-external=true#setLocale(java.util.Locale)" title="class or interface in javax.el">setLocale</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javaee/6/api/javax/el/ELContext.html?is-external=true" title="class or interface in javax.el">ELContext</a></code></dd>
+<dd><code><a href="http://docs.oracle.com/javaee/7/api/javax/el/ELContext.html?is-external=true#setLocale(java.util.Locale)" title="class or interface in javax.el">setLocale</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javaee/7/api/javax/el/ELContext.html?is-external=true" title="class or interface in javax.el">ELContext</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -367,10 +374,10 @@ implements <a href="http://docs.oracle.com/javaee/6/api/javax/faces/FacesWrapper
 <ul class="blockListLast">
 <li class="blockList">
 <h4>getVariableMapper</h4>
-<pre>public&nbsp;<a href="http://docs.oracle.com/javaee/6/api/javax/el/VariableMapper.html?is-external=true" title="class or interface in javax.el">VariableMapper</a>&nbsp;getVariableMapper()</pre>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javaee/7/api/javax/el/VariableMapper.html?is-external=true" title="class or interface in javax.el">VariableMapper</a>&nbsp;getVariableMapper()</pre>
 <dl>
 <dt><strong>Specified by:</strong></dt>
-<dd><code><a href="http://docs.oracle.com/javaee/6/api/javax/el/ELContext.html?is-external=true#getVariableMapper()" title="class or interface in javax.el">getVariableMapper</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javaee/6/api/javax/el/ELContext.html?is-external=true" title="class or interface in javax.el">ELContext</a></code></dd>
+<dd><code><a href="http://docs.oracle.com/javaee/7/api/javax/el/ELContext.html?is-external=true#getVariableMapper()" title="class or interface in javax.el">getVariableMapper</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javaee/7/api/javax/el/ELContext.html?is-external=true" title="class or interface in javax.el">ELContext</a></code></dd>
 </dl>
 </li>
 </ul>

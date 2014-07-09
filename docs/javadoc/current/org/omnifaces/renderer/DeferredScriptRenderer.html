@@ -85,7 +85,7 @@
 <li><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</a></li>
 <li>
 <ul class="inheritance">
-<li><a href="http://docs.oracle.com/javaee/6/api/javax/faces/render/Renderer.html?is-external=true" title="class or interface in javax.faces.render">javax.faces.render.Renderer</a></li>
+<li><a href="http://docs.oracle.com/javaee/7/api/javax/faces/render/Renderer.html?is-external=true" title="class or interface in javax.faces.render">javax.faces.render.Renderer</a></li>
 <li>
 <ul class="inheritance">
 <li>org.omnifaces.renderer.DeferredScriptRenderer</li>
@@ -100,7 +100,7 @@
 <hr>
 <br>
 <pre>public class <span class="strong">DeferredScriptRenderer</span>
-extends <a href="http://docs.oracle.com/javaee/6/api/javax/faces/render/Renderer.html?is-external=true" title="class or interface in javax.faces.render">Renderer</a></pre>
+extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/render/Renderer.html?is-external=true" title="class or interface in javax.faces.render">Renderer</a></pre>
 <div class="block">This renderer is the default renderer of <a href="../../../org/omnifaces/component/script/DeferredScript.html" title="class in org.omnifaces.component.script"><code>DeferredScript</code></a>. The rendering is extracted from the component so
  that it can be reused by <a href="../../../org/omnifaces/resourcehandler/CombinedResourceHandler.html" title="class in org.omnifaces.resourcehandler"><code>CombinedResourceHandler</code></a>.</div>
 <dl><dt><span class="strong">Since:</span></dt>
@@ -132,6 +132,13 @@ extends <a href="http://docs.oracle.com/javaee/6/api/javax/faces/render/Renderer
 </td>
 </tr>
 </table>
+<ul class="blockList">
+<li class="blockList"><a name="fields_inherited_from_class_javax.faces.render.Renderer">
+<!--   -->
+</a>
+<h3>Fields inherited from class&nbsp;javax.faces.render.<a href="http://docs.oracle.com/javaee/7/api/javax/faces/render/Renderer.html?is-external=true" title="class or interface in javax.faces.render">Renderer</a></h3>
+<code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/render/Renderer.html?is-external=true#PASSTHROUGH_RENDERER_LOCALNAME_KEY" title="class or interface in javax.faces.render">PASSTHROUGH_RENDERER_LOCALNAME_KEY</a></code></li>
+</ul>
 </li>
 </ul>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
@@ -165,8 +172,8 @@ extends <a href="http://docs.oracle.com/javaee/6/api/javax/faces/render/Renderer
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/renderer/DeferredScriptRenderer.html#encodeChildren(javax.faces.context.FacesContext, javax.faces.component.UIComponent)">encodeChildren</a></strong>(<a href="http://docs.oracle.com/javaee/6/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context,
-              <a href="http://docs.oracle.com/javaee/6/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;component)</code>
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/renderer/DeferredScriptRenderer.html#encodeChildren(javax.faces.context.FacesContext, javax.faces.component.UIComponent)">encodeChildren</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context,
+              <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;component)</code>
 <div class="block">Writes a <code>&lt;script&gt;</code> element which calls <code>OmniFaces.DeferredScript.add</code> with as
  arguments the script URL and, if any, the onbegin, onsuccess and/or onerror callbacks.</div>
 </td>
@@ -176,8 +183,8 @@ extends <a href="http://docs.oracle.com/javaee/6/api/javax/faces/render/Renderer
 <li class="blockList"><a name="methods_inherited_from_class_javax.faces.render.Renderer">
 <!--   -->
 </a>
-<h3>Methods inherited from class&nbsp;javax.faces.render.<a href="http://docs.oracle.com/javaee/6/api/javax/faces/render/Renderer.html?is-external=true" title="class or interface in javax.faces.render">Renderer</a></h3>
-<code><a href="http://docs.oracle.com/javaee/6/api/javax/faces/render/Renderer.html?is-external=true#convertClientId(javax.faces.context.FacesContext, java.lang.String)" title="class or interface in javax.faces.render">convertClientId</a>, <a href="http://docs.oracle.com/javaee/6/api/javax/faces/render/Renderer.html?is-external=true#decode(javax.faces.context.FacesContext, javax.faces.component.UIComponent)" title="class or interface in javax.faces.render">decode</a>, <a href="http://docs.oracle.com/javaee/6/api/javax/faces/render/Renderer.html?is-external=true#encodeBegin(javax.faces.context.FacesContext, javax.faces.component.UIComponent)" title="class or interface in javax.faces.render">encodeBegin</a>, <a href="http://docs.oracle.com/javaee/6/api/javax/faces/render/Renderer.html?is-external=true#encodeEnd(javax.faces.context.FacesContext, javax.faces.component.UIComponent)" title="class or interface in javax.faces.render">encodeEnd</a>, <a href="http://docs.oracle.com/javaee/6/api/javax/faces/render/Renderer.html?is-external=true#getConvertedValue(javax.faces.context.FacesContext, javax.faces.component.UIComponent, java.lang.Object)" title="class or interface in javax.faces.render">getConvertedValue</a>, <a href="http://docs.oracle.com/javaee/6/api/javax/faces/render/Renderer.html?is-external=true#getRendersChildren()" title="class or interface in javax.faces.render">getRendersChildren</a></code></li>
+<h3>Methods inherited from class&nbsp;javax.faces.render.<a href="http://docs.oracle.com/javaee/7/api/javax/faces/render/Renderer.html?is-external=true" title="class or interface in javax.faces.render">Renderer</a></h3>
+<code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/render/Renderer.html?is-external=true#convertClientId(javax.faces.context.FacesContext, java.lang.String)" title="class or interface in javax.faces.render">convertClientId</a>, <a href="http://docs.oracle.com/javaee/7/api/javax/faces/render/Renderer.html?is-external=true#decode(javax.faces.context.FacesContext, javax.faces.component.UIComponent)" title="class or interface in javax.faces.render">decode</a>, <a href="http://docs.oracle.com/javaee/7/api/javax/faces/render/Renderer.html?is-external=true#encodeBegin(javax.faces.context.FacesContext, javax.faces.component.UIComponent)" title="class or interface in javax.faces.render">encodeBegin</a>, <a href="http://docs.oracle.com/javaee/7/api/javax/faces/render/Renderer.html?is-external=true#encodeEnd(javax.faces.context.FacesContext, javax.faces.component.UIComponent)" title="class or interface in javax.faces.render">encodeEnd</a>, <a href="http://docs.oracle.com/javaee/7/api/javax/faces/render/Renderer.html?is-external=true#getConvertedValue(javax.faces.context.FacesContext, javax.faces.component.UIComponent, java.lang.Object)" title="class or interface in javax.faces.render">getConvertedValue</a>, <a href="http://docs.oracle.com/javaee/7/api/javax/faces/render/Renderer.html?is-external=true#getRendersChildren()" title="class or interface in javax.faces.render">getRendersChildren</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
@@ -242,15 +249,15 @@ extends <a href="http://docs.oracle.com/javaee/6/api/javax/faces/render/Renderer
 <ul class="blockListLast">
 <li class="blockList">
 <h4>encodeChildren</h4>
-<pre>public&nbsp;void&nbsp;encodeChildren(<a href="http://docs.oracle.com/javaee/6/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context,
-                  <a href="http://docs.oracle.com/javaee/6/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;component)
+<pre>public&nbsp;void&nbsp;encodeChildren(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context,
+                  <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;component)
                     throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
 <div class="block">Writes a <code>&lt;script&gt;</code> element which calls <code>OmniFaces.DeferredScript.add</code> with as
  arguments the script URL and, if any, the onbegin, onsuccess and/or onerror callbacks. If the script resource is
  not resolvable, then a <code>RES_NOT_FOUND</code> will be written to <code>src</code> attribute instead.</div>
 <dl>
 <dt><strong>Overrides:</strong></dt>
-<dd><code><a href="http://docs.oracle.com/javaee/6/api/javax/faces/render/Renderer.html?is-external=true#encodeChildren(javax.faces.context.FacesContext, javax.faces.component.UIComponent)" title="class or interface in javax.faces.render">encodeChildren</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javaee/6/api/javax/faces/render/Renderer.html?is-external=true" title="class or interface in javax.faces.render">Renderer</a></code></dd>
+<dd><code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/render/Renderer.html?is-external=true#encodeChildren(javax.faces.context.FacesContext, javax.faces.component.UIComponent)" title="class or interface in javax.faces.render">encodeChildren</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/render/Renderer.html?is-external=true" title="class or interface in javax.faces.render">Renderer</a></code></dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
 </li>

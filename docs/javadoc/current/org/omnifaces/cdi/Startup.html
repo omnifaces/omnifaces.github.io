@@ -82,8 +82,8 @@
 <li class="blockList">
 <hr>
 <br>
-<pre><a href="http://docs.oracle.com/javaee/6/api/javax/enterprise/context/ApplicationScoped.html?is-external=true" title="class or interface in javax.enterprise.context">@ApplicationScoped</a>
-<a href="http://docs.oracle.com/javaee/6/api/javax/enterprise/inject/Stereotype.html?is-external=true" title="class or interface in javax.enterprise.inject">@Stereotype</a>
+<pre><a href="http://docs.oracle.com/javaee/7/api/javax/enterprise/context/ApplicationScoped.html?is-external=true" title="class or interface in javax.enterprise.context">@ApplicationScoped</a>
+<a href="http://docs.oracle.com/javaee/7/api/javax/enterprise/inject/Stereotype.html?is-external=true" title="class or interface in javax.enterprise.inject">@Stereotype</a>
 <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/annotation/Retention.html?is-external=true" title="class or interface in java.lang.annotation">@Retention</a>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/annotation/Retention.html?is-external=true#value()" title="class or interface in java.lang.annotation">value</a>=<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/annotation/RetentionPolicy.html?is-external=true#RUNTIME" title="class or interface in java.lang.annotation">RUNTIME</a>)
 <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/annotation/Target.html?is-external=true" title="class or interface in java.lang.annotation">@Target</a>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/annotation/Target.html?is-external=true#value()" title="class or interface in java.lang.annotation">value</a>=<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/annotation/ElementType.html?is-external=true#TYPE" title="class or interface in java.lang.annotation">TYPE</a>)
 public @interface <span class="strong">Startup</span></pre>
@@ -109,11 +109,11 @@ public @interface <span class="strong">Startup</span></pre>
  <p>
  This bean type effectively functions as a CDI based startup listener for the web application.
  <p>
- Note that Java EE thus also provides the <a href="http://docs.oracle.com/javaee/6/api/javax/ejb/Startup.html?is-external=true" title="class or interface in javax.ejb"><code>Startup</code></a> and <a href="http://docs.oracle.com/javaee/6/api/javax/ejb/Singleton.html?is-external=true" title="class or interface in javax.ejb"><code>Singleton</code></a> annotations
+ Note that Java EE thus also provides the <a href="http://docs.oracle.com/javaee/7/api/javax/ejb/Startup.html?is-external=true" title="class or interface in javax.ejb"><code>Startup</code></a> and <a href="http://docs.oracle.com/javaee/7/api/javax/ejb/Singleton.html?is-external=true" title="class or interface in javax.ejb"><code>Singleton</code></a> annotations
  which together provide similar functionality, but it requires an EJB dependency (which may not be applicable on e.g.
  Tomcat+Weld) and it will result in the bean annotated with these annotations to become an EJB session bean (with
  automatic transaction management and automatic locking which you might need to turn off with yet more additional
- <a href="http://docs.oracle.com/javaee/6/api/javax/ejb/TransactionAttribute.html?is-external=true" title="class or interface in javax.ejb"><code>TransactionAttribute</code></a> and <a href="http://docs.oracle.com/javaee/6/api/javax/ejb/Lock.html?is-external=true" title="class or interface in javax.ejb"><code>Lock</code></a> annotations if these are not appropriate for some
+ <a href="http://docs.oracle.com/javaee/7/api/javax/ejb/TransactionAttribute.html?is-external=true" title="class or interface in javax.ejb"><code>TransactionAttribute</code></a> and <a href="http://docs.oracle.com/javaee/7/api/javax/ejb/Lock.html?is-external=true" title="class or interface in javax.ejb"><code>Lock</code></a> annotations if these are not appropriate for some
  situation).</div>
 <dl><dt><span class="strong">Since:</span></dt>
   <dd>1.8</dd>

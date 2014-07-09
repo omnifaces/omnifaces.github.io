@@ -483,7 +483,8 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <ul class="blockList">
 <li class="blockList">
 <h4>coalesce</h4>
-<pre>public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;coalesce(T...&nbsp;objects)</pre>
+<pre><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/SafeVarargs.html?is-external=true" title="class or interface in java.lang">@SafeVarargs</a>
+public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;coalesce(T...&nbsp;objects)</pre>
 <div class="block">Returns the first non-<code>null</code> object of the argument list, or <code>null</code> if there is no such
  element.</div>
 <dl><dt><span class="strong">Type Parameters:</span></dt><dd><code>T</code> - The generic object type.</dd><dt><span class="strong">Parameters:</span></dt><dd><code>objects</code> - The argument list of objects to be tested for non-<code>null</code>.</dd>
@@ -499,8 +500,9 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <ul class="blockList">
 <li class="blockList">
 <h4>isOneOf</h4>
-<pre>public static&nbsp;&lt;T&gt;&nbsp;boolean&nbsp;isOneOf(T&nbsp;object,
-                  T...&nbsp;objects)</pre>
+<pre><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/SafeVarargs.html?is-external=true" title="class or interface in java.lang">@SafeVarargs</a>
+public static&nbsp;&lt;T&gt;&nbsp;boolean&nbsp;isOneOf(T&nbsp;object,
+                              T...&nbsp;objects)</pre>
 <div class="block">Returns <code>true</code> if the given object equals one of the given objects.</div>
 <dl><dt><span class="strong">Type Parameters:</span></dt><dd><code>T</code> - The generic object type.</dd><dt><span class="strong">Parameters:</span></dt><dd><code>object</code> - The object to be checked if it equals one of the given objects.</dd><dd><code>objects</code> - The argument list of objects to be tested for equality.</dd>
 <dt><span class="strong">Returns:</span></dt><dd><code>true</code> if the given object equals one of the given objects.</dd></dl>
@@ -750,7 +752,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>string</code> - The string to be URL-encoded using UTF-8.</dd>
 <dt><span class="strong">Returns:</span></dt><dd>The given string, URL-encoded using UTF-8, or <code>null</code> if <code>null</code> was given.</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/UnsupportedOperationException.html?is-external=true" title="class or interface in java.lang">UnsupportedOperationException</a></code> - When UTF-8 is not supported.</dd><dt><span class="strong">Since:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/UnsupportedOperationException.html?is-external=true" title="class or interface in java.lang">UnsupportedOperationException</a></code> - When this platform does not support UTF-8.</dd><dt><span class="strong">Since:</span></dt>
   <dd>1.4</dd></dl>
 </li>
 </ul>
@@ -765,7 +767,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>string</code> - The string to be URL-decode using UTF-8.</dd>
 <dt><span class="strong">Returns:</span></dt><dd>The given string, URL-decode using UTF-8, or <code>null</code> if <code>null</code> was given.</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/UnsupportedOperationException.html?is-external=true" title="class or interface in java.lang">UnsupportedOperationException</a></code> - When UTF-8 is not supported.</dd><dt><span class="strong">Since:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/UnsupportedOperationException.html?is-external=true" title="class or interface in java.lang">UnsupportedOperationException</a></code> - When this platform does not support UTF-8.</dd><dt><span class="strong">Since:</span></dt>
   <dd>1.4</dd></dl>
 </li>
 </ul>

@@ -94,16 +94,16 @@
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><a href="http://docs.oracle.com/javaee/6/api/javax/validation/MessageInterpolator.html?is-external=true" title="class or interface in javax.validation">MessageInterpolator</a></dd>
+<dd><a href="http://docs.oracle.com/javaee/7/api/javax/validation/MessageInterpolator.html?is-external=true" title="class or interface in javax.validation">MessageInterpolator</a></dd>
 </dl>
 <hr>
 <br>
 <pre>public class <span class="strong">JsfLabelMessageInterpolator</span>
 extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>
-implements <a href="http://docs.oracle.com/javaee/6/api/javax/validation/MessageInterpolator.html?is-external=true" title="class or interface in javax.validation">MessageInterpolator</a></pre>
+implements <a href="http://docs.oracle.com/javaee/7/api/javax/validation/MessageInterpolator.html?is-external=true" title="class or interface in javax.validation">MessageInterpolator</a></pre>
 <div class="block">Bean Validation message interpolator that is able to insert the label of the component via which
  validation failed <em>into</em> the validation message. For this the special placeholder <code>{jsf.label}</code>
- can be used. This <a href="http://docs.oracle.com/javaee/6/api/javax/validation/MessageInterpolator.html?is-external=true" title="class or interface in javax.validation"><code>MessageInterpolator</code></a> will replace every occurrence of that with the label of the
+ can be used. This <a href="http://docs.oracle.com/javaee/7/api/javax/validation/MessageInterpolator.html?is-external=true" title="class or interface in javax.validation"><code>MessageInterpolator</code></a> will replace every occurrence of that with the label of the
  <em>current</em> component.
  <p>
  Note that Bean Validation is not only called from within JSF, and as such JSF might not be available. If JSF
@@ -115,15 +115,15 @@ implements <a href="http://docs.oracle.com/javaee/6/api/javax/validation/Message
  message. That functionality is already provided by JSF itself via the <code>javax.faces.validator.BeanValidator.MESSAGE</code>
  key in any resource bundle known to JSF.
  </p>
- 
- 
+
+
  <h3>Example</h3>
  In <code>ValidationMessages.properties</code>
  <pre>javax.validation.constraints.Size.message = The size of {jsf.label} must be between {min} and {max} characters</pre>
- 
+
  <h3>Installation</h3>
  Create a <code>META-INF/validation.xml</code> file with the following contents:
- 
+
  <pre>
  &lt;?xml version="1.0" encoding="UTF-8"?&gt;
  &lt;validation-config
@@ -155,8 +155,8 @@ implements <a href="http://docs.oracle.com/javaee/6/api/javax/validation/Message
 <li class="blockList"><a name="nested_classes_inherited_from_class_javax.validation.MessageInterpolator">
 <!--   -->
 </a>
-<h3>Nested classes/interfaces inherited from interface&nbsp;javax.validation.<a href="http://docs.oracle.com/javaee/6/api/javax/validation/MessageInterpolator.html?is-external=true" title="class or interface in javax.validation">MessageInterpolator</a></h3>
-<code><a href="http://docs.oracle.com/javaee/6/api/javax/validation/MessageInterpolator.Context.html?is-external=true" title="class or interface in javax.validation">MessageInterpolator.Context</a></code></li>
+<h3>Nested classes/interfaces inherited from interface&nbsp;javax.validation.<a href="http://docs.oracle.com/javaee/7/api/javax/validation/MessageInterpolator.html?is-external=true" title="class or interface in javax.validation">MessageInterpolator</a></h3>
+<code><a href="http://docs.oracle.com/javaee/7/api/javax/validation/MessageInterpolator.Context.html?is-external=true" title="class or interface in javax.validation">MessageInterpolator.Context</a></code></li>
 </ul>
 </li>
 </ul>
@@ -192,12 +192,12 @@ implements <a href="http://docs.oracle.com/javaee/6/api/javax/validation/Message
 <tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/validator/JsfLabelMessageInterpolator.html#interpolate(java.lang.String, javax.validation.MessageInterpolator.Context)">interpolate</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;messageTemplate,
-           <a href="http://docs.oracle.com/javaee/6/api/javax/validation/MessageInterpolator.Context.html?is-external=true" title="class or interface in javax.validation">MessageInterpolator.Context</a>&nbsp;context)</code>&nbsp;</td>
+           <a href="http://docs.oracle.com/javaee/7/api/javax/validation/MessageInterpolator.Context.html?is-external=true" title="class or interface in javax.validation">MessageInterpolator.Context</a>&nbsp;context)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/validator/JsfLabelMessageInterpolator.html#interpolate(java.lang.String, javax.validation.MessageInterpolator.Context, java.util.Locale)">interpolate</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;messageTemplate,
-           <a href="http://docs.oracle.com/javaee/6/api/javax/validation/MessageInterpolator.Context.html?is-external=true" title="class or interface in javax.validation">MessageInterpolator.Context</a>&nbsp;context,
+           <a href="http://docs.oracle.com/javaee/7/api/javax/validation/MessageInterpolator.Context.html?is-external=true" title="class or interface in javax.validation">MessageInterpolator.Context</a>&nbsp;context,
            <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Locale.html?is-external=true" title="class or interface in java.util">Locale</a>&nbsp;locale)</code>&nbsp;</td>
 </tr>
 </table>
@@ -246,10 +246,10 @@ implements <a href="http://docs.oracle.com/javaee/6/api/javax/validation/Message
 <li class="blockList">
 <h4>interpolate</h4>
 <pre>public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;interpolate(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;messageTemplate,
-                 <a href="http://docs.oracle.com/javaee/6/api/javax/validation/MessageInterpolator.Context.html?is-external=true" title="class or interface in javax.validation">MessageInterpolator.Context</a>&nbsp;context)</pre>
+                 <a href="http://docs.oracle.com/javaee/7/api/javax/validation/MessageInterpolator.Context.html?is-external=true" title="class or interface in javax.validation">MessageInterpolator.Context</a>&nbsp;context)</pre>
 <dl>
 <dt><strong>Specified by:</strong></dt>
-<dd><code><a href="http://docs.oracle.com/javaee/6/api/javax/validation/MessageInterpolator.html?is-external=true#interpolate(java.lang.String, javax.validation.MessageInterpolator.Context)" title="class or interface in javax.validation">interpolate</a></code>&nbsp;in interface&nbsp;<code><a href="http://docs.oracle.com/javaee/6/api/javax/validation/MessageInterpolator.html?is-external=true" title="class or interface in javax.validation">MessageInterpolator</a></code></dd>
+<dd><code><a href="http://docs.oracle.com/javaee/7/api/javax/validation/MessageInterpolator.html?is-external=true#interpolate(java.lang.String, javax.validation.MessageInterpolator.Context)" title="class or interface in javax.validation">interpolate</a></code>&nbsp;in interface&nbsp;<code><a href="http://docs.oracle.com/javaee/7/api/javax/validation/MessageInterpolator.html?is-external=true" title="class or interface in javax.validation">MessageInterpolator</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -260,11 +260,11 @@ implements <a href="http://docs.oracle.com/javaee/6/api/javax/validation/Message
 <li class="blockList">
 <h4>interpolate</h4>
 <pre>public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;interpolate(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;messageTemplate,
-                 <a href="http://docs.oracle.com/javaee/6/api/javax/validation/MessageInterpolator.Context.html?is-external=true" title="class or interface in javax.validation">MessageInterpolator.Context</a>&nbsp;context,
+                 <a href="http://docs.oracle.com/javaee/7/api/javax/validation/MessageInterpolator.Context.html?is-external=true" title="class or interface in javax.validation">MessageInterpolator.Context</a>&nbsp;context,
                  <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Locale.html?is-external=true" title="class or interface in java.util">Locale</a>&nbsp;locale)</pre>
 <dl>
 <dt><strong>Specified by:</strong></dt>
-<dd><code><a href="http://docs.oracle.com/javaee/6/api/javax/validation/MessageInterpolator.html?is-external=true#interpolate(java.lang.String, javax.validation.MessageInterpolator.Context, java.util.Locale)" title="class or interface in javax.validation">interpolate</a></code>&nbsp;in interface&nbsp;<code><a href="http://docs.oracle.com/javaee/6/api/javax/validation/MessageInterpolator.html?is-external=true" title="class or interface in javax.validation">MessageInterpolator</a></code></dd>
+<dd><code><a href="http://docs.oracle.com/javaee/7/api/javax/validation/MessageInterpolator.html?is-external=true#interpolate(java.lang.String, javax.validation.MessageInterpolator.Context, java.util.Locale)" title="class or interface in javax.validation">interpolate</a></code>&nbsp;in interface&nbsp;<code><a href="http://docs.oracle.com/javaee/7/api/javax/validation/MessageInterpolator.html?is-external=true" title="class or interface in javax.validation">MessageInterpolator</a></code></dd>
 </dl>
 </li>
 </ul>

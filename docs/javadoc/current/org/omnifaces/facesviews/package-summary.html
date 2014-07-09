@@ -202,7 +202,7 @@
  <p>
  In Servlet 3.0 containers, scanning is done automatically and no further configuration is needed. The feature
  is compatible with applications that don't have <code>web.xml</code> or <code>faces-config.xml</code> configuration
- files. As such, it can be used as an alternative to declaring the <a href="http://docs.oracle.com/javaee/6/api/javax/faces/webapp/FacesServlet.html?is-external=true" title="class or interface in javax.faces.webapp"><code>FacesServlet</code></a> in <code>web.xml</code>
+ files. As such, it can be used as an alternative to declaring the <a href="http://docs.oracle.com/javaee/7/api/javax/faces/webapp/FacesServlet.html?is-external=true" title="class or interface in javax.faces.webapp"><code>FacesServlet</code></a> in <code>web.xml</code>
  for the <code>.xhtml</code> to <code>.xhtml</code> mapping.
 
  <p>
@@ -229,7 +229,7 @@
  </pre>
 
  <p>
- Note that although the directory outside <code>/WEB-INF/faces-views</code> is not scanned, the <a href="http://docs.oracle.com/javaee/6/api/javax/faces/webapp/FacesServlet.html?is-external=true" title="class or interface in javax.faces.webapp"><code>FacesServlet</code></a>
+ Note that although the directory outside <code>/WEB-INF/faces-views</code> is not scanned, the <a href="http://docs.oracle.com/javaee/7/api/javax/faces/webapp/FacesServlet.html?is-external=true" title="class or interface in javax.faces.webapp"><code>FacesServlet</code></a>
  <em>is</em> mapped on all extensions found in <code>/WEB-INF/faces-views</code>, so this will also affect files outside
  this directory. In the above example <code>normal.xhtml</code> is thus also available via the <code>.xhtml</code> extension, since
  the whole FacesServlet is mapped on this.
@@ -390,8 +390,8 @@
  <td nowrap><code><a href="../../../org/omnifaces/facesviews/FacesViews.html#FACES_VIEWS_DISPATCH_METHOD_PARAM_NAME">"org.omnifaces.FACES_VIEWS_DISPATCH_METHOD"</a></code></td>
  <td>Determines the method used by FacesViews to invoke the FacesServlet.
  <br/>Allowed values: {<code>FORWARD</code>,<code>DO_FILTER</code>}, which have the following meaning:
- <br/>- <code>FORWARD</code>: Use a forward to invoke the <a href="http://docs.oracle.com/javaee/6/api/javax/faces/webapp/FacesServlet.html?is-external=true" title="class or interface in javax.faces.webapp"><code>FacesServlet</code></a>. Using this method the <a href="http://docs.oracle.com/javaee/6/api/javax/faces/webapp/FacesServlet.html?is-external=true" title="class or interface in javax.faces.webapp"><code>FacesServlet</code></a> does not have to be mapped to the (extensionless) requested resource or to everything (/*) when manually mapping.
- <br/>- <code>DO_FILTER</code>: Use a plain <a href="http://docs.oracle.com/javaee/6/api/javax/servlet/FilterChain.html?is-external=true#doFilter(javax.servlet.ServletRequest, javax.servlet.ServletResponse)" title="class or interface in javax.servlet"><code>FilterChain.doFilter(javax.servlet.ServletRequest, javax.servlet.ServletResponse)</code></a> to invoke the <a href="http://docs.oracle.com/javaee/6/api/javax/faces/webapp/FacesServlet.html?is-external=true" title="class or interface in javax.faces.webapp"><code>FacesServlet</code></a>. Using this method necessitates the FacesServlet to be mapped to the (extensionless) requested resource or to everything (/*) when manually mapping.
+ <br/>- <code>FORWARD</code>: Use a forward to invoke the <a href="http://docs.oracle.com/javaee/7/api/javax/faces/webapp/FacesServlet.html?is-external=true" title="class or interface in javax.faces.webapp"><code>FacesServlet</code></a>. Using this method the <a href="http://docs.oracle.com/javaee/7/api/javax/faces/webapp/FacesServlet.html?is-external=true" title="class or interface in javax.faces.webapp"><code>FacesServlet</code></a> does not have to be mapped to the (extensionless) requested resource or to everything (/*) when manually mapping.
+ <br/>- <code>DO_FILTER</code>: Use a plain <a href="http://docs.oracle.com/javaee/7/api/javax/servlet/FilterChain.html?is-external=true#doFilter(javax.servlet.ServletRequest, javax.servlet.ServletResponse)" title="class or interface in javax.servlet"><code>FilterChain.doFilter(javax.servlet.ServletRequest, javax.servlet.ServletResponse)</code></a> to invoke the <a href="http://docs.oracle.com/javaee/7/api/javax/faces/webapp/FacesServlet.html?is-external=true" title="class or interface in javax.faces.webapp"><code>FacesServlet</code></a>. Using this method necessitates the FacesServlet to be mapped to the (extensionless) requested resource or to everything (/*) when manually mapping.
  <br/>Default value: <code>DO_FILTER</code>
  </td>
  </tr>

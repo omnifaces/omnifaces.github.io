@@ -100,7 +100,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
  <code>&lt;env-entry&gt;</code> from <code>web.xml</code>.
  <p>
  Note that the JSF spec defines one parameter that can optionally be defined via an env entry instead of the typical
- context/init parameter; <a href="http://docs.oracle.com/javaee/6/api/javax/faces/application/ProjectStage.html?is-external=true#PROJECT_STAGE_JNDI_NAME" title="class or interface in javax.faces.application"><code>ProjectStage.PROJECT_STAGE_JNDI_NAME</code></a>. Mojarra defines an additional proprietary one:
+ context/init parameter; <a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/ProjectStage.html?is-external=true#PROJECT_STAGE_JNDI_NAME" title="class or interface in javax.faces.application"><code>ProjectStage.PROJECT_STAGE_JNDI_NAME</code></a>. Mojarra defines an additional proprietary one:
  "java:comp/env/ClientStateSavingPassword".</div>
 <dl><dt><span class="strong">Since:</span></dt>
   <dd>1.6</dd>
@@ -197,7 +197,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
  To use a true global JNDI name an additional <code>&lt;lookup-name&gt;</code> should be specified in <code>web.xml</code>.
  
  <p>
- Environment entries can also be injected using <a href="http://docs.oracle.com/javaee/6/api/javax/annotation/Resource.html?is-external=true" title="class or interface in javax.annotation"><code>Resource</code></a>.</div>
+ Environment entries can also be injected using <a href="http://docs.oracle.com/javaee/7/api/javax/annotation/Resource.html?is-external=true" title="class or interface in javax.annotation"><code>Resource</code></a>.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>name</code> - the environment entry name relative to "java:comp/env".</dd>
 <dt><span class="strong">Returns:</span></dt><dd>The environment entry value associated with the given name, or <code>null</code> if
  there is none.</dd><dt><span class="strong">Since:</span></dt>

@@ -67,6 +67,19 @@
 <dl>
 <dt><span class="strong"><a href="../org/omnifaces/resourcehandler/UnmappedResource.html#readExternal(java.io.ObjectInput)">readExternal(ObjectInput)</a></span> - Method in class org.omnifaces.resourcehandler.<a href="../org/omnifaces/resourcehandler/UnmappedResource.html" title="class in org.omnifaces.resourcehandler">UnmappedResource</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="../org/omnifaces/el/ReadOnlyValueExpression.html" title="class in org.omnifaces.el"><span class="strong">ReadOnlyValueExpression</span></a> - Class in <a href="../org/omnifaces/el/package-summary.html">org.omnifaces.el</a></dt>
+<dd>
+<div class="block">Implementation of a read only value expression that can be used when the value is not yet available at construction time, or when the
+ value would be too expensive to create and it's not yet clear if the expression will actually be evaluated.</div>
+</dd>
+<dt><span class="strong"><a href="../org/omnifaces/el/ReadOnlyValueExpression.html#ReadOnlyValueExpression(java.lang.Class, org.omnifaces.util.Callback.Returning)">ReadOnlyValueExpression(Class&lt;?&gt;, Callback.Returning&lt;Object&gt;)</a></span> - Constructor for class org.omnifaces.el.<a href="../org/omnifaces/el/ReadOnlyValueExpression.html" title="class in org.omnifaces.el">ReadOnlyValueExpression</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="../org/omnifaces/el/ReadOnlyValueExpression.html#ReadOnlyValueExpression(java.lang.Class, org.omnifaces.util.Callback.ReturningWithArgument)">ReadOnlyValueExpression(Class&lt;?&gt;, Callback.ReturningWithArgument&lt;Object, ELContext&gt;)</a></span> - Constructor for class org.omnifaces.el.<a href="../org/omnifaces/el/ReadOnlyValueExpression.html" title="class in org.omnifaces.el">ReadOnlyValueExpression</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="../org/omnifaces/el/ReadOnlyValueExpression.html#ReadOnlyValueExpression(java.lang.Class)">ReadOnlyValueExpression(Class&lt;?&gt;)</a></span> - Constructor for class org.omnifaces.el.<a href="../org/omnifaces/el/ReadOnlyValueExpression.html" title="class in org.omnifaces.el">ReadOnlyValueExpression</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="../org/omnifaces/el/ReadOnlyValueExpression.html#ReadOnlyValueExpression()">ReadOnlyValueExpression()</a></span> - Constructor for class org.omnifaces.el.<a href="../org/omnifaces/el/ReadOnlyValueExpression.html" title="class in org.omnifaces.el">ReadOnlyValueExpression</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="strong"><a href="../org/omnifaces/util/Faces.html#redirect(java.lang.String, java.lang.String...)">redirect(String, String...)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Faces.html" title="class in org.omnifaces.util">Faces</a></dt>
 <dd>
 <div class="block">Sends a temporary (302) redirect to the given URL.</div>
@@ -136,6 +149,10 @@
 </dd>
 <dt><span class="strong"><a href="../org/omnifaces/util/FacesLocal.html#removeResponseCookie(javax.faces.context.FacesContext, java.lang.String, java.lang.String)">removeResponseCookie(FacesContext, String, String)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/FacesLocal.html" title="class in org.omnifaces.util">FacesLocal</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="strong"><a href="../org/omnifaces/util/Servlets.html#removeResponseCookie(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse, java.lang.String, java.lang.String)">removeResponseCookie(HttpServletRequest, HttpServletResponse, String, String)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Servlets.html" title="class in org.omnifaces.util">Servlets</a></dt>
+<dd>
+<div class="block">Remove the cookie with given name and path from the HTTP response.</div>
+</dd>
 <dt><span class="strong"><a href="../org/omnifaces/util/Faces.html#removeSessionAttribute(java.lang.String)">removeSessionAttribute(String)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Faces.html" title="class in org.omnifaces.util">Faces</a></dt>
 <dd>
 <div class="block">Removes the session scope attribute value associated with the given name.</div>
@@ -166,13 +183,15 @@
 </dd>
 <dt><a href="../org/omnifaces/util/Renderers.html" title="class in org.omnifaces.util"><span class="strong">Renderers</span></a> - Class in <a href="../org/omnifaces/util/package-summary.html">org.omnifaces.util</a></dt>
 <dd>
-<div class="block">Collection of utility methods for the JSF API with respect to working with <a href="http://docs.oracle.com/javaee/6/api/javax/faces/render/Renderer.html?is-external=true" title="class or interface in javax.faces.render"><code>Renderer</code></a>.</div>
+<div class="block">Collection of utility methods for the JSF API with respect to working with <a href="http://docs.oracle.com/javaee/7/api/javax/faces/render/Renderer.html?is-external=true" title="class or interface in javax.faces.render"><code>Renderer</code></a>.</div>
 </dd>
 <dt><span class="strong"><a href="../org/omnifaces/util/Faces.html#renderResponse()">renderResponse()</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Faces.html" title="class in org.omnifaces.util">Faces</a></dt>
 <dd>
 <div class="block">Signals JSF that, as soon as the current phase of the lifecycle has been completed, control should be passed to
  the Render Response phase, bypassing any phases that have not been executed yet.</div>
 </dd>
+<dt><span class="strong"><a href="../org/omnifaces/viewhandler/NoAutoGeneratedIdViewHandler.html#renderView(javax.faces.context.FacesContext, javax.faces.component.UIViewRoot)">renderView(FacesContext, UIViewRoot)</a></span> - Method in class org.omnifaces.viewhandler.<a href="../org/omnifaces/viewhandler/NoAutoGeneratedIdViewHandler.html" title="class in org.omnifaces.viewhandler">NoAutoGeneratedIdViewHandler</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="strong"><a href="../org/omnifaces/util/concurrentlinkedhashmap/ConcurrentLinkedHashMap.html#replace(K, V)">replace(K, V)</a></span> - Method in class org.omnifaces.util.concurrentlinkedhashmap.<a href="../org/omnifaces/util/concurrentlinkedhashmap/ConcurrentLinkedHashMap.html" title="class in org.omnifaces.util.concurrentlinkedhashmap">ConcurrentLinkedHashMap</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="../org/omnifaces/util/concurrentlinkedhashmap/ConcurrentLinkedHashMap.html#replace(K, V, V)">replace(K, V, V)</a></span> - Method in class org.omnifaces.util.concurrentlinkedhashmap.<a href="../org/omnifaces/util/concurrentlinkedhashmap/ConcurrentLinkedHashMap.html" title="class in org.omnifaces.util.concurrentlinkedhashmap">ConcurrentLinkedHashMap</a></dt>
@@ -259,6 +278,13 @@
 <dd>
 <div class="block">Resolve the given space separated collection of relative client IDs to absolute client IDs.</div>
 </dd>
+<dt><a href="../org/omnifaces/component/util/ResolveComponent.html" title="class in org.omnifaces.component.util"><span class="strong">ResolveComponent</span></a> - Class in <a href="../org/omnifaces/component/util/package-summary.html">org.omnifaces.component.util</a></dt>
+<dd>
+<div class="block"><strong>ResolveComponent</strong> is a utility component via which a component can be looked up by its ID and
+ a reference to it put in either the "facelet scope" (default) or the request scope.</div>
+</dd>
+<dt><span class="strong"><a href="../org/omnifaces/component/util/ResolveComponent.html#ResolveComponent()">ResolveComponent()</a></span> - Constructor for class org.omnifaces.component.util.<a href="../org/omnifaces/component/util/ResolveComponent.html" title="class in org.omnifaces.component.util">ResolveComponent</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="strong"><a href="../org/omnifaces/facesviews/FacesViewsResolver.html#resolveUrl(java.lang.String)">resolveUrl(String)</a></span> - Method in class org.omnifaces.facesviews.<a href="../org/omnifaces/facesviews/FacesViewsResolver.html" title="class in org.omnifaces.facesviews">FacesViewsResolver</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="../org/omnifaces/resourcehandler/ResourceIdentifier.html" title="class in org.omnifaces.resourcehandler"><span class="strong">ResourceIdentifier</span></a> - Class in <a href="../org/omnifaces/resourcehandler/package-summary.html">org.omnifaces.resourcehandler</a></dt>
@@ -317,11 +343,11 @@
 </dd>
 <dt><span class="strong"><a href="../org/omnifaces/component/EditableValueHolderStateHelper.html#restore(javax.faces.component.EditableValueHolder)">restore(EditableValueHolder)</a></span> - Method in class org.omnifaces.component.<a href="../org/omnifaces/component/EditableValueHolderStateHelper.html" title="class in org.omnifaces.component">EditableValueHolderStateHelper</a></dt>
 <dd>
-<div class="block">Restore the state of the given <a href="http://docs.oracle.com/javaee/6/api/javax/faces/component/EditableValueHolder.html?is-external=true" title="class or interface in javax.faces.component"><code>EditableValueHolder</code></a>.</div>
+<div class="block">Restore the state of the given <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/EditableValueHolder.html?is-external=true" title="class or interface in javax.faces.component"><code>EditableValueHolder</code></a>.</div>
 </dd>
 <dt><span class="strong"><a href="../org/omnifaces/component/EditableValueHolderStateHelper.html#restore(javax.faces.context.FacesContext, javax.faces.component.StateHelper, java.util.Iterator)">restore(FacesContext, StateHelper, Iterator&lt;UIComponent&gt;)</a></span> - Static method in class org.omnifaces.component.<a href="../org/omnifaces/component/EditableValueHolderStateHelper.html" title="class in org.omnifaces.component">EditableValueHolderStateHelper</a></dt>
 <dd>
-<div class="block">Restore state of any <a href="http://docs.oracle.com/javaee/6/api/javax/faces/component/EditableValueHolder.html?is-external=true" title="class or interface in javax.faces.component"><code>EditableValueHolder</code></a> children.</div>
+<div class="block">Restore state of any <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/EditableValueHolder.html?is-external=true" title="class or interface in javax.faces.component"><code>EditableValueHolder</code></a> children.</div>
 </dd>
 <dt><span class="strong"><a href="../org/omnifaces/viewhandler/RestorableViewHandler.html#restoreView(javax.faces.context.FacesContext, java.lang.String)">restoreView(FacesContext, String)</a></span> - Method in class org.omnifaces.viewhandler.<a href="../org/omnifaces/viewhandler/RestorableViewHandler.html" title="class in org.omnifaces.viewhandler">RestorableViewHandler</a></dt>
 <dd>

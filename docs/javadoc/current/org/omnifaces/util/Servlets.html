@@ -120,79 +120,128 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Servlets.html#addResponseCookie(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse, java.lang.String, java.lang.String, int)">addResponseCookie</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request,
+                 <a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletResponse.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletResponse</a>&nbsp;response,
+                 <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+                 <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value,
+                 int&nbsp;maxAge)</code>
+<div class="block">Add a cookie with given name, value and maxage to the HTTP response.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Servlets.html#addResponseCookie(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse, java.lang.String, java.lang.String, java.lang.String, int)">addResponseCookie</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request,
+                 <a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletResponse.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletResponse</a>&nbsp;response,
+                 <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+                 <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value,
+                 <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;path,
+                 int&nbsp;maxAge)</code>
+<div class="block">Add a cookie with given name, value, path and maxage to the HTTP response.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Servlets.html#addResponseCookie(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse, java.lang.String, java.lang.String, java.lang.String, java.lang.String, int)">addResponseCookie</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request,
+                 <a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletResponse.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletResponse</a>&nbsp;response,
+                 <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+                 <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value,
+                 <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;domain,
+                 <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;path,
+                 int&nbsp;maxAge)</code>
+<div class="block">Add a cookie with given name, value, domain, path and maxage to the HTTP response.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;T</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Servlets.html#getApplicationAttribute(javax.servlet.ServletContext, java.lang.String)">getApplicationAttribute</a></strong>(<a href="http://docs.oracle.com/javaee/6/api/javax/servlet/ServletContext.html?is-external=true" title="class or interface in javax.servlet">ServletContext</a>&nbsp;context,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Servlets.html#getApplicationAttribute(javax.servlet.ServletContext, java.lang.String)">getApplicationAttribute</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/ServletContext.html?is-external=true" title="class or interface in javax.servlet">ServletContext</a>&nbsp;context,
                        <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
 <div class="block">Returns the application scope attribute value associated with the given name.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Servlets.html#getForwardRequestQueryString(javax.servlet.http.HttpServletRequest)">getForwardRequestQueryString</a></strong>(<a href="http://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request)</code>
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Servlets.html#getForwardRequestQueryString(javax.servlet.http.HttpServletRequest)">getForwardRequestQueryString</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request)</code>
 <div class="block">Returns the original HTTP request query string behind this forwarded request, if any.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Servlets.html#getForwardRequestURI(javax.servlet.http.HttpServletRequest)">getForwardRequestURI</a></strong>(<a href="http://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request)</code>
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Servlets.html#getForwardRequestURI(javax.servlet.http.HttpServletRequest)">getForwardRequestURI</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request)</code>
 <div class="block">Returns the original HTTP request URI behind this forwarded request, if any.</div>
 </td>
 </tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Servlets.html#getForwardRequestURIWithQueryString(javax.servlet.http.HttpServletRequest)">getForwardRequestURIWithQueryString</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request)</code>
+<div class="block">Returns the original HTTP request URI with query string behind this forwarded request, if any.</div>
+</td>
+</tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Servlets.html#getForwardRequestURIWithQueryString(javax.servlet.http.HttpServletRequest)">getForwardRequestURIWithQueryString</a></strong>(<a href="http://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request)</code>
-<div class="block">Returns the original HTTP request URI with query string behind this forwarded request, if any.</div>
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Servlets.html#getRequestBaseURL(javax.servlet.http.HttpServletRequest)">getRequestBaseURL</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request)</code>
+<div class="block">Returns the HTTP request base URL.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Servlets.html#getRequestBaseURL(javax.servlet.http.HttpServletRequest)">getRequestBaseURL</a></strong>(<a href="http://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request)</code>
-<div class="block">Returns the HTTP request base URL.</div>
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Servlets.html#getRequestCookie(javax.servlet.http.HttpServletRequest, java.lang.String)">getRequestCookie</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request,
+                <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
+<div class="block">Returns the value of the HTTP request cookie associated with the given name.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Servlets.html#getRequestDomainURL(javax.servlet.http.HttpServletRequest)">getRequestDomainURL</a></strong>(<a href="http://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request)</code>
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Servlets.html#getRequestDomainURL(javax.servlet.http.HttpServletRequest)">getRequestDomainURL</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request)</code>
 <div class="block">Returns the HTTP request domain URL.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Servlets.html#getRequestHostname(javax.servlet.http.HttpServletRequest)">getRequestHostname</a></strong>(<a href="http://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request)</code>
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Servlets.html#getRequestHostname(javax.servlet.http.HttpServletRequest)">getRequestHostname</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request)</code>
 <div class="block">Returns the HTTP request hostname.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&gt;</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Servlets.html#getRequestQueryStringMap(javax.servlet.http.HttpServletRequest)">getRequestQueryStringMap</a></strong>(<a href="http://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request)</code>
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Servlets.html#getRequestQueryStringMap(javax.servlet.http.HttpServletRequest)">getRequestQueryStringMap</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request)</code>
 <div class="block">Returns the HTTP request query string as parameter values map.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Servlets.html#getRequestRelativeURI(javax.servlet.http.HttpServletRequest)">getRequestRelativeURI</a></strong>(<a href="http://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request)</code>
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Servlets.html#getRequestRelativeURI(javax.servlet.http.HttpServletRequest)">getRequestRelativeURI</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request)</code>
 <div class="block">Returns the HTTP request URI relative to the context root of a web application.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Servlets.html#getRequestRelativeURIWithoutPathParameters(javax.servlet.http.HttpServletRequest)">getRequestRelativeURIWithoutPathParameters</a></strong>(<a href="http://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request)</code>
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Servlets.html#getRequestRelativeURIWithoutPathParameters(javax.servlet.http.HttpServletRequest)">getRequestRelativeURIWithoutPathParameters</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request)</code>
 <div class="block">Returns the HTTP request URI relative to the context root of a web application.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Servlets.html#getRequestURIWithQueryString(javax.servlet.http.HttpServletRequest)">getRequestURIWithQueryString</a></strong>(<a href="http://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request)</code>
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Servlets.html#getRequestURIWithQueryString(javax.servlet.http.HttpServletRequest)">getRequestURIWithQueryString</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request)</code>
 <div class="block">Returns the HTTP request URI with query string.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Servlets.html#getRequestURLWithQueryString(javax.servlet.http.HttpServletRequest)">getRequestURLWithQueryString</a></strong>(<a href="http://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request)</code>
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Servlets.html#getRequestURLWithQueryString(javax.servlet.http.HttpServletRequest)">getRequestURLWithQueryString</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request)</code>
 <div class="block">Returns the HTTP request URL with query string.</div>
 </td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Servlets.html#removeResponseCookie(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse, java.lang.String, java.lang.String)">removeResponseCookie</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request,
+                    <a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletResponse.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletResponse</a>&nbsp;response,
+                    <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+                    <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;path)</code>
+<div class="block">Remove the cookie with given name and path from the HTTP response.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&gt;</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Servlets.html#toParameterMap(java.lang.String)">toParameterMap</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;queryString)</code>
 <div class="block">Converts the given query string to request parameter values map.</div>
@@ -226,15 +275,15 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <ul class="blockList">
 <li class="blockList">
 <h4>getRequestHostname</h4>
-<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getRequestHostname(<a href="http://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request)</pre>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getRequestHostname(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request)</pre>
 <div class="block">Returns the HTTP request hostname. This is the entire domain, without any scheme and slashes. Noted should be
- that this value is extracted from the request URL, not from <a href="http://docs.oracle.com/javaee/6/api/javax/servlet/ServletRequest.html?is-external=true#getServerName()" title="class or interface in javax.servlet"><code>ServletRequest.getServerName()</code></a> as its
+ that this value is extracted from the request URL, not from <a href="http://docs.oracle.com/javaee/7/api/javax/servlet/ServletRequest.html?is-external=true#getServerName()" title="class or interface in javax.servlet"><code>ServletRequest.getServerName()</code></a> as its
  outcome can be influenced by proxies.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>request</code> - The involved HTTP servlet request.</dd>
 <dt><span class="strong">Returns:</span></dt><dd>The HTTP request hostname.</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></code> - When the URL is malformed. This is however unexpected as the request would
- otherwise not have hit the server at all.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletRequest.html?is-external=true#getRequestURL()" title="class or interface in javax.servlet.http"><code>HttpServletRequest.getRequestURL()</code></a></dd></dl>
+ otherwise not have hit the server at all.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true#getRequestURL()" title="class or interface in javax.servlet.http"><code>HttpServletRequest.getRequestURL()</code></a></dd></dl>
 </li>
 </ul>
 <a name="getRequestDomainURL(javax.servlet.http.HttpServletRequest)">
@@ -243,11 +292,11 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <ul class="blockList">
 <li class="blockList">
 <h4>getRequestDomainURL</h4>
-<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getRequestDomainURL(<a href="http://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request)</pre>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getRequestDomainURL(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request)</pre>
 <div class="block">Returns the HTTP request domain URL. This is the URL with the scheme and domain, without any trailing slash.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>request</code> - The involved HTTP servlet request.</dd>
-<dt><span class="strong">Returns:</span></dt><dd>The HTTP request domain URL.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletRequest.html?is-external=true#getRequestURL()" title="class or interface in javax.servlet.http"><code>HttpServletRequest.getRequestURL()</code></a>, 
-<a href="http://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletRequest.html?is-external=true#getRequestURI()" title="class or interface in javax.servlet.http"><code>HttpServletRequest.getRequestURI()</code></a></dd></dl>
+<dt><span class="strong">Returns:</span></dt><dd>The HTTP request domain URL.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true#getRequestURL()" title="class or interface in javax.servlet.http"><code>HttpServletRequest.getRequestURL()</code></a>, 
+<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true#getRequestURI()" title="class or interface in javax.servlet.http"><code>HttpServletRequest.getRequestURI()</code></a></dd></dl>
 </li>
 </ul>
 <a name="getRequestBaseURL(javax.servlet.http.HttpServletRequest)">
@@ -256,13 +305,13 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <ul class="blockList">
 <li class="blockList">
 <h4>getRequestBaseURL</h4>
-<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getRequestBaseURL(<a href="http://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request)</pre>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getRequestBaseURL(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request)</pre>
 <div class="block">Returns the HTTP request base URL. This is the URL from the scheme, domain until with context path, including
  the trailing slash. This is the value you could use in HTML <code>&lt;base&gt;</code> tag.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>request</code> - The involved HTTP servlet request.</dd>
-<dt><span class="strong">Returns:</span></dt><dd>The HTTP request base URL.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletRequest.html?is-external=true#getRequestURL()" title="class or interface in javax.servlet.http"><code>HttpServletRequest.getRequestURL()</code></a>, 
-<a href="http://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletRequest.html?is-external=true#getRequestURI()" title="class or interface in javax.servlet.http"><code>HttpServletRequest.getRequestURI()</code></a>, 
-<a href="http://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletRequest.html?is-external=true#getContextPath()" title="class or interface in javax.servlet.http"><code>HttpServletRequest.getContextPath()</code></a></dd></dl>
+<dt><span class="strong">Returns:</span></dt><dd>The HTTP request base URL.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true#getRequestURL()" title="class or interface in javax.servlet.http"><code>HttpServletRequest.getRequestURL()</code></a>, 
+<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true#getRequestURI()" title="class or interface in javax.servlet.http"><code>HttpServletRequest.getRequestURI()</code></a>, 
+<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true#getContextPath()" title="class or interface in javax.servlet.http"><code>HttpServletRequest.getContextPath()</code></a></dd></dl>
 </li>
 </ul>
 <a name="getRequestRelativeURI(javax.servlet.http.HttpServletRequest)">
@@ -271,7 +320,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <ul class="blockList">
 <li class="blockList">
 <h4>getRequestRelativeURI</h4>
-<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getRequestRelativeURI(<a href="http://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request)</pre>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getRequestRelativeURI(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request)</pre>
 <div class="block">Returns the HTTP request URI relative to the context root of a web application. This is the request URI
  minus the context path. Note that this includes path parameters.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>request</code> - The involved HTTP servlet request.</dd>
@@ -285,7 +334,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <ul class="blockList">
 <li class="blockList">
 <h4>getRequestRelativeURIWithoutPathParameters</h4>
-<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getRequestRelativeURIWithoutPathParameters(<a href="http://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request)</pre>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getRequestRelativeURIWithoutPathParameters(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request)</pre>
 <div class="block">Returns the HTTP request URI relative to the context root of a web application. This is the servlet path
  plus the path info (if any).</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>request</code> - The involved HTTP servlet request.</dd>
@@ -299,12 +348,12 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <ul class="blockList">
 <li class="blockList">
 <h4>getRequestURLWithQueryString</h4>
-<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getRequestURLWithQueryString(<a href="http://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request)</pre>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getRequestURLWithQueryString(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request)</pre>
 <div class="block">Returns the HTTP request URL with query string. This is the full request URL with query string as the enduser
  sees in browser address bar.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>request</code> - The involved HTTP servlet request.</dd>
-<dt><span class="strong">Returns:</span></dt><dd>The HTTP request URL with query string.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletRequest.html?is-external=true#getRequestURL()" title="class or interface in javax.servlet.http"><code>HttpServletRequest.getRequestURL()</code></a>, 
-<a href="http://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletRequest.html?is-external=true#getQueryString()" title="class or interface in javax.servlet.http"><code>HttpServletRequest.getQueryString()</code></a></dd></dl>
+<dt><span class="strong">Returns:</span></dt><dd>The HTTP request URL with query string.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true#getRequestURL()" title="class or interface in javax.servlet.http"><code>HttpServletRequest.getRequestURL()</code></a>, 
+<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true#getQueryString()" title="class or interface in javax.servlet.http"><code>HttpServletRequest.getQueryString()</code></a></dd></dl>
 </li>
 </ul>
 <a name="getRequestURIWithQueryString(javax.servlet.http.HttpServletRequest)">
@@ -313,12 +362,12 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <ul class="blockList">
 <li class="blockList">
 <h4>getRequestURIWithQueryString</h4>
-<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getRequestURIWithQueryString(<a href="http://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request)</pre>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getRequestURIWithQueryString(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request)</pre>
 <div class="block">Returns the HTTP request URI with query string. This is the part after the domain in the request URL, including
  the leading slash and the request query string.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>request</code> - The involved HTTP servlet request.</dd>
-<dt><span class="strong">Returns:</span></dt><dd>The HTTP request URI with query string.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletRequest.html?is-external=true#getRequestURI()" title="class or interface in javax.servlet.http"><code>HttpServletRequest.getRequestURI()</code></a>, 
-<a href="http://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletRequest.html?is-external=true#getQueryString()" title="class or interface in javax.servlet.http"><code>HttpServletRequest.getQueryString()</code></a></dd></dl>
+<dt><span class="strong">Returns:</span></dt><dd>The HTTP request URI with query string.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true#getRequestURI()" title="class or interface in javax.servlet.http"><code>HttpServletRequest.getRequestURI()</code></a>, 
+<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true#getQueryString()" title="class or interface in javax.servlet.http"><code>HttpServletRequest.getQueryString()</code></a></dd></dl>
 </li>
 </ul>
 <a name="getRequestQueryStringMap(javax.servlet.http.HttpServletRequest)">
@@ -327,9 +376,9 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <ul class="blockList">
 <li class="blockList">
 <h4>getRequestQueryStringMap</h4>
-<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&gt;&nbsp;getRequestQueryStringMap(<a href="http://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request)</pre>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&gt;&nbsp;getRequestQueryStringMap(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request)</pre>
 <div class="block">Returns the HTTP request query string as parameter values map. Note this method returns <strong>only</strong>
- the request URL (GET) parameters, as opposed to <a href="http://docs.oracle.com/javaee/6/api/javax/servlet/ServletRequest.html?is-external=true#getParameterMap()" title="class or interface in javax.servlet"><code>ServletRequest.getParameterMap()</code></a>, which contains both
+ the request URL (GET) parameters, as opposed to <a href="http://docs.oracle.com/javaee/7/api/javax/servlet/ServletRequest.html?is-external=true#getParameterMap()" title="class or interface in javax.servlet"><code>ServletRequest.getParameterMap()</code></a>, which contains both
  the request URL (GET) parameters and and the request body (POST) parameters.
  The map entries are in the same order as they appear in the query string.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>request</code> - The request for which the base URL is computed.</dd>
@@ -342,7 +391,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <ul class="blockList">
 <li class="blockList">
 <h4>getForwardRequestURI</h4>
-<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getForwardRequestURI(<a href="http://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request)</pre>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getForwardRequestURI(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request)</pre>
 <div class="block">Returns the original HTTP request URI behind this forwarded request, if any.
  This does not include the request query string.</div>
 <dl><dt><span class="strong">Returns:</span></dt><dd>The original HTTP request URI behind this forwarded request, if any.</dd><dt><span class="strong">Since:</span></dt>
@@ -355,7 +404,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <ul class="blockList">
 <li class="blockList">
 <h4>getForwardRequestQueryString</h4>
-<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getForwardRequestQueryString(<a href="http://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request)</pre>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getForwardRequestQueryString(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request)</pre>
 <div class="block">Returns the original HTTP request query string behind this forwarded request, if any.</div>
 <dl><dt><span class="strong">Returns:</span></dt><dd>The original HTTP request query string behind this forwarded request, if any.</dd><dt><span class="strong">Since:</span></dt>
   <dd>1.8</dd></dl>
@@ -367,7 +416,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <ul class="blockList">
 <li class="blockList">
 <h4>getForwardRequestURIWithQueryString</h4>
-<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getForwardRequestURIWithQueryString(<a href="http://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request)</pre>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getForwardRequestURIWithQueryString(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request)</pre>
 <div class="block">Returns the original HTTP request URI with query string behind this forwarded request, if any.</div>
 <dl><dt><span class="strong">Returns:</span></dt><dd>The original HTTP request URI with query string behind this forwarded request, if any.</dd><dt><span class="strong">Since:</span></dt>
   <dd>1.8</dd></dl>
@@ -386,19 +435,134 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
   <dd>1.7</dd></dl>
 </li>
 </ul>
+<a name="getRequestCookie(javax.servlet.http.HttpServletRequest, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getRequestCookie</h4>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getRequestCookie(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request,
+                      <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
+<div class="block">Returns the value of the HTTP request cookie associated with the given name. The value is implicitly URL-decoded
+ with a charset of UTF-8.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>request</code> - The involved HTTP servlet request.</dd><dd><code>name</code> - The HTTP request cookie name.</dd>
+<dt><span class="strong">Returns:</span></dt><dd>The value of the HTTP request cookie associated with the given name.</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/UnsupportedOperationException.html?is-external=true" title="class or interface in java.lang">UnsupportedOperationException</a></code> - When this platform does not support UTF-8.</dd><dt><span class="strong">Since:</span></dt>
+  <dd>2.0</dd>
+<dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true#getCookies()" title="class or interface in javax.servlet.http"><code>HttpServletRequest.getCookies()</code></a></dd></dl>
+</li>
+</ul>
+<a name="addResponseCookie(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse, java.lang.String, java.lang.String, int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>addResponseCookie</h4>
+<pre>public static&nbsp;void&nbsp;addResponseCookie(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request,
+                     <a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletResponse.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletResponse</a>&nbsp;response,
+                     <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+                     <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value,
+                     int&nbsp;maxAge)</pre>
+<div class="block">Add a cookie with given name, value and maxage to the HTTP response. The cookie value will implicitly be
+ URL-encoded with UTF-8 so that any special characters can be stored in the cookie. The cookie will implicitly
+ be set to secure when the current request is secure (i.e. when the current request is a HTTPS request). The
+ cookie will implicitly be set in the domain and path of the current request URL.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>request</code> - The involved HTTP servlet request.</dd><dd><code>response</code> - The involved HTTP servlet response.</dd><dd><code>name</code> - The cookie name.</dd><dd><code>value</code> - The cookie value.</dd><dd><code>maxAge</code> - The maximum age of the cookie, in seconds. If this is <code>0</code>, then the cookie will be
+ removed. Note that the name and path must be exactly the same as it was when the cookie was created. If this is
+ <code>-1</code> then the cookie will become a session cookie and thus live as long as the established HTTP
+ session.</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/UnsupportedOperationException.html?is-external=true" title="class or interface in java.lang">UnsupportedOperationException</a></code> - When this platform does not support UTF-8.</dd><dt><span class="strong">Since:</span></dt>
+  <dd>2.0</dd>
+<dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletResponse.html?is-external=true#addCookie(javax.servlet.http.Cookie)" title="class or interface in javax.servlet.http"><code>HttpServletResponse.addCookie(Cookie)</code></a></dd></dl>
+</li>
+</ul>
+<a name="addResponseCookie(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse, java.lang.String, java.lang.String, java.lang.String, int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>addResponseCookie</h4>
+<pre>public static&nbsp;void&nbsp;addResponseCookie(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request,
+                     <a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletResponse.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletResponse</a>&nbsp;response,
+                     <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+                     <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value,
+                     <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;path,
+                     int&nbsp;maxAge)</pre>
+<div class="block">Add a cookie with given name, value, path and maxage to the HTTP response. The cookie value will implicitly be
+ URL-encoded with UTF-8 so that any special characters can be stored in the cookie. The cookie will implicitly
+ be set to secure when the current request is secure (i.e. when the current request is a HTTPS request). The
+ cookie will implicitly be set in the domain of the current request URL.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>request</code> - The involved HTTP servlet request.</dd><dd><code>response</code> - The involved HTTP servlet response.</dd><dd><code>name</code> - The cookie name.</dd><dd><code>value</code> - The cookie value.</dd><dd><code>path</code> - The cookie path. If this is <code>/</code>, then the cookie is available in all pages of the webapp.
+ If this is <code>/somespecificpath</code>, then the cookie is only available in pages under the specified path.</dd><dd><code>maxAge</code> - The maximum age of the cookie, in seconds. If this is <code>0</code>, then the cookie will be
+ removed. Note that the name and path must be exactly the same as it was when the cookie was created. If this is
+ <code>-1</code> then the cookie will become a session cookie and thus live as long as the established HTTP
+ session.</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/UnsupportedOperationException.html?is-external=true" title="class or interface in java.lang">UnsupportedOperationException</a></code> - When this platform does not support UTF-8.</dd><dt><span class="strong">Since:</span></dt>
+  <dd>2.0</dd>
+<dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletResponse.html?is-external=true#addCookie(javax.servlet.http.Cookie)" title="class or interface in javax.servlet.http"><code>HttpServletResponse.addCookie(Cookie)</code></a></dd></dl>
+</li>
+</ul>
+<a name="addResponseCookie(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse, java.lang.String, java.lang.String, java.lang.String, java.lang.String, int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>addResponseCookie</h4>
+<pre>public static&nbsp;void&nbsp;addResponseCookie(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request,
+                     <a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletResponse.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletResponse</a>&nbsp;response,
+                     <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+                     <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value,
+                     <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;domain,
+                     <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;path,
+                     int&nbsp;maxAge)</pre>
+<div class="block">Add a cookie with given name, value, domain, path and maxage to the HTTP response. The cookie value will
+ implicitly be URL-encoded with UTF-8 so that any special characters can be stored in the cookie. The cookie will
+ implicitly be set to secure when the current request is secure (i.e. when the current request is a HTTPS request).</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>request</code> - The involved HTTP servlet request.</dd><dd><code>response</code> - The involved HTTP servlet response.</dd><dd><code>name</code> - The cookie name.</dd><dd><code>value</code> - The cookie value.</dd><dd><code>domain</code> - The cookie domain. You can use <code>.example.com</code> (with a leading period) if you'd like the
+ cookie to be available to all subdomains of the domain. Note that you cannot set it to a different domain.</dd><dd><code>path</code> - The cookie path. If this is <code>/</code>, then the cookie is available in all pages of the webapp.
+ If this is <code>/somespecificpath</code>, then the cookie is only available in pages under the specified path.</dd><dd><code>maxAge</code> - The maximum age of the cookie, in seconds. If this is <code>0</code>, then the cookie will be
+ removed. Note that the name and path must be exactly the same as it was when the cookie was created. If this is
+ <code>-1</code> then the cookie will become a session cookie and thus live as long as the established HTTP
+ session.</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/UnsupportedOperationException.html?is-external=true" title="class or interface in java.lang">UnsupportedOperationException</a></code> - When this platform does not support UTF-8.</dd><dt><span class="strong">Since:</span></dt>
+  <dd>2.0</dd>
+<dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletResponse.html?is-external=true#addCookie(javax.servlet.http.Cookie)" title="class or interface in javax.servlet.http"><code>HttpServletResponse.addCookie(Cookie)</code></a></dd></dl>
+</li>
+</ul>
+<a name="removeResponseCookie(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse, java.lang.String, java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>removeResponseCookie</h4>
+<pre>public static&nbsp;void&nbsp;removeResponseCookie(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request,
+                        <a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletResponse.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletResponse</a>&nbsp;response,
+                        <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+                        <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;path)</pre>
+<div class="block">Remove the cookie with given name and path from the HTTP response. Note that the name and path must be exactly
+ the same as it was when the cookie was created.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>request</code> - The involved HTTP servlet request.</dd><dd><code>response</code> - The involved HTTP servlet response.</dd><dd><code>name</code> - The cookie name.</dd><dd><code>path</code> - The cookie path.</dd><dt><span class="strong">Since:</span></dt>
+  <dd>2.0</dd>
+<dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletResponse.html?is-external=true#addCookie(javax.servlet.http.Cookie)" title="class or interface in javax.servlet.http"><code>HttpServletResponse.addCookie(Cookie)</code></a></dd></dl>
+</li>
+</ul>
 <a name="getApplicationAttribute(javax.servlet.ServletContext, java.lang.String)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>getApplicationAttribute</h4>
-<pre>public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;getApplicationAttribute(<a href="http://docs.oracle.com/javaee/6/api/javax/servlet/ServletContext.html?is-external=true" title="class or interface in javax.servlet">ServletContext</a>&nbsp;context,
+<pre>public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;getApplicationAttribute(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/ServletContext.html?is-external=true" title="class or interface in javax.servlet">ServletContext</a>&nbsp;context,
                             <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
 <div class="block">Returns the application scope attribute value associated with the given name.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>context</code> - The servlet context used for looking up the attribute.</dd><dd><code>name</code> - The application scope attribute name.</dd>
 <dt><span class="strong">Returns:</span></dt><dd>The application scope attribute value associated with the given name.</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/ClassCastException.html?is-external=true" title="class or interface in java.lang">ClassCastException</a></code> - When <code>T</code> is of wrong type.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/6/api/javax/servlet/ServletContext.html?is-external=true#getAttribute(java.lang.String)" title="class or interface in javax.servlet"><code>ServletContext.getAttribute(String)</code></a></dd></dl>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/ClassCastException.html?is-external=true" title="class or interface in java.lang">ClassCastException</a></code> - When <code>T</code> is of wrong type.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/servlet/ServletContext.html?is-external=true#getAttribute(java.lang.String)" title="class or interface in javax.servlet"><code>ServletContext.getAttribute(String)</code></a></dd></dl>
 </li>
 </ul>
 </li>

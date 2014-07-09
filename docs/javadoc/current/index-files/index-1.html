@@ -278,6 +278,18 @@
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="../org/omnifaces/util/FacesLocal.html#addResponseCookie(javax.faces.context.FacesContext, java.lang.String, java.lang.String, java.lang.String, java.lang.String, int)">addResponseCookie(FacesContext, String, String, String, String, int)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/FacesLocal.html" title="class in org.omnifaces.util">FacesLocal</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="strong"><a href="../org/omnifaces/util/Servlets.html#addResponseCookie(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse, java.lang.String, java.lang.String, int)">addResponseCookie(HttpServletRequest, HttpServletResponse, String, String, int)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Servlets.html" title="class in org.omnifaces.util">Servlets</a></dt>
+<dd>
+<div class="block">Add a cookie with given name, value and maxage to the HTTP response.</div>
+</dd>
+<dt><span class="strong"><a href="../org/omnifaces/util/Servlets.html#addResponseCookie(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse, java.lang.String, java.lang.String, java.lang.String, int)">addResponseCookie(HttpServletRequest, HttpServletResponse, String, String, String, int)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Servlets.html" title="class in org.omnifaces.util">Servlets</a></dt>
+<dd>
+<div class="block">Add a cookie with given name, value, path and maxage to the HTTP response.</div>
+</dd>
+<dt><span class="strong"><a href="../org/omnifaces/util/Servlets.html#addResponseCookie(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse, java.lang.String, java.lang.String, java.lang.String, java.lang.String, int)">addResponseCookie(HttpServletRequest, HttpServletResponse, String, String, String, String, int)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Servlets.html" title="class in org.omnifaces.util">Servlets</a></dt>
+<dd>
+<div class="block">Add a cookie with given name, value, domain, path and maxage to the HTTP response.</div>
+</dd>
 <dt><span class="strong"><a href="../org/omnifaces/util/Faces.html#addResponseHeader(java.lang.String, java.lang.String)">addResponseHeader(String, String)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Faces.html" title="class in org.omnifaces.util">Faces</a></dt>
 <dd>
 <div class="block">Add a header with given name and value to the HTTP response.</div>
@@ -321,7 +333,7 @@
 </dd>
 <dt><a href="../org/omnifaces/util/Ajax.html" title="class in org.omnifaces.util"><span class="strong">Ajax</span></a> - Class in <a href="../org/omnifaces/util/package-summary.html">org.omnifaces.util</a></dt>
 <dd>
-<div class="block">Collection of utility methods for working with <a href="http://docs.oracle.com/javaee/6/api/javax/faces/context/PartialViewContext.html?is-external=true" title="class or interface in javax.faces.context"><code>PartialViewContext</code></a>.</div>
+<div class="block">Collection of utility methods for working with <a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/PartialViewContext.html?is-external=true" title="class or interface in javax.faces.context"><code>PartialViewContext</code></a>.</div>
 </dd>
 <dt><span class="strong"><a href="../org/omnifaces/component/output/cache/CacheInstancePerScopeProvider.html#APP_MAX_CAP_PARAM_NAME">APP_MAX_CAP_PARAM_NAME</a></span> - Static variable in class org.omnifaces.component.output.cache.<a href="../org/omnifaces/component/output/cache/CacheInstancePerScopeProvider.html" title="class in org.omnifaces.component.output.cache">CacheInstancePerScopeProvider</a></dt>
 <dd>&nbsp;</dd>
@@ -337,7 +349,7 @@
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="../org/omnifaces/taghandler/Converter.html#apply(javax.faces.view.facelets.FaceletContext, javax.faces.component.UIComponent)">apply(FaceletContext, UIComponent)</a></span> - Method in class org.omnifaces.taghandler.<a href="../org/omnifaces/taghandler/Converter.html" title="class in org.omnifaces.taghandler">Converter</a></dt>
 <dd>
-<div class="block">Create a <a href="http://docs.oracle.com/javaee/6/api/javax/faces/convert/Converter.html?is-external=true" title="class or interface in javax.faces.convert"><code>Converter</code></a> based on the <code>binding</code> and/or <code>converterId</code>
+<div class="block">Create a <a href="http://docs.oracle.com/javaee/7/api/javax/faces/convert/Converter.html?is-external=true" title="class or interface in javax.faces.convert"><code>Converter</code></a> based on the <code>binding</code> and/or <code>converterId</code>
  attributes as per the standard JSF <code>&lt;f:converter&gt;</code> implementation and collect the render time
  attributes.</div>
 </dd>
@@ -347,8 +359,8 @@
 </dd>
 <dt><span class="strong"><a href="../org/omnifaces/taghandler/IgnoreValidationFailed.html#apply(javax.faces.view.facelets.FaceletContext, javax.faces.component.UIComponent)">apply(FaceletContext, UIComponent)</a></span> - Method in class org.omnifaces.taghandler.<a href="../org/omnifaces/taghandler/IgnoreValidationFailed.html" title="class in org.omnifaces.taghandler">IgnoreValidationFailed</a></dt>
 <dd>
-<div class="block">This will create a <a href="http://docs.oracle.com/javaee/6/api/javax/faces/event/PhaseListener.html?is-external=true" title="class or interface in javax.faces.event"><code>PhaseListener</code></a> for the before phase of <a href="http://docs.oracle.com/javaee/6/api/javax/faces/event/PhaseId.html?is-external=true#PROCESS_VALIDATIONS" title="class or interface in javax.faces.event"><code>PhaseId.PROCESS_VALIDATIONS</code></a> which will
- in turn check if the parent <a href="http://docs.oracle.com/javaee/6/api/javax/faces/component/UICommand.html?is-external=true" title="class or interface in javax.faces.component"><code>UICommand</code></a> component has been invoked during the postback and if so, then
+<div class="block">This will create a <a href="http://docs.oracle.com/javaee/7/api/javax/faces/event/PhaseListener.html?is-external=true" title="class or interface in javax.faces.event"><code>PhaseListener</code></a> for the before phase of <a href="http://docs.oracle.com/javaee/7/api/javax/faces/event/PhaseId.html?is-external=true#PROCESS_VALIDATIONS" title="class or interface in javax.faces.event"><code>PhaseId.PROCESS_VALIDATIONS</code></a> which will
+ in turn check if the parent <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UICommand.html?is-external=true" title="class or interface in javax.faces.component"><code>UICommand</code></a> component has been invoked during the postback and if so, then
  set a context attribute which informs the <a href="../org/omnifaces/component/input/Form.html" title="class in org.omnifaces.component.input"><code>Form</code></a> to ignore the validation.</div>
 </dd>
 <dt><span class="strong"><a href="../org/omnifaces/taghandler/ImportConstants.html#apply(javax.faces.view.facelets.FaceletContext, javax.faces.component.UIComponent)">apply(FaceletContext, UIComponent)</a></span> - Method in class org.omnifaces.taghandler.<a href="../org/omnifaces/taghandler/ImportConstants.html" title="class in org.omnifaces.taghandler">ImportConstants</a></dt>
@@ -358,7 +370,7 @@
 </dd>
 <dt><span class="strong"><a href="../org/omnifaces/taghandler/ImportFunctions.html#apply(javax.faces.view.facelets.FaceletContext, javax.faces.component.UIComponent)">apply(FaceletContext, UIComponent)</a></span> - Method in class org.omnifaces.taghandler.<a href="../org/omnifaces/taghandler/ImportFunctions.html" title="class in org.omnifaces.taghandler">ImportFunctions</a></dt>
 <dd>
-<div class="block">Register a new <a href="http://docs.oracle.com/javaee/6/api/javax/el/FunctionMapper.html?is-external=true" title="class or interface in javax.el"><code>FunctionMapper</code></a> which checks if the given prefix matches our own <code>var</code> and then
+<div class="block">Register a new <a href="http://docs.oracle.com/javaee/7/api/javax/el/FunctionMapper.html?is-external=true" title="class or interface in javax.el"><code>FunctionMapper</code></a> which checks if the given prefix matches our own <code>var</code> and then
  find the associated method based on the given method name.</div>
 </dd>
 <dt><span class="strong"><a href="../org/omnifaces/taghandler/MassAttribute.html#apply(javax.faces.view.facelets.FaceletContext, javax.faces.component.UIComponent)">apply(FaceletContext, UIComponent)</a></span> - Method in class org.omnifaces.taghandler.<a href="../org/omnifaces/taghandler/MassAttribute.html" title="class in org.omnifaces.taghandler">MassAttribute</a></dt>
@@ -369,12 +381,12 @@
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="../org/omnifaces/taghandler/ValidateUniqueColumn.html#apply(javax.faces.view.facelets.FaceletContext, javax.faces.component.UIComponent)">apply(FaceletContext, UIComponent)</a></span> - Method in class org.omnifaces.taghandler.<a href="../org/omnifaces/taghandler/ValidateUniqueColumn.html" title="class in org.omnifaces.taghandler">ValidateUniqueColumn</a></dt>
 <dd>
-<div class="block">If the component is new, check if it's an instance of <a href="http://docs.oracle.com/javaee/6/api/javax/faces/component/UIInput.html?is-external=true" title="class or interface in javax.faces.component"><code>UIInput</code></a> and then register this tag as a value
+<div class="block">If the component is new, check if it's an instance of <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIInput.html?is-external=true" title="class or interface in javax.faces.component"><code>UIInput</code></a> and then register this tag as a value
  change listener on it.</div>
 </dd>
 <dt><span class="strong"><a href="../org/omnifaces/taghandler/Validator.html#apply(javax.faces.view.facelets.FaceletContext, javax.faces.component.UIComponent)">apply(FaceletContext, UIComponent)</a></span> - Method in class org.omnifaces.taghandler.<a href="../org/omnifaces/taghandler/Validator.html" title="class in org.omnifaces.taghandler">Validator</a></dt>
 <dd>
-<div class="block">Create a <a href="http://docs.oracle.com/javaee/6/api/javax/faces/validator/Validator.html?is-external=true" title="class or interface in javax.faces.validator"><code>Validator</code></a> based on the <code>binding</code> and/or
+<div class="block">Create a <a href="http://docs.oracle.com/javaee/7/api/javax/faces/validator/Validator.html?is-external=true" title="class or interface in javax.faces.validator"><code>Validator</code></a> based on the <code>binding</code> and/or
  <code>validatorId</code> attributes as per the standard JSF <code>&lt;f:validator&gt;</code> implementation and
  collect the render time attributes.</div>
 </dd>
@@ -408,7 +420,7 @@
 </dd>
 <dt><a href="../org/omnifaces/cdi/param/Attribute.html" title="annotation in org.omnifaces.cdi.param"><span class="strong">Attribute</span></a> - Annotation Type in <a href="../org/omnifaces/cdi/param/package-summary.html">org.omnifaces.cdi.param</a></dt>
 <dd>
-<div class="block">Attribute for a <a href="http://docs.oracle.com/javaee/6/api/javax/faces/convert/Converter.html?is-external=true" title="class or interface in javax.faces.convert"><code>Converter</code></a> or <a href="http://docs.oracle.com/javaee/6/api/javax/faces/validator/Validator.html?is-external=true" title="class or interface in javax.faces.validator"><code>Validator</code></a> that is applied to a value retrieved from an HTTP request and
+<div class="block">Attribute for a <a href="http://docs.oracle.com/javaee/7/api/javax/faces/convert/Converter.html?is-external=true" title="class or interface in javax.faces.convert"><code>Converter</code></a> or <a href="http://docs.oracle.com/javaee/7/api/javax/faces/validator/Validator.html?is-external=true" title="class or interface in javax.faces.validator"><code>Validator</code></a> that is applied to a value retrieved from an HTTP request and
  injected via the <a href="../org/omnifaces/cdi/Param.html" title="annotation in org.omnifaces.cdi"><code>Param</code></a> qualifier.</div>
 </dd>
 <dt><span class="strong"><a href="../org/omnifaces/util/Faces.html#authenticate()">authenticate()</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Faces.html" title="class in org.omnifaces.util">Faces</a></dt>

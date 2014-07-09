@@ -15,6 +15,7 @@ org.omnifaces.component.output.cache
 org.omnifaces.component.output.cache.el
 org.omnifaces.component.script
 org.omnifaces.component.tree
+org.omnifaces.component.util
 org.omnifaces.component.validator
 org.omnifaces.config
 org.omnifaces.context

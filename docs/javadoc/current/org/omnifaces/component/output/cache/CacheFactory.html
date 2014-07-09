@@ -140,20 +140,20 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static <a href="../../../../../org/omnifaces/component/output/cache/Cache.html" title="interface in org.omnifaces.component.output.cache">Cache</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/omnifaces/component/output/cache/CacheFactory.html#getCache(javax.faces.context.FacesContext, java.lang.String)">getCache</a></strong>(<a href="http://docs.oracle.com/javaee/6/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context,
+<td class="colLast"><code><strong><a href="../../../../../org/omnifaces/component/output/cache/CacheFactory.html#getCache(javax.faces.context.FacesContext, java.lang.String)">getCache</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context,
         <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;scope)</code>
 <div class="block">Gets an instance of a Cache using the configured cache provider.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static <a href="../../../../../org/omnifaces/component/output/cache/CacheProvider.html" title="interface in org.omnifaces.component.output.cache">CacheProvider</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/omnifaces/component/output/cache/CacheFactory.html#getCacheProvider(javax.faces.context.FacesContext)">getCacheProvider</a></strong>(<a href="http://docs.oracle.com/javaee/6/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context)</code>
+<td class="colLast"><code><strong><a href="../../../../../org/omnifaces/component/output/cache/CacheFactory.html#getCacheProvider(javax.faces.context.FacesContext)">getCacheProvider</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context)</code>
 <div class="block">Gets the cache provider that has been set, or the default provider if none is present.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static <a href="../../../../../org/omnifaces/component/output/cache/CacheProvider.html" title="interface in org.omnifaces.component.output.cache">CacheProvider</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../../org/omnifaces/component/output/cache/CacheFactory.html#getCacheProvider(javax.servlet.ServletContext)">getCacheProvider</a></strong>(<a href="http://docs.oracle.com/javaee/6/api/javax/servlet/ServletContext.html?is-external=true" title="class or interface in javax.servlet">ServletContext</a>&nbsp;servletContext)</code>
+<td class="colLast"><code><strong><a href="../../../../../org/omnifaces/component/output/cache/CacheFactory.html#getCacheProvider(javax.servlet.ServletContext)">getCacheProvider</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/ServletContext.html?is-external=true" title="class or interface in javax.servlet">ServletContext</a>&nbsp;servletContext)</code>
 <div class="block">Gets the cache provider as it has been set in the ServletContext.</div>
 </td>
 </tr>
@@ -166,7 +166,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <tr class="altColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><strong><a href="../../../../../org/omnifaces/component/output/cache/CacheFactory.html#setCacheProvider(org.omnifaces.component.output.cache.CacheProvider, javax.servlet.ServletContext)">setCacheProvider</a></strong>(<a href="../../../../../org/omnifaces/component/output/cache/CacheProvider.html" title="interface in org.omnifaces.component.output.cache">CacheProvider</a>&nbsp;cacheProvider,
-                <a href="http://docs.oracle.com/javaee/6/api/javax/servlet/ServletContext.html?is-external=true" title="class or interface in javax.servlet">ServletContext</a>&nbsp;servletContext)</code>&nbsp;</td>
+                <a href="http://docs.oracle.com/javaee/7/api/javax/servlet/ServletContext.html?is-external=true" title="class or interface in javax.servlet">ServletContext</a>&nbsp;servletContext)</code>&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -214,7 +214,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <ul class="blockList">
 <li class="blockList">
 <h4>getCache</h4>
-<pre>public static&nbsp;<a href="../../../../../org/omnifaces/component/output/cache/Cache.html" title="interface in org.omnifaces.component.output.cache">Cache</a>&nbsp;getCache(<a href="http://docs.oracle.com/javaee/6/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context,
+<pre>public static&nbsp;<a href="../../../../../org/omnifaces/component/output/cache/Cache.html" title="interface in org.omnifaces.component.output.cache">Cache</a>&nbsp;getCache(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context,
              <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;scope)</pre>
 <div class="block">Gets an instance of a Cache using the configured cache provider.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>context</code> - faces context used for retrieving the cache provider and for resolving the given scope.</dd><dd><code>scope</code> - scope for which the cache should be obtained. Supported scopes are dependent on the specific caching
@@ -228,7 +228,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <ul class="blockList">
 <li class="blockList">
 <h4>getCacheProvider</h4>
-<pre>public static&nbsp;<a href="../../../../../org/omnifaces/component/output/cache/CacheProvider.html" title="interface in org.omnifaces.component.output.cache">CacheProvider</a>&nbsp;getCacheProvider(<a href="http://docs.oracle.com/javaee/6/api/javax/servlet/ServletContext.html?is-external=true" title="class or interface in javax.servlet">ServletContext</a>&nbsp;servletContext)</pre>
+<pre>public static&nbsp;<a href="../../../../../org/omnifaces/component/output/cache/CacheProvider.html" title="interface in org.omnifaces.component.output.cache">CacheProvider</a>&nbsp;getCacheProvider(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/ServletContext.html?is-external=true" title="class or interface in javax.servlet">ServletContext</a>&nbsp;servletContext)</pre>
 <div class="block">Gets the cache provider as it has been set in the ServletContext. Does NOT return the default cache provider if
  none is present.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>servletContext</code> - the servlet context where the cache provider is retrieved from</dd>
@@ -242,7 +242,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <li class="blockList">
 <h4>setCacheProvider</h4>
 <pre>public static&nbsp;void&nbsp;setCacheProvider(<a href="../../../../../org/omnifaces/component/output/cache/CacheProvider.html" title="interface in org.omnifaces.component.output.cache">CacheProvider</a>&nbsp;cacheProvider,
-                    <a href="http://docs.oracle.com/javaee/6/api/javax/servlet/ServletContext.html?is-external=true" title="class or interface in javax.servlet">ServletContext</a>&nbsp;servletContext)</pre>
+                    <a href="http://docs.oracle.com/javaee/7/api/javax/servlet/ServletContext.html?is-external=true" title="class or interface in javax.servlet">ServletContext</a>&nbsp;servletContext)</pre>
 </li>
 </ul>
 <a name="getCacheProvider(javax.faces.context.FacesContext)">
@@ -251,7 +251,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <ul class="blockList">
 <li class="blockList">
 <h4>getCacheProvider</h4>
-<pre>public static&nbsp;<a href="../../../../../org/omnifaces/component/output/cache/CacheProvider.html" title="interface in org.omnifaces.component.output.cache">CacheProvider</a>&nbsp;getCacheProvider(<a href="http://docs.oracle.com/javaee/6/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context)</pre>
+<pre>public static&nbsp;<a href="../../../../../org/omnifaces/component/output/cache/CacheProvider.html" title="interface in org.omnifaces.component.output.cache">CacheProvider</a>&nbsp;getCacheProvider(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context)</pre>
 <div class="block">Gets the cache provider that has been set, or the default provider if none is present.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>context</code> - the faces context where the cache provider is retrieved from</dd>
 <dt><span class="strong">Returns:</span></dt><dd>the previously set provider if one is set, otherwise the default provider</dd></dl>
