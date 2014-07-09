@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>OmniFaces CDI</title>
+		<meta name="description" content="OmniFaces CDI" />
+		<link rel="stylesheet" href="../stylesheets/stylesheet.css" />
+	</head>
+	<body>
+		<!-- HEADER -->
+		<div id="header_wrap" class="outer">
+			<header class="inner">
+				<h1 id="project_title">OmniFaces CDI</h1>
+			</header>
+		</div>
+
+		<!-- MAIN CONTENT -->
+		<div id="main_content_wrap" class="outer">
+			<section id="main_content" class="inner">
+
+<!-- Just copypasted from homepage. -->
+<h2>CDI</h2>
+
+<p>So, you got the following error in server log?</p>
+
+<div class="highlight highlight-sh"><pre>
+████████████████████████████████████████████████████████████████████████████████
+▌                         ▐█     ▐                                             ▐
+▌    ▄                  ▄█▓█▌    ▐ OmniFaces failed to initialize!             ▐
+▌   ▐██▄               ▄▓░░▓▓    ▐                                             ▐
+▌   ▐█░██▓            ▓▓░░░▓▌    ▐ This OmniFaces version requires CDI, but    ▐
+▌   ▐█▌░▓██          █▓░░░░▓     ▐ none was found on this environment.         ▐
+▌    ▓█▌░░▓█▄███████▄███▓░▓█     ▐                                             ▐
+▌    ▓██▌░▓██░░░░░░░░░░▓█░▓▌     ▐ OmniFaces 2.x requires a minimum of JSF 2.2.▐
+▌     ▓█████░░░░░░░░░░░░▓██      ▐ Since this JSF version, the JSF managed bean▐
+▌     ▓██▓░░░░░░░░░░░░░░░▓█      ▐ facility @ManagedBean is semi-official      ▐
+▌     ▐█▓░░░░░░█▓░░▓█░░░░▓█▌     ▐ deprecated in favour of CDI. JSF 2.2 users  ▐
+▌     ▓█▌░▓█▓▓██▓░█▓▓▓▓▓░▓█▌     ▐ are strongly encouraged to move to CDI.     ▐
+▌     ▓▓░▓██████▓░▓███▓▓▌░█▓     ▐                                             ▐
+▌    ▐▓▓░█▄▐▓▌█▓░░▓█▐▓▌▄▓░██     ▐ OmniFaces goes a step further by making CDI ▐
+▌    ▓█▓░▓█▄▄▄█▓░░▓█▄▄▄█▓░██▌    ▐ a REQUIRED dependency next to JSF 2.2. This ▐
+▌    ▓█▌░▓█████▓░░░▓███▓▀░▓█▓    ▐ not only ensures that your web application  ▐
+▌   ▐▓█░░░▀▓██▀░░░░░ ▀▓▀░░▓█▓    ▐ represents the state of art, but this also  ▐
+▌   ▓██░░░░░░░░▀▄▄▄▄▀░░░░░░▓▓    ▐ makes for us easier to develop OmniFaces,   ▐
+▌   ▓█▌░░░░░░░░░░▐▌░░░░░░░░▓▓▌   ▐ without the need for all sorts of hacks in  ▐
+▌   ▓█░░░░░░░░░▄▀▀▀▀▄░░░░░░░█▓   ▐ in order to get OmniFaces to deploy on      ▐
+▌  ▐█▌░░░░░░░░▀░░░░░░▀░░░░░░█▓▌  ▐ environments without CDI.                   ▐
+▌  ▓█░░░░░░░░░░░░░░░░░░░░░░░██▓  ▐                                             ▐
+▌  ▓█░░░░░░░░░░░░░░░░░░░░░░░▓█▓  ▐ You have 3 options:                         ▐
+██████████████████████████████████ 1. Downgrade to OmniFaces 1.x.              ▐
+█░▀░░░░▀█▀░░░░░░▀█░░░░░░▀█▀░░░░░▀█ 2. Install CDI in this environment.         ▐
+█░░▐█▌░░█░░░██░░░█░░██░░░█░░░██░░█ 3. Switch to a CDI capable environment.     ▐
+█░░▐█▌░░█░░░██░░░█░░██░░░█░░░██░░█                                             ▐
+█░░▐█▌░░█░░░██░░░█░░░░░░▄█░░▄▄▄▄▄█ For additional instructions, check          ▐
+█░░▐█▌░░█░░░██░░░█░░░░████░░░░░░░█ http://omnifaces.org/cdi                    ▐
+█░░░█░░░█▄░░░░░░▄█░░░░████▄░░░░░▄█                                             ▐
+████████████████████████████████████████████████████████████████████████████████
+</pre></div> 
+
+<p>So, you have the following options:</p>
+<ol>
+<li><strong>Downgrade to OmniFaces 1.x.</strong>
+<br/>This version doesn't require CDI. So you should be able to run it on CDI-less environments.
+</li>
+<li><strong>Install CDI in this environment.</strong>
+<br/>For Tomcat users who don't have freedom in server choice, refer this article: <a href="http://balusc.blogspot.com/2013/10/how-to-install-cdi-in-tomcat.html">How to install CDI in Tomcat?</a>
+</li>
+<li><strong>Switch to a CDI capable environment.</strong>
+<br/>For Tomcat users who have full freedom in server choice, just replace Tomcat by <a href="http://tomee.apache.org/">TomEE</a>, or perhaps even <a href="http://wildfly.org/">WildFly</a>
+</li>
+</ol>
+
+			</section>
+		</div>
+
+		<!-- FOOTER  -->
+		<div id="footer_wrap" class="outer">
+			<footer class="inner">
+				<p>
+					Copypasted from <a href="http://pages.github.com">GitHub Pages</a>
+				</p>
+			</footer>
+		</div>
+
+		<script type="text/javascript">
+			var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+			document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+		<script type="text/javascript">
+			try {
+				var pageTracker = _gat._getTracker("UA-29559297-6");
+				pageTracker._trackPageview();
+			} catch(err) {}
+		</script>
+	</body>
+</html>
