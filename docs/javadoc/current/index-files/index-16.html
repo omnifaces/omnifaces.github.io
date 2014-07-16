@@ -247,6 +247,8 @@
 <div class="block">If the event is a <a href="http://docs.oracle.com/javaee/7/api/javax/faces/event/PreRenderViewEvent.html?is-external=true" title="class or interface in javax.faces.event"><code>PreRenderViewEvent</code></a> and the current request is an ajax request and this component is
  rendered and there are any children, then encode the children as <a href="../org/omnifaces/util/Ajax.html#oncomplete(java.lang.String...)"><code>Ajax.oncomplete(String...)</code></a>.</div>
 </dd>
+<dt><span class="strong"><a href="../org/omnifaces/component/util/MoveComponent.html#processEvent(javax.faces.event.SystemEvent)">processEvent(SystemEvent)</a></span> - Method in class org.omnifaces.component.util.<a href="../org/omnifaces/component/util/MoveComponent.html" title="class in org.omnifaces.component.util">MoveComponent</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="strong"><a href="../org/omnifaces/component/util/ResolveComponent.html#processEvent(javax.faces.event.SystemEvent)">processEvent(SystemEvent)</a></span> - Method in class org.omnifaces.component.util.<a href="../org/omnifaces/component/util/ResolveComponent.html" title="class in org.omnifaces.component.util">ResolveComponent</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="../org/omnifaces/component/util/ResolveComponent.html#processEvent(javax.faces.event.ComponentSystemEvent)">processEvent(ComponentSystemEvent)</a></span> - Method in class org.omnifaces.component.util.<a href="../org/omnifaces/component/util/ResolveComponent.html" title="class in org.omnifaces.component.util">ResolveComponent</a></dt>
@@ -271,8 +273,13 @@
  
  Collect all component resources from the head.</div>
 </dd>
-<dt><span class="strong"><a href="../org/omnifaces/VersionLoggerEventListener.html#processEvent(javax.faces.event.SystemEvent)">processEvent(SystemEvent)</a></span> - Method in class org.omnifaces.<a href="../org/omnifaces/VersionLoggerEventListener.html" title="class in org.omnifaces">VersionLoggerEventListener</a></dt>
-<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="../org/omnifaces/taghandler/ViewParamValidationFailed.html#processEvent(javax.faces.event.ComponentSystemEvent)">processEvent(ComponentSystemEvent)</a></span> - Method in class org.omnifaces.taghandler.<a href="../org/omnifaces/taghandler/ViewParamValidationFailed.html" title="class in org.omnifaces.taghandler">ViewParamValidationFailed</a></dt>
+<dd>
+<div class="block">If the current request is <strong>not</strong> a postback and the current response is <strong>not</strong>
+ already completed, and validation on the parent component has failed (for <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIViewRoot.html?is-external=true" title="class or interface in javax.faces.component"><code>UIViewRoot</code></a> this is checked by
+ <a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true#isValidationFailed()" title="class or interface in javax.faces.context"><code>FacesContext.isValidationFailed()</code></a> and for <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIViewParameter.html?is-external=true" title="class or interface in javax.faces.component"><code>UIViewParameter</code></a> this is checked by
+ <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIInput.html?is-external=true#isValid()" title="class or interface in javax.faces.component"><code>UIInput.isValid()</code></a>), then send either a redirect or error depending on the tag attributes set.</div>
+</dd>
 <dt><span class="strong"><a href="../org/omnifaces/event/FacesEventWrapper.html#processListener(javax.faces.event.FacesListener)">processListener(FacesListener)</a></span> - Method in class org.omnifaces.event.<a href="../org/omnifaces/event/FacesEventWrapper.html" title="class in org.omnifaces.event">FacesEventWrapper</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="../org/omnifaces/cdi/viewscope/ViewScopeExtension.html#processManagedBeans(javax.enterprise.inject.spi.ProcessManagedBean)">processManagedBeans(ProcessManagedBean&lt;ViewScopeManager&gt;)</a></span> - Method in class org.omnifaces.cdi.viewscope.<a href="../org/omnifaces/cdi/viewscope/ViewScopeExtension.html" title="class in org.omnifaces.cdi.viewscope">ViewScopeExtension</a></dt>
