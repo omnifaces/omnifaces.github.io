@@ -106,22 +106,25 @@
 <pre>public class <span class="strong">ValidateUniqueColumn</span>
 extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/TagHandler.html?is-external=true" title="class or interface in javax.faces.view.facelets">TagHandler</a>
 implements <a href="http://docs.oracle.com/javaee/7/api/javax/faces/event/ValueChangeListener.html?is-external=true" title="class or interface in javax.faces.event">ValueChangeListener</a></pre>
-<div class="block"><strong>ValidateUniqueColumn</strong> validates if the given <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIInput.html?is-external=true" title="class or interface in javax.faces.component"><code>UIInput</code></a> component in an <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIData.html?is-external=true" title="class or interface in javax.faces.component"><code>UIData</code></a> component
- has an unique value throughout all rows, also those not visible by pagination. This validator works directly on the
- data model and may therefore not work as expected if the data model does not represent <strong>all</strong> available
- rows of the <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIData.html?is-external=true" title="class or interface in javax.faces.component"><code>UIData</code></a> component (e.g. when there's means of lazy loading).
+<div class="block"><p>
+ The <code>&lt;o:validateUniqueColumn&gt;</code> validates if the given <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIInput.html?is-external=true" title="class or interface in javax.faces.component"><code>UIInput</code></a> component in an <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIData.html?is-external=true" title="class or interface in javax.faces.component"><code>UIData</code></a>
+ component has an unique value throughout all rows, also those not visible by pagination. This validator works
+ directly on the data model and may therefore not work as expected if the data model does not represent
+ <strong>all</strong> available rows of the <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIData.html?is-external=true" title="class or interface in javax.faces.component"><code>UIData</code></a> component (e.g. when there's means of lazy loading).
  <p>
  The default message is
  <blockquote>{0}: Please fill out an unique value for the entire column. Duplicate found in row {1}</blockquote>
+
+ <h3>Usage</h3>
  <p>
  Usage example:
  <pre>
  &lt;h:dataTable value="#{bean.items}" var="item"&gt;
-   &lt;h:column&gt;
-     &lt;h:inputText value="#{item.value}"&gt;
-       &lt;o:validateUniqueColumn /&gt;
-     &lt;/h:inputText&gt;
-   &lt;/h:column&gt;
+     &lt;h:column&gt;
+         &lt;h:inputText value="#{item.value}"&gt;
+             &lt;o:validateUniqueColumn /&gt;
+         &lt;/h:inputText&gt;
+     &lt;/h:column&gt;
  &lt;/h:dataTable&gt;
  </pre>
  <p>
@@ -193,7 +196,7 @@ implements <a href="http://docs.oracle.com/javaee/7/api/javax/faces/event/ValueC
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/taghandler/ValidateUniqueColumn.html#apply(javax.faces.view.facelets.FaceletContext, javax.faces.component.UIComponent)">apply</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/FaceletContext.html?is-external=true" title="class or interface in javax.faces.view.facelets">FaceletContext</a>&nbsp;context,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/taghandler/ValidateUniqueColumn.html#apply(javax.faces.view.facelets.FaceletContext,%20javax.faces.component.UIComponent)">apply</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/FaceletContext.html?is-external=true" title="class or interface in javax.faces.view.facelets">FaceletContext</a>&nbsp;context,
      <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;parent)</code>
 <div class="block">If the component is new, check if it's an instance of <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIInput.html?is-external=true" title="class or interface in javax.faces.component"><code>UIInput</code></a> and then register this tag as a value
  change listener on it.</div>
@@ -232,7 +235,7 @@ implements <a href="http://docs.oracle.com/javaee/7/api/javax/faces/event/ValueC
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
-<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long, int)" title="class or interface in java.lang">wait</a></code></li>
+<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,%20int)" title="class or interface in java.lang">wait</a></code></li>
 </ul>
 </li>
 </ul>
@@ -280,7 +283,7 @@ implements <a href="http://docs.oracle.com/javaee/7/api/javax/faces/event/ValueC
  change listener on it. If the component is not new, check if there's an <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIData.html?is-external=true" title="class or interface in javax.faces.component"><code>UIData</code></a> parent.</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
-<dd><code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/FaceletHandler.html?is-external=true#apply(javax.faces.view.facelets.FaceletContext, javax.faces.component.UIComponent)" title="class or interface in javax.faces.view.facelets">apply</a></code>&nbsp;in interface&nbsp;<code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/FaceletHandler.html?is-external=true" title="class or interface in javax.faces.view.facelets">FaceletHandler</a></code></dd>
+<dd><code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/FaceletHandler.html?is-external=true#apply(javax.faces.view.facelets.FaceletContext,%20javax.faces.component.UIComponent)" title="class or interface in javax.faces.view.facelets">apply</a></code>&nbsp;in interface&nbsp;<code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/FaceletHandler.html?is-external=true" title="class or interface in javax.faces.view.facelets">FaceletHandler</a></code></dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
 </li>

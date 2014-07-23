@@ -70,7 +70,7 @@
 <div class="block">A weigher where the value is a <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util"><code>Map</code></a> and its weight is the number of
  entries.</div>
 </dd>
-<dt><span class="strong"><a href="../org/omnifaces/facesviews/FacesViews.html#mapFacesServlet(javax.servlet.ServletContext, java.util.Set)">mapFacesServlet(ServletContext, Set&lt;String&gt;)</a></span> - Static method in class org.omnifaces.facesviews.<a href="../org/omnifaces/facesviews/FacesViews.html" title="class in org.omnifaces.facesviews">FacesViews</a></dt>
+<dt><span class="strong"><a href="../org/omnifaces/facesviews/FacesViews.html#mapFacesServlet(javax.servlet.ServletContext,%20java.util.Set)">mapFacesServlet(ServletContext, Set&lt;String&gt;)</a></span> - Static method in class org.omnifaces.facesviews.<a href="../org/omnifaces/facesviews/FacesViews.html" title="class in org.omnifaces.facesviews">FacesViews</a></dt>
 <dd>
 <div class="block">Map the Facelets Servlet to the given extensions</div>
 </dd>
@@ -88,14 +88,15 @@
 </dd>
 <dt><a href="../org/omnifaces/taghandler/MassAttribute.html" title="class in org.omnifaces.taghandler"><span class="strong">MassAttribute</span></a> - Class in <a href="../org/omnifaces/taghandler/package-summary.html">org.omnifaces.taghandler</a></dt>
 <dd>
-<div class="block">The <strong>&lt;o:massAttribute&gt;</strong> sets an attribute of the given name and value on all nested components,
+<div class="block">
+ The <strong>&lt;o:massAttribute&gt;</strong> sets an attribute of the given name and value on all nested components,
  if they don't already have an attribute set.</div>
 </dd>
 <dt><span class="strong"><a href="../org/omnifaces/taghandler/MassAttribute.html#MassAttribute(javax.faces.view.facelets.TagConfig)">MassAttribute(TagConfig)</a></span> - Constructor for class org.omnifaces.taghandler.<a href="../org/omnifaces/taghandler/MassAttribute.html" title="class in org.omnifaces.taghandler">MassAttribute</a></dt>
 <dd>
 <div class="block">The tag constructor.</div>
 </dd>
-<dt><span class="strong"><a href="../org/omnifaces/el/functions/Strings.html#matches(java.lang.String, java.lang.String)">matches(String, String)</a></span> - Static method in class org.omnifaces.el.functions.<a href="../org/omnifaces/el/functions/Strings.html" title="class in org.omnifaces.el.functions">Strings</a></dt>
+<dt><span class="strong"><a href="../org/omnifaces/el/functions/Strings.html#matches(java.lang.String,%20java.lang.String)">matches(String, String)</a></span> - Static method in class org.omnifaces.el.functions.<a href="../org/omnifaces/el/functions/Strings.html" title="class in org.omnifaces.el.functions">Strings</a></dt>
 <dd>
 <div class="block">Returns true if the given string matches the given pattern.</div>
 </dd>
@@ -106,7 +107,8 @@
 </dd>
 <dt><a href="../org/omnifaces/util/Messages.html" title="class in org.omnifaces.util"><span class="strong">Messages</span></a> - Class in <a href="../org/omnifaces/util/package-summary.html">org.omnifaces.util</a></dt>
 <dd>
-<div class="block">Collection of utility methods for the JSF API with respect to working with <a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/FacesMessage.html?is-external=true" title="class or interface in javax.faces.application"><code>FacesMessage</code></a>.</div>
+<div class="block">
+ Collection of utility methods for the JSF API with respect to working with <a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/FacesMessage.html?is-external=true" title="class or interface in javax.faces.application"><code>FacesMessage</code></a>.</div>
 </dd>
 <dt><a href="../org/omnifaces/util/Messages.Message.html" title="class in org.omnifaces.util"><span class="strong">Messages.Message</span></a> - Class in <a href="../org/omnifaces/util/package-summary.html">org.omnifaces.util</a></dt>
 <dd>
@@ -122,7 +124,7 @@
 </dd>
 <dt><span class="strong"><a href="../org/omnifaces/renderer/MessagesRenderer.html#MessagesRenderer()">MessagesRenderer()</a></span> - Constructor for class org.omnifaces.renderer.<a href="../org/omnifaces/renderer/MessagesRenderer.html" title="class in org.omnifaces.renderer">MessagesRenderer</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="../org/omnifaces/util/Hacks.html#methodExpressionToStaticMethod(javax.el.ELContext, javax.el.MethodExpression)">methodExpressionToStaticMethod(ELContext, MethodExpression)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Hacks.html" title="class in org.omnifaces.util">Hacks</a></dt>
+<dt><span class="strong"><a href="../org/omnifaces/util/Hacks.html#methodExpressionToStaticMethod(javax.el.ELContext,%20javax.el.MethodExpression)">methodExpressionToStaticMethod(ELContext, MethodExpression)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Hacks.html" title="class in org.omnifaces.util">Hacks</a></dt>
 <dd>
 <div class="block">This method wraps a <code>MethodExpression</code> in a <code>Method</code> which can be statically invoked.</div>
 </dd>
@@ -134,8 +136,9 @@
 <dd>&nbsp;</dd>
 <dt><a href="../org/omnifaces/taghandler/MethodParam.html" title="class in org.omnifaces.taghandler"><span class="strong">MethodParam</span></a> - Class in <a href="../org/omnifaces/taghandler/package-summary.html">org.omnifaces.taghandler</a></dt>
 <dd>
-<div class="block">This handler wraps a value expression that's actually a method expression by another value expression that returns a method expression
- that gets the value of first value expression, which as "side-effect" executes the original method expression.</div>
+<div class="block">
+ The <code>&lt;o:methodParam&gt;</code> is a tag handler that can be used to pass a method expression as attribute
+ into a Facelets tag.</div>
 </dd>
 <dt><span class="strong"><a href="../org/omnifaces/taghandler/MethodParam.html#MethodParam(javax.faces.view.facelets.TagConfig)">MethodParam(TagConfig)</a></span> - Constructor for class org.omnifaces.taghandler.<a href="../org/omnifaces/taghandler/MethodParam.html" title="class in org.omnifaces.taghandler">MethodParam</a></dt>
 <dd>&nbsp;</dd>
@@ -143,13 +146,13 @@
 <dd>
 <div class="block">This encapsulates a base model object and one of its methods.</div>
 </dd>
-<dt><span class="strong"><a href="../org/omnifaces/el/MethodReference.html#MethodReference(java.lang.Object, java.lang.reflect.Method)">MethodReference(Object, Method)</a></span> - Constructor for class org.omnifaces.el.<a href="../org/omnifaces/el/MethodReference.html" title="class in org.omnifaces.el">MethodReference</a></dt>
+<dt><span class="strong"><a href="../org/omnifaces/el/MethodReference.html#MethodReference(java.lang.Object,%20java.lang.reflect.Method)">MethodReference(Object, Method)</a></span> - Constructor for class org.omnifaces.el.<a href="../org/omnifaces/el/MethodReference.html" title="class in org.omnifaces.el">MethodReference</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="../org/omnifaces/el/functions/Dates.html#minutesBetween(java.util.Date, java.util.Date)">minutesBetween(Date, Date)</a></span> - Static method in class org.omnifaces.el.functions.<a href="../org/omnifaces/el/functions/Dates.html" title="class in org.omnifaces.el.functions">Dates</a></dt>
+<dt><span class="strong"><a href="../org/omnifaces/el/functions/Dates.html#minutesBetween(java.util.Date,%20java.util.Date)">minutesBetween(Date, Date)</a></span> - Static method in class org.omnifaces.el.functions.<a href="../org/omnifaces/el/functions/Dates.html" title="class in org.omnifaces.el.functions">Dates</a></dt>
 <dd>
 <div class="block">Returns the amount of minutes between two given dates.</div>
 </dd>
-<dt><span class="strong"><a href="../org/omnifaces/el/functions/Dates.html#monthsBetween(java.util.Date, java.util.Date)">monthsBetween(Date, Date)</a></span> - Static method in class org.omnifaces.el.functions.<a href="../org/omnifaces/el/functions/Dates.html" title="class in org.omnifaces.el.functions">Dates</a></dt>
+<dt><span class="strong"><a href="../org/omnifaces/el/functions/Dates.html#monthsBetween(java.util.Date,%20java.util.Date)">monthsBetween(Date, Date)</a></span> - Static method in class org.omnifaces.el.functions.<a href="../org/omnifaces/el/functions/Dates.html" title="class in org.omnifaces.el.functions">Dates</a></dt>
 <dd>
 <div class="block">Returns the amount of months between two given dates.</div>
 </dd>

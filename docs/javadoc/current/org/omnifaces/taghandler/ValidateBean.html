@@ -105,12 +105,15 @@
 <br>
 <pre>public class <span class="strong">ValidateBean</span>
 extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/TagHandler.html?is-external=true" title="class or interface in javax.faces.view.facelets">TagHandler</a></pre>
-<div class="block">The <code>&lt;o:validateBean&gt;</code> allows the developer to control bean validation on a per-<a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UICommand.html?is-external=true" title="class or interface in javax.faces.component"><code>UICommand</code></a>
+<div class="block"><p>
+ The <code>&lt;o:validateBean&gt;</code> allows the developer to control bean validation on a per-<a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UICommand.html?is-external=true" title="class or interface in javax.faces.component"><code>UICommand</code></a>
  or <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIInput.html?is-external=true" title="class or interface in javax.faces.component"><code>UIInput</code></a> component basis. The standard <code>&lt;f:validateBean&gt;</code> only allows that on a per-form
  or a per-request basis (by using multiple tags and conditional EL expressions in its attributes) which may end up in
  boilerplate code.
+
+ <h3>Usage</h3>
  <p>
- Usage examples:
+ Some examples:
  <pre>
  &lt;h:commandButton value="submit" action="#{bean.submit}"&gt;
      &lt;o:validateBean validationGroups="javax.validation.groups.Default,com.example.MyGroup"/&gt;
@@ -179,7 +182,7 @@ extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/T
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/taghandler/ValidateBean.html#apply(javax.faces.view.facelets.FaceletContext, javax.faces.component.UIComponent)">apply</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/FaceletContext.html?is-external=true" title="class or interface in javax.faces.view.facelets">FaceletContext</a>&nbsp;context,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/taghandler/ValidateBean.html#apply(javax.faces.view.facelets.FaceletContext,%20javax.faces.component.UIComponent)">apply</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/FaceletContext.html?is-external=true" title="class or interface in javax.faces.view.facelets">FaceletContext</a>&nbsp;context,
      <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;parent)</code>&nbsp;</td>
 </tr>
 </table>
@@ -195,7 +198,7 @@ extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/T
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
-<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long, int)" title="class or interface in java.lang">wait</a></code></li>
+<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,%20int)" title="class or interface in java.lang">wait</a></code></li>
 </ul>
 </li>
 </ul>

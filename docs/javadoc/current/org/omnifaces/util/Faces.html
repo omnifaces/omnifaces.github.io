@@ -96,15 +96,71 @@
 <br>
 <pre>public final class <span class="strong">Faces</span>
 extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
-<div class="block">Collection of utility methods for the JSF API that are mainly shortcuts for obtaining stuff from the thread local
- <a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context"><code>FacesContext</code></a>. In effect, it 'flattens' the hierarchy of nested objects.
+<div class="block"><p>
+ Collection of utility methods for the JSF API that are mainly shortcuts for obtaining stuff from the thread local
+ <a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context"><code>FacesContext</code></a>. In effects, it 'flattens' the hierarchy of nested objects. Do note that using the hierarchy is
+ actually a better software design practice, but can lead to verbose code.
  <p>
- Do note that using the hierarchy is actually a better software design practice, but can lead to verbose code.
+ Next to those oneliner delegate calls, there are also some helpful methods which eliminates multiline boilerplate
+ code, such as <a href="../../../org/omnifaces/util/Faces.html#getLocale()"><code>getLocale()</code></a> which returns sane fallback values, a more convenient
+ <a href="../../../org/omnifaces/util/Faces.html#redirect(java.lang.String,%20java.lang.String...)"><code>redirect(String, String...)</code></a> which automatically prepends the context path when the path does not start with
+ <code>/</code> and offers support for URL encoding of request parameters supplied by varargs argument, and several
+ useful <a href="../../../org/omnifaces/util/Faces.html#sendFile(java.io.File,%20boolean)"><code>sendFile(File, boolean)</code></a> methods which allows you to provide a <a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io"><code>File</code></a>, <code>byte[]</code> or
+ <a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io"><code>InputStream</code></a> as a download to the client.
+
+ <h3>Usage</h3>
  <p>
- In addition, note that there's normally a minor overhead in obtaining the thread local <a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context"><code>FacesContext</code></a>. In case
- client code needs to call methods in this class multiple times it's expected that performance will be slightly better
- if instead the <a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context"><code>FacesContext</code></a> is obtained once and the required methods are called on that, although the
- difference is practically negligible when used in modern server hardware.
+ Some examples:
+ <pre>
+ // Get a session attribute (no explicit cast necessary!).
+ User user = Faces.getSessionAttribute("user");
+ </pre>
+ <pre>
+ // Evaluate EL programmatically (no explicit cast necessary!).
+ Item item = Faces.evaluateExpressionGet("#{item}");
+ </pre>
+ <pre>
+ // Get a cookie value.
+ String cookieValue = Faces.getRequestCookie("cookieName");
+ </pre>
+ <pre>
+ // Get all supported locales with default locale as first item.
+ List&lt;Locale&gt; supportedLocales = Faces.getSupportedLocales();
+ </pre>
+ <pre>
+ // Check in e.g. preRenderView if session has been timed out.
+ if (Faces.hasSessionTimedOut()) {
+     Messages.addGlobalWarn("Oops, you have been logged out because your session was been timed out!");
+ }
+ </pre>
+ <pre>
+ // Get value of &lt;f:metadata&gt;&lt;f:attribute name="foo"&gt; of different view without building it.
+ String foo = Faces.getMetadataAttribute("/other.xhtml", "foo");
+ </pre>
+ <pre>
+ // Send a redirect with parameters UTF-8 encoded in query string.
+ Faces.redirect("product.xhtml?id=%d&amp;name=%s", product.getId(), product.getName());
+ </pre>
+ <pre>
+ // Invalidate the session and send a redirect.
+ public void logout() throws IOException {
+     Faces.invalidateSession();
+     Faces.redirect("login.xhtml"); // Can by the way also be done by return "login?faces-redirect=true" if in action method.
+ }
+ </pre>
+ <pre>
+ // Provide a file as attachment.
+ public void download() throws IOException {
+     Faces.sendFile(new File("/path/to/file.ext"), true);
+ }
+ </pre>
+
+ <h3>FacesLocal</h3>
+ <p>
+ Note that there's normally a minor overhead in obtaining the thread local <a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context"><code>FacesContext</code></a>. In case client code
+ needs to call methods in this class multiple times it's expected that performance will be slightly better if instead
+ the <a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context"><code>FacesContext</code></a> is obtained once and the required methods are called on that, although the difference is
+ practically negligible when used in modern server hardware.
  <p>
  In such case, consider using <a href="../../../org/omnifaces/util/FacesLocal.html" title="class in org.omnifaces.util"><code>FacesLocal</code></a> instead. The difference with <a href="../../../org/omnifaces/util/Faces.html" title="class in org.omnifaces.util"><code>Faces</code></a> is that no one method of
  <a href="../../../org/omnifaces/util/FacesLocal.html" title="class in org.omnifaces.util"><code>FacesLocal</code></a> obtains the <a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context"><code>FacesContext</code></a> from the current thread by
@@ -131,7 +187,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#addResponseCookie(java.lang.String, java.lang.String, int)">addResponseCookie</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#addResponseCookie(java.lang.String,%20java.lang.String,%20int)">addResponseCookie</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                  <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value,
                  int&nbsp;maxAge)</code>
 <div class="block">Add a cookie with given name, value and maxage to the HTTP response.</div>
@@ -139,7 +195,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#addResponseCookie(java.lang.String, java.lang.String, java.lang.String, int)">addResponseCookie</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#addResponseCookie(java.lang.String,%20java.lang.String,%20java.lang.String,%20int)">addResponseCookie</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                  <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value,
                  <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;path,
                  int&nbsp;maxAge)</code>
@@ -148,7 +204,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#addResponseCookie(java.lang.String, java.lang.String, java.lang.String, java.lang.String, int)">addResponseCookie</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#addResponseCookie(java.lang.String,%20java.lang.String,%20java.lang.String,%20java.lang.String,%20int)">addResponseCookie</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                  <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value,
                  <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;domain,
                  <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;path,
@@ -158,7 +214,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#addResponseHeader(java.lang.String, java.lang.String)">addResponseHeader</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#addResponseHeader(java.lang.String,%20java.lang.String)">addResponseHeader</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                  <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value)</code>
 <div class="block">Add a header with given name and value to the HTTP response.</div>
 </td>
@@ -177,7 +233,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#evaluateExpressionSet(java.lang.String, java.lang.Object)">evaluateExpressionSet</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;expression,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#evaluateExpressionSet(java.lang.String,%20java.lang.Object)">evaluateExpressionSet</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;expression,
                      <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)</code>
 <div class="block">Programmatically evaluate the given EL expression and set the given value.</div>
 </td>
@@ -208,7 +264,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getBookmarkableURL(java.util.Collection, boolean)">getBookmarkableURL</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;<a href="../../../org/omnifaces/component/ParamHolder.html" title="interface in org.omnifaces.component">ParamHolder</a>&gt;&nbsp;params,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getBookmarkableURL(java.util.Collection,%20boolean)">getBookmarkableURL</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;<a href="../../../org/omnifaces/component/ParamHolder.html" title="interface in org.omnifaces.component">ParamHolder</a>&gt;&nbsp;params,
                   boolean&nbsp;includeViewParams)</code>
 <div class="block">Returns the concrete domain-relative URL to the current view with the given params URL-encoded in the query
  string and optionally include view parameters as well.</div>
@@ -216,7 +272,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getBookmarkableURL(java.util.Map, boolean)">getBookmarkableURL</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&gt;&nbsp;params,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getBookmarkableURL(java.util.Map,%20boolean)">getBookmarkableURL</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&gt;&nbsp;params,
                   boolean&nbsp;includeViewParams)</code>
 <div class="block">Returns the concrete domain-relative URL to the current view with the given params URL-encoded in the query
  string and optionally include view parameters as well.</div>
@@ -224,7 +280,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getBookmarkableURL(java.lang.String, java.util.Collection, boolean)">getBookmarkableURL</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;viewId,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getBookmarkableURL(java.lang.String,%20java.util.Collection,%20boolean)">getBookmarkableURL</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;viewId,
                   <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;<a href="../../../org/omnifaces/component/ParamHolder.html" title="interface in org.omnifaces.component">ParamHolder</a>&gt;&nbsp;params,
                   boolean&nbsp;includeViewParams)</code>
 <div class="block">Returns the concrete domain-relative URL to the given view with the given params URL-encoded in the query
@@ -233,7 +289,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getBookmarkableURL(java.lang.String, java.util.Map, boolean)">getBookmarkableURL</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;viewId,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getBookmarkableURL(java.lang.String,%20java.util.Map,%20boolean)">getBookmarkableURL</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;viewId,
                   <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&gt;&nbsp;params,
                   boolean&nbsp;includeViewParams)</code>
 <div class="block">Returns the concrete domain-relative URL to the given view with the given params URL-encoded in the query
@@ -368,628 +424,634 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;T</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getMetadataAttribute(java.lang.String, java.lang.String)">getMetadataAttribute</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;viewId,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getMetadataAttribute(java.lang.String,%20java.lang.String)">getMetadataAttribute</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;viewId,
                     <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
 <div class="block">Returns the metadata attribute of the given view ID associated with the given name.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;</code></td>
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getMetadataAttributes()">getMetadataAttributes</a></strong>()</code>
+<div class="block">Returns the metadata attribute map of the current view, or an empty map if there is no view metadata.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getMetadataAttributes(java.lang.String)">getMetadataAttributes</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;viewId)</code>
 <div class="block">Returns the metadata attribute map of the given view ID, or an empty map if there is no view metadata.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getMimeType(java.lang.String)">getMimeType</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
 <div class="block">Returns the mime type for the given file name.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getRealPath(java.lang.String)">getRealPath</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;webContentPath)</code>
 <div class="block">Returns the absolute disk file system path representation of the given web content path.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getRemoteAddr()">getRemoteAddr</a></strong>()</code>
 <div class="block">Returns the Internet Protocol (IP) address of the client that sent the request.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getRemoteUser()">getRemoteUser</a></strong>()</code>
 <div class="block">Returns the name of the logged-in user for container managed FORM based authentication, if any.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getRequest()">getRequest</a></strong>()</code>
 <div class="block">Returns the HTTP servlet request.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;T</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getRequestAttribute(java.lang.String)">getRequestAttribute</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
 <div class="block">Returns the request scope attribute value associated with the given name.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getRequestBaseURL()">getRequestBaseURL</a></strong>()</code>
 <div class="block">Returns the HTTP request base URL.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getRequestContextPath()">getRequestContextPath</a></strong>()</code>
 <div class="block">Returns the HTTP request context path.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getRequestCookie(java.lang.String)">getRequestCookie</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
 <div class="block">Returns the value of the HTTP request cookie associated with the given name.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getRequestDomainURL()">getRequestDomainURL</a></strong>()</code>
 <div class="block">Returns the HTTP request domain URL.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getRequestHeader(java.lang.String)">getRequestHeader</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
 <div class="block">Returns the HTTP request header value associated with the given name.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getRequestHeaderMap()">getRequestHeaderMap</a></strong>()</code>
 <div class="block">Returns the HTTP request header map.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getRequestHeaderValues(java.lang.String)">getRequestHeaderValues</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
 <div class="block">Returns the HTTP request header values associated with the given name.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]&gt;</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getRequestHeaderValuesMap()">getRequestHeaderValuesMap</a></strong>()</code>
 <div class="block">Returns the HTTP request header values map.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getRequestHostname()">getRequestHostname</a></strong>()</code>
 <div class="block">Returns the HTTP request hostname.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getRequestMap()">getRequestMap</a></strong>()</code>
 <div class="block">Returns the request scope map.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getRequestParameter(java.lang.String)">getRequestParameter</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
 <div class="block">Returns the HTTP request parameter value associated with the given name.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getRequestParameterMap()">getRequestParameterMap</a></strong>()</code>
 <div class="block">Returns the HTTP request parameter map.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getRequestParameterValues(java.lang.String)">getRequestParameterValues</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
 <div class="block">Returns the HTTP request parameter values associated with the given name.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]&gt;</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getRequestParameterValuesMap()">getRequestParameterValuesMap</a></strong>()</code>
 <div class="block">Returns the HTTP request parameter values map.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getRequestPathInfo()">getRequestPathInfo</a></strong>()</code>
 <div class="block">Returns the HTTP request path info.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getRequestQueryString()">getRequestQueryString</a></strong>()</code>
 <div class="block">Returns the HTTP request query string.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&gt;</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getRequestQueryStringMap()">getRequestQueryStringMap</a></strong>()</code>
 <div class="block">Returns the HTTP request query string as parameter values map.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getRequestServletPath()">getRequestServletPath</a></strong>()</code>
 <div class="block">Returns the HTTP request servlet path.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getRequestURI()">getRequestURI</a></strong>()</code>
 <div class="block">Returns the HTTP request URI.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getRequestURIWithQueryString()">getRequestURIWithQueryString</a></strong>()</code>
 <div class="block">Returns the HTTP request URI with query string.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getRequestURL()">getRequestURL</a></strong>()</code>
 <div class="block">Returns the HTTP request URL.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getRequestURLWithQueryString()">getRequestURLWithQueryString</a></strong>()</code>
 <div class="block">Returns the HTTP request URL with query string.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net">URL</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getResource(java.lang.String)">getResource</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;path)</code>
 <div class="block">Returns a URL for an application resource mapped to the specified path, if it exists; otherwise, return
  <code>null</code>.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getResourceAsStream(java.lang.String)">getResourceAsStream</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;path)</code>
 <div class="block">Returns an input stream for an application resource mapped to the specified path, if it exists; otherwise,
  return <code>null</code>.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getResourcePaths(java.lang.String)">getResourcePaths</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;path)</code>
 <div class="block">Returns a set of available application resource paths matching the specified path.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletResponse.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletResponse</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getResponse()">getResponse</a></strong>()</code>
 <div class="block">Returns the HTTP servlet response.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static int</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getResponseBufferSize()">getResponseBufferSize</a></strong>()</code>
 <div class="block">Returns the HTTP response buffer size.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getResponseCharacterEncoding()">getResponseCharacterEncoding</a></strong>()</code>
 <div class="block">Returns the HTTP response character encoding.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getServerInfo()">getServerInfo</a></strong>()</code>
 <div class="block">Returns the server information of currently running application server implementation.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javaee/7/api/javax/servlet/ServletContext.html?is-external=true" title="class or interface in javax.servlet">ServletContext</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getServletContext()">getServletContext</a></strong>()</code>
 <div class="block">Returns the servlet context.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpSession.html?is-external=true" title="class or interface in javax.servlet.http">HttpSession</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getSession()">getSession</a></strong>()</code>
 <div class="block">Returns the HTTP session and creates one if one doesn't exist.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpSession.html?is-external=true" title="class or interface in javax.servlet.http">HttpSession</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getSession(boolean)">getSession</a></strong>(boolean&nbsp;create)</code>
 <div class="block">Returns the HTTP session and creates one if one doesn't exist and <code>create</code> argument is
  <code>true</code>, otherwise don't create one and return <code>null</code>.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;T</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getSessionAttribute(java.lang.String)">getSessionAttribute</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
 <div class="block">Returns the session scope attribute value associated with the given name.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static long</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getSessionCreationTime()">getSessionCreationTime</a></strong>()</code>
 <div class="block">Returns the time when the HTTP session was created, measured in epoch time.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getSessionId()">getSessionId</a></strong>()</code>
 <div class="block">Returns a string containing the unique identifier assigned to this session.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static long</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getSessionLastAccessedTime()">getSessionLastAccessedTime</a></strong>()</code>
 <div class="block">Returns the time of the previous request associated with the current HTTP session, measured in epoch time.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getSessionMap()">getSessionMap</a></strong>()</code>
 <div class="block">Returns the session scope map.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static int</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getSessionMaxInactiveInterval()">getSessionMaxInactiveInterval</a></strong>()</code>
 <div class="block">Returns the HTTP session timeout in seconds.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Locale.html?is-external=true" title="class or interface in java.util">Locale</a>&gt;</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getSupportedLocales()">getSupportedLocales</a></strong>()</code>
 <div class="block">Returns a list of all supported locales on this application, with the default locale as the first item, if any.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;T</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getViewAttribute(java.lang.String)">getViewAttribute</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
 <div class="block">Returns the view scope attribute value associated with the given name.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/ViewDeclarationLanguage.html?is-external=true" title="class or interface in javax.faces.view">ViewDeclarationLanguage</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getViewDeclarationLanguage()">getViewDeclarationLanguage</a></strong>()</code>
 <div class="block">Returns the <a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/ViewDeclarationLanguage.html?is-external=true" title="class or interface in javax.faces.view"><code>ViewDeclarationLanguage</code></a> associated with the "current" view ID.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getViewId()">getViewId</a></strong>()</code>
 <div class="block">Returns the ID of the current view root, or <code>null</code> if there is no view.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getViewMap()">getViewMap</a></strong>()</code>
 <div class="block">Returns the view scope map.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&gt;</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getViewParameterMap()">getViewParameterMap</a></strong>()</code>
 <div class="block">Returns the view parameters of the current view as a parameter map, or an empty map if there is no view.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;<a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIViewParameter.html?is-external=true" title="class or interface in javax.faces.component">UIViewParameter</a>&gt;</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getViewParameters()">getViewParameters</a></strong>()</code>
 <div class="block">Returns the view parameters of the current view, or an empty collection if there is no view.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIViewRoot.html?is-external=true" title="class or interface in javax.faces.component">UIViewRoot</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#getViewRoot()">getViewRoot</a></strong>()</code>
 <div class="block">Returns the current view root.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#hasContext()">hasContext</a></strong>()</code>
 <div class="block">Returns <code>true</code> when the current faces context is available (i.e.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#hasSession()">hasSession</a></strong>()</code>
 <div class="block">Returns whether the HTTP session has already been created.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#hasSessionTimedOut()">hasSessionTimedOut</a></strong>()</code>
 <div class="block">Returns whether the HTTP session has been timed out for the current request.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#invalidateSession()">invalidateSession</a></strong>()</code>
 <div class="block">Invalidates the current HTTP session.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#isAjaxRequest()">isAjaxRequest</a></strong>()</code>
 <div class="block">Returns whether the current request is an ajax request.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#isDevelopment()">isDevelopment</a></strong>()</code>
 <div class="block">Returns whether we're in development stage.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#isPostback()">isPostback</a></strong>()</code>
 <div class="block">Returns whether the current request is a postback.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#isPrefixMapping()">isPrefixMapping</a></strong>()</code>
 <div class="block">Returns whether the faces servlet mapping used in the current request is a prefix mapping.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#isPrefixMapping(java.lang.String)">isPrefixMapping</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;mapping)</code>
 <div class="block">Returns whether the given faces servlet mapping is a prefix mapping.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#isRenderResponse()">isRenderResponse</a></strong>()</code>
 <div class="block">Returns <code>true</code> if we're currently in the render response phase.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#isResponseCommitted()">isResponseCommitted</a></strong>()</code>
 <div class="block">Returns whether the response is already committed.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#isResponseComplete()">isResponseComplete</a></strong>()</code>
 <div class="block">Returns <code>true</code> if the <a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true#responseComplete()" title="class or interface in javax.faces.context"><code>FacesContext.responseComplete()</code></a> has been called.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#isSessionNew()">isSessionNew</a></strong>()</code>
 <div class="block">Returns whether the HTTP session has been created for the first time in the current request.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#isUserInRole(java.lang.String)">isUserInRole</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;role)</code>
 <div class="block">Returns whether the currently logged-in user has the given role.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#isValidationFailed()">isValidationFailed</a></strong>()</code>
 <div class="block">Returns whether the validations phase of the current request has failed.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#login(java.lang.String, java.lang.String)">login</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;username,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#login(java.lang.String,%20java.lang.String)">login</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;username,
      <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;password)</code>
 <div class="block">Perform programmatic login for container managed FORM based authentication.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#logout()">logout</a></strong>()</code>
 <div class="block">Perform programmatic logout for container managed FORM based authentication.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#navigate(java.lang.String)">navigate</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;outcome)</code>
 <div class="block">Perform the JSF navigation to the given outcome.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#normalizeViewId(java.lang.String)">normalizeViewId</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;path)</code>
 <div class="block">Normalize the given path as a valid view ID based on the current mapping, if necessary.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#redirect(java.lang.String, java.lang.String...)">redirect</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;url,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#redirect(java.lang.String,%20java.lang.String...)">redirect</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;url,
         <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>...&nbsp;paramValues)</code>
 <div class="block">Sends a temporary (302) redirect to the given URL.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#redirectPermanent(java.lang.String, java.lang.String...)">redirectPermanent</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;url,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#redirectPermanent(java.lang.String,%20java.lang.String...)">redirectPermanent</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;url,
                  <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>...&nbsp;paramValues)</code>
 <div class="block">Sends a permanent (301) redirect to the given URL.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;T</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#removeApplicationAttribute(java.lang.String)">removeApplicationAttribute</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
 <div class="block">Removes the application scope attribute value associated with the given name.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;T</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#removeFlashAttribute(java.lang.String)">removeFlashAttribute</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
 <div class="block">Removes the flash scope attribute value associated with the given name.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;T</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#removeRequestAttribute(java.lang.String)">removeRequestAttribute</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
 <div class="block">Removes the request scope attribute value associated with the given name.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#removeResponseCookie(java.lang.String, java.lang.String)">removeResponseCookie</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#removeResponseCookie(java.lang.String,%20java.lang.String)">removeResponseCookie</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                     <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;path)</code>
 <div class="block">Remove the cookie with given name and path from the HTTP response.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;T</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#removeSessionAttribute(java.lang.String)">removeSessionAttribute</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
 <div class="block">Removes the session scope attribute value associated with the given name.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;T</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#removeViewAttribute(java.lang.String)">removeViewAttribute</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
 <div class="block">Removes the view scope attribute value associated with the given name.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#renderResponse()">renderResponse</a></strong>()</code>
 <div class="block">Signals JSF that, as soon as the current phase of the lifecycle has been completed, control should be passed to
  the Render Response phase, bypassing any phases that have not been executed yet.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#responseComplete()">responseComplete</a></strong>()</code>
 <div class="block">Signals JSF that the response for this request has already been generated (such as providing a file download),
  and that the lifecycle should be terminated as soon as the current phase is completed.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#responseReset()">responseReset</a></strong>()</code>
 <div class="block">Resets the current response.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#responseSendError(int, java.lang.String)">responseSendError</a></strong>(int&nbsp;status,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#responseSendError(int,%20java.lang.String)">responseSendError</a></strong>(int&nbsp;status,
                  <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;message)</code>
 <div class="block">Sends a HTTP response error with the given status and message.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#sendFile(byte[], java.lang.String, boolean)">sendFile</a></strong>(byte[]&nbsp;content,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#sendFile(byte[],%20java.lang.String,%20boolean)">sendFile</a></strong>(byte[]&nbsp;content,
         <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;filename,
         boolean&nbsp;attachment)</code>
 <div class="block">Send the given byte array as a file to the response.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#sendFile(java.io.File, boolean)">sendFile</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;file,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#sendFile(java.io.File,%20boolean)">sendFile</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;file,
         boolean&nbsp;attachment)</code>
 <div class="block">Send the given file to the response.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#sendFile(java.io.InputStream, java.lang.String, boolean)">sendFile</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;content,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#sendFile(java.io.InputStream,%20java.lang.String,%20boolean)">sendFile</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;content,
         <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;filename,
         boolean&nbsp;attachment)</code>
 <div class="block">Send the given input stream as a file to the response.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#setApplicationAttribute(java.lang.String, java.lang.Object)">setApplicationAttribute</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#setApplicationAttribute(java.lang.String,%20java.lang.Object)">setApplicationAttribute</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                        <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)</code>
 <div class="block">Sets the application scope attribute value associated with the given name.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#setContext(javax.faces.context.FacesContext)">setContext</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context)</code>
 <div class="block">Sets the given faces context as current instance.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#setContextAttribute(java.lang.String, java.lang.Object)">setContextAttribute</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#setContextAttribute(java.lang.String,%20java.lang.Object)">setContextAttribute</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                    <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)</code>
 <div class="block">Sets the Faces context attribute value associated with the given name.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#setFaceletAttribute(java.lang.String, java.lang.Object)">setFaceletAttribute</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#setFaceletAttribute(java.lang.String,%20java.lang.Object)">setFaceletAttribute</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                    <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)</code>
 <div class="block">Sets the Facelet attribute value associated with the given name.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#setFlashAttribute(java.lang.String, java.lang.Object)">setFlashAttribute</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#setFlashAttribute(java.lang.String,%20java.lang.Object)">setFlashAttribute</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                  <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)</code>
 <div class="block">Sets the flash scope attribute value associated with the given name.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#setLocale(java.util.Locale)">setLocale</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Locale.html?is-external=true" title="class or interface in java.util">Locale</a>&nbsp;locale)</code>
 <div class="block">Set the locale of the current view, which is to be used in localizing of the response.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#setRequestAttribute(java.lang.String, java.lang.Object)">setRequestAttribute</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#setRequestAttribute(java.lang.String,%20java.lang.Object)">setRequestAttribute</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                    <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)</code>
 <div class="block">Sets the request scope attribute value associated with the given name.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#setResponseStatus(int)">setResponseStatus</a></strong>(int&nbsp;status)</code>
 <div class="block">Sets the HTTP response status code.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#setSessionAttribute(java.lang.String, java.lang.Object)">setSessionAttribute</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#setSessionAttribute(java.lang.String,%20java.lang.Object)">setSessionAttribute</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                    <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)</code>
 <div class="block">Sets the session scope attribute value associated with the given name.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#setSessionMaxInactiveInterval(int)">setSessionMaxInactiveInterval</a></strong>(int&nbsp;seconds)</code>
 <div class="block">Sets the HTTP session timeout in seconds.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#setViewAttribute(java.lang.String, java.lang.Object)">setViewAttribute</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#setViewAttribute(java.lang.String,%20java.lang.Object)">setViewAttribute</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                 <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)</code>
 <div class="block">Sets the view scope attribute value associated with the given name.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#setViewRoot(java.lang.String)">setViewRoot</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;viewId)</code>
 <div class="block">Sets the current view root to the given view ID.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Faces.html#validationFailed()">validationFailed</a></strong>()</code>
 <div class="block">Signals JSF that the validations phase of the current request has failed.</div>
@@ -1001,7 +1063,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
-<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long, int)" title="class or interface in java.lang">wait</a></code></li>
+<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,%20int)" title="class or interface in java.lang">wait</a></code></li>
 </ul>
 </li>
 </ul>
@@ -1255,7 +1317,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <dl><dt><span class="strong">Type Parameters:</span></dt><dd><code>T</code> - The expected return type.</dd><dt><span class="strong">Parameters:</span></dt><dd><code>expression</code> - The EL expression to be evaluated.</dd>
 <dt><span class="strong">Returns:</span></dt><dd>The evaluated value of the given EL expression.</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/ClassCastException.html?is-external=true" title="class or interface in java.lang">ClassCastException</a></code> - When <code>T</code> is of wrong type.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/Application.html?is-external=true#evaluateExpressionGet(javax.faces.context.FacesContext, java.lang.String, java.lang.Class)" title="class or interface in javax.faces.application"><code>Application.evaluateExpressionGet(FacesContext, String, Class)</code></a></dd></dl>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/ClassCastException.html?is-external=true" title="class or interface in java.lang">ClassCastException</a></code> - When <code>T</code> is of wrong type.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/Application.html?is-external=true#evaluateExpressionGet(javax.faces.context.FacesContext,%20java.lang.String,%20java.lang.Class)" title="class or interface in javax.faces.application"><code>Application.evaluateExpressionGet(FacesContext, String, Class)</code></a></dd></dl>
 </li>
 </ul>
 <a name="evaluateExpressionSet(java.lang.String, java.lang.Object)">
@@ -1270,8 +1332,8 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>expression</code> - The EL expression to be evaluated.</dd><dd><code>value</code> - The value to be set in the property behind the EL expression.</dd><dt><span class="strong">Since:</span></dt>
   <dd>1.1</dd>
 <dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/Application.html?is-external=true#getExpressionFactory()" title="class or interface in javax.faces.application"><code>Application.getExpressionFactory()</code></a>, 
-<a href="http://docs.oracle.com/javaee/7/api/javax/el/ExpressionFactory.html?is-external=true#createValueExpression(javax.el.ELContext, java.lang.String, java.lang.Class)" title="class or interface in javax.el"><code>ExpressionFactory.createValueExpression(ELContext, String, Class)</code></a>, 
-<a href="http://docs.oracle.com/javaee/7/api/javax/el/ValueExpression.html?is-external=true#setValue(javax.el.ELContext, java.lang.Object)" title="class or interface in javax.el"><code>ValueExpression.setValue(ELContext, Object)</code></a></dd></dl>
+<a href="http://docs.oracle.com/javaee/7/api/javax/el/ExpressionFactory.html?is-external=true#createValueExpression(javax.el.ELContext,%20java.lang.String,%20java.lang.Class)" title="class or interface in javax.el"><code>ExpressionFactory.createValueExpression(ELContext, String, Class)</code></a>, 
+<a href="http://docs.oracle.com/javaee/7/api/javax/el/ValueExpression.html?is-external=true#setValue(javax.el.ELContext,%20java.lang.Object)" title="class or interface in javax.el"><code>ValueExpression.setValue(ELContext, Object)</code></a></dd></dl>
 </li>
 </ul>
 <a name="getContextAttribute(java.lang.String)">
@@ -1326,7 +1388,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
  ID is given, then the response will simply result in a 404.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>viewId</code> - The ID of the view which needs to be set as the current view root.</dd><dt><span class="strong">Since:</span></dt>
   <dd>1.1</dd>
-<dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/ViewHandler.html?is-external=true#createView(javax.faces.context.FacesContext, java.lang.String)" title="class or interface in javax.faces.application"><code>ViewHandler.createView(FacesContext, String)</code></a>, 
+<dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/ViewHandler.html?is-external=true#createView(javax.faces.context.FacesContext,%20java.lang.String)" title="class or interface in javax.faces.application"><code>ViewHandler.createView(FacesContext, String)</code></a>, 
 <a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true#setViewRoot(javax.faces.component.UIViewRoot)" title="class or interface in javax.faces.context"><code>FacesContext.setViewRoot(UIViewRoot)</code></a></dd></dl>
 </li>
 </ul>
@@ -1393,7 +1455,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <h4>getViewParameterMap</h4>
 <pre>public static&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&gt;&nbsp;getViewParameterMap()</pre>
 <div class="block">Returns the view parameters of the current view as a parameter map, or an empty map if there is no view. This is
- ready for usage in among others <a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/ViewHandler.html?is-external=true#getBookmarkableURL(javax.faces.context.FacesContext, java.lang.String, java.util.Map, boolean)" title="class or interface in javax.faces.application"><code>ViewHandler.getBookmarkableURL(FacesContext, String, Map, boolean)</code></a>.</div>
+ ready for usage in among others <a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/ViewHandler.html?is-external=true#getBookmarkableURL(javax.faces.context.FacesContext,%20java.lang.String,%20java.util.Map,%20boolean)" title="class or interface in javax.faces.application"><code>ViewHandler.getBookmarkableURL(FacesContext, String, Map, boolean)</code></a>.</div>
 <dl><dt><span class="strong">Returns:</span></dt><dd>The view parameters of the current view as a parameter map, or an empty map if there is no view.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/ViewMetadata.html?is-external=true#getViewParameters(javax.faces.component.UIViewRoot)" title="class or interface in javax.faces.view"><code>ViewMetadata.getViewParameters(UIViewRoot)</code></a></dd></dl>
 </li>
 </ul>
@@ -1408,7 +1470,20 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>viewId</code> - The view ID to return the metadata attribute map for.</dd>
 <dt><span class="strong">Returns:</span></dt><dd>The metadata attribute map of the given view ID, or an empty map if there is no view metadata.</dd><dt><span class="strong">Since:</span></dt>
   <dd>1.4</dd>
-<dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/ViewDeclarationLanguage.html?is-external=true#getViewMetadata(javax.faces.context.FacesContext, java.lang.String)" title="class or interface in javax.faces.view"><code>ViewDeclarationLanguage.getViewMetadata(FacesContext, String)</code></a></dd></dl>
+<dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/ViewDeclarationLanguage.html?is-external=true#getViewMetadata(javax.faces.context.FacesContext,%20java.lang.String)" title="class or interface in javax.faces.view"><code>ViewDeclarationLanguage.getViewMetadata(FacesContext, String)</code></a></dd></dl>
+</li>
+</ul>
+<a name="getMetadataAttributes()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getMetadataAttributes</h4>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;getMetadataAttributes()</pre>
+<div class="block">Returns the metadata attribute map of the current view, or an empty map if there is no view metadata.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>The metadata attribute map of the current view, or an empty map if there is no view metadata.</dd><dt><span class="strong">Since:</span></dt>
+  <dd>2.0</dd>
+<dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponentBase.html?is-external=true#getAttributes()" title="class or interface in javax.faces.component"><code>UIComponentBase.getAttributes()</code></a></dd></dl>
 </li>
 </ul>
 <a name="getMetadataAttribute(java.lang.String, java.lang.String)">
@@ -1426,7 +1501,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/ClassCastException.html?is-external=true" title="class or interface in java.lang">ClassCastException</a></code> - When <code>T</code> is of wrong type.</dd><dt><span class="strong">Since:</span></dt>
   <dd>1.4</dd>
-<dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/ViewDeclarationLanguage.html?is-external=true#getViewMetadata(javax.faces.context.FacesContext, java.lang.String)" title="class or interface in javax.faces.view"><code>ViewDeclarationLanguage.getViewMetadata(FacesContext, String)</code></a></dd></dl>
+<dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/ViewDeclarationLanguage.html?is-external=true#getViewMetadata(javax.faces.context.FacesContext,%20java.lang.String)" title="class or interface in javax.faces.view"><code>ViewDeclarationLanguage.getViewMetadata(FacesContext, String)</code></a></dd></dl>
 </li>
 </ul>
 <a name="getMetadataAttribute(java.lang.String)">
@@ -1528,7 +1603,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <pre>public static&nbsp;void&nbsp;navigate(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;outcome)</pre>
 <div class="block">Perform the JSF navigation to the given outcome.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>outcome</code> - The navigation outcome.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/Application.html?is-external=true#getNavigationHandler()" title="class or interface in javax.faces.application"><code>Application.getNavigationHandler()</code></a>, 
-<a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/NavigationHandler.html?is-external=true#handleNavigation(javax.faces.context.FacesContext, java.lang.String, java.lang.String)" title="class or interface in javax.faces.application"><code>NavigationHandler.handleNavigation(FacesContext, String, String)</code></a></dd></dl>
+<a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/NavigationHandler.html?is-external=true#handleNavigation(javax.faces.context.FacesContext,%20java.lang.String,%20java.lang.String)" title="class or interface in javax.faces.application"><code>NavigationHandler.handleNavigation(FacesContext, String, String)</code></a></dd></dl>
 </li>
 </ul>
 <a name="getBookmarkableURL(java.util.Map, boolean)">
@@ -1548,7 +1623,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang">IllegalStateException</a></code> - When there is no view (i.e. when it is <code>null</code>). This can happen if the
  method is called at the wrong moment in the JSF lifecycle, e.g. before the view has been restored/created.</dd><dt><span class="strong">Since:</span></dt>
   <dd>1.6</dd>
-<dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/ViewHandler.html?is-external=true#getBookmarkableURL(javax.faces.context.FacesContext, java.lang.String, java.util.Map, boolean)" title="class or interface in javax.faces.application"><code>ViewHandler.getBookmarkableURL(FacesContext, String, Map, boolean)</code></a></dd></dl>
+<dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/ViewHandler.html?is-external=true#getBookmarkableURL(javax.faces.context.FacesContext,%20java.lang.String,%20java.util.Map,%20boolean)" title="class or interface in javax.faces.application"><code>ViewHandler.getBookmarkableURL(FacesContext, String, Map, boolean)</code></a></dd></dl>
 </li>
 </ul>
 <a name="getBookmarkableURL(java.lang.String, java.util.Map, boolean)">
@@ -1568,7 +1643,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
  in the target view!</dd>
 <dt><span class="strong">Returns:</span></dt><dd>The concrete domain-relative URL to the target view.</dd><dt><span class="strong">Since:</span></dt>
   <dd>1.6</dd>
-<dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/ViewHandler.html?is-external=true#getBookmarkableURL(javax.faces.context.FacesContext, java.lang.String, java.util.Map, boolean)" title="class or interface in javax.faces.application"><code>ViewHandler.getBookmarkableURL(FacesContext, String, Map, boolean)</code></a></dd></dl>
+<dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/ViewHandler.html?is-external=true#getBookmarkableURL(javax.faces.context.FacesContext,%20java.lang.String,%20java.util.Map,%20boolean)" title="class or interface in javax.faces.application"><code>ViewHandler.getBookmarkableURL(FacesContext, String, Map, boolean)</code></a></dd></dl>
 </li>
 </ul>
 <a name="getBookmarkableURL(java.util.Collection, boolean)">
@@ -1588,7 +1663,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang">IllegalStateException</a></code> - When there is no view (i.e. when it is <code>null</code>). This can happen if the
  method is called at the wrong moment in the JSF lifecycle, e.g. before the view has been restored/created.</dd><dt><span class="strong">Since:</span></dt>
   <dd>1.7</dd>
-<dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/ViewHandler.html?is-external=true#getBookmarkableURL(javax.faces.context.FacesContext, java.lang.String, java.util.Map, boolean)" title="class or interface in javax.faces.application"><code>ViewHandler.getBookmarkableURL(FacesContext, String, Map, boolean)</code></a></dd></dl>
+<dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/ViewHandler.html?is-external=true#getBookmarkableURL(javax.faces.context.FacesContext,%20java.lang.String,%20java.util.Map,%20boolean)" title="class or interface in javax.faces.application"><code>ViewHandler.getBookmarkableURL(FacesContext, String, Map, boolean)</code></a></dd></dl>
 </li>
 </ul>
 <a name="getBookmarkableURL(java.lang.String, java.util.Collection, boolean)">
@@ -1608,7 +1683,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
  in the target view!</dd>
 <dt><span class="strong">Returns:</span></dt><dd>The concrete domain-relative URL to the target view.</dd><dt><span class="strong">Since:</span></dt>
   <dd>1.7</dd>
-<dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/ViewHandler.html?is-external=true#getBookmarkableURL(javax.faces.context.FacesContext, java.lang.String, java.util.Map, boolean)" title="class or interface in javax.faces.application"><code>ViewHandler.getBookmarkableURL(FacesContext, String, Map, boolean)</code></a></dd></dl>
+<dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/ViewHandler.html?is-external=true#getBookmarkableURL(javax.faces.context.FacesContext,%20java.lang.String,%20java.util.Map,%20boolean)" title="class or interface in javax.faces.application"><code>ViewHandler.getBookmarkableURL(FacesContext, String, Map, boolean)</code></a></dd></dl>
 </li>
 </ul>
 <a name="getFaceletContext()">
@@ -1659,7 +1734,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
  file by e.g. an <code>&lt;ui:include&gt;</code>.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>name</code> - The Facelet attribute name.</dd><dd><code>value</code> - The Facelet attribute value.</dd><dt><span class="strong">Since:</span></dt>
   <dd>1.1</dd>
-<dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/FaceletContext.html?is-external=true#setAttribute(java.lang.String, java.lang.Object)" title="class or interface in javax.faces.view.facelets"><code>FaceletContext.setAttribute(String, Object)</code></a></dd></dl>
+<dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/FaceletContext.html?is-external=true#setAttribute(java.lang.String,%20java.lang.Object)" title="class or interface in javax.faces.view.facelets"><code>FaceletContext.setAttribute(String, Object)</code></a></dd></dl>
 </li>
 </ul>
 <a name="getRequest()">
@@ -1927,7 +2002,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <div class="block">Returns the HTTP request query string as parameter values map. Note this method returns <strong>only</strong>
  the request URL (GET) parameters, as opposed to <a href="../../../org/omnifaces/util/Faces.html#getRequestParameterValuesMap()"><code>getRequestParameterValuesMap()</code></a>, which contains both
  the request URL (GET) parameters and and the request body (POST) parameters. This is ready for usage in among
- others <a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/ViewHandler.html?is-external=true#getBookmarkableURL(javax.faces.context.FacesContext, java.lang.String, java.util.Map, boolean)" title="class or interface in javax.faces.application"><code>ViewHandler.getBookmarkableURL(FacesContext, String, Map, boolean)</code></a>.</div>
+ others <a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/ViewHandler.html?is-external=true#getBookmarkableURL(javax.faces.context.FacesContext,%20java.lang.String,%20java.util.Map,%20boolean)" title="class or interface in javax.faces.application"><code>ViewHandler.getBookmarkableURL(FacesContext, String, Map, boolean)</code></a>.</div>
 <dl><dt><span class="strong">Returns:</span></dt><dd>The HTTP request query string as parameter values map.</dd><dt><span class="strong">Since:</span></dt>
   <dd>1.6</dd>
 <dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true#getQueryString()" title="class or interface in javax.servlet.http"><code>HttpServletRequest.getQueryString()</code></a></dd></dl>
@@ -2080,15 +2155,18 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <pre>public static&nbsp;void&nbsp;redirect(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;url,
             <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>...&nbsp;paramValues)
                      throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
-<div class="block">Sends a temporary (302) redirect to the given URL. If the given URL does not start with <code>http://</code>,
+<div class="block">Sends a temporary (302) redirect to the given URL. If the given URL does <b>not</b> start with <code>http://</code>,
  <code>https://</code> or <code>/</code>, then the request context path will be prepended, otherwise it will be
  the unmodified redirect URL. So, when redirecting to another page in the same web application, always specify the
  full path from the context root on (which in turn does not need to start with <code>/</code>).
+ <pre>
+ Faces.redirect("other.xhtml");
+ </pre>
  <p>
- You can use <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true#format(java.lang.String, java.lang.Object...)" title="class or interface in java.lang"><code>String.format(String, Object...)</code></a> placeholder <code>%s</code> in the redirect URL to represent
+ You can use <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true#format(java.lang.String,%20java.lang.Object...)" title="class or interface in java.lang"><code>String.format(String, Object...)</code></a> placeholder <code>%s</code> in the redirect URL to represent
  placeholders for any request parameter values which needs to be URL-encoded. Here's a concrete example:
  <pre>
- Faces.redirect("other.xhtml?foo=%s&bar=%s", foo, bar);
+ Faces.redirect("other.xhtml?foo=%s&amp;bar=%s", foo, bar);
  </pre>
  <p>
  This method implicitly also calls <a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/Flash.html?is-external=true#setRedirect(boolean)" title="class or interface in javax.faces.context"><code>Flash.setRedirect(boolean)</code></a> with <code>true</code> so that any flash
@@ -2108,15 +2186,18 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <h4>redirectPermanent</h4>
 <pre>public static&nbsp;void&nbsp;redirectPermanent(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;url,
                      <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>...&nbsp;paramValues)</pre>
-<div class="block">Sends a permanent (301) redirect to the given URL. If the given URL does not start with <code>http://</code>,
+<div class="block">Sends a permanent (301) redirect to the given URL. If the given URL does <b>not</b> start with <code>http://</code>,
  <code>https://</code> or <code>/</code>, then the request context path will be prepended, otherwise it will be
  the unmodified redirect URL. So, when redirecting to another page in the same web application, always specify the
  full path from the context root on (which in turn does not need to start with <code>/</code>).
+ <pre>
+ Faces.redirectPermanent("other.xhtml");
+ </pre>
  <p>
- You can use <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true#format(java.lang.String, java.lang.Object...)" title="class or interface in java.lang"><code>String.format(String, Object...)</code></a> placeholder <code>%s</code> in the redirect URL to represent
+ You can use <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true#format(java.lang.String,%20java.lang.Object...)" title="class or interface in java.lang"><code>String.format(String, Object...)</code></a> placeholder <code>%s</code> in the redirect URL to represent
  placeholders for any request parameter values which needs to be URL-encoded. Here's a concrete example:
  <pre>
- Faces.redirectPermanent("other.xhtml?foo=%s&bar=%s", foo, bar);
+ Faces.redirectPermanent("other.xhtml?foo=%s&amp;bar=%s", foo, bar);
  </pre>
  <p>
  This method implicitly also calls <a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/Flash.html?is-external=true#setRedirect(boolean)" title="class or interface in javax.faces.context"><code>Flash.setRedirect(boolean)</code></a> with <code>true</code> so that any flash
@@ -2127,7 +2208,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>url</code> - The URL to redirect the current response to.</dd><dd><code>paramValues</code> - The request parameter values which you'd like to put URL-encoded in the given URL.</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/NullPointerException.html?is-external=true" title="class or interface in java.lang">NullPointerException</a></code> - When url is <code>null</code>.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/ExternalContext.html?is-external=true#setResponseStatus(int)" title="class or interface in javax.faces.context"><code>ExternalContext.setResponseStatus(int)</code></a>, 
-<a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/ExternalContext.html?is-external=true#setResponseHeader(java.lang.String, java.lang.String)" title="class or interface in javax.faces.context"><code>ExternalContext.setResponseHeader(String, String)</code></a></dd></dl>
+<a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/ExternalContext.html?is-external=true#setResponseHeader(java.lang.String,%20java.lang.String)" title="class or interface in javax.faces.context"><code>ExternalContext.setResponseHeader(String, String)</code></a></dd></dl>
 </li>
 </ul>
 <a name="responseSendError(int, java.lang.String)">
@@ -2148,7 +2229,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
  field values of <a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletResponse.html?is-external=true" title="class or interface in javax.servlet.http"><code>HttpServletResponse</code></a> for this.</dd><dd><code>message</code> - The message which is supposed to be available in the error page.</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - Whenever something fails at I/O level. The caller should preferably not catch it, but just
- redeclare it in the action method. The servletcontainer will handle it.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/ExternalContext.html?is-external=true#responseSendError(int, java.lang.String)" title="class or interface in javax.faces.context"><code>ExternalContext.responseSendError(int, String)</code></a></dd></dl>
+ redeclare it in the action method. The servletcontainer will handle it.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/ExternalContext.html?is-external=true#responseSendError(int,%20java.lang.String)" title="class or interface in javax.faces.context"><code>ExternalContext.responseSendError(int, String)</code></a></dd></dl>
 </li>
 </ul>
 <a name="addResponseHeader(java.lang.String, java.lang.String)">
@@ -2160,7 +2241,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <pre>public static&nbsp;void&nbsp;addResponseHeader(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                      <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value)</pre>
 <div class="block">Add a header with given name and value to the HTTP response.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>name</code> - The header name.</dd><dd><code>value</code> - The header value.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/ExternalContext.html?is-external=true#addResponseHeader(java.lang.String, java.lang.String)" title="class or interface in javax.faces.context"><code>ExternalContext.addResponseHeader(String, String)</code></a></dd></dl>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>name</code> - The header name.</dd><dd><code>value</code> - The header value.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/ExternalContext.html?is-external=true#addResponseHeader(java.lang.String,%20java.lang.String)" title="class or interface in javax.faces.context"><code>ExternalContext.addResponseHeader(String, String)</code></a></dd></dl>
 </li>
 </ul>
 <a name="isResponseCommitted()">
@@ -2263,7 +2344,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>username</code> - The login username.</dd><dd><code>password</code> - The login password.</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javaee/7/api/javax/servlet/ServletException.html?is-external=true" title="class or interface in javax.servlet">ServletException</a></code> - When the login is invalid, or when container managed FORM based authentication is not
- enabled.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true#login(java.lang.String, java.lang.String)" title="class or interface in javax.servlet.http"><code>HttpServletRequest.login(String, String)</code></a></dd></dl>
+ enabled.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true#login(java.lang.String,%20java.lang.String)" title="class or interface in javax.servlet.http"><code>HttpServletRequest.login(String, String)</code></a></dd></dl>
 </li>
 </ul>
 <a name="authenticate()">
@@ -2300,7 +2381,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
  which will implicitly also remove the user principal. Just invoke <a href="../../../org/omnifaces/util/Faces.html#invalidateSession()"><code>invalidateSession()</code></a> instead. Note
  that the user principal is still present in the response of the current request, it's therefore recommend to
  send a redirect after <a href="../../../org/omnifaces/util/Faces.html#logout()"><code>logout()</code></a> or <a href="../../../org/omnifaces/util/Faces.html#invalidateSession()"><code>invalidateSession()</code></a>. You can use
- <a href="../../../org/omnifaces/util/Faces.html#redirect(java.lang.String, java.lang.String...)"><code>redirect(String, String...)</code></a> for this.</div>
+ <a href="../../../org/omnifaces/util/Faces.html#redirect(java.lang.String,%20java.lang.String...)"><code>redirect(String, String...)</code></a> for this.</div>
 <dl><dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javaee/7/api/javax/servlet/ServletException.html?is-external=true" title="class or interface in javax.servlet">ServletException</a></code> - When the logout has failed.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true#logout()" title="class or interface in javax.servlet.http"><code>HttpServletRequest.logout()</code></a></dd></dl>
 </li>
@@ -2363,7 +2444,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/UnsupportedOperationException.html?is-external=true" title="class or interface in java.lang">UnsupportedOperationException</a></code> - When this platform does not support UTF-8.</dd><dt><span class="strong">Since:</span></dt>
   <dd>1.8</dd>
-<dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/ExternalContext.html?is-external=true#addResponseCookie(java.lang.String, java.lang.String, java.util.Map)" title="class or interface in javax.faces.context"><code>ExternalContext.addResponseCookie(String, String, Map)</code></a></dd></dl>
+<dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/ExternalContext.html?is-external=true#addResponseCookie(java.lang.String,%20java.lang.String,%20java.util.Map)" title="class or interface in javax.faces.context"><code>ExternalContext.addResponseCookie(String, String, Map)</code></a></dd></dl>
 </li>
 </ul>
 <a name="addResponseCookie(java.lang.String, java.lang.String, java.lang.String, int)">
@@ -2386,7 +2467,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
  <code>-1</code> then the cookie will become a session cookie and thus live as long as the established HTTP
  session.</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/UnsupportedOperationException.html?is-external=true" title="class or interface in java.lang">UnsupportedOperationException</a></code> - When this platform does not support UTF-8.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/ExternalContext.html?is-external=true#addResponseCookie(java.lang.String, java.lang.String, java.util.Map)" title="class or interface in javax.faces.context"><code>ExternalContext.addResponseCookie(String, String, Map)</code></a></dd></dl>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/UnsupportedOperationException.html?is-external=true" title="class or interface in java.lang">UnsupportedOperationException</a></code> - When this platform does not support UTF-8.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/ExternalContext.html?is-external=true#addResponseCookie(java.lang.String,%20java.lang.String,%20java.util.Map)" title="class or interface in javax.faces.context"><code>ExternalContext.addResponseCookie(String, String, Map)</code></a></dd></dl>
 </li>
 </ul>
 <a name="addResponseCookie(java.lang.String, java.lang.String, java.lang.String, java.lang.String, int)">
@@ -2412,7 +2493,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/UnsupportedOperationException.html?is-external=true" title="class or interface in java.lang">UnsupportedOperationException</a></code> - When this platform does not support UTF-8.</dd><dt><span class="strong">Since:</span></dt>
   <dd>1.8</dd>
-<dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/ExternalContext.html?is-external=true#addResponseCookie(java.lang.String, java.lang.String, java.util.Map)" title="class or interface in javax.faces.context"><code>ExternalContext.addResponseCookie(String, String, Map)</code></a></dd></dl>
+<dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/ExternalContext.html?is-external=true#addResponseCookie(java.lang.String,%20java.lang.String,%20java.util.Map)" title="class or interface in javax.faces.context"><code>ExternalContext.addResponseCookie(String, String, Map)</code></a></dd></dl>
 </li>
 </ul>
 <a name="removeResponseCookie(java.lang.String, java.lang.String)">
@@ -2425,7 +2506,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
                         <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;path)</pre>
 <div class="block">Remove the cookie with given name and path from the HTTP response. Note that the name and path must be exactly
  the same as it was when the cookie was created.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>name</code> - The cookie name.</dd><dd><code>path</code> - The cookie path.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/ExternalContext.html?is-external=true#addResponseCookie(java.lang.String, java.lang.String, java.util.Map)" title="class or interface in javax.faces.context"><code>ExternalContext.addResponseCookie(String, String, Map)</code></a></dd></dl>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>name</code> - The cookie name.</dd><dd><code>path</code> - The cookie path.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/ExternalContext.html?is-external=true#addResponseCookie(java.lang.String,%20java.lang.String,%20java.util.Map)" title="class or interface in javax.faces.context"><code>ExternalContext.addResponseCookie(String, String, Map)</code></a></dd></dl>
 </li>
 </ul>
 <a name="getSession()">
@@ -2456,7 +2537,8 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
  <i>Note that whenever you absolutely need this method to perform a general task, you might want to consider to
  submit a feature request to OmniFaces in order to add a new utility method which performs exactly this general
  task.</i></div>
-<dl><dt><span class="strong">Returns:</span></dt><dd>The HTTP session.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/ExternalContext.html?is-external=true#getSession(boolean)" title="class or interface in javax.faces.context"><code>ExternalContext.getSession(boolean)</code></a></dd></dl>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>create</code> - Whether or not to create a new session if one doesn't exist.</dd>
+<dt><span class="strong">Returns:</span></dt><dd>The HTTP session.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/ExternalContext.html?is-external=true#getSession(boolean)" title="class or interface in javax.faces.context"><code>ExternalContext.getSession(boolean)</code></a></dd></dl>
 </li>
 </ul>
 <a name="getSessionId()">
@@ -2658,7 +2740,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>path</code> - The application resource path to return an input stream for.</dd>
 <dt><span class="strong">Returns:</span></dt><dd>An input stream for an application resource mapped to the specified path.</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/net/MalformedURLException.html?is-external=true" title="class or interface in java.net">MalformedURLException</a></code></dd><dt><span class="strong">Since:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/net/MalformedURLException.html?is-external=true" title="class or interface in java.net">MalformedURLException</a></code> - When the specified path is not in correct URL form.</dd><dt><span class="strong">Since:</span></dt>
   <dd>1.2</dd>
 <dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/ExternalContext.html?is-external=true#getResource(java.lang.String)" title="class or interface in javax.faces.context"><code>ExternalContext.getResource(String)</code></a></dd></dl>
 </li>

@@ -96,11 +96,54 @@
 <br>
 <pre>public final class <span class="strong">Messages</span>
 extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
-<div class="block">Collection of utility methods for the JSF API with respect to working with <a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/FacesMessage.html?is-external=true" title="class or interface in javax.faces.application"><code>FacesMessage</code></a>. It also offers the
- possibility to set a custom message resolver so that you can control the way how messages are been resolved. You can
- for example supply an implementation wherein the message is been treated as for example a resource bundle key.
+<div class="block"><p>
+ Collection of utility methods for the JSF API with respect to working with <a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/FacesMessage.html?is-external=true" title="class or interface in javax.faces.application"><code>FacesMessage</code></a>.
+
+ <h3>Usage</h3>
  <p>
- Here's an example:
+ Some examples:
+ <pre>
+ // In a validator.
+ throw new ValidatorException(Messages.createError("Invalid input."));
+ </pre>
+ <pre>
+ // In a validator, as extra message on another component.
+ Messages.addError("someFormId:someInputId", "This is also invalid.");
+ </pre>
+ <pre>
+ // In a managed bean action method.
+ Messages.addGlobalError("Unknown login, please try again.");
+ </pre>
+ <pre>
+ // In a managed bean action method which uses Post-Redirect-Get.
+ Messages.addFlashGlobalInfo("New item with id {0} is successfully added.", item.getId());
+ return "items?faces-redirect=true";
+ </pre>
+ <p>
+ There is also a builder which also allows you to set the message detail. Some examples:
+ <pre>
+ // In a validator.
+ throw new ValidatorException(Messages.create("Invalid input.").detail("Value {0} is not expected.", value).get());
+ </pre>
+ <pre>
+ // In a validator, as extra message on another component.
+ Messages.create("This is also invalid.").error().add("someFormId:someInputId");
+ </pre>
+ <pre>
+ // In a managed bean action method.
+ Messages.create("Unknown login, please try again.").error().add();
+ </pre>
+ <pre>
+ // In a managed bean action method which uses Post-Redirect-Get.
+ Messages.create("New item with id {0} is successfully added.", item.getId()).flash().add();
+ return "items?faces-redirect=true";
+ </pre>
+
+ <h3>Message resolver</h3>
+ <p>
+ It also offers the possibility to set a custom message resolver so that you can control the way how messages are been
+ resolved. You can for example supply an implementation wherein the message is been treated as for example a resource
+ bundle key. Here's an example:
  <pre>
  Messages.setResolver(new Messages.Resolver() {
      private static final String BASE_NAME = "com.example.i18n.messages";
@@ -115,10 +158,12 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
  </pre>
  <p>
  There is already a default resolver which just delegates the message and the parameters straight to
- <a href="http://docs.oracle.com/javase/7/docs/api/java/text/MessageFormat.html?is-external=true#format(java.lang.String, java.lang.Object...)" title="class or interface in java.text"><code>MessageFormat.format(String, Object...)</code></a>. Note that the resolver can be set only once. It's recommend to do
+ <a href="http://docs.oracle.com/javase/7/docs/api/java/text/MessageFormat.html?is-external=true#format(java.lang.String,%20java.lang.Object...)" title="class or interface in java.text"><code>MessageFormat.format(String, Object...)</code></a>. Note that the resolver can be set only once. It's recommend to do
  it early during webapp's startup, for example with a <a href="http://docs.oracle.com/javaee/7/api/javax/servlet/ServletContextListener.html?is-external=true" title="class or interface in javax.servlet"><code>ServletContextListener</code></a> as <a href="http://docs.oracle.com/javaee/7/api/javax/servlet/annotation/WebListener.html?is-external=true" title="class or interface in javax.servlet.annotation"><code>WebListener</code></a>, or a
  <a href="http://docs.oracle.com/javaee/7/api/javax/servlet/ServletContainerInitializer.html?is-external=true" title="class or interface in javax.servlet"><code>ServletContainerInitializer</code></a> in custom JAR, or a <a href="http://docs.oracle.com/javaee/7/api/javax/enterprise/context/ApplicationScoped.html?is-external=true" title="class or interface in javax.enterprise.context"><code>ApplicationScoped</code></a> bean, or an eagerly initialized
  <a href="../../../org/omnifaces/cdi/Startup.html" title="annotation in org.omnifaces.cdi"><code>Startup</code></a> bean.
+
+ <h3>Design notice</h3>
  <p>
  Note that all of those shortcut methods by design only sets the message summary and ignores the message detail (it
  is not possible to offer varargs to parameterize <em>both</em> the summary and the detail). The message summary is
@@ -126,7 +171,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
  by default only displayed when you explicitly set the <code>showDetail="true"</code> attribute.
  <p>
  To create a <a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/FacesMessage.html?is-external=true" title="class or interface in javax.faces.application"><code>FacesMessage</code></a> with a message detail as well, use the <a href="../../../org/omnifaces/util/Messages.Message.html" title="class in org.omnifaces.util"><code>Messages.Message</code></a> builder as you can obtain by
- <a href="../../../org/omnifaces/util/Messages.html#create(java.lang.String, java.lang.Object...)"><code>create(String, Object...)</code></a>.</div>
+ <a href="../../../org/omnifaces/util/Messages.html#create(java.lang.String,%20java.lang.Object...)"><code>create(String, Object...)</code></a>.</div>
 <dl><dt><span class="strong">Author:</span></dt>
   <dd>Bauke Scholtz</dd></dl>
 </li>
@@ -176,7 +221,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Messages.html#add(javax.faces.application.FacesMessage.Severity, java.lang.String, java.lang.String, java.lang.Object...)">add</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/FacesMessage.Severity.html?is-external=true" title="class or interface in javax.faces.application">FacesMessage.Severity</a>&nbsp;severity,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Messages.html#add(javax.faces.application.FacesMessage.Severity,%20java.lang.String,%20java.lang.String,%20java.lang.Object...)">add</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/FacesMessage.Severity.html?is-external=true" title="class or interface in javax.faces.application">FacesMessage.Severity</a>&nbsp;severity,
    <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;clientId,
    <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;message,
    <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;params)</code>
@@ -186,14 +231,14 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Messages.html#add(java.lang.String, javax.faces.application.FacesMessage)">add</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;clientId,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Messages.html#add(java.lang.String,%20javax.faces.application.FacesMessage)">add</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;clientId,
    <a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/FacesMessage.html?is-external=true" title="class or interface in javax.faces.application">FacesMessage</a>&nbsp;message)</code>
 <div class="block">Add the given faces message to the given client ID.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Messages.html#addError(java.lang.String, java.lang.String, java.lang.Object...)">addError</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;clientId,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Messages.html#addError(java.lang.String,%20java.lang.String,%20java.lang.Object...)">addError</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;clientId,
         <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;message,
         <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;params)</code>
 <div class="block">Add an ERROR faces message to the given client ID, with the given message body which is formatted with the given
@@ -202,7 +247,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Messages.html#addFatal(java.lang.String, java.lang.String, java.lang.Object...)">addFatal</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;clientId,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Messages.html#addFatal(java.lang.String,%20java.lang.String,%20java.lang.Object...)">addFatal</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;clientId,
         <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;message,
         <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;params)</code>
 <div class="block">Add a FATAL faces message to the given client ID, with the given message body which is formatted with the given
@@ -211,7 +256,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Messages.html#addFlash(javax.faces.application.FacesMessage.Severity, java.lang.String, java.lang.String, java.lang.Object...)">addFlash</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/FacesMessage.Severity.html?is-external=true" title="class or interface in javax.faces.application">FacesMessage.Severity</a>&nbsp;severity,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Messages.html#addFlash(javax.faces.application.FacesMessage.Severity,%20java.lang.String,%20java.lang.String,%20java.lang.Object...)">addFlash</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/FacesMessage.Severity.html?is-external=true" title="class or interface in javax.faces.application">FacesMessage.Severity</a>&nbsp;severity,
         <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;clientId,
         <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;message,
         <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;params)</code>
@@ -221,14 +266,14 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Messages.html#addFlash(java.lang.String, javax.faces.application.FacesMessage)">addFlash</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;clientId,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Messages.html#addFlash(java.lang.String,%20javax.faces.application.FacesMessage)">addFlash</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;clientId,
         <a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/FacesMessage.html?is-external=true" title="class or interface in javax.faces.application">FacesMessage</a>&nbsp;message)</code>
 <div class="block">Add a flash scoped faces message to the given client ID.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Messages.html#addFlashError(java.lang.String, java.lang.String, java.lang.Object...)">addFlashError</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;clientId,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Messages.html#addFlashError(java.lang.String,%20java.lang.String,%20java.lang.Object...)">addFlashError</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;clientId,
              <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;message,
              <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;params)</code>
 <div class="block">Add a flash scoped ERROR faces message to the given client ID, with the given message body which is formatted
@@ -237,7 +282,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Messages.html#addFlashFatal(java.lang.String, java.lang.String, java.lang.Object...)">addFlashFatal</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;clientId,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Messages.html#addFlashFatal(java.lang.String,%20java.lang.String,%20java.lang.Object...)">addFlashFatal</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;clientId,
              <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;message,
              <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;params)</code>
 <div class="block">Add a flash scoped FATAL faces message to the given client ID, with the given message body which is formatted
@@ -252,7 +297,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Messages.html#addFlashGlobalError(java.lang.String, java.lang.Object...)">addFlashGlobalError</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;message,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Messages.html#addFlashGlobalError(java.lang.String,%20java.lang.Object...)">addFlashGlobalError</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;message,
                    <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;params)</code>
 <div class="block">Add a flash scoped global ERROR faces message, with the given message body which is formatted with the given
  parameters.</div>
@@ -260,7 +305,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Messages.html#addFlashGlobalFatal(java.lang.String, java.lang.Object...)">addFlashGlobalFatal</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;message,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Messages.html#addFlashGlobalFatal(java.lang.String,%20java.lang.Object...)">addFlashGlobalFatal</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;message,
                    <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;params)</code>
 <div class="block">Add a flash scoped global FATAL faces message, with the given message body which is formatted with the given
  parameters.</div>
@@ -268,7 +313,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Messages.html#addFlashGlobalInfo(java.lang.String, java.lang.Object...)">addFlashGlobalInfo</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;message,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Messages.html#addFlashGlobalInfo(java.lang.String,%20java.lang.Object...)">addFlashGlobalInfo</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;message,
                   <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;params)</code>
 <div class="block">Add a flash scoped global INFO faces message, with the given message body which is formatted with the given
  parameters.</div>
@@ -276,7 +321,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Messages.html#addFlashGlobalWarn(java.lang.String, java.lang.Object...)">addFlashGlobalWarn</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;message,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Messages.html#addFlashGlobalWarn(java.lang.String,%20java.lang.Object...)">addFlashGlobalWarn</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;message,
                   <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;params)</code>
 <div class="block">Add a flash scoped global WARN faces message, with the given message body which is formatted with the given
  parameters.</div>
@@ -284,7 +329,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Messages.html#addFlashInfo(java.lang.String, java.lang.String, java.lang.Object...)">addFlashInfo</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;clientId,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Messages.html#addFlashInfo(java.lang.String,%20java.lang.String,%20java.lang.Object...)">addFlashInfo</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;clientId,
             <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;message,
             <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;params)</code>
 <div class="block">Add a flash scoped INFO faces message to the given client ID, with the given message body which is formatted
@@ -293,7 +338,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Messages.html#addFlashWarn(java.lang.String, java.lang.String, java.lang.Object...)">addFlashWarn</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;clientId,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Messages.html#addFlashWarn(java.lang.String,%20java.lang.String,%20java.lang.Object...)">addFlashWarn</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;clientId,
             <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;message,
             <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;params)</code>
 <div class="block">Add a flash scoped WARN faces message to the given client ID, with the given message body which is formatted
@@ -302,7 +347,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Messages.html#addGlobal(javax.faces.application.FacesMessage.Severity, java.lang.String, java.lang.Object...)">addGlobal</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/FacesMessage.Severity.html?is-external=true" title="class or interface in javax.faces.application">FacesMessage.Severity</a>&nbsp;severity,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Messages.html#addGlobal(javax.faces.application.FacesMessage.Severity,%20java.lang.String,%20java.lang.Object...)">addGlobal</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/FacesMessage.Severity.html?is-external=true" title="class or interface in javax.faces.application">FacesMessage.Severity</a>&nbsp;severity,
          <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;message,
          <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;params)</code>
 <div class="block">Add a global faces message of the given severity, with the given message body which is formatted with the given
@@ -317,35 +362,35 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Messages.html#addGlobalError(java.lang.String, java.lang.Object...)">addGlobalError</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;message,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Messages.html#addGlobalError(java.lang.String,%20java.lang.Object...)">addGlobalError</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;message,
               <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;params)</code>
 <div class="block">Add a global ERROR faces message, with the given message body which is formatted with the given parameters.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Messages.html#addGlobalFatal(java.lang.String, java.lang.Object...)">addGlobalFatal</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;message,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Messages.html#addGlobalFatal(java.lang.String,%20java.lang.Object...)">addGlobalFatal</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;message,
               <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;params)</code>
 <div class="block">Add a global FATAL faces message, with the given message body which is formatted with the given parameters.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Messages.html#addGlobalInfo(java.lang.String, java.lang.Object...)">addGlobalInfo</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;message,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Messages.html#addGlobalInfo(java.lang.String,%20java.lang.Object...)">addGlobalInfo</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;message,
              <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;params)</code>
 <div class="block">Add a global INFO faces message, with the given message body which is formatted with the given parameters.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Messages.html#addGlobalWarn(java.lang.String, java.lang.Object...)">addGlobalWarn</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;message,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Messages.html#addGlobalWarn(java.lang.String,%20java.lang.Object...)">addGlobalWarn</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;message,
              <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;params)</code>
 <div class="block">Add a global WARN faces message, with the given message body which is formatted with the given parameters.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Messages.html#addInfo(java.lang.String, java.lang.String, java.lang.Object...)">addInfo</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;clientId,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Messages.html#addInfo(java.lang.String,%20java.lang.String,%20java.lang.Object...)">addInfo</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;clientId,
        <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;message,
        <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;params)</code>
 <div class="block">Add an INFO faces message to the given client ID, with the given message body which is formatted with the given
@@ -354,7 +399,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Messages.html#addWarn(java.lang.String, java.lang.String, java.lang.Object...)">addWarn</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;clientId,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Messages.html#addWarn(java.lang.String,%20java.lang.String,%20java.lang.Object...)">addWarn</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;clientId,
        <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;message,
        <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;params)</code>
 <div class="block">Add a WARN faces message to the given client ID, with the given message body which is formatted with the given
@@ -363,7 +408,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/FacesMessage.html?is-external=true" title="class or interface in javax.faces.application">FacesMessage</a></code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Messages.html#create(javax.faces.application.FacesMessage.Severity, java.lang.String, java.lang.Object...)">create</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/FacesMessage.Severity.html?is-external=true" title="class or interface in javax.faces.application">FacesMessage.Severity</a>&nbsp;severity,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Messages.html#create(javax.faces.application.FacesMessage.Severity,%20java.lang.String,%20java.lang.Object...)">create</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/FacesMessage.Severity.html?is-external=true" title="class or interface in javax.faces.application">FacesMessage.Severity</a>&nbsp;severity,
       <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;message,
       <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;params)</code>
 <div class="block">Create a faces message of the given severity with the given message body which is formatted with the given
@@ -372,7 +417,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static <a href="../../../org/omnifaces/util/Messages.Message.html" title="class in org.omnifaces.util">Messages.Message</a></code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Messages.html#create(java.lang.String, java.lang.Object...)">create</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;message,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Messages.html#create(java.lang.String,%20java.lang.Object...)">create</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;message,
       <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;params)</code>
 <div class="block">Create a faces message with the default INFO severity and the given message body which is formatted with the
  given parameters as summary message.</div>
@@ -380,28 +425,28 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/FacesMessage.html?is-external=true" title="class or interface in javax.faces.application">FacesMessage</a></code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Messages.html#createError(java.lang.String, java.lang.Object...)">createError</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;message,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Messages.html#createError(java.lang.String,%20java.lang.Object...)">createError</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;message,
            <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;params)</code>
 <div class="block">Create an ERROR faces message with the given message body which is formatted with the given parameters.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/FacesMessage.html?is-external=true" title="class or interface in javax.faces.application">FacesMessage</a></code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Messages.html#createFatal(java.lang.String, java.lang.Object...)">createFatal</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;message,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Messages.html#createFatal(java.lang.String,%20java.lang.Object...)">createFatal</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;message,
            <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;params)</code>
 <div class="block">Create a FATAL faces message with the given message body which is formatted with the given parameters.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/FacesMessage.html?is-external=true" title="class or interface in javax.faces.application">FacesMessage</a></code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Messages.html#createInfo(java.lang.String, java.lang.Object...)">createInfo</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;message,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Messages.html#createInfo(java.lang.String,%20java.lang.Object...)">createInfo</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;message,
           <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;params)</code>
 <div class="block">Create an INFO faces message with the given message body which is formatted with the given parameters.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/FacesMessage.html?is-external=true" title="class or interface in javax.faces.application">FacesMessage</a></code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Messages.html#createWarn(java.lang.String, java.lang.Object...)">createWarn</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;message,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Messages.html#createWarn(java.lang.String,%20java.lang.Object...)">createWarn</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;message,
           <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;params)</code>
 <div class="block">Create a WARN faces message with the given message body which is formatted with the given parameters.</div>
 </td>
@@ -418,7 +463,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
-<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long, int)" title="class or interface in java.lang">wait</a></code></li>
+<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,%20int)" title="class or interface in java.lang">wait</a></code></li>
 </ul>
 </li>
 </ul>
@@ -459,7 +504,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <pre>public static&nbsp;<a href="../../../org/omnifaces/util/Messages.Message.html" title="class in org.omnifaces.util">Messages.Message</a>&nbsp;create(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;message,
                       <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;params)</pre>
 <div class="block">Create a faces message with the default INFO severity and the given message body which is formatted with the
- given parameters as summary message. To set the detail message, use <a href="../../../org/omnifaces/util/Messages.Message.html#detail(java.lang.String, java.lang.Object...)"><code>Messages.Message.detail(String, Object...)</code></a>.
+ given parameters as summary message. To set the detail message, use <a href="../../../org/omnifaces/util/Messages.Message.html#detail(java.lang.String,%20java.lang.Object...)"><code>Messages.Message.detail(String, Object...)</code></a>.
  To change the default INFO severity, use <a href="../../../org/omnifaces/util/Messages.Message.html#warn()"><code>Messages.Message.warn()</code></a>, <a href="../../../org/omnifaces/util/Messages.Message.html#error()"><code>Messages.Message.error()</code></a>, or
  <a href="../../../org/omnifaces/util/Messages.Message.html#fatal()"><code>Messages.Message.fatal()</code></a>. To make it a flash message, use <a href="../../../org/omnifaces/util/Messages.Message.html#flash()"><code>Messages.Message.flash()</code></a>. To finally add it to the faces
  context, use either <a href="../../../org/omnifaces/util/Messages.Message.html#add(java.lang.String)"><code>Messages.Message.add(String)</code></a> to add it for a specific client ID, or <a href="../../../org/omnifaces/util/Messages.Message.html#add()"><code>Messages.Message.add()</code></a> to
@@ -467,8 +512,8 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>message</code> - The message body.</dd><dd><code>params</code> - The message format parameters, if any.</dd>
 <dt><span class="strong">Returns:</span></dt><dd>The <a href="../../../org/omnifaces/util/Messages.Message.html" title="class in org.omnifaces.util"><code>Messages.Message</code></a> builder.</dd><dt><span class="strong">Since:</span></dt>
   <dd>1.1</dd>
-<dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/omnifaces/util/Messages.html#createInfo(java.lang.String, java.lang.Object...)"><code>createInfo(String, Object...)</code></a>, 
-<a href="../../../org/omnifaces/util/Messages.Resolver.html#getMessage(java.lang.String, java.lang.Object...)"><code>Messages.Resolver.getMessage(String, Object...)</code></a></dd></dl>
+<dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/omnifaces/util/Messages.html#createInfo(java.lang.String,%20java.lang.Object...)"><code>createInfo(String, Object...)</code></a>, 
+<a href="../../../org/omnifaces/util/Messages.Resolver.html#getMessage(java.lang.String,%20java.lang.Object...)"><code>Messages.Resolver.getMessage(String, Object...)</code></a></dd></dl>
 </li>
 </ul>
 <a name="create(javax.faces.application.FacesMessage.Severity, java.lang.String, java.lang.Object...)">
@@ -485,7 +530,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
  <a href="http://docs.oracle.com/javaee/7/api/javax/faces/validator/ValidatorException.html?is-external=true" title="class or interface in javax.faces.validator"><code>ValidatorException</code></a>.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>severity</code> - The severity of the faces message.</dd><dd><code>message</code> - The message body.</dd><dd><code>params</code> - The message format parameters, if any.</dd>
 <dt><span class="strong">Returns:</span></dt><dd>A new faces message of the given severity with the given message body which is formatted with the given
- parameters.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/omnifaces/util/Messages.Resolver.html#getMessage(java.lang.String, java.lang.Object...)"><code>Messages.Resolver.getMessage(String, Object...)</code></a></dd></dl>
+ parameters.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/omnifaces/util/Messages.Resolver.html#getMessage(java.lang.String,%20java.lang.Object...)"><code>Messages.Resolver.getMessage(String, Object...)</code></a></dd></dl>
 </li>
 </ul>
 <a name="createInfo(java.lang.String, java.lang.Object...)">
@@ -498,7 +543,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
                       <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;params)</pre>
 <div class="block">Create an INFO faces message with the given message body which is formatted with the given parameters.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>message</code> - The message body.</dd><dd><code>params</code> - The message format parameters, if any.</dd>
-<dt><span class="strong">Returns:</span></dt><dd>A new INFO faces message with the given message body which is formatted with the given parameters.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/omnifaces/util/Messages.html#create(javax.faces.application.FacesMessage.Severity, java.lang.String, java.lang.Object...)"><code>create(javax.faces.application.FacesMessage.Severity, String, Object...)</code></a></dd></dl>
+<dt><span class="strong">Returns:</span></dt><dd>A new INFO faces message with the given message body which is formatted with the given parameters.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/omnifaces/util/Messages.html#create(javax.faces.application.FacesMessage.Severity,%20java.lang.String,%20java.lang.Object...)"><code>create(javax.faces.application.FacesMessage.Severity, String, Object...)</code></a></dd></dl>
 </li>
 </ul>
 <a name="createWarn(java.lang.String, java.lang.Object...)">
@@ -511,7 +556,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
                       <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;params)</pre>
 <div class="block">Create a WARN faces message with the given message body which is formatted with the given parameters.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>message</code> - The message body.</dd><dd><code>params</code> - The message format parameters, if any.</dd>
-<dt><span class="strong">Returns:</span></dt><dd>A new WARN faces message with the given message body which is formatted with the given parameters.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/omnifaces/util/Messages.html#create(javax.faces.application.FacesMessage.Severity, java.lang.String, java.lang.Object...)"><code>create(javax.faces.application.FacesMessage.Severity, String, Object...)</code></a></dd></dl>
+<dt><span class="strong">Returns:</span></dt><dd>A new WARN faces message with the given message body which is formatted with the given parameters.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/omnifaces/util/Messages.html#create(javax.faces.application.FacesMessage.Severity,%20java.lang.String,%20java.lang.Object...)"><code>create(javax.faces.application.FacesMessage.Severity, String, Object...)</code></a></dd></dl>
 </li>
 </ul>
 <a name="createError(java.lang.String, java.lang.Object...)">
@@ -524,7 +569,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
                        <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;params)</pre>
 <div class="block">Create an ERROR faces message with the given message body which is formatted with the given parameters.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>message</code> - The message body.</dd><dd><code>params</code> - The message format parameters, if any.</dd>
-<dt><span class="strong">Returns:</span></dt><dd>A new ERROR faces message with the given message body which is formatted with the given parameters.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/omnifaces/util/Messages.html#create(javax.faces.application.FacesMessage.Severity, java.lang.String, java.lang.Object...)"><code>create(javax.faces.application.FacesMessage.Severity, String, Object...)</code></a></dd></dl>
+<dt><span class="strong">Returns:</span></dt><dd>A new ERROR faces message with the given message body which is formatted with the given parameters.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/omnifaces/util/Messages.html#create(javax.faces.application.FacesMessage.Severity,%20java.lang.String,%20java.lang.Object...)"><code>create(javax.faces.application.FacesMessage.Severity, String, Object...)</code></a></dd></dl>
 </li>
 </ul>
 <a name="createFatal(java.lang.String, java.lang.Object...)">
@@ -537,7 +582,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
                        <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;params)</pre>
 <div class="block">Create a FATAL faces message with the given message body which is formatted with the given parameters.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>message</code> - The message body.</dd><dd><code>params</code> - The message format parameters, if any.</dd>
-<dt><span class="strong">Returns:</span></dt><dd>A new FATAL faces message with the given message body which is formatted with the given parameters.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/omnifaces/util/Messages.html#create(javax.faces.application.FacesMessage.Severity, java.lang.String, java.lang.Object...)"><code>create(javax.faces.application.FacesMessage.Severity, String, Object...)</code></a></dd></dl>
+<dt><span class="strong">Returns:</span></dt><dd>A new FATAL faces message with the given message body which is formatted with the given parameters.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/omnifaces/util/Messages.html#create(javax.faces.application.FacesMessage.Severity,%20java.lang.String,%20java.lang.Object...)"><code>create(javax.faces.application.FacesMessage.Severity, String, Object...)</code></a></dd></dl>
 </li>
 </ul>
 <a name="add(java.lang.String, javax.faces.application.FacesMessage)">
@@ -550,7 +595,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
        <a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/FacesMessage.html?is-external=true" title="class or interface in javax.faces.application">FacesMessage</a>&nbsp;message)</pre>
 <div class="block">Add the given faces message to the given client ID. When the client ID is <code>null</code>, it becomes a
  global faces message. This can be filtered in a <code>&lt;h:messages globalOnly="true"&gt;</code>.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>clientId</code> - The client ID to add the faces message for.</dd><dd><code>message</code> - The faces message.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true#addMessage(java.lang.String, javax.faces.application.FacesMessage)" title="class or interface in javax.faces.context"><code>FacesContext.addMessage(String, FacesMessage)</code></a></dd></dl>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>clientId</code> - The client ID to add the faces message for.</dd><dd><code>message</code> - The faces message.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true#addMessage(java.lang.String,%20javax.faces.application.FacesMessage)" title="class or interface in javax.faces.context"><code>FacesContext.addMessage(String, FacesMessage)</code></a></dd></dl>
 </li>
 </ul>
 <a name="add(javax.faces.application.FacesMessage.Severity, java.lang.String, java.lang.String, java.lang.Object...)">
@@ -565,8 +610,8 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
        <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;params)</pre>
 <div class="block">Add a faces message of the given severity to the given client ID, with the given message body which is formatted
  with the given parameters.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>clientId</code> - The client ID to add the faces message for.</dd><dd><code>severity</code> - The severity of the faces message.</dd><dd><code>message</code> - The message body.</dd><dd><code>params</code> - The message format parameters, if any.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/omnifaces/util/Messages.html#create(javax.faces.application.FacesMessage.Severity, java.lang.String, java.lang.Object...)"><code>create(javax.faces.application.FacesMessage.Severity, String, Object...)</code></a>, 
-<a href="../../../org/omnifaces/util/Messages.html#add(java.lang.String, javax.faces.application.FacesMessage)"><code>add(String, FacesMessage)</code></a></dd></dl>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>clientId</code> - The client ID to add the faces message for.</dd><dd><code>severity</code> - The severity of the faces message.</dd><dd><code>message</code> - The message body.</dd><dd><code>params</code> - The message format parameters, if any.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/omnifaces/util/Messages.html#create(javax.faces.application.FacesMessage.Severity,%20java.lang.String,%20java.lang.Object...)"><code>create(javax.faces.application.FacesMessage.Severity, String, Object...)</code></a>, 
+<a href="../../../org/omnifaces/util/Messages.html#add(java.lang.String,%20javax.faces.application.FacesMessage)"><code>add(String, FacesMessage)</code></a></dd></dl>
 </li>
 </ul>
 <a name="addInfo(java.lang.String, java.lang.String, java.lang.Object...)">
@@ -580,8 +625,8 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
            <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;params)</pre>
 <div class="block">Add an INFO faces message to the given client ID, with the given message body which is formatted with the given
  parameters.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>clientId</code> - The client ID to add the faces message for.</dd><dd><code>message</code> - The message body.</dd><dd><code>params</code> - The message format parameters, if any.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/omnifaces/util/Messages.html#createInfo(java.lang.String, java.lang.Object...)"><code>createInfo(String, Object...)</code></a>, 
-<a href="../../../org/omnifaces/util/Messages.html#add(java.lang.String, javax.faces.application.FacesMessage)"><code>add(String, FacesMessage)</code></a></dd></dl>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>clientId</code> - The client ID to add the faces message for.</dd><dd><code>message</code> - The message body.</dd><dd><code>params</code> - The message format parameters, if any.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/omnifaces/util/Messages.html#createInfo(java.lang.String,%20java.lang.Object...)"><code>createInfo(String, Object...)</code></a>, 
+<a href="../../../org/omnifaces/util/Messages.html#add(java.lang.String,%20javax.faces.application.FacesMessage)"><code>add(String, FacesMessage)</code></a></dd></dl>
 </li>
 </ul>
 <a name="addWarn(java.lang.String, java.lang.String, java.lang.Object...)">
@@ -595,8 +640,8 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
            <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;params)</pre>
 <div class="block">Add a WARN faces message to the given client ID, with the given message body which is formatted with the given
  parameters.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>clientId</code> - The client ID to add the faces message for.</dd><dd><code>message</code> - The message body.</dd><dd><code>params</code> - The message format parameters, if any.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/omnifaces/util/Messages.html#createWarn(java.lang.String, java.lang.Object...)"><code>createWarn(String, Object...)</code></a>, 
-<a href="../../../org/omnifaces/util/Messages.html#add(java.lang.String, javax.faces.application.FacesMessage)"><code>add(String, FacesMessage)</code></a></dd></dl>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>clientId</code> - The client ID to add the faces message for.</dd><dd><code>message</code> - The message body.</dd><dd><code>params</code> - The message format parameters, if any.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/omnifaces/util/Messages.html#createWarn(java.lang.String,%20java.lang.Object...)"><code>createWarn(String, Object...)</code></a>, 
+<a href="../../../org/omnifaces/util/Messages.html#add(java.lang.String,%20javax.faces.application.FacesMessage)"><code>add(String, FacesMessage)</code></a></dd></dl>
 </li>
 </ul>
 <a name="addError(java.lang.String, java.lang.String, java.lang.Object...)">
@@ -610,8 +655,8 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
             <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;params)</pre>
 <div class="block">Add an ERROR faces message to the given client ID, with the given message body which is formatted with the given
  parameters.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>clientId</code> - The client ID to add the faces message for.</dd><dd><code>message</code> - The message body.</dd><dd><code>params</code> - The message format parameters, if any.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/omnifaces/util/Messages.html#createError(java.lang.String, java.lang.Object...)"><code>createError(String, Object...)</code></a>, 
-<a href="../../../org/omnifaces/util/Messages.html#add(java.lang.String, javax.faces.application.FacesMessage)"><code>add(String, FacesMessage)</code></a></dd></dl>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>clientId</code> - The client ID to add the faces message for.</dd><dd><code>message</code> - The message body.</dd><dd><code>params</code> - The message format parameters, if any.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/omnifaces/util/Messages.html#createError(java.lang.String,%20java.lang.Object...)"><code>createError(String, Object...)</code></a>, 
+<a href="../../../org/omnifaces/util/Messages.html#add(java.lang.String,%20javax.faces.application.FacesMessage)"><code>add(String, FacesMessage)</code></a></dd></dl>
 </li>
 </ul>
 <a name="addFatal(java.lang.String, java.lang.String, java.lang.Object...)">
@@ -625,8 +670,8 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
             <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;params)</pre>
 <div class="block">Add a FATAL faces message to the given client ID, with the given message body which is formatted with the given
  parameters.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>clientId</code> - The client ID to add the faces message for.</dd><dd><code>message</code> - The message body.</dd><dd><code>params</code> - The message format parameters, if any.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/omnifaces/util/Messages.html#createFatal(java.lang.String, java.lang.Object...)"><code>createFatal(String, Object...)</code></a>, 
-<a href="../../../org/omnifaces/util/Messages.html#add(java.lang.String, javax.faces.application.FacesMessage)"><code>add(String, FacesMessage)</code></a></dd></dl>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>clientId</code> - The client ID to add the faces message for.</dd><dd><code>message</code> - The message body.</dd><dd><code>params</code> - The message format parameters, if any.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/omnifaces/util/Messages.html#createFatal(java.lang.String,%20java.lang.Object...)"><code>createFatal(String, Object...)</code></a>, 
+<a href="../../../org/omnifaces/util/Messages.html#add(java.lang.String,%20javax.faces.application.FacesMessage)"><code>add(String, FacesMessage)</code></a></dd></dl>
 </li>
 </ul>
 <a name="addGlobal(javax.faces.application.FacesMessage)">
@@ -637,7 +682,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <h4>addGlobal</h4>
 <pre>public static&nbsp;void&nbsp;addGlobal(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/FacesMessage.html?is-external=true" title="class or interface in javax.faces.application">FacesMessage</a>&nbsp;message)</pre>
 <div class="block">Add a global faces message. This adds a faces message to a client ID of <code>null</code>.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>message</code> - The global faces message.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/omnifaces/util/Messages.html#add(java.lang.String, javax.faces.application.FacesMessage)"><code>add(String, FacesMessage)</code></a></dd></dl>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>message</code> - The global faces message.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/omnifaces/util/Messages.html#add(java.lang.String,%20javax.faces.application.FacesMessage)"><code>add(String, FacesMessage)</code></a></dd></dl>
 </li>
 </ul>
 <a name="addGlobal(javax.faces.application.FacesMessage.Severity, java.lang.String, java.lang.Object...)">
@@ -651,7 +696,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
              <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;params)</pre>
 <div class="block">Add a global faces message of the given severity, with the given message body which is formatted with the given
  parameters.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>severity</code> - The severity of the global faces message.</dd><dd><code>message</code> - The message body.</dd><dd><code>params</code> - The message format parameters, if any.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/omnifaces/util/Messages.html#create(javax.faces.application.FacesMessage.Severity, java.lang.String, java.lang.Object...)"><code>create(javax.faces.application.FacesMessage.Severity, String, Object...)</code></a>, 
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>severity</code> - The severity of the global faces message.</dd><dd><code>message</code> - The message body.</dd><dd><code>params</code> - The message format parameters, if any.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/omnifaces/util/Messages.html#create(javax.faces.application.FacesMessage.Severity,%20java.lang.String,%20java.lang.Object...)"><code>create(javax.faces.application.FacesMessage.Severity, String, Object...)</code></a>, 
 <a href="../../../org/omnifaces/util/Messages.html#addGlobal(javax.faces.application.FacesMessage)"><code>addGlobal(FacesMessage)</code></a></dd></dl>
 </li>
 </ul>
@@ -664,7 +709,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <pre>public static&nbsp;void&nbsp;addGlobalInfo(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;message,
                  <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;params)</pre>
 <div class="block">Add a global INFO faces message, with the given message body which is formatted with the given parameters.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>message</code> - The message body.</dd><dd><code>params</code> - The message format parameters, if any.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/omnifaces/util/Messages.html#createInfo(java.lang.String, java.lang.Object...)"><code>createInfo(String, Object...)</code></a>, 
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>message</code> - The message body.</dd><dd><code>params</code> - The message format parameters, if any.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/omnifaces/util/Messages.html#createInfo(java.lang.String,%20java.lang.Object...)"><code>createInfo(String, Object...)</code></a>, 
 <a href="../../../org/omnifaces/util/Messages.html#addGlobal(javax.faces.application.FacesMessage)"><code>addGlobal(FacesMessage)</code></a></dd></dl>
 </li>
 </ul>
@@ -677,7 +722,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <pre>public static&nbsp;void&nbsp;addGlobalWarn(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;message,
                  <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;params)</pre>
 <div class="block">Add a global WARN faces message, with the given message body which is formatted with the given parameters.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>message</code> - The message body.</dd><dd><code>params</code> - The message format parameters, if any.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/omnifaces/util/Messages.html#createWarn(java.lang.String, java.lang.Object...)"><code>createWarn(String, Object...)</code></a>, 
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>message</code> - The message body.</dd><dd><code>params</code> - The message format parameters, if any.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/omnifaces/util/Messages.html#createWarn(java.lang.String,%20java.lang.Object...)"><code>createWarn(String, Object...)</code></a>, 
 <a href="../../../org/omnifaces/util/Messages.html#addGlobal(javax.faces.application.FacesMessage)"><code>addGlobal(FacesMessage)</code></a></dd></dl>
 </li>
 </ul>
@@ -690,7 +735,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <pre>public static&nbsp;void&nbsp;addGlobalError(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;message,
                   <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;params)</pre>
 <div class="block">Add a global ERROR faces message, with the given message body which is formatted with the given parameters.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>message</code> - The message body.</dd><dd><code>params</code> - The message format parameters, if any.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/omnifaces/util/Messages.html#createError(java.lang.String, java.lang.Object...)"><code>createError(String, Object...)</code></a>, 
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>message</code> - The message body.</dd><dd><code>params</code> - The message format parameters, if any.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/omnifaces/util/Messages.html#createError(java.lang.String,%20java.lang.Object...)"><code>createError(String, Object...)</code></a>, 
 <a href="../../../org/omnifaces/util/Messages.html#addGlobal(javax.faces.application.FacesMessage)"><code>addGlobal(FacesMessage)</code></a></dd></dl>
 </li>
 </ul>
@@ -703,7 +748,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <pre>public static&nbsp;void&nbsp;addGlobalFatal(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;message,
                   <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;params)</pre>
 <div class="block">Add a global FATAL faces message, with the given message body which is formatted with the given parameters.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>message</code> - The message body.</dd><dd><code>params</code> - The message format parameters, if any.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/omnifaces/util/Messages.html#createFatal(java.lang.String, java.lang.Object...)"><code>createFatal(String, Object...)</code></a>, 
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>message</code> - The message body.</dd><dd><code>params</code> - The message format parameters, if any.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/omnifaces/util/Messages.html#createFatal(java.lang.String,%20java.lang.Object...)"><code>createFatal(String, Object...)</code></a>, 
 <a href="../../../org/omnifaces/util/Messages.html#addGlobal(javax.faces.application.FacesMessage)"><code>addGlobal(FacesMessage)</code></a></dd></dl>
 </li>
 </ul>
@@ -722,7 +767,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
  the messages are remembered too long, or they are only displayed after refresh, or they are not displayed when
  the next request is on a different path. Only since Mojarra 2.1.14, all known flash scope problems are solved.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>clientId</code> - The client ID to add the flash scoped faces message for.</dd><dd><code>message</code> - The faces message.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/Flash.html?is-external=true#setKeepMessages(boolean)" title="class or interface in javax.faces.context"><code>Flash.setKeepMessages(boolean)</code></a>, 
-<a href="../../../org/omnifaces/util/Messages.html#add(java.lang.String, javax.faces.application.FacesMessage)"><code>add(String, FacesMessage)</code></a></dd></dl>
+<a href="../../../org/omnifaces/util/Messages.html#add(java.lang.String,%20javax.faces.application.FacesMessage)"><code>add(String, FacesMessage)</code></a></dd></dl>
 </li>
 </ul>
 <a name="addFlash(javax.faces.application.FacesMessage.Severity, java.lang.String, java.lang.String, java.lang.Object...)">
@@ -737,8 +782,8 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
             <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;params)</pre>
 <div class="block">Add a flash scoped faces message of the given severity to the given client ID, with the given message body which
  is formatted with the given parameters. Use this when you need to display the message after a redirect.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>clientId</code> - The client ID to add the faces message for.</dd><dd><code>severity</code> - The severity of the faces message.</dd><dd><code>message</code> - The message body.</dd><dd><code>params</code> - The message format parameters, if any.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/omnifaces/util/Messages.html#create(javax.faces.application.FacesMessage.Severity, java.lang.String, java.lang.Object...)"><code>create(javax.faces.application.FacesMessage.Severity, String, Object...)</code></a>, 
-<a href="../../../org/omnifaces/util/Messages.html#addFlash(java.lang.String, javax.faces.application.FacesMessage)"><code>addFlash(String, FacesMessage)</code></a></dd></dl>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>clientId</code> - The client ID to add the faces message for.</dd><dd><code>severity</code> - The severity of the faces message.</dd><dd><code>message</code> - The message body.</dd><dd><code>params</code> - The message format parameters, if any.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/omnifaces/util/Messages.html#create(javax.faces.application.FacesMessage.Severity,%20java.lang.String,%20java.lang.Object...)"><code>create(javax.faces.application.FacesMessage.Severity, String, Object...)</code></a>, 
+<a href="../../../org/omnifaces/util/Messages.html#addFlash(java.lang.String,%20javax.faces.application.FacesMessage)"><code>addFlash(String, FacesMessage)</code></a></dd></dl>
 </li>
 </ul>
 <a name="addFlashInfo(java.lang.String, java.lang.String, java.lang.Object...)">
@@ -752,8 +797,8 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
                 <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;params)</pre>
 <div class="block">Add a flash scoped INFO faces message to the given client ID, with the given message body which is formatted
  with the given parameters. Use this when you need to display the message after a redirect.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>clientId</code> - The client ID to add the faces message for.</dd><dd><code>message</code> - The message body.</dd><dd><code>params</code> - The message format parameters, if any.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/omnifaces/util/Messages.html#createInfo(java.lang.String, java.lang.Object...)"><code>createInfo(String, Object...)</code></a>, 
-<a href="../../../org/omnifaces/util/Messages.html#addFlash(java.lang.String, javax.faces.application.FacesMessage)"><code>addFlash(String, FacesMessage)</code></a></dd></dl>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>clientId</code> - The client ID to add the faces message for.</dd><dd><code>message</code> - The message body.</dd><dd><code>params</code> - The message format parameters, if any.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/omnifaces/util/Messages.html#createInfo(java.lang.String,%20java.lang.Object...)"><code>createInfo(String, Object...)</code></a>, 
+<a href="../../../org/omnifaces/util/Messages.html#addFlash(java.lang.String,%20javax.faces.application.FacesMessage)"><code>addFlash(String, FacesMessage)</code></a></dd></dl>
 </li>
 </ul>
 <a name="addFlashWarn(java.lang.String, java.lang.String, java.lang.Object...)">
@@ -767,8 +812,8 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
                 <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;params)</pre>
 <div class="block">Add a flash scoped WARN faces message to the given client ID, with the given message body which is formatted
  with the given parameters. Use this when you need to display the message after a redirect.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>clientId</code> - The client ID to add the faces message for.</dd><dd><code>message</code> - The message body.</dd><dd><code>params</code> - The message format parameters, if any.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/omnifaces/util/Messages.html#createWarn(java.lang.String, java.lang.Object...)"><code>createWarn(String, Object...)</code></a>, 
-<a href="../../../org/omnifaces/util/Messages.html#addFlash(java.lang.String, javax.faces.application.FacesMessage)"><code>addFlash(String, FacesMessage)</code></a></dd></dl>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>clientId</code> - The client ID to add the faces message for.</dd><dd><code>message</code> - The message body.</dd><dd><code>params</code> - The message format parameters, if any.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/omnifaces/util/Messages.html#createWarn(java.lang.String,%20java.lang.Object...)"><code>createWarn(String, Object...)</code></a>, 
+<a href="../../../org/omnifaces/util/Messages.html#addFlash(java.lang.String,%20javax.faces.application.FacesMessage)"><code>addFlash(String, FacesMessage)</code></a></dd></dl>
 </li>
 </ul>
 <a name="addFlashError(java.lang.String, java.lang.String, java.lang.Object...)">
@@ -782,8 +827,8 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
                  <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;params)</pre>
 <div class="block">Add a flash scoped ERROR faces message to the given client ID, with the given message body which is formatted
  with the given parameters. Use this when you need to display the message after a redirect.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>clientId</code> - The client ID to add the faces message for.</dd><dd><code>message</code> - The message body.</dd><dd><code>params</code> - The message format parameters, if any.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/omnifaces/util/Messages.html#createError(java.lang.String, java.lang.Object...)"><code>createError(String, Object...)</code></a>, 
-<a href="../../../org/omnifaces/util/Messages.html#addFlash(java.lang.String, javax.faces.application.FacesMessage)"><code>addFlash(String, FacesMessage)</code></a></dd></dl>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>clientId</code> - The client ID to add the faces message for.</dd><dd><code>message</code> - The message body.</dd><dd><code>params</code> - The message format parameters, if any.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/omnifaces/util/Messages.html#createError(java.lang.String,%20java.lang.Object...)"><code>createError(String, Object...)</code></a>, 
+<a href="../../../org/omnifaces/util/Messages.html#addFlash(java.lang.String,%20javax.faces.application.FacesMessage)"><code>addFlash(String, FacesMessage)</code></a></dd></dl>
 </li>
 </ul>
 <a name="addFlashFatal(java.lang.String, java.lang.String, java.lang.Object...)">
@@ -797,8 +842,8 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
                  <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;params)</pre>
 <div class="block">Add a flash scoped FATAL faces message to the given client ID, with the given message body which is formatted
  with the given parameters. Use this when you need to display the message after a redirect.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>clientId</code> - The client ID to add the faces message for.</dd><dd><code>message</code> - The message body.</dd><dd><code>params</code> - The message format parameters, if any.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/omnifaces/util/Messages.html#createFatal(java.lang.String, java.lang.Object...)"><code>createFatal(String, Object...)</code></a>, 
-<a href="../../../org/omnifaces/util/Messages.html#addFlash(java.lang.String, javax.faces.application.FacesMessage)"><code>addFlash(String, FacesMessage)</code></a></dd></dl>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>clientId</code> - The client ID to add the faces message for.</dd><dd><code>message</code> - The message body.</dd><dd><code>params</code> - The message format parameters, if any.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/omnifaces/util/Messages.html#createFatal(java.lang.String,%20java.lang.Object...)"><code>createFatal(String, Object...)</code></a>, 
+<a href="../../../org/omnifaces/util/Messages.html#addFlash(java.lang.String,%20javax.faces.application.FacesMessage)"><code>addFlash(String, FacesMessage)</code></a></dd></dl>
 </li>
 </ul>
 <a name="addFlashGlobal(javax.faces.application.FacesMessage)">
@@ -810,7 +855,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <pre>public static&nbsp;void&nbsp;addFlashGlobal(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/FacesMessage.html?is-external=true" title="class or interface in javax.faces.application">FacesMessage</a>&nbsp;message)</pre>
 <div class="block">Add a flash scoped global faces message. This adds a faces message to a client ID of <code>null</code>. Use this
  when you need to display the message after a redirect.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>message</code> - The global faces message.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/omnifaces/util/Messages.html#addFlash(java.lang.String, javax.faces.application.FacesMessage)"><code>addFlash(String, FacesMessage)</code></a></dd></dl>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>message</code> - The global faces message.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/omnifaces/util/Messages.html#addFlash(java.lang.String,%20javax.faces.application.FacesMessage)"><code>addFlash(String, FacesMessage)</code></a></dd></dl>
 </li>
 </ul>
 <a name="addFlashGlobalInfo(java.lang.String, java.lang.Object...)">
@@ -823,7 +868,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
                       <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;params)</pre>
 <div class="block">Add a flash scoped global INFO faces message, with the given message body which is formatted with the given
  parameters. Use this when you need to display the message after a redirect.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>message</code> - The message body.</dd><dd><code>params</code> - The message format parameters, if any.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/omnifaces/util/Messages.html#createInfo(java.lang.String, java.lang.Object...)"><code>createInfo(String, Object...)</code></a>, 
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>message</code> - The message body.</dd><dd><code>params</code> - The message format parameters, if any.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/omnifaces/util/Messages.html#createInfo(java.lang.String,%20java.lang.Object...)"><code>createInfo(String, Object...)</code></a>, 
 <a href="../../../org/omnifaces/util/Messages.html#addFlashGlobal(javax.faces.application.FacesMessage)"><code>addFlashGlobal(FacesMessage)</code></a></dd></dl>
 </li>
 </ul>
@@ -837,7 +882,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
                       <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;params)</pre>
 <div class="block">Add a flash scoped global WARN faces message, with the given message body which is formatted with the given
  parameters. Use this when you need to display the message after a redirect.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>message</code> - The message body.</dd><dd><code>params</code> - The message format parameters, if any.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/omnifaces/util/Messages.html#createWarn(java.lang.String, java.lang.Object...)"><code>createWarn(String, Object...)</code></a>, 
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>message</code> - The message body.</dd><dd><code>params</code> - The message format parameters, if any.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/omnifaces/util/Messages.html#createWarn(java.lang.String,%20java.lang.Object...)"><code>createWarn(String, Object...)</code></a>, 
 <a href="../../../org/omnifaces/util/Messages.html#addFlashGlobal(javax.faces.application.FacesMessage)"><code>addFlashGlobal(FacesMessage)</code></a></dd></dl>
 </li>
 </ul>
@@ -851,7 +896,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
                        <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;params)</pre>
 <div class="block">Add a flash scoped global ERROR faces message, with the given message body which is formatted with the given
  parameters. Use this when you need to display the message after a redirect.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>message</code> - The message body.</dd><dd><code>params</code> - The message format parameters, if any.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/omnifaces/util/Messages.html#createError(java.lang.String, java.lang.Object...)"><code>createError(String, Object...)</code></a>, 
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>message</code> - The message body.</dd><dd><code>params</code> - The message format parameters, if any.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/omnifaces/util/Messages.html#createError(java.lang.String,%20java.lang.Object...)"><code>createError(String, Object...)</code></a>, 
 <a href="../../../org/omnifaces/util/Messages.html#addFlashGlobal(javax.faces.application.FacesMessage)"><code>addFlashGlobal(FacesMessage)</code></a></dd></dl>
 </li>
 </ul>
@@ -865,7 +910,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
                        <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>...&nbsp;params)</pre>
 <div class="block">Add a flash scoped global FATAL faces message, with the given message body which is formatted with the given
  parameters. Use this when you need to display the message after a redirect.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>message</code> - The message body.</dd><dd><code>params</code> - The message format parameters, if any.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/omnifaces/util/Messages.html#createFatal(java.lang.String, java.lang.Object...)"><code>createFatal(String, Object...)</code></a>, 
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>message</code> - The message body.</dd><dd><code>params</code> - The message format parameters, if any.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/omnifaces/util/Messages.html#createFatal(java.lang.String,%20java.lang.Object...)"><code>createFatal(String, Object...)</code></a>, 
 <a href="../../../org/omnifaces/util/Messages.html#addFlashGlobal(javax.faces.application.FacesMessage)"><code>addFlashGlobal(FacesMessage)</code></a></dd></dl>
 </li>
 </ul>

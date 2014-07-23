@@ -106,9 +106,11 @@
 <pre>public class <span class="strong">ResetInputAjaxActionListener</span>
 extends <a href="../../../org/omnifaces/eventlistener/DefaultPhaseListener.html" title="class in org.omnifaces.eventlistener">DefaultPhaseListener</a>
 implements <a href="http://docs.oracle.com/javaee/7/api/javax/faces/event/ActionListener.html?is-external=true" title="class or interface in javax.faces.event">ActionListener</a></pre>
-<div class="block">Use this action listener when you want to partially (ajax) render input fields which are not executed during submit,
- but which are possibly in an invalidated state because of a validation failure during a previous request. Those
- input fields will be resetted so that they are not in an invalidated state anymore.
+<div class="block"><p>
+ The <a href="../../../org/omnifaces/eventlistener/ResetInputAjaxActionListener.html" title="class in org.omnifaces.eventlistener"><code>ResetInputAjaxActionListener</code></a> will reset input fields which are not executed during ajax submit, but which
+ are rendered/updated during ajax response. This will prevent those input fields to remain in an invalidated state
+ because of a validation failure during a previous request. This is very useful for cases where you need to update one
+ form from another form by for example a modal dialog, or when you need a cancel/clear button.
  <p>
  How does it work? First, here are some JSF facts:
  <ul>
@@ -138,7 +140,7 @@ implements <a href="http://docs.oracle.com/javaee/7/api/javax/faces/event/Action
  <code>UICommand</code> components.
  <pre>
  &lt;lifecycle&gt;
-   &lt;phase-listener&gt;org.omnifaces.eventlistener.ResetInputAjaxActionListener&lt;/phase-listener&gt;
+     &lt;phase-listener&gt;org.omnifaces.eventlistener.ResetInputAjaxActionListener&lt;/phase-listener&gt;
  &lt;/lifecycle&gt;
  </pre>
  <li><p><i>Or</i> register it as <code>&lt;action-listener&gt;</code> in <code>faces-config.xml</code>. It'll
@@ -146,7 +148,7 @@ implements <a href="http://docs.oracle.com/javaee/7/api/javax/faces/event/Action
  <code>&lt;h:commandButton&gt;</code> and <code>&lt;h:commandLink&gt;</code>.
  <pre>
  &lt;application&gt;
-   &lt;action-listener&gt;org.omnifaces.eventlistener.ResetInputAjaxActionListener&lt;/action-listener&gt;
+     &lt;action-listener&gt;org.omnifaces.eventlistener.ResetInputAjaxActionListener&lt;/action-listener&gt;
  &lt;/application&gt;
  </pre>
  <li><p><i>Or</i> register it as <code>&lt;f:actionListener&gt;</code> on the invidivual <code>UICommand</code>
@@ -154,8 +156,8 @@ implements <a href="http://docs.oracle.com/javaee/7/api/javax/faces/event/Action
  possible to register it on the individual <code>UIInput</code> components using the standard JSF tags.
  <pre>
  &lt;h:commandButton value="Update" action="#{bean.updateOtherInputs}"&gt;
-   &lt;f:ajax execute="currentInputs" render="otherInputs" /&gt;
-   &lt;f:actionListener type="org.omnifaces.eventlistener.ResetInputAjaxActionListener" /&gt;
+     &lt;f:ajax execute="currentInputs" render="otherInputs" /&gt;
+     &lt;f:actionListener type="org.omnifaces.eventlistener.ResetInputAjaxActionListener" /&gt;
  &lt;/h:commandButton&gt;
  </pre>
  </ul>
@@ -260,7 +262,7 @@ implements <a href="http://docs.oracle.com/javaee/7/api/javax/faces/event/Action
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
-<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long, int)" title="class or interface in java.lang">wait</a></code></li>
+<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,%20int)" title="class or interface in java.lang">wait</a></code></li>
 </ul>
 </li>
 </ul>

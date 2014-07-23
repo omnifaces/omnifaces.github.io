@@ -101,30 +101,35 @@
 <pre>public class <span class="strong">RequiredCheckboxValidator</span>
 extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>
 implements <a href="http://docs.oracle.com/javaee/7/api/javax/faces/validator/Validator.html?is-external=true" title="class or interface in javax.faces.validator">Validator</a></pre>
-<div class="block">This validator solves the broken <code>required="true"</code> attribute of the
+<div class="block"><p>
+ The <code>omnifaces.RequiredCheckboxValidator</code> is intented to solve a peculiar problem with
+ <code>required="true"</code> attribute of <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UISelectBoolean.html?is-external=true" title="class or interface in javax.faces.component"><code>UISelectBoolean</code></a> components like
  <code>&lt;h:selectBooleanCheckbox&gt;</code>. If you want to require the user to tick the desired checkbox, you would
  expect that setting <code>required="true"</code> is sufficient. But it is not, the validation wil always pass.
  <p>
  As for every other <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIInput.html?is-external=true" title="class or interface in javax.faces.component"><code>UIInput</code></a> component the default <code>required="true"</code> validator would
  only check if the value is actually filled and been sent to the server side, i.e. the value is not null nor empty.
  In case of a <code>&lt;h:selectBooleanCheckbox&gt;</code>, which accepts <code>Boolean</code> or <code>boolean</code>
- properties only, JSF EL will coerce the unchecked value to <code>Boolean.FALSE</code> during apply request values
- phase, right before validations phase. This value is not <code>null</code> nor empty! Thus, the required attribute of
- the <code>&lt;h:selectBooleanCheckbox&gt;</code> is fairly pointless. It would always pass the validation and thus
- never display the desired required message in case of an unticked checkbox.
+ properties only, EL will coerce the unchecked value to <code>Boolean.FALSE</code> during apply request values phase
+ right before validations phase. This value is not <code>null</code> nor empty! Thus, the required attribute of the
+ <code>&lt;h:selectBooleanCheckbox&gt;</code> is fairly pointless. It would always pass the validation and thus never
+ display the desired required message in case of an unticked checkbox.
+
+ <h3>Usage</h3>
  <p>
- To get it to work anyway, register this validator on validator ID of <code>omnifaces.RequiredCheckboxValidator</code>
- as follows:
+ <p>
+ This validator is available by validator ID <code>omnifaces.RequiredCheckboxValidator</code>. Just specify it as
+ <code>&lt;f:validator&gt;</code> of the boolean selection component:
  <pre>
  &lt;h:selectBooleanCheckbox id="agree" value="#{bean.agree}" requiredMessage="You must agree!"&gt;
-   &lt;f:validator validatorId="omnifaces.RequiredCheckboxValidator" /&gt;
+     &lt;f:validator validatorId="omnifaces.RequiredCheckboxValidator" /&gt;
  &lt;/h:selectBooleanCheckbox&gt;
  </pre>
  <p>
  The validator will use the message as specified in <code>requiredMessage</code>. If it's absent, then it will use
  the default required message as specified in custom <code>&lt;message-bundle&gt;</code> in
- <code>faces-config.xml</code>.
- If it's absent, then it will default to "{0}: a tick is required".</div>
+ <code>faces-config.xml</code>. If it's absent, then it will default to
+ <blockquote>{0}: a tick is required"</blockquote></div>
 <dl><dt><span class="strong">Author:</span></dt>
   <dd>Bauke Scholtz</dd></dl>
 </li>
@@ -179,7 +184,7 @@ implements <a href="http://docs.oracle.com/javaee/7/api/javax/faces/validator/Va
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/validator/RequiredCheckboxValidator.html#validate(javax.faces.context.FacesContext, javax.faces.component.UIComponent, java.lang.Object)">validate</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/validator/RequiredCheckboxValidator.html#validate(javax.faces.context.FacesContext,%20javax.faces.component.UIComponent,%20java.lang.Object)">validate</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context,
         <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;component,
         <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)</code>&nbsp;</td>
 </tr>
@@ -189,7 +194,7 @@ implements <a href="http://docs.oracle.com/javaee/7/api/javax/faces/validator/Va
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
-<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long, int)" title="class or interface in java.lang">wait</a></code></li>
+<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,%20int)" title="class or interface in java.lang">wait</a></code></li>
 </ul>
 </li>
 </ul>
@@ -234,7 +239,7 @@ implements <a href="http://docs.oracle.com/javaee/7/api/javax/faces/validator/Va
               throws <a href="http://docs.oracle.com/javaee/7/api/javax/faces/validator/ValidatorException.html?is-external=true" title="class or interface in javax.faces.validator">ValidatorException</a></pre>
 <dl>
 <dt><strong>Specified by:</strong></dt>
-<dd><code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/validator/Validator.html?is-external=true#validate(javax.faces.context.FacesContext, javax.faces.component.UIComponent, java.lang.Object)" title="class or interface in javax.faces.validator">validate</a></code>&nbsp;in interface&nbsp;<code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/validator/Validator.html?is-external=true" title="class or interface in javax.faces.validator">Validator</a></code></dd>
+<dd><code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/validator/Validator.html?is-external=true#validate(javax.faces.context.FacesContext,%20javax.faces.component.UIComponent,%20java.lang.Object)" title="class or interface in javax.faces.validator">validate</a></code>&nbsp;in interface&nbsp;<code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/validator/Validator.html?is-external=true" title="class or interface in javax.faces.validator">Validator</a></code></dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/validator/ValidatorException.html?is-external=true" title="class or interface in javax.faces.validator">ValidatorException</a></code></dd></dl>
 </li>

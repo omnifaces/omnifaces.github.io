@@ -96,9 +96,38 @@
 <br>
 <pre>public final class <span class="strong">FacesViews</span>
 extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
-<div class="block">This class contains the core methods that implement the Faces Views feature.
+<div class="block"><p>
+ FacesViews is a mechanism to use SEO-friendly extensionless URLs in a JSF application without the need to enlist
+ individual Facelet source files in some configuration file.
+ <p>
+ Instead, Facelets source files can be put into either the special <code>/WEB-INF/faces-views</code>
+ directory, from where they will be automatically scanned (no configuration whatsoever required) or an
+ explicit directory can be configured to be scanned. The web app root is supported as well.
 
- TODO: break up in logic and config?</div>
+ <h3>Installation</h3>
+ <p>
+ Example of configuring FacesViews to make all Facelets found in the root and its sub-directories (excluding /WEB-INF,
+ /META-INF and /resources) available as extensionless URLs:
+ <pre>
+ &lt;context-param&gt;
+     &lt;param-name&gt;org.omnifaces.FACES_VIEWS_SCAN_PATHS&lt;/param-name&gt;
+     &lt;param-value&gt;/*.xhtml&lt;/param-value&gt;
+ &lt;/context-param&gt;
+ </pre>
+ <p>
+ See <a href="package-summary.html">package documentation</a> for additional details.
+
+ <h3>PrettyFaces</h3>
+ <p>
+ Note that there is some overlap between this feature and <a href="http://ocpsoft.org/prettyfaces">PrettyFaces</a>.
+ The difference is that FacesViews has a focus on zero- or very minimal config, where PrettyFaces has a focus on very
+ powerful mapping mechanisms, which of course need some level of configuration. As such FacesViews will only focus on
+ auto discovering views and mapping them to both <code>.xhtml</code> and to no-extension without needing to explicitly
+ declare the <code>FacesServlet</code> in <code>web.xml</code>.
+ <p>
+ Specifically, FacesViews will thus <em>not</em> become a general URL rewriting tool (e.g. one that maps path segments
+ to parameters, or that totally changes the name of the URL). For this the user is advised to look at the
+ aforementioned <a href="http://ocpsoft.org/prettyfaces">PrettyFaces</a>.</div>
 <dl><dt><span class="strong">Author:</span></dt>
   <dd>Arjan Tijms</dd></dl>
 </li>
@@ -241,12 +270,12 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static boolean</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/facesviews/FacesViews.html#canScanDirectory(java.lang.String, java.lang.String)">canScanDirectory</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;rootPath,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/facesviews/FacesViews.html#canScanDirectory(java.lang.String,%20java.lang.String)">canScanDirectory</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;rootPath,
                 <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;directory)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static boolean</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/facesviews/FacesViews.html#canScanResource(java.lang.String, java.lang.String)">canScanResource</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;resource,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/facesviews/FacesViews.html#canScanResource(java.lang.String,%20java.lang.String)">canScanResource</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;resource,
                <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;extensionToScan)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
@@ -262,7 +291,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/facesviews/FacesViews.html#getExtensionlessURLWithQuery(javax.servlet.http.HttpServletRequest, java.lang.String)">getExtensionlessURLWithQuery</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/facesviews/FacesViews.html#getExtensionlessURLWithQuery(javax.servlet.http.HttpServletRequest,%20java.lang.String)">getExtensionlessURLWithQuery</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request,
                             <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;resource)</code>
 <div class="block">Obtains the full request URL from the given request and the given resource complete with the query string, but with the
  extension (if any) cut out.</div>
@@ -314,7 +343,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static boolean</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/facesviews/FacesViews.html#isResourceInPublicPath(javax.servlet.ServletContext, java.lang.String)">isResourceInPublicPath</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/ServletContext.html?is-external=true" title="class or interface in javax.servlet">ServletContext</a>&nbsp;servletContext,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/facesviews/FacesViews.html#isResourceInPublicPath(javax.servlet.ServletContext,%20java.lang.String)">isResourceInPublicPath</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/ServletContext.html?is-external=true" title="class or interface in javax.servlet">ServletContext</a>&nbsp;servletContext,
                       <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;resource)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
@@ -323,7 +352,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/facesviews/FacesViews.html#mapFacesServlet(javax.servlet.ServletContext, java.util.Set)">mapFacesServlet</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/ServletContext.html?is-external=true" title="class or interface in javax.servlet">ServletContext</a>&nbsp;servletContext,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/facesviews/FacesViews.html#mapFacesServlet(javax.servlet.ServletContext,%20java.util.Set)">mapFacesServlet</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/ServletContext.html?is-external=true" title="class or interface in javax.servlet">ServletContext</a>&nbsp;servletContext,
                <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;extensions)</code>
 <div class="block">Map the Facelets Servlet to the given extensions</div>
 </td>
@@ -348,7 +377,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/facesviews/FacesViews.html#scanViews(javax.servlet.ServletContext, java.lang.String, java.util.Set, java.util.Map, java.lang.String, java.util.Set)">scanViews</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/ServletContext.html?is-external=true" title="class or interface in javax.servlet">ServletContext</a>&nbsp;servletContext,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/facesviews/FacesViews.html#scanViews(javax.servlet.ServletContext,%20java.lang.String,%20java.util.Set,%20java.util.Map,%20java.lang.String,%20java.util.Set)">scanViews</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/ServletContext.html?is-external=true" title="class or interface in javax.servlet">ServletContext</a>&nbsp;servletContext,
          <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;rootPath,
          <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;resourcePaths,
          <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;collectedViews,
@@ -360,7 +389,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/facesviews/FacesViews.html#scanViewsFromRootPaths(javax.servlet.ServletContext, java.util.Map, java.util.Set)">scanViewsFromRootPaths</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/ServletContext.html?is-external=true" title="class or interface in javax.servlet">ServletContext</a>&nbsp;servletContext,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/facesviews/FacesViews.html#scanViewsFromRootPaths(javax.servlet.ServletContext,%20java.util.Map,%20java.util.Set)">scanViewsFromRootPaths</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/ServletContext.html?is-external=true" title="class or interface in javax.servlet">ServletContext</a>&nbsp;servletContext,
                       <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;collectedViews,
                       <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;collectedExtensions)</code>&nbsp;</td>
 </tr>
@@ -383,7 +412,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
-<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long, int)" title="class or interface in java.lang">wait</a></code></li>
+<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,%20int)" title="class or interface in java.lang">wait</a></code></li>
 </ul>
 </li>
 </ul>
@@ -739,7 +768,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
              <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;collectedExtensions)</pre>
 <div class="block">Scans resources (views) recursively starting with the given resource paths for a specific root path, and collects
  those and all unique extensions encountered in a flat map respectively set.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>servletContext</code> - </dd><dd><code>rootPath</code> - one of the paths from which views are scanned. By default this is typically /WEB-INF/faces-view/</dd><dd><code>resourcePaths</code> - collection of paths to be considered for scanning, can be either files or directories.</dd><dd><code>collectedViews</code> - a mapping of all views encountered during scanning. Mapping will be from the simplified form to the
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>servletContext</code> - The involved servlet context.</dd><dd><code>rootPath</code> - one of the paths from which views are scanned. By default this is typically /WEB-INF/faces-view/</dd><dd><code>resourcePaths</code> - collection of paths to be considered for scanning, can be either files or directories.</dd><dd><code>collectedViews</code> - a mapping of all views encountered during scanning. Mapping will be from the simplified form to the
             actual location relatively to the web root. E.g key "foo", value "/WEB-INF/faces-view/foo.xhtml"</dd><dd><code>extensionToScan</code> - a specific extension to scan for. Should start with a ., e.g. ".xhtml". If this is given, only
             resources with that extension will be scanned. If null, all resources will be scanned.</dd><dd><code>collectedExtensions</code> - set in which all unique extensions will be collected. May be null, in which case no extensions will be
             collected</dd></dl>
@@ -774,7 +803,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <pre>public static&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;scanViews(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/ServletContext.html?is-external=true" title="class or interface in javax.servlet">ServletContext</a>&nbsp;servletContext)</pre>
 <div class="block">Scans resources (views) recursively starting with the given resource paths and returns a flat map containing all
  resources encountered.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>servletContext</code> - </dd>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>servletContext</code> - The involved servlet context.</dd>
 <dt><span class="strong">Returns:</span></dt><dd>views</dd></dl>
 </li>
 </ul>
@@ -787,7 +816,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <pre>public static&nbsp;void&nbsp;tryScanAndStoreViews(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/ServletContext.html?is-external=true" title="class or interface in javax.servlet">ServletContext</a>&nbsp;context)</pre>
 <div class="block">Checks if resources haven't been scanned yet, and if not does scanning and stores the result at the designated
  location "org.omnifaces.facesviews" in the ServletContext.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>context</code> - </dd></dl>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>context</code> - The involved servlet context.</dd></dl>
 </li>
 </ul>
 <a name="scanAndStoreViews(javax.servlet.ServletContext)">
@@ -799,7 +828,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <pre>public static&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;scanAndStoreViews(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/ServletContext.html?is-external=true" title="class or interface in javax.servlet">ServletContext</a>&nbsp;context)</pre>
 <div class="block">Scans for faces-views resources and stores the result at the designated location "org.omnifaces.facesviews" in
  the ServletContext.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>context</code> - </dd>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>context</code> - The involved servlet context.</dd>
 <dt><span class="strong">Returns:</span></dt><dd>the view found during scanning, or the empty map if no views encountered</dd></dl>
 </li>
 </ul>
@@ -811,7 +840,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <h4>stripFacesViewsPrefix</h4>
 <pre>public static&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;stripFacesViewsPrefix(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;resource)</pre>
 <div class="block">Strips the special 'faces-views' prefix path from the resource if any.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>resource</code> - </dd>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>resource</code> - The resource.</dd>
 <dt><span class="strong">Returns:</span></dt><dd>the resource without the special prefix path, or as-is if it didn't start with this prefix.</dd></dl>
 </li>
 </ul>
@@ -833,7 +862,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <pre>public static&nbsp;void&nbsp;mapFacesServlet(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/ServletContext.html?is-external=true" title="class or interface in javax.servlet">ServletContext</a>&nbsp;servletContext,
                    <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Set.html?is-external=true" title="class or interface in java.util">Set</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;extensions)</pre>
 <div class="block">Map the Facelets Servlet to the given extensions</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>extensions</code> - collections of extensions (typically those as encountered during scanning)</dd></dl>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>servletContext</code> - The involved servlet context.</dd><dd><code>extensions</code> - collections of extensions (typically those as encountered during scanning)</dd></dl>
 </li>
 </ul>
 <a name="getFacesServletExtensions(javax.faces.context.FacesContext)">

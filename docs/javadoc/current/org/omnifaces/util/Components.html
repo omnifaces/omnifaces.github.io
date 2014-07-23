@@ -96,7 +96,47 @@
 <br>
 <pre>public final class <span class="strong">Components</span>
 extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
-<div class="block">Collection of utility methods for the JSF API with respect to working with <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component"><code>UIComponent</code></a>.</div>
+<div class="block"><p>
+ Collection of utility methods for the JSF API with respect to working with <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component"><code>UIComponent</code></a>. There are several
+ traversal/lookup methods, there are several <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIForm.html?is-external=true" title="class or interface in javax.faces.component"><code>UIForm</code></a> and <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIInput.html?is-external=true" title="class or interface in javax.faces.component"><code>UIInput</code></a> related methods which makes it easier
+ to deal with forms and inputs.
+
+ <h3>Usage</h3>
+ <p>
+ Some examples:
+ <pre>
+ // Get closest parent of given type.
+ UIForm form = Components.getClosestParent(someUIInputComponent, UIForm.class);
+ </pre>
+ <pre>
+ // Get currently submitted form.
+ UIForm form = Components.getCurrentForm();
+ </pre>
+ <pre>
+ // Get currently invoked command, useful for logging actions in a phase listener.
+ UICommand command = Components.getCurrentCommand();
+ </pre>
+ <pre>
+ // Get the label of the given UIInput component as JSF uses for validation messages.
+ String label = Components.getLabel(someUIInputComponent);
+ </pre>
+ <pre>
+ // Inside decode() and/or encode() of some custom component, validate if it has no children.
+ Components.validateHasNoChildren(this);
+ </pre>
+ <pre>
+ // Programmatically include composite component.
+ Components.includeCompositeComponent(someParentComponent, libraryName, resourceName, id);
+ </pre>
+ <pre>
+ // Programmatically create value and action expressions.
+ UICommand command = new HtmlCommandButton();
+ command.setId("foo");
+ command.setValue(Components.createValueExpression("#{bundle['button.foo']}", String.class));
+ command.addClientBehavior("action", Components.createAjaxBehavior("#{bean.ajaxListener}"));
+ command.addActionListener(Components.createActionListenerMethodExpression("#{bean.actionListener}"));
+ command.setActionExpression(Components.createVoidMethodExpression("#{bean.action}"));
+ </pre></div>
 <dl><dt><span class="strong">Author:</span></dt>
   <dd>Bauke Scholtz, Arjan Tijms</dd></dl>
 </li>
@@ -153,7 +193,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javaee/7/api/javax/el/MethodExpression.html?is-external=true" title="class or interface in javax.el">MethodExpression</a></code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Components.html#createMethodExpression(java.lang.String, java.lang.Class, java.lang.Class...)">createMethodExpression</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;expression,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Components.html#createMethodExpression(java.lang.String,%20java.lang.Class,%20java.lang.Class...)">createMethodExpression</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;expression,
                       <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;?&gt;&nbsp;returnType,
                       <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;?&gt;...&nbsp;parameterTypes)</code>
 <div class="block">Create a method expression based on the given EL expression, the given return type and the given parameter types,
@@ -162,14 +202,14 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javaee/7/api/javax/el/ValueExpression.html?is-external=true" title="class or interface in javax.el">ValueExpression</a></code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Components.html#createValueExpression(java.lang.String, java.lang.Class)">createValueExpression</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;expression,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Components.html#createValueExpression(java.lang.String,%20java.lang.Class)">createValueExpression</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;expression,
                      <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;?&gt;&nbsp;type)</code>
 <div class="block">Create an editable value expression based on the given EL expression and the given type.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javaee/7/api/javax/el/MethodExpression.html?is-external=true" title="class or interface in javax.el">MethodExpression</a></code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Components.html#createVoidMethodExpression(java.lang.String, java.lang.Class...)">createVoidMethodExpression</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;expression,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Components.html#createVoidMethodExpression(java.lang.String,%20java.lang.Class...)">createVoidMethodExpression</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;expression,
                           <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;?&gt;...&nbsp;parameterTypes)</code>
 <div class="block">Create a void method expression based on the given EL expression and the given parameter types, if any.</div>
 </td>
@@ -182,7 +222,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static &lt;T extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&gt;&nbsp;<br>T</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Components.html#findComponentInChildren(javax.faces.component.UIComponent, java.lang.String)">findComponentInChildren</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;component,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Components.html#findComponentInChildren(javax.faces.component.UIComponent,%20java.lang.String)">findComponentInChildren</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;component,
                        <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;clientId)</code>
 <div class="block">Returns the UI component matching the given client ID search expression relative to the point
  in the component tree of the given component, searching only in its children.</div>
@@ -190,7 +230,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static &lt;T extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&gt;&nbsp;<br>T</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Components.html#findComponentInParents(javax.faces.component.UIComponent, java.lang.String)">findComponentInParents</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;component,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Components.html#findComponentInParents(javax.faces.component.UIComponent,%20java.lang.String)">findComponentInParents</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;component,
                       <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;clientId)</code>
 <div class="block">Returns the UI component matching the given client ID search expression relative to the point
  in the component tree of the given component, searching only in its parents.</div>
@@ -198,7 +238,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static &lt;T extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&gt;&nbsp;<br>T</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Components.html#findComponentRelatively(javax.faces.component.UIComponent, java.lang.String)">findComponentRelatively</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;component,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Components.html#findComponentRelatively(javax.faces.component.UIComponent,%20java.lang.String)">findComponentRelatively</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;component,
                        <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;clientId)</code>
 <div class="block">Returns the UI component matching the given client ID search expression relative to the point
  in the component tree of the given component.</div>
@@ -206,7 +246,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static &lt;T extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&gt;&nbsp;<br><a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;T&gt;</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Components.html#findComponentsInChildren(javax.faces.component.UIComponent, java.lang.Class)">findComponentsInChildren</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;component,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Components.html#findComponentsInChildren(javax.faces.component.UIComponent,%20java.lang.Class)">findComponentsInChildren</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;component,
                         <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;type)</code>
 <div class="block">Returns a list of UI components matching the given type in children of the given component.</div>
 </td>
@@ -225,14 +265,14 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;T</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Components.html#getAttribute(javax.faces.component.UIComponent, java.lang.String)">getAttribute</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;component,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Components.html#getAttribute(javax.faces.component.UIComponent,%20java.lang.String)">getAttribute</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;component,
             <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
 <div class="block">Returns the attribute of the given component on the given name.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static &lt;T extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&gt;&nbsp;<br>T</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Components.html#getClosestParent(javax.faces.component.UIComponent, java.lang.Class)">getClosestParent</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;component,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Components.html#getClosestParent(javax.faces.component.UIComponent,%20java.lang.Class)">getClosestParent</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;component,
                 <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;parentType)</code>
 <div class="block">Returns from the given component the closest parent of the given parent type, or <code>null</code> if none
  is found.</div>
@@ -302,7 +342,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a></code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Components.html#includeCompositeComponent(javax.faces.component.UIComponent, java.lang.String, java.lang.String, java.lang.String)">includeCompositeComponent</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;parent,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Components.html#includeCompositeComponent(javax.faces.component.UIComponent,%20java.lang.String,%20java.lang.String,%20java.lang.String)">includeCompositeComponent</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;parent,
                          <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;libraryName,
                          <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;resourceName,
                          <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;id)</code>
@@ -312,7 +352,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Components.html#includeFacelet(javax.faces.component.UIComponent, java.lang.String)">includeFacelet</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;parent,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Components.html#includeFacelet(javax.faces.component.UIComponent,%20java.lang.String)">includeFacelet</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;parent,
               <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;path)</code>
 <div class="block">Include the Facelet file at the given (relative) path as child of the given UI component parent.</div>
 </td>
@@ -337,7 +377,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static &lt;T extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&gt;&nbsp;<br>void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Components.html#validateHasDirectParent(javax.faces.component.UIComponent, java.lang.Class)">validateHasDirectParent</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;component,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Components.html#validateHasDirectParent(javax.faces.component.UIComponent,%20java.lang.Class)">validateHasDirectParent</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;component,
                        <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;parentType)</code>
 <div class="block">Validate if the given component has a direct parent of the given parent type.</div>
 </td>
@@ -350,7 +390,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static &lt;T extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&gt;&nbsp;<br>void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Components.html#validateHasParent(javax.faces.component.UIComponent, java.lang.Class)">validateHasParent</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;component,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/util/Components.html#validateHasParent(javax.faces.component.UIComponent,%20java.lang.Class)">validateHasParent</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;component,
                  <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;parentType)</code>
 <div class="block">Validate if the given component has a parent of the given parent type.</div>
 </td>
@@ -361,7 +401,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
-<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long, int)" title="class or interface in java.lang">wait</a></code></li>
+<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,%20int)" title="class or interface in java.lang">wait</a></code></li>
 </ul>
 </li>
 </ul>
@@ -539,7 +579,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
  optional parameters. Includes supports for only visiting components of a certain class type and two
  simplified functional interfaces / lambdas.
  <p>
- See <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true#visitTree(javax.faces.component.visit.VisitContext, javax.faces.component.visit.VisitCallback)" title="class or interface in javax.faces.component"><code>UIComponent.visitTree(VisitContext, VisitCallback)</code></a></div>
+ See <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true#visitTree(javax.faces.component.visit.VisitContext,%20javax.faces.component.visit.VisitCallback)" title="class or interface in javax.faces.component"><code>UIComponent.visitTree(VisitContext, VisitCallback)</code></a></div>
 <dl><dt><span class="strong">Since:</span></dt>
   <dd>2.0</dd></dl>
 </li>
@@ -557,7 +597,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
  optional parameters. Includes supports for only visiting components of a certain class type and two
  simplified functional interfaces / lambdas.
  <p>
- See <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true#visitTree(javax.faces.component.visit.VisitContext, javax.faces.component.visit.VisitCallback)" title="class or interface in javax.faces.component"><code>UIComponent.visitTree(VisitContext, VisitCallback)</code></a></div>
+ See <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true#visitTree(javax.faces.component.visit.VisitContext,%20javax.faces.component.visit.VisitCallback)" title="class or interface in javax.faces.component"><code>UIComponent.visitTree(VisitContext, VisitCallback)</code></a></div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>facesContext</code> - the faces context used for tree visiting</dd><dt><span class="strong">Since:</span></dt>
   <dd>2.0</dd></dl>
 </li>
@@ -579,7 +619,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - Whenever something fails at I/O level. The caller should preferably not catch it, but just
  redeclare it in the action method. The servletcontainer will handle it.</dd><dt><span class="strong">Since:</span></dt>
   <dd>1.5</dd>
-<dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/FaceletContext.html?is-external=true#includeFacelet(javax.faces.component.UIComponent, java.lang.String)" title="class or interface in javax.faces.view.facelets"><code>FaceletContext.includeFacelet(UIComponent, String)</code></a></dd></dl>
+<dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/FaceletContext.html?is-external=true#includeFacelet(javax.faces.component.UIComponent,%20java.lang.String)" title="class or interface in javax.faces.view.facelets"><code>FaceletContext.includeFacelet(UIComponent, String)</code></a></dd></dl>
 </li>
 </ul>
 <a name="includeCompositeComponent(javax.faces.component.UIComponent, java.lang.String, java.lang.String, java.lang.String)">
@@ -742,7 +782,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <div class="block">Create an editable value expression based on the given EL expression and the given type.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>expression</code> - The EL expression to represent an editable value expression.</dd><dd><code>type</code> - The type of the property referenced by the value expression.</dd>
 <dt><span class="strong">Returns:</span></dt><dd>The created editable value expression, ready to be used as
- <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true#setValueExpression(java.lang.String, javax.el.ValueExpression)" title="class or interface in javax.faces.component"><code>UIComponent.setValueExpression(String, ValueExpression)</code></a>.</dd></dl>
+ <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true#setValueExpression(java.lang.String,%20javax.el.ValueExpression)" title="class or interface in javax.faces.component"><code>UIComponent.setValueExpression(String, ValueExpression)</code></a>.</dd></dl>
 </li>
 </ul>
 <a name="createMethodExpression(java.lang.String, java.lang.Class, java.lang.Class...)">
@@ -848,7 +888,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
  to create for example a <code>&lt;p:ajax&gt;</code> programmatically, then don't use this method.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>expression</code> - The EL expression to be invoked when the created ajax behavior is processed.</dd>
 <dt><span class="strong">Returns:</span></dt><dd>The created ajax behavior, ready to be used as
- <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponentBase.html?is-external=true#addClientBehavior(java.lang.String, javax.faces.component.behavior.ClientBehavior)" title="class or interface in javax.faces.component"><code>UIComponentBase.addClientBehavior(String, ClientBehavior)</code></a> whereby the string argument represents the
+ <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponentBase.html?is-external=true#addClientBehavior(java.lang.String,%20javax.faces.component.behavior.ClientBehavior)" title="class or interface in javax.faces.component"><code>UIComponentBase.addClientBehavior(String, ClientBehavior)</code></a> whereby the string argument represents the
  client event name, such as "action", "valueChange", "click", "blur", etc.</dd></dl>
 </li>
 </ul>

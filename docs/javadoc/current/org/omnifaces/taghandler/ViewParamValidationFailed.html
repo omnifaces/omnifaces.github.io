@@ -34,7 +34,7 @@
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../org/omnifaces/taghandler/Validator.RenderTimeValidator.html" title="class in org.omnifaces.taghandler"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../org/omnifaces/taghandler/Validator.DeferredValidator.html" title="class in org.omnifaces.taghandler"><span class="strong">Prev Class</span></a></li>
 <li>Next Class</li>
 </ul>
 <ul class="navList">
@@ -115,9 +115,9 @@ implements <a href="http://docs.oracle.com/javaee/7/api/javax/faces/event/Compon
  parameter has already handled the validation error via its own <code>&lt;o:viewParamValidationFailed&gt;</code>,
  it will be applied when there's a general validation error as per <a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true#isValidationFailed()" title="class or interface in javax.faces.context"><code>FacesContext.isValidationFailed()</code></a>.
  <p>
- When the <code>sendRedirect</code> attribute is set, a call to <a href="../../../org/omnifaces/util/Faces.html#redirect(java.lang.String, java.lang.String...)"><code>Faces.redirect(String, String...)</code></a> is made
+ When the <code>sendRedirect</code> attribute is set, a call to <a href="../../../org/omnifaces/util/Faces.html#redirect(java.lang.String,%20java.lang.String...)"><code>Faces.redirect(String, String...)</code></a> is made
  internally to send the redirect. So, the same rules as to scheme and leading slash apply here.
- When the <code>sendError</code> attribute is set, a call to <a href="../../../org/omnifaces/util/Faces.html#responseSendError(int, java.lang.String)"><code>Faces.responseSendError(int, String)</code></a> is made
+ When the <code>sendError</code> attribute is set, a call to <a href="../../../org/omnifaces/util/Faces.html#responseSendError(int,%20java.lang.String)"><code>Faces.responseSendError(int, String)</code></a> is made
  internally to send the error. You can therefore customize HTTP error pages via <code>&lt;error-page&gt;</code>
  entries in <code>web.xml</code>. Otherwise the server-default one will be displayed instead.
 
@@ -129,7 +129,7 @@ implements <a href="http://docs.oracle.com/javaee/7/api/javax/faces/event/Compon
  performed instead of delegating the check to the standard <code>UIInput</code> implementation. This has the
  consequence that <code>PreValidateEvent</code> and <code>PostValidateEvent</code> listeners are never invoked, which
  the <code>&lt;o:viewParamValidationFailed&gt;</code> is actually relying on. This is fixed in
- <code>&lt;o:viewParam</code>.
+ <code>&lt;o:viewParam&gt;</code>.
 
  <h3>Examples</h3>
  <p>
@@ -195,7 +195,7 @@ implements <a href="http://docs.oracle.com/javaee/7/api/javax/faces/event/Compon
  <h3>Design notes</h3>
  <p>
  You can technically nest multiple <code>&lt;o:viewParamValidationFailed&gt;</code> inside the same parent, but this
- is not the documented approach and the behavior is unspecified.
+ is not the documented approach and only the first one would be used.
  <p>
  You can <strong>not</strong> change the HTTP status code of a redirect. This is not a JSF limitation, but an HTTP
  limitation. The status code of a redirect will <strong>always</strong> end up as the one of the redirected response.
@@ -259,7 +259,7 @@ implements <a href="http://docs.oracle.com/javaee/7/api/javax/faces/event/Compon
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/taghandler/ViewParamValidationFailed.html#apply(javax.faces.view.facelets.FaceletContext, javax.faces.component.UIComponent)">apply</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/FaceletContext.html?is-external=true" title="class or interface in javax.faces.view.facelets">FaceletContext</a>&nbsp;context,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/taghandler/ViewParamValidationFailed.html#apply(javax.faces.view.facelets.FaceletContext,%20javax.faces.component.UIComponent)">apply</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/FaceletContext.html?is-external=true" title="class or interface in javax.faces.view.facelets">FaceletContext</a>&nbsp;context,
      <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;parent)</code>
 <div class="block">If the parent component is an instance of <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIViewRoot.html?is-external=true" title="class or interface in javax.faces.component"><code>UIViewRoot</code></a> or <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIViewParameter.html?is-external=true" title="class or interface in javax.faces.component"><code>UIViewParameter</code></a> and is new, and the
  current request is <strong>not</strong> a postback, and <strong>not</strong> in render response, and all required
@@ -288,7 +288,7 @@ implements <a href="http://docs.oracle.com/javaee/7/api/javax/faces/event/Compon
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
-<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long, int)" title="class or interface in java.lang">wait</a></code></li>
+<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,%20int)" title="class or interface in java.lang">wait</a></code></li>
 </ul>
 </li>
 </ul>
@@ -338,11 +338,12 @@ implements <a href="http://docs.oracle.com/javaee/7/api/javax/faces/event/Compon
  <a href="../../../org/omnifaces/taghandler/ViewParamValidationFailed.html#processEvent(javax.faces.event.ComponentSystemEvent)"><code>processEvent(ComponentSystemEvent)</code></a> method after validation.</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
-<dd><code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/FaceletHandler.html?is-external=true#apply(javax.faces.view.facelets.FaceletContext, javax.faces.component.UIComponent)" title="class or interface in javax.faces.view.facelets">apply</a></code>&nbsp;in interface&nbsp;<code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/FaceletHandler.html?is-external=true" title="class or interface in javax.faces.view.facelets">FaceletHandler</a></code></dd>
+<dd><code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/FaceletHandler.html?is-external=true#apply(javax.faces.view.facelets.FaceletContext,%20javax.faces.component.UIComponent)" title="class or interface in javax.faces.view.facelets">apply</a></code>&nbsp;in interface&nbsp;<code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/FaceletHandler.html?is-external=true" title="class or interface in javax.faces.view.facelets">FaceletHandler</a></code></dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></code> - When the parent component is not an instance of <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIViewRoot.html?is-external=true" title="class or interface in javax.faces.component"><code>UIViewRoot</code></a> or
- <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIViewParameter.html?is-external=true" title="class or interface in javax.faces.component"><code>UIViewParameter</code></a>, or when both <code>sendRedirect</code> and <code>sendError</code> attributes are
- missing or simultaneously specified, you can specify only one of them.</dd>
+ <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIViewParameter.html?is-external=true" title="class or interface in javax.faces.component"><code>UIViewParameter</code></a>, or when there's already another <code>&lt;o:viewParamValidationFailed&gt;</code> tag
+ registered on the same parent, or when both <code>sendRedirect</code> and <code>sendError</code> attributes are
+ missing or simultaneously specified.</dd>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
 </li>
 </ul>
@@ -393,7 +394,7 @@ implements <a href="http://docs.oracle.com/javaee/7/api/javax/faces/event/Compon
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../org/omnifaces/taghandler/Validator.RenderTimeValidator.html" title="class in org.omnifaces.taghandler"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../org/omnifaces/taghandler/Validator.DeferredValidator.html" title="class in org.omnifaces.taghandler"><span class="strong">Prev Class</span></a></li>
 <li>Next Class</li>
 </ul>
 <ul class="navList">

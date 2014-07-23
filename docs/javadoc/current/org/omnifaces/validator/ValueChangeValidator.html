@@ -101,7 +101,8 @@
 <pre>public abstract class <span class="strong">ValueChangeValidator</span>
 extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>
 implements <a href="http://docs.oracle.com/javaee/7/api/javax/faces/validator/Validator.html?is-external=true" title="class or interface in javax.faces.validator">Validator</a></pre>
-<div class="block">By default, JSF validators run on every request, regardless of whether the submitted value has changed or not. In
+<div class="block"><p>
+ By default, JSF validators run on every request, regardless of whether the submitted value has changed or not. In
  case of validation against the DB on complex objects which are already stored in the model in a broader scope, such
  as the view scope, this may result in unnecessarily expensive service/DAO calls. In such case, you'd like to perform
  the expensive service/DAO call only when the submitted value is really changed as compared to the model value.
@@ -184,7 +185,7 @@ implements <a href="http://docs.oracle.com/javaee/7/api/javax/faces/validator/Va
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/validator/ValueChangeValidator.html#validate(javax.faces.context.FacesContext, javax.faces.component.UIComponent, java.lang.Object)">validate</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/validator/ValueChangeValidator.html#validate(javax.faces.context.FacesContext,%20javax.faces.component.UIComponent,%20java.lang.Object)">validate</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context,
         <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;component,
         <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;submittedValue)</code>
 <div class="block">If the component is an instance of <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/EditableValueHolder.html?is-external=true" title="class or interface in javax.faces.component"><code>EditableValueHolder</code></a> and its old object value is equal to the
@@ -193,10 +194,10 @@ implements <a href="http://docs.oracle.com/javaee/7/api/javax/faces/validator/Va
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>abstract void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/validator/ValueChangeValidator.html#validateChangedObject(javax.faces.context.FacesContext, javax.faces.component.UIComponent, java.lang.Object)">validateChangedObject</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/validator/ValueChangeValidator.html#validateChangedObject(javax.faces.context.FacesContext,%20javax.faces.component.UIComponent,%20java.lang.Object)">validateChangedObject</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context,
                      <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;component,
                      <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;submittedValue)</code>
-<div class="block">Use this method instead of <a href="../../../org/omnifaces/validator/ValueChangeValidator.html#validate(javax.faces.context.FacesContext, javax.faces.component.UIComponent, java.lang.Object)"><code>validate(FacesContext, UIComponent, Object)</code></a> if you intend to perform the
+<div class="block">Use this method instead of <a href="../../../org/omnifaces/validator/ValueChangeValidator.html#validate(javax.faces.context.FacesContext,%20javax.faces.component.UIComponent,%20java.lang.Object)"><code>validate(FacesContext, UIComponent, Object)</code></a> if you intend to perform the
  validation only when the submitted value is really changed as compared to the model value.</div>
 </td>
 </tr>
@@ -206,7 +207,7 @@ implements <a href="http://docs.oracle.com/javaee/7/api/javax/faces/validator/Va
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
-<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long, int)" title="class or interface in java.lang">wait</a></code></li>
+<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,%20int)" title="class or interface in java.lang">wait</a></code></li>
 </ul>
 </li>
 </ul>
@@ -250,11 +251,11 @@ implements <a href="http://docs.oracle.com/javaee/7/api/javax/faces/validator/Va
             <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;submittedValue)</pre>
 <div class="block">If the component is an instance of <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/EditableValueHolder.html?is-external=true" title="class or interface in javax.faces.component"><code>EditableValueHolder</code></a> and its old object value is equal to the
  submitted value, then return immediately from the method and don't perform any validation. Otherwise, invoke
- <a href="../../../org/omnifaces/validator/ValueChangeValidator.html#validateChangedObject(javax.faces.context.FacesContext, javax.faces.component.UIComponent, java.lang.Object)"><code>validateChangedObject(FacesContext, UIComponent, Object)</code></a> which may in turn do the necessary possibly
+ <a href="../../../org/omnifaces/validator/ValueChangeValidator.html#validateChangedObject(javax.faces.context.FacesContext,%20javax.faces.component.UIComponent,%20java.lang.Object)"><code>validateChangedObject(FacesContext, UIComponent, Object)</code></a> which may in turn do the necessary possibly
  expensive DAO operations.</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
-<dd><code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/validator/Validator.html?is-external=true#validate(javax.faces.context.FacesContext, javax.faces.component.UIComponent, java.lang.Object)" title="class or interface in javax.faces.validator">validate</a></code>&nbsp;in interface&nbsp;<code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/validator/Validator.html?is-external=true" title="class or interface in javax.faces.validator">Validator</a></code></dd>
+<dd><code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/validator/Validator.html?is-external=true#validate(javax.faces.context.FacesContext,%20javax.faces.component.UIComponent,%20java.lang.Object)" title="class or interface in javax.faces.validator">validate</a></code>&nbsp;in interface&nbsp;<code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/validator/Validator.html?is-external=true" title="class or interface in javax.faces.validator">Validator</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -267,7 +268,7 @@ implements <a href="http://docs.oracle.com/javaee/7/api/javax/faces/validator/Va
 <pre>public abstract&nbsp;void&nbsp;validateChangedObject(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context,
                          <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;component,
                          <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;submittedValue)</pre>
-<div class="block">Use this method instead of <a href="../../../org/omnifaces/validator/ValueChangeValidator.html#validate(javax.faces.context.FacesContext, javax.faces.component.UIComponent, java.lang.Object)"><code>validate(FacesContext, UIComponent, Object)</code></a> if you intend to perform the
+<div class="block">Use this method instead of <a href="../../../org/omnifaces/validator/ValueChangeValidator.html#validate(javax.faces.context.FacesContext,%20javax.faces.component.UIComponent,%20java.lang.Object)"><code>validate(FacesContext, UIComponent, Object)</code></a> if you intend to perform the
  validation only when the submitted value is really changed as compared to the model value.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>context</code> - The involved faces context.</dd><dd><code>component</code> - The involved UI component.</dd><dd><code>submittedValue</code> - The submitted value.</dd></dl>
 </li>

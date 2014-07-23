@@ -102,17 +102,33 @@
 public class <span class="strong">ConverterManager</span>
 extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>
 implements <a href="../../../../org/omnifaces/application/ConverterProvider.html" title="interface in org.omnifaces.application">ConverterProvider</a></pre>
-<div class="block">Provides access to all <a href="http://docs.oracle.com/javaee/7/api/javax/faces/convert/FacesConverter.html?is-external=true" title="class or interface in javax.faces.convert"><code>FacesConverter</code></a> annotated <a href="http://docs.oracle.com/javaee/7/api/javax/faces/convert/Converter.html?is-external=true" title="class or interface in javax.faces.convert"><code>Converter</code></a> instances which are made eligible for CDI.
+<div class="block"><p>
+ The <code>@FacesConverter</code> is by default not eligible for dependency injection by <a href="http://docs.oracle.com/javaee/7/api/javax/inject/Inject.html?is-external=true" title="class or interface in javax.inject"><code>Inject</code></a> nor <a href="http://docs.oracle.com/javaee/7/api/javax/ejb/EJB.html?is-external=true" title="class or interface in javax.ejb"><code>EJB</code></a>.
+ There is a <a href="http://balusc.blogspot.com/2011/09/communication-in-jsf-20.html#GettingAnEJBInFacesConverterAndFacesValidator">workaround</a>
+ for EJB, but this is nasty and doesn't work out for CDI. <a href="http://stackoverflow.com/q/7531449/157882">Another way</a>
+ would be to make it a JSF or CDI managed bean, however this doesn't register the converter instance into the JSF application context,
+ and hence you won't be able to make use of <a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/Application.html?is-external=true#createConverter(java.lang.String)" title="class or interface in javax.faces.application"><code>Application.createConverter(String)</code></a> on it. Further it also breaks
+ the power of <code>forClass</code> attribute, i.e. you can't register a JSF converter for a specific type anymore and
+ you'd need to explicitly declare it everytime.
  <p>
- Previously, in OmniFaces 1.6, all converters were proactively collected in an <a href="http://docs.oracle.com/javaee/7/api/javax/enterprise/inject/spi/Extension.html?is-external=true" title="class or interface in javax.enterprise.inject.spi"><code>Extension</code></a> instance. However,
- this construct failed when OmniFaces was installed in multiple WARs of an EAR. The extension was EAR-wide, but each
- WAR got its own instance injected and only one of them will have access to the collected converters. Since OmniFaces
- 1.6.1, the whole extension is removed and the converters are now lazily collected in this manager class. See also
- <a href="https://code.google.com/p/omnifaces/issues/detail?id=251">issue 251</a>.</div>
+ Initially, this should be solved in JSF 2.2 which comes with new support for dependency injection in among others all
+ <code>javax.faces.*.*Factory</code>, <a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/NavigationHandler.html?is-external=true" title="class or interface in javax.faces.application"><code>NavigationHandler</code></a>, <a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/ResourceHandler.html?is-external=true" title="class or interface in javax.faces.application"><code>ResourceHandler</code></a>,
+ <a href="http://docs.oracle.com/javaee/7/api/javax/faces/event/ActionListener.html?is-external=true" title="class or interface in javax.faces.event"><code>ActionListener</code></a>, <a href="http://docs.oracle.com/javaee/7/api/javax/faces/event/PhaseListener.html?is-external=true" title="class or interface in javax.faces.event"><code>PhaseListener</code></a> and <a href="http://docs.oracle.com/javaee/7/api/javax/faces/event/SystemEventListener.html?is-external=true" title="class or interface in javax.faces.event"><code>SystemEventListener</code></a> instances.
+ The <a href="http://docs.oracle.com/javaee/7/api/javax/faces/convert/Converter.html?is-external=true" title="class or interface in javax.faces.convert"><code>Converter</code></a> and <a href="http://docs.oracle.com/javaee/7/api/javax/faces/validator/Validator.html?is-external=true" title="class or interface in javax.faces.validator"><code>Validator</code></a> were initially also among them, but they broke a TCK test and were at the
+ last moment removed from dependency injection support.
+ <p>
+ The support is expected to come back in JSF 2.3, but we just can't wait any longer.
+ <a href="http://myfaces.apache.org/extensions/cdi/">MyFaces CODI</a> has support for it,
+ but it requires an additional <code>@Advanced</code> annotation.
+ OmniFaces solves this by implicitly making all <a href="http://docs.oracle.com/javaee/7/api/javax/faces/convert/FacesConverter.html?is-external=true" title="class or interface in javax.faces.convert"><code>FacesConverter</code></a> instances eligible for dependency injection
+ <strong>without any further modification</strong>, like as JSF 2.2 would initially do, hereby providing a transparent
+ bridge of the code to the upcoming JSF 2.3.
+ <p>
+ The <a href="../../../../org/omnifaces/cdi/converter/ConverterManager.html" title="class in org.omnifaces.cdi.converter"><code>ConverterManager</code></a> provides access to all <a href="http://docs.oracle.com/javaee/7/api/javax/faces/convert/FacesConverter.html?is-external=true" title="class or interface in javax.faces.convert"><code>FacesConverter</code></a> annotated <a href="http://docs.oracle.com/javaee/7/api/javax/faces/convert/Converter.html?is-external=true" title="class or interface in javax.faces.convert"><code>Converter</code></a> instances which are made eligible for CDI.</div>
 <dl><dt><span class="strong">Since:</span></dt>
   <dd>1.6</dd>
 <dt><span class="strong">Author:</span></dt>
-  <dd>Radu Creanga <rdcrng@gmail.com>, Bauke Scholtz</dd>
+  <dd>Radu Creanga &lt;rdcrng@gmail.com&gt;, Bauke Scholtz</dd>
 <dt><span class="strong">See Also:</span></dt><dd><a href="../../../../org/omnifaces/application/OmniApplication.html" title="class in org.omnifaces.application"><code>OmniApplication</code></a></dd></dl>
 </li>
 </ul>
@@ -151,7 +167,7 @@ implements <a href="../../../../org/omnifaces/application/ConverterProvider.html
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/convert/Converter.html?is-external=true" title="class or interface in javax.faces.convert">Converter</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/omnifaces/cdi/converter/ConverterManager.html#createConverter(javax.faces.application.Application, java.lang.Class)">createConverter</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/Application.html?is-external=true" title="class or interface in javax.faces.application">Application</a>&nbsp;application,
+<td class="colLast"><code><strong><a href="../../../../org/omnifaces/cdi/converter/ConverterManager.html#createConverter(javax.faces.application.Application,%20java.lang.Class)">createConverter</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/Application.html?is-external=true" title="class or interface in javax.faces.application">Application</a>&nbsp;application,
                <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;?&gt;&nbsp;converterForClass)</code>
 <div class="block">Returns the converter instance associated with the given converter for-class,
  or <code>null</code> if there is none.</div>
@@ -159,7 +175,7 @@ implements <a href="../../../../org/omnifaces/application/ConverterProvider.html
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/convert/Converter.html?is-external=true" title="class or interface in javax.faces.convert">Converter</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/omnifaces/cdi/converter/ConverterManager.html#createConverter(javax.faces.application.Application, java.lang.String)">createConverter</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/Application.html?is-external=true" title="class or interface in javax.faces.application">Application</a>&nbsp;application,
+<td class="colLast"><code><strong><a href="../../../../org/omnifaces/cdi/converter/ConverterManager.html#createConverter(javax.faces.application.Application,%20java.lang.String)">createConverter</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/Application.html?is-external=true" title="class or interface in javax.faces.application">Application</a>&nbsp;application,
                <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;converterId)</code>
 <div class="block">Returns the converter instance associated with the given converter ID,
  or <code>null</code> if there is none.</div>
@@ -171,7 +187,7 @@ implements <a href="../../../../org/omnifaces/application/ConverterProvider.html
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
-<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long, int)" title="class or interface in java.lang">wait</a></code></li>
+<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,%20int)" title="class or interface in java.lang">wait</a></code></li>
 </ul>
 </li>
 </ul>
@@ -212,12 +228,12 @@ implements <a href="../../../../org/omnifaces/application/ConverterProvider.html
 <h4>createConverter</h4>
 <pre>public&nbsp;<a href="http://docs.oracle.com/javaee/7/api/javax/faces/convert/Converter.html?is-external=true" title="class or interface in javax.faces.convert">Converter</a>&nbsp;createConverter(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/Application.html?is-external=true" title="class or interface in javax.faces.application">Application</a>&nbsp;application,
                         <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;converterId)</pre>
-<div class="block"><strong>Description copied from interface:&nbsp;<code><a href="../../../../org/omnifaces/application/ConverterProvider.html#createConverter(javax.faces.application.Application, java.lang.String)">ConverterProvider</a></code></strong></div>
+<div class="block"><strong>Description copied from interface:&nbsp;<code><a href="../../../../org/omnifaces/application/ConverterProvider.html#createConverter(javax.faces.application.Application,%20java.lang.String)">ConverterProvider</a></code></strong></div>
 <div class="block">Returns the converter instance associated with the given converter ID,
  or <code>null</code> if there is none.</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
-<dd><code><a href="../../../../org/omnifaces/application/ConverterProvider.html#createConverter(javax.faces.application.Application, java.lang.String)">createConverter</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/omnifaces/application/ConverterProvider.html" title="interface in org.omnifaces.application">ConverterProvider</a></code></dd>
+<dd><code><a href="../../../../org/omnifaces/application/ConverterProvider.html#createConverter(javax.faces.application.Application,%20java.lang.String)">createConverter</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/omnifaces/application/ConverterProvider.html" title="interface in org.omnifaces.application">ConverterProvider</a></code></dd>
 <dt><span class="strong">Parameters:</span></dt><dd><code>application</code> - The involved JSF application.</dd><dd><code>converterId</code> - The converter ID of the desired converter instance.</dd>
 <dt><span class="strong">Returns:</span></dt><dd>the converter instance associated with the given converter ID,
  or <code>null</code> if there is none.</dd></dl>
@@ -231,12 +247,12 @@ implements <a href="../../../../org/omnifaces/application/ConverterProvider.html
 <h4>createConverter</h4>
 <pre>public&nbsp;<a href="http://docs.oracle.com/javaee/7/api/javax/faces/convert/Converter.html?is-external=true" title="class or interface in javax.faces.convert">Converter</a>&nbsp;createConverter(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/Application.html?is-external=true" title="class or interface in javax.faces.application">Application</a>&nbsp;application,
                         <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;?&gt;&nbsp;converterForClass)</pre>
-<div class="block"><strong>Description copied from interface:&nbsp;<code><a href="../../../../org/omnifaces/application/ConverterProvider.html#createConverter(javax.faces.application.Application, java.lang.Class)">ConverterProvider</a></code></strong></div>
+<div class="block"><strong>Description copied from interface:&nbsp;<code><a href="../../../../org/omnifaces/application/ConverterProvider.html#createConverter(javax.faces.application.Application,%20java.lang.Class)">ConverterProvider</a></code></strong></div>
 <div class="block">Returns the converter instance associated with the given converter for-class,
  or <code>null</code> if there is none.</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
-<dd><code><a href="../../../../org/omnifaces/application/ConverterProvider.html#createConverter(javax.faces.application.Application, java.lang.Class)">createConverter</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/omnifaces/application/ConverterProvider.html" title="interface in org.omnifaces.application">ConverterProvider</a></code></dd>
+<dd><code><a href="../../../../org/omnifaces/application/ConverterProvider.html#createConverter(javax.faces.application.Application,%20java.lang.Class)">createConverter</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/omnifaces/application/ConverterProvider.html" title="interface in org.omnifaces.application">ConverterProvider</a></code></dd>
 <dt><span class="strong">Parameters:</span></dt><dd><code>application</code> - The involved JSF application.</dd><dd><code>converterForClass</code> - The converter for-class of the desired converter instance.</dd>
 <dt><span class="strong">Returns:</span></dt><dd>the converter instance associated with the given converter for-class,
  or <code>null</code> if there is none.</dd></dl>

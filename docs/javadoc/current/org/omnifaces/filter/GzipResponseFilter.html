@@ -105,51 +105,68 @@
 <br>
 <pre>public class <span class="strong">GzipResponseFilter</span>
 extends <a href="../../../org/omnifaces/filter/HttpFilter.html" title="class in org.omnifaces.filter">HttpFilter</a></pre>
-<div class="block">This filter will apply GZIP compression on responses whenever applicable. GZIP will greatly reduce the response size
- when applied on character based responses like HTML, CSS and JS, on average it can save up to ~70% of bandwidth.
+<div class="block"><p>
+ The <a href="../../../org/omnifaces/filter/GzipResponseFilter.html" title="class in org.omnifaces.filter"><code>GzipResponseFilter</code></a> will apply GZIP compression on responses whenever applicable. GZIP will greatly reduce
+ the response size when applied on character based responses like HTML, CSS and JS, on average it can save up to ~70%
+ of bandwidth.
  <p>
  While GZIP is normally to be configured in the servlet container (e.g. <code>&lt;Context compression="on"&gt;</code>
  in Tomcat, or <code>&lt;property name="compression" value="on"&gt;</code> in Glassfish), this filter allows a
  servlet container independent way of configuring GZIP compression and also allows enabling GZIP compression anyway
  on 3rd party hosts where you have no control over servlet container configuration.
+
+ <h3>Installation</h3>
  <p>
  To get it to run, map this filter on the desired <code>&lt;url-pattern&gt;</code> or maybe even on the
- <code>&lt;servlet-name&gt;</code> of the <code>FacesServlet</code>. Mapping on <code>/*</code> may be too global as
- some types of requests (comet, long polling, etc) cannot be gzipped. A <code>Filter</code> is by default dispatched
+ <code>&lt;servlet-name&gt;</code> of the <code>FacesServlet</code>. A <code>Filter</code> is by default dispatched
  on <code>REQUEST</code> only, you might want to explicitly add the <code>ERROR</code> dispatcher to get it to run
  on error pages as well.
  <pre>
  &lt;filter&gt;
-   &lt;filter-name&gt;gzipResponseFilter&lt;/filter-name&gt;
-   &lt;filter-class&gt;org.omnifaces.filter.GzipResponseFilter&lt;/filter-class&gt;
+     &lt;filter-name&gt;gzipResponseFilter&lt;/filter-name&gt;
+     &lt;filter-class&gt;org.omnifaces.filter.GzipResponseFilter&lt;/filter-class&gt;
  &lt;/filter&gt;
  &lt;filter-mapping&gt;
-   &lt;filter-name&gt;gzipResponseFilter&lt;/filter-name&gt;
-   &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
-   &lt;dispatcher&gt;REQUEST&lt;/dispatcher&gt;
-   &lt;dispatcher&gt;ERROR&lt;/dispatcher&gt;
+     &lt;filter-name&gt;gzipResponseFilter&lt;/filter-name&gt;
+     &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+     &lt;dispatcher&gt;REQUEST&lt;/dispatcher&gt;
+     &lt;dispatcher&gt;ERROR&lt;/dispatcher&gt;
  &lt;/filter-mapping&gt;
  </pre>
+ <p>
+ Mapping on <code>/*</code> may be too global as some types of requests (comet, long polling, etc) cannot be gzipped.
+ In that case, consider mapping it to the exact <code>&lt;servlet-name&gt;</code> of the <a href="http://docs.oracle.com/javaee/7/api/javax/faces/webapp/FacesServlet.html?is-external=true" title="class or interface in javax.faces.webapp"><code>FacesServlet</code></a> in the
+ same <code>web.xml</code>.
+ <pre>
+ &lt;filter&gt;
+     &lt;filter-name&gt;gzipResponseFilter&lt;/filter-name&gt;
+     &lt;filter-class&gt;org.omnifaces.filter.GzipResponseFilter&lt;/filter-class&gt;
+ &lt;/filter&gt;
+ &lt;filter-mapping&gt;
+     &lt;filter-name&gt;gzipResponseFilter&lt;/filter-name&gt;
+     &lt;servlet-name&gt;facesServlet&lt;/servlet-name&gt;
+     &lt;dispatcher&gt;REQUEST&lt;/dispatcher&gt;
+     &lt;dispatcher&gt;ERROR&lt;/dispatcher&gt;
+ &lt;/filter-mapping&gt;
+ </pre>
+
+ <h3>Configuration (optional)</h3>
  <p>
  This filter supports two initialization parameters which needs to be placed in <code>&lt;filter&gt;</code> element
  as follows:
  <pre>
  &lt;init-param&gt;
-   &lt;description&gt;
-     The threshold size in bytes. Must be a number between 0 and 9999. Defaults to 500.
-   &lt;/description&gt;
-   &lt;param-name&gt;threshold&lt;/param-name&gt;
-   &lt;param-value&gt;500&lt;/param-value&gt;
+     &lt;description&gt;The threshold size in bytes. Must be a number between 0 and 9999. Defaults to 500.&lt;/description&gt;
+     &lt;param-name&gt;threshold&lt;/param-name&gt;
+     &lt;param-value&gt;500&lt;/param-value&gt;
  &lt;/init-param&gt;
  &lt;init-param&gt;
-   &lt;description&gt;
-     The mimetypes which needs to be compressed. Must be a commaseparated string. Defaults to the below values.
-   &lt;/description&gt;
-   &lt;param-name&gt;mimetypes&lt;/param-name&gt;
-   &lt;param-value&gt;
-     text/plain, text/html, text/xml, text/css, text/javascript, text/csv, text/rtf,
-     application/xml, application/xhtml+xml, application/javascript, application/json
-   &lt;/param-value&gt;
+     &lt;description&gt;The mimetypes which needs to be compressed. Must be a commaseparated string. Defaults to the below values.&lt;/description&gt;
+     &lt;param-name&gt;mimetypes&lt;/param-name&gt;
+     &lt;param-value&gt;
+         text/plain, text/html, text/xml, text/css, text/javascript, text/csv, text/rtf,
+         application/xml, application/xhtml+xml, application/javascript, application/json
+     &lt;/param-value&gt;
  &lt;/init-param&gt;
  </pre>
  <p>
@@ -203,7 +220,7 @@ extends <a href="../../../org/omnifaces/filter/HttpFilter.html" title="class in 
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/filter/GzipResponseFilter.html#doFilter(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse, javax.servlet.http.HttpSession, javax.servlet.FilterChain)">doFilter</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/filter/GzipResponseFilter.html#doFilter(javax.servlet.http.HttpServletRequest,%20javax.servlet.http.HttpServletResponse,%20javax.servlet.http.HttpSession,%20javax.servlet.FilterChain)">doFilter</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request,
         <a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletResponse.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletResponse</a>&nbsp;response,
         <a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpSession.html?is-external=true" title="class or interface in javax.servlet.http">HttpSession</a>&nbsp;session,
         <a href="http://docs.oracle.com/javaee/7/api/javax/servlet/FilterChain.html?is-external=true" title="class or interface in javax.servlet">FilterChain</a>&nbsp;chain)</code>
@@ -222,14 +239,14 @@ extends <a href="../../../org/omnifaces/filter/HttpFilter.html" title="class in 
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;org.omnifaces.filter.<a href="../../../org/omnifaces/filter/HttpFilter.html" title="class in org.omnifaces.filter">HttpFilter</a></h3>
-<code><a href="../../../org/omnifaces/filter/HttpFilter.html#destroy()">destroy</a>, <a href="../../../org/omnifaces/filter/HttpFilter.html#doFilter(javax.servlet.ServletRequest, javax.servlet.ServletResponse, javax.servlet.FilterChain)">doFilter</a>, <a href="../../../org/omnifaces/filter/HttpFilter.html#getFilterConfig()">getFilterConfig</a>, <a href="../../../org/omnifaces/filter/HttpFilter.html#getInitParameter(java.lang.String)">getInitParameter</a>, <a href="../../../org/omnifaces/filter/HttpFilter.html#getServletContext()">getServletContext</a>, <a href="../../../org/omnifaces/filter/HttpFilter.html#init(javax.servlet.FilterConfig)">init</a></code></li>
+<code><a href="../../../org/omnifaces/filter/HttpFilter.html#destroy()">destroy</a>, <a href="../../../org/omnifaces/filter/HttpFilter.html#doFilter(javax.servlet.ServletRequest,%20javax.servlet.ServletResponse,%20javax.servlet.FilterChain)">doFilter</a>, <a href="../../../org/omnifaces/filter/HttpFilter.html#getFilterConfig()">getFilterConfig</a>, <a href="../../../org/omnifaces/filter/HttpFilter.html#getInitParameter(java.lang.String)">getInitParameter</a>, <a href="../../../org/omnifaces/filter/HttpFilter.html#getServletContext()">getServletContext</a>, <a href="../../../org/omnifaces/filter/HttpFilter.html#init(javax.servlet.FilterConfig)">init</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
-<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long, int)" title="class or interface in java.lang">wait</a></code></li>
+<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,%20int)" title="class or interface in java.lang">wait</a></code></li>
 </ul>
 </li>
 </ul>
@@ -294,10 +311,11 @@ extends <a href="../../../org/omnifaces/filter/HttpFilter.html" title="class in 
  in a <a href="../../../org/omnifaces/servlet/GzipHttpServletResponse.html" title="class in org.omnifaces.servlet"><code>GzipHttpServletResponse</code></a> and pass it through the filter chain.</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
-<dd><code><a href="../../../org/omnifaces/filter/HttpFilter.html#doFilter(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse, javax.servlet.http.HttpSession, javax.servlet.FilterChain)">doFilter</a></code>&nbsp;in class&nbsp;<code><a href="../../../org/omnifaces/filter/HttpFilter.html" title="class in org.omnifaces.filter">HttpFilter</a></code></dd>
+<dd><code><a href="../../../org/omnifaces/filter/HttpFilter.html#doFilter(javax.servlet.http.HttpServletRequest,%20javax.servlet.http.HttpServletResponse,%20javax.servlet.http.HttpSession,%20javax.servlet.FilterChain)">doFilter</a></code>&nbsp;in class&nbsp;<code><a href="../../../org/omnifaces/filter/HttpFilter.html" title="class in org.omnifaces.filter">HttpFilter</a></code></dd>
+<dt><span class="strong">Parameters:</span></dt><dd><code>request</code> - The HTTP request.</dd><dd><code>response</code> - The HTTP response.</dd><dd><code>session</code> - The HTTP session, if any, else <code>null</code>.</dd><dd><code>chain</code> - The filter chain to continue.</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javaee/7/api/javax/servlet/ServletException.html?is-external=true" title="class or interface in javax.servlet">ServletException</a></code></dd>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd><dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/servlet/Filter.html?is-external=true#doFilter(javax.servlet.ServletRequest, javax.servlet.ServletResponse, javax.servlet.FilterChain)" title="class or interface in javax.servlet"><code>Filter.doFilter(ServletRequest, ServletResponse, FilterChain)</code></a></dd></dl>
+<dd><code><a href="http://docs.oracle.com/javaee/7/api/javax/servlet/ServletException.html?is-external=true" title="class or interface in javax.servlet">ServletException</a></code> - As wrapper exception when something fails in the request processing.</dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - Whenever something fails at I/O level.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/servlet/Filter.html?is-external=true#doFilter(javax.servlet.ServletRequest,%20javax.servlet.ServletResponse,%20javax.servlet.FilterChain)" title="class or interface in javax.servlet"><code>Filter.doFilter(ServletRequest, ServletResponse, FilterChain)</code></a></dd></dl>
 </li>
 </ul>
 </li>

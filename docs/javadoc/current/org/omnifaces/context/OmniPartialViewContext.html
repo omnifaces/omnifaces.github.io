@@ -110,14 +110,17 @@
 <br>
 <pre>public class <span class="strong">OmniPartialViewContext</span>
 extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/PartialViewContextWrapper.html?is-external=true" title="class or interface in javax.faces.context">PartialViewContextWrapper</a></pre>
-<div class="block">This OmniFaces partial view context extends and improves the standard partial view context as follows:
+<div class="block"><p>
+ This OmniFaces partial view context extends and improves the standard partial view context as follows:
  <ul>
  <li>Support for executing callback scripts by <a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/PartialResponseWriter.html?is-external=true#startEval()" title="class or interface in javax.faces.context"><code>PartialResponseWriter.startEval()</code></a>.</li>
  <li>Support for adding arguments to an ajax response.</li>
  <li>Any XML tags which Mojarra and MyFaces has left open after an exception in rendering of an already committed
  ajax response, will now be properly closed. This prevents errors about malformed XML.</li>
- <li>Fixes the no-feedback problem when <a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/ViewExpiredException.html?is-external=true" title="class or interface in javax.faces.application"><code>ViewExpiredException</code></a> occurs during an ajax request on a restricted
- page. The end-user will now properly be redirected to the login page.</li>
+ <li>Fixes the no-feedback problem when a <a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/ViewExpiredException.html?is-external=true" title="class or interface in javax.faces.application"><code>ViewExpiredException</code></a> occurs during an ajax request on a page which
+ is restricted by <code>web.xml</code> <code>&lt;security-constraint&gt;</code>. The enduser will now properly be
+ redirected to the login page instead of retrieving an ajax response with only a changed view state (and effectively
+ thus no visual feedback at all).</li>
  </ul>
  You can use the <a href="../../../org/omnifaces/util/Ajax.html" title="class in org.omnifaces.util"><code>Ajax</code></a> utility class to easily add callback scripts and arguments.
  <p>
@@ -182,7 +185,7 @@ extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/Partial
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/context/OmniPartialViewContext.html#addArgument(java.lang.String, java.lang.Object)">addArgument</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/context/OmniPartialViewContext.html#addArgument(java.lang.String,%20java.lang.Object)">addArgument</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
            <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)</code>
 <div class="block">Add an argument to the partial response.</div>
 </td>
@@ -242,7 +245,7 @@ extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/Partial
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
-<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long, int)" title="class or interface in java.lang">wait</a></code></li>
+<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,%20int)" title="class or interface in java.lang">wait</a></code></li>
 </ul>
 </li>
 </ul>

@@ -105,9 +105,14 @@
 <br>
 <pre>public class <span class="strong">ImportConstants</span>
 extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/TagHandler.html?is-external=true" title="class or interface in javax.faces.view.facelets">TagHandler</a></pre>
-<div class="block"><p>The <code>&lt;o:importConstants&gt;</code> allows the developer to have a mapping of all constant field values of
- the given fully qualified name of a type in the EL scope. The constant field values are those public static final
- fields. This works for classes, interfaces and enums. For example:
+<div class="block"><p>
+ The <code>&lt;o:importConstants&gt;</code> taghandler allows the developer to have a mapping of all constant field
+ values of the given fully qualified name of a type in the EL scope. The constant field values are those public static
+ final fields. This works for classes, interfaces and enums.
+
+ <h3>Usage</h3>
+ <p>
+ For example:
  <pre>
  public class Foo {
      public static final String FOO1 = "foo1";
@@ -135,7 +140,9 @@ extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/T
  this by explicitly specifying the <code>var</code> attribute, as demonstrated for <code>com.example.Baz</code> in
  the above example.
  <p>
- The resolved constants are by reference stored in the cache to improve retrieving performance.</div>
+ The resolved constants are by reference stored in the cache to improve retrieving performance. There is also a
+ runtime (no, not compiletime as that's just not possible in EL) check during retrieving the constant value.
+ If a constant value doesn't exist, then an <code>IllegalArgumentException</code> will be thrown.</div>
 <dl><dt><span class="strong">Author:</span></dt>
   <dd>Bauke Scholtz</dd></dl>
 </li>
@@ -192,9 +199,9 @@ extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/T
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/taghandler/ImportConstants.html#apply(javax.faces.view.facelets.FaceletContext, javax.faces.component.UIComponent)">apply</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/FaceletContext.html?is-external=true" title="class or interface in javax.faces.view.facelets">FaceletContext</a>&nbsp;context,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/taghandler/ImportConstants.html#apply(javax.faces.view.facelets.FaceletContext,%20javax.faces.component.UIComponent)">apply</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/FaceletContext.html?is-external=true" title="class or interface in javax.faces.view.facelets">FaceletContext</a>&nbsp;context,
      <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;parent)</code>
-<div class="block">First obtain the constants of the class by its fully qualified name as specified in the <code>type<code>
+<div class="block">First obtain the constants of the class by its fully qualified name as specified in the <code>type</code>
  attribute from the cache.</div>
 </td>
 </tr>
@@ -211,7 +218,7 @@ extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/T
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
-<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long, int)" title="class or interface in java.lang">wait</a></code></li>
+<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,%20int)" title="class or interface in java.lang">wait</a></code></li>
 </ul>
 </li>
 </ul>
@@ -255,7 +262,7 @@ extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/T
 <pre>public&nbsp;void&nbsp;apply(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/FaceletContext.html?is-external=true" title="class or interface in javax.faces.view.facelets">FaceletContext</a>&nbsp;context,
          <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;parent)
            throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
-<div class="block">First obtain the constants of the class by its fully qualified name as specified in the <code>type<code>
+<div class="block">First obtain the constants of the class by its fully qualified name as specified in the <code>type</code>
  attribute from the cache. If it hasn't been collected yet and is thus not present in the cache, then collect
  them and store in cache. Finally set the constants in the EL scope by the simple name of the type, or by the
  name as specified in the <code>var</code> attribute, if any.</div>

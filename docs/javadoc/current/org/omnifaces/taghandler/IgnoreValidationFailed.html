@@ -106,19 +106,21 @@
 <pre>public class <span class="strong">IgnoreValidationFailed</span>
 extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/TagHandler.html?is-external=true" title="class or interface in javax.faces.view.facelets">TagHandler</a></pre>
 <div class="block"><p>
- The <code>&lt;o:ignoreValidationFailed&gt;</code> allows the developer to ignore validation failures when
+ The <code>&lt;o:ignoreValidationFailed&gt;</code> taghandler allows the developer to ignore validation failures when
  executing an <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UICommand.html?is-external=true" title="class or interface in javax.faces.component"><code>UICommand</code></a> action. This taghandler must be placed inside an <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UICommand.html?is-external=true" title="class or interface in javax.faces.component"><code>UICommand</code></a> component and the
  parent <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIForm.html?is-external=true" title="class or interface in javax.faces.component"><code>UIForm</code></a> must be an <code>&lt;o:form&gt;</code>. When executing an ajax action, make sure that the
  parent <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIForm.html?is-external=true" title="class or interface in javax.faces.component"><code>UIForm</code></a> is also included in the <code>&lt;f:ajax execute&gt;</code>.
+
+ <h3>Usage</h3>
  <p>
  For example:
  <pre>
  &lt;o:form&gt;
-   ...
-   &lt;h:commandButton value="save valid data" action="#{bean.saveValidData}"&gt;
-     &lt;o:ignoreValidationFailed /&gt;
-     &lt;f:ajax execute="@form" /&gt;
-   &lt;/h:commandButton&gt;
+     ...
+     &lt;h:commandButton value="save valid data" action="#{bean.saveValidData}"&gt;
+         &lt;o:ignoreValidationFailed /&gt;
+         &lt;f:ajax execute="@form" /&gt;
+     &lt;/h:commandButton&gt;
  &lt;/o:form&gt;
  </pre>
  <p>
@@ -183,7 +185,7 @@ extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/T
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/taghandler/IgnoreValidationFailed.html#apply(javax.faces.view.facelets.FaceletContext, javax.faces.component.UIComponent)">apply</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/FaceletContext.html?is-external=true" title="class or interface in javax.faces.view.facelets">FaceletContext</a>&nbsp;context,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/taghandler/IgnoreValidationFailed.html#apply(javax.faces.view.facelets.FaceletContext,%20javax.faces.component.UIComponent)">apply</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/FaceletContext.html?is-external=true" title="class or interface in javax.faces.view.facelets">FaceletContext</a>&nbsp;context,
      <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;parent)</code>
 <div class="block">This will create a <a href="http://docs.oracle.com/javaee/7/api/javax/faces/event/PhaseListener.html?is-external=true" title="class or interface in javax.faces.event"><code>PhaseListener</code></a> for the before phase of <a href="http://docs.oracle.com/javaee/7/api/javax/faces/event/PhaseId.html?is-external=true#PROCESS_VALIDATIONS" title="class or interface in javax.faces.event"><code>PhaseId.PROCESS_VALIDATIONS</code></a> which will
  in turn check if the parent <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UICommand.html?is-external=true" title="class or interface in javax.faces.component"><code>UICommand</code></a> component has been invoked during the postback and if so, then
@@ -203,7 +205,7 @@ extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/T
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
-<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long, int)" title="class or interface in java.lang">wait</a></code></li>
+<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,%20int)" title="class or interface in java.lang">wait</a></code></li>
 </ul>
 </li>
 </ul>

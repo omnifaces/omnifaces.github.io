@@ -93,21 +93,25 @@
 <tr class="altColor">
 <td class="colFirst"><a href="../../../org/omnifaces/validator/JsfLabelMessageInterpolator.html" title="class in org.omnifaces.validator">JsfLabelMessageInterpolator</a></td>
 <td class="colLast">
-<div class="block">Bean Validation message interpolator that is able to insert the label of the component via which
- validation failed <em>into</em> the validation message.</div>
+<div class="block">
+ Unlike native JSF validation error messages, in a bean validation message by default the label of the component where
+ a validation constraint violation originated from can not be displayed in the middle of a message.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><a href="../../../org/omnifaces/validator/RequiredCheckboxValidator.html" title="class in org.omnifaces.validator">RequiredCheckboxValidator</a></td>
 <td class="colLast">
-<div class="block">This validator solves the broken <code>required="true"</code> attribute of the
+<div class="block">
+ The <code>omnifaces.RequiredCheckboxValidator</code> is intented to solve a peculiar problem with
+ <code>required="true"</code> attribute of <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UISelectBoolean.html?is-external=true" title="class or interface in javax.faces.component"><code>UISelectBoolean</code></a> components like
  <code>&lt;h:selectBooleanCheckbox&gt;</code>.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><a href="../../../org/omnifaces/validator/ValueChangeValidator.html" title="class in org.omnifaces.validator">ValueChangeValidator</a></td>
 <td class="colLast">
-<div class="block">By default, JSF validators run on every request, regardless of whether the submitted value has changed or not.</div>
+<div class="block">
+ By default, JSF validators run on every request, regardless of whether the submitted value has changed or not.</div>
 </td>
 </tr>
 </tbody>

@@ -105,10 +105,15 @@
 <br>
 <pre>public class <span class="strong">ImportFunctions</span>
 extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/TagHandler.html?is-external=true" title="class or interface in javax.faces.view.facelets">TagHandler</a></pre>
-<div class="block"><p>The <code>&lt;o:importFunctions&gt;</code> allows the developer to have access to all functions of the given
- fully qualified name of a type in the EL scope using the usual EL functions syntax without the need to register them
- in <code>.taglib.xml</code> file. The functions are those <code>public static</code> methods with a
- <strong>non</strong>-<code>void</code> return type. For example:
+<div class="block"><p>
+ The <code>&lt;o:importFunctions&gt;</code> taghandler allows the developer to have access to all functions of the
+ given fully qualified name of a type in the EL scope using the usual EL functions syntax without the need to register
+ them in <code>.taglib.xml</code> file. The functions are those <code>public static</code> methods with a
+ <strong>non</strong>-<code>void</code> return type.
+
+ <h3>Usage</h3>
+ <p>
+ For example:
  <pre>
  &lt;o:importFunctions type="java.lang.Math" var="m" /&gt;
  &lt;o:importFunctions type="org.omnifaces.util.Faces" /&gt;
@@ -118,19 +123,32 @@ extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/T
  ...
  &lt;base href="#{Faces:getRequestBaseURL()}" /&gt;
  </pre>
- <p>The functions prefix becomes by default the simple name of the type. You can override this by explicitly
- specifying the <code>var</code> attribute. If there are multiple function methods with exactly the same name, then
- the one with the least amount of parameters will be used. If there are multiple function methods with exactly the
- same name and amount of parameters, then the choice is unspecified (technically, JVM-dependent) and should not be
- relied upon. So if you absolutely need to differentiate functions in such case, give them each a different name.</p>
- <p>Note that the colon <code>:</code> operator to invoke the method is as required by EL functions spec. It's by
+ <p>
+ The functions prefix becomes by default the simple name of the type. You can override this by explicitly
+ specifying the <code>var</code> attribute.
+ <p>
+ The resolved functions are by reference stored in the cache to improve retrieving performance.
+
+ <h3>Precaution as to multiple functions with exactly the same method name</h3>
+ <p>
+ EL functions does <strong>not</strong> support method overloading. It's therefore <strong>not</strong> possible to
+ provide overloaded methods like <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Math.html?is-external=true#abs(int)" title="class or interface in java.lang"><code>Math.abs(int)</code></a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Math.html?is-external=true#abs(long)" title="class or interface in java.lang"><code>Math.abs(long)</code></a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Math.html?is-external=true#abs(float)" title="class or interface in java.lang"><code>Math.abs(float)</code></a> and
+ <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Math.html?is-external=true#abs(double)" title="class or interface in java.lang"><code>Math.abs(double)</code></a> in four separate EL functions.
+ <p>
+ If there are multiple function methods discovered with exactly the same name, then the one with the least amount of
+ parameters will be used. If there are multiple function methods with exactly the same name and amount of parameters,
+ then the choice is unspecified (technically, JVM-dependent, the first one in the methods array as found by reflection
+ would be picked up) and should not be relied upon. So if you absolutely need to differentiate functions in such case,
+ give them each a different name.
+
+ <h3>Design notes</h3>
+ <p>
+ Note that the colon <code>:</code> operator to invoke the method is as required by EL functions spec. It's by
  design not easily possible to change it to the period <code>.</code> operator. Also note that in case of
  <code>org.omnifaces.util.Faces</code> it's considered poor practice if the same functionality is already available
  through the implicit EL variables <code>#{facesContext}</code>, <code>#{view}</code>, <code>#{request}</code>, etc
  such as <code>#{request.contextPath}</code> which should be preferred over
- <code>#{Faces:getRequestContextPath()}</code>.</p>
- <p>
- The resolved functions are by reference stored in the cache to improve retrieving performance.</div>
+ <code>#{Faces:getRequestContextPath()}</code>.</p></div>
 <dl><dt><span class="strong">Since:</span></dt>
   <dd>1.4</dd>
 <dt><span class="strong">Author:</span></dt>
@@ -189,7 +207,7 @@ extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/T
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/taghandler/ImportFunctions.html#apply(javax.faces.view.facelets.FaceletContext, javax.faces.component.UIComponent)">apply</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/FaceletContext.html?is-external=true" title="class or interface in javax.faces.view.facelets">FaceletContext</a>&nbsp;context,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/taghandler/ImportFunctions.html#apply(javax.faces.view.facelets.FaceletContext,%20javax.faces.component.UIComponent)">apply</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/FaceletContext.html?is-external=true" title="class or interface in javax.faces.view.facelets">FaceletContext</a>&nbsp;context,
      <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;parent)</code>
 <div class="block">Register a new <a href="http://docs.oracle.com/javaee/7/api/javax/el/FunctionMapper.html?is-external=true" title="class or interface in javax.el"><code>FunctionMapper</code></a> which checks if the given prefix matches our own <code>var</code> and then
  find the associated method based on the given method name.</div>
@@ -208,7 +226,7 @@ extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/T
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
-<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long, int)" title="class or interface in java.lang">wait</a></code></li>
+<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,%20int)" title="class or interface in java.lang">wait</a></code></li>
 </ul>
 </li>
 </ul>

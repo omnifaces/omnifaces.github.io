@@ -67,7 +67,8 @@
 <dl>
 <dt><a href="../org/omnifaces/cdi/Eager.html" title="annotation in org.omnifaces.cdi"><span class="strong">Eager</span></a> - Annotation Type in <a href="../org/omnifaces/cdi/package-summary.html">org.omnifaces.cdi</a></dt>
 <dd>
-<div class="block">Specifies that a scoped bean is to be eagerly instantiated.</div>
+<div class="block">
+ The CDI annotation <a href="../org/omnifaces/cdi/Eager.html" title="annotation in org.omnifaces.cdi"><code>Eager</code></a> specifies that a scoped bean is to be eagerly instantiated.</div>
 </dd>
 <dt><a href="../org/omnifaces/cdi/eager/EagerBeansFilter.html" title="class in org.omnifaces.cdi.eager"><span class="strong">EagerBeansFilter</span></a> - Class in <a href="../org/omnifaces/cdi/eager/package-summary.html">org.omnifaces.cdi.eager</a></dt>
 <dd>
@@ -140,8 +141,8 @@
 <dt><a href="../org/omnifaces/taghandler/EnableRestorableView.html" title="class in org.omnifaces.taghandler"><span class="strong">EnableRestorableView</span></a> - Class in <a href="../org/omnifaces/taghandler/package-summary.html">org.omnifaces.taghandler</a></dt>
 <dd>
 <div class="block">
- The <code>&lt;o:enableRestorableView&gt;</code> instructs the view handler to recreate the entire view whenever the
- view has been expired, i.e.</div>
+ The <code>&lt;o:enableRestorableView&gt;</code> taghandler instructs the view handler to recreate the entire view
+ whenever the view has been expired, i.e.</div>
 </dd>
 <dt><span class="strong"><a href="../org/omnifaces/taghandler/EnableRestorableView.html#EnableRestorableView(javax.faces.view.facelets.TagConfig)">EnableRestorableView(TagConfig)</a></span> - Constructor for class org.omnifaces.taghandler.<a href="../org/omnifaces/taghandler/EnableRestorableView.html" title="class in org.omnifaces.taghandler">EnableRestorableView</a></dt>
 <dd>
@@ -196,27 +197,27 @@
 </dd>
 <dt><span class="strong"><a href="../org/omnifaces/component/tree/TreeFamily.html#encodeChildren(javax.faces.context.FacesContext)">encodeChildren(FacesContext)</a></span> - Method in class org.omnifaces.component.tree.<a href="../org/omnifaces/component/tree/TreeFamily.html" title="class in org.omnifaces.component.tree">TreeFamily</a></dt>
 <dd>
-<div class="block">Calls <a href="../org/omnifaces/component/tree/TreeFamily.html#validateHierarchy()"><code>TreeFamily.validateHierarchy()</code></a> and then <a href="../org/omnifaces/component/tree/TreeFamily.html#process(javax.faces.context.FacesContext, javax.faces.event.PhaseId)"><code>TreeFamily.process(FacesContext, PhaseId)</code></a> with
+<div class="block">Calls <a href="../org/omnifaces/component/tree/TreeFamily.html#validateHierarchy()"><code>TreeFamily.validateHierarchy()</code></a> and then <a href="../org/omnifaces/component/tree/TreeFamily.html#process(javax.faces.context.FacesContext,%20javax.faces.event.PhaseId)"><code>TreeFamily.process(FacesContext, PhaseId)</code></a> with
  <a href="http://docs.oracle.com/javaee/7/api/javax/faces/event/PhaseId.html?is-external=true#RENDER_RESPONSE" title="class or interface in javax.faces.event"><code>PhaseId.RENDER_RESPONSE</code></a>.</div>
 </dd>
 <dt><span class="strong"><a href="../org/omnifaces/component/validator/ValidatorFamily.html#encodeChildren(javax.faces.context.FacesContext)">encodeChildren(FacesContext)</a></span> - Method in class org.omnifaces.component.validator.<a href="../org/omnifaces/component/validator/ValidatorFamily.html" title="class in org.omnifaces.component.validator">ValidatorFamily</a></dt>
 <dd>
 <div class="block">Calls <a href="../org/omnifaces/component/validator/ValidatorFamily.html#validateHierarchy()"><code>ValidatorFamily.validateHierarchy()</code></a>.</div>
 </dd>
-<dt><span class="strong"><a href="../org/omnifaces/renderer/DeferredScriptRenderer.html#encodeChildren(javax.faces.context.FacesContext, javax.faces.component.UIComponent)">encodeChildren(FacesContext, UIComponent)</a></span> - Method in class org.omnifaces.renderer.<a href="../org/omnifaces/renderer/DeferredScriptRenderer.html" title="class in org.omnifaces.renderer">DeferredScriptRenderer</a></dt>
+<dt><span class="strong"><a href="../org/omnifaces/renderer/DeferredScriptRenderer.html#encodeChildren(javax.faces.context.FacesContext,%20javax.faces.component.UIComponent)">encodeChildren(FacesContext, UIComponent)</a></span> - Method in class org.omnifaces.renderer.<a href="../org/omnifaces/renderer/DeferredScriptRenderer.html" title="class in org.omnifaces.renderer">DeferredScriptRenderer</a></dt>
 <dd>
 <div class="block">Writes a <code>&lt;script&gt;</code> element which calls <code>OmniFaces.DeferredScript.add</code> with as
  arguments the script URL and, if any, the onbegin, onsuccess and/or onerror callbacks.</div>
 </dd>
-<dt><span class="strong"><a href="../org/omnifaces/renderer/InlineResourceRenderer.html#encodeChildren(javax.faces.context.FacesContext, javax.faces.component.UIComponent)">encodeChildren(FacesContext, UIComponent)</a></span> - Method in class org.omnifaces.renderer.<a href="../org/omnifaces/renderer/InlineResourceRenderer.html" title="class in org.omnifaces.renderer">InlineResourceRenderer</a></dt>
+<dt><span class="strong"><a href="../org/omnifaces/renderer/InlineResourceRenderer.html#encodeChildren(javax.faces.context.FacesContext,%20javax.faces.component.UIComponent)">encodeChildren(FacesContext, UIComponent)</a></span> - Method in class org.omnifaces.renderer.<a href="../org/omnifaces/renderer/InlineResourceRenderer.html" title="class in org.omnifaces.renderer">InlineResourceRenderer</a></dt>
 <dd>
 <div class="block">Obtain the resource, construct a <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Reader.html?is-external=true" title="class or interface in java.io"><code>Reader</code></a> around it using the character encoding as obtained from the
- response writer and then invoke <a href="../org/omnifaces/renderer/InlineResourceRenderer.html#startElement(javax.faces.context.ResponseWriter, javax.faces.component.UIComponent)"><code>InlineResourceRenderer.startElement(ResponseWriter, UIComponent)</code></a>,
- <a href="../org/omnifaces/renderer/InlineResourceRenderer.html#writeResource(java.io.Reader, javax.faces.context.ResponseWriter)"><code>InlineResourceRenderer.writeResource(Reader, ResponseWriter)</code></a> and <a href="../org/omnifaces/renderer/InlineResourceRenderer.html#endElement(javax.faces.context.ResponseWriter)"><code>InlineResourceRenderer.endElement(ResponseWriter)</code></a> in sequence.</div>
+ response writer and then invoke <a href="../org/omnifaces/renderer/InlineResourceRenderer.html#startElement(javax.faces.context.ResponseWriter,%20javax.faces.component.UIComponent)"><code>InlineResourceRenderer.startElement(ResponseWriter, UIComponent)</code></a>,
+ <a href="../org/omnifaces/renderer/InlineResourceRenderer.html#writeResource(java.io.Reader,%20javax.faces.context.ResponseWriter)"><code>InlineResourceRenderer.writeResource(Reader, ResponseWriter)</code></a> and <a href="../org/omnifaces/renderer/InlineResourceRenderer.html#endElement(javax.faces.context.ResponseWriter)"><code>InlineResourceRenderer.endElement(ResponseWriter)</code></a> in sequence.</div>
 </dd>
-<dt><span class="strong"><a href="../org/omnifaces/renderer/MessagesRenderer.html#encodeChildren(javax.faces.context.FacesContext, javax.faces.component.UIComponent)">encodeChildren(FacesContext, UIComponent)</a></span> - Method in class org.omnifaces.renderer.<a href="../org/omnifaces/renderer/MessagesRenderer.html" title="class in org.omnifaces.renderer">MessagesRenderer</a></dt>
+<dt><span class="strong"><a href="../org/omnifaces/renderer/MessagesRenderer.html#encodeChildren(javax.faces.context.FacesContext,%20javax.faces.component.UIComponent)">encodeChildren(FacesContext, UIComponent)</a></span> - Method in class org.omnifaces.renderer.<a href="../org/omnifaces/renderer/MessagesRenderer.html" title="class in org.omnifaces.renderer">MessagesRenderer</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="../org/omnifaces/renderer/MessagesRenderer.html#encodeEmptyMessages(javax.faces.context.FacesContext, org.omnifaces.component.messages.OmniMessages)">encodeEmptyMessages(FacesContext, OmniMessages)</a></span> - Method in class org.omnifaces.renderer.<a href="../org/omnifaces/renderer/MessagesRenderer.html" title="class in org.omnifaces.renderer">MessagesRenderer</a></dt>
+<dt><span class="strong"><a href="../org/omnifaces/renderer/MessagesRenderer.html#encodeEmptyMessages(javax.faces.context.FacesContext,%20org.omnifaces.component.messages.OmniMessages)">encodeEmptyMessages(FacesContext, OmniMessages)</a></span> - Method in class org.omnifaces.renderer.<a href="../org/omnifaces/renderer/MessagesRenderer.html" title="class in org.omnifaces.renderer">MessagesRenderer</a></dt>
 <dd>
 <div class="block">Encode the case when there are no messages.</div>
 </dd>
@@ -230,19 +231,19 @@
 <div class="block">If the current request is not an ajax request, and this component is rendered, and there are any children, then
  end the <code>&lt;script&gt;</code> element.</div>
 </dd>
-<dt><span class="strong"><a href="../org/omnifaces/component/script/CommandScript.html#encodeFunction(javax.faces.context.FacesContext, java.lang.String)">encodeFunction(FacesContext, String)</a></span> - Method in class org.omnifaces.component.script.<a href="../org/omnifaces/component/script/CommandScript.html" title="class in org.omnifaces.component.script">CommandScript</a></dt>
+<dt><span class="strong"><a href="../org/omnifaces/component/script/CommandScript.html#encodeFunction(javax.faces.context.FacesContext,%20java.lang.String)">encodeFunction(FacesContext, String)</a></span> - Method in class org.omnifaces.component.script.<a href="../org/omnifaces/component/script/CommandScript.html" title="class in org.omnifaces.component.script">CommandScript</a></dt>
 <dd>
 <div class="block">Encode the script function.</div>
 </dd>
-<dt><span class="strong"><a href="../org/omnifaces/renderer/MessagesRenderer.html#encodeMessages(javax.faces.context.FacesContext, org.omnifaces.component.messages.OmniMessages, java.util.List, boolean)">encodeMessages(FacesContext, OmniMessages, List&lt;FacesMessage&gt;, boolean)</a></span> - Method in class org.omnifaces.renderer.<a href="../org/omnifaces/renderer/MessagesRenderer.html" title="class in org.omnifaces.renderer">MessagesRenderer</a></dt>
+<dt><span class="strong"><a href="../org/omnifaces/renderer/MessagesRenderer.html#encodeMessages(javax.faces.context.FacesContext,%20org.omnifaces.component.messages.OmniMessages,%20java.util.List,%20boolean)">encodeMessages(FacesContext, OmniMessages, List&lt;FacesMessage&gt;, boolean)</a></span> - Method in class org.omnifaces.renderer.<a href="../org/omnifaces/renderer/MessagesRenderer.html" title="class in org.omnifaces.renderer">MessagesRenderer</a></dt>
 <dd>
 <div class="block">Encode the case when the faces messages are to be rendered as either a HTML table or a HTML list.</div>
 </dd>
-<dt><span class="strong"><a href="../org/omnifaces/renderer/MessagesRenderer.html#encodeMessagesRepeater(javax.faces.context.FacesContext, org.omnifaces.component.messages.OmniMessages, java.util.List)">encodeMessagesRepeater(FacesContext, OmniMessages, List&lt;FacesMessage&gt;)</a></span> - Method in class org.omnifaces.renderer.<a href="../org/omnifaces/renderer/MessagesRenderer.html" title="class in org.omnifaces.renderer">MessagesRenderer</a></dt>
+<dt><span class="strong"><a href="../org/omnifaces/renderer/MessagesRenderer.html#encodeMessagesRepeater(javax.faces.context.FacesContext,%20org.omnifaces.component.messages.OmniMessages,%20java.util.List)">encodeMessagesRepeater(FacesContext, OmniMessages, List&lt;FacesMessage&gt;)</a></span> - Method in class org.omnifaces.renderer.<a href="../org/omnifaces/renderer/MessagesRenderer.html" title="class in org.omnifaces.renderer">MessagesRenderer</a></dt>
 <dd>
 <div class="block">Encode the case when the <code>var</code> attribute is specified.</div>
 </dd>
-<dt><span class="strong"><a href="../org/omnifaces/component/script/CommandScript.html#encodeOneventOption(javax.faces.context.FacesContext, java.lang.String, java.lang.String)">encodeOneventOption(FacesContext, String, String)</a></span> - Method in class org.omnifaces.component.script.<a href="../org/omnifaces/component/script/CommandScript.html" title="class in org.omnifaces.component.script">CommandScript</a></dt>
+<dt><span class="strong"><a href="../org/omnifaces/component/script/CommandScript.html#encodeOneventOption(javax.faces.context.FacesContext,%20java.lang.String,%20java.lang.String)">encodeOneventOption(FacesContext, String, String)</a></span> - Method in class org.omnifaces.component.script.<a href="../org/omnifaces/component/script/CommandScript.html" title="class in org.omnifaces.component.script">CommandScript</a></dt>
 <dd>
 <div class="block">Create an option for the <code>onevent</code> function which contains the <code>onbegin</code> and
  <code>oncomplete</code> scripts.</div>
@@ -313,27 +314,28 @@
 <dd>
 <div class="block">Escapes the given string according the JavaScript code rules.</div>
 </dd>
-<dt><span class="strong"><a href="../org/omnifaces/util/Utils.html#escapeJS(java.lang.String, boolean)">escapeJS(String, boolean)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Utils.html" title="class in org.omnifaces.util">Utils</a></dt>
+<dt><span class="strong"><a href="../org/omnifaces/util/Utils.html#escapeJS(java.lang.String,%20boolean)">escapeJS(String, boolean)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Utils.html" title="class in org.omnifaces.util">Utils</a></dt>
 <dd>
 <div class="block">Escapes the given string according the JavaScript code rules.</div>
 </dd>
-<dt><span class="strong"><a href="../org/omnifaces/el/functions/Components.html#evalAttribute(javax.faces.component.UIComponent, java.lang.String)">evalAttribute(UIComponent, String)</a></span> - Static method in class org.omnifaces.el.functions.<a href="../org/omnifaces/el/functions/Components.html" title="class in org.omnifaces.el.functions">Components</a></dt>
+<dt><span class="strong"><a href="../org/omnifaces/el/functions/Components.html#evalAttribute(javax.faces.component.UIComponent,%20java.lang.String)">evalAttribute(UIComponent, String)</a></span> - Static method in class org.omnifaces.el.functions.<a href="../org/omnifaces/el/functions/Components.html" title="class in org.omnifaces.el.functions">Components</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="../org/omnifaces/util/Faces.html#evaluateExpressionGet(java.lang.String)">evaluateExpressionGet(String)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Faces.html" title="class in org.omnifaces.util">Faces</a></dt>
 <dd>
 <div class="block">Programmatically evaluate the given EL expression and return the evaluated value.</div>
 </dd>
-<dt><span class="strong"><a href="../org/omnifaces/util/FacesLocal.html#evaluateExpressionGet(javax.faces.context.FacesContext, java.lang.String)">evaluateExpressionGet(FacesContext, String)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/FacesLocal.html" title="class in org.omnifaces.util">FacesLocal</a></dt>
+<dt><span class="strong"><a href="../org/omnifaces/util/FacesLocal.html#evaluateExpressionGet(javax.faces.context.FacesContext,%20java.lang.String)">evaluateExpressionGet(FacesContext, String)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/FacesLocal.html" title="class in org.omnifaces.util">FacesLocal</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="../org/omnifaces/util/Faces.html#evaluateExpressionSet(java.lang.String, java.lang.Object)">evaluateExpressionSet(String, Object)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Faces.html" title="class in org.omnifaces.util">Faces</a></dt>
+<dt><span class="strong"><a href="../org/omnifaces/util/Faces.html#evaluateExpressionSet(java.lang.String,%20java.lang.Object)">evaluateExpressionSet(String, Object)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Faces.html" title="class in org.omnifaces.util">Faces</a></dt>
 <dd>
 <div class="block">Programmatically evaluate the given EL expression and set the given value.</div>
 </dd>
-<dt><span class="strong"><a href="../org/omnifaces/util/FacesLocal.html#evaluateExpressionSet(javax.faces.context.FacesContext, java.lang.String, java.lang.Object)">evaluateExpressionSet(FacesContext, String, Object)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/FacesLocal.html" title="class in org.omnifaces.util">FacesLocal</a></dt>
+<dt><span class="strong"><a href="../org/omnifaces/util/FacesLocal.html#evaluateExpressionSet(javax.faces.context.FacesContext,%20java.lang.String,%20java.lang.Object)">evaluateExpressionSet(FacesContext, String, Object)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/FacesLocal.html" title="class in org.omnifaces.util">FacesLocal</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="../org/omnifaces/util/Events.html" title="class in org.omnifaces.util"><span class="strong">Events</span></a> - Class in <a href="../org/omnifaces/util/package-summary.html">org.omnifaces.util</a></dt>
 <dd>
-<div class="block">Collection of utility methods for the JSF API with respect to working with Faces events.</div>
+<div class="block">
+ Collection of utility methods for the JSF API with respect to working with Faces events.</div>
 </dd>
 <dt><a href="../org/omnifaces/util/concurrentlinkedhashmap/EvictionListener.html" title="interface in org.omnifaces.util.concurrentlinkedhashmap"><span class="strong">EvictionListener</span></a>&lt;<a href="../org/omnifaces/util/concurrentlinkedhashmap/EvictionListener.html" title="type parameter in EvictionListener">K</a>,<a href="../org/omnifaces/util/concurrentlinkedhashmap/EvictionListener.html" title="type parameter in EvictionListener">V</a>&gt; - Interface in <a href="../org/omnifaces/util/concurrentlinkedhashmap/package-summary.html">org.omnifaces.util.concurrentlinkedhashmap</a></dt>
 <dd>
@@ -341,7 +343,8 @@
 </dd>
 <dt><a href="../org/omnifaces/util/Exceptions.html" title="class in org.omnifaces.util"><span class="strong">Exceptions</span></a> - Class in <a href="../org/omnifaces/util/package-summary.html">org.omnifaces.util</a></dt>
 <dd>
-<div class="block">Collection of general utility methods with respect to working with exceptions.</div>
+<div class="block">
+ Collection of general utility methods with respect to working with exceptions.</div>
 </dd>
 <dt><a href="../org/omnifaces/el/ExpressionInspector.html" title="class in org.omnifaces.el"><span class="strong">ExpressionInspector</span></a> - Class in <a href="../org/omnifaces/el/package-summary.html">org.omnifaces.el</a></dt>
 <dd>

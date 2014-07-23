@@ -96,7 +96,11 @@
 <br>
 <pre>public final class <span class="strong">Dates</span>
 extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
-<div class="block">Collection of EL functions for date and time.</div>
+<div class="block"><p>
+ Collection of EL functions for date and time: <code>of:formatDate()</code>, <code>of:formatDateWithTimezone()</code>,
+ <code>of:addXxx()</code> like <code>of:addDays()</code>, <code>of:xxxBetween()</code> like <code>of:daysBetween()</code>,
+ <code>of:getMonths()</code>, <code>of:getShortMonths()</code>, <code>of:getDaysOfWeek()</code>, <code>of:getShortDaysOfWeek()</code>,
+ <code>of:getMonth()</code>, <code>of:getShortMonth()</code>, <code>of:getDayOfWeek()</code> and <code>of:getShortDayOfWeek()</code>.</div>
 <dl><dt><span class="strong">Author:</span></dt>
   <dd>Bauke Scholtz</dd></dl>
 </li>
@@ -119,70 +123,70 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/omnifaces/el/functions/Dates.html#addDays(java.util.Date, int)">addDays</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a>&nbsp;date,
+<td class="colLast"><code><strong><a href="../../../../org/omnifaces/el/functions/Dates.html#addDays(java.util.Date,%20int)">addDays</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a>&nbsp;date,
        int&nbsp;days)</code>
 <div class="block">Returns a new date instance which is a sum of the given date and the given amount of days.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/omnifaces/el/functions/Dates.html#addHours(java.util.Date, int)">addHours</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a>&nbsp;date,
+<td class="colLast"><code><strong><a href="../../../../org/omnifaces/el/functions/Dates.html#addHours(java.util.Date,%20int)">addHours</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a>&nbsp;date,
         int&nbsp;hours)</code>
 <div class="block">Returns a new date instance which is a sum of the given date and the given amount of hours.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/omnifaces/el/functions/Dates.html#addMinutes(java.util.Date, int)">addMinutes</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a>&nbsp;date,
+<td class="colLast"><code><strong><a href="../../../../org/omnifaces/el/functions/Dates.html#addMinutes(java.util.Date,%20int)">addMinutes</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a>&nbsp;date,
           int&nbsp;minutes)</code>
 <div class="block">Returns a new date instance which is a sum of the given date and the given amount of minutes.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/omnifaces/el/functions/Dates.html#addMonths(java.util.Date, int)">addMonths</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a>&nbsp;date,
+<td class="colLast"><code><strong><a href="../../../../org/omnifaces/el/functions/Dates.html#addMonths(java.util.Date,%20int)">addMonths</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a>&nbsp;date,
          int&nbsp;months)</code>
 <div class="block">Returns a new date instance which is a sum of the given date and the given amount of months.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/omnifaces/el/functions/Dates.html#addSeconds(java.util.Date, int)">addSeconds</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a>&nbsp;date,
+<td class="colLast"><code><strong><a href="../../../../org/omnifaces/el/functions/Dates.html#addSeconds(java.util.Date,%20int)">addSeconds</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a>&nbsp;date,
           int&nbsp;seconds)</code>
 <div class="block">Returns a new date instance which is a sum of the given date and the given amount of seconds.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/omnifaces/el/functions/Dates.html#addWeeks(java.util.Date, int)">addWeeks</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a>&nbsp;date,
+<td class="colLast"><code><strong><a href="../../../../org/omnifaces/el/functions/Dates.html#addWeeks(java.util.Date,%20int)">addWeeks</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a>&nbsp;date,
         int&nbsp;weeks)</code>
 <div class="block">Returns a new date instance which is a sum of the given date and the given amount of weeks.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/omnifaces/el/functions/Dates.html#addYears(java.util.Date, int)">addYears</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a>&nbsp;date,
+<td class="colLast"><code><strong><a href="../../../../org/omnifaces/el/functions/Dates.html#addYears(java.util.Date,%20int)">addYears</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a>&nbsp;date,
         int&nbsp;years)</code>
 <div class="block">Returns a new date instance which is a sum of the given date and the given amount of years.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static int</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/omnifaces/el/functions/Dates.html#daysBetween(java.util.Date, java.util.Date)">daysBetween</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a>&nbsp;start,
+<td class="colLast"><code><strong><a href="../../../../org/omnifaces/el/functions/Dates.html#daysBetween(java.util.Date,%20java.util.Date)">daysBetween</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a>&nbsp;start,
            <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a>&nbsp;end)</code>
 <div class="block">Returns the amount of days between two given dates.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/omnifaces/el/functions/Dates.html#formatDate(java.util.Date, java.lang.String)">formatDate</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a>&nbsp;date,
+<td class="colLast"><code><strong><a href="../../../../org/omnifaces/el/functions/Dates.html#formatDate(java.util.Date,%20java.lang.String)">formatDate</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a>&nbsp;date,
           <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;pattern)</code>
 <div class="block">Format the given date in the given pattern with system default timezone.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/omnifaces/el/functions/Dates.html#formatDateWithTimezone(java.util.Date, java.lang.String, java.lang.Object)">formatDateWithTimezone</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a>&nbsp;date,
+<td class="colLast"><code><strong><a href="../../../../org/omnifaces/el/functions/Dates.html#formatDateWithTimezone(java.util.Date,%20java.lang.String,%20java.lang.Object)">formatDateWithTimezone</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a>&nbsp;date,
                       <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;pattern,
                       <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;timezone)</code>
 <div class="block">Format the given date in the given pattern with the given timezone.</div>
@@ -240,42 +244,42 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static long</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/omnifaces/el/functions/Dates.html#hoursBetween(java.util.Date, java.util.Date)">hoursBetween</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a>&nbsp;start,
+<td class="colLast"><code><strong><a href="../../../../org/omnifaces/el/functions/Dates.html#hoursBetween(java.util.Date,%20java.util.Date)">hoursBetween</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a>&nbsp;start,
             <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a>&nbsp;end)</code>
 <div class="block">Returns the amount of hours between two given dates.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static long</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/omnifaces/el/functions/Dates.html#minutesBetween(java.util.Date, java.util.Date)">minutesBetween</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a>&nbsp;start,
+<td class="colLast"><code><strong><a href="../../../../org/omnifaces/el/functions/Dates.html#minutesBetween(java.util.Date,%20java.util.Date)">minutesBetween</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a>&nbsp;start,
               <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a>&nbsp;end)</code>
 <div class="block">Returns the amount of minutes between two given dates.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static int</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/omnifaces/el/functions/Dates.html#monthsBetween(java.util.Date, java.util.Date)">monthsBetween</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a>&nbsp;start,
+<td class="colLast"><code><strong><a href="../../../../org/omnifaces/el/functions/Dates.html#monthsBetween(java.util.Date,%20java.util.Date)">monthsBetween</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a>&nbsp;start,
              <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a>&nbsp;end)</code>
 <div class="block">Returns the amount of months between two given dates.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static long</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/omnifaces/el/functions/Dates.html#secondsBetween(java.util.Date, java.util.Date)">secondsBetween</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a>&nbsp;start,
+<td class="colLast"><code><strong><a href="../../../../org/omnifaces/el/functions/Dates.html#secondsBetween(java.util.Date,%20java.util.Date)">secondsBetween</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a>&nbsp;start,
               <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a>&nbsp;end)</code>
 <div class="block">Returns the amount of seconds between two given dates.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static int</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/omnifaces/el/functions/Dates.html#weeksBetween(java.util.Date, java.util.Date)">weeksBetween</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a>&nbsp;start,
+<td class="colLast"><code><strong><a href="../../../../org/omnifaces/el/functions/Dates.html#weeksBetween(java.util.Date,%20java.util.Date)">weeksBetween</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a>&nbsp;start,
             <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a>&nbsp;end)</code>
 <div class="block">Returns the amount of weeks between two given dates.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static int</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/omnifaces/el/functions/Dates.html#yearsBetween(java.util.Date, java.util.Date)">yearsBetween</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a>&nbsp;start,
+<td class="colLast"><code><strong><a href="../../../../org/omnifaces/el/functions/Dates.html#yearsBetween(java.util.Date,%20java.util.Date)">yearsBetween</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a>&nbsp;start,
             <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util">Date</a>&nbsp;end)</code>
 <div class="block">Returns the amount of years between two given dates.</div>
 </td>
@@ -286,7 +290,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
-<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long, int)" title="class or interface in java.lang">wait</a></code></li>
+<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,%20int)" title="class or interface in java.lang">wait</a></code></li>
 </ul>
 </li>
 </ul>
@@ -317,7 +321,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>date</code> - The date to be formatted in the given pattern.</dd><dd><code>pattern</code> - The pattern to format the given date in.</dd>
 <dt><span class="strong">Returns:</span></dt><dd>The date which is formatted in the given pattern.</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/NullPointerException.html?is-external=true" title="class or interface in java.lang">NullPointerException</a></code> - When the pattern is <code>null</code>.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../org/omnifaces/el/functions/Dates.html#formatDateWithTimezone(java.util.Date, java.lang.String, java.lang.Object)"><code>formatDateWithTimezone(Date, String, Object)</code></a></dd></dl>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/NullPointerException.html?is-external=true" title="class or interface in java.lang">NullPointerException</a></code> - When the pattern is <code>null</code>.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../org/omnifaces/el/functions/Dates.html#formatDateWithTimezone(java.util.Date,%20java.lang.String,%20java.lang.Object)"><code>formatDateWithTimezone(Date, String, Object)</code></a></dd></dl>
 </li>
 </ul>
 <a name="formatDateWithTimezone(java.util.Date, java.lang.String, java.lang.Object)">

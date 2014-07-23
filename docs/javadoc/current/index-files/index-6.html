@@ -72,7 +72,8 @@
 </dd>
 <dt><a href="../org/omnifaces/util/Faces.html" title="class in org.omnifaces.util"><span class="strong">Faces</span></a> - Class in <a href="../org/omnifaces/util/package-summary.html">org.omnifaces.util</a></dt>
 <dd>
-<div class="block">Collection of utility methods for the JSF API that are mainly shortcuts for obtaining stuff from the thread local
+<div class="block">
+ Collection of utility methods for the JSF API that are mainly shortcuts for obtaining stuff from the thread local
  <a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context"><code>FacesContext</code></a>.</div>
 </dd>
 <dt><span class="strong"><a href="../org/omnifaces/facesviews/FacesViews.html#FACES_SERVLET_EXTENSIONS">FACES_SERVLET_EXTENSIONS</a></span> - Static variable in class org.omnifaces.facesviews.<a href="../org/omnifaces/facesviews/FacesViews.html" title="class in org.omnifaces.facesviews">FacesViews</a></dt>
@@ -133,24 +134,27 @@
  specialized behavior to an existing <a href="http://docs.oracle.com/javaee/7/api/javax/faces/event/FacesEvent.html?is-external=true" title="class or interface in javax.faces.event"><code>FacesEvent</code></a> instance without the need to implement/override all the
  methods which do not necessarily need to be implemented.</div>
 </dd>
-<dt><span class="strong"><a href="../org/omnifaces/event/FacesEventWrapper.html#FacesEventWrapper(javax.faces.event.FacesEvent, javax.faces.component.UIComponent)">FacesEventWrapper(FacesEvent, UIComponent)</a></span> - Constructor for class org.omnifaces.event.<a href="../org/omnifaces/event/FacesEventWrapper.html" title="class in org.omnifaces.event">FacesEventWrapper</a></dt>
+<dt><span class="strong"><a href="../org/omnifaces/event/FacesEventWrapper.html#FacesEventWrapper(javax.faces.event.FacesEvent,%20javax.faces.component.UIComponent)">FacesEventWrapper(FacesEvent, UIComponent)</a></span> - Constructor for class org.omnifaces.event.<a href="../org/omnifaces/event/FacesEventWrapper.html" title="class in org.omnifaces.event">FacesEventWrapper</a></dt>
 <dd>
 <div class="block">Construct a new faces event wrapper which wraps the given faces event for the given component.</div>
 </dd>
 <dt><a href="../org/omnifaces/filter/FacesExceptionFilter.html" title="class in org.omnifaces.filter"><span class="strong">FacesExceptionFilter</span></a> - Class in <a href="../org/omnifaces/filter/package-summary.html">org.omnifaces.filter</a></dt>
 <dd>
-<div class="block">This filter will solve 2 problems with exceptions thrown in JSF methods.</div>
+<div class="block">
+ The <a href="../org/omnifaces/filter/FacesExceptionFilter.html" title="class in org.omnifaces.filter"><code>FacesExceptionFilter</code></a> will solve 2 problems with exceptions thrown in JSF methods.</div>
 </dd>
 <dt><span class="strong"><a href="../org/omnifaces/filter/FacesExceptionFilter.html#FacesExceptionFilter()">FacesExceptionFilter()</a></span> - Constructor for class org.omnifaces.filter.<a href="../org/omnifaces/filter/FacesExceptionFilter.html" title="class in org.omnifaces.filter">FacesExceptionFilter</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="../org/omnifaces/util/FacesLocal.html" title="class in org.omnifaces.util"><span class="strong">FacesLocal</span></a> - Class in <a href="../org/omnifaces/util/package-summary.html">org.omnifaces.util</a></dt>
 <dd>
-<div class="block">Collection of utility methods for the JSF API that are mainly shortcuts for obtaining stuff from the provided
+<div class="block">
+ Collection of utility methods for the JSF API that are mainly shortcuts for obtaining stuff from the provided
  <a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context"><code>FacesContext</code></a> argument.</div>
 </dd>
 <dt><a href="../org/omnifaces/exceptionhandler/FacesMessageExceptionHandler.html" title="class in org.omnifaces.exceptionhandler"><span class="strong">FacesMessageExceptionHandler</span></a> - Class in <a href="../org/omnifaces/exceptionhandler/package-summary.html">org.omnifaces.exceptionhandler</a></dt>
 <dd>
-<div class="block">This exception handler will add every exception as a global FATAL faces message.</div>
+<div class="block">
+ The <a href="../org/omnifaces/exceptionhandler/FacesMessageExceptionHandler.html" title="class in org.omnifaces.exceptionhandler"><code>FacesMessageExceptionHandler</code></a> will add every exception as a global FATAL faces message.</div>
 </dd>
 <dt><span class="strong"><a href="../org/omnifaces/exceptionhandler/FacesMessageExceptionHandler.html#FacesMessageExceptionHandler(javax.faces.context.ExceptionHandler)">FacesMessageExceptionHandler(ExceptionHandler)</a></span> - Constructor for class org.omnifaces.exceptionhandler.<a href="../org/omnifaces/exceptionhandler/FacesMessageExceptionHandler.html" title="class in org.omnifaces.exceptionhandler">FacesMessageExceptionHandler</a></dt>
 <dd>
@@ -165,13 +169,19 @@
 <dd>
 <div class="block">Construct a new full ajax exception handler factory around the given wrapped factory.</div>
 </dd>
+<dt><span class="strong"><a href="../org/omnifaces/util/Servlets.html#facesRedirect(javax.servlet.http.HttpServletRequest,%20javax.servlet.http.HttpServletResponse,%20java.lang.String,%20java.lang.String...)">facesRedirect(HttpServletRequest, HttpServletResponse, String, String...)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Servlets.html" title="class in org.omnifaces.util">Servlets</a></dt>
+<dd>
+<div class="block">Sends a temporary (302) faces redirect to the given URL.</div>
+</dd>
 <dt><a href="../org/omnifaces/facesviews/FacesServletDispatchMethod.html" title="enum in org.omnifaces.facesviews"><span class="strong">FacesServletDispatchMethod</span></a> - Enum in <a href="../org/omnifaces/facesviews/package-summary.html">org.omnifaces.facesviews</a></dt>
 <dd>
 <div class="block">The method used by FacesViews to invoke the FacesServlet.</div>
 </dd>
 <dt><a href="../org/omnifaces/facesviews/FacesViews.html" title="class in org.omnifaces.facesviews"><span class="strong">FacesViews</span></a> - Class in <a href="../org/omnifaces/facesviews/package-summary.html">org.omnifaces.facesviews</a></dt>
 <dd>
-<div class="block">This class contains the core methods that implement the Faces Views feature.</div>
+<div class="block">
+ FacesViews is a mechanism to use SEO-friendly extensionless URLs in a JSF application without the need to enlist
+ individual Facelet source files in some configuration file.</div>
 </dd>
 <dt><a href="../org/omnifaces/facesviews/FacesViewsForwardingFilter.html" title="class in org.omnifaces.facesviews"><span class="strong">FacesViewsForwardingFilter</span></a> - Class in <a href="../org/omnifaces/facesviews/package-summary.html">org.omnifaces.facesviews</a></dt>
 <dd>
@@ -224,22 +234,22 @@
 <dd>
 <div class="block">Returns the UI component matching the given client ID search expression.</div>
 </dd>
-<dt><span class="strong"><a href="../org/omnifaces/util/Components.html#findComponentInChildren(javax.faces.component.UIComponent, java.lang.String)">findComponentInChildren(UIComponent, String)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Components.html" title="class in org.omnifaces.util">Components</a></dt>
+<dt><span class="strong"><a href="../org/omnifaces/util/Components.html#findComponentInChildren(javax.faces.component.UIComponent,%20java.lang.String)">findComponentInChildren(UIComponent, String)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Components.html" title="class in org.omnifaces.util">Components</a></dt>
 <dd>
 <div class="block">Returns the UI component matching the given client ID search expression relative to the point
  in the component tree of the given component, searching only in its children.</div>
 </dd>
-<dt><span class="strong"><a href="../org/omnifaces/util/Components.html#findComponentInParents(javax.faces.component.UIComponent, java.lang.String)">findComponentInParents(UIComponent, String)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Components.html" title="class in org.omnifaces.util">Components</a></dt>
+<dt><span class="strong"><a href="../org/omnifaces/util/Components.html#findComponentInParents(javax.faces.component.UIComponent,%20java.lang.String)">findComponentInParents(UIComponent, String)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Components.html" title="class in org.omnifaces.util">Components</a></dt>
 <dd>
 <div class="block">Returns the UI component matching the given client ID search expression relative to the point
  in the component tree of the given component, searching only in its parents.</div>
 </dd>
-<dt><span class="strong"><a href="../org/omnifaces/util/Components.html#findComponentRelatively(javax.faces.component.UIComponent, java.lang.String)">findComponentRelatively(UIComponent, String)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Components.html" title="class in org.omnifaces.util">Components</a></dt>
+<dt><span class="strong"><a href="../org/omnifaces/util/Components.html#findComponentRelatively(javax.faces.component.UIComponent,%20java.lang.String)">findComponentRelatively(UIComponent, String)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Components.html" title="class in org.omnifaces.util">Components</a></dt>
 <dd>
 <div class="block">Returns the UI component matching the given client ID search expression relative to the point
  in the component tree of the given component.</div>
 </dd>
-<dt><span class="strong"><a href="../org/omnifaces/util/Components.html#findComponentsInChildren(javax.faces.component.UIComponent, java.lang.Class)">findComponentsInChildren(UIComponent, Class&lt;T&gt;)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Components.html" title="class in org.omnifaces.util">Components</a></dt>
+<dt><span class="strong"><a href="../org/omnifaces/util/Components.html#findComponentsInChildren(javax.faces.component.UIComponent,%20java.lang.Class)">findComponentsInChildren(UIComponent, Class&lt;T&gt;)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Components.html" title="class in org.omnifaces.util">Components</a></dt>
 <dd>
 <div class="block">Returns a list of UI components matching the given type in children of the given component.</div>
 </dd>
@@ -247,19 +257,19 @@
 <dd>
 <div class="block">Find for the given exception the right error page location.</div>
 </dd>
-<dt><span class="strong"><a href="../org/omnifaces/exceptionhandler/FullAjaxExceptionHandler.html#findErrorPageLocation(javax.faces.context.FacesContext, java.lang.Throwable)">findErrorPageLocation(FacesContext, Throwable)</a></span> - Method in class org.omnifaces.exceptionhandler.<a href="../org/omnifaces/exceptionhandler/FullAjaxExceptionHandler.html" title="class in org.omnifaces.exceptionhandler">FullAjaxExceptionHandler</a></dt>
+<dt><span class="strong"><a href="../org/omnifaces/exceptionhandler/FullAjaxExceptionHandler.html#findErrorPageLocation(javax.faces.context.FacesContext,%20java.lang.Throwable)">findErrorPageLocation(FacesContext, Throwable)</a></span> - Method in class org.omnifaces.exceptionhandler.<a href="../org/omnifaces/exceptionhandler/FullAjaxExceptionHandler.html" title="class in org.omnifaces.exceptionhandler">FullAjaxExceptionHandler</a></dt>
 <dd>
 <div class="block">Determine the error page location based on the given exception.</div>
 </dd>
-<dt><span class="strong"><a href="../org/omnifaces/exceptionhandler/FullAjaxExceptionHandler.html#findExceptionRootCause(javax.faces.context.FacesContext, java.lang.Throwable)">findExceptionRootCause(FacesContext, Throwable)</a></span> - Method in class org.omnifaces.exceptionhandler.<a href="../org/omnifaces/exceptionhandler/FullAjaxExceptionHandler.html" title="class in org.omnifaces.exceptionhandler">FullAjaxExceptionHandler</a></dt>
+<dt><span class="strong"><a href="../org/omnifaces/exceptionhandler/FullAjaxExceptionHandler.html#findExceptionRootCause(javax.faces.context.FacesContext,%20java.lang.Throwable)">findExceptionRootCause(FacesContext, Throwable)</a></span> - Method in class org.omnifaces.exceptionhandler.<a href="../org/omnifaces/exceptionhandler/FullAjaxExceptionHandler.html" title="class in org.omnifaces.exceptionhandler">FullAjaxExceptionHandler</a></dt>
 <dd>
 <div class="block">Determine the root cause based on the caught exception, which will then be used to find the error page location.</div>
 </dd>
-<dt><span class="strong"><a href="../org/omnifaces/el/ExpressionInspector.html#findMethod(java.lang.Object, java.lang.String)">findMethod(Object, String)</a></span> - Static method in class org.omnifaces.el.<a href="../org/omnifaces/el/ExpressionInspector.html" title="class in org.omnifaces.el">ExpressionInspector</a></dt>
+<dt><span class="strong"><a href="../org/omnifaces/el/ExpressionInspector.html#findMethod(java.lang.Object,%20java.lang.String)">findMethod(Object, String)</a></span> - Static method in class org.omnifaces.el.<a href="../org/omnifaces/el/ExpressionInspector.html" title="class in org.omnifaces.el">ExpressionInspector</a></dt>
 <dd>
 <div class="block">Finds a method based on the method name only.</div>
 </dd>
-<dt><span class="strong"><a href="../org/omnifaces/util/selectitems/SelectItemsUtils.html#findValueByStringConversion(javax.faces.context.FacesContext, javax.faces.component.UIComponent, java.lang.String, javax.faces.convert.Converter)">findValueByStringConversion(FacesContext, UIComponent, String, Converter)</a></span> - Static method in class org.omnifaces.util.selectitems.<a href="../org/omnifaces/util/selectitems/SelectItemsUtils.html" title="class in org.omnifaces.util.selectitems">SelectItemsUtils</a></dt>
+<dt><span class="strong"><a href="../org/omnifaces/util/selectitems/SelectItemsUtils.html#findValueByStringConversion(javax.faces.context.FacesContext,%20javax.faces.component.UIComponent,%20java.lang.String,%20javax.faces.convert.Converter)">findValueByStringConversion(FacesContext, UIComponent, String, Converter)</a></span> - Static method in class org.omnifaces.util.selectitems.<a href="../org/omnifaces/util/selectitems/SelectItemsUtils.html" title="class in org.omnifaces.util.selectitems">SelectItemsUtils</a></dt>
 <dd>
 <div class="block">Finds an object value in the <a href="http://docs.oracle.com/javaee/7/api/javax/faces/model/SelectItem.html?is-external=true" title="class or interface in javax.faces.model"><code>SelectItem</code></a> instances associated with the given component by means of matching its converted value with
  the given string value.</div>
@@ -286,43 +296,44 @@
 </dd>
 <dt><a href="../org/omnifaces/component/input/Form.html" title="class in org.omnifaces.component.input"><span class="strong">Form</span></a> - Class in <a href="../org/omnifaces/component/input/package-summary.html">org.omnifaces.component.input</a></dt>
 <dd>
-<div class="block"><strong>Form</strong> is a component that extends the standard <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIForm.html?is-external=true" title="class or interface in javax.faces.component"><code>UIForm</code></a> and provides a way to keep view
- or request parameters in the request URL after a post-back and offers in combination with the
+<div class="block">
+ The <code>&lt;o:form&gt;</code> is a component that extends the standard <code>&lt;h:form&gt;</code> and provides a
+ way to keep view or request parameters in the request URL after a post-back and offers in combination with the
  <code>&lt;o:ignoreValidationFailed&gt;</code> tag on an <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UICommand.html?is-external=true" title="class or interface in javax.faces.component"><code>UICommand</code></a> component the possibility to ignore
  validation failures so that the invoke action phase will be executed anyway.</div>
 </dd>
 <dt><span class="strong"><a href="../org/omnifaces/component/input/Form.html#Form()">Form()</a></span> - Constructor for class org.omnifaces.component.input.<a href="../org/omnifaces/component/input/Form.html" title="class in org.omnifaces.component.input">Form</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="../org/omnifaces/el/functions/Strings.html#format1(java.lang.String, java.lang.Object)">format1(String, Object)</a></span> - Static method in class org.omnifaces.el.functions.<a href="../org/omnifaces/el/functions/Strings.html" title="class in org.omnifaces.el.functions">Strings</a></dt>
+<dt><span class="strong"><a href="../org/omnifaces/el/functions/Strings.html#format1(java.lang.String,%20java.lang.Object)">format1(String, Object)</a></span> - Static method in class org.omnifaces.el.functions.<a href="../org/omnifaces/el/functions/Strings.html" title="class in org.omnifaces.el.functions">Strings</a></dt>
 <dd>
 <div class="block">Format the given string with 1 parameter.</div>
 </dd>
-<dt><span class="strong"><a href="../org/omnifaces/el/functions/Strings.html#format2(java.lang.String, java.lang.Object, java.lang.Object)">format2(String, Object, Object)</a></span> - Static method in class org.omnifaces.el.functions.<a href="../org/omnifaces/el/functions/Strings.html" title="class in org.omnifaces.el.functions">Strings</a></dt>
+<dt><span class="strong"><a href="../org/omnifaces/el/functions/Strings.html#format2(java.lang.String,%20java.lang.Object,%20java.lang.Object)">format2(String, Object, Object)</a></span> - Static method in class org.omnifaces.el.functions.<a href="../org/omnifaces/el/functions/Strings.html" title="class in org.omnifaces.el.functions">Strings</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="../org/omnifaces/el/functions/Strings.html#format3(java.lang.String, java.lang.Object, java.lang.Object, java.lang.Object)">format3(String, Object, Object, Object)</a></span> - Static method in class org.omnifaces.el.functions.<a href="../org/omnifaces/el/functions/Strings.html" title="class in org.omnifaces.el.functions">Strings</a></dt>
+<dt><span class="strong"><a href="../org/omnifaces/el/functions/Strings.html#format3(java.lang.String,%20java.lang.Object,%20java.lang.Object,%20java.lang.Object)">format3(String, Object, Object, Object)</a></span> - Static method in class org.omnifaces.el.functions.<a href="../org/omnifaces/el/functions/Strings.html" title="class in org.omnifaces.el.functions">Strings</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="../org/omnifaces/el/functions/Strings.html#format4(java.lang.String, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object)">format4(String, Object, Object, Object, Object)</a></span> - Static method in class org.omnifaces.el.functions.<a href="../org/omnifaces/el/functions/Strings.html" title="class in org.omnifaces.el.functions">Strings</a></dt>
+<dt><span class="strong"><a href="../org/omnifaces/el/functions/Strings.html#format4(java.lang.String,%20java.lang.Object,%20java.lang.Object,%20java.lang.Object,%20java.lang.Object)">format4(String, Object, Object, Object, Object)</a></span> - Static method in class org.omnifaces.el.functions.<a href="../org/omnifaces/el/functions/Strings.html" title="class in org.omnifaces.el.functions">Strings</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="../org/omnifaces/el/functions/Strings.html#format5(java.lang.String, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object)">format5(String, Object, Object, Object, Object, Object)</a></span> - Static method in class org.omnifaces.el.functions.<a href="../org/omnifaces/el/functions/Strings.html" title="class in org.omnifaces.el.functions">Strings</a></dt>
+<dt><span class="strong"><a href="../org/omnifaces/el/functions/Strings.html#format5(java.lang.String,%20java.lang.Object,%20java.lang.Object,%20java.lang.Object,%20java.lang.Object,%20java.lang.Object)">format5(String, Object, Object, Object, Object, Object)</a></span> - Static method in class org.omnifaces.el.functions.<a href="../org/omnifaces/el/functions/Strings.html" title="class in org.omnifaces.el.functions">Strings</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="../org/omnifaces/el/functions/Numbers.html#formatBytes(java.lang.Long)">formatBytes(Long)</a></span> - Static method in class org.omnifaces.el.functions.<a href="../org/omnifaces/el/functions/Numbers.html" title="class in org.omnifaces.el.functions">Numbers</a></dt>
 <dd>
 <div class="block">Format the given bytes to nearest 10<sup>n</sup> with IEC binary unit (KiB, MiB, etc) with rounding precision of
  1 fraction.</div>
 </dd>
-<dt><span class="strong"><a href="../org/omnifaces/el/functions/Numbers.html#formatCurrency(java.lang.Number, java.lang.String)">formatCurrency(Number, String)</a></span> - Static method in class org.omnifaces.el.functions.<a href="../org/omnifaces/el/functions/Numbers.html" title="class in org.omnifaces.el.functions">Numbers</a></dt>
+<dt><span class="strong"><a href="../org/omnifaces/el/functions/Numbers.html#formatCurrency(java.lang.Number,%20java.lang.String)">formatCurrency(Number, String)</a></span> - Static method in class org.omnifaces.el.functions.<a href="../org/omnifaces/el/functions/Numbers.html" title="class in org.omnifaces.el.functions">Numbers</a></dt>
 <dd>
 <div class="block">Format the given number as currency with the given symbol.</div>
 </dd>
-<dt><span class="strong"><a href="../org/omnifaces/el/functions/Dates.html#formatDate(java.util.Date, java.lang.String)">formatDate(Date, String)</a></span> - Static method in class org.omnifaces.el.functions.<a href="../org/omnifaces/el/functions/Dates.html" title="class in org.omnifaces.el.functions">Dates</a></dt>
+<dt><span class="strong"><a href="../org/omnifaces/el/functions/Dates.html#formatDate(java.util.Date,%20java.lang.String)">formatDate(Date, String)</a></span> - Static method in class org.omnifaces.el.functions.<a href="../org/omnifaces/el/functions/Dates.html" title="class in org.omnifaces.el.functions">Dates</a></dt>
 <dd>
 <div class="block">Format the given date in the given pattern with system default timezone.</div>
 </dd>
-<dt><span class="strong"><a href="../org/omnifaces/el/functions/Dates.html#formatDateWithTimezone(java.util.Date, java.lang.String, java.lang.Object)">formatDateWithTimezone(Date, String, Object)</a></span> - Static method in class org.omnifaces.el.functions.<a href="../org/omnifaces/el/functions/Dates.html" title="class in org.omnifaces.el.functions">Dates</a></dt>
+<dt><span class="strong"><a href="../org/omnifaces/el/functions/Dates.html#formatDateWithTimezone(java.util.Date,%20java.lang.String,%20java.lang.Object)">formatDateWithTimezone(Date, String, Object)</a></span> - Static method in class org.omnifaces.el.functions.<a href="../org/omnifaces/el/functions/Dates.html" title="class in org.omnifaces.el.functions">Dates</a></dt>
 <dd>
 <div class="block">Format the given date in the given pattern with the given timezone.</div>
 </dd>
-<dt><span class="strong"><a href="../org/omnifaces/el/functions/Numbers.html#formatNumber(java.lang.Number, java.lang.String)">formatNumber(Number, String)</a></span> - Static method in class org.omnifaces.el.functions.<a href="../org/omnifaces/el/functions/Numbers.html" title="class in org.omnifaces.el.functions">Numbers</a></dt>
+<dt><span class="strong"><a href="../org/omnifaces/el/functions/Numbers.html#formatNumber(java.lang.Number,%20java.lang.String)">formatNumber(Number, String)</a></span> - Static method in class org.omnifaces.el.functions.<a href="../org/omnifaces/el/functions/Numbers.html" title="class in org.omnifaces.el.functions">Numbers</a></dt>
 <dd>
 <div class="block">Format the given number in the given pattern.</div>
 </dd>
@@ -348,8 +359,9 @@
 </dd>
 <dt><a href="../org/omnifaces/exceptionhandler/FullAjaxExceptionHandler.html" title="class in org.omnifaces.exceptionhandler"><span class="strong">FullAjaxExceptionHandler</span></a> - Class in <a href="../org/omnifaces/exceptionhandler/package-summary.html">org.omnifaces.exceptionhandler</a></dt>
 <dd>
-<div class="block">This exception handler enables you to show the full error page in its entirety to the end-user in case of exceptions
- during ajax requests.</div>
+<div class="block">
+ The <a href="../org/omnifaces/exceptionhandler/FullAjaxExceptionHandler.html" title="class in org.omnifaces.exceptionhandler"><code>FullAjaxExceptionHandler</code></a> will transparently handle exceptions during ajax requests exactly the same way
+ as exceptions during synchronous (non-ajax) requests.</div>
 </dd>
 <dt><span class="strong"><a href="../org/omnifaces/exceptionhandler/FullAjaxExceptionHandler.html#FullAjaxExceptionHandler(javax.faces.context.ExceptionHandler)">FullAjaxExceptionHandler(ExceptionHandler)</a></span> - Constructor for class org.omnifaces.exceptionhandler.<a href="../org/omnifaces/exceptionhandler/FullAjaxExceptionHandler.html" title="class in org.omnifaces.exceptionhandler">FullAjaxExceptionHandler</a></dt>
 <dd>

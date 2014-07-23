@@ -99,7 +99,7 @@ extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/Value
 <div class="block">This interface represents a (request) parameter holder which extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/ValueHolder.html?is-external=true" title="class or interface in javax.faces.component"><code>ValueHolder</code></a> with <a href="../../../org/omnifaces/component/ParamHolder.html#getName()"><code>getName()</code></a>
  method to obtain the parameter name associated with the parameter value and changes the <a href="../../../org/omnifaces/component/ParamHolder.html#getLocalValue()"><code>getLocalValue()</code></a>
  method to return the original, unconverted value and changes the <a href="../../../org/omnifaces/component/ParamHolder.html#getValue()"><code>getValue()</code></a> method to return the converted
- value. This is used in among others the <a href="../../../org/omnifaces/util/Faces.html#getBookmarkableURL(java.lang.String, java.util.Collection, boolean)"><code>Faces.getBookmarkableURL(String, java.util.Collection, boolean)</code></a>.</div>
+ value. This is used in among others the <a href="../../../org/omnifaces/util/Faces.html#getBookmarkableURL(java.lang.String,%20java.util.Collection,%20boolean)"><code>Faces.getBookmarkableURL(String, java.util.Collection, boolean)</code></a>.</div>
 <dl><dt><span class="strong">Since:</span></dt>
   <dd>1.7</dd>
 <dt><span class="strong">Author:</span></dt>
@@ -196,12 +196,12 @@ extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/Value
 <pre><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;getValue()</pre>
 <div class="block">Returns the converted value of the parameter. If the converter is set, or if any converter is available by
  <a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/Application.html?is-external=true#createConverter(java.lang.Class)" title="class or interface in javax.faces.application"><code>Application.createConverter(Class)</code></a>, passing the value's class, then return the result of
- <a href="http://docs.oracle.com/javaee/7/api/javax/faces/convert/Converter.html?is-external=true#getAsString(javax.faces.context.FacesContext, javax.faces.component.UIComponent, java.lang.Object)" title="class or interface in javax.faces.convert"><code>Converter.getAsString(javax.faces.context.FacesContext, javax.faces.component.UIComponent, Object)</code></a>,
+ <a href="http://docs.oracle.com/javaee/7/api/javax/faces/convert/Converter.html?is-external=true#getAsString(javax.faces.context.FacesContext,%20javax.faces.component.UIComponent,%20java.lang.Object)" title="class or interface in javax.faces.convert"><code>Converter.getAsString(javax.faces.context.FacesContext, javax.faces.component.UIComponent, Object)</code></a>,
  otherwise return the original value of the parameter.</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/ValueHolder.html?is-external=true#getValue()" title="class or interface in javax.faces.component">getValue</a></code>&nbsp;in interface&nbsp;<code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/ValueHolder.html?is-external=true" title="class or interface in javax.faces.component">ValueHolder</a></code></dd>
-<dt><span class="strong">Returns:</span></dt><dd>The converted value of the parameter, or the original value if the converter is not available.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/faces/convert/Converter.html?is-external=true#getAsString(javax.faces.context.FacesContext, javax.faces.component.UIComponent, java.lang.Object)" title="class or interface in javax.faces.convert"><code>Converter.getAsString(javax.faces.context.FacesContext, javax.faces.component.UIComponent, Object)</code></a></dd></dl>
+<dt><span class="strong">Returns:</span></dt><dd>The converted value of the parameter, or the original value if the converter is not available.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/faces/convert/Converter.html?is-external=true#getAsString(javax.faces.context.FacesContext,%20javax.faces.component.UIComponent,%20java.lang.Object)" title="class or interface in javax.faces.convert"><code>Converter.getAsString(javax.faces.context.FacesContext, javax.faces.component.UIComponent, Object)</code></a></dd></dl>
 </li>
 </ul>
 </li>

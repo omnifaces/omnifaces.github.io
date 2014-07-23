@@ -65,7 +65,7 @@
 </a>
 <h2 class="title">D</h2>
 <dl>
-<dt><span class="strong"><a href="../org/omnifaces/util/Ajax.html#data(java.lang.String, java.lang.Object)">data(String, Object)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Ajax.html" title="class in org.omnifaces.util">Ajax</a></dt>
+<dt><span class="strong"><a href="../org/omnifaces/util/Ajax.html#data(java.lang.String,%20java.lang.Object)">data(String, Object)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Ajax.html" title="class in org.omnifaces.util">Ajax</a></dt>
 <dd>
 <div class="block">Add the given data argument to the current ajax response.</div>
 </dd>
@@ -79,9 +79,13 @@
 </dd>
 <dt><a href="../org/omnifaces/el/functions/Dates.html" title="class in org.omnifaces.el.functions"><span class="strong">Dates</span></a> - Class in <a href="../org/omnifaces/el/functions/package-summary.html">org.omnifaces.el.functions</a></dt>
 <dd>
-<div class="block">Collection of EL functions for date and time.</div>
+<div class="block">
+ Collection of EL functions for date and time: <code>of:formatDate()</code>, <code>of:formatDateWithTimezone()</code>,
+ <code>of:addXxx()</code> like <code>of:addDays()</code>, <code>of:xxxBetween()</code> like <code>of:daysBetween()</code>,
+ <code>of:getMonths()</code>, <code>of:getShortMonths()</code>, <code>of:getDaysOfWeek()</code>, <code>of:getShortDaysOfWeek()</code>,
+ <code>of:getMonth()</code>, <code>of:getShortMonth()</code>, <code>of:getDayOfWeek()</code> and <code>of:getShortDayOfWeek()</code>.</div>
 </dd>
-<dt><span class="strong"><a href="../org/omnifaces/el/functions/Dates.html#daysBetween(java.util.Date, java.util.Date)">daysBetween(Date, Date)</a></span> - Static method in class org.omnifaces.el.functions.<a href="../org/omnifaces/el/functions/Dates.html" title="class in org.omnifaces.el.functions">Dates</a></dt>
+<dt><span class="strong"><a href="../org/omnifaces/el/functions/Dates.html#daysBetween(java.util.Date,%20java.util.Date)">daysBetween(Date, Date)</a></span> - Static method in class org.omnifaces.el.functions.<a href="../org/omnifaces/el/functions/Dates.html" title="class in org.omnifaces.el.functions">Dates</a></dt>
 <dd>
 <div class="block">Returns the amount of days between two given dates.</div>
 </dd>
@@ -111,7 +115,7 @@
 <dd>
 <div class="block">An in-memory cache implementation that's used if the user did not configure an explicit caching provider.</div>
 </dd>
-<dt><span class="strong"><a href="../org/omnifaces/component/output/cache/DefaultCache.html#DefaultCache(java.lang.Integer, java.lang.Integer)">DefaultCache(Integer, Integer)</a></span> - Constructor for class org.omnifaces.component.output.cache.<a href="../org/omnifaces/component/output/cache/DefaultCache.html" title="class in org.omnifaces.component.output.cache">DefaultCache</a></dt>
+<dt><span class="strong"><a href="../org/omnifaces/component/output/cache/DefaultCache.html#DefaultCache(java.lang.Integer,%20java.lang.Integer)">DefaultCache(Integer, Integer)</a></span> - Constructor for class org.omnifaces.component.output.cache.<a href="../org/omnifaces/component/output/cache/DefaultCache.html" title="class in org.omnifaces.component.output.cache">DefaultCache</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="../org/omnifaces/component/output/cache/DefaultCacheProvider.html" title="class in org.omnifaces.component.output.cache"><span class="strong">DefaultCacheProvider</span></a> - Class in <a href="../org/omnifaces/component/output/cache/package-summary.html">org.omnifaces.component.output.cache</a></dt>
 <dd>
@@ -159,8 +163,9 @@
 <dd>&nbsp;</dd>
 <dt><a href="../org/omnifaces/component/script/DeferredScript.html" title="class in org.omnifaces.component.script"><span class="strong">DeferredScript</span></a> - Class in <a href="../org/omnifaces/component/script/package-summary.html">org.omnifaces.component.script</a></dt>
 <dd>
-<div class="block"><strong>DeferredScript</strong> is a component which defers the loading of the given script resource to the window
- load event.</div>
+<div class="block">
+ The <strong>&lt;o:deferredScript&gt;</strong> is a component based on the standard <code>&lt;h:outputScript&gt;</code>
+ which defers the loading of the given script resource to the window load event.</div>
 </dd>
 <dt><span class="strong"><a href="../org/omnifaces/component/script/DeferredScript.html#DeferredScript()">DeferredScript()</a></span> - Constructor for class org.omnifaces.component.script.<a href="../org/omnifaces/component/script/DeferredScript.html" title="class in org.omnifaces.component.script">DeferredScript</a></dt>
 <dd>
@@ -199,35 +204,35 @@
 <dd>
 <div class="block">Destroy all beans managed so far.</div>
 </dd>
-<dt><span class="strong"><a href="../org/omnifaces/util/Messages.Message.html#detail(java.lang.String, java.lang.Object...)">detail(String, Object...)</a></span> - Method in class org.omnifaces.util.<a href="../org/omnifaces/util/Messages.Message.html" title="class in org.omnifaces.util">Messages.Message</a></dt>
+<dt><span class="strong"><a href="../org/omnifaces/util/Messages.Message.html#detail(java.lang.String,%20java.lang.Object...)">detail(String, Object...)</a></span> - Method in class org.omnifaces.util.<a href="../org/omnifaces/util/Messages.Message.html" title="class in org.omnifaces.util">Messages.Message</a></dt>
 <dd>
 <div class="block">Set the detail message of the current message.</div>
 </dd>
-<dt><span class="strong"><a href="../org/omnifaces/cdi/eager/EagerBeansFilter.html#doFilter(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse, javax.servlet.http.HttpSession, javax.servlet.FilterChain)">doFilter(HttpServletRequest, HttpServletResponse, HttpSession, FilterChain)</a></span> - Method in class org.omnifaces.cdi.eager.<a href="../org/omnifaces/cdi/eager/EagerBeansFilter.html" title="class in org.omnifaces.cdi.eager">EagerBeansFilter</a></dt>
+<dt><span class="strong"><a href="../org/omnifaces/cdi/eager/EagerBeansFilter.html#doFilter(javax.servlet.http.HttpServletRequest,%20javax.servlet.http.HttpServletResponse,%20javax.servlet.http.HttpSession,%20javax.servlet.FilterChain)">doFilter(HttpServletRequest, HttpServletResponse, HttpSession, FilterChain)</a></span> - Method in class org.omnifaces.cdi.eager.<a href="../org/omnifaces/cdi/eager/EagerBeansFilter.html" title="class in org.omnifaces.cdi.eager">EagerBeansFilter</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="../org/omnifaces/facesviews/FacesViewsForwardingFilter.html#doFilter(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse, javax.servlet.http.HttpSession, javax.servlet.FilterChain)">doFilter(HttpServletRequest, HttpServletResponse, HttpSession, FilterChain)</a></span> - Method in class org.omnifaces.facesviews.<a href="../org/omnifaces/facesviews/FacesViewsForwardingFilter.html" title="class in org.omnifaces.facesviews">FacesViewsForwardingFilter</a></dt>
+<dt><span class="strong"><a href="../org/omnifaces/facesviews/FacesViewsForwardingFilter.html#doFilter(javax.servlet.http.HttpServletRequest,%20javax.servlet.http.HttpServletResponse,%20javax.servlet.http.HttpSession,%20javax.servlet.FilterChain)">doFilter(HttpServletRequest, HttpServletResponse, HttpSession, FilterChain)</a></span> - Method in class org.omnifaces.facesviews.<a href="../org/omnifaces/facesviews/FacesViewsForwardingFilter.html" title="class in org.omnifaces.facesviews">FacesViewsForwardingFilter</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="../org/omnifaces/filter/CacheControlFilter.html#doFilter(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse, javax.servlet.http.HttpSession, javax.servlet.FilterChain)">doFilter(HttpServletRequest, HttpServletResponse, HttpSession, FilterChain)</a></span> - Method in class org.omnifaces.filter.<a href="../org/omnifaces/filter/CacheControlFilter.html" title="class in org.omnifaces.filter">CacheControlFilter</a></dt>
+<dt><span class="strong"><a href="../org/omnifaces/filter/CacheControlFilter.html#doFilter(javax.servlet.http.HttpServletRequest,%20javax.servlet.http.HttpServletResponse,%20javax.servlet.http.HttpSession,%20javax.servlet.FilterChain)">doFilter(HttpServletRequest, HttpServletResponse, HttpSession, FilterChain)</a></span> - Method in class org.omnifaces.filter.<a href="../org/omnifaces/filter/CacheControlFilter.html" title="class in org.omnifaces.filter">CacheControlFilter</a></dt>
 <dd>
 <div class="block">Set the necessary response headers based on <code>expires</code> initialization parameter.</div>
 </dd>
-<dt><span class="strong"><a href="../org/omnifaces/filter/CharacterEncodingFilter.html#doFilter(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse, javax.servlet.http.HttpSession, javax.servlet.FilterChain)">doFilter(HttpServletRequest, HttpServletResponse, HttpSession, FilterChain)</a></span> - Method in class org.omnifaces.filter.<a href="../org/omnifaces/filter/CharacterEncodingFilter.html" title="class in org.omnifaces.filter">CharacterEncodingFilter</a></dt>
+<dt><span class="strong"><a href="../org/omnifaces/filter/CharacterEncodingFilter.html#doFilter(javax.servlet.http.HttpServletRequest,%20javax.servlet.http.HttpServletResponse,%20javax.servlet.http.HttpSession,%20javax.servlet.FilterChain)">doFilter(HttpServletRequest, HttpServletResponse, HttpSession, FilterChain)</a></span> - Method in class org.omnifaces.filter.<a href="../org/omnifaces/filter/CharacterEncodingFilter.html" title="class in org.omnifaces.filter">CharacterEncodingFilter</a></dt>
 <dd>
 <div class="block">Perform the filtering job.</div>
 </dd>
-<dt><span class="strong"><a href="../org/omnifaces/filter/FacesExceptionFilter.html#doFilter(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse, javax.servlet.http.HttpSession, javax.servlet.FilterChain)">doFilter(HttpServletRequest, HttpServletResponse, HttpSession, FilterChain)</a></span> - Method in class org.omnifaces.filter.<a href="../org/omnifaces/filter/FacesExceptionFilter.html" title="class in org.omnifaces.filter">FacesExceptionFilter</a></dt>
+<dt><span class="strong"><a href="../org/omnifaces/filter/FacesExceptionFilter.html#doFilter(javax.servlet.http.HttpServletRequest,%20javax.servlet.http.HttpServletResponse,%20javax.servlet.http.HttpSession,%20javax.servlet.FilterChain)">doFilter(HttpServletRequest, HttpServletResponse, HttpSession, FilterChain)</a></span> - Method in class org.omnifaces.filter.<a href="../org/omnifaces/filter/FacesExceptionFilter.html" title="class in org.omnifaces.filter">FacesExceptionFilter</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="../org/omnifaces/filter/GzipResponseFilter.html#doFilter(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse, javax.servlet.http.HttpSession, javax.servlet.FilterChain)">doFilter(HttpServletRequest, HttpServletResponse, HttpSession, FilterChain)</a></span> - Method in class org.omnifaces.filter.<a href="../org/omnifaces/filter/GzipResponseFilter.html" title="class in org.omnifaces.filter">GzipResponseFilter</a></dt>
+<dt><span class="strong"><a href="../org/omnifaces/filter/GzipResponseFilter.html#doFilter(javax.servlet.http.HttpServletRequest,%20javax.servlet.http.HttpServletResponse,%20javax.servlet.http.HttpSession,%20javax.servlet.FilterChain)">doFilter(HttpServletRequest, HttpServletResponse, HttpSession, FilterChain)</a></span> - Method in class org.omnifaces.filter.<a href="../org/omnifaces/filter/GzipResponseFilter.html" title="class in org.omnifaces.filter">GzipResponseFilter</a></dt>
 <dd>
 <div class="block">Perform the filtering job.</div>
 </dd>
-<dt><span class="strong"><a href="../org/omnifaces/filter/HttpFilter.html#doFilter(javax.servlet.ServletRequest, javax.servlet.ServletResponse, javax.servlet.FilterChain)">doFilter(ServletRequest, ServletResponse, FilterChain)</a></span> - Method in class org.omnifaces.filter.<a href="../org/omnifaces/filter/HttpFilter.html" title="class in org.omnifaces.filter">HttpFilter</a></dt>
+<dt><span class="strong"><a href="../org/omnifaces/filter/HttpFilter.html#doFilter(javax.servlet.ServletRequest,%20javax.servlet.ServletResponse,%20javax.servlet.FilterChain)">doFilter(ServletRequest, ServletResponse, FilterChain)</a></span> - Method in class org.omnifaces.filter.<a href="../org/omnifaces/filter/HttpFilter.html" title="class in org.omnifaces.filter">HttpFilter</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="../org/omnifaces/filter/HttpFilter.html#doFilter(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse, javax.servlet.http.HttpSession, javax.servlet.FilterChain)">doFilter(HttpServletRequest, HttpServletResponse, HttpSession, FilterChain)</a></span> - Method in class org.omnifaces.filter.<a href="../org/omnifaces/filter/HttpFilter.html" title="class in org.omnifaces.filter">HttpFilter</a></dt>
+<dt><span class="strong"><a href="../org/omnifaces/filter/HttpFilter.html#doFilter(javax.servlet.http.HttpServletRequest,%20javax.servlet.http.HttpServletResponse,%20javax.servlet.http.HttpSession,%20javax.servlet.FilterChain)">doFilter(HttpServletRequest, HttpServletResponse, HttpSession, FilterChain)</a></span> - Method in class org.omnifaces.filter.<a href="../org/omnifaces/filter/HttpFilter.html" title="class in org.omnifaces.filter">HttpFilter</a></dt>
 <dd>
 <div class="block">Filter the HTTP request.</div>
 </dd>
-<dt><span class="strong"><a href="../org/omnifaces/filter/OnDemandResponseBufferFilter.html#doFilter(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse, javax.servlet.http.HttpSession, javax.servlet.FilterChain)">doFilter(HttpServletRequest, HttpServletResponse, HttpSession, FilterChain)</a></span> - Method in class org.omnifaces.filter.<a href="../org/omnifaces/filter/OnDemandResponseBufferFilter.html" title="class in org.omnifaces.filter">OnDemandResponseBufferFilter</a></dt>
+<dt><span class="strong"><a href="../org/omnifaces/filter/OnDemandResponseBufferFilter.html#doFilter(javax.servlet.http.HttpServletRequest,%20javax.servlet.http.HttpServletResponse,%20javax.servlet.http.HttpSession,%20javax.servlet.FilterChain)">doFilter(HttpServletRequest, HttpServletResponse, HttpSession, FilterChain)</a></span> - Method in class org.omnifaces.filter.<a href="../org/omnifaces/filter/OnDemandResponseBufferFilter.html" title="class in org.omnifaces.filter">OnDemandResponseBufferFilter</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="../org/omnifaces/component/util/MoveComponent.html#doProcess()">doProcess()</a></span> - Method in class org.omnifaces.component.util.<a href="../org/omnifaces/component/util/MoveComponent.html" title="class in org.omnifaces.component.util">MoveComponent</a></dt>
 <dd>&nbsp;</dd>

@@ -105,10 +105,36 @@
 <pre>public abstract class <span class="strong">HttpFilter</span>
 extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>
 implements <a href="http://docs.oracle.com/javaee/7/api/javax/servlet/Filter.html?is-external=true" title="class or interface in javax.servlet">Filter</a></pre>
-<div class="block">An abstract filter for HTTP requests. It provides a convenient abstract <code>doFilter()</code> method providing the
- HTTP servlet request, response and session so that there's no need to cast them everytime. Also, default
- implementations of <a href="../../../org/omnifaces/filter/HttpFilter.html#init(javax.servlet.FilterConfig)"><code>init(FilterConfig)</code></a> and <a href="../../../org/omnifaces/filter/HttpFilter.html#destroy()"><code>destroy()</code></a> are provided, so that there's no need to
- implement them every time even when not really needed.</div>
+<div class="block"><p>
+ The <a href="../../../org/omnifaces/filter/HttpFilter.html" title="class in org.omnifaces.filter"><code>HttpFilter</code></a> is abstract filter specifically for HTTP requests. It provides a convenient abstract
+ <a href="../../../org/omnifaces/filter/HttpFilter.html#doFilter(javax.servlet.http.HttpServletRequest,%20javax.servlet.http.HttpServletResponse,%20javax.servlet.http.HttpSession,%20javax.servlet.FilterChain)"><code>doFilter(HttpServletRequest, HttpServletResponse, HttpSession, FilterChain)</code></a> method directly providing the
+ HTTP servlet request, response and session, so that there's no need to cast them everytime in the
+ <a href="../../../org/omnifaces/filter/HttpFilter.html#doFilter(javax.servlet.ServletRequest,%20javax.servlet.ServletResponse,%20javax.servlet.FilterChain)"><code>doFilter(ServletRequest, ServletResponse, FilterChain)</code></a> implementation. Also, default implementations of
+ <a href="../../../org/omnifaces/filter/HttpFilter.html#init(javax.servlet.FilterConfig)"><code>init(FilterConfig)</code></a> and <a href="../../../org/omnifaces/filter/HttpFilter.html#destroy()"><code>destroy()</code></a> are provided, so that there's no need to implement them every time
+ even when not really needed.
+ <p>
+ It's a bit the idea of using the convenient <a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServlet.html?is-external=true" title="class or interface in javax.servlet.http"><code>HttpServlet</code></a> abstract servlet class instead of the barebones
+ <a href="http://docs.oracle.com/javaee/7/api/javax/servlet/Servlet.html?is-external=true" title="class or interface in javax.servlet"><code>Servlet</code></a> interface.
+
+ <h3>Usage</h3>
+ <p>
+ To use it, just let your custom filter extend from <a href="../../../org/omnifaces/filter/HttpFilter.html" title="class in org.omnifaces.filter"><code>HttpFilter</code></a> instead of implement <a href="http://docs.oracle.com/javaee/7/api/javax/servlet/Filter.html?is-external=true" title="class or interface in javax.servlet"><code>Filter</code></a>.
+ For example:
+ <pre>
+ @WebFilter("/app/*")
+ public class LoginFilter extends HttpFilter {
+
+     @Override
+     public void doFilter(HttpServletRequest request, HttpServletResponse response, HttpSession session, FilterChain chain) throws ServletException, IOException {
+         if (session != null &amp;&amp; session.getAttribute("user") != null) {
+             chain.doFilter(request, response);
+         }
+         else {
+             Servlets.facesRedirect(request, response, "login.xhtml");
+         }
+     }
+ }
+ </pre></div>
 <dl><dt><span class="strong">Author:</span></dt>
   <dd>Arjan Tijms, Bauke Scholtz</dd></dl>
 </li>
@@ -152,7 +178,7 @@ implements <a href="http://docs.oracle.com/javaee/7/api/javax/servlet/Filter.htm
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>abstract void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/filter/HttpFilter.html#doFilter(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse, javax.servlet.http.HttpSession, javax.servlet.FilterChain)">doFilter</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/filter/HttpFilter.html#doFilter(javax.servlet.http.HttpServletRequest,%20javax.servlet.http.HttpServletResponse,%20javax.servlet.http.HttpSession,%20javax.servlet.FilterChain)">doFilter</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request,
         <a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletResponse.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletResponse</a>&nbsp;response,
         <a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpSession.html?is-external=true" title="class or interface in javax.servlet.http">HttpSession</a>&nbsp;session,
         <a href="http://docs.oracle.com/javaee/7/api/javax/servlet/FilterChain.html?is-external=true" title="class or interface in javax.servlet">FilterChain</a>&nbsp;chain)</code>
@@ -161,7 +187,7 @@ implements <a href="http://docs.oracle.com/javaee/7/api/javax/servlet/Filter.htm
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/filter/HttpFilter.html#doFilter(javax.servlet.ServletRequest, javax.servlet.ServletResponse, javax.servlet.FilterChain)">doFilter</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/ServletRequest.html?is-external=true" title="class or interface in javax.servlet">ServletRequest</a>&nbsp;request,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/filter/HttpFilter.html#doFilter(javax.servlet.ServletRequest,%20javax.servlet.ServletResponse,%20javax.servlet.FilterChain)">doFilter</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/ServletRequest.html?is-external=true" title="class or interface in javax.servlet">ServletRequest</a>&nbsp;request,
         <a href="http://docs.oracle.com/javaee/7/api/javax/servlet/ServletResponse.html?is-external=true" title="class or interface in javax.servlet">ServletResponse</a>&nbsp;response,
         <a href="http://docs.oracle.com/javaee/7/api/javax/servlet/FilterChain.html?is-external=true" title="class or interface in javax.servlet">FilterChain</a>&nbsp;chain)</code>&nbsp;</td>
 </tr>
@@ -201,7 +227,7 @@ implements <a href="http://docs.oracle.com/javaee/7/api/javax/servlet/Filter.htm
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
-<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long, int)" title="class or interface in java.lang">wait</a></code></li>
+<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,%20int)" title="class or interface in java.lang">wait</a></code></li>
 </ul>
 </li>
 </ul>
@@ -279,7 +305,7 @@ implements <a href="http://docs.oracle.com/javaee/7/api/javax/servlet/Filter.htm
                      <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
 <dl>
 <dt><strong>Specified by:</strong></dt>
-<dd><code><a href="http://docs.oracle.com/javaee/7/api/javax/servlet/Filter.html?is-external=true#doFilter(javax.servlet.ServletRequest, javax.servlet.ServletResponse, javax.servlet.FilterChain)" title="class or interface in javax.servlet">doFilter</a></code>&nbsp;in interface&nbsp;<code><a href="http://docs.oracle.com/javaee/7/api/javax/servlet/Filter.html?is-external=true" title="class or interface in javax.servlet">Filter</a></code></dd>
+<dd><code><a href="http://docs.oracle.com/javaee/7/api/javax/servlet/Filter.html?is-external=true#doFilter(javax.servlet.ServletRequest,%20javax.servlet.ServletResponse,%20javax.servlet.FilterChain)" title="class or interface in javax.servlet">doFilter</a></code>&nbsp;in interface&nbsp;<code><a href="http://docs.oracle.com/javaee/7/api/javax/servlet/Filter.html?is-external=true" title="class or interface in javax.servlet">Filter</a></code></dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javaee/7/api/javax/servlet/ServletException.html?is-external=true" title="class or interface in javax.servlet">ServletException</a></code></dd>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
@@ -298,9 +324,10 @@ implements <a href="http://docs.oracle.com/javaee/7/api/javax/servlet/Filter.htm
                        throws <a href="http://docs.oracle.com/javaee/7/api/javax/servlet/ServletException.html?is-external=true" title="class or interface in javax.servlet">ServletException</a>,
                               <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
 <div class="block">Filter the HTTP request. The session argument is <code>null</code> if there is no session.</div>
-<dl><dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javaee/7/api/javax/servlet/ServletException.html?is-external=true" title="class or interface in javax.servlet">ServletException</a></code></dd>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd><dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/servlet/Filter.html?is-external=true#doFilter(javax.servlet.ServletRequest, javax.servlet.ServletResponse, javax.servlet.FilterChain)" title="class or interface in javax.servlet"><code>Filter.doFilter(ServletRequest, ServletResponse, FilterChain)</code></a></dd></dl>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>request</code> - The HTTP request.</dd><dd><code>response</code> - The HTTP response.</dd><dd><code>session</code> - The HTTP session, if any, else <code>null</code>.</dd><dd><code>chain</code> - The filter chain to continue.</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javaee/7/api/javax/servlet/ServletException.html?is-external=true" title="class or interface in javax.servlet">ServletException</a></code> - As wrapper exception when something fails in the request processing.</dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - Whenever something fails at I/O level.</dd><dt><span class="strong">See Also:</span></dt><dd><a href="http://docs.oracle.com/javaee/7/api/javax/servlet/Filter.html?is-external=true#doFilter(javax.servlet.ServletRequest,%20javax.servlet.ServletResponse,%20javax.servlet.FilterChain)" title="class or interface in javax.servlet"><code>Filter.doFilter(ServletRequest, ServletResponse, FilterChain)</code></a></dd></dl>
 </li>
 </ul>
 <a name="destroy()">

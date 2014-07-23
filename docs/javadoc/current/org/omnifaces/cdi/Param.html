@@ -86,9 +86,12 @@
 <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/annotation/Retention.html?is-external=true" title="class or interface in java.lang.annotation">@Retention</a>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/annotation/Retention.html?is-external=true#value()" title="class or interface in java.lang.annotation">value</a>=<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/annotation/RetentionPolicy.html?is-external=true#RUNTIME" title="class or interface in java.lang.annotation">RUNTIME</a>)
 <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/annotation/Target.html?is-external=true" title="class or interface in java.lang.annotation">@Target</a>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/annotation/Target.html?is-external=true#value()" title="class or interface in java.lang.annotation">value</a>={<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/annotation/ElementType.html?is-external=true#TYPE" title="class or interface in java.lang.annotation">TYPE</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/annotation/ElementType.html?is-external=true#METHOD" title="class or interface in java.lang.annotation">METHOD</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/annotation/ElementType.html?is-external=true#FIELD" title="class or interface in java.lang.annotation">FIELD</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/annotation/ElementType.html?is-external=true#PARAMETER" title="class or interface in java.lang.annotation">PARAMETER</a>})
 public @interface <span class="strong">Param</span></pre>
-<div class="block">Specifies a request parameter that is to be injected into a managed bean within a JSF context, with
- full support for a converter and one or more validators. Converters and validators can optionally
- have attributes.
+<div class="block"><p>
+ The CDI annotation <a href="../../../org/omnifaces/cdi/Param.html" title="annotation in org.omnifaces.cdi"><code>Param</code></a> allows you to inject, convert and validate a HTTP request parameter
+ in a CDI managed bean. It's basically like <code>&lt;f:viewParam&gt;</code>, but with the major difference
+ that the injected HTTP request parameter is available during <a href="http://docs.oracle.com/javase/7/docs/api/javax/annotation/PostConstruct.html?is-external=true" title="class or interface in javax.annotation"><code>PostConstruct</code></a>, allowing a much easier
+ way of processing without the need for a <code>&lt;f:event type="preRenderView"&gt;</code> or
+ <code>&lt;f:viewAction&gt;</code>.
  <p>
  By default the name of the request parameter is taken from the name of the variable into which
  injection takes place. It can be optionally specified.
@@ -103,8 +106,8 @@ public @interface <span class="strong">Param</span></pre>
 
  <pre>
  @Inject @Param(
-        converter="#{userconverter}"
-        validator="#{priviledgedUser}"
+     converter="#{userconverter}"
+           validator="#{priviledgedUser}"
  )
  private ParamValue&lt;User&gt; user;
  </pre>
@@ -198,7 +201,7 @@ public @interface <span class="strong">Param</span></pre>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../org/omnifaces/cdi/param/Attribute.html" title="annotation in org.omnifaces.cdi.param">Attribute</a>[]</code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/cdi/Param.html#validatorAttributes()">validatorAttributes</a></strong></code>
-<div class="block">(Optional) Attributes that will be set on each of the validator instances obtained from <a href="../../../org/omnifaces/cdi/Param.html#validators()"><code>validators()()</code></a> and <a href="../../../org/omnifaces/cdi/Param.html#validatorClasses()"><code>validatorClasses()()</code></a>.</div>
+<div class="block">(Optional) Attributes that will be set on each of the validator instances obtained from <a href="../../../org/omnifaces/cdi/Param.html#validators()"><code>validators()</code></a> and <a href="../../../org/omnifaces/cdi/Param.html#validatorClasses()"><code>validatorClasses()</code></a>.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -383,7 +386,7 @@ public @interface <span class="strong">Param</span></pre>
 <li class="blockList">
 <h4>validatorAttributes</h4>
 <pre>public abstract&nbsp;<a href="../../../org/omnifaces/cdi/param/Attribute.html" title="annotation in org.omnifaces.cdi.param">Attribute</a>[]&nbsp;validatorAttributes</pre>
-<div class="block">(Optional) Attributes that will be set on each of the validator instances obtained from <a href="../../../org/omnifaces/cdi/Param.html#validators()"><code>validators()()</code></a> and <a href="../../../org/omnifaces/cdi/Param.html#validatorClasses()"><code>validatorClasses()()</code></a>.
+<div class="block">(Optional) Attributes that will be set on each of the validator instances obtained from <a href="../../../org/omnifaces/cdi/Param.html#validators()"><code>validators()</code></a> and <a href="../../../org/omnifaces/cdi/Param.html#validatorClasses()"><code>validatorClasses()</code></a>.
  <p>
  For each attribute the validator instances should have a writable JavaBeans property with the same name. The value can be a string literal
  or an EL expression. String literals are coerced if necessary if there's a <a href="http://docs.oracle.com/javase/7/docs/api/java/beans/PropertyEditor.html?is-external=true" title="class or interface in java.beans"><code>PropertyEditor</code></a> available (the JDK provides these for

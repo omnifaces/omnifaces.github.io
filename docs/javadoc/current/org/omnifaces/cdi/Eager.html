@@ -85,15 +85,30 @@
 <pre><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/annotation/Retention.html?is-external=true" title="class or interface in java.lang.annotation">@Retention</a>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/annotation/Retention.html?is-external=true#value()" title="class or interface in java.lang.annotation">value</a>=<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/annotation/RetentionPolicy.html?is-external=true#RUNTIME" title="class or interface in java.lang.annotation">RUNTIME</a>)
 <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/annotation/Target.html?is-external=true" title="class or interface in java.lang.annotation">@Target</a>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/annotation/Target.html?is-external=true#value()" title="class or interface in java.lang.annotation">value</a>=<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/annotation/ElementType.html?is-external=true#TYPE" title="class or interface in java.lang.annotation">TYPE</a>)
 public @interface <span class="strong">Eager</span></pre>
-<div class="block">Specifies that a scoped bean is to be eagerly instantiated.
+<div class="block"><p>
+ The CDI annotation <a href="../../../org/omnifaces/cdi/Eager.html" title="annotation in org.omnifaces.cdi"><code>Eager</code></a> specifies that a scoped bean is to be eagerly instantiated.
+ <p>
+ JSF's own native managed beans are being deprecated in favor of CDI managed beans. One feature that those native JSF
+ managed beans had that's not directly available for CDI managed beans is the ability to eagerly instantiate
+ application scoped beans.
+ <p>
+ OmniFaces fills this void and even goes one step further by introducing the <code>@Eager</code> annotation
+ that can be applied to <code>@RequestScoped</code>, <code>@ViewScoped</code>,
+ <code>@SessionScoped</code> and <code>@ApplicationScoped</code> beans. This causes these beans to be instantiated
+ automatically at the start of each such scope instead of on demand when a bean is first referenced.
+ <p>
+ In case of <code>@RequestScoped</code> and <code>@ViewScoped</code> beans instantiation happens per request URI / view
+ and an extra attribute is required for specifying this.
+
  <p>
  Currently supported scopes:
  <ol>
- <li> <a href="http://docs.oracle.com/javaee/7/api/javax/enterprise/context/RequestScoped.html?is-external=true" title="class or interface in javax.enterprise.context"><code>RequestScoped</code></a>
- <li> <a href="../../../org/omnifaces/cdi/ViewScoped.html" title="annotation in org.omnifaces.cdi"><code>ViewScoped</code></a>
- <li> <a href="http://docs.oracle.com/javaee/7/api/javax/enterprise/context/SessionScoped.html?is-external=true" title="class or interface in javax.enterprise.context"><code>SessionScoped</code></a>
- <li> <a href="http://docs.oracle.com/javaee/7/api/javax/enterprise/context/ApplicationScoped.html?is-external=true" title="class or interface in javax.enterprise.context"><code>ApplicationScoped</code></a>
+ <li> CDI <a href="http://docs.oracle.com/javaee/7/api/javax/enterprise/context/RequestScoped.html?is-external=true" title="class or interface in javax.enterprise.context"><code>RequestScoped</code></a>
+ <li> OmniFaces <a href="../../../org/omnifaces/cdi/ViewScoped.html" title="annotation in org.omnifaces.cdi"><code>ViewScoped</code></a>
+ <li> CDI <a href="http://docs.oracle.com/javaee/7/api/javax/enterprise/context/SessionScoped.html?is-external=true" title="class or interface in javax.enterprise.context"><code>SessionScoped</code></a>
+ <li> CDI <a href="http://docs.oracle.com/javaee/7/api/javax/enterprise/context/ApplicationScoped.html?is-external=true" title="class or interface in javax.enterprise.context"><code>ApplicationScoped</code></a>
  </ol>
+
  <p>
  E.g.
  The following bean will be instantiated during application's startup:
@@ -140,17 +155,17 @@ public @interface <span class="strong">Eager</span></pre>
      }
  }
  </pre>
- 
+
  <h3> Compatibility </h3>
- 
+
  <p>
- In some (older) containers, most notably GlassFish 3, the CDI request scope is not available in a <a href="http://docs.oracle.com/javaee/7/api/javax/servlet/ServletRequestListener.html?is-external=true" title="class or interface in javax.servlet"><code>ServletRequestListener</code></a> 
+ In some (older) containers, most notably GlassFish 3, the CDI request scope is not available in a <a href="http://docs.oracle.com/javaee/7/api/javax/servlet/ServletRequestListener.html?is-external=true" title="class or interface in javax.servlet"><code>ServletRequestListener</code></a>
  (this is actually not spec complicant, as CDI demands this scope to be active then, but it is what it is).
  <p>
  Additionally in some containers, most notably GlassFish 3 again, instantiating session scoped beans from a <a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpSessionListener.html?is-external=true" title="class or interface in javax.servlet.http"><code>HttpSessionListener</code></a>
  will corrupt "something" in the container. The instantiating of the beans will succeed, but if the session is later accessed an
  exception like the following will be thrown:
- 
+
  <pre>
  java.lang.IllegalArgumentException: Should never reach here
   at org.apache.catalina.connector.SessionTracker.track(SessionTracker.java:168)
@@ -162,9 +177,9 @@ public @interface <span class="strong">Eager</span></pre>
   at javax.faces.context.ExternalContextWrapper.getSession(ExternalContextWrapper.java:396)
   at javax.faces.context.ExternalContextWrapper.getSession(ExternalContextWrapper.java:396)
   </pre>
- 
+
  If any or both of those problems occur, a filter needs to be installed instead in <code>web.xml</code> as follows:
- 
+
  <pre>
  &lt;filter&gt;
      &lt;filter-name&gt;eagerBeansFilter&lt;/filter-name&gt;
@@ -176,7 +191,7 @@ public @interface <span class="strong">Eager</span></pre>
  &lt;/filter-mapping&gt;
 </pre>
 
- Note that the <a href="../../../org/omnifaces/cdi/eager/EagerBeansFilter.html" title="class in org.omnifaces.cdi.eager"><code>EagerBeansFilter</code></a> will automatically disable the request listener by calling 
+ Note that the <a href="../../../org/omnifaces/cdi/eager/EagerBeansFilter.html" title="class in org.omnifaces.cdi.eager"><code>EagerBeansFilter</code></a> will automatically disable the request listener by calling
  <a href="../../../org/omnifaces/cdi/eager/EagerBeansRequestListener.html#setEnabled(boolean)"><code>EagerBeansRequestListener.setEnabled(boolean)</code></a> and disable instantiating beans from the session listener by
  calling <a href="../../../org/omnifaces/cdi/eager/EagerBeansSessionListener.html#setEnabled(boolean)"><code>EagerBeansSessionListener.setEnabled(boolean)</code></a>.
  <p>

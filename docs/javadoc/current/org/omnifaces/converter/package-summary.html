@@ -76,45 +76,53 @@
 <tr class="altColor">
 <td class="colFirst"><a href="../../../org/omnifaces/converter/GenericEnumConverter.html" title="class in org.omnifaces.converter">GenericEnumConverter</a></td>
 <td class="colLast">
-<div class="block">This generic enum converter is intended for use in <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UISelectMany.html?is-external=true" title="class or interface in javax.faces.component"><code>UISelectMany</code></a> components whose value is been bound to a
- <code>List&lt;E&gt;</code> property where <code>E</code> is an enum.</div>
+<div class="block">
+ The <code>omnifaces.GenericEnumConverter</code> is intended for use in <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UISelectMany.html?is-external=true" title="class or interface in javax.faces.component"><code>UISelectMany</code></a> components whose value is
+ been bound to a <code>List&lt;E&gt;</code> property where <code>E</code> is an enum.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><a href="../../../org/omnifaces/converter/ListConverter.html" title="class in org.omnifaces.converter">ListConverter</a></td>
 <td class="colLast">
-<div class="block">Base class for a converter that automatically converts a string representation of an Object back
- to its original object based on objects in a given list for which conversion is taking place.</div>
+<div class="block">
+ The <code>omnifaces.ListConverter</code> is intented for use in specialized selection components which doesn't
+ use <a href="http://docs.oracle.com/javaee/7/api/javax/faces/model/SelectItem.html?is-external=true" title="class or interface in javax.faces.model"><code>SelectItem</code></a>s as the source for their selectable items, but work directly via a <a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util"><code>List</code></a> of entities,
+ and therefore the <a href="../../../org/omnifaces/converter/SelectItemsConverter.html" title="class in org.omnifaces.converter"><code>SelectItemsConverter</code></a> isn't usable on them.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><a href="../../../org/omnifaces/converter/ListIndexConverter.html" title="class in org.omnifaces.converter">ListIndexConverter</a></td>
 <td class="colLast">
-<div class="block">The <strong><code>ListIndexConverter</code></strong> automatically converts between the index of an object
- and the object itself based on its position in a list that's provided to this converter.</div>
+<div class="block">
+ The <code>omnifaces.ListIndexConverter</code> is a variant of the <a href="../../../org/omnifaces/converter/ListConverter.html" title="class in org.omnifaces.converter"><code>ListConverter</code></a> which automatically converts
+ based on the position (index) of the selected item in the list instead of the <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang"><code>Object.toString()</code></a> of the selected
+ item.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><a href="../../../org/omnifaces/converter/SelectItemsConverter.html" title="class in org.omnifaces.converter">SelectItemsConverter</a></td>
 <td class="colLast">
-<div class="block">Base class for a converter that automatically converts a string representation of an Object back
- to its original object based on the associated select items for the component for which conversion is
- taking place.</div>
+<div class="block">
+ The <code>omnifaces.SelectItemsConverter</code> allows you to populate a selection component with complex Java
+ model objects (entities) as value of <code>&lt;f:selectItems&gt;</code> and have JSF convert those
+ automatically back without the need to provide a custom converter which may need to do the job based on
+ possibly expensive service/DAO operations.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><a href="../../../org/omnifaces/converter/SelectItemsIndexConverter.html" title="class in org.omnifaces.converter">SelectItemsIndexConverter</a></td>
 <td class="colLast">
 <div class="block">
- The <strong><code>SelectItemsIndexConverter</code></strong> automatically converts between the index of the select
- item value and the select item value itself based on its position in the associated select items for the component
- for which conversion is taking place.</div>
+ The <code>omnifaces.SelectItemsIndexConverter</code> is a variant of the <a href="../../../org/omnifaces/converter/SelectItemsConverter.html" title="class in org.omnifaces.converter"><code>SelectItemsConverter</code></a> which
+ automatically converts based on the position (index) of the selected item in the list instead of the
+ <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang"><code>Object.toString()</code></a> of the selected item.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><a href="../../../org/omnifaces/converter/ValueChangeConverter.html" title="class in org.omnifaces.converter">ValueChangeConverter</a></td>
 <td class="colLast">
-<div class="block">By default, JSF converters run on every request, regardless of whether the submitted value has changed or not.</div>
+<div class="block">
+ By default, JSF converters run on every request, regardless of whether the submitted value has changed or not.</div>
 </td>
 </tr>
 </tbody>

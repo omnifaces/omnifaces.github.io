@@ -110,14 +110,27 @@
 <br>
 <pre>public class <span class="strong">FacesMessageExceptionHandler</span>
 extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/ExceptionHandlerWrapper.html?is-external=true" title="class or interface in javax.faces.context">ExceptionHandlerWrapper</a></pre>
-<div class="block">This exception handler will add every exception as a global FATAL faces message. Refer to the documentation of
- <a href="../../../org/omnifaces/exceptionhandler/FacesMessageExceptionHandlerFactory.html" title="class in org.omnifaces.exceptionhandler"><code>FacesMessageExceptionHandlerFactory</code></a> to see how to set this up.
+<div class="block"><p>
+ The <a href="../../../org/omnifaces/exceptionhandler/FacesMessageExceptionHandler.html" title="class in org.omnifaces.exceptionhandler"><code>FacesMessageExceptionHandler</code></a> will add every exception as a global FATAL faces message.
+
+ <h3>Installation</h3>
  <p>
- <strong>Note:</strong> it's your own responsibility to make sure that the faces messages are being shown. Make sure
- that there's a <code>&lt;h:messages&gt;</code> or any equivalent component (OmniFaces, PrimeFaces, etc) is present
- in the view and that it can handle global messages and that it's explicitly or automatically updated in case of ajax
- requests. Also make sure that you don't have bugs in rendering of your views. This exception handler is not capable
- of handling exceptions during render response. It will fail silently.
+ This handler must be registered by a factory as follows in <code>faces-config.xml</code> in order to get it to run:
+ <pre>
+ &lt;factory&gt;
+     &lt;exception-handler-factory&gt;org.omnifaces.exceptionhandler.FacesMessageExceptionHandlerFactory&lt;/exception-handler-factory&gt;
+ &lt;/factory&gt;
+ </pre>
+
+ <h3>Note</h3>
+ <p>
+ It's your own responsibility to make sure that the faces messages are being shown. Make sure that there's a
+ <code>&lt;h:messages&gt;</code> or any equivalent component (OmniFaces, PrimeFaces, etc) is present in the view and
+ that it can handle global messages and that it's explicitly or automatically updated in case of ajax requests. Also
+ make sure that you don't have bugs in rendering of your views. This exception handler is not capable of handling
+ exceptions during render response. It will fail silently.
+
+ <h3>Customizing <code>FacesMessageExceptionHandler</code></h3>
  <p>
  If more fine grained control of creating the FATAL faces message is desired, then the developer can opt to extend
  this <a href="../../../org/omnifaces/exceptionhandler/FacesMessageExceptionHandler.html" title="class in org.omnifaces.exceptionhandler"><code>FacesMessageExceptionHandler</code></a> and override the following method:
@@ -170,7 +183,7 @@ extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/Excepti
 <td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/exceptionhandler/FacesMessageExceptionHandler.html#createFatalMessage(java.lang.Throwable)">createFatalMessage</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a>&nbsp;exception)</code>
 <div class="block">Create fatal message based on given exception which will in turn be passed to
- <a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true#addMessage(java.lang.String, javax.faces.application.FacesMessage)" title="class or interface in javax.faces.context"><code>FacesContext.addMessage(String, javax.faces.application.FacesMessage)</code></a>.</div>
+ <a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true#addMessage(java.lang.String,%20javax.faces.application.FacesMessage)" title="class or interface in javax.faces.context"><code>FacesContext.addMessage(String, javax.faces.application.FacesMessage)</code></a>.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -196,7 +209,7 @@ extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/Excepti
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
-<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long, int)" title="class or interface in java.lang">wait</a></code></li>
+<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,%20int)" title="class or interface in java.lang">wait</a></code></li>
 </ul>
 </li>
 </ul>
@@ -255,7 +268,7 @@ extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/Excepti
 <h4>createFatalMessage</h4>
 <pre>protected&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;createFatalMessage(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a>&nbsp;exception)</pre>
 <div class="block">Create fatal message based on given exception which will in turn be passed to
- <a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true#addMessage(java.lang.String, javax.faces.application.FacesMessage)" title="class or interface in javax.faces.context"><code>FacesContext.addMessage(String, javax.faces.application.FacesMessage)</code></a>.
+ <a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true#addMessage(java.lang.String,%20javax.faces.application.FacesMessage)" title="class or interface in javax.faces.context"><code>FacesContext.addMessage(String, javax.faces.application.FacesMessage)</code></a>.
  The default implementation returns <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true#toString()" title="class or interface in java.lang"><code>Throwable.toString()</code></a>.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>exception</code> - The exception to create fatal message for.</dd>
 <dt><span class="strong">Returns:</span></dt><dd>The fatal message created based on the given exception.</dd></dl>

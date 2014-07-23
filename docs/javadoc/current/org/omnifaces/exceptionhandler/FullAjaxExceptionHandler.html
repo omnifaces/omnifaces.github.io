@@ -110,26 +110,47 @@
 <br>
 <pre>public class <span class="strong">FullAjaxExceptionHandler</span>
 extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/ExceptionHandlerWrapper.html?is-external=true" title="class or interface in javax.faces.context">ExceptionHandlerWrapper</a></pre>
-<div class="block">This exception handler enables you to show the full error page in its entirety to the end-user in case of exceptions
- during ajax requests. Refer to the documentation of <a href="../../../org/omnifaces/exceptionhandler/FullAjaxExceptionHandlerFactory.html" title="class in org.omnifaces.exceptionhandler"><code>FullAjaxExceptionHandlerFactory</code></a> to see how to set this up.
+<div class="block"><p>
+ The <a href="../../../org/omnifaces/exceptionhandler/FullAjaxExceptionHandler.html" title="class in org.omnifaces.exceptionhandler"><code>FullAjaxExceptionHandler</code></a> will transparently handle exceptions during ajax requests exactly the same way
+ as exceptions during synchronous (non-ajax) requests.
+ <p>
+ By default, when an exception occurs during a JSF ajax request, the enduser would not get any form of feedback if the
+ action was successfully performed or not. In Mojarra, only when the project stage is set to <code>Development</code>,
+ the enduser would see a bare JavaScript alert with only the exception type and message. It would make sense if
+ exceptions during ajax requests are handled the same way as exceptions during synchronous requests, which is
+ utilizing the standard Servlet API <code>&lt;error-page&gt;</code> mechanisms in <code>web.xml</code>.
+
+ <h3>Installation</h3>
+ <p>
+ This handler must be registered by a factory as follows in <code>faces-config.xml</code> in order to get it to run:
+ <pre>
+ &lt;factory&gt;
+     &lt;exception-handler-factory&gt;org.omnifaces.exceptionhandler.FullAjaxExceptionHandlerFactory&lt;/exception-handler-factory&gt;
+ &lt;/factory&gt;
+ </pre>
+
+ <h3>Error pages</h3>
  <p>
  This exception handler will parse the <code>web.xml</code> and <code>web-fragment.xml</code> files to find the error
  page locations of the HTTP error code <code>500</code> and all declared specific exception types. Those locations
- need to point to Facelets files (JSP is not supported). The location of the HTTP error code <code>500</code> or the
- exception type <code>java.lang.Throwable</code> is required in order to get the full ajax exception handler to work,
- because there's then at least a fall back error page whenever there's no match with any of the declared specific
- exceptions. So, you must at least have either
+ need to point to Facelets files (JSP is not supported) and the URL must match the <a href="http://docs.oracle.com/javaee/7/api/javax/faces/webapp/FacesServlet.html?is-external=true" title="class or interface in javax.faces.webapp"><code>FacesServlet</code></a> mapping (just
+ mapping it on <code>*.xhtml</code> should eliminate confusion about virtual URLs).
+ <p>
+ The location of the HTTP error code <code>500</code> or the exception type <code>java.lang.Throwable</code> is
+ <b>required</b> in order to get the <a href="../../../org/omnifaces/exceptionhandler/FullAjaxExceptionHandler.html" title="class in org.omnifaces.exceptionhandler"><code>FullAjaxExceptionHandler</code></a> to work, because there's then at least a fall
+ back error page whenever there's no match with any of the declared specific exceptions. So, you must at least have
+ either
  <pre>
  &lt;error-page&gt;
-   &lt;error-code&gt;500&lt;/error-code&gt;
-   &lt;location&gt;/errors/500.xhtml&lt;/location&gt;
+     &lt;error-code&gt;500&lt;/error-code&gt;
+     &lt;location&gt;/WEB-INF/errorpages/500.xhtml&lt;/location&gt;
  &lt;/error-page&gt;
  </pre>
  <p>or
  <pre>
  &lt;error-page&gt;
-   &lt;exception-type&gt;java.lang.Throwable&lt;/exception-type&gt;
-   &lt;location&gt;/errors/500.xhtml&lt;/location&gt;
+     &lt;exception-type&gt;java.lang.Throwable&lt;/exception-type&gt;
+     &lt;location&gt;/WEB-INF/errorpages/500.xhtml&lt;/location&gt;
  &lt;/error-page&gt;
  </pre>
  <p>
@@ -140,17 +161,17 @@ extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/Excepti
  normal synchronous error page response. You could for example show them in the error page as follows:
  <pre>
  &lt;ul&gt;
-   &lt;li&gt;Date/time: #{of:formatDate(now, 'yyyy-MM-dd HH:mm:ss')}&lt;/li&gt;
-   &lt;li&gt;User agent: #{header['user-agent']}&lt;/li&gt;
-   &lt;li&gt;User IP: #{request.remoteAddr}&lt;/li&gt;
-   &lt;li&gt;Request URI: #{requestScope['javax.servlet.error.request_uri']}&lt;/li&gt;
-   &lt;li&gt;Ajax request: #{facesContext.partialViewContext.ajaxRequest ? 'Yes' : 'No'}&lt;/li&gt;
-   &lt;li&gt;Status code: #{requestScope['javax.servlet.error.status_code']}&lt;/li&gt;
-   &lt;li&gt;Exception type: #{requestScope['javax.servlet.error.exception_type']}&lt;/li&gt;
-   &lt;li&gt;Exception message: #{requestScope['javax.servlet.error.message']}&lt;/li&gt;
-   &lt;li&gt;Stack trace:
-     &lt;pre&gt;#{of:printStackTrace(requestScope['javax.servlet.error.exception'])}&lt;/pre&gt;
-   &lt;/li&gt;
+     &lt;li&gt;Date/time: #{of:formatDate(now, 'yyyy-MM-dd HH:mm:ss')}&lt;/li&gt;
+     &lt;li&gt;User agent: #{header['user-agent']}&lt;/li&gt;
+     &lt;li&gt;User IP: #{request.remoteAddr}&lt;/li&gt;
+     &lt;li&gt;Request URI: #{requestScope['javax.servlet.error.request_uri']}&lt;/li&gt;
+     &lt;li&gt;Ajax request: #{facesContext.partialViewContext.ajaxRequest ? 'Yes' : 'No'}&lt;/li&gt;
+     &lt;li&gt;Status code: #{requestScope['javax.servlet.error.status_code']}&lt;/li&gt;
+     &lt;li&gt;Exception type: #{requestScope['javax.servlet.error.exception_type']}&lt;/li&gt;
+     &lt;li&gt;Exception message: #{requestScope['javax.servlet.error.message']}&lt;/li&gt;
+     &lt;li&gt;Stack trace:
+         &lt;pre&gt;#{of:printStackTrace(requestScope['javax.servlet.error.exception'])}&lt;/pre&gt;
+     &lt;/li&gt;
  &lt;/ul&gt;
  </pre>
  <p>
@@ -159,16 +180,35 @@ extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/Excepti
  therefore safely be resetted. When rendering of the error page itself fails due to a bug in the error page itself
  and the response can still be resetted, then a hardcoded message will be returned informing the developer about the
  double mistake.
+
+ <h3>Error in error page itself</h3>
+ <p>
+ When the rendering of the error page itself failed due to a bug in the error page itself, then the
+ <a href="../../../org/omnifaces/exceptionhandler/FullAjaxExceptionHandler.html" title="class in org.omnifaces.exceptionhandler"><code>FullAjaxExceptionHandler</code></a> will reset the response and display a hardcoded error message in "plain text".
+
+ <h3>Normal requests</h3>
+ <p>
+ Note that the <a href="../../../org/omnifaces/exceptionhandler/FullAjaxExceptionHandler.html" title="class in org.omnifaces.exceptionhandler"><code>FullAjaxExceptionHandler</code></a> does not deal with normal (non-ajax) requests at all. To properly
+ handle JSF and EL exceptions on normal requests as well, you need an additional <a href="../../../org/omnifaces/filter/FacesExceptionFilter.html" title="class in org.omnifaces.filter"><code>FacesExceptionFilter</code></a>. This
+ will extract the root cause from a wrapped <a href="http://docs.oracle.com/javaee/7/api/javax/faces/FacesException.html?is-external=true" title="class or interface in javax.faces"><code>FacesException</code></a> and <a href="http://docs.oracle.com/javaee/7/api/javax/el/ELException.html?is-external=true" title="class or interface in javax.el"><code>ELException</code></a> before delegating the
+ <a href="http://docs.oracle.com/javaee/7/api/javax/servlet/ServletException.html?is-external=true" title="class or interface in javax.servlet"><code>ServletException</code></a> further to the container (the container will namely use the first root cause of
+ <a href="http://docs.oracle.com/javaee/7/api/javax/servlet/ServletException.html?is-external=true" title="class or interface in javax.servlet"><code>ServletException</code></a> to match an error page by exception in web.xml).
+
+ <h3>Customizing <code>FullAjaxExceptionHandler</code></h3>
  <p>
  If more fine grained control is desired for determining the root cause of the caught exception, or whether it should
  be handled, or determining the error page, or logging the exception, then the developer can opt to extend this
- <a href="../../../org/omnifaces/exceptionhandler/FullAjaxExceptionHandler.html" title="class in org.omnifaces.exceptionhandler"><code>FullAjaxExceptionHandler</code></a> and override one or more of the following methods:
+ <a href="../../../org/omnifaces/exceptionhandler/FullAjaxExceptionHandler.html" title="class in org.omnifaces.exceptionhandler"><code>FullAjaxExceptionHandler</code></a> and override one or more of the following protected methods:
  <ul>
- <li><a href="../../../org/omnifaces/exceptionhandler/FullAjaxExceptionHandler.html#findExceptionRootCause(javax.faces.context.FacesContext, java.lang.Throwable)"><code>findExceptionRootCause(FacesContext, Throwable)</code></a>
- <li><a href="../../../org/omnifaces/exceptionhandler/FullAjaxExceptionHandler.html#shouldHandleExceptionRootCause(javax.faces.context.FacesContext, java.lang.Throwable)"><code>shouldHandleExceptionRootCause(FacesContext, Throwable)</code></a>
- <li><a href="../../../org/omnifaces/exceptionhandler/FullAjaxExceptionHandler.html#findErrorPageLocation(javax.faces.context.FacesContext, java.lang.Throwable)"><code>findErrorPageLocation(FacesContext, Throwable)</code></a>
- <li><a href="../../../org/omnifaces/exceptionhandler/FullAjaxExceptionHandler.html#logException(javax.faces.context.FacesContext, java.lang.Throwable, java.lang.String, java.lang.String, java.lang.Object...)"><code>logException(FacesContext, Throwable, String, String, Object...)</code></a>
- </ul></div>
+ <li><a href="../../../org/omnifaces/exceptionhandler/FullAjaxExceptionHandler.html#findExceptionRootCause(javax.faces.context.FacesContext,%20java.lang.Throwable)"><code>findExceptionRootCause(FacesContext, Throwable)</code></a>
+ <li><a href="../../../org/omnifaces/exceptionhandler/FullAjaxExceptionHandler.html#shouldHandleExceptionRootCause(javax.faces.context.FacesContext,%20java.lang.Throwable)"><code>shouldHandleExceptionRootCause(FacesContext, Throwable)</code></a>
+ <li><a href="../../../org/omnifaces/exceptionhandler/FullAjaxExceptionHandler.html#findErrorPageLocation(javax.faces.context.FacesContext,%20java.lang.Throwable)"><code>findErrorPageLocation(FacesContext, Throwable)</code></a>
+ <li><a href="../../../org/omnifaces/exceptionhandler/FullAjaxExceptionHandler.html#logException(javax.faces.context.FacesContext,%20java.lang.Throwable,%20java.lang.String,%20java.lang.String,%20java.lang.Object...)"><code>logException(FacesContext, Throwable, String, String, Object...)</code></a>
+ </ul>
+ <p>
+ Don't forget to create a custom <a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/ExceptionHandlerFactory.html?is-external=true" title="class or interface in javax.faces.context"><code>ExceptionHandlerFactory</code></a> for it as well, so that it could be registered
+ in <code>faces-config.xml</code>. This does not necessarily need to extend from
+ <a href="../../../org/omnifaces/exceptionhandler/FullAjaxExceptionHandlerFactory.html" title="class in org.omnifaces.exceptionhandler"><code>FullAjaxExceptionHandlerFactory</code></a>.</div>
 <dl><dt><span class="strong">Author:</span></dt>
   <dd>Bauke Scholtz</dd>
 <dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/omnifaces/exceptionhandler/FullAjaxExceptionHandlerFactory.html" title="class in org.omnifaces.exceptionhandler"><code>FullAjaxExceptionHandlerFactory</code></a></dd></dl>
@@ -211,14 +251,14 @@ extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/Excepti
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/exceptionhandler/FullAjaxExceptionHandler.html#findErrorPageLocation(javax.faces.context.FacesContext, java.lang.Throwable)">findErrorPageLocation</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/exceptionhandler/FullAjaxExceptionHandler.html#findErrorPageLocation(javax.faces.context.FacesContext,%20java.lang.Throwable)">findErrorPageLocation</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context,
                      <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a>&nbsp;exception)</code>
 <div class="block">Determine the error page location based on the given exception.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a></code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/exceptionhandler/FullAjaxExceptionHandler.html#findExceptionRootCause(javax.faces.context.FacesContext, java.lang.Throwable)">findExceptionRootCause</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/exceptionhandler/FullAjaxExceptionHandler.html#findExceptionRootCause(javax.faces.context.FacesContext,%20java.lang.Throwable)">findExceptionRootCause</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context,
                       <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a>&nbsp;exception)</code>
 <div class="block">Determine the root cause based on the caught exception, which will then be used to find the error page location.</div>
 </td>
@@ -233,12 +273,12 @@ extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/Excepti
 <div class="block">Handle the ajax exception as follows, only and only if the current request is an ajax request with an uncommitted
  response and there is at least one unhandled exception:
  
-   Find the root cause of the exception by <a href="../../../org/omnifaces/exceptionhandler/FullAjaxExceptionHandler.html#findExceptionRootCause(javax.faces.context.FacesContext, java.lang.Throwable)"><code>findExceptionRootCause(FacesContext, Throwable)</code></a>.</div>
+   Find the root cause of the exception by <a href="../../../org/omnifaces/exceptionhandler/FullAjaxExceptionHandler.html#findExceptionRootCause(javax.faces.context.FacesContext,%20java.lang.Throwable)"><code>findExceptionRootCause(FacesContext, Throwable)</code></a>.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/exceptionhandler/FullAjaxExceptionHandler.html#logException(javax.faces.context.FacesContext, java.lang.Throwable, java.lang.String, java.lang.String, java.lang.Object...)">logException</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/exceptionhandler/FullAjaxExceptionHandler.html#logException(javax.faces.context.FacesContext,%20java.lang.Throwable,%20java.lang.String,%20java.lang.String,%20java.lang.Object...)">logException</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context,
             <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a>&nbsp;exception,
             <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;location,
             <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;message,
@@ -249,7 +289,7 @@ extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/Excepti
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>protected boolean</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/exceptionhandler/FullAjaxExceptionHandler.html#shouldHandleExceptionRootCause(javax.faces.context.FacesContext, java.lang.Throwable)">shouldHandleExceptionRootCause</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/exceptionhandler/FullAjaxExceptionHandler.html#shouldHandleExceptionRootCause(javax.faces.context.FacesContext,%20java.lang.Throwable)">shouldHandleExceptionRootCause</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context,
                               <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a>&nbsp;exception)</code>
 <div class="block">Returns <code>true</code> if the <a href="../../../org/omnifaces/exceptionhandler/FullAjaxExceptionHandler.html" title="class in org.omnifaces.exceptionhandler"><code>FullAjaxExceptionHandler</code></a> should handle this exception root cause.</div>
 </td>
@@ -267,7 +307,7 @@ extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/Excepti
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
-<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long, int)" title="class or interface in java.lang">wait</a></code></li>
+<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,%20int)" title="class or interface in java.lang">wait</a></code></li>
 </ul>
 </li>
 </ul>
@@ -313,8 +353,8 @@ extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/Excepti
 <div class="block">Handle the ajax exception as follows, only and only if the current request is an ajax request with an uncommitted
  response and there is at least one unhandled exception:
  <ul>
-   <li>Find the root cause of the exception by <a href="../../../org/omnifaces/exceptionhandler/FullAjaxExceptionHandler.html#findExceptionRootCause(javax.faces.context.FacesContext, java.lang.Throwable)"><code>findExceptionRootCause(FacesContext, Throwable)</code></a>.
-   <li>Find the error page location based on root cause by <a href="../../../org/omnifaces/exceptionhandler/FullAjaxExceptionHandler.html#findErrorPageLocation(javax.faces.context.FacesContext, java.lang.Throwable)"><code>findErrorPageLocation(FacesContext, Throwable)</code></a>.
+   <li>Find the root cause of the exception by <a href="../../../org/omnifaces/exceptionhandler/FullAjaxExceptionHandler.html#findExceptionRootCause(javax.faces.context.FacesContext,%20java.lang.Throwable)"><code>findExceptionRootCause(FacesContext, Throwable)</code></a>.
+   <li>Find the error page location based on root cause by <a href="../../../org/omnifaces/exceptionhandler/FullAjaxExceptionHandler.html#findErrorPageLocation(javax.faces.context.FacesContext,%20java.lang.Throwable)"><code>findErrorPageLocation(FacesContext, Throwable)</code></a>.
    <li>Set the standard servlet error request attributes.
    <li>Force JSF to render the full error page in its entirety.
  </ul>

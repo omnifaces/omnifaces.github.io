@@ -101,11 +101,28 @@
 <pre>public class <span class="strong">ListIndexConverter</span>
 extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>
 implements <a href="http://docs.oracle.com/javaee/7/api/javax/faces/convert/Converter.html?is-external=true" title="class or interface in javax.faces.convert">Converter</a></pre>
-<div class="block">The <strong><code>ListIndexConverter</code></strong> automatically converts between the index of an object
- and the object itself based on its position in a list that's provided to this converter.
+<div class="block"><p>
+ The <code>omnifaces.ListIndexConverter</code> is a variant of the <a href="../../../org/omnifaces/converter/ListConverter.html" title="class in org.omnifaces.converter"><code>ListConverter</code></a> which automatically converts
+ based on the position (index) of the selected item in the list instead of the <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang"><code>Object.toString()</code></a> of the selected
+ item.
+
+ <h3>Usage</h3>
  <p>
- This is a variant of the <a href="../../../org/omnifaces/converter/SelectItemsIndexConverter.html" title="class in org.omnifaces.converter"><code>SelectItemsIndexConverter</code></a>. See its Javadoc for further documentation.
- </p></div>
+ This converter is available by converter ID <code>omnifaces.ListIndexConverter</code> and should be used in
+ combination with <code>&lt;o:converter&gt;</code> in order to be able to pass the <a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util"><code>List</code></a> source to it, which it
+ can use for conversion. Here's a basic usage example with PrimeFaces <code>&lt;p:pickList&gt;</code>, which is one of
+ the few select components which doesn't use <a href="http://docs.oracle.com/javaee/7/api/javax/faces/model/SelectItem.html?is-external=true" title="class or interface in javax.faces.model"><code>SelectItem</code></a>s as the source, but work directly via a <a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util"><code>List</code></a>.
+ <pre>
+ &lt;p:pickList value="#{bean.dualListModel}" var="entity" itemValue="#{entity}" itemLabel="#{entity.someProperty}"&gt;
+     &lt;o:converter converterId="omnifaces.ListIndexConverter" list="#{bean.dualListModel.source}" /&gt;
+ &lt;/p:pickList&gt;
+ </pre>
+
+ <h3>Pros and cons as compared to <a href="../../../org/omnifaces/converter/ListConverter.html" title="class in org.omnifaces.converter"><code>ListConverter</code></a></h3>
+ <p>
+ For detail, refer the javadoc of <a href="../../../org/omnifaces/converter/SelectItemsIndexConverter.html" title="class in org.omnifaces.converter"><code>SelectItemsIndexConverter</code></a> and substitute
+ "<code>SelectItemsIndexConverter</code>" by "<code>ListIndexConverter</code>" and "<code>SelectItemsConverter</code>"
+ by "<code>ListConverter</code>".</div>
 <dl><dt><span class="strong">Author:</span></dt>
   <dd>Arjan Tijms</dd></dl>
 </li>
@@ -160,13 +177,13 @@ implements <a href="http://docs.oracle.com/javaee/7/api/javax/faces/convert/Conv
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/converter/ListIndexConverter.html#getAsObject(javax.faces.context.FacesContext, javax.faces.component.UIComponent, java.lang.String)">getAsObject</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/converter/ListIndexConverter.html#getAsObject(javax.faces.context.FacesContext,%20javax.faces.component.UIComponent,%20java.lang.String)">getAsObject</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context,
            <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;component,
            <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/converter/ListIndexConverter.html#getAsString(javax.faces.context.FacesContext, javax.faces.component.UIComponent, java.lang.Object)">getAsString</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/converter/ListIndexConverter.html#getAsString(javax.faces.context.FacesContext,%20javax.faces.component.UIComponent,%20java.lang.Object)">getAsString</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context,
            <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;component,
            <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)</code>&nbsp;</td>
 </tr>
@@ -180,7 +197,7 @@ implements <a href="http://docs.oracle.com/javaee/7/api/javax/faces/convert/Conv
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
-<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long, int)" title="class or interface in java.lang">wait</a></code></li>
+<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,%20int)" title="class or interface in java.lang">wait</a></code></li>
 </ul>
 </li>
 </ul>
@@ -224,7 +241,7 @@ implements <a href="http://docs.oracle.com/javaee/7/api/javax/faces/convert/Conv
                  <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;value)</pre>
 <dl>
 <dt><strong>Specified by:</strong></dt>
-<dd><code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/convert/Converter.html?is-external=true#getAsObject(javax.faces.context.FacesContext, javax.faces.component.UIComponent, java.lang.String)" title="class or interface in javax.faces.convert">getAsObject</a></code>&nbsp;in interface&nbsp;<code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/convert/Converter.html?is-external=true" title="class or interface in javax.faces.convert">Converter</a></code></dd>
+<dd><code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/convert/Converter.html?is-external=true#getAsObject(javax.faces.context.FacesContext,%20javax.faces.component.UIComponent,%20java.lang.String)" title="class or interface in javax.faces.convert">getAsObject</a></code>&nbsp;in interface&nbsp;<code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/convert/Converter.html?is-external=true" title="class or interface in javax.faces.convert">Converter</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -239,7 +256,7 @@ implements <a href="http://docs.oracle.com/javaee/7/api/javax/faces/convert/Conv
                  <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)</pre>
 <dl>
 <dt><strong>Specified by:</strong></dt>
-<dd><code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/convert/Converter.html?is-external=true#getAsString(javax.faces.context.FacesContext, javax.faces.component.UIComponent, java.lang.Object)" title="class or interface in javax.faces.convert">getAsString</a></code>&nbsp;in interface&nbsp;<code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/convert/Converter.html?is-external=true" title="class or interface in javax.faces.convert">Converter</a></code></dd>
+<dd><code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/convert/Converter.html?is-external=true#getAsString(javax.faces.context.FacesContext,%20javax.faces.component.UIComponent,%20java.lang.Object)" title="class or interface in javax.faces.convert">getAsString</a></code>&nbsp;in interface&nbsp;<code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/convert/Converter.html?is-external=true" title="class or interface in javax.faces.convert">Converter</a></code></dd>
 </dl>
 </li>
 </ul>

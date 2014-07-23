@@ -35,7 +35,7 @@
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../org/omnifaces/taghandler/ValidateUniqueColumn.html" title="class in org.omnifaces.taghandler"><span class="strong">Prev Class</span></a></li>
-<li><a href="../../../org/omnifaces/taghandler/Validator.RenderTimeValidator.html" title="class in org.omnifaces.taghandler"><span class="strong">Next Class</span></a></li>
+<li><a href="../../../org/omnifaces/taghandler/Validator.DeferredValidator.html" title="class in org.omnifaces.taghandler"><span class="strong">Next Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?org/omnifaces/taghandler/Validator.html" target="_top">Frames</a></li>
@@ -125,28 +125,30 @@
 <br>
 <pre>public class <span class="strong">Validator</span>
 extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/ValidatorHandler.html?is-external=true" title="class or interface in javax.faces.view.facelets">ValidatorHandler</a></pre>
-<div class="block">The <code>&lt;o:validator&gt;</code> basically extends the <code>&lt;f:validator&gt;</code> tag family with the
- possibility to evaluate the value expression in all attributes on a per request basis instead of on a per view
- build time basis. This allows the developer to change the attributes on a per request basis, such as the
- <code>disabled</code> attribute.
- <pre>
- &lt;o:validator validatorId="someValidatorId" disabled="#{param.disableValidation}" /&gt;
- </pre>
+<div class="block"><p>
+ The <code>&lt;o:validator&gt;</code> is a taghandler that extends the standard <code>&lt;f:validator&gt;</code> tag
+ family with support for deferred value expressions in all attributes. In other words, the validator attributes are
+ not evaluated anymore on a per view build time basis, but just on every access like as with UI components.
  <p>
  When you specify for example the standard <code>&lt;f:validateLongRange&gt;</code> by
  <code>validatorId="javax.faces.LongRange"</code>, then you'll be able to use all its attributes such as
  <code>minimum</code> and <code>maximum</code> as per its documentation, but then with the possibility to supply
- request based value expressions.
+ deferred value expressions.
  <pre>
  &lt;o:validator validatorId="javax.faces.LongRange" minimum="#{item.minimum}" maximum="#{item.maximum}" /&gt;
  </pre>
+ <p>
+ The validator ID of all standard JSF validators can be found in
+ <a href="http://docs.oracle.com/javaee/7/api/javax/faces/validator/package-summary.html">their javadocs</a>.
+ First go to the javadoc of the class of interest, then go to <code>VALIDATOR_ID</code> in its field summary
+ and finally click the Constant Field Values link to see the value.
  <p>
  It is also possible to specify the validator message on a per-validator basis using the <code>message</code>
  attribute. Any "{0}" placeholder in the message will be substituted with the label of the referenced input component.
  Note that this attribute is ignored when the parent component has already <code>validatorMessage</code> specified.
  <pre>
  &lt;o:validator validatorId="javax.faces.LongRange" minimum="#{item.minimum}" maximum="#{item.maximum}"
-   message="Please enter between #{item.minimum} and #{item.maximum} characters" /&gt;
+     message="Please enter between #{item.minimum} and #{item.maximum} characters" /&gt;
  </pre></div>
 <dl><dt><span class="strong">Author:</span></dt>
   <dd>Bauke Scholtz</dd></dl>
@@ -170,7 +172,7 @@ extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/V
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>protected static class&nbsp;</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/taghandler/Validator.RenderTimeValidator.html" title="class in org.omnifaces.taghandler">Validator.RenderTimeValidator</a></strong></code>
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/taghandler/Validator.DeferredValidator.html" title="class in org.omnifaces.taghandler">Validator.DeferredValidator</a></strong></code>
 <div class="block">So that we can have a serializable validator.</div>
 </td>
 </tr>
@@ -232,7 +234,7 @@ extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/V
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/taghandler/Validator.html#apply(javax.faces.view.facelets.FaceletContext, javax.faces.component.UIComponent)">apply</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/FaceletContext.html?is-external=true" title="class or interface in javax.faces.view.facelets">FaceletContext</a>&nbsp;context,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/taghandler/Validator.html#apply(javax.faces.view.facelets.FaceletContext,%20javax.faces.component.UIComponent)">apply</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/FaceletContext.html?is-external=true" title="class or interface in javax.faces.view.facelets">FaceletContext</a>&nbsp;context,
      <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;parent)</code>
 <div class="block">Create a <a href="http://docs.oracle.com/javaee/7/api/javax/faces/validator/Validator.html?is-external=true" title="class or interface in javax.faces.validator"><code>Validator</code></a> based on the <code>binding</code> and/or
  <code>validatorId</code> attributes as per the standard JSF <code>&lt;f:validator&gt;</code> implementation and
@@ -241,7 +243,7 @@ extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/V
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>&lt;T&gt;&nbsp;T</code></td>
-<td class="colLast"><code><strong><a href="../../../org/omnifaces/taghandler/Validator.html#create(javax.faces.application.Application, java.lang.String)">create</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/Application.html?is-external=true" title="class or interface in javax.faces.application">Application</a>&nbsp;application,
+<td class="colLast"><code><strong><a href="../../../org/omnifaces/taghandler/Validator.html#create(javax.faces.application.Application,%20java.lang.String)">create</a></strong>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/Application.html?is-external=true" title="class or interface in javax.faces.application">Application</a>&nbsp;application,
       <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;id)</code>
 <div class="block">Create the concrete <a href="../../../org/omnifaces/taghandler/Converter.html" title="class in org.omnifaces.taghandler"><code>Converter</code></a> or <a href="../../../org/omnifaces/taghandler/Validator.html" title="class in org.omnifaces.taghandler"><code>Validator</code></a>.</div>
 </td>
@@ -250,7 +252,7 @@ extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/V
 <td class="colFirst"><code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/TagAttribute.html?is-external=true" title="class or interface in javax.faces.view.facelets">TagAttribute</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/omnifaces/taghandler/Validator.html#getTagAttribute(java.lang.String)">getTagAttribute</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
 <div class="block">Just return TagHandler#getAttribute() via a public method (it's by default protected and otherwise thus
- unavailable inside collectRenderTimeAttributes().</div>
+ unavailable inside collectDeferredAttributes().</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -274,14 +276,14 @@ extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/V
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;javax.faces.view.facelets.<a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/FaceletsAttachedObjectHandler.html?is-external=true" title="class or interface in javax.faces.view.facelets">FaceletsAttachedObjectHandler</a></h3>
-<code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/FaceletsAttachedObjectHandler.html?is-external=true#applyAttachedObject(javax.faces.context.FacesContext, javax.faces.component.UIComponent)" title="class or interface in javax.faces.view.facelets">applyAttachedObject</a>, <a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/FaceletsAttachedObjectHandler.html?is-external=true#getAttachedObjectHandlerHelper()" title="class or interface in javax.faces.view.facelets">getAttachedObjectHandlerHelper</a>, <a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/FaceletsAttachedObjectHandler.html?is-external=true#getFor()" title="class or interface in javax.faces.view.facelets">getFor</a></code></li>
+<code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/FaceletsAttachedObjectHandler.html?is-external=true#applyAttachedObject(javax.faces.context.FacesContext,%20javax.faces.component.UIComponent)" title="class or interface in javax.faces.view.facelets">applyAttachedObject</a>, <a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/FaceletsAttachedObjectHandler.html?is-external=true#getAttachedObjectHandlerHelper()" title="class or interface in javax.faces.view.facelets">getAttachedObjectHandlerHelper</a>, <a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/FaceletsAttachedObjectHandler.html?is-external=true#getFor()" title="class or interface in javax.faces.view.facelets">getFor</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods_inherited_from_class_javax.faces.view.facelets.DelegatingMetaTagHandler">
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;javax.faces.view.facelets.<a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/DelegatingMetaTagHandler.html?is-external=true" title="class or interface in javax.faces.view.facelets">DelegatingMetaTagHandler</a></h3>
-<code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/DelegatingMetaTagHandler.html?is-external=true#applyNextHandler(javax.faces.view.facelets.FaceletContext, javax.faces.component.UIComponent)" title="class or interface in javax.faces.view.facelets">applyNextHandler</a>, <a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/DelegatingMetaTagHandler.html?is-external=true#createMetaRuleset(java.lang.Class)" title="class or interface in javax.faces.view.facelets">createMetaRuleset</a>, <a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/DelegatingMetaTagHandler.html?is-external=true#getBinding()" title="class or interface in javax.faces.view.facelets">getBinding</a>, <a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/DelegatingMetaTagHandler.html?is-external=true#getTag()" title="class or interface in javax.faces.view.facelets">getTag</a>, <a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/DelegatingMetaTagHandler.html?is-external=true#getTagId()" title="class or interface in javax.faces.view.facelets">getTagId</a>, <a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/DelegatingMetaTagHandler.html?is-external=true#setAttributes(javax.faces.view.facelets.FaceletContext, java.lang.Object)" title="class or interface in javax.faces.view.facelets">setAttributes</a></code></li>
+<code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/DelegatingMetaTagHandler.html?is-external=true#applyNextHandler(javax.faces.view.facelets.FaceletContext,%20javax.faces.component.UIComponent)" title="class or interface in javax.faces.view.facelets">applyNextHandler</a>, <a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/DelegatingMetaTagHandler.html?is-external=true#createMetaRuleset(java.lang.Class)" title="class or interface in javax.faces.view.facelets">createMetaRuleset</a>, <a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/DelegatingMetaTagHandler.html?is-external=true#getBinding()" title="class or interface in javax.faces.view.facelets">getBinding</a>, <a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/DelegatingMetaTagHandler.html?is-external=true#getTag()" title="class or interface in javax.faces.view.facelets">getTag</a>, <a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/DelegatingMetaTagHandler.html?is-external=true#getTagId()" title="class or interface in javax.faces.view.facelets">getTagId</a>, <a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/DelegatingMetaTagHandler.html?is-external=true#setAttributes(javax.faces.view.facelets.FaceletContext,%20java.lang.Object)" title="class or interface in javax.faces.view.facelets">setAttributes</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods_inherited_from_class_javax.faces.view.facelets.TagHandler">
@@ -295,14 +297,14 @@ extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/V
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
-<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long, int)" title="class or interface in java.lang">wait</a></code></li>
+<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,%20int)" title="class or interface in java.lang">wait</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods_inherited_from_class_javax.faces.view.AttachedObjectHandler">
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;javax.faces.view.<a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/AttachedObjectHandler.html?is-external=true" title="class or interface in javax.faces.view">AttachedObjectHandler</a></h3>
-<code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/AttachedObjectHandler.html?is-external=true#applyAttachedObject(javax.faces.context.FacesContext, javax.faces.component.UIComponent)" title="class or interface in javax.faces.view">applyAttachedObject</a>, <a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/AttachedObjectHandler.html?is-external=true#getFor()" title="class or interface in javax.faces.view">getFor</a></code></li>
+<code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/AttachedObjectHandler.html?is-external=true#applyAttachedObject(javax.faces.context.FacesContext,%20javax.faces.component.UIComponent)" title="class or interface in javax.faces.view">applyAttachedObject</a>, <a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/AttachedObjectHandler.html?is-external=true#getFor()" title="class or interface in javax.faces.view">getFor</a></code></li>
 </ul>
 </li>
 </ul>
@@ -354,9 +356,9 @@ extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/V
  the anonymous implementation on the parent component.</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
-<dd><code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/FaceletHandler.html?is-external=true#apply(javax.faces.view.facelets.FaceletContext, javax.faces.component.UIComponent)" title="class or interface in javax.faces.view.facelets">apply</a></code>&nbsp;in interface&nbsp;<code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/FaceletHandler.html?is-external=true" title="class or interface in javax.faces.view.facelets">FaceletHandler</a></code></dd>
+<dd><code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/FaceletHandler.html?is-external=true#apply(javax.faces.view.facelets.FaceletContext,%20javax.faces.component.UIComponent)" title="class or interface in javax.faces.view.facelets">apply</a></code>&nbsp;in interface&nbsp;<code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/FaceletHandler.html?is-external=true" title="class or interface in javax.faces.view.facelets">FaceletHandler</a></code></dd>
 <dt><strong>Overrides:</strong></dt>
-<dd><code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/DelegatingMetaTagHandler.html?is-external=true#apply(javax.faces.view.facelets.FaceletContext, javax.faces.component.UIComponent)" title="class or interface in javax.faces.view.facelets">apply</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/DelegatingMetaTagHandler.html?is-external=true" title="class or interface in javax.faces.view.facelets">DelegatingMetaTagHandler</a></code></dd>
+<dd><code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/DelegatingMetaTagHandler.html?is-external=true#apply(javax.faces.view.facelets.FaceletContext,%20javax.faces.component.UIComponent)" title="class or interface in javax.faces.view.facelets">apply</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/DelegatingMetaTagHandler.html?is-external=true" title="class or interface in javax.faces.view.facelets">DelegatingMetaTagHandler</a></code></dd>
 <dt><span class="strong">Parameters:</span></dt><dd><code>context</code> - The involved facelet context.</dd><dd><code>parent</code> - The parent component to add the <code>Validator</code> to.</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - If something fails at I/O level.</dd></dl>
@@ -381,7 +383,7 @@ extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/V
 <h4>getTagAttribute</h4>
 <pre>public&nbsp;<a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/TagAttribute.html?is-external=true" title="class or interface in javax.faces.view.facelets">TagAttribute</a>&nbsp;getTagAttribute(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
 <div class="block">Just return TagHandler#getAttribute() via a public method (it's by default protected and otherwise thus
- unavailable inside collectRenderTimeAttributes().</div>
+ unavailable inside collectDeferredAttributes().</div>
 <dl>
 <dt><strong>Overrides:</strong></dt>
 <dd><code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/DelegatingMetaTagHandler.html?is-external=true#getTagAttribute(java.lang.String)" title="class or interface in javax.faces.view.facelets">getTagAttribute</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/DelegatingMetaTagHandler.html?is-external=true" title="class or interface in javax.faces.view.facelets">DelegatingMetaTagHandler</a></code></dd>
@@ -441,7 +443,7 @@ extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/V
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../org/omnifaces/taghandler/ValidateUniqueColumn.html" title="class in org.omnifaces.taghandler"><span class="strong">Prev Class</span></a></li>
-<li><a href="../../../org/omnifaces/taghandler/Validator.RenderTimeValidator.html" title="class in org.omnifaces.taghandler"><span class="strong">Next Class</span></a></li>
+<li><a href="../../../org/omnifaces/taghandler/Validator.DeferredValidator.html" title="class in org.omnifaces.taghandler"><span class="strong">Next Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?org/omnifaces/taghandler/Validator.html" target="_top">Frames</a></li>

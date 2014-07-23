@@ -126,15 +126,17 @@
 <tr class="altColor">
 <td class="colFirst"><a href="../../../org/omnifaces/eventlistener/InvokeActionEventListener.html" title="class in org.omnifaces.eventlistener">InvokeActionEventListener</a></td>
 <td class="colLast">
-<div class="block">This phase listener takes care that the <a href="../../../org/omnifaces/event/PreInvokeActionEvent.html" title="class in org.omnifaces.event"><code>PreInvokeActionEvent</code></a> and <a href="../../../org/omnifaces/event/PostInvokeActionEvent.html" title="class in org.omnifaces.event"><code>PostInvokeActionEvent</code></a> events are
- properly published.</div>
+<div class="block">
+ The <a href="../../../org/omnifaces/eventlistener/InvokeActionEventListener.html" title="class in org.omnifaces.eventlistener"><code>InvokeActionEventListener</code></a> will add support for new <code>&lt;f:event&gt;</code> types
+ <code>preInvokeAction</code> and <code>postInvokeAction</code>.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><a href="../../../org/omnifaces/eventlistener/ResetInputAjaxActionListener.html" title="class in org.omnifaces.eventlistener">ResetInputAjaxActionListener</a></td>
 <td class="colLast">
-<div class="block">Use this action listener when you want to partially (ajax) render input fields which are not executed during submit,
- but which are possibly in an invalidated state because of a validation failure during a previous request.</div>
+<div class="block">
+ The <a href="../../../org/omnifaces/eventlistener/ResetInputAjaxActionListener.html" title="class in org.omnifaces.eventlistener"><code>ResetInputAjaxActionListener</code></a> will reset input fields which are not executed during ajax submit, but which
+ are rendered/updated during ajax response.</div>
 </td>
 </tr>
 </tbody>
