@@ -20,10 +20,10 @@
 <!-- Just copypasted from homepage. -->
 <h2>CDI</h2>
 
-<p>So, you got the following error in server log?</p>
+<p>So, you got the following error in server log when using OmniFaces 2.x?</p>
 
 <div class="highlight highlight-sh"><pre style="line-height:14px">
-org.omnifaces.ApplicationInitializer onStartup
+org.omnifaces.ApplicationInitializer checkCDIAvailable
 SEVERE: 
 ████████████████████████████████████████████████████████████████████████████████
 ▌                         ▐█     ▐                                             ▐
@@ -58,7 +58,7 @@ SEVERE:
 ████████████████████████████████████████████████████████████████████████████████
 </pre></div> 
 
-<p>Well, here are the additional instructions:</p>
+<p>Okay, here are the additional instructions:</p>
 <ol>
 <li><strong>Downgrade to OmniFaces 1.x.</strong>
 <br/>This version doesn't require CDI. So you should be able to run it on CDI-less environments. You can find download links in the <a href="http://omnifaces.org">homepage</a>.
