@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html lang="en" xmlns:javaee="http://java.sun.com/xml/ns/javaee" xmlns:vdldoc="http://vdldoc.org/vdldoc" xmlns:fo="http://www.w3.org/1999/XSL/Format">
+<html lang="en" xmlns:javaee="http://xmlns.jcp.org/xml/ns/javaee" xmlns:vdldoc="http://vdldoc.omnifaces.org" xmlns:fo="http://www.w3.org/1999/XSL/Format">
 <head>
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>cacheValue (OmniFaces VDL Documentation - Generated Documentation)
@@ -64,6 +64,7 @@
 <dl>
 <dt>Description:</dt>
 <dd>
+<div class="block">
 			
 				Tag handler (runs at tree build-time) that makes a value expression available under the given name that caches its value.
 				Although the value expressions scope is that of the entire Facelet in which this tag appears, the value it self is cached
@@ -78,7 +79,8 @@
 				The intended use of this is to explicitly cache a value expression that is used by one of the component children of <code>o:Cache</code>,
 				so that even after a post-back (where the cached markup is of nu use) the original value expression will not be re-evaluated.
 			
-		</dd>
+		</div>
+</dd>
 </dl>
 </li>
 </ul>

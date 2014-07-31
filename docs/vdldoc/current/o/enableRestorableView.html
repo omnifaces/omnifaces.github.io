@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html lang="en" xmlns:javaee="http://java.sun.com/xml/ns/javaee" xmlns:vdldoc="http://vdldoc.org/vdldoc" xmlns:fo="http://www.w3.org/1999/XSL/Format">
+<html lang="en" xmlns:javaee="http://xmlns.jcp.org/xml/ns/javaee" xmlns:vdldoc="http://vdldoc.omnifaces.org" xmlns:fo="http://www.w3.org/1999/XSL/Format">
 <head>
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>enableRestorableView (OmniFaces VDL Documentation - Generated Documentation)
@@ -64,6 +64,7 @@
 <dl>
 <dt>Description:</dt>
 <dd>
+<div class="block">
 			
 				The <code>&lt;o:enableRestorableView&gt;</code> instructs the view handler to recreate the entire view whenever the
 				view has been expired, i.e. whenever <code>#restoreView(FacesContext, String)</code> returns <code>null</code> and the
@@ -73,7 +74,8 @@
 				There are however technical design limitations: please consult the javadoc for details. To the point, the bean associated
 				with the view has to be exclusively request scoped in order to properly recreate the same view.
 			
-		</dd>
+		</div>
+</dd>
 </dl>
 </li>
 </ul>
@@ -85,6 +87,11 @@
 <caption>
 <span>Attributes</span><span class="tabEnd">&nbsp;</span>
 </caption>
+<thead>
+<tr>
+<th class="colFirst">Name</th><th class="colOne">Required</th><th class="colOne">Type</th><th class="colLast">Description</th>
+</tr>
+</thead>
 <tbody>
 <td class="colOne" colspan="4"><i>No Attributes Defined.</i></td>
 </tbody>
