@@ -388,6 +388,15 @@ extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/C
 <pre>public&nbsp;&lt;T&gt;&nbsp;T&nbsp;create(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/Application.html?is-external=true" title="class or interface in javax.faces.application">Application</a>&nbsp;application,
                     <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;id)</pre>
 <div class="block">Create the concrete <a href="../../../org/omnifaces/taghandler/Converter.html" title="class in org.omnifaces.taghandler"><code>Converter</code></a> or <a href="../../../org/omnifaces/taghandler/Validator.html" title="class in org.omnifaces.taghandler"><code>Validator</code></a>.</div>
+<dl>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>T</code> - The expected return type.</dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>application</code> - The involved faces application.</dd>
+<dd><code>id</code> - The converter or validator ID.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The concrete <a href="../../../org/omnifaces/taghandler/Converter.html" title="class in org.omnifaces.taghandler"><code>Converter</code></a> or <a href="../../../org/omnifaces/taghandler/Validator.html" title="class in org.omnifaces.taghandler"><code>Validator</code></a>.</dd>
+</dl>
 </li>
 </ul>
 <a name="getTagAttribute-java.lang.String-">
@@ -402,6 +411,10 @@ extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/C
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/DelegatingMetaTagHandler.html?is-external=true#getTagAttribute-java.lang.String-" title="class or interface in javax.faces.view.facelets">getTagAttribute</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/DelegatingMetaTagHandler.html?is-external=true" title="class or interface in javax.faces.view.facelets">DelegatingMetaTagHandler</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>name</code> - The attribute name.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The tag attribute associated with given attribute name.</dd>
 </dl>
 </li>
 </ul>

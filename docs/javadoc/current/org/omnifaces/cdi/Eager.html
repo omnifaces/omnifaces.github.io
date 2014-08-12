@@ -274,6 +274,10 @@ public @interface <span class="memberNameLabel">Eager</span></pre>
  If both this attribute and <a href="../../../org/omnifaces/cdi/Eager.html#viewId--"><code>viewId()</code></a> is specified, this attribute takes precedence for <a href="http://docs.oracle.com/javaee/7/api/javax/enterprise/context/RequestScoped.html?is-external=true" title="class or interface in javax.enterprise.context"><code>RequestScoped</code></a>.
  This attribute <b>can not</b> be used for <a href="../../../org/omnifaces/cdi/ViewScoped.html" title="annotation in org.omnifaces.cdi"><code>ViewScoped</code></a> beans.</div>
 <dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The request URI relative to the context root.</dd>
+</dl>
+<dl>
 <dt>Default:</dt>
 <dd>""</dd>
 </dl>
@@ -300,6 +304,10 @@ public @interface <span class="memberNameLabel">Eager</span></pre>
  If both this attribute and <a href="../../../org/omnifaces/cdi/Eager.html#requestURI--"><code>requestURI()</code></a> is specified and the scope is <a href="http://docs.oracle.com/javaee/7/api/javax/enterprise/context/RequestScoped.html?is-external=true" title="class or interface in javax.enterprise.context"><code>RequestScoped</code></a>, the
  <code>requestURI</code> attribute takes precedence. If the scope is <a href="../../../org/omnifaces/cdi/ViewScoped.html" title="annotation in org.omnifaces.cdi"><code>ViewScoped</code></a> <code>requestURI</code> is ignored and only
  this attribute is considered.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The view ID.</dd>
+</dl>
 <dl>
 <dt>Default:</dt>
 <dd>""</dd>

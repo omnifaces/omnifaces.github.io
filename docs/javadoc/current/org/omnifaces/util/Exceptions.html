@@ -212,6 +212,8 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
  This is particularly useful if you want to unwrap the real root cause out of a nested hierarchy of
  <a href="http://docs.oracle.com/javaee/7/api/javax/servlet/ServletException.html?is-external=true" title="class or interface in javax.servlet"><code>ServletException</code></a> or <a href="http://docs.oracle.com/javaee/7/api/javax/faces/FacesException.html?is-external=true" title="class or interface in javax.faces"><code>FacesException</code></a>.</div>
 <dl>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>T</code> - The generic throwable type.</dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>exception</code> - The exception to be unwrapped.</dd>
 <dd><code>type</code> - The type which needs to be unwrapped.</dd>
@@ -251,6 +253,8 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
                                                <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;type)</pre>
 <div class="block">Returns <code>true</code> if the given exception or one of its nested causes is an instance of the given type.</div>
 <dl>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>T</code> - The generic throwable type.</dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>exception</code> - The exception to be checked.</dd>
 <dd><code>type</code> - The type to be compared to.</dd>

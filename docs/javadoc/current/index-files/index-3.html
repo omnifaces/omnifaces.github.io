@@ -234,6 +234,8 @@
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/cdi/eager/EagerExtension.html#collect-javax.enterprise.inject.spi.ProcessBean-javax.enterprise.inject.spi.BeanManager-">collect(ProcessBean&lt;T&gt;, BeanManager)</a></span> - Method in class org.omnifaces.cdi.eager.<a href="../org/omnifaces/cdi/eager/EagerExtension.html" title="class in org.omnifaces.cdi.eager">EagerExtension</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/cdi/param/ParamExtension.html#collect-javax.enterprise.inject.spi.ProcessManagedBean-">collect(ProcessManagedBean&lt;T&gt;)</a></span> - Method in class org.omnifaces.cdi.param.<a href="../org/omnifaces/cdi/param/ParamExtension.html" title="class in org.omnifaces.cdi.param">ParamExtension</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/util/selectitems/SelectItemsUtils.html#collectAllValuesFromSelectItems-javax.faces.context.FacesContext-javax.faces.component.UIComponent-">collectAllValuesFromSelectItems(FacesContext, UIComponent)</a></span> - Static method in class org.omnifaces.util.selectitems.<a href="../org/omnifaces/util/selectitems/SelectItemsUtils.html" title="class in org.omnifaces.util.selectitems">SelectItemsUtils</a></dt>
 <dd>
 <div class="block">Collects all values associated with all <a href="http://docs.oracle.com/javaee/7/api/javax/faces/model/SelectItem.html?is-external=true" title="class or interface in javax.faces.model"><code>SelectItem</code></a> instances associated with the given component.</div>
@@ -488,6 +490,8 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/eventlistener/DefaultServletContextListener.html#contextInitialized-javax.servlet.ServletContextEvent-">contextInitialized(ServletContextEvent)</a></span> - Method in class org.omnifaces.eventlistener.<a href="../org/omnifaces/eventlistener/DefaultServletContextListener.html" title="class in org.omnifaces.eventlistener">DefaultServletContextListener</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/cdi/param/DynamicParamValueProdcuer.DefaultParamAnnotationLiteral.html#converter--">converter()</a></span> - Method in class org.omnifaces.cdi.param.<a href="../org/omnifaces/cdi/param/DynamicParamValueProdcuer.DefaultParamAnnotationLiteral.html" title="class in org.omnifaces.cdi.param">DynamicParamValueProdcuer.DefaultParamAnnotationLiteral</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="../org/omnifaces/taghandler/Converter.html" title="class in org.omnifaces.taghandler"><span class="typeNameLink">Converter</span></a> - Class in <a href="../org/omnifaces/taghandler/package-summary.html">org.omnifaces.taghandler</a></dt>
 <dd>
 <div class="block">
@@ -502,17 +506,19 @@
 <dd>
 <div class="block">So that we can have a serializable converter.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/cdi/param/DynamicParamValueProdcuer.DefaultParamAnnotationLiteral.html#converterAttributes--">converterAttributes()</a></span> - Method in class org.omnifaces.cdi.param.<a href="../org/omnifaces/cdi/param/DynamicParamValueProdcuer.DefaultParamAnnotationLiteral.html" title="class in org.omnifaces.cdi.param">DynamicParamValueProdcuer.DefaultParamAnnotationLiteral</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/cdi/param/DynamicParamValueProdcuer.DefaultParamAnnotationLiteral.html#converterClass--">converterClass()</a></span> - Method in class org.omnifaces.cdi.param.<a href="../org/omnifaces/cdi/param/DynamicParamValueProdcuer.DefaultParamAnnotationLiteral.html" title="class in org.omnifaces.cdi.param">DynamicParamValueProdcuer.DefaultParamAnnotationLiteral</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="../org/omnifaces/cdi/converter/ConverterManager.html" title="class in org.omnifaces.cdi.converter"><span class="typeNameLink">ConverterManager</span></a> - Class in <a href="../org/omnifaces/cdi/converter/package-summary.html">org.omnifaces.cdi.converter</a></dt>
 <dd>
 <div class="block">
- The <code>@FacesConverter</code> is by default not eligible for dependency injection by <a href="http://docs.oracle.com/javaee/7/api/javax/inject/Inject.html?is-external=true" title="class or interface in javax.inject"><code>Inject</code></a> nor <a href="http://docs.oracle.com/javaee/7/api/javax/ejb/EJB.html?is-external=true" title="class or interface in javax.ejb"><code>EJB</code></a>.</div>
+ The <code>@FacesConverter</code> is by default not eligible for dependency injection by <code>@Inject</code> nor <code>@EJB</code>.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/cdi/converter/ConverterManager.html#ConverterManager--">ConverterManager()</a></span> - Constructor for class org.omnifaces.cdi.converter.<a href="../org/omnifaces/cdi/converter/ConverterManager.html" title="class in org.omnifaces.cdi.converter">ConverterManager</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="../org/omnifaces/application/ConverterProvider.html" title="interface in org.omnifaces.application"><span class="typeNameLink">ConverterProvider</span></a> - Interface in <a href="../org/omnifaces/application/package-summary.html">org.omnifaces.application</a></dt>
-<dd>
-<div class="block">An abstraction of converter provider, so that JSF can obtain the concrete instance without a CDI dependency.</div>
-</dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/cdi/param/DynamicParamValueProdcuer.DefaultParamAnnotationLiteral.html#converterMessage--">converterMessage()</a></span> - Method in class org.omnifaces.cdi.param.<a href="../org/omnifaces/cdi/param/DynamicParamValueProdcuer.DefaultParamAnnotationLiteral.html" title="class in org.omnifaces.cdi.param">DynamicParamValueProdcuer.DefaultParamAnnotationLiteral</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="../org/omnifaces/el/functions/Converters.html" title="class in org.omnifaces.el.functions"><span class="typeNameLink">Converters</span></a> - Class in <a href="../org/omnifaces/el/functions/package-summary.html">org.omnifaces.el.functions</a></dt>
 <dd>
 <div class="block">
@@ -520,6 +526,8 @@
  <code>of:setToList()</code>, <code>of:mapToList()</code>, <code>of:joinArray()</code>, <code>of:joinCollection()</code>,
  <code>of:joinMap()</code>, <code>of:splitArray()</code>, <code>of:splitList()</code>, and <code>of:toJson()</code>.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/cdi/param/DynamicParamValueProdcuer.html#create-javax.enterprise.context.spi.CreationalContext-">create(CreationalContext&lt;Object&gt;)</a></span> - Method in class org.omnifaces.cdi.param.<a href="../org/omnifaces/cdi/param/DynamicParamValueProdcuer.html" title="class in org.omnifaces.cdi.param">DynamicParamValueProdcuer</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/taghandler/Converter.html#create-javax.faces.application.Application-java.lang.String-">create(Application, String)</a></span> - Method in class org.omnifaces.taghandler.<a href="../org/omnifaces/taghandler/Converter.html" title="class in org.omnifaces.taghandler">Converter</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/taghandler/Validator.html#create-javax.faces.application.Application-java.lang.String-">create(Application, String)</a></span> - Method in class org.omnifaces.taghandler.<a href="../org/omnifaces/taghandler/Validator.html" title="class in org.omnifaces.taghandler">Validator</a></dt>
@@ -570,30 +578,26 @@
 <dd>
 <div class="block">Returns a new <a href="http://docs.oracle.com/javase/7/docs/api/java/util/TreeSet.html?is-external=true" title="class or interface in java.util"><code>TreeSet</code></a>.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="../org/omnifaces/application/ConverterProvider.html#createConverter-javax.faces.application.Application-java.lang.String-">createConverter(Application, String)</a></span> - Method in interface org.omnifaces.application.<a href="../org/omnifaces/application/ConverterProvider.html" title="interface in org.omnifaces.application">ConverterProvider</a></dt>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/application/OmniApplication.html#createConverter-java.lang.String-">createConverter(String)</a></span> - Method in class org.omnifaces.application.<a href="../org/omnifaces/application/OmniApplication.html" title="class in org.omnifaces.application">OmniApplication</a></dt>
+<dd>
+<div class="block">If the there's a CDI managed <a href="http://docs.oracle.com/javaee/7/api/javax/faces/convert/Converter.html?is-external=true" title="class or interface in javax.faces.convert"><code>Converter</code></a> instance available, then return it, else delegate to
+ <a href="../org/omnifaces/application/OmniApplication.html#getWrapped--"><code>OmniApplication.getWrapped()</code></a> which may return the JSF managed <a href="http://docs.oracle.com/javaee/7/api/javax/faces/convert/Converter.html?is-external=true" title="class or interface in javax.faces.convert"><code>Converter</code></a> instance.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/application/OmniApplication.html#createConverter-java.lang.Class-">createConverter(Class&lt;?&gt;)</a></span> - Method in class org.omnifaces.application.<a href="../org/omnifaces/application/OmniApplication.html" title="class in org.omnifaces.application">OmniApplication</a></dt>
+<dd>
+<div class="block">If the there's a CDI managed <a href="http://docs.oracle.com/javaee/7/api/javax/faces/convert/Converter.html?is-external=true" title="class or interface in javax.faces.convert"><code>Converter</code></a> instance available, then return it, else delegate to
+ <a href="../org/omnifaces/application/OmniApplication.html#getWrapped--"><code>OmniApplication.getWrapped()</code></a> which may return the JSF managed <a href="http://docs.oracle.com/javaee/7/api/javax/faces/convert/Converter.html?is-external=true" title="class or interface in javax.faces.convert"><code>Converter</code></a> instance.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/cdi/converter/ConverterManager.html#createConverter-javax.faces.application.Application-java.lang.String-">createConverter(Application, String)</a></span> - Method in class org.omnifaces.cdi.converter.<a href="../org/omnifaces/cdi/converter/ConverterManager.html" title="class in org.omnifaces.cdi.converter">ConverterManager</a></dt>
 <dd>
 <div class="block">Returns the converter instance associated with the given converter ID,
  or <code>null</code> if there is none.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="../org/omnifaces/application/ConverterProvider.html#createConverter-javax.faces.application.Application-java.lang.Class-">createConverter(Application, Class&lt;?&gt;)</a></span> - Method in interface org.omnifaces.application.<a href="../org/omnifaces/application/ConverterProvider.html" title="interface in org.omnifaces.application">ConverterProvider</a></dt>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/cdi/converter/ConverterManager.html#createConverter-javax.faces.application.Application-java.lang.Class-">createConverter(Application, Class&lt;?&gt;)</a></span> - Method in class org.omnifaces.cdi.converter.<a href="../org/omnifaces/cdi/converter/ConverterManager.html" title="class in org.omnifaces.cdi.converter">ConverterManager</a></dt>
 <dd>
 <div class="block">Returns the converter instance associated with the given converter for-class,
  or <code>null</code> if there is none.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="../org/omnifaces/application/OmniApplication.html#createConverter-java.lang.String-">createConverter(String)</a></span> - Method in class org.omnifaces.application.<a href="../org/omnifaces/application/OmniApplication.html" title="class in org.omnifaces.application">OmniApplication</a></dt>
-<dd>
-<div class="block">If the <a href="../org/omnifaces/application/ConverterProvider.html" title="interface in org.omnifaces.application"><code>ConverterProvider</code></a> is present and there's a CDI managed <a href="http://docs.oracle.com/javaee/7/api/javax/faces/convert/Converter.html?is-external=true" title="class or interface in javax.faces.convert"><code>Converter</code></a> instance available, then
- return it, else delegate to <a href="../org/omnifaces/application/OmniApplication.html#getWrapped--"><code>OmniApplication.getWrapped()</code></a> which may return the JSF managed <a href="http://docs.oracle.com/javaee/7/api/javax/faces/convert/Converter.html?is-external=true" title="class or interface in javax.faces.convert"><code>Converter</code></a> instance.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="../org/omnifaces/application/OmniApplication.html#createConverter-java.lang.Class-">createConverter(Class&lt;?&gt;)</a></span> - Method in class org.omnifaces.application.<a href="../org/omnifaces/application/OmniApplication.html" title="class in org.omnifaces.application">OmniApplication</a></dt>
-<dd>
-<div class="block">If the <a href="../org/omnifaces/application/ConverterProvider.html" title="interface in org.omnifaces.application"><code>ConverterProvider</code></a> is present and there's a CDI managed <a href="http://docs.oracle.com/javaee/7/api/javax/faces/convert/Converter.html?is-external=true" title="class or interface in javax.faces.convert"><code>Converter</code></a> instance available, then
- return it, else delegate to <a href="../org/omnifaces/application/OmniApplication.html#getWrapped--"><code>OmniApplication.getWrapped()</code></a> which may return the JSF managed <a href="http://docs.oracle.com/javaee/7/api/javax/faces/convert/Converter.html?is-external=true" title="class or interface in javax.faces.convert"><code>Converter</code></a> instance.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="../org/omnifaces/cdi/converter/ConverterManager.html#createConverter-javax.faces.application.Application-java.lang.String-">createConverter(Application, String)</a></span> - Method in class org.omnifaces.cdi.converter.<a href="../org/omnifaces/cdi/converter/ConverterManager.html" title="class in org.omnifaces.cdi.converter">ConverterManager</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="../org/omnifaces/cdi/converter/ConverterManager.html#createConverter-javax.faces.application.Application-java.lang.Class-">createConverter(Application, Class&lt;?&gt;)</a></span> - Method in class org.omnifaces.cdi.converter.<a href="../org/omnifaces/cdi/converter/ConverterManager.html" title="class in org.omnifaces.cdi.converter">ConverterManager</a></dt>
-<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/util/Messages.html#createError-java.lang.String-java.lang.Object...-">createError(String, Object...)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Messages.html" title="class in org.omnifaces.util">Messages</a></dt>
 <dd>
 <div class="block">Create an ERROR faces message with the given message body which is formatted with the given parameters.</div>
@@ -666,16 +670,14 @@
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/application/OmniApplication.html#createValidator-java.lang.String-">createValidator(String)</a></span> - Method in class org.omnifaces.application.<a href="../org/omnifaces/application/OmniApplication.html" title="class in org.omnifaces.application">OmniApplication</a></dt>
 <dd>
-<div class="block">If the <a href="../org/omnifaces/application/ValidatorProvider.html" title="interface in org.omnifaces.application"><code>ValidatorProvider</code></a> is present and there's a CDI managed <a href="http://docs.oracle.com/javaee/7/api/javax/faces/validator/Validator.html?is-external=true" title="class or interface in javax.faces.validator"><code>Validator</code></a> instance available, then
- return it, else delegate to <a href="../org/omnifaces/application/OmniApplication.html#getWrapped--"><code>OmniApplication.getWrapped()</code></a> which may return the JSF managed <a href="http://docs.oracle.com/javaee/7/api/javax/faces/validator/Validator.html?is-external=true" title="class or interface in javax.faces.validator"><code>Validator</code></a> instance.</div>
+<div class="block">If the there's a CDI managed <a href="http://docs.oracle.com/javaee/7/api/javax/faces/validator/Validator.html?is-external=true" title="class or interface in javax.faces.validator"><code>Validator</code></a> instance available, then return it, else delegate to
+ <a href="../org/omnifaces/application/OmniApplication.html#getWrapped--"><code>OmniApplication.getWrapped()</code></a> which may return the JSF managed <a href="http://docs.oracle.com/javaee/7/api/javax/faces/validator/Validator.html?is-external=true" title="class or interface in javax.faces.validator"><code>Validator</code></a> instance.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="../org/omnifaces/application/ValidatorProvider.html#createValidator-javax.faces.application.Application-java.lang.String-">createValidator(Application, String)</a></span> - Method in interface org.omnifaces.application.<a href="../org/omnifaces/application/ValidatorProvider.html" title="interface in org.omnifaces.application">ValidatorProvider</a></dt>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/cdi/validator/ValidatorManager.html#createValidator-javax.faces.application.Application-java.lang.String-">createValidator(Application, String)</a></span> - Method in class org.omnifaces.cdi.validator.<a href="../org/omnifaces/cdi/validator/ValidatorManager.html" title="class in org.omnifaces.cdi.validator">ValidatorManager</a></dt>
 <dd>
 <div class="block">Returns the validator instance associated with the given validator ID,
  or <code>null</code> if there is none.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="../org/omnifaces/cdi/validator/ValidatorManager.html#createValidator-javax.faces.application.Application-java.lang.String-">createValidator(Application, String)</a></span> - Method in class org.omnifaces.cdi.validator.<a href="../org/omnifaces/cdi/validator/ValidatorManager.html" title="class in org.omnifaces.cdi.validator">ValidatorManager</a></dt>
-<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/util/Components.html#createValueExpression-java.lang.String-java.lang.Class-">createValueExpression(String, Class&lt;?&gt;)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Components.html" title="class in org.omnifaces.util">Components</a></dt>
 <dd>
 <div class="block">Create an editable value expression based on the given EL expression and the given type.</div>

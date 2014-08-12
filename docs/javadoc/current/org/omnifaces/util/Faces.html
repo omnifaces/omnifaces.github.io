@@ -1453,6 +1453,8 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <pre>public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;getContextAttribute(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
 <div class="block">Returns the Faces context attribute value associated with the given name.</div>
 <dl>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>T</code> - The expected return type.</dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>name</code> - The Faces context attribute name.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -1663,6 +1665,8 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <div class="block">Returns the metadata attribute of the given view ID associated with the given name.
  Note: this is not the same as the view scope, for that use <a href="../../../org/omnifaces/util/Faces.html#getViewAttribute-java.lang.String-"><code>getViewAttribute(String)</code></a>.</div>
 <dl>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>T</code> - The expected return type.</dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>viewId</code> - The view ID to return the metadata attribute for.</dd>
 <dd><code>name</code> - The metadata attribute name.</dd>
@@ -1687,6 +1691,8 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <div class="block">Returns the metadata attribute of the current view associated with the given name.
  Note: this is not the same as the view scope, for that use <a href="../../../org/omnifaces/util/Faces.html#getViewAttribute-java.lang.String-"><code>getViewAttribute(String)</code></a>.</div>
 <dl>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>T</code> - The expected return type.</dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>name</code> - The metadata attribute name.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -1957,6 +1963,8 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
  <code>&lt;ui:param&gt;</code> which is been declared inside the Facelet file, or is been passed into the Facelet
  file by e.g. an <code>&lt;ui:include&gt;</code>.</div>
 <dl>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>T</code> - The expected return type.</dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>name</code> - The Facelet attribute name.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -3439,6 +3447,8 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <pre>public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;getRequestAttribute(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
 <div class="block">Returns the request scope attribute value associated with the given name.</div>
 <dl>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>T</code> - The expected return type.</dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>name</code> - The request scope attribute name.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -3477,6 +3487,8 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <pre>public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;removeRequestAttribute(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
 <div class="block">Removes the request scope attribute value associated with the given name.</div>
 <dl>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>T</code> - The expected return type.</dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>name</code> - The request scope attribute name.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -3517,6 +3529,8 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <pre>public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;getFlashAttribute(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
 <div class="block">Returns the flash scope attribute value associated with the given name.</div>
 <dl>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>T</code> - The expected return type.</dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>name</code> - The flash scope attribute name.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -3555,6 +3569,8 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <pre>public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;removeFlashAttribute(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
 <div class="block">Removes the flash scope attribute value associated with the given name.</div>
 <dl>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>T</code> - The expected return type.</dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>name</code> - The flash scope attribute name.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -3594,6 +3610,8 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <pre>public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;getViewAttribute(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
 <div class="block">Returns the view scope attribute value associated with the given name.</div>
 <dl>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>T</code> - The expected return type.</dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>name</code> - The view scope attribute name.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -3632,6 +3650,8 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <pre>public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;removeViewAttribute(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
 <div class="block">Removes the view scope attribute value associated with the given name.</div>
 <dl>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>T</code> - The expected return type.</dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>name</code> - The view scope attribute name.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -3671,6 +3691,8 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <pre>public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;getSessionAttribute(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
 <div class="block">Returns the session scope attribute value associated with the given name.</div>
 <dl>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>T</code> - The expected return type.</dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>name</code> - The session scope attribute name.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -3709,6 +3731,8 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <pre>public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;removeSessionAttribute(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
 <div class="block">Removes the session scope attribute value associated with the given name.</div>
 <dl>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>T</code> - The expected return type.</dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>name</code> - The session scope attribute name.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -3748,6 +3772,8 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <pre>public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;getApplicationAttribute(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
 <div class="block">Returns the application scope attribute value associated with the given name.</div>
 <dl>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>T</code> - The expected return type.</dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>name</code> - The application scope attribute name.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -3786,6 +3812,8 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <pre>public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;removeApplicationAttribute(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
 <div class="block">Removes the application scope attribute value associated with the given name.</div>
 <dl>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>T</code> - The expected return type.</dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>name</code> - The application scope attribute name.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>

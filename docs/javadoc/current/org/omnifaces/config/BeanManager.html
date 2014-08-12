@@ -231,7 +231,8 @@ the order they are declared.</div>
 <li class="blockList">
 <h4>INSTANCE</h4>
 <pre>public static final&nbsp;<a href="../../../org/omnifaces/config/BeanManager.html" title="enum in org.omnifaces.config">BeanManager</a> INSTANCE</pre>
-<div class="block">Returns the lazily loaded enum singleton instance.</div>
+<div class="block">Returns the lazily loaded enum singleton instance.
+ Throws <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang"><code>IllegalStateException</code></a> when initialization fails.</div>
 </li>
 </ul>
 </li>
@@ -293,12 +294,14 @@ not permitted.)</div>
 <pre>public&nbsp;&lt;T&gt;&nbsp;T&nbsp;getReference(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;beanClass)</pre>
 <div class="block">Returns the CDI managed bean instance of the given class, or <code>null</code> if there is none.</div>
 <dl>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>T</code> - The generic bean type.</dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>beanClass</code> - The type of the CDI managed bean instance.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The CDI managed bean instance of the given class, or <code>null</code> if there is none.</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javaee/7/api/javax/enterprise/inject/CreationException.html?is-external=true" title="class or interface in javax.enterprise.inject">CreationException</a></code> - When obtaining the CD managed bean instance failed with an exception.</dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/UnsupportedOperationException.html?is-external=true" title="class or interface in java.lang">UnsupportedOperationException</a></code> - When obtaining the CDI managed bean instance failed with an exception.</dd>
 </dl>
 </li>
 </ul>

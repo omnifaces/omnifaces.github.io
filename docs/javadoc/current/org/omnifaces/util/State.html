@@ -222,8 +222,14 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
  <p>
  See <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/StateHelper.html?is-external=true#eval-java.io.Serializable-" title="class or interface in javax.faces.component"><code>StateHelper.eval(Serializable)</code></a></div>
 <dl>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>T</code> - The expected return type.</dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>key</code> - the name of the value in component's state</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The value associated with the specified key.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/ClassCastException.html?is-external=true" title="class or interface in java.lang">ClassCastException</a></code> - When <code>T</code> is of wrong type.</dd>
 </dl>
 </li>
 </ul>
@@ -239,9 +245,15 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
  <p>
  See <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/StateHelper.html?is-external=true#eval-java.io.Serializable-java.lang.Object-" title="class or interface in javax.faces.component"><code>StateHelper.eval(Serializable, Object)</code></a></div>
 <dl>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>T</code> - The expected return type.</dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>key</code> - the name of the value in component's state</dd>
 <dd><code>defaultValue</code> - the value to return if no value is found in the call to get()</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The value associated with the specified key, or the given default value if no value is found.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/ClassCastException.html?is-external=true" title="class or interface in java.lang">ClassCastException</a></code> - When <code>T</code> is of wrong type.</dd>
 </dl>
 </li>
 </ul>
@@ -261,9 +273,15 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
  <p>
  See <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/StateHelper.html?is-external=true#put-java.io.Serializable-java.lang.Object-" title="class or interface in javax.faces.component"><code>StateHelper.put(Serializable, Object)</code></a></div>
 <dl>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>T</code> - The expected value and return type.</dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>key</code> - </dd>
-<dd><code>value</code> - </dd>
+<dd><code>key</code> - The name of the value in component's state.</dd>
+<dd><code>value</code> - The value to put in component's state.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The previous value, if any.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/ClassCastException.html?is-external=true" title="class or interface in java.lang">ClassCastException</a></code> - When <code>T</code> is of wrong type.</dd>
 </dl>
 </li>
 </ul>

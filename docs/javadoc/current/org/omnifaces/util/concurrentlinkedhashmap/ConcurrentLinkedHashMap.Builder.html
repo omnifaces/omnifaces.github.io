@@ -257,6 +257,8 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>initialCapacity</code> - the initial capacity used to size the hash table
      to accommodate this many entries.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>This builder.</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></code> - if the initialCapacity is negative</dd>
 </dl>
@@ -274,6 +276,8 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>capacity</code> - the weighted threshold to bound the map by</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>This builder.</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></code> - if the maximumWeightedCapacity is
      negative</dd>
@@ -294,6 +298,8 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>concurrencyLevel</code> - the estimated number of concurrently updating
      threads</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>This builder.</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></code> - if the concurrencyLevel is less than or
      equal to zero</dd>
@@ -312,6 +318,8 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>listener</code> - the object to forward evicted entries to</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>This builder.</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/NullPointerException.html?is-external=true" title="class or interface in java.lang">NullPointerException</a></code> - if the listener is null</dd>
 </dl>
@@ -330,6 +338,8 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>weigher</code> - the algorithm to determine a entry's weight</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>This builder.</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/NullPointerException.html?is-external=true" title="class or interface in java.lang">NullPointerException</a></code> - if the weigher is null</dd>
 </dl>
@@ -348,6 +358,8 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>weigher</code> - the algorithm to determine a value's weight</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>This builder.</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/NullPointerException.html?is-external=true" title="class or interface in java.lang">NullPointerException</a></code> - if the weigher is null</dd>
 </dl>
@@ -362,6 +374,8 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <pre>public&nbsp;<a href="../../../../org/omnifaces/util/concurrentlinkedhashmap/ConcurrentLinkedHashMap.html" title="class in org.omnifaces.util.concurrentlinkedhashmap">ConcurrentLinkedHashMap</a>&lt;<a href="../../../../org/omnifaces/util/concurrentlinkedhashmap/ConcurrentLinkedHashMap.Builder.html" title="type parameter in ConcurrentLinkedHashMap.Builder">K</a>,<a href="../../../../org/omnifaces/util/concurrentlinkedhashmap/ConcurrentLinkedHashMap.Builder.html" title="type parameter in ConcurrentLinkedHashMap.Builder">V</a>&gt;&nbsp;build()</pre>
 <div class="block">Creates a new <a href="../../../../org/omnifaces/util/concurrentlinkedhashmap/ConcurrentLinkedHashMap.html" title="class in org.omnifaces.util.concurrentlinkedhashmap"><code>ConcurrentLinkedHashMap</code></a> instance.</div>
 <dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The built <a href="../../../../org/omnifaces/util/concurrentlinkedhashmap/ConcurrentLinkedHashMap.html" title="class in org.omnifaces.util.concurrentlinkedhashmap"><code>ConcurrentLinkedHashMap</code></a> instance.</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang">IllegalStateException</a></code> - if the maximum weighted capacity was
      not set</dd>

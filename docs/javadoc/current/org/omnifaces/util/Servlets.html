@@ -470,6 +470,8 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <div class="block">Returns the original HTTP request URI behind this forwarded request, if any.
  This does not include the request query string.</div>
 <dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>request</code> - The involved HTTP servlet request.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The original HTTP request URI behind this forwarded request, if any.</dd>
 <dt><span class="simpleTagLabel">Since:</span></dt>
@@ -486,6 +488,8 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <pre>public static&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getForwardRequestQueryString(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request)</pre>
 <div class="block">Returns the original HTTP request query string behind this forwarded request, if any.</div>
 <dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>request</code> - The involved HTTP servlet request.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The original HTTP request query string behind this forwarded request, if any.</dd>
 <dt><span class="simpleTagLabel">Since:</span></dt>
@@ -502,6 +506,8 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <pre>public static&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getForwardRequestURIWithQueryString(<a href="http://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request)</pre>
 <div class="block">Returns the original HTTP request URI with query string behind this forwarded request, if any.</div>
 <dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>request</code> - The involved HTTP servlet request.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The original HTTP request URI with query string behind this forwarded request, if any.</dd>
 <dt><span class="simpleTagLabel">Since:</span></dt>
@@ -697,6 +703,8 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
                                             <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
 <div class="block">Returns the application scope attribute value associated with the given name.</div>
 <dl>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>T</code> - The expected return type.</dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>context</code> - The servlet context used for looking up the attribute.</dd>
 <dd><code>name</code> - The application scope attribute name.</dd>

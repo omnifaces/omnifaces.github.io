@@ -216,11 +216,15 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
  <p>
  Environment entries can also be injected using <a href="http://docs.oracle.com/javase/7/docs/api/javax/annotation/Resource.html?is-external=true" title="class or interface in javax.annotation"><code>Resource</code></a>.</div>
 <dl>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>T</code> - The expected return type.</dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>name</code> - the environment entry name relative to "java:comp/env".</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The environment entry value associated with the given name, or <code>null</code> if
  there is none.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/ClassCastException.html?is-external=true" title="class or interface in java.lang">ClassCastException</a></code> - When <code>T</code> is of wrong type.</dd>
 <dt><span class="simpleTagLabel">Since:</span></dt>
 <dd>1.6</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
@@ -237,10 +241,14 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <pre>public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;lookup(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
 <div class="block">Returns the named object from the default JNDI instance.</div>
 <dl>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>T</code> - The expected return type.</dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>name</code> - the name of the object to be retrieved</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the named object, or <code>null</code> if there is none.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/ClassCastException.html?is-external=true" title="class or interface in java.lang">ClassCastException</a></code> - When <code>T</code> is of wrong type.</dd>
 <dt><span class="simpleTagLabel">Since:</span></dt>
 <dd>1.6</dd>
 <dt><span class="seeLabel">See Also:</span></dt>

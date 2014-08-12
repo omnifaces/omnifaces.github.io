@@ -123,6 +123,13 @@
 <dd>
 <div class="block">The context parameter name to specify resource identifiers which needs to be suppressed and removed.</div>
 </dd>
+<dt><a href="../org/omnifaces/cdi/param/ParamExtension.html" title="class in org.omnifaces.cdi.param"><span class="typeNameLink">ParamExtension</span></a> - Class in <a href="../org/omnifaces/cdi/param/package-summary.html">org.omnifaces.cdi.param</a></dt>
+<dd>
+<div class="block">CDI extension that works around the fact that CDI insists on doing absolutely
+ guaranteed type safe injections.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/cdi/param/ParamExtension.html#ParamExtension--">ParamExtension()</a></span> - Constructor for class org.omnifaces.cdi.param.<a href="../org/omnifaces/cdi/param/ParamExtension.html" title="class in org.omnifaces.cdi.param">ParamExtension</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="../org/omnifaces/component/ParamHolder.html" title="interface in org.omnifaces.component"><span class="typeNameLink">ParamHolder</span></a> - Interface in <a href="../org/omnifaces/component/package-summary.html">org.omnifaces.component</a></dt>
 <dd>
 <div class="block">This interface represents a (request) parameter holder which extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/ValueHolder.html?is-external=true" title="class or interface in javax.faces.component"><code>ValueHolder</code></a> with <a href="../org/omnifaces/component/ParamHolder.html#getName--"><code>ParamHolder.getName()</code></a>
@@ -331,7 +338,7 @@
  local value is not null, then check for a duplicate value by visiting all rows of the parent <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIData.html?is-external=true" title="class or interface in javax.faces.component"><code>UIData</code></a>
  component.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="../org/omnifaces/cdi/param/RequestParameterProducer.html#produce-javax.enterprise.inject.spi.InjectionPoint-">produce(InjectionPoint)</a></span> - Method in class org.omnifaces.cdi.param.<a href="../org/omnifaces/cdi/param/RequestParameterProducer.html" title="class in org.omnifaces.cdi.param">RequestParameterProducer</a></dt>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/cdi/param/RequestParameterProducer.html#produce-javax.enterprise.inject.spi.InjectionPoint-javax.enterprise.inject.spi.BeanManager-">produce(InjectionPoint, BeanManager)</a></span> - Method in class org.omnifaces.cdi.param.<a href="../org/omnifaces/cdi/param/RequestParameterProducer.html" title="class in org.omnifaces.cdi.param">RequestParameterProducer</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/facesviews/FacesViews.html#PUBLIC_SCAN_PATHS">PUBLIC_SCAN_PATHS</a></span> - Static variable in class org.omnifaces.facesviews.<a href="../org/omnifaces/facesviews/FacesViews.html" title="class in org.omnifaces.facesviews">FacesViews</a></dt>
 <dd>

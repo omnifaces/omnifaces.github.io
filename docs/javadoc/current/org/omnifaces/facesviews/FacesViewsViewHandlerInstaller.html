@@ -115,7 +115,17 @@ var activeTableTab = "activeTableTab";
 <pre>public class <span class="typeNameLabel">FacesViewsViewHandlerInstaller</span>
 extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>
 implements <a href="http://docs.oracle.com/javaee/7/api/javax/faces/event/SystemEventListener.html?is-external=true" title="class or interface in javax.faces.event">SystemEventListener</a></pre>
-<div class="block">Installs the <a href="../../../org/omnifaces/facesviews/FacesViewsViewHandler.html" title="class in org.omnifaces.facesviews"><code>FacesViewsViewHandler</code></a>.</div>
+<div class="block">Installs the <a href="../../../org/omnifaces/facesviews/FacesViewsViewHandler.html" title="class in org.omnifaces.facesviews"><code>FacesViewsViewHandler</code></a>.
+ 
+ <p>
+ <i>Implementation note</i>: this needs to be done during the <a href="http://docs.oracle.com/javaee/7/api/javax/faces/event/PostConstructApplicationEvent.html?is-external=true" title="class or interface in javax.faces.event"><code>PostConstructApplicationEvent</code></a>, in 
+ which it's guaranteed that Faces initialization (typically done via a <a href="http://docs.oracle.com/javaee/7/api/javax/servlet/ServletContextListener.html?is-external=true" title="class or interface in javax.servlet"><code>ServletContextListener</code></a>) has
+ been done. Setting a view handler programmatically requires the Faces <a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/Application.html?is-external=true" title="class or interface in javax.faces.application"><code>Application</code></a> to be present
+ which isn't the case before Faces initialization has been done.
+ <p>
+ Additionally, the view handler needs to be set BEFORE the first faces request is processed. Putting
+ the view handler setting code in a <a href="http://docs.oracle.com/javaee/7/api/javax/servlet/Filter.html?is-external=true#init-javax.servlet.FilterConfig-" title="class or interface in javax.servlet"><code>Filter.init(javax.servlet.FilterConfig)</code></a> method only works
+ when all init methods are called during startup, OR when the filter filters every request.</div>
 <dl>
 <dt><span class="simpleTagLabel">Since:</span></dt>
 <dd>2.0</dd>

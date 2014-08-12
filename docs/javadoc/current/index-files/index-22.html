@@ -127,7 +127,7 @@
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/component/validator/ValidateEqual.html#ValidateEqual--">ValidateEqual()</a></span> - Constructor for class org.omnifaces.component.validator.<a href="../org/omnifaces/component/validator/ValidateEqual.html" title="class in org.omnifaces.component.validator">ValidateEqual</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="../org/omnifaces/util/Components.html#validateHasDirectParent-javax.faces.component.UIComponent-java.lang.Class-">validateHasDirectParent(UIComponent, Class&lt;T&gt;)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Components.html" title="class in org.omnifaces.util">Components</a></dt>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/util/Components.html#validateHasDirectParent-javax.faces.component.UIComponent-java.lang.Class-">validateHasDirectParent(UIComponent, Class&lt;C&gt;)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Components.html" title="class in org.omnifaces.util">Components</a></dt>
 <dd>
 <div class="block">Validate if the given component has a direct parent of the given parent type.</div>
 </dd>
@@ -135,7 +135,7 @@
 <dd>
 <div class="block">Validate if the given component has no children.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="../org/omnifaces/util/Components.html#validateHasParent-javax.faces.component.UIComponent-java.lang.Class-">validateHasParent(UIComponent, Class&lt;T&gt;)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Components.html" title="class in org.omnifaces.util">Components</a></dt>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/util/Components.html#validateHasParent-javax.faces.component.UIComponent-java.lang.Class-">validateHasParent(UIComponent, Class&lt;C&gt;)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Components.html" title="class in org.omnifaces.util">Components</a></dt>
 <dd>
 <div class="block">Validate if the given component has a parent of the given parent type.</div>
 </dd>
@@ -308,6 +308,10 @@
 <dd>
 <div class="block">So that we can have a serializable validator.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/cdi/param/DynamicParamValueProdcuer.DefaultParamAnnotationLiteral.html#validatorAttributes--">validatorAttributes()</a></span> - Method in class org.omnifaces.cdi.param.<a href="../org/omnifaces/cdi/param/DynamicParamValueProdcuer.DefaultParamAnnotationLiteral.html" title="class in org.omnifaces.cdi.param">DynamicParamValueProdcuer.DefaultParamAnnotationLiteral</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/cdi/param/DynamicParamValueProdcuer.DefaultParamAnnotationLiteral.html#validatorClasses--">validatorClasses()</a></span> - Method in class org.omnifaces.cdi.param.<a href="../org/omnifaces/cdi/param/DynamicParamValueProdcuer.DefaultParamAnnotationLiteral.html" title="class in org.omnifaces.cdi.param">DynamicParamValueProdcuer.DefaultParamAnnotationLiteral</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="../org/omnifaces/component/validator/ValidatorFamily.html" title="class in org.omnifaces.component.validator"><span class="typeNameLink">ValidatorFamily</span></a> - Class in <a href="../org/omnifaces/component/validator/package-summary.html">org.omnifaces.component.validator</a></dt>
 <dd>
 <div class="block">Base class which is to be shared between all components of the Validator family.</div>
@@ -321,10 +325,10 @@
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/cdi/validator/ValidatorManager.html#ValidatorManager--">ValidatorManager()</a></span> - Constructor for class org.omnifaces.cdi.validator.<a href="../org/omnifaces/cdi/validator/ValidatorManager.html" title="class in org.omnifaces.cdi.validator">ValidatorManager</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="../org/omnifaces/application/ValidatorProvider.html" title="interface in org.omnifaces.application"><span class="typeNameLink">ValidatorProvider</span></a> - Interface in <a href="../org/omnifaces/application/package-summary.html">org.omnifaces.application</a></dt>
-<dd>
-<div class="block">An abstraction of validator provider, so that JSF can obtain the concrete instance without a CDI dependency.</div>
-</dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/cdi/param/DynamicParamValueProdcuer.DefaultParamAnnotationLiteral.html#validatorMessage--">validatorMessage()</a></span> - Method in class org.omnifaces.cdi.param.<a href="../org/omnifaces/cdi/param/DynamicParamValueProdcuer.DefaultParamAnnotationLiteral.html" title="class in org.omnifaces.cdi.param">DynamicParamValueProdcuer.DefaultParamAnnotationLiteral</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/cdi/param/DynamicParamValueProdcuer.DefaultParamAnnotationLiteral.html#validators--">validators()</a></span> - Method in class org.omnifaces.cdi.param.<a href="../org/omnifaces/cdi/param/DynamicParamValueProdcuer.DefaultParamAnnotationLiteral.html" title="class in org.omnifaces.cdi.param">DynamicParamValueProdcuer.DefaultParamAnnotationLiteral</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/component/output/Cache.html#VALUE_SET">VALUE_SET</a></span> - Static variable in class org.omnifaces.component.output.<a href="../org/omnifaces/component/output/Cache.html" title="class in org.omnifaces.component.output">Cache</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="../org/omnifaces/converter/ValueChangeConverter.html" title="class in org.omnifaces.converter"><span class="typeNameLink">ValueChangeConverter</span></a> - Class in <a href="../org/omnifaces/converter/package-summary.html">org.omnifaces.converter</a></dt>
@@ -420,7 +424,8 @@ the order they are declared.</div>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/util/MapWrapper.html#values--">values()</a></span> - Method in class org.omnifaces.util.<a href="../org/omnifaces/util/MapWrapper.html" title="class in org.omnifaces.util">MapWrapper</a></dt>
 <dt><a href="../org/omnifaces/VetoAnnotatedTypeExtension.html" title="class in org.omnifaces"><span class="typeNameLink">VetoAnnotatedTypeExtension</span></a> - Class in <a href="../org/omnifaces/package-summary.html">org.omnifaces</a></dt>
 <dd>
-<div class="block">This CDI extension should tell the CDI implementation to register from the org.omnifaces package only the classes
+<div class="block">
+ This CDI extension should tell the CDI implementation to register from the org.omnifaces package only the classes
  from org.omnifaces.cdi and org.omnifaces.showcase subpackages as CDI managed beans.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/VetoAnnotatedTypeExtension.html#VetoAnnotatedTypeExtension--">VetoAnnotatedTypeExtension()</a></span> - Constructor for class org.omnifaces.<a href="../org/omnifaces/VetoAnnotatedTypeExtension.html" title="class in org.omnifaces">VetoAnnotatedTypeExtension</a></dt>

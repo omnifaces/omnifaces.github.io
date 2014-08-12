@@ -255,6 +255,10 @@ public @interface <span class="memberNameLabel">Param</span></pre>
 <pre>public abstract&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name</pre>
 <div class="block">(Optional) The name of the request parameter. If not specified the name of the injection target field will be used.</div>
 <dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The name of the request parameter.</dd>
+</dl>
+<dl>
 <dt>Default:</dt>
 <dd>""</dd>
 </dl>
@@ -271,6 +275,10 @@ public @interface <span class="memberNameLabel">Param</span></pre>
 <h4>label</h4>
 <pre>public abstract&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;label</pre>
 <div class="block">(Optional) the label used to refer to the request parameter. If not specified the name of the request parameter.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The label used to refer the request parameter, defaults to the name of the request parameter.</dd>
+</dl>
 <dl>
 <dt>Default:</dt>
 <dd>""</dd>
@@ -299,6 +307,10 @@ public @interface <span class="memberNameLabel">Param</span></pre>
  <p>
  If this attribute is specified in addition to <a href="../../../org/omnifaces/cdi/Param.html#converterClass--"><code>converterClass()</code></a>, this attribute takes precedence.</div>
 <dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The converter used to convert the request parameter to model value.</dd>
+</dl>
+<dl>
 <dt>Default:</dt>
 <dd>""</dd>
 </dl>
@@ -317,6 +329,10 @@ public @interface <span class="memberNameLabel">Param</span></pre>
 <div class="block">(Optional) Flag indicating if this request parameter is required (must be present) or not. The required check is done
  after conversion and before validation. A value is said to be not present if it turns out to be empty according to
  the semantics of <a href="../../../org/omnifaces/util/Utils.html#isEmpty-java.lang.Object-"><code>Utils.isEmpty(Object)</code></a>.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Whether the absence of the request parameter should cause a validation error.</dd>
+</dl>
 <dl>
 <dt>Default:</dt>
 <dd>false</dd>
@@ -347,6 +363,10 @@ public @interface <span class="memberNameLabel">Param</span></pre>
  attributes will be added to the final collection of validators. The validators from this attribute will however
  be called first.</div>
 <dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The validators used to validate the (converted) request parameter.</dd>
+</dl>
+<dl>
 <dt>Default:</dt>
 <dd>{}</dd>
 </dl>
@@ -362,7 +382,12 @@ public @interface <span class="memberNameLabel">Param</span></pre>
 <li class="blockList">
 <h4>converterClass</h4>
 <pre>public abstract&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;? extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/convert/Converter.html?is-external=true" title="class or interface in javax.faces.convert">Converter</a>&gt;&nbsp;converterClass</pre>
-<div class="block">(Optional) Class of the converter to be used for converting the request parameter to the type that is to be injected.</div>
+<div class="block">(Optional) Class of the converter to be used for converting the request parameter to the type that is to be injected.
+ This is ignored when <a href="../../../org/omnifaces/cdi/Param.html#converter--"><code>converter()</code></a> is specified.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The converter class used to convert the request parameter to model value.</dd>
+</dl>
 <dl>
 <dt>Default:</dt>
 <dd>javax.faces.convert.Converter.class</dd>
@@ -379,7 +404,12 @@ public @interface <span class="memberNameLabel">Param</span></pre>
 <li class="blockList">
 <h4>validatorClasses</h4>
 <pre>public abstract&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;? extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/validator/Validator.html?is-external=true" title="class or interface in javax.faces.validator">Validator</a>&gt;[]&nbsp;validatorClasses</pre>
-<div class="block">(Optional) Class of one ore more validators to be used for validating the (converted) request parameter.</div>
+<div class="block">(Optional) Class of one ore more validators to be used for validating the (converted) request parameter.
+ These will run <i>after</i> the ones specified in <a href="../../../org/omnifaces/cdi/Param.html#validators--"><code>validators()</code></a>.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The validator classes used to validate the (converted) request parameter.</dd>
+</dl>
 <dl>
 <dt>Default:</dt>
 <dd>{}</dd>
@@ -404,6 +434,10 @@ public @interface <span class="memberNameLabel">Param</span></pre>
  <p>
  Attributes for which the converter doesn't have a property (setter) are silently ignored.</div>
 <dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The attributes which need to be set on the converter.</dd>
+</dl>
+<dl>
 <dt>Default:</dt>
 <dd>{}</dd>
 </dl>
@@ -427,6 +461,10 @@ public @interface <span class="memberNameLabel">Param</span></pre>
  <p>
  Attributes for which any given validator doesn't have a property (setter) are silently ignored.</div>
 <dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The attributes which need to be set on the validators.</dd>
+</dl>
+<dl>
 <dt>Default:</dt>
 <dd>{}</dd>
 </dl>
@@ -446,6 +484,10 @@ public @interface <span class="memberNameLabel">Param</span></pre>
  <p>
  The value for which conversion failed is available as <code>{0}</code>. The label associated with this
  parameter value (see the <a href="../../../org/omnifaces/cdi/Param.html#label--"><code>label()</code></a> attribute) is available as <code>{1}</code>.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The error message to be used when the <a href="../../../org/omnifaces/cdi/Param.html#converter--"><code>converter()</code></a> or <a href="../../../org/omnifaces/cdi/Param.html#converterClass--"><code>converterClass()</code></a> fail.</dd>
+</dl>
 <dl>
 <dt>Default:</dt>
 <dd>""</dd>
@@ -467,6 +509,10 @@ public @interface <span class="memberNameLabel">Param</span></pre>
  The value for which validation failed is available as <code>{0}</code>. The label associated with this
  parameter value (see the <a href="../../../org/omnifaces/cdi/Param.html#label--"><code>label()</code></a> attribute) is available as <code>{1}</code>.</div>
 <dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The error message to be used when any of the <a href="../../../org/omnifaces/cdi/Param.html#validators--"><code>validators()</code></a> or <a href="../../../org/omnifaces/cdi/Param.html#validatorClasses--"><code>validatorClasses()</code></a> fail.</dd>
+</dl>
+<dl>
 <dt>Default:</dt>
 <dd>""</dd>
 </dl>
@@ -487,6 +533,10 @@ public @interface <span class="memberNameLabel">Param</span></pre>
  <p>
  The (empty) value for which the required check failed is available as <code>{0}</code>. (this will be either null or the empty string)
  The label associated with this parameter value (see the <a href="../../../org/omnifaces/cdi/Param.html#label--"><code>label()</code></a> attribute) is available as <code>{1}</code>.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The error message to be used on empty submit while <a href="../../../org/omnifaces/cdi/Param.html#required--"><code>required()</code></a> is <code>true</code>.</dd>
+</dl>
 <dl>
 <dt>Default:</dt>
 <dd>""</dd>
@@ -512,6 +562,10 @@ public @interface <span class="memberNameLabel">Param</span></pre>
  will depend on the availability of bean validation and the global <a href="http://docs.oracle.com/javaee/7/api/javax/faces/validator/BeanValidator.html?is-external=true#DISABLE_DEFAULT_BEAN_VALIDATOR_PARAM_NAME" title="class or interface in javax.faces.validator"><code>BeanValidator.DISABLE_DEFAULT_BEAN_VALIDATOR_PARAM_NAME</code></a> setting
  whether bean validation is attempted or not.</div>
 <dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Whether to disable bean validation or not.</dd>
+</dl>
+<dl>
 <dt>Default:</dt>
 <dd>false</dd>
 </dl>
@@ -531,6 +585,10 @@ public @interface <span class="memberNameLabel">Param</span></pre>
  <p>
  If <code>true</code> bean validation will be performed for this instance (given that bean validation is available) despite
  it globally being disabled. If <code>false</code> (the default) no specific action is taken.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Whether to override that JSF bean validation is globally disabled.</dd>
+</dl>
 <dl>
 <dt>Default:</dt>
 <dd>false</dd>
