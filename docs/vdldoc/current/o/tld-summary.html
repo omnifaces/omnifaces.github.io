@@ -110,32 +110,12 @@
 <tr class="rowColor">
 <td class="colOne"><b><a href="tree.html">tree</a></b></td><td class="colLast">
 			
-				<strong><code>o:tree</code></strong> is an <code>UIComponent</code> that supports data binding to a tree
-				of data objects represented by a <code>TreeModel</code> instance, which is the current value of this
-				component itself (typically established via a <code>ValueExpression</code>). During iterative processing
-				over the nodes of tree in the tree model, the object for the current node is exposed as a request
-				attribute under the key specified by the <code>var</code> attribute. The node itself is exposed as a
-				request attribute under the key specified by the <code>varNode</code> attribute.
+				The <code>&lt;o:tree&gt;</code> allows the developers to have full control over the markup of a tree
+				hierarchy by declaring the appropriate JSF components or HTML elements in the markup. The <code>&lt;o:tree&gt;</code>
+				does namely not render any HTML markup by itself.
 				<p>
-				Only children of type <code>TreeNode</code> are allowed and processed by this component.
-				<p>
-				This component does not have a renderer since it does not render any markup by itself. This allows the
-				developers to have full control over the markup of the tree by declaring the appropriate JSF components
-				or HTML elements in the markup. Here is a basic usage example:
-				<pre>
-&lt;o:tree value="#{bean.treeModel}" var="item" varNode="node"&gt;
-  &lt;o:treeNode&gt;
-    &lt;ul&gt;
-      &lt;o:treeNodeItem&gt;
-        &lt;li&gt;
-          #{node.index} #{item.someProperty}
-          &lt;o:treeInsertChildren /&gt;
-        &lt;/li&gt;
-      &lt;/o:treeNodeItem&gt;
-    &lt;/ul&gt;
-  &lt;/o:treeNode&gt;
-&lt;/o:tree&gt;
-				</pre>
+				For a more detailed description, see
+				<a href="http://omnifaces.org/docs/javadoc/current/org/omnifaces/component/tree/Tree.html">javadoc</a>.
 			
 		</td>
 </tr>
