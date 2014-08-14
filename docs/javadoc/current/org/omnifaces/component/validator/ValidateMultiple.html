@@ -159,10 +159,10 @@ extends <a href="../../../../org/omnifaces/component/validator/ValidateMultipleF
  &lt;h:inputText id="baz" /&gt;
  </pre>
  <pre>
-  @ManagedBean
-  @RequestScoped
+ &#64;ManagedBean
+ &#64;RequestScoped
  public class ValidateValuesBean implements MultiFieldValidator {
-      @Override
+     &#64;Override
      public boolean validateValues(FacesContext context, List&lt;UIInput&gt; components, List&lt;Object&gt; values) {
          // ...
      }

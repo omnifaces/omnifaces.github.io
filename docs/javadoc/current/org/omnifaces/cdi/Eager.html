@@ -123,11 +123,11 @@ public @interface <span class="memberNameLabel">Eager</span></pre>
  E.g.
  The following bean will be instantiated during application's startup:
  <pre>
-  @Eager
-  @ApplicationScoped
+ &#64;Eager
+ &#64;ApplicationScoped
  public class MyEagerApplicationScopedBean {
 
-      @PostConstruct
+     &#64;PostConstruct
      public void init() {
          System.out.println("Application scoped init!");
      }
@@ -138,13 +138,13 @@ public @interface <span class="memberNameLabel">Eager</span></pre>
  <p>
  The following bean will be instantiated whenever a session is created:
  <pre>
-  @Eager
-  @SessionScoped
+ &#64;Eager
+ &#64;SessionScoped
  public class MyEagerSessionScopedBean implements Serializable {
 
      private static final long serialVersionUID = 1L;
 
-      @PostConstruct
+     &#64;PostConstruct
      public void init() {
          System.out.println("Session scoped init!");
      }
@@ -155,11 +155,11 @@ public @interface <span class="memberNameLabel">Eager</span></pre>
  application root) is requested, i.e. when an app is deployed to <code>/myapp</code> at localhost this will correspond to
  a URL like <code>http://localhost:8080/myapp/components/cache</code>:
  <pre>
-  @Eager(requestURI = "/components/cache")
-  @RequestScoped
+ &#64;Eager(requestURI = "/components/cache")
+ &#64;RequestScoped
  public class MyEagerRequestScopedBean {
 
-      @PostConstruct
+     &#64;PostConstruct
      public void init() {
          System.out.println("/components/cache requested");
      }

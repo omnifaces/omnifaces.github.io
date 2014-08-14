@@ -135,10 +135,10 @@ implements <a href="http://docs.oracle.com/javaee/7/api/javax/servlet/Filter.htm
  To use it, just let your custom filter extend from <a href="../../../org/omnifaces/filter/HttpFilter.html" title="class in org.omnifaces.filter"><code>HttpFilter</code></a> instead of implement <a href="http://docs.oracle.com/javaee/7/api/javax/servlet/Filter.html?is-external=true" title="class or interface in javax.servlet"><code>Filter</code></a>.
  For example:
  <pre>
-  @WebFilter("/app/*")
+ &#64;WebFilter("/app/*")
  public class LoginFilter extends HttpFilter {
 
-      @Override
+     &#64;Override
      public void doFilter(HttpServletRequest request, HttpServletResponse response, HttpSession session, FilterChain chain)
          throws ServletException, IOException
      {

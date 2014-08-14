@@ -119,7 +119,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
  <pre>
  // Add a callback to the current view which should run during every after phase of the render response on same view.
  Events.subscribeToViewAfterPhase(PhaseId.RENDER_RESPONSE, new Callback.Void() {
-     @Override
+    &#64;Override
     public void invoke() {
         // ...
     }
@@ -128,7 +128,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
  <pre>
  // Add a callback to the current request which should run during before phase of the render response on current request.
  Events.subscribeToRequestBeforePhase(PhaseId.RENDER_RESPONSE, new Callback.Void() {
-      @Override
+     &#64;Override
      public void invoke() {
          // ...
      }
@@ -137,7 +137,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
  <pre>
  // Add a callback to the current view which should run during the pre render view event.
  Events.subscribeToViewEvent(PreRenderViewEvent.class, new Callback.Void() {
-      @Override
+     &#64;Override
      public void invoke() {
          // ...
      }
