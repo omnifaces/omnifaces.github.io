@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10};
+var methods = {"i0":10,"i1":10,"i2":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -48,7 +48,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../org/omnifaces/resourcehandler/UnmappedResource.html" title="class in org.omnifaces.resourcehandler"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../org/omnifaces/resourcehandler/ResourceIdentifier.html" title="class in org.omnifaces.resourcehandler"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li>Next&nbsp;Class</li>
 </ul>
 <ul class="navList">
@@ -105,7 +105,12 @@ var activeTableTab = "activeTableTab";
 <li><a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/ResourceHandlerWrapper.html?is-external=true" title="class or interface in javax.faces.application">javax.faces.application.ResourceHandlerWrapper</a></li>
 <li>
 <ul class="inheritance">
+<li><a href="../../../org/omnifaces/resourcehandler/DefaultResourceHandler.html" title="class in org.omnifaces.resourcehandler">org.omnifaces.resourcehandler.DefaultResourceHandler</a></li>
+<li>
+<ul class="inheritance">
 <li>org.omnifaces.resourcehandler.UnmappedResourceHandler</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -123,7 +128,7 @@ var activeTableTab = "activeTableTab";
 <hr>
 <br>
 <pre>public class <span class="typeNameLabel">UnmappedResourceHandler</span>
-extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/ResourceHandlerWrapper.html?is-external=true" title="class or interface in javax.faces.application">ResourceHandlerWrapper</a></pre>
+extends <a href="../../../org/omnifaces/resourcehandler/DefaultResourceHandler.html" title="class in org.omnifaces.resourcehandler">DefaultResourceHandler</a></pre>
 <div class="block"><p>
  This <a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/ResourceHandler.html?is-external=true" title="class or interface in javax.faces.application"><code>ResourceHandler</code></a> implementation allows the developer to map JSF resources on an URL pattern of
  <code>/javax.faces.resource/*</code> (basically, the value of <a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/ResourceHandler.html?is-external=true#RESOURCE_IDENTIFIER" title="class or interface in javax.faces.application"><code>ResourceHandler.RESOURCE_IDENTIFIER</code></a>) without
@@ -256,35 +261,17 @@ extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/Res
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/Resource.html?is-external=true" title="class or interface in javax.faces.application">Resource</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/resourcehandler/UnmappedResourceHandler.html#createResource-java.lang.String-">createResource</a></span>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;resourceName)</code>
-<div class="block">Delegate to <a href="../../../org/omnifaces/resourcehandler/UnmappedResourceHandler.html#createResource-java.lang.String-java.lang.String-java.lang.String-"><code>createResource(String, String, String)</code></a> with <code>null</code> as library name and content
- type.</div>
-</td>
-</tr>
-<tr id="i1" class="rowColor">
-<td class="colFirst"><code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/Resource.html?is-external=true" title="class or interface in javax.faces.application">Resource</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/resourcehandler/UnmappedResourceHandler.html#createResource-java.lang.String-java.lang.String-">createResource</a></span>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;resourceName,
-              <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;libraryName)</code>
-<div class="block">Delegate to <a href="../../../org/omnifaces/resourcehandler/UnmappedResourceHandler.html#createResource-java.lang.String-java.lang.String-java.lang.String-"><code>createResource(String, String, String)</code></a> with <code>null</code> as content type.</div>
-</td>
-</tr>
-<tr id="i2" class="altColor">
-<td class="colFirst"><code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/Resource.html?is-external=true" title="class or interface in javax.faces.application">Resource</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/resourcehandler/UnmappedResourceHandler.html#createResource-java.lang.String-java.lang.String-java.lang.String-">createResource</a></span>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;resourceName,
               <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;libraryName,
               <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;contentType)</code>
 <div class="block">Delegate to <a href="../../../org/omnifaces/resourcehandler/UnmappedResourceHandler.html#createResource-java.lang.String-java.lang.String-java.lang.String-"><code>createResource(String, String, String)</code></a> of the wrapped resource handler.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
-<td class="colFirst"><code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/ResourceHandler.html?is-external=true" title="class or interface in javax.faces.application">ResourceHandler</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/resourcehandler/UnmappedResourceHandler.html#getWrapped--">getWrapped</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i4" class="altColor">
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/resourcehandler/UnmappedResourceHandler.html#handleResourceRequest-javax.faces.context.FacesContext-">handleResourceRequest</a></span>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context)</code>&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/resourcehandler/UnmappedResourceHandler.html#isResourceRequest-javax.faces.context.FacesContext-">isResourceRequest</a></span>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context)</code>
 <div class="block">Returns <code>true</code> if <a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/ExternalContext.html?is-external=true#getRequestServletPath--" title="class or interface in javax.faces.context"><code>ExternalContext.getRequestServletPath()</code></a> starts with value of
@@ -292,6 +279,13 @@ extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/Res
 </td>
 </tr>
 </table>
+<ul class="blockList">
+<li class="blockList"><a name="methods.inherited.from.class.org.omnifaces.resourcehandler.DefaultResourceHandler">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;org.omnifaces.resourcehandler.<a href="../../../org/omnifaces/resourcehandler/DefaultResourceHandler.html" title="class in org.omnifaces.resourcehandler">DefaultResourceHandler</a></h3>
+<code><a href="../../../org/omnifaces/resourcehandler/DefaultResourceHandler.html#createResource-java.lang.String-">createResource</a>, <a href="../../../org/omnifaces/resourcehandler/DefaultResourceHandler.html#createResource-java.lang.String-java.lang.String-">createResource</a>, <a href="../../../org/omnifaces/resourcehandler/DefaultResourceHandler.html#getWrapped--">getWrapped</a></code></li>
+</ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.javax.faces.application.ResourceHandlerWrapper">
 <!--   -->
@@ -342,36 +336,6 @@ extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/Res
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="createResource-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>createResource</h4>
-<pre>public&nbsp;<a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/Resource.html?is-external=true" title="class or interface in javax.faces.application">Resource</a>&nbsp;createResource(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;resourceName)</pre>
-<div class="block">Delegate to <a href="../../../org/omnifaces/resourcehandler/UnmappedResourceHandler.html#createResource-java.lang.String-java.lang.String-java.lang.String-"><code>createResource(String, String, String)</code></a> with <code>null</code> as library name and content
- type.</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/ResourceHandlerWrapper.html?is-external=true#createResource-java.lang.String-" title="class or interface in javax.faces.application">createResource</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/ResourceHandlerWrapper.html?is-external=true" title="class or interface in javax.faces.application">ResourceHandlerWrapper</a></code></dd>
-</dl>
-</li>
-</ul>
-<a name="createResource-java.lang.String-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>createResource</h4>
-<pre>public&nbsp;<a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/Resource.html?is-external=true" title="class or interface in javax.faces.application">Resource</a>&nbsp;createResource(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;resourceName,
-                               <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;libraryName)</pre>
-<div class="block">Delegate to <a href="../../../org/omnifaces/resourcehandler/UnmappedResourceHandler.html#createResource-java.lang.String-java.lang.String-java.lang.String-"><code>createResource(String, String, String)</code></a> with <code>null</code> as content type.</div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/ResourceHandlerWrapper.html?is-external=true#createResource-java.lang.String-java.lang.String-" title="class or interface in javax.faces.application">createResource</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/ResourceHandlerWrapper.html?is-external=true" title="class or interface in javax.faces.application">ResourceHandlerWrapper</a></code></dd>
-</dl>
-</li>
-</ul>
 <a name="createResource-java.lang.String-java.lang.String-java.lang.String-">
 <!--   -->
 </a>
@@ -382,7 +346,7 @@ extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/Res
                                <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;libraryName,
                                <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;contentType)</pre>
 <div class="block">Delegate to <a href="../../../org/omnifaces/resourcehandler/UnmappedResourceHandler.html#createResource-java.lang.String-java.lang.String-java.lang.String-"><code>createResource(String, String, String)</code></a> of the wrapped resource handler. If it returns
- non-<code>null</code>, then return a new instanceof <a href="../../../org/omnifaces/resourcehandler/UnmappedResource.html" title="class in org.omnifaces.resourcehandler"><code>UnmappedResource</code></a>.</div>
+ non-<code>null</code>, then return an unmapped resource.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/ResourceHandlerWrapper.html?is-external=true#createResource-java.lang.String-java.lang.String-java.lang.String-" title="class or interface in javax.faces.application">createResource</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/ResourceHandlerWrapper.html?is-external=true" title="class or interface in javax.faces.application">ResourceHandlerWrapper</a></code></dd>
@@ -407,7 +371,7 @@ extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/Res
 <a name="handleResourceRequest-javax.faces.context.FacesContext-">
 <!--   -->
 </a>
-<ul class="blockList">
+<ul class="blockListLast">
 <li class="blockList">
 <h4>handleResourceRequest</h4>
 <pre>public&nbsp;void&nbsp;handleResourceRequest(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context)
@@ -417,21 +381,6 @@ extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/Res
 <dd><code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/ResourceHandlerWrapper.html?is-external=true#handleResourceRequest-javax.faces.context.FacesContext-" title="class or interface in javax.faces.application">handleResourceRequest</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/ResourceHandlerWrapper.html?is-external=true" title="class or interface in javax.faces.application">ResourceHandlerWrapper</a></code></dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd>
-</dl>
-</li>
-</ul>
-<a name="getWrapped--">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>getWrapped</h4>
-<pre>public&nbsp;<a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/ResourceHandler.html?is-external=true" title="class or interface in javax.faces.application">ResourceHandler</a>&nbsp;getWrapped()</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/FacesWrapper.html?is-external=true#getWrapped--" title="class or interface in javax.faces">getWrapped</a></code>&nbsp;in interface&nbsp;<code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/FacesWrapper.html?is-external=true" title="class or interface in javax.faces">FacesWrapper</a>&lt;<a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/ResourceHandler.html?is-external=true" title="class or interface in javax.faces.application">ResourceHandler</a>&gt;</code></dd>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/ResourceHandlerWrapper.html?is-external=true#getWrapped--" title="class or interface in javax.faces.application">getWrapped</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/ResourceHandlerWrapper.html?is-external=true" title="class or interface in javax.faces.application">ResourceHandlerWrapper</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -463,7 +412,7 @@ extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/Res
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../org/omnifaces/resourcehandler/UnmappedResource.html" title="class in org.omnifaces.resourcehandler"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../org/omnifaces/resourcehandler/ResourceIdentifier.html" title="class in org.omnifaces.resourcehandler"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li>Next&nbsp;Class</li>
 </ul>
 <ul class="navList">

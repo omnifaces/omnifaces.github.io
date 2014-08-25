@@ -100,16 +100,44 @@
 </td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><a href="../../../org/omnifaces/resourcehandler/ResourceIdentifier.html" title="class in org.omnifaces.resourcehandler">ResourceIdentifier</a></td>
+<td class="colFirst"><a href="../../../org/omnifaces/resourcehandler/DefaultResource.html" title="class in org.omnifaces.resourcehandler">DefaultResource</a></td>
 <td class="colLast">
-<div class="block">Convenience class to represent a resource identifier.</div>
+<div class="block">A default <a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/Resource.html?is-external=true" title="class or interface in javax.faces.application"><code>Resource</code></a> implementation, fixing broken <a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/ResourceWrapper.html?is-external=true" title="class or interface in javax.faces.application"><code>ResourceWrapper</code></a> and implementing
+ <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Externalizable.html?is-external=true" title="class or interface in java.io"><code>Externalizable</code></a> to avoid JSF state saving trouble.</div>
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><a href="../../../org/omnifaces/resourcehandler/UnmappedResource.html" title="class in org.omnifaces.resourcehandler">UnmappedResource</a></td>
+<td class="colFirst"><a href="../../../org/omnifaces/resourcehandler/DefaultResourceHandler.html" title="class in org.omnifaces.resourcehandler">DefaultResourceHandler</a></td>
 <td class="colLast">
-<div class="block">This <a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/Resource.html?is-external=true" title="class or interface in javax.faces.application"><code>Resource</code></a> implementation is extracted from <a href="../../../org/omnifaces/resourcehandler/UnmappedResourceHandler.html" title="class in org.omnifaces.resourcehandler"><code>UnmappedResourceHandler</code></a> in order to overcome
- state saving issues.</div>
+<div class="block">A default <a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/ResourceHandler.html?is-external=true" title="class or interface in javax.faces.application"><code>ResourceHandler</code></a> implementation, delegating both <a href="../../../org/omnifaces/resourcehandler/DefaultResourceHandler.html#createResource-java.lang.String-"><code>DefaultResourceHandler.createResource(String)</code></a> and
+ <a href="../../../org/omnifaces/resourcehandler/DefaultResourceHandler.html#createResource-java.lang.String-java.lang.String-"><code>DefaultResourceHandler.createResource(String, String)</code></a> to <a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/ResourceHandlerWrapper.html?is-external=true#createResource-java.lang.String-java.lang.String-java.lang.String-" title="class or interface in javax.faces.application"><code>ResourceHandlerWrapper.createResource(String, String, String)</code></a>.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a href="../../../org/omnifaces/resourcehandler/DynamicResource.html" title="class in org.omnifaces.resourcehandler">DynamicResource</a></td>
+<td class="colLast">
+<div class="block">This <a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/Resource.html?is-external=true" title="class or interface in javax.faces.application"><code>Resource</code></a> implementation represents a cacheable dynamic resource which doesn't necessarily exist as a
+ regular classpath resource.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a href="../../../org/omnifaces/resourcehandler/GraphicResource.html" title="class in org.omnifaces.resourcehandler">GraphicResource</a></td>
+<td class="colLast">
+<div class="block">
+ This <a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/Resource.html?is-external=true" title="class or interface in javax.faces.application"><code>Resource</code></a> implementation is used by the <a href="../../../org/omnifaces/component/output/GraphicImage.html" title="class in org.omnifaces.component.output"><code>GraphicImage</code></a> component.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><a href="../../../org/omnifaces/resourcehandler/GraphicResourceHandler.html" title="class in org.omnifaces.resourcehandler">GraphicResourceHandler</a></td>
+<td class="colLast">
+<div class="block">
+ This <a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/ResourceHandler.html?is-external=true" title="class or interface in javax.faces.application"><code>ResourceHandler</code></a> implementation deals with <a href="../../../org/omnifaces/resourcehandler/GraphicResource.html" title="class in org.omnifaces.resourcehandler"><code>GraphicResource</code></a> requests.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><a href="../../../org/omnifaces/resourcehandler/ResourceIdentifier.html" title="class in org.omnifaces.resourcehandler">ResourceIdentifier</a></td>
+<td class="colLast">
+<div class="block">Convenience class to represent a resource identifier.</div>
 </td>
 </tr>
 <tr class="altColor">
