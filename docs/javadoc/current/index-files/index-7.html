@@ -992,7 +992,7 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/resourcehandler/GraphicResource.html#getRequestPath--">getRequestPath()</a></span> - Method in class org.omnifaces.resourcehandler.<a href="../org/omnifaces/resourcehandler/GraphicResource.html" title="class in org.omnifaces.resourcehandler">GraphicResource</a></dt>
 <dd>
-<div class="block">An override which appends the converted method parameters to the query string.</div>
+<div class="block">An override which either returns the data URI or appends the converted method parameters to the query string.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/util/Faces.html#getRequestPathInfo--">getRequestPathInfo()</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Faces.html" title="class in org.omnifaces.util">Faces</a></dt>
 <dd>
@@ -1437,9 +1437,8 @@
 <dd>
 <div class="block">
  The <code>&lt;o:graphicImage&gt;</code> is a component that extends the standard <code>&lt;h:graphicImage&gt;</code>
- with support for referencing an <a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io"><code>InputStream</code></a> or <code>byte[]</code> property in <code>value</code> attribute,
- optionally as data URI (not recommended for "large" images, ~10KB is cornercase, the less so if there are more of
- such images in the same page).</div>
+ with support for referencing an <a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io"><code>InputStream</code></a> or <code>byte[]</code> property in the <code>value</code>
+ attribute, optionally as a data URI.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/component/output/GraphicImage.html#GraphicImage--">GraphicImage()</a></span> - Constructor for class org.omnifaces.component.output.<a href="../org/omnifaces/component/output/GraphicImage.html" title="class in org.omnifaces.component.output">GraphicImage</a></dt>
 <dd>
