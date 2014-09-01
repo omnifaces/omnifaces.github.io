@@ -154,9 +154,10 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/reflect/Method.html?is-external=true" title="class or interface in java.lang.reflect">Method</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/el/ExpressionInspector.html#findMethod-java.lang.Object-java.lang.String-">findMethod</a></span>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;base,
-          <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;methodName)</code>
-<div class="block">Finds a method based on the method name only, if necessary prefixed with "get".</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/el/ExpressionInspector.html#findMethod-java.lang.Object-java.lang.String-java.lang.Object:A-">findMethod</a></span>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;base,
+          <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;methodName,
+          <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>[]&nbsp;params)</code>
+<div class="block">Finds a method based on the method name, amount of parameters and limited typing, if necessary prefixed with "get".</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
@@ -245,10 +246,14 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <h4>getMethodReference</h4>
 <pre>public static&nbsp;<a href="../../../org/omnifaces/el/MethodReference.html" title="class in org.omnifaces.el">MethodReference</a>&nbsp;getMethodReference(<a href="http://docs.oracle.com/javaee/7/api/javax/el/ELContext.html?is-external=true" title="class or interface in javax.el">ELContext</a>&nbsp;context,
                                                  <a href="http://docs.oracle.com/javaee/7/api/javax/el/ValueExpression.html?is-external=true" title="class or interface in javax.el">ValueExpression</a>&nbsp;valueExpression)</pre>
-<div class="block">Gets a MethodReference from a ValueExpression. This assumes that this expression references a method.
+<div class="block">Gets a MethodReference from a ValueExpression. If the ValueExpression refers to a method, this will
+ contain the actual method. If it refers to a property, this will contain the corresponding getter method.
  <p>
- Note that the method reference contains <em>a</em> method with the name the expression refers to.
- Overloads are not supported.</div>
+ Note that in case the expression refers to a method, the method reference contains the method with 
+ the name the expression refers to, with a matching number of arguments and <i>a</i> match of types. 
+ Overloads with the same amount of parameters are supported, but if the actual arguments match with 
+ the types of multiple overloads (e.g. actual argument Long, overloads for Number and Long) a random
+ method will be chosen.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>context</code> - the context of this evaluation</dd>
@@ -258,16 +263,20 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </dl>
 </li>
 </ul>
-<a name="findMethod-java.lang.Object-java.lang.String-">
+<a name="findMethod-java.lang.Object-java.lang.String-java.lang.Object:A-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>findMethod</h4>
 <pre>public static&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/reflect/Method.html?is-external=true" title="class or interface in java.lang.reflect">Method</a>&nbsp;findMethod(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;base,
-                                <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;methodName)</pre>
-<div class="block">Finds a method based on the method name only, if necessary prefixed with "get".
- Does not support overloaded methods.</div>
+                                <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;methodName,
+                                <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>[]&nbsp;params)</pre>
+<div class="block">Finds a method based on the method name, amount of parameters and limited typing, if necessary prefixed with "get".
+ <p>
+ Note that this supports overloading, but a limited one. Given an actual parameter of type Long, this will select
+ a method accepting Number when the choice is between Number and a non-compatible type like String. However,
+ it will NOT select the best match if the choice is between Number and Long.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>base</code> - the object in which the method is to be found</dd>
