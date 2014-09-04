@@ -358,7 +358,9 @@ implements <a href="http://docs.oracle.com/javaee/7/api/javax/faces/event/System
 <td class="colFirst"><code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/Resource.html?is-external=true" title="class or interface in javax.faces.application">Resource</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/resourcehandler/CombinedResourceHandler.html#createResource-java.lang.String-java.lang.String-java.lang.String-">createResource</a></span>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;resourceName,
               <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;libraryName,
-              <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;contentType)</code>&nbsp;</td>
+              <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;contentType)</code>
+<div class="block">Delegate to the right <code>createResource()</code> method of the wrapped resource handler.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
@@ -573,9 +575,12 @@ implements <a href="http://docs.oracle.com/javaee/7/api/javax/faces/event/System
 <pre>public&nbsp;<a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/Resource.html?is-external=true" title="class or interface in javax.faces.application">Resource</a>&nbsp;createResource(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;resourceName,
                                <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;libraryName,
                                <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;contentType)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../org/omnifaces/resourcehandler/DefaultResourceHandler.html#createResource-java.lang.String-java.lang.String-java.lang.String-">DefaultResourceHandler</a></code></span></div>
+<div class="block">Delegate to the right <code>createResource()</code> method of the wrapped resource handler. Some resource handler
+ implementations namely doesn't implement all the three <code>createResource()</code> methods.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/ResourceHandlerWrapper.html?is-external=true#createResource-java.lang.String-java.lang.String-java.lang.String-" title="class or interface in javax.faces.application">createResource</a></code>&nbsp;in class&nbsp;<code><a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/ResourceHandlerWrapper.html?is-external=true" title="class or interface in javax.faces.application">ResourceHandlerWrapper</a></code></dd>
+<dd><code><a href="../../../org/omnifaces/resourcehandler/DefaultResourceHandler.html#createResource-java.lang.String-java.lang.String-java.lang.String-">createResource</a></code>&nbsp;in class&nbsp;<code><a href="../../../org/omnifaces/resourcehandler/DefaultResourceHandler.html" title="class in org.omnifaces.resourcehandler">DefaultResourceHandler</a></code></dd>
 </dl>
 </li>
 </ul>

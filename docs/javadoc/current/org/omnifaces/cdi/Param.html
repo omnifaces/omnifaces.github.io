@@ -97,31 +97,31 @@
  <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/annotation/Target.html?is-external=true" title="class or interface in java.lang.annotation">@Target</a>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/annotation/Target.html?is-external=true#value--" title="class or interface in java.lang.annotation">value</a>={<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/annotation/ElementType.html?is-external=true#TYPE" title="class or interface in java.lang.annotation">TYPE</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/annotation/ElementType.html?is-external=true#METHOD" title="class or interface in java.lang.annotation">METHOD</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/annotation/ElementType.html?is-external=true#FIELD" title="class or interface in java.lang.annotation">FIELD</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/annotation/ElementType.html?is-external=true#PARAMETER" title="class or interface in java.lang.annotation">PARAMETER</a>})
 public @interface <span class="memberNameLabel">Param</span></pre>
 <div class="block"><p>
- The CDI annotation <a href="../../../org/omnifaces/cdi/Param.html" title="annotation in org.omnifaces.cdi"><code>Param</code></a> allows you to inject, convert and validate a HTTP request parameter
- in a CDI managed bean. It's basically like <code>&lt;f:viewParam&gt;</code>, but with the major difference
- that the injected HTTP request parameter is available during <a href="http://docs.oracle.com/javase/7/docs/api/javax/annotation/PostConstruct.html?is-external=true" title="class or interface in javax.annotation"><code>PostConstruct</code></a>, allowing a much easier
- way of processing without the need for a <code>&lt;f:event type="preRenderView"&gt;</code> or
- <code>&lt;f:viewAction&gt;</code>.
+ The CDI annotation <a href="../../../org/omnifaces/cdi/Param.html" title="annotation in org.omnifaces.cdi"><code>Param</code></a> allows you to inject, convert and validate a HTTP request parameter in a CDI managed
+ bean. It's basically like <code>&lt;f:viewParam&gt;</code>, but with the major difference that the injected HTTP
+ request parameter is directly available during <a href="http://docs.oracle.com/javase/7/docs/api/javax/annotation/PostConstruct.html?is-external=true" title="class or interface in javax.annotation"><code>PostConstruct</code></a>, allowing a much easier way of processing
+ without the need for a <code>&lt;f:event type="preRenderView"&gt;</code> or <code>&lt;f:viewAction&gt;</code> in the
+ view.
  <p>
- By default the name of the request parameter is taken from the name of the variable into which
- injection takes place. It can be optionally specified.
+ By default the name of the request parameter is taken from the name of the variable into which injection takes place.
+ It can be optionally specified.
  <p>
- String values can be injected without a converter, other types need a converter.
+ Standard types for which JSF has already a builtin converter like <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang"><code>String</code></a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Long.html?is-external=true" title="class or interface in java.lang"><code>Long</code></a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Boolean.html?is-external=true" title="class or interface in java.lang"><code>Boolean</code></a>, etc
+ or for which there's already a converter registered via <code>forClass</code>, can be injected without explicitly
+ specifying a converter. Other types need a converter.
  <p>
- Injection should be into a field of type <a href="../../../org/omnifaces/cdi/param/ParamValue.html" title="class in org.omnifaces.cdi.param"><code>ParamValue</code></a>, with <code>V</code> the actual type of the
- (converted) request parameter.
+ In case the converted parameter value is not serializable, while the managed bean is serializable, you could inject
+ it into a field of type <a href="../../../org/omnifaces/cdi/param/ParamValue.html" title="class in org.omnifaces.cdi.param"><code>ParamValue</code></a>, with <code>V</code> the actual type of the converted request parameter.
  <p>
- The following is an example of the injection of a request parameter <code>user</code> following
- a request such as <code>http://example.com/mypage?user=100</code>:
-
+ The following is an example of the injection of a request parameter <code>user</code> following a request such as
+ <code>http://example.com/mypage?user=100</code>:
  <pre>
  &#64;Inject &#64;Param(converter="#{userconverter}", validator="#{priviledgedUser}")
- private ParamValue&lt;User&gt; user;
+ private User user;
  </pre>
  <p>
- If conversion or validation fails, a <a href="../../../org/omnifaces/cdi/param/ParamValue.html" title="class in org.omnifaces.cdi.param"><code>ParamValue</code></a> is injected, but it will contain a null value. The
- conversion and validation messages (if any) will be set in the JSF context then, and <a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true#isValidationFailed--" title="class or interface in javax.faces.context"><code>FacesContext.isValidationFailed()</code></a>
- will return true;</div>
+ If conversion or validation fails, <code>null</code> is injected. The conversion and validation messages (if any)
+ will be set in the JSF context then, and <a href="http://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true#isValidationFailed--" title="class or interface in javax.faces.context"><code>FacesContext.isValidationFailed()</code></a> will return <code>true</code>;</div>
 <dl>
 <dt><span class="simpleTagLabel">Since:</span></dt>
 <dd>1.6</dd>
@@ -132,7 +132,7 @@ public @interface <span class="memberNameLabel">Param</span></pre>
 <a href="../../../org/omnifaces/cdi/param/Attribute.html" title="annotation in org.omnifaces.cdi.param"><code>Attribute</code></a>, 
 <a href="../../../org/omnifaces/cdi/param/ParamExtension.html" title="class in org.omnifaces.cdi.param"><code>ParamExtension</code></a>, 
 <a href="../../../org/omnifaces/cdi/param/RequestParameterProducer.html" title="class in org.omnifaces.cdi.param"><code>RequestParameterProducer</code></a>, 
-<a href="../../../org/omnifaces/cdi/param/DynamicParamValueProdcuer.html" title="class in org.omnifaces.cdi.param"><code>DynamicParamValueProdcuer</code></a></dd>
+<a href="../../../org/omnifaces/cdi/param/DynamicParamValueProducer.html" title="class in org.omnifaces.cdi.param"><code>DynamicParamValueProducer</code></a></dd>
 </dl>
 </li>
 </ul>

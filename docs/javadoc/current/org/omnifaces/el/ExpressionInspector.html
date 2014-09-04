@@ -249,9 +249,9 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <div class="block">Gets a MethodReference from a ValueExpression. If the ValueExpression refers to a method, this will
  contain the actual method. If it refers to a property, this will contain the corresponding getter method.
  <p>
- Note that in case the expression refers to a method, the method reference contains the method with 
- the name the expression refers to, with a matching number of arguments and <i>a</i> match of types. 
- Overloads with the same amount of parameters are supported, but if the actual arguments match with 
+ Note that in case the expression refers to a method, the method reference contains the method with
+ the name the expression refers to, with a matching number of arguments and <i>a</i> match of types.
+ Overloads with the same amount of parameters are supported, but if the actual arguments match with
  the types of multiple overloads (e.g. actual argument Long, overloads for Number and Long) a random
  method will be chosen.</div>
 <dl>
@@ -281,6 +281,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>base</code> - the object in which the method is to be found</dd>
 <dd><code>methodName</code> - name of the method to be found</dd>
+<dd><code>params</code> - the method parameters</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>a method if one is found, null otherwise</dd>
 </dl>
