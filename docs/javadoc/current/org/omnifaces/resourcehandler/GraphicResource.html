@@ -166,7 +166,8 @@ extends <a href="../../../org/omnifaces/resourcehandler/DynamicResource.html" ti
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../org/omnifaces/resourcehandler/GraphicResource.html#GraphicResource-java.lang.Object-">GraphicResource</a></span>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;content)</code>
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../org/omnifaces/resourcehandler/GraphicResource.html#GraphicResource-java.lang.Object-java.lang.String-">GraphicResource</a></span>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;content,
+               <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;contentType)</code>
 <div class="block">Construct a new graphic resource which uses the given content as data URI.</div>
 </td>
 </tr>
@@ -253,17 +254,20 @@ extends <a href="../../../org/omnifaces/resourcehandler/DynamicResource.html" ti
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="GraphicResource-java.lang.Object-">
+<a name="GraphicResource-java.lang.Object-java.lang.String-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>GraphicResource</h4>
-<pre>public&nbsp;GraphicResource(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;content)</pre>
+<pre>public&nbsp;GraphicResource(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;content,
+                       <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;contentType)</pre>
 <div class="block">Construct a new graphic resource which uses the given content as data URI.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>content</code> - The graphic resource content, to be represented as data URI.</dd>
+<dd><code>contentType</code> - The graphic resource content type. If this is <code>null</code>, then it will be guessed
+ based on the content type signature in the content header. So far, JPEG, PNG, GIF and ICO are supported.</dd>
 </dl>
 </li>
 </ul>
