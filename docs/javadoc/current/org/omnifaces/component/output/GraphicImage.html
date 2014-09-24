@@ -216,7 +216,8 @@ extends <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/html/
  <p>
  In case your "image" entity supports it, you can also supply the "last modified" property which will be used in the
  <code>ETag</code> and <code>Last-Modified</code> headers and in <code>If-Modified-Since</code> checks, hereby
- improving browser caching. The <code>lastModified</code> attribute supports both <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Long.html?is-external=true" title="class or interface in java.lang"><code>Long</code></a> and <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util"><code>Date</code></a>.
+ improving browser caching. The <code>lastModified</code> attribute supports both <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util"><code>Date</code></a> and <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Long.html?is-external=true" title="class or interface in java.lang"><code>Long</code></a> as
+ timestamp in milliseconds.
  <pre>
  &lt;ui:repeat value="#{bean.images}" var="image"&gt;
      &lt;o:graphicImage value="#{imageStreamer.getById(image.id)}" lastModified="#{image.lastModified}" /&gt;

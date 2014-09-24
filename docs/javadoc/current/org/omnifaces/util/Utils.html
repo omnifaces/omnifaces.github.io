@@ -650,7 +650,8 @@ public static&nbsp;boolean&nbsp;isOneAnnotationPresent(<a href="http://docs.orac
 <h4>toByteArray</h4>
 <pre>public static&nbsp;byte[]&nbsp;toByteArray(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;input)
                           throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
-<div class="block">Read the given input stream into a byte array.</div>
+<div class="block">Read the given input stream into a byte array. The given input stream will implicitly be closed after streaming,
+ regardless of whether an exception is been thrown or not.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>input</code> - The input stream.</dd>
