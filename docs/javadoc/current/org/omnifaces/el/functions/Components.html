@@ -138,7 +138,10 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/el/functions/Components.html#evalAttribute-javax.faces.component.UIComponent-java.lang.String-">evalAttribute</a></span>(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;component,
-             <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>&nbsp;</td>
+             <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
+<div class="block">Evaluates an attribute of a component by first checking if there's a value expression associated with it, and only if there isn't one
+ look at a component property with that name.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -170,6 +173,18 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <h4>evalAttribute</h4>
 <pre>public static&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;evalAttribute(<a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;component,
                                    <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
+<div class="block">Evaluates an attribute of a component by first checking if there's a value expression associated with it, and only if there isn't one
+ look at a component property with that name.
+ <p>
+ The regular attribute collection (<a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true#getAttributes--" title="class or interface in javax.faces.component"><code>UIComponent.getAttributes()</code></a>) does exactly the reverse; it looks at a component property
+ first, then at the attribute collection and only looks at a value binding as the last option.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>component</code> - The component for which the attribute is to be evaluated</dd>
+<dd><code>name</code> - Name of attribute that is to be evaluated</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The value of the attribute, or null if either the component is null or if there's isn't an attribute by that name</dd>
+</dl>
 </li>
 </ul>
 </li>
