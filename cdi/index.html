@@ -29,7 +29,7 @@ SEVERE:
 ▌                         ▐█     ▐                                             ▐
 ▌    ▄                  ▄█▓█▌    ▐ OmniFaces failed to initialize!             ▐
 ▌   ▐██▄               ▄▓░░▓▓    ▐                                             ▐
-▌   ▐█░██▓            ▓▓░░░▓▌    ▐ This OmniFaces version requires CDI, but    ▐
+▌   ▐█░██▓            ▓▓░░░▓▌    ▐ This OmniFaces version requires CDI 1.1, but▐
 ▌   ▐█▌░▓██          █▓░░░░▓     ▐ none was found on this environment.         ▐
 ▌    ▓█▌░░▓█▄███████▄███▓░▓█     ▐                                             ▐
 ▌    ▓██▌░▓██░░░░░░░░░░▓█░▓▌     ▐ OmniFaces 2.x requires a minimum of JSF 2.2.▐
@@ -49,8 +49,8 @@ SEVERE:
 ▌  ▓█░░░░░░░░░░░░░░░░░░░░░░░██▓  ▐                                             ▐
 ▌  ▓█░░░░░░░░░░░░░░░░░░░░░░░▓█▓  ▐ You have 3 options:                         ▐
 ██████████████████████████████████ 1. Downgrade to OmniFaces 1.x.              ▐
-█░▀░░░░▀█▀░░░░░░▀█░░░░░░▀█▀░░░░░▀█ 2. Install CDI in this environment.         ▐
-█░░▐█▌░░█░░░██░░░█░░██░░░█░░░██░░█ 3. Switch to a CDI capable environment.     ▐
+█░▀░░░░▀█▀░░░░░░▀█░░░░░░▀█▀░░░░░▀█ 2. Install CDI 1.1+ in this environment.    ▐
+█░░▐█▌░░█░░░██░░░█░░██░░░█░░░██░░█ 3. Switch to a CDI 1.1 capable environment. ▐
 █░░▐█▌░░█░░░██░░░█░░██░░░█░░░██░░█                                             ▐
 █░░▐█▌░░█░░░██░░░█░░░░░░▄█░░▄▄▄▄▄█ For additional instructions, check          ▐
 █░░▐█▌░░█░░░██░░░█░░░░████░░░░░░░█ http://omnifaces.org/cdi                    ▐
@@ -66,14 +66,14 @@ SEVERE:
 This version doesn't require CDI. So you should be able to run it on CDI-less environments. You can find download links in the <a href="http://omnifaces.org">homepage</a>.
 </li>
 <li>
-<strong>Install CDI in this environment.</strong>
+<strong>Install CDI 1.1+ in this environment.</strong>
 <br/>
 For Tomcat users who don't have freedom in server choice, refer this article: <a href="http://balusc.blogspot.com/2013/10/how-to-install-cdi-in-tomcat.html">How to install CDI in Tomcat?</a>
 <br/>
 When installing Weld, make sure that you're using a minimum of version 2.2.0! Older versions have initialization ordering bugs.
 </li>
 <li>
-<strong>Switch to a CDI capable environment.</strong>
+<strong>Switch to a CDI 1.1 capable environment.</strong>
 <br/>
 For Tomcat users who have full freedom in server choice, just replace Tomcat by <a href="http://tomee.apache.org/">TomEE</a>, or perhaps even by <a href="http://wildfly.org/">WildFly</a>.
 </li>
