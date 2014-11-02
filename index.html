@@ -43,13 +43,13 @@
 <h2>
 <a name="minimum-requirements" class="anchor" href="#minimum-requirements"><span class="octicon octicon-link"></span></a>Minimum requirements</h2>
 
-<p>An important design goal will be to have as few dependencies as possible and to be minimally invasive. So far, OmniFaces 1.x only requires Java 1.6, JSF 2.0, EL 2.1 and Servlet 2.5 APIs (<a href="https://github.com/omnifaces/omnifaces/wiki/Java-EE-5-and-6-compatibility">Java EE 6 details</a>) which is already minimally available in a fairly modern servlet container serving a JSF 2.x web application. OmniFaces 2.x goes a step further by requiring Java 1.7, JSF 2.2, EL 2.2, Servlet 3.0 and CDI 1.0 APIs which is already minimally available in a fairly modern servlet container serving a JSF 2.2 web application.</p>
+<p>An important design goal will be to have as few dependencies as possible and to be minimally invasive. So far, OmniFaces 1.x only requires Java 1.6, JSF 2.0, EL 2.1 and Servlet 2.5 APIs (<a href="https://github.com/omnifaces/omnifaces/wiki/Java-EE-5-and-6-compatibility">Java EE 6 details</a>) which is already minimally available in a fairly modern servlet container serving a JSF 2.x web application. OmniFaces 2.x goes a step further by requiring Java 1.7, JSF 2.2, EL 2.2, Servlet 3.0 and CDI 1.1 APIs which is already minimally available in a fairly modern servlet container serving a JSF 2.2 web application.</p>
 
 <p>Since OmniFaces 1.6 there is an <em>optional</em> dependency on CDI, which turned out to be troublesome in some outdated environments, so they were since version 1.10 removed from version 1.x for a better compatibility with those environments. The CDI specific features remain in version 2.x whereby the CDI dependency is thus made <a href="http://omnifaces.org/cdi">required</a>. Version 1.x users who are already using CDI specific features on a JSF 2.1 environment should be able to effortlessly migrate to version 2.x. As of now, OmniFaces 2.x is backwards compatible with JSF 2.1, but not with JSF 2.0 anymore due to the new <code>&lt;o:viewParamValidationFailed&gt;</code> tag. </p>
 
 <p>All versions have an <em>optional</em> dependency on JSR303 Bean Validation which is only required when you actually use <code>&lt;o:validateBean&gt;</code> or <code>JsfLabelMessageInterpolator</code>.</p>
 
-<p>OmniFaces should principally integrate perfectly well with most other JSF component libraries. Even more, the <a href="http://showcase.omnifaces.org">OmniFaces showcase application</a> uses PrimeFaces. Note that, due to the mandatory Servlet API dependency, OmniFaces is <strong>not</strong> compatible with portlets.</p>
+<p>OmniFaces should principally integrate perfectly well with most other JSF component libraries. Even more, the <a href="http://showcase.omnifaces.org">OmniFaces showcase application</a> uses PrimeFaces. Note that OmniFaces is due to the mandatory Servlet API dependency <strong>not</strong> compatible with portlets.</p>
 
 <h2>
 <a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
@@ -102,7 +102,9 @@ xmlns:of="http://omnifaces.org/functions"
 </li>
 </ul>
 </li>
-</ul><h2>
+</ul>
+
+<h2>
 <a name="documentation" class="anchor" href="#documentation"><span class="octicon octicon-link"></span></a>Documentation</h2>
 
 <ul>
@@ -135,14 +137,18 @@ xmlns:of="http://omnifaces.org/functions"
 <li><a href="https://github.com/omnifaces/omnifaces/wiki/Combine-hardcoded-PrimeFaces-resources-using-CombinedResourceHandler">Combine hardcoded PrimeFaces resources using CombinedResourceHandler</a></li>
 </ul>
 </li>
-</ul><h2>
+</ul>
+
+<h2>
 <a name="demo" class="anchor" href="#demo"><span class="octicon octicon-link"></span></a>Demo</h2>
 
 <ul>
 <li><a href="http://showcase.omnifaces.org">OmniFaces 1.8.1 showcase</a></li>
 <li><a href="http://snapshot.omnifaces.org">OmniFaces SNAPSHOT showcase</a></li>
 <li><a href="https://github.com/omnifaces/showcase">Showcase source project</a></li>
-</ul><h2>
+</ul>
+
+<h2>
 <a name="support" class="anchor" href="#support"><span class="octicon octicon-link"></span></a>Support</h2>
 
 <p>If you have specific programming problems or questions related to the OmniFaces library, feel free to post a question on <a href="http://stackoverflow.com">Stack Overflow</a> using at least the <a href="http://stackoverflow.com/questions/tagged/jsf"><code>jsf</code></a> and <a href="http://stackoverflow.com/questions/tagged/omnifaces"><code>omnifaces</code></a> tags.</p>
