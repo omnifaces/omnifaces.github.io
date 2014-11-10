@@ -96,7 +96,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="contentContainer">
 <ul class="inheritance">
-<li><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</a></li>
+<li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
 <li>org.omnifaces.util.JNDI</li>
@@ -109,13 +109,13 @@ var activeTableTab = "activeTableTab";
 <hr>
 <br>
 <pre>public final class <span class="typeNameLabel">JNDI</span>
-extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
+extends java.lang.Object</pre>
 <div class="block"><p>
  Utility class for simplifying some web related tasks that use JNDI under the hood, such as getting the
  <code>&lt;env-entry&gt;</code> from <code>web.xml</code>.
  <p>
  Note that the JSF spec defines one parameter that can optionally be defined via an env entry instead of the typical
- context/init parameter; <a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/ProjectStage.html?is-external=true#PROJECT_STAGE_JNDI_NAME" title="class or interface in javax.faces.application"><code>ProjectStage.PROJECT_STAGE_JNDI_NAME</code></a>. Mojarra defines an additional proprietary one:
+ context/init parameter; <code>ProjectStage.PROJECT_STAGE_JNDI_NAME</code>. Mojarra defines an additional proprietary one:
  "java:comp/env/ClientStateSavingPassword".</div>
 <dl>
 <dt><span class="simpleTagLabel">Since:</span></dt>
@@ -143,13 +143,13 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;T</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/JNDI.html#getEnvEntry-java.lang.String-">getEnvEntry</a></span>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/JNDI.html#getEnvEntry-java.lang.String-">getEnvEntry</a></span>(java.lang.String&nbsp;name)</code>
 <div class="block">Returns the named environment entry for the deployment component from where this is called.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;T</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/JNDI.html#lookup-java.lang.String-">lookup</a></span>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/JNDI.html#lookup-java.lang.String-">lookup</a></span>(java.lang.String&nbsp;name)</code>
 <div class="block">Returns the named object from the default JNDI instance.</div>
 </td>
 </tr>
@@ -158,8 +158,8 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
 <!--   -->
 </a>
-<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
-<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone--" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals-java.lang.Object-" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize--" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass--" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode--" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify--" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll--" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString--" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait--" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait-long-" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait-long-int-" title="class or interface in java.lang">wait</a></code></li>
+<h3>Methods inherited from class&nbsp;java.lang.Object</h3>
+<code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
 </ul>
 </li>
 </ul>
@@ -181,7 +181,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <ul class="blockList">
 <li class="blockList">
 <h4>getEnvEntry</h4>
-<pre>public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;getEnvEntry(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
+<pre>public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;getEnvEntry(java.lang.String&nbsp;name)</pre>
 <div class="block">Returns the named environment entry for the deployment component from where this is called. From within the web
  module this returns the <code>&lt;env-entry-value&gt;</code> of a <code>&lt;env-entry&gt;</code> in
  <code>web.xml</code> associated with the given <code>&lt;env-entry-name&gt;</code>.
@@ -214,7 +214,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
  To use a true global JNDI name an additional <code>&lt;lookup-name&gt;</code> should be specified in <code>web.xml</code>.
 
  <p>
- Environment entries can also be injected using <a href="http://docs.oracle.com/javase/7/docs/api/javax/annotation/Resource.html?is-external=true" title="class or interface in javax.annotation"><code>Resource</code></a>.</div>
+ Environment entries can also be injected using <code>Resource</code>.</div>
 <dl>
 <dt><span class="paramLabel">Type Parameters:</span></dt>
 <dd><code>T</code> - The expected return type.</dd>
@@ -224,11 +224,11 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <dd>The environment entry value associated with the given name, or <code>null</code> if
  there is none.</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/ClassCastException.html?is-external=true" title="class or interface in java.lang">ClassCastException</a></code> - When <code>T</code> is of wrong type.</dd>
+<dd><code>java.lang.ClassCastException</code> - When <code>T</code> is of wrong type.</dd>
 <dt><span class="simpleTagLabel">Since:</span></dt>
 <dd>1.6</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="http://docs.oracle.com/javase/7/docs/api/javax/naming/InitialContext.html?is-external=true#lookup-java.lang.String-" title="class or interface in javax.naming"><code>InitialContext.lookup(String)</code></a></dd>
+<dd><code>InitialContext.lookup(String)</code></dd>
 </dl>
 </li>
 </ul>
@@ -238,7 +238,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <ul class="blockListLast">
 <li class="blockList">
 <h4>lookup</h4>
-<pre>public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;lookup(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name)</pre>
+<pre>public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;lookup(java.lang.String&nbsp;name)</pre>
 <div class="block">Returns the named object from the default JNDI instance.</div>
 <dl>
 <dt><span class="paramLabel">Type Parameters:</span></dt>
@@ -248,11 +248,11 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the named object, or <code>null</code> if there is none.</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/ClassCastException.html?is-external=true" title="class or interface in java.lang">ClassCastException</a></code> - When <code>T</code> is of wrong type.</dd>
+<dd><code>java.lang.ClassCastException</code> - When <code>T</code> is of wrong type.</dd>
 <dt><span class="simpleTagLabel">Since:</span></dt>
 <dd>1.6</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="http://docs.oracle.com/javase/7/docs/api/javax/naming/InitialContext.html?is-external=true#lookup-java.lang.String-" title="class or interface in javax.naming"><code>InitialContext.lookup(String)</code></a></dd>
+<dd><code>InitialContext.lookup(String)</code></dd>
 </dl>
 </li>
 </ul>

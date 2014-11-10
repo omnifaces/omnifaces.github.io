@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -49,7 +49,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../org/omnifaces/util/Ajax.html" title="class in org.omnifaces.util"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../org/omnifaces/util/Callback.html" title="class in org.omnifaces.util"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../org/omnifaces/util/BeansLocal.html" title="class in org.omnifaces.util"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?org/omnifaces/util/Beans.html" target="_top">Frames</a></li>
@@ -96,7 +96,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="contentContainer">
 <ul class="inheritance">
-<li><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</a></li>
+<li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
 <li>org.omnifaces.util.Beans</li>
@@ -108,34 +108,48 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <hr>
 <br>
-<pre>public final class <span class="typeNameLabel">Beans</span>
-extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
+<pre>@Typed
+public final class <span class="typeNameLabel">Beans</span>
+extends java.lang.Object</pre>
 <div class="block"><p>
- Collection of utility methods for the CDI API with respect to working with <code>BeanManager</code>.
+ Collection of utility methods for the CDI API that are mainly shortcuts for obtaining stuff from the
+ <code>BeanManager</code>.
 
  <h3>Usage</h3>
+ <p>
+ Some examples:
  <pre>
- // Get the CDI managed bean instance of the given bean class.
- SomeBean someBean = Beans.getReference(beanManager, SomeBean.class);
+ // Get the CDI managed bean reference (proxy) of the given bean class.
+ SomeBean someBean = Beans.getReference(SomeBean.class);
+
+ // Get the CDI managed bean instance (actual) of the given bean class.
+ SomeBean someBean = Beans.getInstance(SomeBean.class);
+
+ // Get all currently active CDI managed bean instances in the session scope.
+ Map&lt;Object, String&gt; activeSessionScopedBeans = Beans.getActiveInstances(SessionScope.class);
+
+ // Destroy any currently active CDI managed bean instance of given bean class.
+ Beans.destroy(SomeBean.class);
  </pre>
  <p>
- The "native" CDI way would otherwise look like this (...), provided that you can't use <a href="http://docs.oracle.com/javaee/7/api/javax/inject/Inject.html?is-external=true" title="class or interface in javax.inject"><code>Inject</code></a> for some
- technical reasons.
+ The "native" CDI way would otherwise look like this:
  <pre>
- // Get the CDI managed bean instance of the given bean class.
+ // Get the CDI managed bean reference (proxy) of the given bean class.
  Set&lt;Bean&lt;?&gt;&gt; beans = beanManager.getBeans(SomeBean.class);
  Bean&lt;SomeBean&gt; bean = (Bean&lt;SomeBean&gt;) beanManager.resolve(beans);
  CreationalContext&lt;SomeBean&gt; context = beanManager.createCreationalContext(bean);
  SomeBean someBean = (SomeBean) beanManager.getReference(bean, SomeBean.class, context);
  </pre>
  <p>
- If you need a dependency-free way of obtaining the CDI managed bean instance (e.g. when you want to write code which
+ If you need a dependency-free way of obtaining the CDI managed bean reference (e.g. when you want to write code which
  should also run on Tomcat), use <a href="../../../org/omnifaces/config/BeanManager.html" title="enum in org.omnifaces.config"><code>BeanManager</code></a> enum instead.</div>
 <dl>
 <dt><span class="simpleTagLabel">Since:</span></dt>
 <dd>1.6.1</dd>
 <dt><span class="simpleTagLabel">Author:</span></dt>
 <dd>Bauke Scholtz</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../org/omnifaces/util/BeansLocal.html" title="class in org.omnifaces.util"><code>BeansLocal</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -173,81 +187,76 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Beans.html#getActiveInstances-javax.enterprise.inject.spi.BeanManager-java.lang.Class-">getActiveInstances</a></span>(<a href="http://docs.oracle.com/javaee/7/api/javax/enterprise/inject/spi/BeanManager.html?is-external=true" title="class or interface in javax.enterprise.inject.spi">BeanManager</a>&nbsp;beanManager,
-                  <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;? extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/annotation/Annotation.html?is-external=true" title="class or interface in java.lang.annotation">Annotation</a>&gt;&nbsp;scope)</code>
-<div class="block">Returns all active CDI managed bean instances in the given CDI managed bean scope.</div>
+<td class="colFirst"><code>static &lt;T&gt;&nbsp;void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Beans.html#destroy-javax.enterprise.inject.spi.Bean-">destroy</a></span>(javax.enterprise.inject.spi.Bean&lt;T&gt;&nbsp;bean)</code>
+<div class="block">Destroy the currently active instance of the given CDI managed bean representation.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>static &lt;T extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/annotation/Annotation.html?is-external=true" title="class or interface in java.lang.annotation">Annotation</a>&gt;<br>T</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Beans.html#getAnnotation-javax.enterprise.inject.spi.BeanManager-javax.enterprise.inject.spi.Annotated-java.lang.Class-">getAnnotation</a></span>(<a href="http://docs.oracle.com/javaee/7/api/javax/enterprise/inject/spi/BeanManager.html?is-external=true" title="class or interface in javax.enterprise.inject.spi">BeanManager</a>&nbsp;beanManager,
-             <a href="http://docs.oracle.com/javaee/7/api/javax/enterprise/inject/spi/Annotated.html?is-external=true" title="class or interface in javax.enterprise.inject.spi">Annotated</a>&nbsp;annotated,
-             <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;annotationType)</code>
-<div class="block">Get program element annotation of a certain annotation type.</div>
+<td class="colFirst"><code>static &lt;T&gt;&nbsp;void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Beans.html#destroy-java.lang.Class-">destroy</a></span>(java.lang.Class&lt;T&gt;&nbsp;beanClass)</code>
+<div class="block">Destroy the currently active instance of the given CDI managed bean class.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code>static &lt;T extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/annotation/Annotation.html?is-external=true" title="class or interface in java.lang.annotation">Annotation</a>&gt;<br>T</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Beans.html#getAnnotation-javax.enterprise.inject.spi.BeanManager-java.util.Collection-java.lang.Class-">getAnnotation</a></span>(<a href="http://docs.oracle.com/javaee/7/api/javax/enterprise/inject/spi/BeanManager.html?is-external=true" title="class or interface in javax.enterprise.inject.spi">BeanManager</a>&nbsp;beanManager,
-             <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/annotation/Annotation.html?is-external=true" title="class or interface in java.lang.annotation">Annotation</a>&gt;&nbsp;initialAnnotations,
-             <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;annotationType)</code>
-<div class="block">Get program element annotation of a certain annotation type from a collection of annotations.</div>
+<td class="colFirst"><code>static &lt;S extends javax.enterprise.context.NormalScope&gt;<br>java.util.Map&lt;java.lang.Object,java.lang.String&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Beans.html#getActiveInstances-java.lang.Class-">getActiveInstances</a></span>(java.lang.Class&lt;S&gt;&nbsp;scope)</code>
+<div class="block">Returns all active CDI managed bean instances in the given CDI managed bean scope.</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code>static <a href="http://docs.oracle.com/javaee/7/api/javax/enterprise/inject/spi/InjectionPoint.html?is-external=true" title="class or interface in javax.enterprise.inject.spi">InjectionPoint</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Beans.html#getCurrentInjectionPoint-javax.enterprise.inject.spi.BeanManager-">getCurrentInjectionPoint</a></span>(<a href="http://docs.oracle.com/javaee/7/api/javax/enterprise/inject/spi/BeanManager.html?is-external=true" title="class or interface in javax.enterprise.inject.spi">BeanManager</a>&nbsp;beanManager)</code>
-<div class="block">Returns the current <a href="http://docs.oracle.com/javaee/7/api/javax/enterprise/inject/spi/InjectionPoint.html?is-external=true" title="class or interface in javax.enterprise.inject.spi"><code>InjectionPoint</code></a> if any is available.</div>
+<td class="colFirst"><code>static &lt;A extends java.lang.annotation.Annotation&gt;<br>A</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Beans.html#getAnnotation-javax.enterprise.inject.spi.Annotated-java.lang.Class-">getAnnotation</a></span>(javax.enterprise.inject.spi.Annotated&nbsp;annotated,
+             java.lang.Class&lt;A&gt;&nbsp;annotationType)</code>
+<div class="block">Get program element annotation of a certain annotation type.</div>
 </td>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;T</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Beans.html#getInstance-javax.enterprise.inject.spi.BeanManager-javax.enterprise.inject.spi.Bean-boolean-">getInstance</a></span>(<a href="http://docs.oracle.com/javaee/7/api/javax/enterprise/inject/spi/BeanManager.html?is-external=true" title="class or interface in javax.enterprise.inject.spi">BeanManager</a>&nbsp;beanManager,
-           <a href="http://docs.oracle.com/javaee/7/api/javax/enterprise/inject/spi/Bean.html?is-external=true" title="class or interface in javax.enterprise.inject.spi">Bean</a>&lt;T&gt;&nbsp;bean,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Beans.html#getInstance-javax.enterprise.inject.spi.Bean-boolean-">getInstance</a></span>(javax.enterprise.inject.spi.Bean&lt;T&gt;&nbsp;bean,
            boolean&nbsp;create)</code>
-<div class="block">Returns the CDI managed bean instance of the given resolved bean from the given bean manager and creates one if
- one doesn't exist and <code>create</code> argument is <code>true</code>, otherwise don't create one and return
+<div class="block">Returns the CDI managed bean instance (actual) of the given bean representation and creates one if one doesn't
+ exist and <code>create</code> argument is <code>true</code>, otherwise don't create one and return
  <code>null</code> if there's no current instance.</div>
 </td>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;T</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Beans.html#getInstance-javax.enterprise.inject.spi.BeanManager-java.lang.Class-">getInstance</a></span>(<a href="http://docs.oracle.com/javaee/7/api/javax/enterprise/inject/spi/BeanManager.html?is-external=true" title="class or interface in javax.enterprise.inject.spi">BeanManager</a>&nbsp;beanManager,
-           <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;beanClass)</code>
-<div class="block">Returns the CDI managed bean instance of the given class from the given bean manager and creates one if
- one doesn't exist.</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Beans.html#getInstance-java.lang.Class-">getInstance</a></span>(java.lang.Class&lt;T&gt;&nbsp;beanClass)</code>
+<div class="block">Returns the CDI managed bean instance (actual) of the given bean class and creates one if one doesn't exist.</div>
 </td>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;T</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Beans.html#getInstance-javax.enterprise.inject.spi.BeanManager-java.lang.Class-boolean-">getInstance</a></span>(<a href="http://docs.oracle.com/javaee/7/api/javax/enterprise/inject/spi/BeanManager.html?is-external=true" title="class or interface in javax.enterprise.inject.spi">BeanManager</a>&nbsp;beanManager,
-           <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;beanClass,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Beans.html#getInstance-java.lang.Class-boolean-">getInstance</a></span>(java.lang.Class&lt;T&gt;&nbsp;beanClass,
            boolean&nbsp;create)</code>
-<div class="block">Returns the CDI managed bean instance of the given class from the given bean manager and creates one if
- one doesn't exist and <code>create</code> argument is <code>true</code>, otherwise don't create one and return
- <code>null</code> if there's no current instance.</div>
+<div class="block">Returns the CDI managed bean instance (actual) of the given bean class and creates one if one doesn't exist and
+ <code>create</code> argument is <code>true</code>, otherwise don't create one and return <code>null</code> if
+ there's no current instance.</div>
 </td>
 </tr>
 <tr id="i7" class="rowColor">
-<td class="colFirst"><code>static &lt;T&gt;&nbsp;T</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Beans.html#getReference-javax.enterprise.inject.spi.BeanManager-javax.enterprise.inject.spi.Bean-">getReference</a></span>(<a href="http://docs.oracle.com/javaee/7/api/javax/enterprise/inject/spi/BeanManager.html?is-external=true" title="class or interface in javax.enterprise.inject.spi">BeanManager</a>&nbsp;beanManager,
-            <a href="http://docs.oracle.com/javaee/7/api/javax/enterprise/inject/spi/Bean.html?is-external=true" title="class or interface in javax.enterprise.inject.spi">Bean</a>&lt;T&gt;&nbsp;bean)</code>
-<div class="block">Returns the CDI managed bean reference of the given resolved bean from the given bean manager.</div>
+<td class="colFirst"><code>static javax.enterprise.inject.spi.BeanManager</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Beans.html#getManager--">getManager</a></span>()</code>
+<div class="block">Returns the CDI bean manager.</div>
 </td>
 </tr>
 <tr id="i8" class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;T</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Beans.html#getReference-javax.enterprise.inject.spi.BeanManager-java.lang.Class-">getReference</a></span>(<a href="http://docs.oracle.com/javaee/7/api/javax/enterprise/inject/spi/BeanManager.html?is-external=true" title="class or interface in javax.enterprise.inject.spi">BeanManager</a>&nbsp;beanManager,
-            <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;beanClass)</code>
-<div class="block">Returns the CDI managed bean reference of the given class from the given bean manager.</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Beans.html#getReference-javax.enterprise.inject.spi.Bean-">getReference</a></span>(javax.enterprise.inject.spi.Bean&lt;T&gt;&nbsp;bean)</code>
+<div class="block">Returns the CDI managed bean reference (proxy) of the given bean representation.</div>
 </td>
 </tr>
 <tr id="i9" class="rowColor">
-<td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="http://docs.oracle.com/javaee/7/api/javax/enterprise/inject/spi/Bean.html?is-external=true" title="class or interface in javax.enterprise.inject.spi">Bean</a>&lt;T&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Beans.html#resolve-javax.enterprise.inject.spi.BeanManager-java.lang.Class-">resolve</a></span>(<a href="http://docs.oracle.com/javaee/7/api/javax/enterprise/inject/spi/BeanManager.html?is-external=true" title="class or interface in javax.enterprise.inject.spi">BeanManager</a>&nbsp;beanManager,
-       <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;beanClass)</code>
-<div class="block">Resolve and returns the CDI managed bean of the given class from the given bean manager.</div>
+<td class="colFirst"><code>static &lt;T&gt;&nbsp;T</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Beans.html#getReference-java.lang.Class-">getReference</a></span>(java.lang.Class&lt;T&gt;&nbsp;beanClass)</code>
+<div class="block">Returns the CDI managed bean reference (proxy) of the given bean class.</div>
+</td>
+</tr>
+<tr id="i10" class="altColor">
+<td class="colFirst"><code>static &lt;T&gt;&nbsp;javax.enterprise.inject.spi.Bean&lt;T&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Beans.html#resolve-java.lang.Class-">resolve</a></span>(java.lang.Class&lt;T&gt;&nbsp;beanClass)</code>
+<div class="block">Returns the CDI managed bean representation of the given bean class.</div>
 </td>
 </tr>
 </table>
@@ -255,8 +264,8 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
 <!--   -->
 </a>
-<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
-<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone--" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals-java.lang.Object-" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize--" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass--" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode--" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify--" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll--" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString--" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait--" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait-long-" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait-long-int-" title="class or interface in java.lang">wait</a></code></li>
+<h3>Methods inherited from class&nbsp;java.lang.Object</h3>
+<code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
 </ul>
 </li>
 </ul>
@@ -289,158 +298,161 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="resolve-javax.enterprise.inject.spi.BeanManager-java.lang.Class-">
+<a name="getManager--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getManager</h4>
+<pre>public static&nbsp;javax.enterprise.inject.spi.BeanManager&nbsp;getManager()</pre>
+<div class="block">Returns the CDI bean manager.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The CDI bean manager.</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>2.0</dd>
+</dl>
+</li>
+</ul>
+<a name="resolve-java.lang.Class-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>resolve</h4>
-<pre>public static&nbsp;&lt;T&gt;&nbsp;<a href="http://docs.oracle.com/javaee/7/api/javax/enterprise/inject/spi/Bean.html?is-external=true" title="class or interface in javax.enterprise.inject.spi">Bean</a>&lt;T&gt;&nbsp;resolve(<a href="http://docs.oracle.com/javaee/7/api/javax/enterprise/inject/spi/BeanManager.html?is-external=true" title="class or interface in javax.enterprise.inject.spi">BeanManager</a>&nbsp;beanManager,
-                                  <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;beanClass)</pre>
-<div class="block">Resolve and returns the CDI managed bean of the given class from the given bean manager.</div>
+<pre>public static&nbsp;&lt;T&gt;&nbsp;javax.enterprise.inject.spi.Bean&lt;T&gt;&nbsp;resolve(java.lang.Class&lt;T&gt;&nbsp;beanClass)</pre>
+<div class="block">Returns the CDI managed bean representation of the given bean class.</div>
 <dl>
 <dt><span class="paramLabel">Type Parameters:</span></dt>
-<dd><code>T</code> - The generic bean type.</dd>
+<dd><code>T</code> - The generic CDI managed bean type.</dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>beanManager</code> - The involved CDI bean manager.</dd>
-<dd><code>beanClass</code> - The type of the CDI managed bean instance.</dd>
+<dd><code>beanClass</code> - The CDI managed bean class.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>The resolved CDI managed bean of the given class from the given bean manager.</dd>
+<dd>The CDI managed bean representation of the given bean class, or <code>null</code> if there is none.</dd>
 </dl>
 </li>
 </ul>
-<a name="getReference-javax.enterprise.inject.spi.BeanManager-java.lang.Class-">
+<a name="getReference-java.lang.Class-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>getReference</h4>
-<pre>public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;getReference(<a href="http://docs.oracle.com/javaee/7/api/javax/enterprise/inject/spi/BeanManager.html?is-external=true" title="class or interface in javax.enterprise.inject.spi">BeanManager</a>&nbsp;beanManager,
-                                 <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;beanClass)</pre>
-<div class="block">Returns the CDI managed bean reference of the given class from the given bean manager.
- Note that this actually returns a client proxy and the underlying instance is thus always auto-created.</div>
+<pre>public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;getReference(java.lang.Class&lt;T&gt;&nbsp;beanClass)</pre>
+<div class="block">Returns the CDI managed bean reference (proxy) of the given bean class.
+ Note that this actually returns a client proxy and the underlying actual instance is thus always auto-created.</div>
 <dl>
 <dt><span class="paramLabel">Type Parameters:</span></dt>
-<dd><code>T</code> - The generic bean type.</dd>
+<dd><code>T</code> - The expected return type.</dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>beanManager</code> - The involved CDI bean manager.</dd>
-<dd><code>beanClass</code> - The type of the CDI managed bean instance.</dd>
+<dd><code>beanClass</code> - The CDI managed bean class.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>The CDI managed bean reference of the given class from the given bean manager.</dd>
+<dd>The CDI managed bean reference (proxy) of the given class, or <code>null</code> if there is none.</dd>
 </dl>
 </li>
 </ul>
-<a name="getReference-javax.enterprise.inject.spi.BeanManager-javax.enterprise.inject.spi.Bean-">
+<a name="getReference-javax.enterprise.inject.spi.Bean-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>getReference</h4>
-<pre>public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;getReference(<a href="http://docs.oracle.com/javaee/7/api/javax/enterprise/inject/spi/BeanManager.html?is-external=true" title="class or interface in javax.enterprise.inject.spi">BeanManager</a>&nbsp;beanManager,
-                                 <a href="http://docs.oracle.com/javaee/7/api/javax/enterprise/inject/spi/Bean.html?is-external=true" title="class or interface in javax.enterprise.inject.spi">Bean</a>&lt;T&gt;&nbsp;bean)</pre>
-<div class="block">Returns the CDI managed bean reference of the given resolved bean from the given bean manager.
- Note that this actually returns a client proxy and the underlying instance is thus always auto-created.</div>
+<pre>public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;getReference(javax.enterprise.inject.spi.Bean&lt;T&gt;&nbsp;bean)</pre>
+<div class="block">Returns the CDI managed bean reference (proxy) of the given bean representation.
+ Note that this actually returns a client proxy and the underlying actual instance is thus always auto-created.</div>
 <dl>
 <dt><span class="paramLabel">Type Parameters:</span></dt>
-<dd><code>T</code> - The generic return type.</dd>
+<dd><code>T</code> - The expected return type.</dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>beanManager</code> - The involved CDI bean manager.</dd>
-<dd><code>bean</code> - The resolved bean of the CDI managed bean instance.</dd>
+<dd><code>bean</code> - The CDI managed bean representation.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>The CDI managed bean reference of the given resolved bean from the given bean manager.</dd>
+<dd>The CDI managed bean reference (proxy) of the given bean, or <code>null</code> if there is none.</dd>
 </dl>
 </li>
 </ul>
-<a name="getInstance-javax.enterprise.inject.spi.BeanManager-java.lang.Class-">
+<a name="getInstance-java.lang.Class-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>getInstance</h4>
-<pre>public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;getInstance(<a href="http://docs.oracle.com/javaee/7/api/javax/enterprise/inject/spi/BeanManager.html?is-external=true" title="class or interface in javax.enterprise.inject.spi">BeanManager</a>&nbsp;beanManager,
-                                <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;beanClass)</pre>
-<div class="block">Returns the CDI managed bean instance of the given class from the given bean manager and creates one if
- one doesn't exist.</div>
+<pre>public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;getInstance(java.lang.Class&lt;T&gt;&nbsp;beanClass)</pre>
+<div class="block">Returns the CDI managed bean instance (actual) of the given bean class and creates one if one doesn't exist.</div>
 <dl>
 <dt><span class="paramLabel">Type Parameters:</span></dt>
-<dd><code>T</code> - The generic bean type.</dd>
+<dd><code>T</code> - The expected return type.</dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>beanManager</code> - The involved CDI bean manager.</dd>
-<dd><code>beanClass</code> - The type of the CDI managed bean instance.</dd>
+<dd><code>beanClass</code> - The CDI managed bean class.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>The CDI managed bean instance of the given class from the given bean manager.</dd>
+<dd>The CDI managed bean instance (actual) of the given bean class, or <code>null</code> if there is none.</dd>
 <dt><span class="simpleTagLabel">Since:</span></dt>
 <dd>1.8</dd>
 </dl>
 </li>
 </ul>
-<a name="getInstance-javax.enterprise.inject.spi.BeanManager-java.lang.Class-boolean-">
+<a name="getInstance-java.lang.Class-boolean-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>getInstance</h4>
-<pre>public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;getInstance(<a href="http://docs.oracle.com/javaee/7/api/javax/enterprise/inject/spi/BeanManager.html?is-external=true" title="class or interface in javax.enterprise.inject.spi">BeanManager</a>&nbsp;beanManager,
-                                <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;beanClass,
+<pre>public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;getInstance(java.lang.Class&lt;T&gt;&nbsp;beanClass,
                                 boolean&nbsp;create)</pre>
-<div class="block">Returns the CDI managed bean instance of the given class from the given bean manager and creates one if
- one doesn't exist and <code>create</code> argument is <code>true</code>, otherwise don't create one and return
+<div class="block">Returns the CDI managed bean instance (actual) of the given bean class and creates one if one doesn't exist and
+ <code>create</code> argument is <code>true</code>, otherwise don't create one and return <code>null</code> if
+ there's no current instance.</div>
+<dl>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>T</code> - The expected return type.</dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>beanClass</code> - The CDI managed bean class.</dd>
+<dd><code>create</code> - Whether to create create CDI managed bean instance if one doesn't exist.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The CDI managed bean instance (actual) of the given bean class, or <code>null</code> if there is none
+ and/or the <code>create</code> argument is <code>false</code>.</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>1.7</dd>
+</dl>
+</li>
+</ul>
+<a name="getInstance-javax.enterprise.inject.spi.Bean-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getInstance</h4>
+<pre>public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;getInstance(javax.enterprise.inject.spi.Bean&lt;T&gt;&nbsp;bean,
+                                boolean&nbsp;create)</pre>
+<div class="block">Returns the CDI managed bean instance (actual) of the given bean representation and creates one if one doesn't
+ exist and <code>create</code> argument is <code>true</code>, otherwise don't create one and return
  <code>null</code> if there's no current instance.</div>
 <dl>
 <dt><span class="paramLabel">Type Parameters:</span></dt>
 <dd><code>T</code> - The expected return type.</dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>beanManager</code> - The involved CDI bean manager.</dd>
-<dd><code>beanClass</code> - The type of the CDI managed bean instance.</dd>
-<dd><code>create</code> - If <code>true</code>, then create one if one doesn't exist, otherwise don't create one and return
- <code>null</code> if there's no current instance.</dd>
+<dd><code>bean</code> - The CDI managed bean representation.</dd>
+<dd><code>create</code> - Whether to create create CDI managed bean instance if one doesn't exist.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>The CDI managed bean instance of the given class from the given bean manager.</dd>
+<dd>The CDI managed bean instance (actual) of the given bean, or <code>null</code> if there is none and/or
+ the <code>create</code> argument is <code>false</code>.</dd>
 <dt><span class="simpleTagLabel">Since:</span></dt>
 <dd>1.7</dd>
 </dl>
 </li>
 </ul>
-<a name="getInstance-javax.enterprise.inject.spi.BeanManager-javax.enterprise.inject.spi.Bean-boolean-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getInstance</h4>
-<pre>public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;getInstance(<a href="http://docs.oracle.com/javaee/7/api/javax/enterprise/inject/spi/BeanManager.html?is-external=true" title="class or interface in javax.enterprise.inject.spi">BeanManager</a>&nbsp;beanManager,
-                                <a href="http://docs.oracle.com/javaee/7/api/javax/enterprise/inject/spi/Bean.html?is-external=true" title="class or interface in javax.enterprise.inject.spi">Bean</a>&lt;T&gt;&nbsp;bean,
-                                boolean&nbsp;create)</pre>
-<div class="block">Returns the CDI managed bean instance of the given resolved bean from the given bean manager and creates one if
- one doesn't exist and <code>create</code> argument is <code>true</code>, otherwise don't create one and return
- <code>null</code> if there's no current instance.</div>
-<dl>
-<dt><span class="paramLabel">Type Parameters:</span></dt>
-<dd><code>T</code> - The generic bean type.</dd>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>beanManager</code> - The involved CDI bean manager.</dd>
-<dd><code>bean</code> - The resolved bean of the CDI managed bean instance.</dd>
-<dd><code>create</code> - If <code>true</code>, then create one if one doesn't exist, otherwise don't create one and return
- <code>null</code> if there's no current instance.</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>The CDI managed bean instance of the given class from the given bean manager.</dd>
-<dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>1.7</dd>
-</dl>
-</li>
-</ul>
-<a name="getActiveInstances-javax.enterprise.inject.spi.BeanManager-java.lang.Class-">
+<a name="getActiveInstances-java.lang.Class-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>getActiveInstances</h4>
-<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;getActiveInstances(<a href="http://docs.oracle.com/javaee/7/api/javax/enterprise/inject/spi/BeanManager.html?is-external=true" title="class or interface in javax.enterprise.inject.spi">BeanManager</a>&nbsp;beanManager,
-                                                    <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;? extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/annotation/Annotation.html?is-external=true" title="class or interface in java.lang.annotation">Annotation</a>&gt;&nbsp;scope)</pre>
+<pre>public static&nbsp;&lt;S extends javax.enterprise.context.NormalScope&gt;&nbsp;java.util.Map&lt;java.lang.Object,java.lang.String&gt;&nbsp;getActiveInstances(java.lang.Class&lt;S&gt;&nbsp;scope)</pre>
 <div class="block">Returns all active CDI managed bean instances in the given CDI managed bean scope. The map key represents
  the active CDI managed bean instance and the map value represents the CDI managed bean name, if any.</div>
 <dl>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>S</code> - The generic CDI managed bean scope type.</dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>beanManager</code> - The involved CDI bean manager.</dd>
 <dd><code>scope</code> - The CDI managed bean scope, e.g. <code>RequestScoped.class</code>.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>All active CDI managed bean instances in the given CDI managed bean scope.</dd>
@@ -449,80 +461,64 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </dl>
 </li>
 </ul>
-<a name="getAnnotation-javax.enterprise.inject.spi.BeanManager-javax.enterprise.inject.spi.Annotated-java.lang.Class-">
+<a name="destroy-java.lang.Class-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getAnnotation</h4>
-<pre>public static&nbsp;&lt;T extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/annotation/Annotation.html?is-external=true" title="class or interface in java.lang.annotation">Annotation</a>&gt;&nbsp;T&nbsp;getAnnotation(<a href="http://docs.oracle.com/javaee/7/api/javax/enterprise/inject/spi/BeanManager.html?is-external=true" title="class or interface in javax.enterprise.inject.spi">BeanManager</a>&nbsp;beanManager,
-                                                     <a href="http://docs.oracle.com/javaee/7/api/javax/enterprise/inject/spi/Annotated.html?is-external=true" title="class or interface in javax.enterprise.inject.spi">Annotated</a>&nbsp;annotated,
-                                                     <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;annotationType)</pre>
-<div class="block">Get program element annotation of a certain annotation type.
- <p>
- The difference with <a href="http://docs.oracle.com/javaee/7/api/javax/enterprise/inject/spi/Annotated.html?is-external=true#getAnnotation-java.lang.Class-" title="class or interface in javax.enterprise.inject.spi"><code>Annotated.getAnnotation(Class)</code></a> is that this method will recursively search inside
- all <a href="http://docs.oracle.com/javaee/7/api/javax/enterprise/inject/Stereotype.html?is-external=true" title="class or interface in javax.enterprise.inject"><code>Stereotype</code></a> annotations.</div>
+<h4>destroy</h4>
+<pre>public static&nbsp;&lt;T&gt;&nbsp;void&nbsp;destroy(java.lang.Class&lt;T&gt;&nbsp;beanClass)</pre>
+<div class="block">Destroy the currently active instance of the given CDI managed bean class.</div>
 <dl>
 <dt><span class="paramLabel">Type Parameters:</span></dt>
-<dd><code>T</code> - The generic annotation type.</dd>
+<dd><code>T</code> - The generic CDI managed bean type.</dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>beanManager</code> - The involved CDI bean manager.</dd>
-<dd><code>annotated</code> - a Java program element that can be annotated</dd>
-<dd><code>annotationType</code> - the class of the annotation type</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>the program element annotation of the given annotation type if it could be found, otherwise <code>null</code></dd>
+<dd><code>beanClass</code> - The CDI managed bean class.</dd>
 <dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>1.8</dd>
+<dd>2.0</dd>
 </dl>
 </li>
 </ul>
-<a name="getAnnotation-javax.enterprise.inject.spi.BeanManager-java.util.Collection-java.lang.Class-">
+<a name="destroy-javax.enterprise.inject.spi.Bean-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getAnnotation</h4>
-<pre>public static&nbsp;&lt;T extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/annotation/Annotation.html?is-external=true" title="class or interface in java.lang.annotation">Annotation</a>&gt;&nbsp;T&nbsp;getAnnotation(<a href="http://docs.oracle.com/javaee/7/api/javax/enterprise/inject/spi/BeanManager.html?is-external=true" title="class or interface in javax.enterprise.inject.spi">BeanManager</a>&nbsp;beanManager,
-                                                     <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/annotation/Annotation.html?is-external=true" title="class or interface in java.lang.annotation">Annotation</a>&gt;&nbsp;initialAnnotations,
-                                                     <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;annotationType)</pre>
-<div class="block">Get program element annotation of a certain annotation type from a collection of annotations.
- <p>
- This method will investigate the list of the initial annotations and for every such annotation that's a stereo type
- will recursively investigate the annotations represented by the stereo type as long as the given annotation type hasn't been
- encountered.</div>
+<h4>destroy</h4>
+<pre>public static&nbsp;&lt;T&gt;&nbsp;void&nbsp;destroy(javax.enterprise.inject.spi.Bean&lt;T&gt;&nbsp;bean)</pre>
+<div class="block">Destroy the currently active instance of the given CDI managed bean representation.</div>
 <dl>
 <dt><span class="paramLabel">Type Parameters:</span></dt>
-<dd><code>T</code> - The generic annotation type.</dd>
+<dd><code>T</code> - The generic CDI managed bean type.</dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>beanManager</code> - The involved CDI bean manager.</dd>
-<dd><code>initialAnnotations</code> - collection of annotations to investigate</dd>
-<dd><code>annotationType</code> - the class of the annotation type</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>the annotation of the given annotation type if it could be found, otherwise <code>null</code></dd>
+<dd><code>bean</code> - The CDI managed bean representation.</dd>
 <dt><span class="simpleTagLabel">Since:</span></dt>
-<dd>1.8</dd>
+<dd>2.0</dd>
 </dl>
 </li>
 </ul>
-<a name="getCurrentInjectionPoint-javax.enterprise.inject.spi.BeanManager-">
+<a name="getAnnotation-javax.enterprise.inject.spi.Annotated-java.lang.Class-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>getCurrentInjectionPoint</h4>
-<pre>public static&nbsp;<a href="http://docs.oracle.com/javaee/7/api/javax/enterprise/inject/spi/InjectionPoint.html?is-external=true" title="class or interface in javax.enterprise.inject.spi">InjectionPoint</a>&nbsp;getCurrentInjectionPoint(<a href="http://docs.oracle.com/javaee/7/api/javax/enterprise/inject/spi/BeanManager.html?is-external=true" title="class or interface in javax.enterprise.inject.spi">BeanManager</a>&nbsp;beanManager)</pre>
-<div class="block">Returns the current <a href="http://docs.oracle.com/javaee/7/api/javax/enterprise/inject/spi/InjectionPoint.html?is-external=true" title="class or interface in javax.enterprise.inject.spi"><code>InjectionPoint</code></a> if any is available.
- <p>
- An <code>InjectionPoint</code> is available in code that's called in the context of CDI performing an injection,
- e.g. by calling a producer (<a href="http://docs.oracle.com/javaee/7/api/javax/enterprise/inject/Produces.html?is-external=true" title="class or interface in javax.enterprise.inject"><code>Produces</code></a>) method or the <a href="http://docs.oracle.com/javaee/7/api/javax/enterprise/context/spi/Contextual.html?is-external=true#create-javax.enterprise.context.spi.CreationalContext-" title="class or interface in javax.enterprise.context.spi"><code>Contextual.create(javax.enterprise.context.spi.CreationalContext)</code></a>
- method.</div>
+<h4>getAnnotation</h4>
+<pre>public static&nbsp;&lt;A extends java.lang.annotation.Annotation&gt;&nbsp;A&nbsp;getAnnotation(javax.enterprise.inject.spi.Annotated&nbsp;annotated,
+                                                                          java.lang.Class&lt;A&gt;&nbsp;annotationType)</pre>
+<div class="block">Get program element annotation of a certain annotation type. The difference with
+ <code>Annotated.getAnnotation(Class)</code> is that this method will recursively search inside all <code>Stereotype</code>
+ annotations.</div>
 <dl>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>A</code> - The generic annotation type.</dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>beanManager</code> - The involved CDI bean manager.</dd>
+<dd><code>annotated</code> - A Java program element that can be annotated.</dd>
+<dd><code>annotationType</code> - The class of the annotation type.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>the current <a href="http://docs.oracle.com/javaee/7/api/javax/enterprise/inject/spi/InjectionPoint.html?is-external=true" title="class or interface in javax.enterprise.inject.spi"><code>InjectionPoint</code></a> if any is available, otherwise <code>null</code>.
-
- Since 2.0</dd>
+<dd>The program element annotation of the given annotation type if it could be found, otherwise
+ <code>null</code>.</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>1.8</dd>
 </dl>
 </li>
 </ul>
@@ -555,7 +551,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../org/omnifaces/util/Ajax.html" title="class in org.omnifaces.util"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../org/omnifaces/util/Callback.html" title="class in org.omnifaces.util"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../org/omnifaces/util/BeansLocal.html" title="class in org.omnifaces.util"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?org/omnifaces/util/Beans.html" target="_top">Frames</a></li>

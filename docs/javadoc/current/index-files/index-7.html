@@ -76,7 +76,7 @@
 <dt><a href="../org/omnifaces/converter/GenericEnumConverter.html" title="class in org.omnifaces.converter"><span class="typeNameLink">GenericEnumConverter</span></a> - Class in <a href="../org/omnifaces/converter/package-summary.html">org.omnifaces.converter</a></dt>
 <dd>
 <div class="block">
- The <code>omnifaces.GenericEnumConverter</code> is intended for use in <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/UISelectMany.html?is-external=true" title="class or interface in javax.faces.component"><code>UISelectMany</code></a> components whose value is
+ The <code>omnifaces.GenericEnumConverter</code> is intended for use in <code>UISelectMany</code> components whose value is
  been bound to a <code>List&lt;E&gt;</code> property where <code>E</code> is an enum.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/converter/GenericEnumConverter.html#GenericEnumConverter--">GenericEnumConverter()</a></span> - Constructor for class org.omnifaces.converter.<a href="../org/omnifaces/converter/GenericEnumConverter.html" title="class in org.omnifaces.converter">GenericEnumConverter</a></dt>
@@ -87,7 +87,7 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/component/EditableValueHolderStateHelper.html#get-javax.faces.component.StateHelper-java.lang.String-">get(StateHelper, String)</a></span> - Static method in class org.omnifaces.component.<a href="../org/omnifaces/component/EditableValueHolderStateHelper.html" title="class in org.omnifaces.component">EditableValueHolderStateHelper</a></dt>
 <dd>
-<div class="block">Returns the state helper of the <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/EditableValueHolder.html?is-external=true" title="class or interface in javax.faces.component"><code>EditableValueHolder</code></a> child associated with the given client ID.</div>
+<div class="block">Returns the state helper of the <code>EditableValueHolder</code> child associated with the given client ID.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/component/output/cache/Cache.html#get-java.lang.String-">get(String)</a></span> - Method in interface org.omnifaces.component.output.cache.<a href="../org/omnifaces/component/output/cache/Cache.html" title="interface in org.omnifaces.component.output.cache">Cache</a></dt>
 <dd>
@@ -95,6 +95,10 @@
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/component/output/cache/TimeToLiveCache.html#get-java.lang.String-">get(String)</a></span> - Method in class org.omnifaces.component.output.cache.<a href="../org/omnifaces/component/output/cache/TimeToLiveCache.html" title="class in org.omnifaces.component.output.cache">TimeToLiveCache</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/config/BeanManager.html#get--">get()</a></span> - Method in enum org.omnifaces.config.<a href="../org/omnifaces/config/BeanManager.html" title="enum in org.omnifaces.config">BeanManager</a></dt>
+<dd>
+<div class="block">Returns the CDI bean manager.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/util/concurrentlinkedhashmap/ConcurrentLinkedHashMap.html#get-java.lang.Object-">get(Object)</a></span> - Method in class org.omnifaces.util.concurrentlinkedhashmap.<a href="../org/omnifaces/util/concurrentlinkedhashmap/ConcurrentLinkedHashMap.html" title="class in org.omnifaces.util.concurrentlinkedhashmap">ConcurrentLinkedHashMap</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/util/MapWrapper.html#get-java.lang.Object-">get(Object)</a></span> - Method in class org.omnifaces.util.<a href="../org/omnifaces/util/MapWrapper.html" title="class in org.omnifaces.util">MapWrapper</a></dt>
@@ -112,10 +116,11 @@
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/facesviews/FacesViewsViewHandler.html#getActionURL-javax.faces.context.FacesContext-java.lang.String-">getActionURL(FacesContext, String)</a></span> - Method in class org.omnifaces.facesviews.<a href="../org/omnifaces/facesviews/FacesViewsViewHandler.html" title="class in org.omnifaces.facesviews">FacesViewsViewHandler</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="../org/omnifaces/util/Beans.html#getActiveInstances-javax.enterprise.inject.spi.BeanManager-java.lang.Class-">getActiveInstances(BeanManager, Class&lt;? extends Annotation&gt;)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Beans.html" title="class in org.omnifaces.util">Beans</a></dt>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/util/Beans.html#getActiveInstances-java.lang.Class-">getActiveInstances(Class&lt;S&gt;)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Beans.html" title="class in org.omnifaces.util">Beans</a></dt>
 <dd>
 <div class="block">Returns all active CDI managed bean instances in the given CDI managed bean scope.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/util/BeansLocal.html#getActiveInstances-javax.enterprise.inject.spi.BeanManager-java.lang.Class-">getActiveInstances(BeanManager, Class&lt;S&gt;)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/BeansLocal.html" title="class in org.omnifaces.util">BeansLocal</a></dt>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/el/MethodReference.html#getActualParameters--">getActualParameters()</a></span> - Method in class org.omnifaces.el.<a href="../org/omnifaces/el/MethodReference.html" title="class in org.omnifaces.el">MethodReference</a></dt>
 <dd>
 <div class="block">Returns the actual (evaluated) parameters of the method call.</div>
@@ -125,14 +130,11 @@
 <div class="block">Returns an empty string as default value instead of <code>null</code>, so that the attribute is always rendered,
  as mandated by HTML5.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="../org/omnifaces/util/Beans.html#getAnnotation-javax.enterprise.inject.spi.BeanManager-javax.enterprise.inject.spi.Annotated-java.lang.Class-">getAnnotation(BeanManager, Annotated, Class&lt;T&gt;)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Beans.html" title="class in org.omnifaces.util">Beans</a></dt>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/util/Beans.html#getAnnotation-javax.enterprise.inject.spi.Annotated-java.lang.Class-">getAnnotation(Annotated, Class&lt;A&gt;)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Beans.html" title="class in org.omnifaces.util">Beans</a></dt>
 <dd>
 <div class="block">Get program element annotation of a certain annotation type.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="../org/omnifaces/util/Beans.html#getAnnotation-javax.enterprise.inject.spi.BeanManager-java.util.Collection-java.lang.Class-">getAnnotation(BeanManager, Collection&lt;Annotation&gt;, Class&lt;T&gt;)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Beans.html" title="class in org.omnifaces.util">Beans</a></dt>
-<dd>
-<div class="block">Get program element annotation of a certain annotation type from a collection of annotations.</div>
-</dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/util/BeansLocal.html#getAnnotation-javax.enterprise.inject.spi.BeanManager-javax.enterprise.inject.spi.Annotated-java.lang.Class-">getAnnotation(BeanManager, Annotated, Class&lt;A&gt;)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/BeansLocal.html" title="class in org.omnifaces.util">BeansLocal</a></dt>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/application/OmniApplicationFactory.html#getApplication--">getApplication()</a></span> - Method in class org.omnifaces.application.<a href="../org/omnifaces/application/OmniApplicationFactory.html" title="class in org.omnifaces.application">OmniApplicationFactory</a></dt>
 <dd>
 <div class="block">Returns an instance of <a href="../org/omnifaces/application/OmniApplication.html" title="class in org.omnifaces.application"><code>OmniApplication</code></a> which wraps the original application.</div>
@@ -176,7 +178,7 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/converter/ValueChangeConverter.html#getAsObject-javax.faces.context.FacesContext-javax.faces.component.UIComponent-java.lang.String-">getAsObject(FacesContext, UIComponent, String)</a></span> - Method in class org.omnifaces.converter.<a href="../org/omnifaces/converter/ValueChangeConverter.html" title="class in org.omnifaces.converter">ValueChangeConverter</a></dt>
 <dd>
-<div class="block">If the component is an instance of <a href="http://docs.oracle.com/javaee/7/api/javax/faces/component/EditableValueHolder.html?is-external=true" title="class or interface in javax.faces.component"><code>EditableValueHolder</code></a> and the string representation of its old object
+<div class="block">If the component is an instance of <code>EditableValueHolder</code> and the string representation of its old object
  value is equal to the submitted value, then immediately return its old object value unchanged.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/converter/GenericEnumConverter.html#getAsString-javax.faces.context.FacesContext-javax.faces.component.UIComponent-java.lang.Object-">getAsString(FacesContext, UIComponent, Object)</a></span> - Method in class org.omnifaces.converter.<a href="../org/omnifaces/converter/GenericEnumConverter.html" title="class in org.omnifaces.converter">GenericEnumConverter</a></dt>
@@ -262,7 +264,7 @@
 <dt><span class="memberNameLink"><a href="../org/omnifaces/servlet/BufferedHttpServletResponse.html#getBufferAsString--">getBufferAsString()</a></span> - Method in class org.omnifaces.servlet.<a href="../org/omnifaces/servlet/BufferedHttpServletResponse.html" title="class in org.omnifaces.servlet">BufferedHttpServletResponse</a></dt>
 <dd>
 <div class="block">Flushes and returns the buffered response as a string which is encoded using the character encoding provided by
- <a href="http://docs.oracle.com/javaee/7/api/javax/servlet/ServletResponseWrapper.html?is-external=true#getCharacterEncoding--" title="class or interface in javax.servlet"><code>ServletResponseWrapper.getCharacterEncoding()</code></a>.</div>
+ <code>ServletResponseWrapper.getCharacterEncoding()</code>.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/component/output/cache/CacheFactory.html#getCache-javax.faces.context.FacesContext-java.lang.String-">getCache(FacesContext, String)</a></span> - Static method in class org.omnifaces.component.output.cache.<a href="../org/omnifaces/component/output/cache/CacheFactory.html" title="class in org.omnifaces.component.output.cache">CacheFactory</a></dt>
 <dd>
@@ -354,10 +356,6 @@
 <div class="block">Returns the currently submitted UI form component, or <code>null</code> if there is none, which may happen when
  the current request is not a postback request at all, or when the view has been changed by for example a
  successful navigation.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="../org/omnifaces/util/Beans.html#getCurrentInjectionPoint-javax.enterprise.inject.spi.BeanManager-">getCurrentInjectionPoint(BeanManager)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Beans.html" title="class in org.omnifaces.util">Beans</a></dt>
-<dd>
-<div class="block">Returns the current <a href="http://docs.oracle.com/javaee/7/api/javax/enterprise/inject/spi/InjectionPoint.html?is-external=true" title="class or interface in javax.enterprise.inject.spi"><code>InjectionPoint</code></a> if any is available.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/context/OmniPartialViewContext.html#getCurrentInstance--">getCurrentInstance()</a></span> - Static method in class org.omnifaces.context.<a href="../org/omnifaces/context/OmniPartialViewContext.html" title="class in org.omnifaces.context">OmniPartialViewContext</a></dt>
 <dd>
@@ -494,7 +492,7 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/util/Platform.html#getFacesServletRegistration-javax.servlet.ServletContext-">getFacesServletRegistration(ServletContext)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Platform.html" title="class in org.omnifaces.util">Platform</a></dt>
 <dd>
-<div class="block">Returns the <a href="http://docs.oracle.com/javaee/7/api/javax/servlet/ServletRegistration.html?is-external=true" title="class or interface in javax.servlet"><code>ServletRegistration</code></a> associated with the <a href="http://docs.oracle.com/javaee/7/api/javax/faces/webapp/FacesServlet.html?is-external=true" title="class or interface in javax.faces.webapp"><code>FacesServlet</code></a>.</div>
+<div class="block">Returns the <code>ServletRegistration</code> associated with the <code>FacesServlet</code>.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/component/util/MoveComponent.html#getFacet--">getFacet()</a></span> - Method in class org.omnifaces.component.util.<a href="../org/omnifaces/component/util/MoveComponent.html" title="class in org.omnifaces.component.util">MoveComponent</a></dt>
 <dd>&nbsp;</dd>
@@ -620,23 +618,25 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/resourcehandler/GraphicResource.html#getInputStream--">getInputStream()</a></span> - Method in class org.omnifaces.resourcehandler.<a href="../org/omnifaces/resourcehandler/GraphicResource.html" title="class in org.omnifaces.resourcehandler">GraphicResource</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="../org/omnifaces/util/Beans.html#getInstance-javax.enterprise.inject.spi.BeanManager-java.lang.Class-">getInstance(BeanManager, Class&lt;T&gt;)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Beans.html" title="class in org.omnifaces.util">Beans</a></dt>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/util/Beans.html#getInstance-java.lang.Class-">getInstance(Class&lt;T&gt;)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Beans.html" title="class in org.omnifaces.util">Beans</a></dt>
 <dd>
-<div class="block">Returns the CDI managed bean instance of the given class from the given bean manager and creates one if
- one doesn't exist.</div>
+<div class="block">Returns the CDI managed bean instance (actual) of the given bean class and creates one if one doesn't exist.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="../org/omnifaces/util/Beans.html#getInstance-javax.enterprise.inject.spi.BeanManager-java.lang.Class-boolean-">getInstance(BeanManager, Class&lt;T&gt;, boolean)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Beans.html" title="class in org.omnifaces.util">Beans</a></dt>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/util/Beans.html#getInstance-java.lang.Class-boolean-">getInstance(Class&lt;T&gt;, boolean)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Beans.html" title="class in org.omnifaces.util">Beans</a></dt>
 <dd>
-<div class="block">Returns the CDI managed bean instance of the given class from the given bean manager and creates one if
- one doesn't exist and <code>create</code> argument is <code>true</code>, otherwise don't create one and return
+<div class="block">Returns the CDI managed bean instance (actual) of the given bean class and creates one if one doesn't exist and
+ <code>create</code> argument is <code>true</code>, otherwise don't create one and return <code>null</code> if
+ there's no current instance.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/util/Beans.html#getInstance-javax.enterprise.inject.spi.Bean-boolean-">getInstance(Bean&lt;T&gt;, boolean)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Beans.html" title="class in org.omnifaces.util">Beans</a></dt>
+<dd>
+<div class="block">Returns the CDI managed bean instance (actual) of the given bean representation and creates one if one doesn't
+ exist and <code>create</code> argument is <code>true</code>, otherwise don't create one and return
  <code>null</code> if there's no current instance.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="../org/omnifaces/util/Beans.html#getInstance-javax.enterprise.inject.spi.BeanManager-javax.enterprise.inject.spi.Bean-boolean-">getInstance(BeanManager, Bean&lt;T&gt;, boolean)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Beans.html" title="class in org.omnifaces.util">Beans</a></dt>
-<dd>
-<div class="block">Returns the CDI managed bean instance of the given resolved bean from the given bean manager and creates one if
- one doesn't exist and <code>create</code> argument is <code>true</code>, otherwise don't create one and return
- <code>null</code> if there's no current instance.</div>
-</dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/util/BeansLocal.html#getInstance-javax.enterprise.inject.spi.BeanManager-java.lang.Class-">getInstance(BeanManager, Class&lt;T&gt;)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/BeansLocal.html" title="class in org.omnifaces.util">BeansLocal</a></dt>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/util/BeansLocal.html#getInstance-javax.enterprise.inject.spi.BeanManager-java.lang.Class-boolean-">getInstance(BeanManager, Class&lt;T&gt;, boolean)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/BeansLocal.html" title="class in org.omnifaces.util">BeansLocal</a></dt>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/util/BeansLocal.html#getInstance-javax.enterprise.inject.spi.BeanManager-javax.enterprise.inject.spi.Bean-boolean-">getInstance(BeanManager, Bean&lt;T&gt;, boolean)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/BeansLocal.html" title="class in org.omnifaces.util">BeansLocal</a></dt>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/component/output/Cache.html#getKey--">getKey()</a></span> - Method in class org.omnifaces.component.output.<a href="../org/omnifaces/component/output/Cache.html" title="class in org.omnifaces.component.output">Cache</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/util/Components.html#getLabel-javax.faces.component.UIComponent-">getLabel(UIComponent)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Components.html" title="class in org.omnifaces.util">Components</a></dt>
@@ -678,6 +678,10 @@
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/component/SimpleParam.html#getLocalValue--">getLocalValue()</a></span> - Method in class org.omnifaces.component.<a href="../org/omnifaces/component/SimpleParam.html" title="class in org.omnifaces.component">SimpleParam</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/util/Beans.html#getManager--">getManager()</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Beans.html" title="class in org.omnifaces.util">Beans</a></dt>
+<dd>
+<div class="block">Returns the CDI bean manager.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/facesviews/FacesViews.html#getMappedPath-java.lang.String-">getMappedPath(String)</a></span> - Static method in class org.omnifaces.facesviews.<a href="../org/omnifaces/facesviews/FacesViews.html" title="class in org.omnifaces.facesviews">FacesViews</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/util/Faces.html#getMapping--">getMapping()</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Faces.html" title="class in org.omnifaces.util">Faces</a></dt>
@@ -733,13 +737,13 @@
 <dt><span class="memberNameLink"><a href="../org/omnifaces/util/FacesLocal.html#getMetadataAttributes-javax.faces.context.FacesContext-">getMetadataAttributes(FacesContext)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/FacesLocal.html" title="class in org.omnifaces.util">FacesLocal</a></dt>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/el/MethodReference.html#getMethod--">getMethod()</a></span> - Method in class org.omnifaces.el.<a href="../org/omnifaces/el/MethodReference.html" title="class in org.omnifaces.el">MethodReference</a></dt>
 <dd>
-<div class="block">Returns the concrete <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/reflect/Method.html?is-external=true" title="class or interface in java.lang.reflect"><code>Method</code></a> instance of the EL method expression.</div>
+<div class="block">Returns the concrete <code>Method</code> instance of the EL method expression.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/el/MethodExpressionValueExpressionAdapter.html#getMethodInfo-javax.el.ELContext-">getMethodInfo(ELContext)</a></span> - Method in class org.omnifaces.el.<a href="../org/omnifaces/el/MethodExpressionValueExpressionAdapter.html" title="class in org.omnifaces.el">MethodExpressionValueExpressionAdapter</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/el/MethodReference.html#getMethodInfo--">getMethodInfo()</a></span> - Method in class org.omnifaces.el.<a href="../org/omnifaces/el/MethodReference.html" title="class in org.omnifaces.el">MethodReference</a></dt>
 <dd>
-<div class="block">Returns the standard EL <a href="http://docs.oracle.com/javaee/7/api/javax/el/MethodInfo.html?is-external=true" title="class or interface in javax.el"><code>MethodInfo</code></a> of the <a href="http://docs.oracle.com/javaee/7/api/javax/el/MethodExpression.html?is-external=true" title="class or interface in javax.el"><code>MethodExpression</code></a> where this <a href="../org/omnifaces/el/MethodReference.html" title="class in org.omnifaces.el"><code>MethodReference</code></a>
+<div class="block">Returns the standard EL <code>MethodInfo</code> of the <code>MethodExpression</code> where this <a href="../org/omnifaces/el/MethodReference.html" title="class in org.omnifaces.el"><code>MethodReference</code></a>
  has been extracted from.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/el/ExpressionInspector.html#getMethodReference-javax.el.ELContext-javax.el.ValueExpression-">getMethodReference(ELContext, ValueExpression)</a></span> - Static method in class org.omnifaces.el.<a href="../org/omnifaces/el/ExpressionInspector.html" title="class in org.omnifaces.el">ExpressionInspector</a></dt>
@@ -849,16 +853,18 @@
 <dt><span class="memberNameLink"><a href="../org/omnifaces/util/FacesLocal.html#getRealPath-javax.faces.context.FacesContext-java.lang.String-">getRealPath(FacesContext, String)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/FacesLocal.html" title="class in org.omnifaces.util">FacesLocal</a></dt>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/config/BeanManager.html#getReference-java.lang.Class-">getReference(Class&lt;T&gt;)</a></span> - Method in enum org.omnifaces.config.<a href="../org/omnifaces/config/BeanManager.html" title="enum in org.omnifaces.config">BeanManager</a></dt>
 <dd>
-<div class="block">Returns the CDI managed bean instance of the given class, or <code>null</code> if there is none.</div>
+<div class="block">Returns the CDI managed bean reference (proxy) of the given class.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="../org/omnifaces/util/Beans.html#getReference-javax.enterprise.inject.spi.BeanManager-java.lang.Class-">getReference(BeanManager, Class&lt;T&gt;)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Beans.html" title="class in org.omnifaces.util">Beans</a></dt>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/util/Beans.html#getReference-java.lang.Class-">getReference(Class&lt;T&gt;)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Beans.html" title="class in org.omnifaces.util">Beans</a></dt>
 <dd>
-<div class="block">Returns the CDI managed bean reference of the given class from the given bean manager.</div>
+<div class="block">Returns the CDI managed bean reference (proxy) of the given bean class.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="../org/omnifaces/util/Beans.html#getReference-javax.enterprise.inject.spi.BeanManager-javax.enterprise.inject.spi.Bean-">getReference(BeanManager, Bean&lt;T&gt;)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Beans.html" title="class in org.omnifaces.util">Beans</a></dt>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/util/Beans.html#getReference-javax.enterprise.inject.spi.Bean-">getReference(Bean&lt;T&gt;)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Beans.html" title="class in org.omnifaces.util">Beans</a></dt>
 <dd>
-<div class="block">Returns the CDI managed bean reference of the given resolved bean from the given bean manager.</div>
+<div class="block">Returns the CDI managed bean reference (proxy) of the given bean representation.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/util/BeansLocal.html#getReference-javax.enterprise.inject.spi.BeanManager-java.lang.Class-">getReference(BeanManager, Class&lt;T&gt;)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/BeansLocal.html" title="class in org.omnifaces.util">BeansLocal</a></dt>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/util/BeansLocal.html#getReference-javax.enterprise.inject.spi.BeanManager-javax.enterprise.inject.spi.Bean-">getReference(BeanManager, Bean&lt;T&gt;)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/BeansLocal.html" title="class in org.omnifaces.util">BeansLocal</a></dt>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/util/Faces.html#getRemoteAddr--">getRemoteAddr()</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Faces.html" title="class in org.omnifaces.util">Faces</a></dt>
 <dd>
 <div class="block">Returns the Internet Protocol (IP) address of the client that sent the request.</div>
@@ -875,20 +881,12 @@
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/renderkit/Html5RenderKitFactory.html#getRenderKit-javax.faces.context.FacesContext-java.lang.String-">getRenderKit(FacesContext, String)</a></span> - Method in class org.omnifaces.renderkit.<a href="../org/omnifaces/renderkit/Html5RenderKitFactory.html" title="class in org.omnifaces.renderkit">Html5RenderKitFactory</a></dt>
 <dd>
-<div class="block">If the given render kit ID equals to <a href="http://docs.oracle.com/javaee/7/api/javax/faces/render/RenderKitFactory.html?is-external=true#HTML_BASIC_RENDER_KIT" title="class or interface in javax.faces.render"><code>RenderKitFactory.HTML_BASIC_RENDER_KIT</code></a>, then return a new
+<div class="block">If the given render kit ID equals to <code>RenderKitFactory.HTML_BASIC_RENDER_KIT</code>, then return a new
  <a href="../org/omnifaces/renderkit/Html5RenderKit.html" title="class in org.omnifaces.renderkit"><code>Html5RenderKit</code></a> instance which wraps the original render kit, else return the original render kit.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/renderkit/Html5RenderKitFactory.html#getRenderKitIds--">getRenderKitIds()</a></span> - Method in class org.omnifaces.renderkit.<a href="../org/omnifaces/renderkit/Html5RenderKitFactory.html" title="class in org.omnifaces.renderkit">Html5RenderKitFactory</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="../org/omnifaces/component/output/GraphicImage.html#getRendersChildren--">getRendersChildren()</a></span> - Method in class org.omnifaces.component.output.<a href="../org/omnifaces/component/output/GraphicImage.html" title="class in org.omnifaces.component.output">GraphicImage</a></dt>
-<dd>
-<div class="block">Returns <code>true</code>.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/component/output/OutputFamily.html#getRendersChildren--">getRendersChildren()</a></span> - Method in class org.omnifaces.component.output.<a href="../org/omnifaces/component/output/OutputFamily.html" title="class in org.omnifaces.component.output">OutputFamily</a></dt>
-<dd>
-<div class="block">Returns <code>true</code>.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="../org/omnifaces/component/script/CommandScript.html#getRendersChildren--">getRendersChildren()</a></span> - Method in class org.omnifaces.component.script.<a href="../org/omnifaces/component/script/CommandScript.html" title="class in org.omnifaces.component.script">CommandScript</a></dt>
 <dd>
 <div class="block">Returns <code>true</code>.</div>
 </dd>
@@ -1378,7 +1376,7 @@
 <dt><span class="memberNameLink"><a href="../org/omnifaces/util/FacesLocal.html#getViewAttribute-javax.faces.context.FacesContext-java.lang.String-">getViewAttribute(FacesContext, String)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/FacesLocal.html" title="class in org.omnifaces.util">FacesLocal</a></dt>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/util/Faces.html#getViewDeclarationLanguage--">getViewDeclarationLanguage()</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Faces.html" title="class in org.omnifaces.util">Faces</a></dt>
 <dd>
-<div class="block">Returns the <a href="http://docs.oracle.com/javaee/7/api/javax/faces/view/ViewDeclarationLanguage.html?is-external=true" title="class or interface in javax.faces.view"><code>ViewDeclarationLanguage</code></a> associated with the "current" view ID.</div>
+<div class="block">Returns the <code>ViewDeclarationLanguage</code> associated with the "current" view ID.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/util/FacesLocal.html#getViewDeclarationLanguage-javax.faces.context.FacesContext-">getViewDeclarationLanguage(FacesContext)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/FacesLocal.html" title="class in org.omnifaces.util">FacesLocal</a></dt>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/facesviews/FacesViews.html#getViewHandlerMode-javax.faces.context.FacesContext-">getViewHandlerMode(FacesContext)</a></span> - Static method in class org.omnifaces.facesviews.<a href="../org/omnifaces/facesviews/FacesViews.html" title="class in org.omnifaces.facesviews">FacesViews</a></dt>
@@ -1471,7 +1469,7 @@
 <dd>
 <div class="block">
  The <code>&lt;o:graphicImage&gt;</code> is a component that extends the standard <code>&lt;h:graphicImage&gt;</code>
- with support for referencing an <a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io"><code>InputStream</code></a> or <code>byte[]</code> property in the <code>value</code>
+ with support for referencing an <code>InputStream</code> or <code>byte[]</code> property in the <code>value</code>
  attribute, optionally as a data URI.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/component/output/GraphicImage.html#GraphicImage--">GraphicImage()</a></span> - Constructor for class org.omnifaces.component.output.<a href="../org/omnifaces/component/output/GraphicImage.html" title="class in org.omnifaces.component.output">GraphicImage</a></dt>
@@ -1481,7 +1479,7 @@
 <dt><a href="../org/omnifaces/resourcehandler/GraphicResource.html" title="class in org.omnifaces.resourcehandler"><span class="typeNameLink">GraphicResource</span></a> - Class in <a href="../org/omnifaces/resourcehandler/package-summary.html">org.omnifaces.resourcehandler</a></dt>
 <dd>
 <div class="block">
- This <a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/Resource.html?is-external=true" title="class or interface in javax.faces.application"><code>Resource</code></a> implementation is used by the <a href="../org/omnifaces/component/output/GraphicImage.html" title="class in org.omnifaces.component.output"><code>GraphicImage</code></a> component.</div>
+ This <code>Resource</code> implementation is used by the <a href="../org/omnifaces/component/output/GraphicImage.html" title="class in org.omnifaces.component.output"><code>GraphicImage</code></a> component.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/resourcehandler/GraphicResource.html#GraphicResource-java.lang.Object-java.lang.String-">GraphicResource(Object, String)</a></span> - Constructor for class org.omnifaces.resourcehandler.<a href="../org/omnifaces/resourcehandler/GraphicResource.html" title="class in org.omnifaces.resourcehandler">GraphicResource</a></dt>
 <dd>
@@ -1495,7 +1493,7 @@
 <dt><a href="../org/omnifaces/resourcehandler/GraphicResourceHandler.html" title="class in org.omnifaces.resourcehandler"><span class="typeNameLink">GraphicResourceHandler</span></a> - Class in <a href="../org/omnifaces/resourcehandler/package-summary.html">org.omnifaces.resourcehandler</a></dt>
 <dd>
 <div class="block">
- This <a href="http://docs.oracle.com/javaee/7/api/javax/faces/application/ResourceHandler.html?is-external=true" title="class or interface in javax.faces.application"><code>ResourceHandler</code></a> implementation deals with <a href="../org/omnifaces/resourcehandler/GraphicResource.html" title="class in org.omnifaces.resourcehandler"><code>GraphicResource</code></a> requests.</div>
+ This <code>ResourceHandler</code> implementation deals with <a href="../org/omnifaces/resourcehandler/GraphicResource.html" title="class in org.omnifaces.resourcehandler"><code>GraphicResource</code></a> requests.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/resourcehandler/GraphicResourceHandler.html#GraphicResourceHandler-javax.faces.application.ResourceHandler-">GraphicResourceHandler(ResourceHandler)</a></span> - Constructor for class org.omnifaces.resourcehandler.<a href="../org/omnifaces/resourcehandler/GraphicResourceHandler.html" title="class in org.omnifaces.resourcehandler">GraphicResourceHandler</a></dt>
 <dd>

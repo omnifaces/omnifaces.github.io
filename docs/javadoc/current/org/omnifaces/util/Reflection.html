@@ -96,7 +96,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="contentContainer">
 <ul class="inheritance">
-<li><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</a></li>
+<li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
 <li>org.omnifaces.util.Reflection</li>
@@ -108,9 +108,9 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <hr>
 <br>
-<pre><a href="http://docs.oracle.com/javaee/7/api/javax/enterprise/inject/Typed.html?is-external=true" title="class or interface in javax.enterprise.inject">@Typed</a>
+<pre>@Typed
 public final class <span class="typeNameLabel">Reflection</span>
-extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
+extends java.lang.Object</pre>
 <div class="block">Collection of utility methods for working with reflection.</div>
 <dl>
 <dt><span class="simpleTagLabel">Since:</span></dt>
@@ -137,35 +137,35 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/reflect/Method.html?is-external=true" title="class or interface in java.lang.reflect">Method</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Reflection.html#findMethod-java.lang.Object-java.lang.String-java.lang.Object:A-">findMethod</a></span>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;base,
-          <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;methodName,
-          <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>[]&nbsp;params)</code>
+<td class="colFirst"><code>static java.lang.reflect.Method</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Reflection.html#findMethod-java.lang.Object-java.lang.String-java.lang.Object:A-">findMethod</a></span>(java.lang.Object&nbsp;base,
+          java.lang.String&nbsp;methodName,
+          java.lang.Object[]&nbsp;params)</code>
 <div class="block">Finds a method based on the method name, amount of parameters and limited typing, if necessary prefixed with "get".</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;T</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Reflection.html#instance-java.lang.Class-">instance</a></span>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;clazz)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Reflection.html#instance-java.lang.Class-">instance</a></span>(java.lang.Class&lt;T&gt;&nbsp;clazz)</code>
 <div class="block">Creates a new instance of the class represented by the given Class object</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;T</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Reflection.html#instance-java.lang.String-">instance</a></span>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;className)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Reflection.html#instance-java.lang.String-">instance</a></span>(java.lang.String&nbsp;className)</code>
 <div class="block">Creates an instance of a class with the given fully qualified class name.</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Reflection.html#setProperties-java.lang.Object-java.util.Map-">setProperties</a></span>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;object,
-             <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;propertiesToSet)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Reflection.html#setProperties-java.lang.Object-java.util.Map-">setProperties</a></span>(java.lang.Object&nbsp;object,
+             java.util.Map&lt;java.lang.String,java.lang.Object&gt;&nbsp;propertiesToSet)</code>
 <div class="block">Sets a collection of properties of a given object to the values associated with those properties.</div>
 </td>
 </tr>
 <tr id="i4" class="altColor">
-<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;?&gt;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Reflection.html#toClass-java.lang.String-">toClass</a></span>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;className)</code>
+<td class="colFirst"><code>static java.lang.Class&lt;?&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Reflection.html#toClass-java.lang.String-">toClass</a></span>(java.lang.String&nbsp;className)</code>
 <div class="block">Returns the Class instance associated with the class of the given string, using the context class
  loader and if that fails the defining class loader of the current class.</div>
 </td>
@@ -175,8 +175,8 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
 <!--   -->
 </a>
-<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
-<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone--" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals-java.lang.Object-" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize--" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass--" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode--" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify--" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll--" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString--" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait--" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait-long-" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait-long-int-" title="class or interface in java.lang">wait</a></code></li>
+<h3>Methods inherited from class&nbsp;java.lang.Object</h3>
+<code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
 </ul>
 </li>
 </ul>
@@ -198,8 +198,8 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <ul class="blockList">
 <li class="blockList">
 <h4>setProperties</h4>
-<pre>public static&nbsp;void&nbsp;setProperties(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;object,
-                                 <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;propertiesToSet)</pre>
+<pre>public static&nbsp;void&nbsp;setProperties(java.lang.Object&nbsp;object,
+                                 java.util.Map&lt;java.lang.String,java.lang.Object&gt;&nbsp;propertiesToSet)</pre>
 <div class="block">Sets a collection of properties of a given object to the values associated with those properties.
  <p>
  In the map that represents these properties, each key represents the name of the property, with the value
@@ -224,9 +224,9 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <ul class="blockList">
 <li class="blockList">
 <h4>findMethod</h4>
-<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/reflect/Method.html?is-external=true" title="class or interface in java.lang.reflect">Method</a>&nbsp;findMethod(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;base,
-                                <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;methodName,
-                                <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>[]&nbsp;params)</pre>
+<pre>public static&nbsp;java.lang.reflect.Method&nbsp;findMethod(java.lang.Object&nbsp;base,
+                                                  java.lang.String&nbsp;methodName,
+                                                  java.lang.Object[]&nbsp;params)</pre>
 <div class="block">Finds a method based on the method name, amount of parameters and limited typing, if necessary prefixed with "get".
  <p>
  Note that this supports overloading, but a limited one. Given an actual parameter of type Long, this will select
@@ -248,7 +248,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <ul class="blockList">
 <li class="blockList">
 <h4>toClass</h4>
-<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;?&gt;&nbsp;toClass(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;className)</pre>
+<pre>public static&nbsp;java.lang.Class&lt;?&gt;&nbsp;toClass(java.lang.String&nbsp;className)</pre>
 <div class="block">Returns the Class instance associated with the class of the given string, using the context class
  loader and if that fails the defining class loader of the current class.</div>
 <dl>
@@ -265,7 +265,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <ul class="blockList">
 <li class="blockList">
 <h4>instance</h4>
-<pre>public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;instance(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;className)</pre>
+<pre>public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;instance(java.lang.String&nbsp;className)</pre>
 <div class="block">Creates an instance of a class with the given fully qualified class name.</div>
 <dl>
 <dt><span class="paramLabel">Type Parameters:</span></dt>
@@ -275,7 +275,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>an instance of the class denoted by className</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang">IllegalStateException</a></code> - if the class cannot be found</dd>
+<dd><code>java.lang.IllegalStateException</code> - if the class cannot be found</dd>
 </dl>
 </li>
 </ul>
@@ -285,7 +285,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <ul class="blockListLast">
 <li class="blockList">
 <h4>instance</h4>
-<pre>public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;instance(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;clazz)</pre>
+<pre>public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;instance(java.lang.Class&lt;T&gt;&nbsp;clazz)</pre>
 <div class="block">Creates a new instance of the class represented by the given Class object</div>
 <dl>
 <dt><span class="paramLabel">Type Parameters:</span></dt>
@@ -295,7 +295,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>an instance of the class as given by the clazz parameter</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang">IllegalStateException</a></code> - if the class cannot be found, or cannot be instantiated or when a security manager prevents this operation</dd>
+<dd><code>java.lang.IllegalStateException</code> - if the class cannot be found, or cannot be instantiated or when a security manager prevents this operation</dd>
 </dl>
 </li>
 </ul>
