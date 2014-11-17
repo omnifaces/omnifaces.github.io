@@ -75,13 +75,13 @@ var activeTableTab = "activeTableTab";
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
 </div>
@@ -157,23 +157,6 @@ extends java.lang.Object</pre>
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
-<!-- ======== CONSTRUCTOR SUMMARY ======== -->
-<ul class="blockList">
-<li class="blockList"><a name="constructor.summary">
-<!--   -->
-</a>
-<h3>Constructor Summary</h3>
-<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Constructor Summary table, listing constructors, and an explanation">
-<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
-<tr>
-<th class="colOne" scope="col">Constructor and Description</th>
-</tr>
-<tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Beans.html#Beans--">Beans</a></span>()</code>&nbsp;</td>
-</tr>
-</table>
-</li>
-</ul>
 <!-- ========== METHOD SUMMARY =========== -->
 <ul class="blockList">
 <li class="blockList"><a name="method.summary">
@@ -275,23 +258,6 @@ extends java.lang.Object</pre>
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
-<!-- ========= CONSTRUCTOR DETAIL ======== -->
-<ul class="blockList">
-<li class="blockList"><a name="constructor.detail">
-<!--   -->
-</a>
-<h3>Constructor Detail</h3>
-<a name="Beans--">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>Beans</h4>
-<pre>public&nbsp;Beans()</pre>
-</li>
-</ul>
-</li>
-</ul>
 <!-- ============ METHOD DETAIL ========== -->
 <ul class="blockList">
 <li class="blockList"><a name="method.detail">
@@ -311,6 +277,8 @@ extends java.lang.Object</pre>
 <dd>The CDI bean manager.</dd>
 <dt><span class="simpleTagLabel">Since:</span></dt>
 <dd>2.0</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../org/omnifaces/config/BeanManager.html#get--"><code>BeanManager.get()</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -329,6 +297,9 @@ extends java.lang.Object</pre>
 <dd><code>beanClass</code> - The CDI managed bean class.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The CDI managed bean representation of the given bean class, or <code>null</code> if there is none.</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><code>BeanManager.getBeans(String)</code>, 
+<code>BeanManager.resolve(java.util.Set)</code></dd>
 </dl>
 </li>
 </ul>
@@ -348,6 +319,9 @@ extends java.lang.Object</pre>
 <dd><code>beanClass</code> - The CDI managed bean class.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The CDI managed bean reference (proxy) of the given class, or <code>null</code> if there is none.</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../org/omnifaces/util/Beans.html#resolve-java.lang.Class-"><code>resolve(Class)</code></a>, 
+<a href="../../../org/omnifaces/util/Beans.html#getReference-javax.enterprise.inject.spi.Bean-"><code>getReference(Bean)</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -367,6 +341,9 @@ extends java.lang.Object</pre>
 <dd><code>bean</code> - The CDI managed bean representation.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The CDI managed bean reference (proxy) of the given bean, or <code>null</code> if there is none.</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><code>BeanManager.createCreationalContext(javax.enterprise.context.spi.Contextual)</code>, 
+<code>BeanManager.getReference(Bean, java.lang.reflect.Type, javax.enterprise.context.spi.CreationalContext)</code></dd>
 </dl>
 </li>
 </ul>
@@ -387,6 +364,8 @@ extends java.lang.Object</pre>
 <dd>The CDI managed bean instance (actual) of the given bean class, or <code>null</code> if there is none.</dd>
 <dt><span class="simpleTagLabel">Since:</span></dt>
 <dd>1.8</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../org/omnifaces/util/Beans.html#getInstance-java.lang.Class-boolean-"><code>getInstance(Class, boolean)</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -412,6 +391,9 @@ extends java.lang.Object</pre>
  and/or the <code>create</code> argument is <code>false</code>.</dd>
 <dt><span class="simpleTagLabel">Since:</span></dt>
 <dd>1.7</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../org/omnifaces/util/Beans.html#resolve-java.lang.Class-"><code>resolve(Class)</code></a>, 
+<a href="../../../org/omnifaces/util/Beans.html#getInstance-javax.enterprise.inject.spi.Bean-boolean-"><code>getInstance(Bean, boolean)</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -437,6 +419,10 @@ extends java.lang.Object</pre>
  the <code>create</code> argument is <code>false</code>.</dd>
 <dt><span class="simpleTagLabel">Since:</span></dt>
 <dd>1.7</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><code>BeanManager.getContext(Class)</code>, 
+<code>BeanManager.createCreationalContext(javax.enterprise.context.spi.Contextual)</code>, 
+<code>Context.get(javax.enterprise.context.spi.Contextual, javax.enterprise.context.spi.CreationalContext)</code></dd>
 </dl>
 </li>
 </ul>
@@ -458,6 +444,10 @@ extends java.lang.Object</pre>
 <dd>All active CDI managed bean instances in the given CDI managed bean scope.</dd>
 <dt><span class="simpleTagLabel">Since:</span></dt>
 <dd>1.7</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><code>BeanManager.getBeans(String)</code>, 
+<code>BeanManager.getContext(Class)</code>, 
+<code>Context.get(javax.enterprise.context.spi.Contextual)</code></dd>
 </dl>
 </li>
 </ul>
@@ -476,6 +466,9 @@ extends java.lang.Object</pre>
 <dd><code>beanClass</code> - The CDI managed bean class.</dd>
 <dt><span class="simpleTagLabel">Since:</span></dt>
 <dd>2.0</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../org/omnifaces/util/Beans.html#resolve-java.lang.Class-"><code>resolve(Class)</code></a>, 
+<a href="../../../org/omnifaces/util/Beans.html#destroy-javax.enterprise.inject.spi.Bean-"><code>destroy(Bean)</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -492,8 +485,14 @@ extends java.lang.Object</pre>
 <dd><code>T</code> - The generic CDI managed bean type.</dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>bean</code> - The CDI managed bean representation.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code>java.lang.IllegalArgumentException</code> - When the given CDI managed bean type is actually not put in an alterable
+ context.</dd>
 <dt><span class="simpleTagLabel">Since:</span></dt>
 <dd>2.0</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><code>BeanManager.getContext(Class)</code>, 
+<code>AlterableContext.destroy(javax.enterprise.context.spi.Contextual)</code></dd>
 </dl>
 </li>
 </ul>
@@ -577,13 +576,13 @@ extends java.lang.Object</pre>
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
+<li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
 </div>
