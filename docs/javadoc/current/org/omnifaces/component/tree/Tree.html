@@ -158,7 +158,34 @@ implements <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/N
          &lt;/ul&gt;
      &lt;/o:treeNode&gt;
  &lt;/o:tree&gt;
- </pre></div>
+ </pre>
+
+ <h3>treeNode</h3>
+ <p>
+ The <code>&lt;o:treeNode&gt;</code> is an <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component"><code>UIComponent</code></a> that represents a single tree node within a parent
+ <a href="../../../../org/omnifaces/component/tree/Tree.html" title="class in org.omnifaces.component.tree"><code>Tree</code></a> component. Within this component, the <code>var</code> attribute of the parent <a href="../../../../org/omnifaces/component/tree/Tree.html" title="class in org.omnifaces.component.tree"><code>Tree</code></a>
+ component will expose the tree node. Each of its children is processed by <a href="../../../../org/omnifaces/component/tree/TreeNodeItem.html" title="class in org.omnifaces.component.tree"><code>TreeNodeItem</code></a>.
+ <p>
+ The <code>level</code> attribute can be used to specify for which tree node level as obtained by
+ <a href="../../../../org/omnifaces/model/tree/TreeModel.html#getLevel--"><code>TreeModel.getLevel()</code></a> this component should render the children by <a href="../../../../org/omnifaces/component/tree/TreeNodeItem.html" title="class in org.omnifaces.component.tree"><code>TreeNodeItem</code></a>. The root tree node
+ has level 0.
+
+ <h3>treeNodeItem</h3>
+ <p>
+ The <code>&lt;o:treeNodeItem&gt;</code> is an <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component"><code>UIComponent</code></a> that represents a single child tree node within a
+ parent <a href="../../../../org/omnifaces/component/tree/TreeNode.html" title="class in org.omnifaces.component.tree"><code>TreeNode</code></a> component. Within this component, the <code>var</code> attribute of the parent <a href="../../../../org/omnifaces/component/tree/Tree.html" title="class in org.omnifaces.component.tree"><code>Tree</code></a>
+ component will expose the child tree node.
+ <p>
+ This component allows a child component of type <a href="../../../../org/omnifaces/component/tree/TreeInsertChildren.html" title="class in org.omnifaces.component.tree"><code>TreeInsertChildren</code></a> which indicates the place to insert
+ the children of the current child tree node recursively by a <a href="../../../../org/omnifaces/component/tree/TreeNode.html" title="class in org.omnifaces.component.tree"><code>TreeNode</code></a> component associated with the
+ children's level in the same parent <a href="../../../../org/omnifaces/component/tree/Tree.html" title="class in org.omnifaces.component.tree"><code>Tree</code></a> component.
+
+ <h3>treeInsertChildren</h3>
+ <p>
+ The <code>&lt;o:treeInsertChildren&gt;</code> is an <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component"><code>UIComponent</code></a> that represents the insertion point for the
+ children of a parent tree node which is represented by <a href="../../../../org/omnifaces/component/tree/TreeNodeItem.html" title="class in org.omnifaces.component.tree"><code>TreeNodeItem</code></a>.
+ <p>
+ This component does not allow any children.</div>
 <dl>
 <dt><span class="simpleTagLabel">Author:</span></dt>
 <dd>Bauke Scholtz</dd>

@@ -115,7 +115,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
  Collection of utility methods for the Servlet API in general. Most of them are internally used by <a href="../../../org/omnifaces/util/Faces.html" title="class in org.omnifaces.util"><code>Faces</code></a>
  and <a href="../../../org/omnifaces/util/FacesLocal.html" title="class in org.omnifaces.util"><code>FacesLocal</code></a>, however they may also be useful in a "plain vanilla" servlet or servlet filter.
  <p>
- There are as of now also three special methods related to JSF without needing a <a href="https://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context"><code>FacesContext</code></a>:
+ There are as of now also four special methods related to JSF without needing a <a href="https://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context"><code>FacesContext</code></a>:
  <ul>
  <li>The <a href="../../../org/omnifaces/util/Servlets.html#isFacesAjaxRequest-javax.servlet.http.HttpServletRequest-"><code>isFacesAjaxRequest(HttpServletRequest)</code></a> which is capable of checking if the current request is a JSF
  ajax request.
@@ -125,6 +125,8 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
  of distinguishing JSF ajax requests from regular requests and altering the redirect logic on it, exactly like as
  <a href="https://docs.oracle.com/javaee/7/api/javax/faces/context/ExternalContext.html?is-external=true#redirect-java.lang.String-" title="class or interface in javax.faces.context"><code>ExternalContext.redirect(String)</code></a> does. In other words, this method behaves exactly the same as
  <a href="../../../org/omnifaces/util/Faces.html#redirect-java.lang.String-java.lang.String...-"><code>Faces.redirect(String, String...)</code></a>.
+ <li>The <a href="../../../org/omnifaces/util/Servlets.html#isFacesDevelopment-javax.servlet.ServletContext-"><code>isFacesDevelopment(ServletContext)</code></a> which is capable of checking if the current JSF application
+ configuration is set to development project stage.
  </ul>
  <p>
  Those methods can be used in for example a servlet filter.</div>
