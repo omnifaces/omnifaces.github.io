@@ -3,6 +3,7 @@ org.omnifaces.application
 org.omnifaces.cdi
 org.omnifaces.cdi.beans
 org.omnifaces.cdi.converter
+org.omnifaces.cdi.cookie
 org.omnifaces.cdi.eager
 org.omnifaces.cdi.param
 org.omnifaces.cdi.validator
