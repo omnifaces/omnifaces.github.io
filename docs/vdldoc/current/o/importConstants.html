@@ -74,17 +74,17 @@
 				classes, interfaces and enums. For example:
 				<pre>
 public class Foo {
-    public static final String FOO1 = "foo1";
-    public static final String FOO2 = "foo2";
+	public static final String FOO1 = "foo1";
+	public static final String FOO2 = "foo2";
 }
 
 public interface Bar {
-    public static final String BAR1 = "bar1";
-    public static final String BAR2 = "bar2";
+	public static final String BAR1 = "bar1";
+	public static final String BAR2 = "bar2";
 }
 
 public enum Baz {
-    BAZ1, BAZ2;
+	BAZ1, BAZ2;
 }
 				</pre>
 				<p>The constant field values of the above types can be mapped into the EL scope as follows:
@@ -123,18 +123,18 @@ public enum Baz {
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
 				
-	               The fully qualified name of the class/interface/enum to import the constant field values for.
-	            
-            </td>
+				   The fully qualified name of the class/interface/enum to import the constant field values for.
+				
+			</td>
 </tr>
 <tr id="var" class="altColor">
 <td class="colFirst"><a href="#var"><code>var</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
 				
-	               The name of the Facelet attribute which exposes the mapping of the constants in the EL scope.
-	            
-            </td>
+				   The name of the Facelet attribute which exposes the mapping of the constants in the EL scope.
+				
+			</td>
 </tr>
 </tbody>
 </table>

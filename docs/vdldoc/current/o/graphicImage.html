@@ -68,13 +68,13 @@
 <dt>Description:</dt>
 <dd>
 <div class="block">
-        	
+			
 				The <code>&lt;o:graphicImage&gt;</code> is a component that extends the standard <code>&lt;h:graphicImage&gt;</code>
 				with support for referencing an <code>InputStream</code> or <code>byte[]</code> property in <code>value</code> attribute.
 				This property must point to a <strong>stateless</strong> <code>@ApplicationScoped</code> bean (both JSF and CDI
 				scopes are supported).
-             
-        </div>
+			 
+		</div>
 </dd>
 </dl>
 </li>
@@ -151,216 +151,238 @@
 <br>(<i>must evaluate to </i><code>java.lang.Object</code>)
 					</td><td class="colLast">
 				
-	                The value that will be rendered as the content of the HTML img element. It must represent a method
-	                expression referring a stateless backing bean method returning either byte[] or InputStream.
-	                Thus, NOT a view or session scoped bean, but a request or application scoped one.
-	                This attribute is ignored when 'name' attribute is specified.
-	            
-            </td>
+					The value that will be rendered as the content of the HTML img element. It must represent a method
+					expression referring a stateless backing bean method returning either byte[] or InputStream.
+					Thus, NOT a view or session scoped bean, but a request or application scoped one.
+					This attribute is ignored when 'name' attribute is specified.
+				
+			</td>
 </tr>
 <tr id="dataURI" class="rowColor">
 <td class="colFirst"><a href="#dataURI"><code>dataURI</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>boolean</code>)
 					</td><td class="colLast">
 				
-	                When set to <code>true</code> then the value will be rendered in data URI format instead of request URI format.
-	                This attribute is ignored when 'name' attribute is specified.
-	            
-            </td>
+					When set to <code>true</code> then the value will be rendered in data URI format instead of request URI format.
+					This attribute is ignored when 'name' attribute is specified. When this attribute is set to 'true',
+					'lastModified' and 'fragment' attributes are ignored.
+				
+			</td>
 </tr>
-<tr id="lastModified" class="altColor">
+<tr id="type" class="altColor">
+<td class="colFirst"><a href="#type"><code>type</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">
+				
+					The image type, represented as file extension. E.g. "jpg", "png", "gif", "ico", "svg", "bmp", "tiff", etc.
+					This attribute is ignored when 'name' attribute is specified.
+				
+			</td>
+</tr>
+<tr id="lastModified" class="rowColor">
 <td class="colFirst"><a href="#lastModified"><code>lastModified</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.Object</code>)
 					</td><td class="colLast">
 				
-	                The "last modified" timestamp, can be either a java.lang.Long, or java.util.Date, or java.lang.String
-	                which is parseable as java.lang.Long. This attribute is ignored when 'name' attribute is specified
-	                or when 'dataURI' attribute is set to 'true'.
-	            
-            </td>
+					The "last modified" timestamp, can be either a java.lang.Long, or java.util.Date, or java.lang.String
+					which is parseable as java.lang.Long. This attribute is ignored when 'name' attribute is specified
+					or when 'dataURI' attribute is set to 'true'.
+				
+			</td>
+</tr>
+<tr id="fragment" class="altColor">
+<td class="colFirst"><a href="#fragment"><code>fragment</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">
+				
+					The URL fragment identifier, which will be appended to generated resource URL. This is particularly
+					useful with SVG images with view modes. The value does not necessarily need to start with '#', this
+					will be checked. This attribute is ignored when 'dataURI' attribute is set to 'true'.
+				
+			</td>
 </tr>
 <tr id="name" class="rowColor">
 <td class="colFirst"><a href="#name"><code>name</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
 				
-	                The resource name of the resource. Works the same way as on <code>&lt;h:graphicImage&gt;</code>.
-	                When this attribute is specified, 'value' and 'lastModified' attributes are ignored.
-	            
-            </td>
+					The resource name of the resource. Works the same way as on <code>&lt;h:graphicImage&gt;</code>.
+					When this attribute is specified, 'value', 'type' and 'lastModified' attributes are ignored.
+				
+			</td>
 </tr>
 <tr id="library" class="altColor">
 <td class="colFirst"><a href="#library"><code>library</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
 				
-	                The resource library name of the resource. Works the same way as on <code>&lt;h:graphicImage&gt;</code>.
-	                This attribtue is only used when 'name' attribute is specified.
-	            
-            </td>
+					The resource library name of the resource. Works the same way as on <code>&lt;h:graphicImage&gt;</code>.
+					This attribtue is only used when 'name' attribute is specified.
+				
+			</td>
 </tr>
 <tr id="alt" class="rowColor">
 <td class="colFirst"><a href="#alt"><code>alt</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
-                Alternate textual description of the element rendered by this component.
-            </td>
+				Alternate textual description of the element rendered by this component.
+			</td>
 </tr>
 <tr id="dir" class="altColor">
 <td class="colFirst"><a href="#dir"><code>dir</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
-                Direction indication for text that does not inherit directionality.
-                Valid values are "LTR" (left-to-right) and "RTL" (right-to-left).
-                These attributes are case sensitive when rendering to XHTML, so care must be taken to have the correct case.
-            </td>
+				Direction indication for text that does not inherit directionality.
+				Valid values are "LTR" (left-to-right) and "RTL" (right-to-left).
+				These attributes are case sensitive when rendering to XHTML, so care must be taken to have the correct case.
+			</td>
 </tr>
 <tr id="height" class="rowColor">
 <td class="colFirst"><a href="#height"><code>height</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
-                Override for the height of this image.
-            </td>
+				Override for the height of this image.
+			</td>
 </tr>
 <tr id="ismap" class="altColor">
 <td class="colFirst"><a href="#ismap"><code>ismap</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>boolean</code>)
 					</td><td class="colLast">
-                Flag indicating that this image is to be used as a server side image map.
-                Such an image must be enclosed within a hyperlink ("a").
-                A value of false causes no attribute to be rendered, while a value of true causes the attribute to be rendered as ismap="ismap".
-            </td>
+				Flag indicating that this image is to be used as a server side image map.
+				Such an image must be enclosed within a hyperlink ("a").
+				A value of false causes no attribute to be rendered, while a value of true causes the attribute to be rendered as ismap="ismap".
+			</td>
 </tr>
 <tr id="lang" class="rowColor">
 <td class="colFirst"><a href="#lang"><code>lang</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
-                Code describing the language used in the generated markup for this component.
-            </td>
+				Code describing the language used in the generated markup for this component.
+			</td>
 </tr>
 <tr id="longdesc" class="altColor">
 <td class="colFirst"><a href="#longdesc"><code>longdesc</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
 				URI to a long description of the image represented by this element.
-            </td>
+			</td>
 </tr>
 <tr id="onclick" class="rowColor">
 <td class="colFirst"><a href="#onclick"><code>onclick</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
-                Javascript code executed when a pointer button is clicked over this element.
-            </td>
+				Javascript code executed when a pointer button is clicked over this element.
+			</td>
 </tr>
 <tr id="ondblclick" class="altColor">
 <td class="colFirst"><a href="#ondblclick"><code>ondblclick</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
-                Javascript code executed when a pointer button is double clicked over this element.
-            </td>
+				Javascript code executed when a pointer button is double clicked over this element.
+			</td>
 </tr>
 <tr id="onkeydown" class="rowColor">
 <td class="colFirst"><a href="#onkeydown"><code>onkeydown</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
-                Javascript code executed when a key is pressed down over this element.
-            </td>
+				Javascript code executed when a key is pressed down over this element.
+			</td>
 </tr>
 <tr id="onkeypress" class="altColor">
 <td class="colFirst"><a href="#onkeypress"><code>onkeypress</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
-                Javascript code executed when a key is pressed and released over this element.
-            </td>
+				Javascript code executed when a key is pressed and released over this element.
+			</td>
 </tr>
 <tr id="onkeyup" class="rowColor">
 <td class="colFirst"><a href="#onkeyup"><code>onkeyup</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
-                Javascript code executed when a key is released over this element.
-            </td>
+				Javascript code executed when a key is released over this element.
+			</td>
 </tr>
 <tr id="onmousedown" class="altColor">
 <td class="colFirst"><a href="#onmousedown"><code>onmousedown</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
-                Javascript code executed when a pointer button is pressed down over this element.
-            </td>
+				Javascript code executed when a pointer button is pressed down over this element.
+			</td>
 </tr>
 <tr id="onmousemove" class="rowColor">
 <td class="colFirst"><a href="#onmousemove"><code>onmousemove</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
-                Javascript code executed when a pointer button is moved within this element.
-            </td>
+				Javascript code executed when a pointer button is moved within this element.
+			</td>
 </tr>
 <tr id="onmouseout" class="altColor">
 <td class="colFirst"><a href="#onmouseout"><code>onmouseout</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
-                Javascript code executed when a pointer button is moved away from this element.
-            </td>
+				Javascript code executed when a pointer button is moved away from this element.
+			</td>
 </tr>
 <tr id="onmouseover" class="rowColor">
 <td class="colFirst"><a href="#onmouseover"><code>onmouseover</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
-                Javascript code executed when a pointer button is moved onto this element.
-            </td>
+				Javascript code executed when a pointer button is moved onto this element.
+			</td>
 </tr>
 <tr id="onmouseup" class="altColor">
 <td class="colFirst"><a href="#onmouseup"><code>onmouseup</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
-                Javascript code executed when a pointer button is released over this element.
-            </td>
+				Javascript code executed when a pointer button is released over this element.
+			</td>
 </tr>
 <tr id="role" class="rowColor">
 <td class="colFirst"><a href="#role"><code>role</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
-                Per the WAI-ARIA spec and its relationship to HTML5 (Section title ARIA Role Attriubute),
-                every HTML element may have a "role" attribute whose value must be passed through unmodified on the element on which it is declared in the final rendered markup.
-                The attribute, if specified, must have a value that is a string literal that is,
-                or an EL Expression that evaluates to, a set of space-separated tokens representing the various WAI-ARIA roles that the element belongs to.
+				Per the WAI-ARIA spec and its relationship to HTML5 (Section title ARIA Role Attriubute),
+				every HTML element may have a "role" attribute whose value must be passed through unmodified on the element on which it is declared in the final rendered markup.
+				The attribute, if specified, must have a value that is a string literal that is,
+				or an EL Expression that evaluates to, a set of space-separated tokens representing the various WAI-ARIA roles that the element belongs to.
 				It is the page author's responsibility to ensure that the user agent is capable of correctly interpreting the value of this attribute.
-            </td>
+			</td>
 </tr>
 <tr id="style" class="altColor">
 <td class="colFirst"><a href="#style"><code>style</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
-                CSS style(s) to be applied when this component is rendered.
-            </td>
+				CSS style(s) to be applied when this component is rendered.
+			</td>
 </tr>
 <tr id="styleClass" class="rowColor">
 <td class="colFirst"><a href="#styleClass"><code>styleClass</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
-                Space-separated list of CSS style class(es) to be applied when this element is rendered.
-                This value must be passed through as the "class" attribute on generated markup.
-            </td>
+				Space-separated list of CSS style class(es) to be applied when this element is rendered.
+				This value must be passed through as the "class" attribute on generated markup.
+			</td>
 </tr>
 <tr id="title" class="altColor">
 <td class="colFirst"><a href="#title"><code>title</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
-                Advisory title information about markup elements generated for this component (simply put: the tooltip).
-            </td>
+				Advisory title information about markup elements generated for this component (simply put: the tooltip).
+			</td>
 </tr>
 <tr id="usemap" class="rowColor">
 <td class="colFirst"><a href="#usemap"><code>usemap</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
 				The name of a client side image map (an HTML "map" element) for which this element provides the image.
-            </td>
+			</td>
 </tr>
 <tr id="width" class="altColor">
 <td class="colFirst"><a href="#width"><code>width</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
 				Override for the width of this image.
-            </td>
+			</td>
 </tr>
 </tbody>
 </table>

@@ -68,21 +68,21 @@
 <dt>Description:</dt>
 <dd>
 <div class="block">
-	       	
-	       		<strong>Cache</strong> is a component that initially renders the output of its children into a buffer
-	       		instead of to the response. This output is then inserted into a cache and on subsequent requests the
-	       		content retrieved from the cache is used.
-	       		<p>
-	       		By default the viewid concatenated to the component id via an underscore is used as the cache key.
-	       		<p>
-	       		Note that this component <strong>does not</strong> support a cache loader and locking mechanism. This mean several
-	       		simultaenous page requests may render the same content and it's undetermined which of those will end up being cached.
-	       		<p>
-	       		An optional caching provider (see below) can be set to control the caching implementation that is used for the actual caching.
-	       		If no such provider is installed, a default caching implementation is used that's based on
-	       		<a href="http://code.google.com/p/concurrentlinkedhashmap">http://code.google.com/p/concurrentlinkedhashmap</a> in case
-	       		a maximum cache capacity is set, or on a plain ConcurrentMap if no capacity is set.
-	       		<hr>
+		   	
+		   		<strong>Cache</strong> is a component that initially renders the output of its children into a buffer
+		   		instead of to the response. This output is then inserted into a cache and on subsequent requests the
+		   		content retrieved from the cache is used.
+		   		<p>
+		   		By default the viewid concatenated to the component id via an underscore is used as the cache key.
+		   		<p>
+		   		Note that this component <strong>does not</strong> support a cache loader and locking mechanism. This mean several
+		   		simultaenous page requests may render the same content and it's undetermined which of those will end up being cached.
+		   		<p>
+		   		An optional caching provider (see below) can be set to control the caching implementation that is used for the actual caching.
+		   		If no such provider is installed, a default caching implementation is used that's based on
+		   		<a href="http://code.google.com/p/concurrentlinkedhashmap">http://code.google.com/p/concurrentlinkedhashmap</a> in case
+		   		a maximum cache capacity is set, or on a plain ConcurrentMap if no capacity is set.
+		   		<hr>
 				<h3>Setting a custom caching provider</h3>
 				<p>A custom caching provider can be set by using the <code>org.omnifaces.CACHE_PROVIDER</code> context
 				parameter in web.xml to point to an implementation of <code>org.omnifaces.component.output.cache.CacheProvider</code>.
@@ -126,10 +126,10 @@
  				<tr>
  				<td nowrap><code>org.omnifaces.CACHE_INSTALL_BUFFER_FILTER</code></td>
 				<td>Boolean that when true installs a Servlet Filter (Servlet 3.0+ only) that works in conjunction with the <code>useBuffer</code> attribute of the Cache component
-				    to enable an alternative way to grab the content that needs to be cached. This is a convenience setting that is a short-cut
-				    for installing the <code>org.omnifaces.servlet.BufferedHttpServletResponse</code> filter manually. If more finegrained control
-				    is needed regarding which place in the filter chain the filter appears and which resources it exactly filters, this setting
-				    should not be used and the mentioned filter should be manually configured. Default: <code>false</code>)
+					to enable an alternative way to grab the content that needs to be cached. This is a convenience setting that is a short-cut
+					for installing the <code>org.omnifaces.servlet.BufferedHttpServletResponse</code> filter manually. If more finegrained control
+					is needed regarding which place in the filter chain the filter appears and which resources it exactly filters, this setting
+					should not be used and the mentioned filter should be manually configured. Default: <code>false</code>)
 				 </td>
  				</tr>
  				</table>
@@ -204,7 +204,7 @@
 					Keys are relative to the scope for which they are defined, meaning a key "foo" for the a session scoped
 					cache will not conflict with a key of the same name for an application scoped cache.
 				 
-            </td>
+			</td>
 </tr>
 <tr id="scope" class="altColor">
 <td class="colFirst"><a href="#scope"><code>scope</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
@@ -220,7 +220,7 @@
 					<p>
 					A runtime exception will be thrown if an unsupported value for scope is used.
 				 
-            </td>
+			</td>
 </tr>
 <tr id="time" class="rowColor">
 <td class="colFirst"><a href="#time"><code>time</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
@@ -243,7 +243,7 @@
 					Note that this component <strong>does not</strong> support a cache loader and locking mechanism. This means after content times out,
 					several simultaneous page requests may render the same content and it's undetermined which of those will end up being cached.
 				 
-            </td>
+			</td>
 </tr>
 <tr id="useBuffer" class="altColor">
 <td class="colFirst"><a href="#useBuffer"><code>useBuffer</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
@@ -266,7 +266,7 @@
 					Servlet Filter needs to be configured to filter the Faces Servlet (or alternatively just the pages for which the buffering
 					method should be used).
 				 
-            </td>
+			</td>
 </tr>
 <tr id="reset" class="rowColor">
 <td class="colFirst"><a href="#reset"><code>reset</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
@@ -282,23 +282,23 @@
 					Note that this value has to remain true until the cache component is rendered, after that it should be set to false
 					again otherwise the cached content will be reset again at the next rendering.
 				 
-            </td>
+			</td>
 </tr>
 <tr id="disabled" class="altColor">
 <td class="colFirst"><a href="#disabled"><code>disabled</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.Boolean</code>)
 					</td><td class="colLast">
-                
-                    Disables the cache when set to <code>true</code>. Default is <code>false</code>.
-                    <p>
-                    This attribute can be used to disable the cache (temporarily). In disabled state the children will be rendered directly
-                    and cached content (if any) will not be used, nor will the rendering outcome of the children be cached.
-                    <p>
-                    When the attribute is set to <code>false</code> again any content that was cached before the cache was disabled will be
-                    shown again if said content is still available in the cache. The content that was rendered when the cache was disabled
-                    has no effect on any such previously cached content.
-                 
-            </td>
+				
+					Disables the cache when set to <code>true</code>. Default is <code>false</code>.
+					<p>
+					This attribute can be used to disable the cache (temporarily). In disabled state the children will be rendered directly
+					and cached content (if any) will not be used, nor will the rendering outcome of the children be cached.
+					<p>
+					When the attribute is set to <code>false</code> again any content that was cached before the cache was disabled will be
+					shown again if said content is still available in the cache. The content that was rendered when the cache was disabled
+					has no effect on any such previously cached content.
+				 
+			</td>
 </tr>
 </tbody>
 </table>

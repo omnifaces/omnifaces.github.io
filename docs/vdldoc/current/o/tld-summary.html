@@ -122,14 +122,14 @@
 				<pre>
 &lt;o:tree value="#{bean.treeModel}" var="item" varNode="node"&gt;
   &lt;o:treeNode&gt;
-    &lt;ul&gt;
-      &lt;o:treeNodeItem&gt;
-        &lt;li&gt;
-          #{node.index} #{item.someProperty}
-          &lt;o:treeInsertChildren /&gt;
-        &lt;/li&gt;
-      &lt;/o:treeNodeItem&gt;
-    &lt;/ul&gt;
+	&lt;ul&gt;
+	  &lt;o:treeNodeItem&gt;
+		&lt;li&gt;
+		  #{node.index} #{item.someProperty}
+		  &lt;o:treeInsertChildren /&gt;
+		&lt;/li&gt;
+	  &lt;/o:treeNodeItem&gt;
+	&lt;/ul&gt;
   &lt;/o:treeNode&gt;
 &lt;/o:tree&gt;
 				</pre>
@@ -355,7 +355,7 @@ input.error, select.error, textarea.error {
 				<pre>
 &lt;o:validateMultipleFields id="myId" binding="#{myId}" components="foo bar baz" /&gt;
 &lt;h:panelGroup rendered="#{myId.validationFailed}"&gt;
-    Validation has failed! &lt;h:message for="myId" /&gt;
+	Validation has failed! &lt;h:message for="myId" /&gt;
 &lt;/h:panelGroup&gt;
 				</pre>
 			
@@ -469,7 +469,7 @@ input.error, select.error, textarea.error {
 				</pre>
 				<pre>
 public boolean validateValues(FacesContext context, List&lt;UIInput&gt; components, List&lt;Object&gt; values) {
-    // ...
+	// ...
 }
 				</pre>
 				<p>Or by a managed bean instance which implements the <code>MultiFieldValidator</code> interface:
@@ -484,10 +484,10 @@ public boolean validateValues(FacesContext context, List&lt;UIInput&gt; componen
 @ManagedBean
 @RequestScoped
 public class ValidateValuesBean implements MultiFieldValidator {
-    @Override
-    boolean validateValues(FacesContext context, List&lt;UIInput&gt; components, List&lt;Object&gt; values) {
-        // ...
-    }
+	@Override
+	boolean validateValues(FacesContext context, List&lt;UIInput&gt; components, List&lt;Object&gt; values) {
+		// ...
+	}
 }
 				</pre>
 			
@@ -617,6 +617,14 @@ public class ValidateValuesBean implements MultiFieldValidator {
 		</td>
 </tr>
 <tr class="rowColor">
+<td class="colOne"><b><a href="tagAttribute.html">tagAttribute</a></b></td><td class="colLast">
+			
+				Declare a tagfile attribute. This should in nested tags shield same attributes set on parent tags.
+				This also offers the possibility to declare a default value.
+			
+		</td>
+</tr>
+<tr class="altColor">
 <td class="colOne"><b><a href="componentIdParam.html">componentIdParam</a></b></td><td class="colLast">
 				
 					<strong>ComponentIdParam</strong> is a component that allows component ids to be provided as request parameters
@@ -634,63 +642,63 @@ public class ValidateValuesBean implements MultiFieldValidator {
 				
 		</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><b><a href="outputFormat.html">outputFormat</a></b></td><td class="colLast">
-        	
+			
 				<strong>OutputFormat</strong> is a component that extends the standard <code>HtmlOutputFormat</code> and provides support
 				for capturing the output and exposing it into the request scope by the variable name as specified by the
 				<code>var</code> attribute.
-             
-        </td>
-</tr>
-<tr class="rowColor">
-<td class="colOne"><b><a href="outputLabel.html">outputLabel</a></b></td><td class="colLast">
-        	
-	        	<strong><code>o:outputLabel</code></strong> is a component that extends the standard outputLabel and provides extra support for
-	 			automatically setting its value as the label of the component identified by its <code>for</code> attribute.
-	        	<p>
-	            It renders an HTML "label" element. If a "for" attribute is specified, the component specified by the value of the "for"
-	            attribute is queried for its client id, which is then rendered as the value of the "for" attribute of the HTML label element.
-             
-        </td>
+			 
+		</td>
 </tr>
 <tr class="altColor">
+<td class="colOne"><b><a href="outputLabel.html">outputLabel</a></b></td><td class="colLast">
+			
+				<strong><code>o:outputLabel</code></strong> is a component that extends the standard outputLabel and provides extra support for
+	 			automatically setting its value as the label of the component identified by its <code>for</code> attribute.
+				<p>
+				It renders an HTML "label" element. If a "for" attribute is specified, the component specified by the value of the "for"
+				attribute is queried for its client id, which is then rendered as the value of the "for" attribute of the HTML label element.
+			 
+		</td>
+</tr>
+<tr class="rowColor">
 <td class="colOne"><b><a href="graphicImage.html">graphicImage</a></b></td><td class="colLast">
-        	
+			
 				The <code>&lt;o:graphicImage&gt;</code> is a component that extends the standard <code>&lt;h:graphicImage&gt;</code>
 				with support for referencing an <code>InputStream</code> or <code>byte[]</code> property in <code>value</code> attribute.
 				This property must point to a <strong>stateless</strong> <code>@ApplicationScoped</code> bean (both JSF and CDI
 				scopes are supported).
-             
-        </td>
+			 
+		</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><b><a href="form.html">form</a></b></td><td class="colLast">
-        	
-        		<strong>Form</strong> is a component that extends the standard <code>UIForm</code> and provides a way to keep view
+			
+				<strong>Form</strong> is a component that extends the standard <code>UIForm</code> and provides a way to keep view
 				parameters in the request URL after a post-back and offers in combination with the
 				<code>&lt;o:ignoreValidationFailed&gt;</code> tag on an <code>UICommand</code> component the possibility to ignore
 				validation failures so that the invoke action phase will be executed anyway.
-             
-        </td>
+			 
+		</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><b><a href="cache.html">cache</a></b></td><td class="colLast">
-	       	
-	       		<strong>Cache</strong> is a component that initially renders the output of its children into a buffer
-	       		instead of to the response. This output is then inserted into a cache and on subsequent requests the
-	       		content retrieved from the cache is used.
-	       		<p>
-	       		By default the viewid concatenated to the component id via an underscore is used as the cache key.
-	       		<p>
-	       		Note that this component <strong>does not</strong> support a cache loader and locking mechanism. This mean several
-	       		simultaenous page requests may render the same content and it's undetermined which of those will end up being cached.
-	       		<p>
-	       		An optional caching provider (see below) can be set to control the caching implementation that is used for the actual caching.
-	       		If no such provider is installed, a default caching implementation is used that's based on
-	       		<a href="http://code.google.com/p/concurrentlinkedhashmap">http://code.google.com/p/concurrentlinkedhashmap</a> in case
-	       		a maximum cache capacity is set, or on a plain ConcurrentMap if no capacity is set.
-	       		<hr>
+		   	
+		   		<strong>Cache</strong> is a component that initially renders the output of its children into a buffer
+		   		instead of to the response. This output is then inserted into a cache and on subsequent requests the
+		   		content retrieved from the cache is used.
+		   		<p>
+		   		By default the viewid concatenated to the component id via an underscore is used as the cache key.
+		   		<p>
+		   		Note that this component <strong>does not</strong> support a cache loader and locking mechanism. This mean several
+		   		simultaenous page requests may render the same content and it's undetermined which of those will end up being cached.
+		   		<p>
+		   		An optional caching provider (see below) can be set to control the caching implementation that is used for the actual caching.
+		   		If no such provider is installed, a default caching implementation is used that's based on
+		   		<a href="http://code.google.com/p/concurrentlinkedhashmap">http://code.google.com/p/concurrentlinkedhashmap</a> in case
+		   		a maximum cache capacity is set, or on a plain ConcurrentMap if no capacity is set.
+		   		<hr>
 				<h3>Setting a custom caching provider</h3>
 				<p>A custom caching provider can be set by using the <code>org.omnifaces.CACHE_PROVIDER</code> context
 				parameter in web.xml to point to an implementation of <code>org.omnifaces.component.output.cache.CacheProvider</code>.
@@ -734,10 +742,10 @@ public class ValidateValuesBean implements MultiFieldValidator {
  				<tr>
  				<td nowrap><code>org.omnifaces.CACHE_INSTALL_BUFFER_FILTER</code></td>
 				<td>Boolean that when true installs a Servlet Filter (Servlet 3.0+ only) that works in conjunction with the <code>useBuffer</code> attribute of the Cache component
-				    to enable an alternative way to grab the content that needs to be cached. This is a convenience setting that is a short-cut
-				    for installing the <code>org.omnifaces.servlet.BufferedHttpServletResponse</code> filter manually. If more finegrained control
-				    is needed regarding which place in the filter chain the filter appears and which resources it exactly filters, this setting
-				    should not be used and the mentioned filter should be manually configured. Default: <code>false</code>)
+					to enable an alternative way to grab the content that needs to be cached. This is a convenience setting that is a short-cut
+					for installing the <code>org.omnifaces.servlet.BufferedHttpServletResponse</code> filter manually. If more finegrained control
+					is needed regarding which place in the filter chain the filter appears and which resources it exactly filters, this setting
+					should not be used and the mentioned filter should be manually configured. Default: <code>false</code>)
 				 </td>
  				</tr>
  				</table>
@@ -757,7 +765,7 @@ public class ValidateValuesBean implements MultiFieldValidator {
 			
 		</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><b><a href="cacheValue.html">cacheValue</a></b></td><td class="colLast">
 			
 				Tag handler (runs at tree build-time) that makes a value expression available under the given name that caches its value.
@@ -775,7 +783,7 @@ public class ValidateValuesBean implements MultiFieldValidator {
 			
 		</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><b><a href="importConstants.html">importConstants</a></b></td><td class="colLast">
 			
 				<p>The <code>&lt;o:importConstants&gt;</code> allows the developer to have a mapping of all constant field values of
@@ -783,17 +791,17 @@ public class ValidateValuesBean implements MultiFieldValidator {
 				classes, interfaces and enums. For example:
 				<pre>
 public class Foo {
-    public static final String FOO1 = "foo1";
-    public static final String FOO2 = "foo2";
+	public static final String FOO1 = "foo1";
+	public static final String FOO2 = "foo2";
 }
 
 public interface Bar {
-    public static final String BAR1 = "bar1";
-    public static final String BAR2 = "bar2";
+	public static final String BAR1 = "bar1";
+	public static final String BAR2 = "bar2";
 }
 
 public enum Baz {
-    BAZ1, BAZ2;
+	BAZ1, BAZ2;
 }
 				</pre>
 				<p>The constant field values of the above types can be mapped into the EL scope as follows:
@@ -812,7 +820,7 @@ public enum Baz {
 			
 		</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><b><a href="importFunctions.html">importFunctions</a></b></td><td class="colLast">
 			
 				<p>The <code>&lt;o:importFunctions&gt;</code> allows the developer to have access to all functions of the given
@@ -844,7 +852,7 @@ public enum Baz {
 			
 		</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><b><a href="ignoreValidationFailed.html">ignoreValidationFailed</a></b></td><td class="colLast">
 			
 				The <code>&lt;o:ignoreValidationFailed&gt;</code> allows the developer to ignore validation failures when
@@ -856,7 +864,7 @@ public enum Baz {
 			
 		</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><b><a href="enableRestorableView.html">enableRestorableView</a></b></td><td class="colLast">
 			
 				The <code>&lt;o:enableRestorableView&gt;</code> instructs the view handler to recreate the entire view whenever the
@@ -869,20 +877,20 @@ public enum Baz {
 			
 		</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><b><a href="validateBean.html">validateBean</a></b></td><td class="colLast">
 			
 				The <code>&lt;o:validateBean&gt;</code> allows the developer to control bean validation groups on a
 				per-<code>UICommand</code> or <code>UIInput</code> component basis. Usage example:
 				<pre>
 &lt;h:commandButton&gt;
-    &lt;o:validateBean groups="javax.validation.groups.Default,com.example.MyGroup"/&gt;
+	&lt;o:validateBean groups="javax.validation.groups.Default,com.example.MyGroup"/&gt;
 &lt;/h:commandButton&gt;
-		        </pre>
+				</pre>
 			
 		</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><b><a href="validateUniqueColumn.html">validateUniqueColumn</a></b></td><td class="colLast">
 			
 				<strong>ValidateUniqueColumn</strong> validates if the given <code>UIInput</code> component in an <code>UIData</code> component
@@ -897,9 +905,9 @@ public enum Baz {
 				<pre>
 &lt;h:dataTable value="#{bean.items}" var="item"&gt;
   &lt;h:column&gt;
-    &lt;h:inputText value="#{item.value}"&gt;
-      &lt;o:validateUniqueColumn /&gt;
-    &lt;/h:inputText&gt;
+	&lt;h:inputText value="#{item.value}"&gt;
+	  &lt;o:validateUniqueColumn /&gt;
+	&lt;/h:inputText&gt;
   &lt;/h:column&gt;
 &lt;/h:dataTable&gt;
 				</pre>
@@ -917,7 +925,7 @@ public enum Baz {
 			
 		</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><b><a href="massAttribute.html">massAttribute</a></b></td><td class="colLast">
 			
 				The <strong>&lt;o:massAttribute&gt;</strong> sets an attribute of the given name and value on all nested components,
@@ -929,11 +937,11 @@ public enum Baz {
 				For example, the following setup
 				<pre>
 &lt;o:massAttribute name="disabled" value="true"&gt;
-    &lt;h:inputText id="input1" /&gt;
-    &lt;h:inputText id="input2" disabled="true" /&gt;
-    &lt;h:inputText id="input3" disabled="false" /&gt;
-    &lt;h:inputText id="input4" disabled="#{true}" /&gt;
-    &lt;h:inputText id="input5" disabled="#{false}" /&gt;
+	&lt;h:inputText id="input1" /&gt;
+	&lt;h:inputText id="input2" disabled="true" /&gt;
+	&lt;h:inputText id="input3" disabled="false" /&gt;
+	&lt;h:inputText id="input4" disabled="#{true}" /&gt;
+	&lt;h:inputText id="input5" disabled="#{false}" /&gt;
 &lt;/o:massAttribute&gt;
 				</pre>
 				will set the <code>disabled="true"</code> attribute in <code>input1</code>, <code>input2</code> and
@@ -942,10 +950,10 @@ public enum Baz {
 				As another general example without booleans, the following setup
 				<pre>
 &lt;o:massAttribute name="styleClass" value="#{component.valid ? '' : 'error'}"&gt;
-    &lt;h:inputText id="input1" /&gt;
-    &lt;h:inputText id="input2" styleClass="some" /&gt;
-    &lt;h:inputText id="input3" styleClass="#{'some'}" /&gt;
-    &lt;h:inputText id="input4" styleClass="#{null}" /&gt;
+	&lt;h:inputText id="input1" /&gt;
+	&lt;h:inputText id="input2" styleClass="some" /&gt;
+	&lt;h:inputText id="input3" styleClass="#{'some'}" /&gt;
+	&lt;h:inputText id="input4" styleClass="#{null}" /&gt;
 &lt;/o:massAttribute&gt;
 				</pre>
 				will only set the <code>styleClass="#{component.valid ? '' : 'error'}"</code> attribute in <code>input1</code> as
@@ -956,18 +964,18 @@ public enum Baz {
 				(as that would otherwise fail in the example below because they don't have a <code>valid</code> property):
 				<pre>
 &lt;o:massAttribute name="styleClass" value="#{component.valid ? '' : 'error'}" target="javax.faces.component.UIInput"&gt;
-    &lt;h:outputLabel for="input1" /&gt;
-    &lt;h:inputText id="input1" /&gt;
-    &lt;h:outputLabel for="input2" /&gt;
-    &lt;h:inputText id="input2" /&gt;
-    &lt;h:outputLabel for="input3" /&gt;
-    &lt;h:inputText id="input3" /&gt;
+	&lt;h:outputLabel for="input1" /&gt;
+	&lt;h:inputText id="input1" /&gt;
+	&lt;h:outputLabel for="input2" /&gt;
+	&lt;h:inputText id="input2" /&gt;
+	&lt;h:outputLabel for="input3" /&gt;
+	&lt;h:inputText id="input3" /&gt;
 &lt;/o:massAttribute&gt;
 				</pre>
 			
 		</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><b><a href="viewParamValidationFailed.html">viewParamValidationFailed</a></b></td><td class="colLast">
 			
 				<code>&lt;o:viewParamValidationFailed&gt;</code> allows the developer to handle a view parameter validation failure
@@ -999,9 +1007,9 @@ public enum Baz {
 				With the example below, when at least one view param is absent, then the client will be returned a HTTP 400 error.
 				<pre>
 				&lt;f:metadata&gt;
-				    &lt;o:viewParam name="foo" required="true" /&gt;
-				    &lt;o:viewParam name="bar" required="true" /&gt;
-				    &lt;o:viewParamValidationFailed sendError="400" /&gt;
+					&lt;o:viewParam name="foo" required="true" /&gt;
+					&lt;o:viewParam name="bar" required="true" /&gt;
+					&lt;o:viewParamValidationFailed sendError="400" /&gt;
 				&lt;/f:metadata&gt;
 				</pre>
 				<p>
@@ -1010,10 +1018,10 @@ public enum Baz {
 				error will end up as a faces message in the current view the usual way.
 				<pre>
 				&lt;f:metadata&gt;
-				    &lt;o:viewParam name="foo" required="true"&gt;
-				        &lt;o:viewParamValidationFailed sendRedirect="login.xhtml" /&gt;
-				    &lt;/o:viewParam&gt;
-				    &lt;o:viewParam name="bar" required="true" /&gt;
+					&lt;o:viewParam name="foo" required="true"&gt;
+						&lt;o:viewParamValidationFailed sendRedirect="login.xhtml" /&gt;
+					&lt;/o:viewParam&gt;
+					&lt;o:viewParam name="bar" required="true" /&gt;
 				&lt;/f:metadata&gt;
 				</pre>
 				<p>
@@ -1022,12 +1030,12 @@ public enum Baz {
 				parameter is absent, then the client will be redirected to "search.xhtml".
 				<pre>
 				&lt;f:metadata&gt;
-				    &lt;o:viewParam name="foo" required="true"&gt;
-				        &lt;o:viewParamValidationFailed sendError="401" /&gt;
-				    &lt;/o:viewParam&gt;
-				    &lt;o:viewParam name="bar" required="true" /&gt;
-				    &lt;o:viewParam name="baz" required="true" /&gt;
-				    &lt;o:viewParamValidationFailed sendRedirect="search.xhtml" /&gt;
+					&lt;o:viewParam name="foo" required="true"&gt;
+						&lt;o:viewParamValidationFailed sendError="401" /&gt;
+					&lt;/o:viewParam&gt;
+					&lt;o:viewParam name="bar" required="true" /&gt;
+					&lt;o:viewParam name="baz" required="true" /&gt;
+					&lt;o:viewParamValidationFailed sendRedirect="search.xhtml" /&gt;
 				&lt;/f:metadata&gt;
 				</pre>
 				<p>
@@ -1061,7 +1069,7 @@ public enum Baz {
 			
 		</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><b><a href="commandScript.html">commandScript</a></b></td><td class="colLast">
 			
 				<p><strong>CommandScript</strong> is an extension to <code>&lt;h:commandXxx&gt;</code> which generates a JavaScript
@@ -1111,7 +1119,7 @@ String name2 = Faces.getRequestParameter("name2"); // value2
 			
 		</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><b><a href="param.html">param</a></b></td><td class="colLast">
 			
 				<strong>Param</strong> is a component that extends the standard <code>UIParameter</code> to implement <code>ValueHolder</code>
@@ -1138,7 +1146,7 @@ String name2 = Faces.getRequestParameter("name2"); // value2
 			
 		</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><b><a href="messages.html">messages</a></b></td><td class="colLast">
 			
 				The <code>&lt;o:messages&gt;</code> is a component that extends the standard <code>&lt;h:messages&gt;</code> with
@@ -1162,8 +1170,8 @@ String name2 = Faces.getRequestParameter("name2"); // value2
 &lt;h:form&gt;
   &lt;o:messages for="inputs" /&gt;
   &lt;h:panelGroup id="inputs"&gt;
-    &lt;h:inputText id="input1" /&gt;
-    &lt;h:inputText id="input2" /&gt;
+	&lt;h:inputText id="input1" /&gt;
+	&lt;h:inputText id="input2" /&gt;
   &lt;/h:panelGroup&gt;
   &lt;h:inputText id="input3" /&gt;
   &lt;h:inputText id="input4" /&gt;
@@ -1175,8 +1183,8 @@ String name2 = Faces.getRequestParameter("name2"); // value2
 &lt;h:form&gt;
   &lt;o:messages for="inputs input4" /&gt;
   &lt;h:panelGroup id="inputs"&gt;
-    &lt;h:inputText id="input1" /&gt;
-    &lt;h:inputText id="input2" /&gt;
+	&lt;h:inputText id="input1" /&gt;
+	&lt;h:inputText id="input2" /&gt;
   &lt;/h:panelGroup&gt;
   &lt;h:inputText id="input3" /&gt;
   &lt;h:inputText id="input4" /&gt;
@@ -1209,8 +1217,8 @@ String name2 = Faces.getRequestParameter("name2"); // value2
 				<pre><code>
 &lt;dl&gt;
   &lt;o:messages var="message"&gt;
-    &lt;dt&gt;#{message.severity}&lt;/dt&gt;
-    &lt;dd title="#{message.detail}"&gt;#{message.summary}&lt;/dd&gt;
+	&lt;dt&gt;#{message.severity}&lt;/dt&gt;
+	&lt;dd title="#{message.detail}"&gt;#{message.summary}&lt;/dd&gt;
   &lt;/o:messages&gt;
 &lt;/dl&gt;
 				</code></pre>

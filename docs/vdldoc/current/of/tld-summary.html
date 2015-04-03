@@ -589,6 +589,38 @@
 			
 		</td>
 </tr>
+<tr class="rowColor">
+<td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="getRequestBaseURL.fn.html">getRequestBaseURL</a></b>()</code></td><td class="colLast">
+			
+				Returns the HTTP request base URL. This is the URL from the scheme, domain until with context path, including
+				the trailing slash. This is the value you could use in HTML <code>&lt;base&gt;</code> tag.
+			
+		</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="getRequestDomainURL.fn.html">getRequestDomainURL</a></b>()</code></td><td class="colLast">
+			
+				Returns the HTTP request domain URL. This is the URL with the scheme and domain, without any trailing slash.
+			
+		</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="getRequestURLWithQueryString.fn.html">getRequestURLWithQueryString</a></b>()</code></td><td class="colLast">
+			
+				Returns the HTTP request URL with query string. This is the full request URL with query string as the enduser
+				sees in browser address bar.
+			
+		</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="getRemoteAddr.fn.html">getRemoteAddr</a></b>()</code></td><td class="colLast">
+			
+				Returns the Internet Protocol (IP) address of the client that sent the request. This will first check the
+				<code>X-Forwarded-For</code> request header and if it's present, then return its first IP address, else just
+				return <code>HttpServletRequest#getRemoteAddr()</code> unmodified.
+			
+		</td>
+</tr>
 </tbody>
 </table>
 </div>

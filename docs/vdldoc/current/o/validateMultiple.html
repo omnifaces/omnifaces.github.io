@@ -79,7 +79,7 @@
 				</pre>
 				<pre>
 public boolean validateValues(FacesContext context, List&lt;UIInput&gt; components, List&lt;Object&gt; values) {
-    // ...
+	// ...
 }
 				</pre>
 				<p>Or by a managed bean instance which implements the <code>MultiFieldValidator</code> interface:
@@ -94,10 +94,10 @@ public boolean validateValues(FacesContext context, List&lt;UIInput&gt; componen
 @ManagedBean
 @RequestScoped
 public class ValidateValuesBean implements MultiFieldValidator {
-    @Override
-    boolean validateValues(FacesContext context, List&lt;UIInput&gt; components, List&lt;Object&gt; values) {
-        // ...
-    }
+	@Override
+	boolean validateValues(FacesContext context, List&lt;UIInput&gt; components, List&lt;Object&gt; values) {
+		// ...
+	}
 }
 				</pre>
 			

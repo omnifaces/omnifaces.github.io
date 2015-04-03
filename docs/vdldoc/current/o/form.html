@@ -68,13 +68,13 @@
 <dt>Description:</dt>
 <dd>
 <div class="block">
-        	
-        		<strong>Form</strong> is a component that extends the standard <code>UIForm</code> and provides a way to keep view
+			
+				<strong>Form</strong> is a component that extends the standard <code>UIForm</code> and provides a way to keep view
 				parameters in the request URL after a post-back and offers in combination with the
 				<code>&lt;o:ignoreValidationFailed&gt;</code> tag on an <code>UICommand</code> component the possibility to ignore
 				validation failures so that the invoke action phase will be executed anyway.
-             
-        </div>
+			 
+		</div>
 </dd>
 </dl>
 </li>
@@ -121,228 +121,228 @@
 <td class="colFirst"><a href="#id"><code>id</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
-                The component identifier for this component. This value must be
-                unique within the closest parent component that is a naming
-                container.
-            </td>
+				The component identifier for this component. This value must be
+				unique within the closest parent component that is a naming
+				container.
+			</td>
 </tr>
 <tr id="includeViewParams" class="altColor">
 <td class="colFirst"><a href="#includeViewParams"><code>includeViewParams</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.Boolean</code>)
 					</td><td class="colLast">
-                Whether to include view parameters in the action URI.
-            </td>
+				Whether to include view parameters in the action URI.
+			</td>
 </tr>
 <tr id="includeRequestParams" class="rowColor">
 <td class="colFirst"><a href="#includeRequestParams"><code>includeRequestParams</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>boolean</code>)
 					</td><td class="colLast">
-                Whether to include all URL (GET) request parameters in the action URI. This overrides includeViewParams.
-            </td>
+				Whether to include all URL (GET) request parameters in the action URI. This overrides includeViewParams.
+			</td>
 </tr>
 <tr id="useRequestURI" class="altColor">
 <td class="colFirst"><a href="#useRequestURI"><code>useRequestURI</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>boolean</code>)
 					</td><td class="colLast">
-                Whether to use current request URI with query string as action URI. This overrides includeViewParams and includeRequestParams.
-            </td>
+				Whether to use current request URI with query string as action URI. This overrides includeViewParams and includeRequestParams.
+			</td>
 </tr>
 <tr id="prependId" class="rowColor">
 <td class="colFirst"><a href="#prependId"><code>prependId</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.Boolean</code>)
 					</td><td class="colLast">
-                Flag indicating whether or not this form should prepend its id
-                to its descendent's id during the clientId generation process.
-                If this flag is not set, the default value is true.
-            </td>
+				Flag indicating whether or not this form should prepend its id
+				to its descendent's id during the clientId generation process.
+				If this flag is not set, the default value is true.
+			</td>
 </tr>
 <tr id="rendered" class="altColor">
 <td class="colFirst"><a href="#rendered"><code>rendered</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.Boolean</code>)
 					</td><td class="colLast">
-                Flag indicating whether or not this component should be rendered
-                (during Render Response Phase), or processed on any subsequent
-                form submit. The default value for this property is true.
-            </td>
+				Flag indicating whether or not this component should be rendered
+				(during Render Response Phase), or processed on any subsequent
+				form submit. The default value for this property is true.
+			</td>
 </tr>
 <tr id="accept" class="rowColor">
 <td class="colFirst"><a href="#accept"><code>accept</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
-                List of content types that a server processing this form
-                will handle correctly
-            </td>
+				List of content types that a server processing this form
+				will handle correctly
+			</td>
 </tr>
 <tr id="acceptcharset" class="altColor">
 <td class="colFirst"><a href="#acceptcharset"><code>acceptcharset</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
-                List of character encodings for input data
-                that are accepted by the server processing
-                this form.
-            </td>
+				List of character encodings for input data
+				that are accepted by the server processing
+				this form.
+			</td>
 </tr>
 <tr id="dir" class="rowColor">
 <td class="colFirst"><a href="#dir"><code>dir</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
-                Direction indication for text that does not inherit
-                directionality.
-                Valid values are "LTR" (left-to-right) and "RTL"
-                (right-to-left).
-            </td>
+				Direction indication for text that does not inherit
+				directionality.
+				Valid values are "LTR" (left-to-right) and "RTL"
+				(right-to-left).
+			</td>
 </tr>
 <tr id="enctype" class="altColor">
 <td class="colFirst"><a href="#enctype"><code>enctype</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
-                Content type used to submit the form to the server. If not
-                specified, the default value is
-                "application/x-www-form-urlencoded".
-            </td>
+				Content type used to submit the form to the server. If not
+				specified, the default value is
+				"application/x-www-form-urlencoded".
+			</td>
 </tr>
 <tr id="lang" class="rowColor">
 <td class="colFirst"><a href="#lang"><code>lang</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
-                Code describing the language used in the generated markup
-                for this component.
-            </td>
+				Code describing the language used in the generated markup
+				for this component.
+			</td>
 </tr>
 <tr id="onclick" class="altColor">
 <td class="colFirst"><a href="#onclick"><code>onclick</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
-                Javascript code executed when a pointer button is
-                clicked over this element.
-            </td>
+				Javascript code executed when a pointer button is
+				clicked over this element.
+			</td>
 </tr>
 <tr id="ondblclick" class="rowColor">
 <td class="colFirst"><a href="#ondblclick"><code>ondblclick</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
-                Javascript code executed when a pointer button is
-                double clicked over this element.
-            </td>
+				Javascript code executed when a pointer button is
+				double clicked over this element.
+			</td>
 </tr>
 <tr id="onkeydown" class="altColor">
 <td class="colFirst"><a href="#onkeydown"><code>onkeydown</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
-                Javascript code executed when a key is
-                pressed down over this element.
-            </td>
+				Javascript code executed when a key is
+				pressed down over this element.
+			</td>
 </tr>
 <tr id="onkeypress" class="rowColor">
 <td class="colFirst"><a href="#onkeypress"><code>onkeypress</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
-                Javascript code executed when a key is
-                pressed and released over this element.
-            </td>
+				Javascript code executed when a key is
+				pressed and released over this element.
+			</td>
 </tr>
 <tr id="onkeyup" class="altColor">
 <td class="colFirst"><a href="#onkeyup"><code>onkeyup</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
-                Javascript code executed when a key is
-                released over this element.
-            </td>
+				Javascript code executed when a key is
+				released over this element.
+			</td>
 </tr>
 <tr id="onmousedown" class="rowColor">
 <td class="colFirst"><a href="#onmousedown"><code>onmousedown</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
-                Javascript code executed when a pointer button is
-                pressed down over this element.
-            </td>
+				Javascript code executed when a pointer button is
+				pressed down over this element.
+			</td>
 </tr>
 <tr id="onmousemove" class="altColor">
 <td class="colFirst"><a href="#onmousemove"><code>onmousemove</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
-                Javascript code executed when a pointer button is
-                moved within this element.
-            </td>
+				Javascript code executed when a pointer button is
+				moved within this element.
+			</td>
 </tr>
 <tr id="onmouseout" class="rowColor">
 <td class="colFirst"><a href="#onmouseout"><code>onmouseout</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
-                Javascript code executed when a pointer button is
-                moved away from this element.
-            </td>
+				Javascript code executed when a pointer button is
+				moved away from this element.
+			</td>
 </tr>
 <tr id="onmouseover" class="altColor">
 <td class="colFirst"><a href="#onmouseover"><code>onmouseover</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
-                Javascript code executed when a pointer button is
-                moved onto this element.
-            </td>
+				Javascript code executed when a pointer button is
+				moved onto this element.
+			</td>
 </tr>
 <tr id="onmouseup" class="rowColor">
 <td class="colFirst"><a href="#onmouseup"><code>onmouseup</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
-                Javascript code executed when a pointer button is
-                released over this element.
-            </td>
+				Javascript code executed when a pointer button is
+				released over this element.
+			</td>
 </tr>
 <tr id="onreset" class="altColor">
 <td class="colFirst"><a href="#onreset"><code>onreset</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
-                Javascript code executed when this form is reset.
-            </td>
+				Javascript code executed when this form is reset.
+			</td>
 </tr>
 <tr id="onsubmit" class="rowColor">
 <td class="colFirst"><a href="#onsubmit"><code>onsubmit</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
-                Javascript code executed when this form is submitted.
-            </td>
+				Javascript code executed when this form is submitted.
+			</td>
 </tr>
 <tr id="style" class="altColor">
 <td class="colFirst"><a href="#style"><code>style</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
-                CSS style(s) to be applied when this component is rendered.
-            </td>
+				CSS style(s) to be applied when this component is rendered.
+			</td>
 </tr>
 <tr id="styleClass" class="rowColor">
 <td class="colFirst"><a href="#styleClass"><code>styleClass</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
-                Space-separated list of CSS style class(es) to be applied when
-                this element is rendered. This value must be passed through
-                as the "class" attribute on generated markup.
-            </td>
+				Space-separated list of CSS style class(es) to be applied when
+				this element is rendered. This value must be passed through
+				as the "class" attribute on generated markup.
+			</td>
 </tr>
 <tr id="target" class="altColor">
 <td class="colFirst"><a href="#target"><code>target</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
-                Name of a frame where the response
-                retrieved after this form submit is to
-                be displayed.
-            </td>
+				Name of a frame where the response
+				retrieved after this form submit is to
+				be displayed.
+			</td>
 </tr>
 <tr id="title" class="rowColor">
 <td class="colFirst"><a href="#title"><code>title</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
-                Advisory title information about markup elements generated
-                for this component.
-            </td>
+				Advisory title information about markup elements generated
+				for this component.
+			</td>
 </tr>
 <tr id="binding" class="altColor">
 <td class="colFirst"><a href="#binding"><code>binding</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>javax.faces.component.UIComponent</code>)
 					</td><td class="colLast">
-                The ValueExpression linking this component to a property in a
-                backing bean
-            </td>
+				The ValueExpression linking this component to a property in a
+				backing bean
+			</td>
 </tr>
 </tbody>
 </table>

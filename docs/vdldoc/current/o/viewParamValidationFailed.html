@@ -98,9 +98,9 @@
 				With the example below, when at least one view param is absent, then the client will be returned a HTTP 400 error.
 				<pre>
 				&lt;f:metadata&gt;
-				    &lt;o:viewParam name="foo" required="true" /&gt;
-				    &lt;o:viewParam name="bar" required="true" /&gt;
-				    &lt;o:viewParamValidationFailed sendError="400" /&gt;
+					&lt;o:viewParam name="foo" required="true" /&gt;
+					&lt;o:viewParam name="bar" required="true" /&gt;
+					&lt;o:viewParamValidationFailed sendError="400" /&gt;
 				&lt;/f:metadata&gt;
 				</pre>
 				<p>
@@ -109,10 +109,10 @@
 				error will end up as a faces message in the current view the usual way.
 				<pre>
 				&lt;f:metadata&gt;
-				    &lt;o:viewParam name="foo" required="true"&gt;
-				        &lt;o:viewParamValidationFailed sendRedirect="login.xhtml" /&gt;
-				    &lt;/o:viewParam&gt;
-				    &lt;o:viewParam name="bar" required="true" /&gt;
+					&lt;o:viewParam name="foo" required="true"&gt;
+						&lt;o:viewParamValidationFailed sendRedirect="login.xhtml" /&gt;
+					&lt;/o:viewParam&gt;
+					&lt;o:viewParam name="bar" required="true" /&gt;
 				&lt;/f:metadata&gt;
 				</pre>
 				<p>
@@ -121,12 +121,12 @@
 				parameter is absent, then the client will be redirected to "search.xhtml".
 				<pre>
 				&lt;f:metadata&gt;
-				    &lt;o:viewParam name="foo" required="true"&gt;
-				        &lt;o:viewParamValidationFailed sendError="401" /&gt;
-				    &lt;/o:viewParam&gt;
-				    &lt;o:viewParam name="bar" required="true" /&gt;
-				    &lt;o:viewParam name="baz" required="true" /&gt;
-				    &lt;o:viewParamValidationFailed sendRedirect="search.xhtml" /&gt;
+					&lt;o:viewParam name="foo" required="true"&gt;
+						&lt;o:viewParamValidationFailed sendError="401" /&gt;
+					&lt;/o:viewParam&gt;
+					&lt;o:viewParam name="bar" required="true" /&gt;
+					&lt;o:viewParam name="baz" required="true" /&gt;
+					&lt;o:viewParamValidationFailed sendRedirect="search.xhtml" /&gt;
 				&lt;/f:metadata&gt;
 				</pre>
 				<p>
