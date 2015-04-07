@@ -112,6 +112,44 @@
 				
 			</td>
 </tr>
+<tr id="value" class="rowColor">
+<td class="colFirst"><a href="#value"><code>value</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.Object</code>)
+					</td><td class="colLast">
+				
+					If specified, then only the given bean will be validated at class level.
+					If unspecified, then only the bean properties bound to the in the current request processed/executed input fields will be validated "as usual".
+				
+			</td>
+</tr>
+<tr id="validateMethod" class="altColor">
+<td class="colFirst"><a href="#validateMethod"><code>validateMethod</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">
+				
+					Set the class level validation method, which can be either 'validateCopy' or 'validateActual'.
+					If set to 'validateCopy', then it will perform the validation on a copy/clone of the actual bean. 
+					This has the advantage that the validation can be performed before the model is updated.
+					If set to 'validateActual', then it will perform the validation on the actual bean instance.
+					This has the disadvantage that the validation can only be performed after the model is updated 
+					and thus the action method will always be invoked regardless of the validation outcome.
+					Defaults to 'validateCopy'.
+					This attribute is ignored when the 'value' attribute is unspecified.
+				
+			</td>
+</tr>
+<tr id="copier" class="rowColor">
+<td class="colFirst"><a href="#copier"><code>copier</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.Object</code>)
+					</td><td class="colLast">
+				
+					Set the bean copy strategy to use in case 'value' attribute is specified and the 'validateMethod' attribute is set (or defaulted) to 'validateCopy'.
+					This can be either an EL expression referring a concrete instance, or a String representing the fully qualified name of the instance of the org.omnifaces.util.copier.Copier interface, which must be stateless and/or threadsafe.
+					If unspecified, then it defaults to the best possibility in this order: Cloneable, or Serializable, or copy constructor, or default constructor.
+					This attribute is ignored when the 'value' attribute is unspecified, or when the 'validateMethod' attribute is not set to 'validateCopy'.
+				
+			</td>
+</tr>
 </tbody>
 </table>
 </div>
