@@ -258,7 +258,8 @@ extends <a href="../../../org/omnifaces/resourcehandler/DynamicResource.html" ti
 <h4>GraphicResource</h4>
 <pre>public&nbsp;GraphicResource(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;content,
                        <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;contentType)</pre>
-<div class="block">Construct a new graphic resource which uses the given content as data URI.</div>
+<div class="block">Construct a new graphic resource which uses the given content as data URI.
+ This constructor is called during render time of <code>&lt;o:graphicImage ... dataURI="true"&gt;</code>.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>content</code> - The graphic resource content, to be represented as data URI.</dd>
@@ -278,7 +279,9 @@ extends <a href="../../../org/omnifaces/resourcehandler/DynamicResource.html" ti
                        <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]&nbsp;params,
                        <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;lastModified)</pre>
 <div class="block">Construct a new graphic resource based on the given name, EL method parameters converted as string, and the
- "last modified" representation.</div>
+ "last modified" representation.
+ This constructor is called during render time of <code>&lt;o:graphicImage value="..." dataURI="false"&gt;</code>
+ and during handling the resource request by <a href="../../../org/omnifaces/resourcehandler/GraphicResourceHandler.html" title="class in org.omnifaces.resourcehandler"><code>GraphicResourceHandler</code></a>.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>name</code> - The graphic resource name, usually representing the base and method of EL method expression.</dd>
@@ -308,8 +311,7 @@ extends <a href="../../../org/omnifaces/resourcehandler/DynamicResource.html" ti
                                      <a href="https://docs.oracle.com/javaee/7/api/javax/el/ValueExpression.html?is-external=true" title="class or interface in javax.el">ValueExpression</a>&nbsp;value,
                                      <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;type,
                                      <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;lastModified)</pre>
-<div class="block">Create a new graphic resource based on the given value expression.
- This is called by <a href="../../../org/omnifaces/component/output/GraphicImage.html" title="class in org.omnifaces.component.output"><code>GraphicImage</code></a> component.</div>
+<div class="block">Create a new graphic resource based on the given value expression.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>context</code> - The involved faces context.</dd>

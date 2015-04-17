@@ -162,12 +162,12 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/el/ValueExpression.h
 <td class="colOne"><code><span class="memberNameLink"><a href="../../../org/omnifaces/el/ReadOnlyValueExpression.html#ReadOnlyValueExpression-java.lang.Class-">ReadOnlyValueExpression</a></span>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;?&gt;&nbsp;expectedType)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../org/omnifaces/el/ReadOnlyValueExpression.html#ReadOnlyValueExpression-java.lang.Class-org.omnifaces.util.Callback.Returning-">ReadOnlyValueExpression</a></span>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;?&gt;&nbsp;expectedType,
-                       <a href="../../../org/omnifaces/util/Callback.Returning.html" title="interface in org.omnifaces.util">Callback.Returning</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;callbackReturning)</code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../../org/omnifaces/el/ReadOnlyValueExpression.html#ReadOnlyValueExpression-java.lang.Class-org.omnifaces.util.Callback.ReturningWithArgument-">ReadOnlyValueExpression</a></span>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;?&gt;&nbsp;expectedType,
                        <a href="../../../org/omnifaces/util/Callback.ReturningWithArgument.html" title="interface in org.omnifaces.util">Callback.ReturningWithArgument</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>,<a href="https://docs.oracle.com/javaee/7/api/javax/el/ELContext.html?is-external=true" title="class or interface in javax.el">ELContext</a>&gt;&nbsp;callbackWithArgument)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../org/omnifaces/el/ReadOnlyValueExpression.html#ReadOnlyValueExpression-java.lang.Class-org.omnifaces.util.Callback.SerializableReturning-">ReadOnlyValueExpression</a></span>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;?&gt;&nbsp;expectedType,
+                       <a href="../../../org/omnifaces/util/Callback.SerializableReturning.html" title="interface in org.omnifaces.util">Callback.SerializableReturning</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;callbackReturning)</code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -189,7 +189,7 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/el/ValueExpression.h
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/el/ReadOnlyValueExpression.html#equals-java.lang.Object-">equals</a></span>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;object)</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code><a href="../../../org/omnifaces/util/Callback.Returning.html" title="interface in org.omnifaces.util">Callback.Returning</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;</code></td>
+<td class="colFirst"><code><a href="../../../org/omnifaces/util/Callback.SerializableReturning.html" title="interface in org.omnifaces.util">Callback.SerializableReturning</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/el/ReadOnlyValueExpression.html#getCallbackReturning--">getCallbackReturning</a></span>()</code>
 <div class="block">Returns the functional interface that will be called when the value expression is resolved</div>
 </td>
@@ -231,7 +231,7 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/el/ValueExpression.h
 </tr>
 <tr id="i10" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/el/ReadOnlyValueExpression.html#setCallbackReturning-org.omnifaces.util.Callback.Returning-">setCallbackReturning</a></span>(<a href="../../../org/omnifaces/util/Callback.Returning.html" title="interface in org.omnifaces.util">Callback.Returning</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;callbackReturning)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/el/ReadOnlyValueExpression.html#setCallbackReturning-org.omnifaces.util.Callback.SerializableReturning-">setCallbackReturning</a></span>(<a href="../../../org/omnifaces/util/Callback.SerializableReturning.html" title="interface in org.omnifaces.util">Callback.SerializableReturning</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;callbackReturning)</code>
 <div class="block">Sets the functional interface that will be called when the value expression is resolved</div>
 </td>
 </tr>
@@ -276,14 +276,14 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/el/ValueExpression.h
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="ReadOnlyValueExpression-java.lang.Class-org.omnifaces.util.Callback.Returning-">
+<a name="ReadOnlyValueExpression-java.lang.Class-org.omnifaces.util.Callback.SerializableReturning-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>ReadOnlyValueExpression</h4>
 <pre>public&nbsp;ReadOnlyValueExpression(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;?&gt;&nbsp;expectedType,
-                               <a href="../../../org/omnifaces/util/Callback.Returning.html" title="interface in org.omnifaces.util">Callback.Returning</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;callbackReturning)</pre>
+                               <a href="../../../org/omnifaces/util/Callback.SerializableReturning.html" title="interface in org.omnifaces.util">Callback.SerializableReturning</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;callbackReturning)</pre>
 </li>
 </ul>
 <a name="ReadOnlyValueExpression-java.lang.Class-org.omnifaces.util.Callback.ReturningWithArgument-">
@@ -480,7 +480,7 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/el/ValueExpression.h
 <ul class="blockList">
 <li class="blockList">
 <h4>getCallbackReturning</h4>
-<pre>public&nbsp;<a href="../../../org/omnifaces/util/Callback.Returning.html" title="interface in org.omnifaces.util">Callback.Returning</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;getCallbackReturning()</pre>
+<pre>public&nbsp;<a href="../../../org/omnifaces/util/Callback.SerializableReturning.html" title="interface in org.omnifaces.util">Callback.SerializableReturning</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;getCallbackReturning()</pre>
 <div class="block">Returns the functional interface that will be called when the value expression is resolved</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -490,13 +490,13 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/el/ValueExpression.h
 </dl>
 </li>
 </ul>
-<a name="setCallbackReturning-org.omnifaces.util.Callback.Returning-">
+<a name="setCallbackReturning-org.omnifaces.util.Callback.SerializableReturning-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>setCallbackReturning</h4>
-<pre>public&nbsp;void&nbsp;setCallbackReturning(<a href="../../../org/omnifaces/util/Callback.Returning.html" title="interface in org.omnifaces.util">Callback.Returning</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;callbackReturning)</pre>
+<pre>public&nbsp;void&nbsp;setCallbackReturning(<a href="../../../org/omnifaces/util/Callback.SerializableReturning.html" title="interface in org.omnifaces.util">Callback.SerializableReturning</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&gt;&nbsp;callbackReturning)</pre>
 <div class="block">Sets the functional interface that will be called when the value expression is resolved</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
