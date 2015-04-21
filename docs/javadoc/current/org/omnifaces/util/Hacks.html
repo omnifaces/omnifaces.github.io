@@ -18,7 +18,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":9,"i13":9,"i14":9,"i15":9,"i16":9,"i17":9};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":9,"i13":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -175,68 +175,49 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>static boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Hacks.html#isJUELSupportingMethodExpression--">isJUELSupportingMethodExpression</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i7" class="rowColor">
-<td class="colFirst"><code>static boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Hacks.html#isJUELUsed--">isJUELUsed</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i8" class="altColor">
-<td class="colFirst"><code>static boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Hacks.html#isJUELUsed-javax.el.ExpressionFactory-">isJUELUsed</a></span>(<a href="https://docs.oracle.com/javaee/7/api/javax/el/ExpressionFactory.html?is-external=true" title="class or interface in javax.el">ExpressionFactory</a>&nbsp;factory)</code>&nbsp;</td>
-</tr>
-<tr id="i9" class="rowColor">
-<td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Hacks.html#isMyFacesUsed--">isMyFacesUsed</a></span>()</code>
 <div class="block">Returns true if MyFaces is used.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Hacks.html#isPrimeFacesDynamicResourceRequest-javax.faces.context.FacesContext-">isPrimeFacesDynamicResourceRequest</a></span>(<a href="https://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context)</code>
 <div class="block">Returns true if the current request is a PrimeFaces dynamic resource request.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Hacks.html#isRichFacesInstalled--">isRichFacesInstalled</a></span>()</code>
 <div class="block">Returns true if RichFaces 4.0-4.3 is installed.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Hacks.html#isRichFacesResourceLibraryRenderer-java.lang.String-">isRichFacesResourceLibraryRenderer</a></span>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;rendererType)</code>
 <div class="block">Returns true if the given renderer type is recognizeable as RichFaces resource library renderer.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Hacks.html#isScriptResourceRendered-javax.faces.context.FacesContext-org.omnifaces.resourcehandler.ResourceIdentifier-">isScriptResourceRendered</a></span>(<a href="https://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context,
                         <a href="../../../org/omnifaces/resourcehandler/ResourceIdentifier.html" title="class in org.omnifaces.resourcehandler">ResourceIdentifier</a>&nbsp;id)</code>
 <div class="block">Returns whether the given script resource is rendered.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
-<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/reflect/Method.html?is-external=true" title="class or interface in java.lang.reflect">Method</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Hacks.html#methodExpressionToStaticMethod-javax.el.ELContext-javax.el.MethodExpression-">methodExpressionToStaticMethod</a></span>(<a href="https://docs.oracle.com/javaee/7/api/javax/el/ELContext.html?is-external=true" title="class or interface in javax.el">ELContext</a>&nbsp;context,
-                              <a href="https://docs.oracle.com/javaee/7/api/javax/el/MethodExpression.html?is-external=true" title="class or interface in javax.el">MethodExpression</a>&nbsp;methodExpression)</code>
-<div class="block">This method wraps a <code>MethodExpression</code> in a <code>Method</code> which can be statically invoked.</div>
-</td>
-</tr>
-<tr id="i15" class="rowColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Hacks.html#removeResourceDependencyState-javax.faces.context.FacesContext-">removeResourceDependencyState</a></span>(<a href="https://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context)</code>
 <div class="block">Remove the resource dependency processing related attributes from the given faces context.</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Hacks.html#setScriptResourceRendered-javax.faces.context.FacesContext-org.omnifaces.resourcehandler.ResourceIdentifier-">setScriptResourceRendered</a></span>(<a href="https://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context,
                          <a href="../../../org/omnifaces/resourcehandler/ResourceIdentifier.html" title="class in org.omnifaces.resourcehandler">ResourceIdentifier</a>&nbsp;id)</code>
 <div class="block">Set the given script resource as rendered.</div>
 </td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Hacks.html#setStylesheetResourceRendered-javax.faces.context.FacesContext-org.omnifaces.resourcehandler.ResourceIdentifier-">setStylesheetResourceRendered</a></span>(<a href="https://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context,
                              <a href="../../../org/omnifaces/resourcehandler/ResourceIdentifier.html" title="class in org.omnifaces.resourcehandler">ResourceIdentifier</a>&nbsp;id)</code>
@@ -362,56 +343,6 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <dd><code>id</code> - The resource identifier of the RichFaces resource library (e.g. org.richfaces:ajax.reslib).</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>An ordered set of all JSF resource identifiers for the given RichFaces resource library resources.</dd>
-</dl>
-</li>
-</ul>
-<a name="isJUELUsed--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>isJUELUsed</h4>
-<pre>public static&nbsp;boolean&nbsp;isJUELUsed()</pre>
-</li>
-</ul>
-<a name="isJUELUsed-javax.el.ExpressionFactory-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>isJUELUsed</h4>
-<pre>public static&nbsp;boolean&nbsp;isJUELUsed(<a href="https://docs.oracle.com/javaee/7/api/javax/el/ExpressionFactory.html?is-external=true" title="class or interface in javax.el">ExpressionFactory</a>&nbsp;factory)</pre>
-</li>
-</ul>
-<a name="isJUELSupportingMethodExpression--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>isJUELSupportingMethodExpression</h4>
-<pre>public static&nbsp;boolean&nbsp;isJUELSupportingMethodExpression()</pre>
-</li>
-</ul>
-<a name="methodExpressionToStaticMethod-javax.el.ELContext-javax.el.MethodExpression-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>methodExpressionToStaticMethod</h4>
-<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/reflect/Method.html?is-external=true" title="class or interface in java.lang.reflect">Method</a>&nbsp;methodExpressionToStaticMethod(<a href="https://docs.oracle.com/javaee/7/api/javax/el/ELContext.html?is-external=true" title="class or interface in javax.el">ELContext</a>&nbsp;context,
-                                                    <a href="https://docs.oracle.com/javaee/7/api/javax/el/MethodExpression.html?is-external=true" title="class or interface in javax.el">MethodExpression</a>&nbsp;methodExpression)</pre>
-<div class="block">This method wraps a <code>MethodExpression</code> in a <code>Method</code> which can be statically invoked.
- <p>
- Since Method is a final class with only a non-public constructor, various reflective tricks have been used to
- create an instance of this class and make sure it calls the given method expression. It has been tested on the
- Sun/Oracle JDK versions 6 and 7, and it should work on OpenJDK 6 and 7 as well. Other JDKs might not work.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>context</code> - the context used for evaluation of the method expression when it's invoked later. NOTE, this reference
-            is retained by the returned method.</dd>
-<dd><code>methodExpression</code> - the method expression to be wrapped</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>a Method instance that when invoked causes the wrapped method expression to be invoked.</dd>
 </dl>
 </li>
 </ul>
