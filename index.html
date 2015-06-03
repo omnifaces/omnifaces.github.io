@@ -27,22 +27,7 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <p><a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/2.0/omnifaces-2.0.jar">Download</a> - <a href="http://showcase.omnifaces.org">Showcase</a> - <a href="http://omnifaces.org/docs/javadoc/current/">API docs</a> - <a href="http://omnifaces.org/docs/vdldoc/current/">VDL docs</a> - <a href="https://github.com/omnifaces/omnifaces">Sources</a> - <a href="https://github.com/omnifaces/omnifaces/issues">Issues</a></p>
-
-<blockquote>
-<h2>
-<a id="21-rc2-has-been-released" class="anchor" href="#21-rc2-has-been-released" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.1-RC2 has been released!</h2>
-
-<p><a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/2.1-RC2/omnifaces-2.1-RC2.jar">2.1-RC2</a> has been released! You can check at <a href="http://snapshot.omnifaces.org/whatsnew">snapshot showcase</a> what's new in this release. Give it a try and report any issues, so we can fix them before final 2.1 will be released.</p>
-
-<div class="highlight highlight-XML"><pre>&lt;<span class="pl-ent">dependency</span>&gt;
-    &lt;<span class="pl-ent">groupId</span>&gt;org.omnifaces&lt;/<span class="pl-ent">groupId</span>&gt;
-    &lt;<span class="pl-ent">artifactId</span>&gt;omnifaces&lt;/<span class="pl-ent">artifactId</span>&gt;
-    &lt;<span class="pl-ent">version</span>&gt;2.1-RC2&lt;/<span class="pl-ent">version</span>&gt;
-&lt;/<span class="pl-ent">dependency</span>&gt;</pre></div>
-
-<p>For 1.x users (JSF 2.0 compatible, no CDI, no new OmniFaces 2.x additions), there's the <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.11-RC2/omnifaces-1.11-RC2.jar">1.11-RC2</a> with necessary bugfixes and enhancements on existing components/tags/utilities.</p>
-</blockquote>
+        <p><a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/2.1/omnifaces-2.1.jar">Download</a> - <a href="http://showcase.omnifaces.org">Showcase</a> - <a href="http://omnifaces.org/docs/javadoc/current/">API docs</a> - <a href="http://omnifaces.org/docs/vdldoc/current/">VDL docs</a> - <a href="https://github.com/omnifaces/omnifaces">Sources</a> - <a href="https://github.com/omnifaces/omnifaces/issues">Issues</a></p>
 
 <h2>
 <a id="what-is-omnifaces" class="anchor" href="#what-is-omnifaces" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is OmniFaces?</h2>
@@ -69,19 +54,19 @@
 <h2>
 <a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
 
-<p>It is a matter of dropping the <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/2.0/">OmniFaces 2.0 JAR file</a> in <code>/WEB-INF/lib</code>.</p>
+<p>It is a matter of dropping the <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/2.1/">OmniFaces 2.1 JAR file</a> in <code>/WEB-INF/lib</code>.</p>
 
 <p>Maven users can add OmniFaces by adding the following Maven coordinates to pom.xml:</p>
 
 <div class="highlight highlight-XML"><pre>&lt;<span class="pl-ent">dependency</span>&gt;
     &lt;<span class="pl-ent">groupId</span>&gt;org.omnifaces&lt;/<span class="pl-ent">groupId</span>&gt;
     &lt;<span class="pl-ent">artifactId</span>&gt;omnifaces&lt;/<span class="pl-ent">artifactId</span>&gt;
-    &lt;<span class="pl-ent">version</span>&gt;2.0&lt;/<span class="pl-ent">version</span>&gt;
+    &lt;<span class="pl-ent">version</span>&gt;2.1&lt;/<span class="pl-ent">version</span>&gt;
 &lt;/<span class="pl-ent">dependency</span>&gt;</pre></div>
 
 
 
-<p>For users on outdated environments who can't/won't use CDI, use <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.10/">1.10</a> instead.</p>
+<p>For users on outdated environments who can't/won't use CDI, use <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.11/">1.11</a> instead.</p>
 
 <p>The OmniFaces UI components/taghandlers and EL functions are available under the following XML namespaces:</p>
 
@@ -93,29 +78,47 @@ xmlns:of="http://omnifaces.org/functions"</pre></div>
 
 <ul>
 <li>
-<a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/2.0/omnifaces-2.0.jar">OmniFaces library</a>
+<a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/2.1/omnifaces-2.1.jar">OmniFaces library</a>
 
 <ul>
 <li>
-<a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/2.0/omnifaces-2.0.jar">2.0</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.10/omnifaces-1.10.jar">1.10</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.8.1/omnifaces-1.8.1.jar">1.8.1</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.7/omnifaces-1.7.jar">1.7</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.6.3/omnifaces-1.6.3.jar">1.6.3</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.5/omnifaces-1.5.jar">1.5</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.4.1/omnifaces-1.4.1.jar">1.4.1</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.3/omnifaces-1.3.jar">1.3</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.2/omnifaces-1.2.jar">1.2</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.1/omnifaces-1.1.jar">1.1</a> - <a href="http://omnifaces.org/downloads/omnifaces-1.0.jar">1.0</a>
+<a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/2.1/omnifaces-2.1.jar">2.1</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/2.0/omnifaces-2.0.jar">2.0</a>
+</li>
+<li>
+<a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.11/omnifaces-1.11.jar">1.11</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.10/omnifaces-1.10.jar">1.10</a>
+</li>
+<li>
+<a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.8.3/omnifaces-1.8.3.jar">1.8.3</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.7/omnifaces-1.7.jar">1.7</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.6.3/omnifaces-1.6.3.jar">1.6.3</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.5/omnifaces-1.5.jar">1.5</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.4.1/omnifaces-1.4.1.jar">1.4.1</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.3/omnifaces-1.3.jar">1.3</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.2/omnifaces-1.2.jar">1.2</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.1/omnifaces-1.1.jar">1.1</a> - <a href="http://omnifaces.org/downloads/omnifaces-1.0.jar">1.0</a>
 </li>
 </ul>
 </li>
 <li>
-<a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/2.0/omnifaces-2.0-sources.jar">OmniFaces sources</a>
+<a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/2.1/omnifaces-2.1-sources.jar">OmniFaces sources</a>
 
 <ul>
 <li>
-<a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/2.0/omnifaces-2.0-sources.jar">2.0</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.10/omnifaces-1.10-sources.jar">1.10</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.8.1/omnifaces-1.8.1-sources.jar">1.8.1</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.7/omnifaces-1.7-sources.jar">1.7</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.6.3/omnifaces-1.6.3-sources.jar">1.6.3</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.5/omnifaces-1.5-sources.jar">1.5</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.4.1/omnifaces-1.4.1-sources.jar">1.4.1</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.3/omnifaces-1.3-sources.jar">1.3</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.2/omnifaces-1.2-sources.jar">1.2</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.1/omnifaces-1.1-sources.jar">1.1</a> - <a href="http://omnifaces.org/downloads/omnifaces-1.0-sources.jar">1.0</a>
+<a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/2.1/omnifaces-2.1-sources.jar">2.1</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/2.0/omnifaces-2.0-sources.jar">2.0</a>
+</li>
+<li>
+<a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.11/omnifaces-1.11-sources.jar">1.11</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.10/omnifaces-1.10-sources.jar">1.10</a>
+</li>
+<li>
+<a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.8.3/omnifaces-1.8.3-sources.jar">1.8.3</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.7/omnifaces-1.7-sources.jar">1.7</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.6.3/omnifaces-1.6.3-sources.jar">1.6.3</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.5/omnifaces-1.5-sources.jar">1.5</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.4.1/omnifaces-1.4.1-sources.jar">1.4.1</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.3/omnifaces-1.3-sources.jar">1.3</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.2/omnifaces-1.2-sources.jar">1.2</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.1/omnifaces-1.1-sources.jar">1.1</a> - <a href="http://omnifaces.org/downloads/omnifaces-1.0-sources.jar">1.0</a>
 </li>
 </ul>
 </li>
 <li>
-<a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/2.0/omnifaces-2.0-javadoc.jar">OmniFaces javadoc</a>
+<a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/2.1/omnifaces-2.1-javadoc.jar">OmniFaces javadoc</a>
 
 <ul>
 <li>
-<a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/2.0/omnifaces-2.0-javadoc.jar">2.0</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.10/omnifaces-1.10-javadoc.jar">1.10</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.8.1/omnifaces-1.8.1-javadoc.jar">1.8.1</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.7/omnifaces-1.7-javadoc.jar">1.7</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.6.3/omnifaces-1.6.3-javadoc.jar">1.6.3</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.5/omnifaces-1.5-javadoc.jar">1.5</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.4.1/omnifaces-1.4.1-javadoc.jar">1.4.1</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.3/omnifaces-1.3-javadoc.jar">1.3</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.2/omnifaces-1.2-javadoc.jar">1.2</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.1/omnifaces-1.1-javadoc.jar">1.1</a>
+<a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/2.1/omnifaces-2.1-javadoc.jar">2.1</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/2.0/omnifaces-2.0-javadoc.jar">2.0</a>
+</li>
+<li>
+<a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.11/omnifaces-1.11-javadoc.jar">1.11</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.10/omnifaces-1.10-javadoc.jar">1.10</a>
+</li>
+<li>
+<a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.8.3/omnifaces-1.8.3-javadoc.jar">1.8.3</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.7/omnifaces-1.7-javadoc.jar">1.7</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.6.3/omnifaces-1.6.3-javadoc.jar">1.6.3</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.5/omnifaces-1.5-javadoc.jar">1.5</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.4.1/omnifaces-1.4.1-javadoc.jar">1.4.1</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.3/omnifaces-1.3-javadoc.jar">1.3</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.2/omnifaces-1.2-javadoc.jar">1.2</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.1/omnifaces-1.1-javadoc.jar">1.1</a>
 </li>
 </ul>
 </li>
@@ -130,7 +133,9 @@ xmlns:of="http://omnifaces.org/functions"</pre></div>
 
 <ul>
 <li>
-<a href="http://omnifaces.org/docs/javadoc/2.0/">2.0</a> - <a href="http://omnifaces.org/docs/javadoc/1.8/">1.8</a> - <a href="http://omnifaces.org/docs/javadoc/1.7/">1.7</a> - <a href="http://omnifaces.org/docs/javadoc/1.6/">1.6</a> - <a href="http://omnifaces.org/docs/javadoc/1.5/">1.5</a> - <a href="http://omnifaces.org/docs/javadoc/1.4/">1.4</a> - <a href="http://omnifaces.org/docs/javadoc/1.3/">1.3</a> - <a href="http://omnifaces.org/docs/javadoc/1.2/">1.2</a> - <a href="http://omnifaces.org/docs/javadoc/1.1/">1.1</a> - <a href="http://omnifaces.org/docs/javadoc/1.0/">1.0</a>
+<a href="http://omnifaces.org/docs/javadoc/2.1/">2.1</a> - <a href="http://omnifaces.org/docs/javadoc/2.0/">2.0</a> </li>
+<li>
+<a href="http://omnifaces.org/docs/javadoc/1.8/">1.8</a> - <a href="http://omnifaces.org/docs/javadoc/1.7/">1.7</a> - <a href="http://omnifaces.org/docs/javadoc/1.6/">1.6</a> - <a href="http://omnifaces.org/docs/javadoc/1.5/">1.5</a> - <a href="http://omnifaces.org/docs/javadoc/1.4/">1.4</a> - <a href="http://omnifaces.org/docs/javadoc/1.3/">1.3</a> - <a href="http://omnifaces.org/docs/javadoc/1.2/">1.2</a> - <a href="http://omnifaces.org/docs/javadoc/1.1/">1.1</a> - <a href="http://omnifaces.org/docs/javadoc/1.0/">1.0</a>
 </li>
 </ul>
 </li>
@@ -139,7 +144,9 @@ xmlns:of="http://omnifaces.org/functions"</pre></div>
 
 <ul>
 <li>
-<a href="http://omnifaces.org/docs/vdldoc/2.0/">2.0</a> - <a href="http://omnifaces.org/docs/vdldoc/1.8/">1.8</a> - <a href="http://omnifaces.org/docs/vdldoc/1.7/">1.7</a> - <a href="http://omnifaces.org/docs/vdldoc/1.6/">1.6</a> - <a href="http://omnifaces.org/docs/vdldoc/1.5/">1.5</a> - <a href="http://omnifaces.org/docs/vdldoc/1.4/">1.4</a> - <a href="http://omnifaces.org/docs/vdldoc/1.3/">1.3</a> - <a href="http://omnifaces.org/docs/vdldoc/1.2/">1.2</a> - <a href="http://omnifaces.org/docs/vdldoc/1.1/">1.1</a> - <a href="http://omnifaces.org/docs/vdldoc/1.0/">1.0</a>
+<a href="http://omnifaces.org/docs/vdldoc/2.1/">2.1</a> - <a href="http://omnifaces.org/docs/vdldoc/2.0/">2.0</a> </li>
+<li>
+<a href="http://omnifaces.org/docs/vdldoc/1.8/">1.8</a> - <a href="http://omnifaces.org/docs/vdldoc/1.7/">1.7</a> - <a href="http://omnifaces.org/docs/vdldoc/1.6/">1.6</a> - <a href="http://omnifaces.org/docs/vdldoc/1.5/">1.5</a> - <a href="http://omnifaces.org/docs/vdldoc/1.4/">1.4</a> - <a href="http://omnifaces.org/docs/vdldoc/1.3/">1.3</a> - <a href="http://omnifaces.org/docs/vdldoc/1.2/">1.2</a> - <a href="http://omnifaces.org/docs/vdldoc/1.1/">1.1</a> - <a href="http://omnifaces.org/docs/vdldoc/1.0/">1.0</a>
 </li>
 </ul>
 </li>
@@ -161,8 +168,9 @@ xmlns:of="http://omnifaces.org/functions"</pre></div>
 <a id="demo" class="anchor" href="#demo" aria-hidden="true"><span class="octicon octicon-link"></span></a>Demo</h2>
 
 <ul>
-<li><a href="http://showcase.omnifaces.org">OmniFaces 2.0 showcase</a></li>
-<li><a href="http://snapshot.omnifaces.org">OmniFaces SNAPSHOT showcase</a></li>
+<li>
+<a href="http://showcase.omnifaces.org">OmniFaces 2.1 showcase</a>
+&lt;!-- * <a href="http://snapshot.omnifaces.org">OmniFaces SNAPSHOT showcase</a> --&gt;</li>
 <li><a href="https://github.com/omnifaces/showcase">Showcase source project</a></li>
 </ul>
 
