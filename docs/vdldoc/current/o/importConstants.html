@@ -5,12 +5,9 @@
 <title>importConstants (OmniFaces VDL Documentation - Generated Documentation)
 			</title>
 <meta name="keywords" content="$title">
-<link rel="stylesheet" type="text/css" href="../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" title="Style" href="../stylesheet.css">
 </head>
 <body>
-<script type="text/javascript">
-						if (location.href.indexOf('is-external=true') == -1) parent.document.title = "Tag Documentation";
-					</script>
 <noscript>
 <div>JavaScript is disabled on your browser.</div>
 </noscript>
@@ -70,7 +67,7 @@
 <div class="block">
 			
 				<p>The <code>&lt;o:importConstants&gt;</code> allows the developer to have a mapping of all constant field values of
-				the given type in the EL scope. The constant field values are those public static final fields. This works for
+				the given type in the request scope. The constant field values are those public static final fields. This works for
 				classes, interfaces and enums. For example:
 				<pre>
 public class Foo {
@@ -87,7 +84,7 @@ public enum Baz {
 	BAZ1, BAZ2;
 }
 				</pre>
-				<p>The constant field values of the above types can be mapped into the EL scope as follows:
+				<p>The constant field values of the above types can be mapped into the request scope as follows:
 				<pre>
 &lt;o:importConstants type="com.example.Foo" /&gt;
 &lt;o:importConstants type="com.example.Bar" /&gt;
@@ -95,7 +92,7 @@ public enum Baz {
 ...
 #{Foo.FOO1}, #{Foo.FOO2}, #{Bar.BAR1}, #{Bar.BAR2}, #{Bazzz.BAZ1}, #{Bazzz.BAZ2}
 				</pre>
-				<p>The map is by default stored in the EL scope by the simple name of the type as variable name. You can override
+				<p>The map is by default stored in the request scope by the simple name of the type as variable name. You can override
 				this by explicitly specifying the <code>var</code> attribute, as demonstrated for <code>com.example.Baz</code> in
 				the above example.
 				<p>
@@ -130,7 +127,7 @@ public enum Baz {
 <tr id="var" class="altColor">
 <td class="colFirst"><a href="#var"><code>var</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>java.lang.String</code></td><td class="colLast">
 				
-				   The name of the Facelet attribute which exposes the mapping of the constants in the EL scope.
+				   The name of the request attribute which exposes the mapping of the constants in the request scope.
 				
 			</td>
 </tr>

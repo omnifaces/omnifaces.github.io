@@ -5,12 +5,9 @@
 <title>validateBean (OmniFaces VDL Documentation - Generated Documentation)
 			</title>
 <meta name="keywords" content="$title">
-<link rel="stylesheet" type="text/css" href="../stylesheet.css" title="Style">
+<link rel="stylesheet" type="text/css" title="Style" href="../stylesheet.css">
 </head>
 <body>
-<script type="text/javascript">
-						if (location.href.indexOf('is-external=true') == -1) parent.document.title = "Tag Documentation";
-					</script>
 <noscript>
 <div>JavaScript is disabled on your browser.</div>
 </noscript>
@@ -122,8 +119,8 @@
 				
 			</td>
 </tr>
-<tr id="validateMethod" class="altColor">
-<td class="colFirst"><a href="#validateMethod"><code>validateMethod</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<tr id="method" class="altColor">
+<td class="colFirst"><a href="#method"><code>method</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
 				
@@ -143,10 +140,10 @@
 <br>(<i>must evaluate to </i><code>java.lang.Object</code>)
 					</td><td class="colLast">
 				
-					Set the bean copy strategy to use in case 'value' attribute is specified and the 'validateMethod' attribute is set (or defaulted) to 'validateCopy'.
+					Set the bean copy strategy to use in case 'value' attribute is specified and the 'method' attribute is set (or defaulted) to 'validateCopy'.
 					This can be either an EL expression referring a concrete instance, or a String representing the fully qualified name of the instance of the org.omnifaces.util.copier.Copier interface, which must be stateless and/or threadsafe.
 					If unspecified, then it defaults to the best possibility in this order: Cloneable, or Serializable, or copy constructor, or default constructor.
-					This attribute is ignored when the 'value' attribute is unspecified, or when the 'validateMethod' attribute is not set to 'validateCopy'.
+					This attribute is ignored when the 'value' attribute is unspecified, or when the 'method' attribute is not set to 'validateCopy'.
 				
 			</td>
 </tr>

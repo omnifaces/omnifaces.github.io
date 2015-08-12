@@ -4,12 +4,9 @@
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>o (OmniFaces VDL Documentation - Generated Documentation)
 			</title>
-<link rel="stylesheet" type="text/css" href="../stylesheet.css" title="styie">
+<link rel="stylesheet" type="text/css" title="Style" href="../stylesheet.css">
 </head>
 <body>
-<script type="text/javascript">
-						if (location.href.indexOf('is-external=true') == -1) parent.document.title = "VDL Summary";
-					</script>
 <noscript>
 <div>JavaScript is disabled on your browser.</div>
 </noscript>
@@ -774,7 +771,7 @@ public class ValidateValuesBean implements MultiFieldValidator {
 <td class="colOne"><b><a href="importConstants.html">importConstants</a></b></td><td class="colLast">
 			
 				<p>The <code>&lt;o:importConstants&gt;</code> allows the developer to have a mapping of all constant field values of
-				the given type in the EL scope. The constant field values are those public static final fields. This works for
+				the given type in the request scope. The constant field values are those public static final fields. This works for
 				classes, interfaces and enums. For example:
 				<pre>
 public class Foo {
@@ -791,7 +788,7 @@ public enum Baz {
 	BAZ1, BAZ2;
 }
 				</pre>
-				<p>The constant field values of the above types can be mapped into the EL scope as follows:
+				<p>The constant field values of the above types can be mapped into the request scope as follows:
 				<pre>
 &lt;o:importConstants type="com.example.Foo" /&gt;
 &lt;o:importConstants type="com.example.Bar" /&gt;
@@ -799,7 +796,7 @@ public enum Baz {
 ...
 #{Foo.FOO1}, #{Foo.FOO2}, #{Bar.BAR1}, #{Bar.BAR2}, #{Bazzz.BAZ1}, #{Bazzz.BAZ2}
 				</pre>
-				<p>The map is by default stored in the EL scope by the simple name of the type as variable name. You can override
+				<p>The map is by default stored in the request scope by the simple name of the type as variable name. You can override
 				this by explicitly specifying the <code>var</code> attribute, as demonstrated for <code>com.example.Baz</code> in
 				the above example.
 				<p>
@@ -811,7 +808,7 @@ public enum Baz {
 <td class="colOne"><b><a href="importFunctions.html">importFunctions</a></b></td><td class="colLast">
 			
 				<p>The <code>&lt;o:importFunctions&gt;</code> allows the developer to have access to all functions of the given
-				fully qualified name of a type in the EL scope using the usual EL functions syntax without the need to register them
+				fully qualified name of a type in the Facelet scope using the usual EL functions syntax without the need to register them
 				in <code>.taglib.xml</code> file. The functions are those <code>public static</code> methods with a
 				<strong>non</strong>-<code>void</code> return type. For example:
 				<pre>
