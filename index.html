@@ -64,8 +64,6 @@
     &lt;<span class="pl-ent">version</span>&gt;2.1&lt;/<span class="pl-ent">version</span>&gt;
 &lt;/<span class="pl-ent">dependency</span>&gt;</pre></div>
 
-
-
 <p>For users on outdated environments who can't/won't use CDI, use <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.11/"><code>1.11</code></a> instead. It doesn't contain anything from CDI nor new things which were added in 2.x, but it does contain enhancements and bugfixes to existing 1.x things.</p>
 
 <p>The OmniFaces UI components/taghandlers and EL functions are available under the following XML namespaces:</p>
@@ -141,12 +139,17 @@ xmlns:of="http://omnifaces.org/functions"</pre></div>
 </ul>
 
 <h2>
-<a id="snapshots" class="anchor" href="#snapshots" aria-hidden="true"><span class="octicon octicon-link"></span></a>Snapshots</h2>
+<a id="snapshot" class="anchor" href="#snapshot" aria-hidden="true"><span class="octicon octicon-link"></span></a>Snapshot</h2>
 
-<ul>
-<li><a href="https://oss.sonatype.org/index.html#view-repositories;snapshots%7Ebrowsestorage%7E/org/omnifaces/omnifaces">Sonatype GUI</a></li>
-<li><a href="https://oss.sonatype.org/content/repositories/snapshots/org/omnifaces/omnifaces/">Sonatype browser</a></li>
-</ul>
+<p>If you like to play around with the newest of the newest, hereby accepting the risk that new classes/methods may be moved/renamed without notice, then grab the <a href="https://oss.sonatype.org/content/repositories/snapshots/org/omnifaces/omnifaces/2.2-SNAPSHOT/">2.2-SNAPSHOT</a> instead.</p>
+
+<p>Maven users can add OmniFaces SNAPSHOT by adding the following Maven coordinates to pom.xml:</p>
+
+<div class="highlight highlight-XML"><pre>&lt;<span class="pl-ent">dependency</span>&gt;
+    &lt;<span class="pl-ent">groupId</span>&gt;org.omnifaces&lt;/<span class="pl-ent">groupId</span>&gt;
+    &lt;<span class="pl-ent">artifactId</span>&gt;omnifaces&lt;/<span class="pl-ent">artifactId</span>&gt;
+    &lt;<span class="pl-ent">version</span>&gt;2.2-SNAPSHOT&lt;/<span class="pl-ent">version</span>&gt;
+&lt;/<span class="pl-ent">dependency</span>&gt;</pre></div>
 
 <h2>
 <a id="documentation" class="anchor" href="#documentation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Documentation</h2>
@@ -193,10 +196,9 @@ xmlns:of="http://omnifaces.org/functions"</pre></div>
 
 <ul>
 <li><a href="http://showcase.omnifaces.org">OmniFaces 2.1 showcase</a></li>
+<li><a href="http://snapshot.omnifaces.org">OmniFaces 2.2 SNAPSHOT showcase</a></li>
 <li><a href="https://github.com/omnifaces/showcase">Showcase source project</a></li>
 </ul>
-
-
 
 <h2>
 <a id="support" class="anchor" href="#support" aria-hidden="true"><span class="octicon octicon-link"></span></a>Support</h2>
