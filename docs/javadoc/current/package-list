@@ -2,6 +2,7 @@ org.omnifaces
 org.omnifaces.application
 org.omnifaces.cdi
 org.omnifaces.cdi.beans
+org.omnifaces.cdi.contextparam
 org.omnifaces.cdi.converter
 org.omnifaces.cdi.cookie
 org.omnifaces.cdi.eager
