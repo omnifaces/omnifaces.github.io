@@ -145,7 +145,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>static <a href="https://docs.oracle.com/javaee/7/api/javax/faces/context/PartialViewContext.html?is-external=true" title="class or interface in javax.faces.context">PartialViewContext</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Hacks.html#getRichFacesPartialViewContext--">getRichFacesPartialViewContext</a></span>()</code>
-<div class="block">RichFaces PartialViewContext implementation does not extend from PartialViewContextWrapper.</div>
+<div class="block">RichFaces 4.0-4.3 ExtendedPartialViewContextImpl does not extend from PartialViewContextWrapper.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
@@ -163,7 +163,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>static <a href="https://docs.oracle.com/javaee/7/api/javax/faces/context/PartialViewContext.html?is-external=true" title="class or interface in javax.faces.context">PartialViewContext</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Hacks.html#getRichFacesWrappedPartialViewContext--">getRichFacesWrappedPartialViewContext</a></span>()</code>
-<div class="block">RichFaces PartialViewContext implementation does not have any getWrapped() method to return the wrapped
+<div class="block">RichFaces 4.0-4.3 ExtendedPartialViewContextImpl does not have any getWrapped() method to return the wrapped
  PartialViewContext.</div>
 </td>
 </tr>
@@ -182,7 +182,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Hacks.html#isRichFacesInstalled--">isRichFacesInstalled</a></span>()</code>
-<div class="block">Returns true if RichFaces 4.0-4.3 is installed.</div>
+<div class="block">Returns true if RichFaces 4.x is installed.</div>
 </td>
 </tr>
 <tr id="i8" class="altColor">
@@ -247,17 +247,14 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <li class="blockList">
 <h4>isRichFacesInstalled</h4>
 <pre>public static&nbsp;boolean&nbsp;isRichFacesInstalled()</pre>
-<div class="block">Returns true if RichFaces 4.0-4.3 is installed. That is, when the RichFaces 4.0-4.3 specific
- ExtendedPartialViewContextImpl is present in the runtime classpath. As this is usually auto-registered, we may
- safely assume that RichFaces 4.0-4.3 is installed.
+<div class="block">Returns true if RichFaces 4.x is installed. That is, when the RichFaces 4.0-4.3 specific
+ ExtendedPartialViewContextImpl, or RichFaces 4.5+ specific ExtendedPartialViewContext is present in the runtime
+ classpath. As this is usually auto-registered, we may safely assume that RichFaces 4.x is installed.
  <p>
- Note: in RichFaces 4.5, this class has changed to ExtendedPartialViewContext which finally properly extends
- PartialViewContextWrapper with among others the correct implementation for getRenderIds(), so the
- <a href="../../../org/omnifaces/util/Hacks.html#getRichFacesPartialViewContext--"><code>getRichFacesPartialViewContext()</code></a> hack isn't anymore necessary for the purpose.
- Also note that RichFaces 4.4 doesn't exist.</div>
+ Note that RichFaces 4.4 doesn't exist.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>Whether RichFaces 4.0-4.3 is installed.</dd>
+<dd>Whether RichFaces 4.x is installed.</dd>
 </dl>
 </li>
 </ul>
@@ -268,8 +265,8 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <li class="blockList">
 <h4>getRichFacesPartialViewContext</h4>
 <pre>public static&nbsp;<a href="https://docs.oracle.com/javaee/7/api/javax/faces/context/PartialViewContext.html?is-external=true" title="class or interface in javax.faces.context">PartialViewContext</a>&nbsp;getRichFacesPartialViewContext()</pre>
-<div class="block">RichFaces PartialViewContext implementation does not extend from PartialViewContextWrapper. So a hack wherin the
- exact fully qualified class name needs to be known has to be used to properly extract it from the
+<div class="block">RichFaces 4.0-4.3 ExtendedPartialViewContextImpl does not extend from PartialViewContextWrapper. So a hack wherin
+ the exact fully qualified class name needs to be known has to be used to properly extract it from the
  <a href="https://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true#getPartialViewContext--" title="class or interface in javax.faces.context"><code>FacesContext.getPartialViewContext()</code></a>.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -300,11 +297,11 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <li class="blockList">
 <h4>getRichFacesWrappedPartialViewContext</h4>
 <pre>public static&nbsp;<a href="https://docs.oracle.com/javaee/7/api/javax/faces/context/PartialViewContext.html?is-external=true" title="class or interface in javax.faces.context">PartialViewContext</a>&nbsp;getRichFacesWrappedPartialViewContext()</pre>
-<div class="block">RichFaces PartialViewContext implementation does not have any getWrapped() method to return the wrapped
+<div class="block">RichFaces 4.0-4.3 ExtendedPartialViewContextImpl does not have any getWrapped() method to return the wrapped
  PartialViewContext. So a reflection hack is necessary to return it from the private field.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>The wrapped PartialViewContext from the RichFaces PartialViewContext implementation.</dd>
+<dd>The wrapped PartialViewContext from the RichFaces 4.0-4.3 ExtendedPartialViewContextImpl.</dd>
 </dl>
 </li>
 </ul>
