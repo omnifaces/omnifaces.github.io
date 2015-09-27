@@ -134,7 +134,8 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIFo
  The <code>&lt;o:form&gt;</code> is a component that extends the standard <code>&lt;h:form&gt;</code> and provides a
  way to keep view or request parameters in the request URL after a post-back and offers in combination with the
  <code>&lt;o:ignoreValidationFailed&gt;</code> tag on an <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UICommand.html?is-external=true" title="class or interface in javax.faces.component"><code>UICommand</code></a> component the possibility to ignore
- validation failures so that the invoke action phase will be executed anyway.
+ validation failures so that the invoke action phase will be executed anyway. This component also supports adding
+ query string parameters to the action URL via nested <code>&lt;f:param&gt;</code> and <code>&lt;o:param&gt;</code>.
  <p>
  You can use it the same way as <code>&lt;h:form&gt;</code>, you only need to change <code>h:</code> to
  <code>o:</code>.
@@ -153,6 +154,9 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIFo
  To solve this, this component offers an attribute <code>includeViewParams="true"</code> that will optionally include
  all view parameters, in exactly the same way that this can be done for <code>&lt;h:link&gt;</code> and
  <code>&lt;h:button&gt;</code>.
+ <pre>
+ &lt;o:form includeViewParams="true"&gt;
+ </pre>
  <p>
  This setting is ignored when <code>includeRequestParams="true"</code> or <code>useRequestURI="true"</code> is used.
 
@@ -160,6 +164,9 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIFo
  <p>
  As an alternative to <code>includeViewParams</code>, you can use <code>includeRequestParams="true"</code> to
  optionally include the current GET request query string.
+ <pre>
+ &lt;o:form includeRequestParams="true"&gt;
+ </pre>
  <p>
  This setting overrides the <code>includeViewParams</code>.
  This setting is ignored when <code>useRequestURI="true"</code> is used.
@@ -170,8 +177,29 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIFo
  <code>useRequestURI="true"</code> to use the current request URI, including with the GET request query string, if
  any. This is particularly useful if you're using FacesViews or forwarding everything to 1 page. Otherwise, by default
  the current view ID will be used.
+ <pre>
+ &lt;o:form useRequestURI="true"&gt;
+ </pre>
  <p>
  This setting overrides the <code>includeViewParams</code> and <code>includeRequestParams</code>.
+
+ <h3>Add query string parameters to action URL</h3>
+ <p>
+ The standard <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIForm.html?is-external=true" title="class or interface in javax.faces.component"><code>UIForm</code></a> doesn't support adding query string parameters to the action URL. This component offers
+ this possibility via nested <code>&lt;f:param&gt;</code> and <code>&lt;o:param&gt;</code>.
+ <pre>
+ &lt;o:form&gt;
+     &lt;f:param name="somename" value="somevalue" /&gt;
+     ...
+ &lt;/o:form&gt;
+ </pre>
+ <p>
+ This can be used in combination with <code>useRequestURI</code>, <code>includeViewParams</code> and
+ <code>includeRequestParams</code>. The <code>&lt;f|o:param&gt;</code> will override any included view or request
+ parameters on the same name. To conditionally add or override, use the <code>disabled</code> attribute of
+ <code>&lt;f|o:param&gt;</code>.
+ <p>
+ The support was added in OmniFaces 2.2.
 
  <h3>Ignore Validation Failed</h3>
  <p>
