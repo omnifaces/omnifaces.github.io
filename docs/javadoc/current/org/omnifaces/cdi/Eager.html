@@ -111,6 +111,8 @@ public @interface <span class="memberNameLabel">Eager</span></pre>
  In case of <code>@RequestScoped</code> and <code>@ViewScoped</code> beans instantiation happens per request URI / view
  and an extra attribute is required for specifying this.
 
+ <h3>Supported scopes</h3>
+
  <p>
  Currently supported scopes:
  <ol>
@@ -120,6 +122,8 @@ public @interface <span class="memberNameLabel">Eager</span></pre>
  <li> CDI <a href="https://docs.oracle.com/javaee/7/api/javax/enterprise/context/SessionScoped.html?is-external=true" title="class or interface in javax.enterprise.context"><code>SessionScoped</code></a>
  <li> CDI <a href="https://docs.oracle.com/javaee/7/api/javax/enterprise/context/ApplicationScoped.html?is-external=true" title="class or interface in javax.enterprise.context"><code>ApplicationScoped</code></a>
  </ol>
+
+ <h3>Usage</h3>
 
  <p>
  E.g.
@@ -168,7 +172,20 @@ public @interface <span class="memberNameLabel">Eager</span></pre>
  }
  </pre>
 
- <h3> Compatibility </h3>
+ <h3><code>FacesContext</code> in <code>&#64;PostConstruct</code></h3>
+
+ <p>
+ When using <code>&#64;Eager</code> or <code>&#64;Eager(requestURI)</code>, be aware that the <a href="https://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context"><code>FacesContext</code></a> is
+ <strong>not</strong> available in the <code>&#64;PostConstruct</code>. Reason is, the <a href="https://docs.oracle.com/javaee/7/api/javax/faces/webapp/FacesServlet.html?is-external=true" title="class or interface in javax.faces.webapp"><code>FacesServlet</code></a> isn't
+ invoked yet at the moment <code>&#64;Eager</code> bean is constructed. Only in <code>&#64;Eager(viewId)</code>, the
+ <a href="https://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context"><code>FacesContext</code></a> is available in the <code>&#64;PostConstruct</code>.
+ <p>
+ In case you need information from <a href="https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http"><code>HttpServletRequest</code></a>, <a href="https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpSession.html?is-external=true" title="class or interface in javax.servlet.http"><code>HttpSession</code></a> and/or <a href="https://docs.oracle.com/javaee/7/api/javax/servlet/ServletContext.html?is-external=true" title="class or interface in javax.servlet"><code>ServletContext</code></a>, then
+ you can just <code>&#64;Inject</code> it right away. Also, all other CDI managed beans are available the usual way
+ via <code>&#64;Inject</code>, as long as they do also not depend on <a href="https://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context"><code>FacesContext</code></a> in their
+ <code>&#64;PostConstruct</code>.
+
+ <h3>Compatibility</h3>
 
  <p>
  In some (older) containers, most notably GlassFish 3, the CDI request scope is not available in a <a href="https://docs.oracle.com/javaee/7/api/javax/servlet/ServletRequestListener.html?is-external=true" title="class or interface in javax.servlet"><code>ServletRequestListener</code></a>

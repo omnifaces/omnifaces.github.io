@@ -114,7 +114,7 @@ public class <span class="typeNameLabel">ValidatorManager</span>
 extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
 <div class="block"><p>
  The <code>@FacesValidator</code> is by default not eligible for dependency injection by <code>@Inject</code> nor <code>@EJB</code>.
- There is a <a href="http://balusc.blogspot.com/2011/09/communication-in-jsf-20.html#GettingAnEJBInFacesConverterAndFacesValidator">workaround</a>
+ There is a <a href="http://balusc.omnifaces.org/2011/09/communication-in-jsf-20.html#GettingAnEJBInFacesConverterAndFacesValidator">workaround</a>
  for EJB, but this is nasty and doesn't work out for CDI. <a href="http://stackoverflow.com/q/7572335/157882">Another way</a>
  would be to make it a JSF or CDI managed bean, however this doesn't register the validator instance into the JSF application context,
  and hence you won't be able to make use of <a href="https://docs.oracle.com/javaee/7/api/javax/faces/application/Application.html?is-external=true#createValidator-java.lang.String-" title="class or interface in javax.faces.application"><code>Application.createValidator(String)</code></a> on it.

@@ -556,6 +556,34 @@ public class ValidateValuesBean implements MultiFieldValidator {
 		</td>
 </tr>
 <tr class="altColor">
+<td class="colOne"><b><a href="viewAction.html">viewAction</a></b></td><td class="colLast">
+				
+					The <code>&lt;o:viewAction&gt;</code> is a component that extends the standard <code>&lt;f:viewAction&gt;</code> and
+					changes the <code>if</code> attribute to be evaluated during <code>INVOKE_APPLICATION</code> phase instead of the
+					<code>APPLY_REQUEST_VALUES</code> phase. This allows developers to let the <code>if</code> attribute check the
+					converted and validated model values before performing the view action, which results in much more intuitive behavior.
+					<p>
+					In below example, the <code>FooConverter</code> may convert a non-null parameter to <code>null</code> without causing
+					a validation or conversion error, and the intent is to redirect the current page to <code>otherpage.xhtml</code> when
+					the converted result is <code>null</code>.
+					<pre>
+					&lt;f:viewParam name="foo" value="#{bean.foo}" converter="fooConverter" /&gt;
+					&lt;f:viewAction action="otherpage" if="#{bean.foo eq null}" /&gt;
+					</pre>
+					<p>
+					This is however not possible with standard <code>&lt;f:viewAction&gt;</code> as it evaluates the <code>if</code>
+					attribute already before the conversion has taken place. This component solves that by postponing the evaluation of
+					the <code>if</code> attribute to the <code>INVOKE_APPLICATION</code> phase.
+					<pre>
+					&lt;f:viewParam name="foo" value="#{bean.foo}" converter="fooConverter" /&gt;
+					&lt;o:viewAction action="otherpage" if="#{bean.foo eq null}" /&gt;
+					<p>
+					Only when you set <code>immediate="true"</code>, then it will behave the same as the standard
+					<code>&lt;f:viewAction&gt;</code>.
+ 				
+		</td>
+</tr>
+<tr class="rowColor">
 <td class="colOne"><b><a href="resolveComponent.html">resolveComponent</a></b></td><td class="colLast">
 			
 				<strong>ResolveComponent</strong> is a utility component via which a component can be looked up by its ID and
@@ -563,7 +591,7 @@ public class ValidateValuesBean implements MultiFieldValidator {
 			
 		</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><b><a href="moveComponent.html">moveComponent</a></b></td><td class="colLast">
 			
 				<strong>MoveComponent</strong> is a utility component via which a components and behaviors can be moved to 
@@ -571,7 +599,7 @@ public class ValidateValuesBean implements MultiFieldValidator {
 			
 		</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><b><a href="methodParam.html">methodParam</a></b></td><td class="colLast">
 			
 				<strong><code>o:methodParam</code></strong> is a tag handler that can be used to pass a method expression
@@ -613,7 +641,7 @@ public class ValidateValuesBean implements MultiFieldValidator {
 			
 		</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><b><a href="tagAttribute.html">tagAttribute</a></b></td><td class="colLast">
 			
 				Declare a tagfile attribute. This should in nested tags shield same attributes set on parent tags.
@@ -621,7 +649,7 @@ public class ValidateValuesBean implements MultiFieldValidator {
 			
 		</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><b><a href="componentIdParam.html">componentIdParam</a></b></td><td class="colLast">
 				
 					<strong>ComponentIdParam</strong> is a component that allows component ids to be provided as request parameters
@@ -639,7 +667,7 @@ public class ValidateValuesBean implements MultiFieldValidator {
 				
 		</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><b><a href="outputFormat.html">outputFormat</a></b></td><td class="colLast">
 			
 				<strong>OutputFormat</strong> is a component that extends the standard <code>HtmlOutputFormat</code> and provides support
@@ -648,7 +676,7 @@ public class ValidateValuesBean implements MultiFieldValidator {
 			 
 		</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><b><a href="outputLabel.html">outputLabel</a></b></td><td class="colLast">
 			
 				<strong><code>o:outputLabel</code></strong> is a component that extends the standard outputLabel and provides extra support for
@@ -659,7 +687,7 @@ public class ValidateValuesBean implements MultiFieldValidator {
 			 
 		</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><b><a href="graphicImage.html">graphicImage</a></b></td><td class="colLast">
 			
 				The <code>&lt;o:graphicImage&gt;</code> is a component that extends the standard <code>&lt;h:graphicImage&gt;</code>
@@ -669,7 +697,7 @@ public class ValidateValuesBean implements MultiFieldValidator {
 			 
 		</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><b><a href="form.html">form</a></b></td><td class="colLast">
 			
 				<strong>Form</strong> is a component that extends the standard <code>UIForm</code> and provides a way to keep view
@@ -679,7 +707,7 @@ public class ValidateValuesBean implements MultiFieldValidator {
 			 
 		</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><b><a href="cache.html">cache</a></b></td><td class="colLast">
 		   	
 		   		<strong>Cache</strong> is a component that initially renders the output of its children into a buffer
@@ -749,7 +777,7 @@ public class ValidateValuesBean implements MultiFieldValidator {
 			
 		</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><b><a href="cacheValue.html">cacheValue</a></b></td><td class="colLast">
 			
 				Tag handler (runs at tree build-time) that makes a value expression available under the given name that caches its value.
@@ -767,7 +795,7 @@ public class ValidateValuesBean implements MultiFieldValidator {
 			
 		</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><b><a href="importConstants.html">importConstants</a></b></td><td class="colLast">
 			
 				<p>The <code>&lt;o:importConstants&gt;</code> allows the developer to have a mapping of all constant field values of
@@ -804,7 +832,7 @@ public enum Baz {
 			
 		</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><b><a href="importFunctions.html">importFunctions</a></b></td><td class="colLast">
 			
 				<p>The <code>&lt;o:importFunctions&gt;</code> allows the developer to have access to all functions of the given
@@ -836,7 +864,7 @@ public enum Baz {
 			
 		</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><b><a href="ignoreValidationFailed.html">ignoreValidationFailed</a></b></td><td class="colLast">
 			
 				The <code>&lt;o:ignoreValidationFailed&gt;</code> allows the developer to ignore validation failures when
@@ -848,7 +876,7 @@ public enum Baz {
 			
 		</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><b><a href="enableRestorableView.html">enableRestorableView</a></b></td><td class="colLast">
 			
 				The <code>&lt;o:enableRestorableView&gt;</code> instructs the view handler to recreate the entire view whenever the
@@ -861,7 +889,7 @@ public enum Baz {
 			
 		</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><b><a href="validateBean.html">validateBean</a></b></td><td class="colLast">
 			
 				The <code>&lt;o:validateBean&gt;</code> allows the developer to control bean validation groups on a
@@ -874,7 +902,7 @@ public enum Baz {
 			
 		</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><b><a href="validateUniqueColumn.html">validateUniqueColumn</a></b></td><td class="colLast">
 			
 				<strong>ValidateUniqueColumn</strong> validates if the given <code>UIInput</code> component in an <code>UIData</code> component
@@ -909,7 +937,7 @@ public enum Baz {
 			
 		</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><b><a href="massAttribute.html">massAttribute</a></b></td><td class="colLast">
 			
 				The <strong>&lt;o:massAttribute&gt;</strong> sets an attribute of the given name and value on all nested components,
@@ -959,7 +987,7 @@ public enum Baz {
 			
 		</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><b><a href="viewParamValidationFailed.html">viewParamValidationFailed</a></b></td><td class="colLast">
 			
 				<code>&lt;o:viewParamValidationFailed&gt;</code> allows the developer to handle a view parameter validation failure
@@ -1053,7 +1081,7 @@ public enum Baz {
 			
 		</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><b><a href="commandScript.html">commandScript</a></b></td><td class="colLast">
 			
 				<p><strong>CommandScript</strong> is an extension to <code>&lt;h:commandXxx&gt;</code> which generates a JavaScript
@@ -1103,7 +1131,7 @@ String name2 = Faces.getRequestParameter("name2"); // value2
 			
 		</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><b><a href="param.html">param</a></b></td><td class="colLast">
 			
 				<strong>Param</strong> is a component that extends the standard <code>UIParameter</code> to implement <code>ValueHolder</code>
@@ -1130,7 +1158,7 @@ String name2 = Faces.getRequestParameter("name2"); // value2
 			
 		</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><b><a href="messages.html">messages</a></b></td><td class="colLast">
 			
 				The <code>&lt;o:messages&gt;</code> is a component that extends the standard <code>&lt;h:messages&gt;</code> with
