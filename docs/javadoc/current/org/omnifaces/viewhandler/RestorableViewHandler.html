@@ -130,9 +130,9 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/application/Vi
  postback and the view in question has <code>&lt;enableRestorableView&gt;</code> in the metadata. This effectively
  prevents the <a href="https://docs.oracle.com/javaee/7/api/javax/faces/application/ViewExpiredException.html?is-external=true" title="class or interface in javax.faces.application"><code>ViewExpiredException</code></a> on the view.
  <p>
- This view handler implementation also detects unload requests coming from <a href="../../../org/omnifaces/cdi/ViewScoped.html" title="annotation in org.omnifaces.cdi"><code>ViewScoped</code></a> beans and will prevent
- any attempt to restore the view when the view state is already absent. This prevents unnecessary
- <a href="https://docs.oracle.com/javaee/7/api/javax/faces/application/ViewExpiredException.html?is-external=true" title="class or interface in javax.faces.application"><code>ViewExpiredException</code></a> during unload on an expired view.</div>
+ Since OmniFaces 2.2, this view handler implementation also detects unload requests coming from <a href="../../../org/omnifaces/cdi/ViewScoped.html" title="annotation in org.omnifaces.cdi"><code>ViewScoped</code></a>
+ beans and will only create a dummy view and restore the view scoped state instead of building and restoring the
+ entire view.</div>
 <dl>
 <dt><span class="simpleTagLabel">Since:</span></dt>
 <dd>1.3</dd>
@@ -264,13 +264,13 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/application/Vi
 <h4>restoreView</h4>
 <pre>public&nbsp;<a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIViewRoot.html?is-external=true" title="class or interface in javax.faces.component">UIViewRoot</a>&nbsp;restoreView(<a href="https://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context,
                               <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;viewId)</pre>
-<div class="block">First check if this is an unload request from <a href="../../../org/omnifaces/cdi/ViewScoped.html" title="annotation in org.omnifaces.cdi"><code>ViewScoped</code></a>. If so, and the JSF view state is absent or
- expired, then don't try to restore the view and return a dummy view (to avoid <a href="https://docs.oracle.com/javaee/7/api/javax/faces/application/ViewExpiredException.html?is-external=true" title="class or interface in javax.faces.application"><code>ViewExpiredException</code></a>) and
- immediately complete response.
- Then restore the view and check if the <code>&lt;o:enableRestoreView&gt;</code> is used once in the application,
- and the restored view is null and the current request is a postback, then recreate and build the view. If it
- indeed contains the <code>&lt;o:enableRestoreView&gt;</code>, then return the newly created view, else return
- <code>null</code>.</div>
+<div class="block">First check if this is an unload request from <a href="../../../org/omnifaces/cdi/ViewScoped.html" title="annotation in org.omnifaces.cdi"><code>ViewScoped</code></a>.
+ If so, then create a dummy view and restore the view scope state. The <a href="../../../org/omnifaces/application/ViewScopeEventListener.html" title="class in org.omnifaces.application"><code>ViewScopeEventListener</code></a> will take
+ care of actual destroy during <a href="https://docs.oracle.com/javaee/7/api/javax/faces/event/PostRestoreStateEvent.html?is-external=true" title="class or interface in javax.faces.event"><code>PostRestoreStateEvent</code></a>.
+ If not, then restore the view as usual and check if the <code>&lt;o:enableRestoreView&gt;</code> is used once in
+ the application, and the restored view is null and the current request is a postback. If not, then return the
+ restored view unmodified. If so, then recreate and rebuild the view from scratsh. If it indeed contains the
+ <code>&lt;o:enableRestoreView&gt;</code>, then return the newly created view, else return <code>null</code>.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code><a href="https://docs.oracle.com/javaee/7/api/javax/faces/application/ViewHandlerWrapper.html?is-external=true#restoreView-javax.faces.context.FacesContext-java.lang.String-" title="class or interface in javax.faces.application">restoreView</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/javaee/7/api/javax/faces/application/ViewHandlerWrapper.html?is-external=true" title="class or interface in javax.faces.application">ViewHandlerWrapper</a></code></dd>

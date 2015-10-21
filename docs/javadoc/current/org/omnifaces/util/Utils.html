@@ -667,8 +667,8 @@ public static&nbsp;boolean&nbsp;isOneAnnotationPresent(<a href="http://docs.orac
                           long&nbsp;length)
                    throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
 <div class="block">Stream a specified range of the given file to the given output via <a href="http://docs.oracle.com/javase/7/docs/api/java/nio/channels/Channels.html?is-external=true" title="class or interface in java.nio.channels"><code>Channels</code></a> and a directly allocated NIO
- <a href="http://docs.oracle.com/javase/7/docs/api/java/nio/ByteBuffer.html?is-external=true" title="class or interface in java.nio"><code>ByteBuffer</code></a>. The output stream will implicitly be closed after streaming,
- regardless of whether an exception is been thrown or not.</div>
+ <a href="http://docs.oracle.com/javase/7/docs/api/java/nio/ByteBuffer.html?is-external=true" title="class or interface in java.nio"><code>ByteBuffer</code></a>. The output stream will only implicitly be closed after streaming when the specified range
+ represents the whole file, regardless of whether an exception is been thrown or not.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>file</code> - The file.</dd>
