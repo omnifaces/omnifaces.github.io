@@ -18,7 +18,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":6,"i4":10,"i5":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":6,"i5":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -75,13 +75,13 @@ var activeTableTab = "activeTableTab";
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
@@ -174,16 +174,17 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpSer
  <pre>
  &lt;video src="#{request.contextPath}/media/video.mp4" controls="controls" /&gt;
  </pre>
+
+ <h3>Customizing <code>FileServlet</code></h3>
  <p>
- You can optionally override the default cache expire time of 30 days by calling <a href="../../../org/omnifaces/servlet/FileServlet.html#setExpires-long-"><code>setExpires(long)</code></a> in the
- <a href="https://docs.oracle.com/javaee/7/api/javax/servlet/GenericServlet.html?is-external=true#init--" title="class or interface in javax.servlet"><code>GenericServlet.init()</code></a> method of your servlet. E.g. to 7 days:
- <pre>
-     &#64;Override
-     public void init() throws ServletException {
-         folder = new File("/var/webapp/media");
-         setExpires(TimeUnit.DAYS.toMillis(7));
-     }
- </pre>
+ If more fine grained control is desired for determining the cache expire time, the content type and whether the
+ file should be supplied as an attachment, then the developer can opt to override one or more of the following
+ protected methods:
+ <ul>
+ <li><a href="../../../org/omnifaces/servlet/FileServlet.html#getExpireTime-javax.servlet.http.HttpServletRequest-java.io.File-"><code>getExpireTime(HttpServletRequest, File)</code></a>
+ <li><a href="../../../org/omnifaces/servlet/FileServlet.html#getContentType-javax.servlet.http.HttpServletRequest-java.io.File-"><code>getContentType(HttpServletRequest, File)</code></a>
+ <li><a href="../../../org/omnifaces/servlet/FileServlet.html#isAttachment-javax.servlet.http.HttpServletRequest-java.lang.String-"><code>isAttachment(HttpServletRequest, String)</code></a>
+ </ul>
 
  <p><strong>See also</strong>:
  <ul>
@@ -204,25 +205,6 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpSer
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
-<!-- =========== FIELD SUMMARY =========== -->
-<ul class="blockList">
-<li class="blockList"><a name="field.summary">
-<!--   -->
-</a>
-<h3>Field Summary</h3>
-<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Field Summary table, listing fields, and an explanation">
-<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
-<tr>
-<th class="colFirst" scope="col">Modifier and Type</th>
-<th class="colLast" scope="col">Field and Description</th>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Long.html?is-external=true" title="class or interface in java.lang">Long</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/servlet/FileServlet.html#DEFAULT_EXPIRE_TIME_IN_MILLIS">DEFAULT_EXPIRE_TIME_IN_MILLIS</a></span></code>&nbsp;</td>
-</tr>
-</table>
-</li>
-</ul>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
 <ul class="blockList">
 <li class="blockList"><a name="constructor.summary">
@@ -270,23 +252,24 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpSer
 </td>
 </tr>
 <tr id="i3" class="rowColor">
+<td class="colFirst"><code>protected long</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/servlet/FileServlet.html#getExpireTime-javax.servlet.http.HttpServletRequest-java.io.File-">getExpireTime</a></span>(<a href="https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request,
+             <a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;file)</code>
+<div class="block">Returns how long the resource may be cached by the client before it expires, in milliseconds.</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>protected abstract <a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/servlet/FileServlet.html#getFile-javax.servlet.http.HttpServletRequest-">getFile</a></span>(<a href="https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request)</code>
 <div class="block">Returns the file associated with the given HTTP servlet request.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>protected boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/servlet/FileServlet.html#isAttachment-javax.servlet.http.HttpServletRequest-java.lang.String-">isAttachment</a></span>(<a href="https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request,
             <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;contentType)</code>
 <div class="block">Returns <code>true</code> if we must force a "Save As" dialog based on the given HTTP servlet request and content
  type as obtained from <a href="../../../org/omnifaces/servlet/FileServlet.html#getContentType-javax.servlet.http.HttpServletRequest-java.io.File-"><code>getContentType(HttpServletRequest, File)</code></a>.</div>
-</td>
-</tr>
-<tr id="i5" class="rowColor">
-<td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/servlet/FileServlet.html#setExpires-long-">setExpires</a></span>(long&nbsp;expires)</code>
-<div class="block">Sets how long the resource may be cached by the client before it expires, in milliseconds.</div>
 </td>
 </tr>
 </table>
@@ -319,23 +302,6 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpSer
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
-<!-- ============ FIELD DETAIL =========== -->
-<ul class="blockList">
-<li class="blockList"><a name="field.detail">
-<!--   -->
-</a>
-<h3>Field Detail</h3>
-<a name="DEFAULT_EXPIRE_TIME_IN_MILLIS">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>DEFAULT_EXPIRE_TIME_IN_MILLIS</h4>
-<pre>public static final&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Long.html?is-external=true" title="class or interface in java.lang">Long</a> DEFAULT_EXPIRE_TIME_IN_MILLIS</pre>
-</li>
-</ul>
-</li>
-</ul>
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
 <ul class="blockList">
 <li class="blockList"><a name="constructor.detail">
@@ -420,21 +386,23 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpSer
 </dl>
 </li>
 </ul>
-<a name="setExpires-long-">
+<a name="getExpireTime-javax.servlet.http.HttpServletRequest-java.io.File-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>setExpires</h4>
-<pre>protected&nbsp;void&nbsp;setExpires(long&nbsp;expires)</pre>
-<div class="block">Sets how long the resource may be cached by the client before it expires, in milliseconds. When not set, then a
- default value of 30 days will be assumed. It can be set only once. It's recommended to do that during
- <a href="https://docs.oracle.com/javaee/7/api/javax/servlet/GenericServlet.html?is-external=true#init--" title="class or interface in javax.servlet"><code>GenericServlet.init()</code></a> method of the servlet (and absolutely not in one of <code>doXxx()</code> methods).</div>
+<h4>getExpireTime</h4>
+<pre>protected&nbsp;long&nbsp;getExpireTime(<a href="https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request,
+                             <a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;file)</pre>
+<div class="block">Returns how long the resource may be cached by the client before it expires, in milliseconds.
+ <p>
+ The default implementation returns 30 days in milliseconds.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>expires</code> - Cache expire time in milliseconds.</dd>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang">IllegalStateException</a></code> - When the cache expire time has already been set.</dd>
+<dd><code>request</code> - The involved HTTP servlet request.</dd>
+<dd><code>file</code> - The involved file.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The client cache expire time in milliseconds.</dd>
 </dl>
 </li>
 </ul>
@@ -446,9 +414,10 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpSer
 <h4>getContentType</h4>
 <pre>protected&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getContentType(<a href="https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request,
                                 <a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;file)</pre>
-<div class="block">Returns the content type associated with the given HTTP servlet request and file. The default implementation
- delegates <a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true#getName--" title="class or interface in java.io"><code>File.getName()</code></a> to <a href="https://docs.oracle.com/javaee/7/api/javax/servlet/ServletContext.html?is-external=true#getMimeType-java.lang.String-" title="class or interface in javax.servlet"><code>ServletContext.getMimeType(String)</code></a> with a fallback default value of
- <code>application/octet-stream</code>.</div>
+<div class="block">Returns the content type associated with the given HTTP servlet request and file.
+ <p>
+ The default implementation delegates <a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true#getName--" title="class or interface in java.io"><code>File.getName()</code></a> to <a href="https://docs.oracle.com/javaee/7/api/javax/servlet/ServletContext.html?is-external=true#getMimeType-java.lang.String-" title="class or interface in javax.servlet"><code>ServletContext.getMimeType(String)</code></a> with a
+ fallback default value of <code>application/octet-stream</code>.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>request</code> - The involved HTTP servlet request.</dd>
@@ -467,10 +436,11 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpSer
 <pre>protected&nbsp;boolean&nbsp;isAttachment(<a href="https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html?is-external=true" title="class or interface in javax.servlet.http">HttpServletRequest</a>&nbsp;request,
                                <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;contentType)</pre>
 <div class="block">Returns <code>true</code> if we must force a "Save As" dialog based on the given HTTP servlet request and content
- type as obtained from <a href="../../../org/omnifaces/servlet/FileServlet.html#getContentType-javax.servlet.http.HttpServletRequest-java.io.File-"><code>getContentType(HttpServletRequest, File)</code></a>. The default implementation will return
- <code>true</code> if the content type does <strong>not</strong> start with <code>text</code> or
- <code>image</code>, and the <code>Accept</code> request header is either <code>null</code> or does not match the
- given content type.</div>
+ type as obtained from <a href="../../../org/omnifaces/servlet/FileServlet.html#getContentType-javax.servlet.http.HttpServletRequest-java.io.File-"><code>getContentType(HttpServletRequest, File)</code></a>.
+ <p>
+ The default implementation will return <code>true</code> if the content type does <strong>not</strong> start with
+ <code>text</code> or <code>image</code>, and the <code>Accept</code> request header is either <code>null</code>
+ or does not match the given content type.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>request</code> - The involved HTTP servlet request.</dd>
@@ -535,13 +505,13 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpSer
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>

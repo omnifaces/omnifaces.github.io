@@ -316,8 +316,8 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
       <a href="http://docs.oracle.com/javase/7/docs/api/java/io/OutputStream.html?is-external=true" title="class or interface in java.io">OutputStream</a>&nbsp;output,
       long&nbsp;start,
       long&nbsp;length)</code>
-<div class="block">Stream a specified range of the given file to the given output via <a href="http://docs.oracle.com/javase/7/docs/api/java/nio/channels/Channels.html?is-external=true" title="class or interface in java.nio.channels"><code>Channels</code></a> and a directly allocated NIO
- <a href="http://docs.oracle.com/javase/7/docs/api/java/nio/ByteBuffer.html?is-external=true" title="class or interface in java.nio"><code>ByteBuffer</code></a>.</div>
+<div class="block">Stream a specified range of the given file to the given output via NIO <a href="http://docs.oracle.com/javase/7/docs/api/java/nio/channels/Channels.html?is-external=true" title="class or interface in java.nio.channels"><code>Channels</code></a> and a directly allocated
+ NIO <a href="http://docs.oracle.com/javase/7/docs/api/java/nio/ByteBuffer.html?is-external=true" title="class or interface in java.nio"><code>ByteBuffer</code></a>.</div>
 </td>
 </tr>
 <tr id="i27" class="rowColor">
@@ -558,7 +558,7 @@ public static&nbsp;&lt;T&gt;&nbsp;T&nbsp;coalesce(T...&nbsp;objects)</pre>
 <h4>isOneOf</h4>
 <pre><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/SafeVarargs.html?is-external=true" title="class or interface in java.lang">@SafeVarargs</a>
 public static&nbsp;&lt;T&gt;&nbsp;boolean&nbsp;isOneOf(T&nbsp;object,
-                                               T...&nbsp;objects)</pre>
+                                                T...&nbsp;objects)</pre>
 <div class="block">Returns <code>true</code> if the given object equals one of the given objects.</div>
 <dl>
 <dt><span class="paramLabel">Type Parameters:</span></dt>
@@ -619,7 +619,7 @@ public static&nbsp;&lt;T&gt;&nbsp;boolean&nbsp;isOneOf(T&nbsp;object,
 <h4>isOneAnnotationPresent</h4>
 <pre><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/SafeVarargs.html?is-external=true" title="class or interface in java.lang">@SafeVarargs</a>
 public static&nbsp;boolean&nbsp;isOneAnnotationPresent(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;?&gt;&nbsp;cls,
-                                                          <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;? extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/annotation/Annotation.html?is-external=true" title="class or interface in java.lang.annotation">Annotation</a>&gt;...&nbsp;annotations)</pre>
+                                                           <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;? extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/annotation/Annotation.html?is-external=true" title="class or interface in java.lang.annotation">Annotation</a>&gt;...&nbsp;annotations)</pre>
 <div class="block">Returns <code>true</code> if the given class has at least one of the given annotations.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -666,8 +666,8 @@ public static&nbsp;boolean&nbsp;isOneAnnotationPresent(<a href="http://docs.orac
                           long&nbsp;start,
                           long&nbsp;length)
                    throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
-<div class="block">Stream a specified range of the given file to the given output via <a href="http://docs.oracle.com/javase/7/docs/api/java/nio/channels/Channels.html?is-external=true" title="class or interface in java.nio.channels"><code>Channels</code></a> and a directly allocated NIO
- <a href="http://docs.oracle.com/javase/7/docs/api/java/nio/ByteBuffer.html?is-external=true" title="class or interface in java.nio"><code>ByteBuffer</code></a>. The output stream will only implicitly be closed after streaming when the specified range
+<div class="block">Stream a specified range of the given file to the given output via NIO <a href="http://docs.oracle.com/javase/7/docs/api/java/nio/channels/Channels.html?is-external=true" title="class or interface in java.nio.channels"><code>Channels</code></a> and a directly allocated
+ NIO <a href="http://docs.oracle.com/javase/7/docs/api/java/nio/ByteBuffer.html?is-external=true" title="class or interface in java.nio"><code>ByteBuffer</code></a>. The output stream will only implicitly be closed after streaming when the specified range
  represents the whole file, regardless of whether an exception is been thrown or not.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -676,7 +676,7 @@ public static&nbsp;boolean&nbsp;isOneAnnotationPresent(<a href="http://docs.orac
 <dd><code>start</code> - The start position (offset).</dd>
 <dd><code>length</code> - The (intented) length of written bytes.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>The (actual) length of the written bytes.</dd>
+<dd>The (actual) length of the written bytes. This may be smaller when the given length is too large.</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - When an I/O error occurs.</dd>
 <dt><span class="simpleTagLabel">Since:</span></dt>
