@@ -73,7 +73,7 @@
 
 <p>It is a matter of dropping the <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/2.1/">OmniFaces 2.1 JAR file</a> in <code>/WEB-INF/lib</code>.</p>
 
-<p>Maven users can add OmniFaces by adding the following Maven coordinates to pom.xml:</p>
+<p>Maven users can add OmniFaces by adding the following Maven coordinates to <code>pom.xml</code> of the WAR project:</p>
 
 <div class="highlight highlight-text-xml"><pre>&lt;<span class="pl-ent">dependency</span>&gt;
     &lt;<span class="pl-ent">groupId</span>&gt;org.omnifaces&lt;/<span class="pl-ent">groupId</span>&gt;
@@ -87,6 +87,8 @@
 
 <div class="highlight highlight-text-xml"><pre>xmlns:o="http://omnifaces.org/ui"
 xmlns:of="http://omnifaces.org/functions"</pre></div>
+
+<p>OmniFaces is designed as a WAR library (web fragment library) and therefore can't be placed elsewhere in the webapp's runtime classpath outside WAR's own <code>/WEB-INF/lib</code>, such as EAR's <code>/lib</code> or even server's or JRE's own <code>/lib</code>. When OmniFaces JAR file is misplaced this way, then the webapp will be unable to find OmniFaces-bundled JSF/CDI annotated classes and throw exceptions related to this during deploy or runtime. To solve it, put back  OmniFaces in WAR's <code>/WEB-INF/lib</code>.</p>
 
 <h2>
 <a id="download" class="anchor" href="#download" aria-hidden="true"><span class="octicon octicon-link"></span></a>Download</h2>
