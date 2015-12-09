@@ -104,7 +104,8 @@
 <td class="colFirst"><a href="../../../../org/omnifaces/cdi/push/Socket.html" title="class in org.omnifaces.cdi.push">Socket</a></td>
 <td class="colLast">
 <div class="block">
- Creates a web socket based push connection in client side which can be reached via <a href="../../../../org/omnifaces/cdi/push/PushContext.html" title="interface in org.omnifaces.cdi.push"><code>PushContext</code></a>.</div>
+ Opens an one-way (server to client) web socket based push connection in client side which can be reached from
+ server side via <a href="../../../../org/omnifaces/cdi/push/PushContext.html" title="interface in org.omnifaces.cdi.push"><code>PushContext</code></a> interface injected in any CDI/container managed artifact.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -115,6 +116,13 @@
 </td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><a href="../../../../org/omnifaces/cdi/push/SocketEventListener.html" title="class in org.omnifaces.cdi.push">SocketEventListener</a></td>
+<td class="colLast">
+<div class="block">This system event listener for <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIViewRoot.html?is-external=true" title="class or interface in javax.faces.component"><code>UIViewRoot</code></a> ensures that the necessary scripts for <code>&lt;o:socket&gt;</code>
+ are properly rendered.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/omnifaces/cdi/push/SocketPushContext.html" title="class in org.omnifaces.cdi.push">SocketPushContext</a></td>
 <td class="colLast">
 <div class="block">
