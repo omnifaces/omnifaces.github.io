@@ -190,6 +190,13 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
  <li><code>event</code>: the raw <a href="https://developer.mozilla.org/en-US/docs/Web/API/CloseEvent"><code>
  CloseEvent</code></a> instance, useful in case you intend to inspect it.</li>
  </ul>
+ <p>
+ In case your server is configured to run WS container on a different TCP port than the HTTP container, then you can
+ use the <code>port</code> attribute to explicitly specify the port.
+ <pre>
+ &lt;o:socket ... port="8000" /&gt;
+ </pre>
+
 
  <h3>Usage (server)</h3>
  <p>
@@ -341,6 +348,20 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
  <p>
  Note that OmniFaces <a href="../../../../org/omnifaces/util/Callback.html" title="class in org.omnifaces.util"><code>Callback</code></a> interfaces are insuitable as you're not supposed to use WAR (front end)
  frameworks and libraries like JSF and OmniFaces in EAR/EJB (back end) side!
+ <p>
+ In case you're already on Java 8, of course make use of the <code>Consumer</code> functional interface.
+ <pre>
+ &#64;Asynchronous
+ public void someAsyncServiceMethod(Entity entity, Consumer&lt;Object&gt; callback) {
+     // ... (some long process)
+     callback.accept(entity.getSomeProperty());
+ }
+ </pre>
+ <pre>
+ public void submit() {
+     someService.someAsyncServiceMethod(entity, someProperty -&gt; pushContext.send("someChannel", someProperty);
+ }
+ </pre>
 
  <h3>UI update design hints</h3>
  <p>
@@ -426,7 +447,7 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/cdi/push/Socket.html#apply-javax.faces.view.facelets.FaceletContext-javax.faces.component.UIComponent-">apply</a></span>(<a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/FaceletContext.html?is-external=true" title="class or interface in javax.faces.view.facelets">FaceletContext</a>&nbsp;context,
      <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;parent)</code>
-<div class="block">Register the push script and add initialization script to end of body.</div>
+<div class="block">Register the push channel and endpoint if necessary and then subcribe the <a href="../../../../org/omnifaces/cdi/push/SocketEventListener.html" title="class in org.omnifaces.cdi.push"><code>SocketEventListener</code></a>.</div>
 </td>
 </tr>
 </table>
@@ -470,7 +491,8 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>config</code> - The tag config.</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></code> - When the channel name is invalid. It must be URL safe.</dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></code> - When the channel name is invalid.
+ It may only contain alphanumeric characters, hyphens, underscores and periods.</dd>
 </dl>
 </li>
 </ul>
@@ -491,7 +513,9 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
 <pre>public&nbsp;void&nbsp;apply(<a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/FaceletContext.html?is-external=true" title="class or interface in javax.faces.view.facelets">FaceletContext</a>&nbsp;context,
                   <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;parent)
            throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
-<div class="block">Register the push script and add initialization script to end of body.</div>
+<div class="block">Register the push channel and endpoint if necessary and then subcribe the <a href="../../../../org/omnifaces/cdi/push/SocketEventListener.html" title="class in org.omnifaces.cdi.push"><code>SocketEventListener</code></a>.
+ Note thus that any manually triggered push requests on unregistered channels will cause an exception, and that
+ the push endpoint is only activated when the <code>&lt;o:socket&gt;</code> is actually used in the application.</div>
 <dl>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd>

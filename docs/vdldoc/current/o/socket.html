@@ -83,7 +83,17 @@
 </tr>
 </thead>
 <tbody>
-<tr id="channel" class="rowColor">
+<tr id="port" class="rowColor">
+<td class="colFirst"><a href="#port"><code>port</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.Integer</code>)
+					</td><td class="colLast">
+				
+					The port number of the web socket host, in case it is different from the port number in the request URI.
+					Defaults to the port number of the request URI.
+				
+			</td>
+</tr>
+<tr id="channel" class="altColor">
 <td class="colFirst"><a href="#channel"><code>channel</code></a></td><td class="colOne"><code>true</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
@@ -96,7 +106,7 @@
 				
 			</td>
 </tr>
-<tr id="onmessage" class="altColor">
+<tr id="onmessage" class="rowColor">
 <td class="colFirst"><a href="#onmessage"><code>onmessage</code></a></td><td class="colOne"><code>true</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
@@ -106,7 +116,7 @@
 				
 			</td>
 </tr>
-<tr id="onclose" class="rowColor">
+<tr id="onclose" class="altColor">
 <td class="colFirst"><a href="#onclose"><code>onclose</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
@@ -117,16 +127,17 @@
 					close reason code if an error occurred and which one (i.e. when the code is not 1000). See also
 					<a href="http://tools.ietf.org/html/rfc6455#section-7.4.1">RFC 6455 section 7.4.1</a> and
 					<a href="http://docs.oracle.com/javaee/7/api/javax/websocket/CloseReason.CloseCodes.html">CloseCodes</a> API
-					for an elaborate list.
+					for an elaborate list of all close codes.
 				
 			</td>
 </tr>
-<tr id="enabled" class="altColor">
+<tr id="enabled" class="rowColor">
 <td class="colFirst"><a href="#enabled"><code>enabled</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.Boolean</code>)
 					</td><td class="colLast">
 				
-					Whether the web socket should be enabled or not. Defaults to <code>true</code>.
+					Whether the web socket should be enabled or not.
+					Defaults to <code>true</code>.
 					This effectively controls the <code>rendered</code> attribute of the auto-included push script.
 				
 			</td>
