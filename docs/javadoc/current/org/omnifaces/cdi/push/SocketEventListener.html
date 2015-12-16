@@ -147,8 +147,9 @@ implements <a href="https://docs.oracle.com/javaee/7/api/javax/faces/event/Syste
 <td class="colOne"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/cdi/push/SocketEventListener.html#SocketEventListener-java.lang.Integer-java.lang.String-java.lang.String-javax.el.ValueExpression-">SocketEventListener</a></span>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</a>&nbsp;port,
                    <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;channel,
                    <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;functions,
-                   <a href="https://docs.oracle.com/javaee/7/api/javax/el/ValueExpression.html?is-external=true" title="class or interface in javax.el">ValueExpression</a>&nbsp;enabledExpression)</code>
-<div class="block">Construct an instance of socket event listener based on the given channel name, functions and enabled expression.</div>
+                   <a href="https://docs.oracle.com/javaee/7/api/javax/el/ValueExpression.html?is-external=true" title="class or interface in javax.el">ValueExpression</a>&nbsp;connectedExpression)</code>
+<div class="block">Construct an instance of socket event listener based on the given channel name, functions and connected
+ expression.</div>
 </td>
 </tr>
 </table>
@@ -210,14 +211,15 @@ implements <a href="https://docs.oracle.com/javaee/7/api/javax/faces/event/Syste
 <pre>public&nbsp;SocketEventListener(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</a>&nbsp;port,
                            <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;channel,
                            <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;functions,
-                           <a href="https://docs.oracle.com/javaee/7/api/javax/el/ValueExpression.html?is-external=true" title="class or interface in javax.el">ValueExpression</a>&nbsp;enabledExpression)</pre>
-<div class="block">Construct an instance of socket event listener based on the given channel name, functions and enabled expression.</div>
+                           <a href="https://docs.oracle.com/javaee/7/api/javax/el/ValueExpression.html?is-external=true" title="class or interface in javax.el">ValueExpression</a>&nbsp;connectedExpression)</pre>
+<div class="block">Construct an instance of socket event listener based on the given channel name, functions and connected
+ expression.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>port</code> - The port number.</dd>
 <dd><code>channel</code> - The channel name.</dd>
 <dd><code>functions</code> - The onmessage and onclose functions.</dd>
-<dd><code>enabledExpression</code> - The enabled expression.</dd>
+<dd><code>connectedExpression</code> - The connected expression.</dd>
 </dl>
 </li>
 </ul>
@@ -252,11 +254,11 @@ implements <a href="https://docs.oracle.com/javaee/7/api/javax/faces/event/Syste
 <pre>public&nbsp;void&nbsp;processEvent(<a href="https://docs.oracle.com/javaee/7/api/javax/faces/event/SystemEvent.html?is-external=true" title="class or interface in javax.faces.event">SystemEvent</a>&nbsp;event)
                   throws <a href="https://docs.oracle.com/javaee/7/api/javax/faces/event/AbortProcessingException.html?is-external=true" title="class or interface in javax.faces.event">AbortProcessingException</a></pre>
 <div class="block">If event is an instance of <a href="https://docs.oracle.com/javaee/7/api/javax/faces/event/PostAddToViewEvent.html?is-external=true" title="class or interface in javax.faces.event"><code>PostAddToViewEvent</code></a>, then add the main <code>omnifaces.js</code> script
- resource. Else if event is an instance of <a href="https://docs.oracle.com/javaee/7/api/javax/faces/event/PreRenderViewEvent.html?is-external=true" title="class or interface in javax.faces.event"><code>PreRenderViewEvent</code></a>, and the socket is new and enabled, or has
- just switched the <code>enabled</code> attribute, then render either the <code>open()</code> script or the
- <code>close()</code> script. During an ajax request with partial rendering, it's added as
- <code>&lt;eval&gt;</code> by partial response writer, else it's just added as a script component with
- <code>target="body"</code>.</div>
+ resource. Else if event is an instance of <a href="https://docs.oracle.com/javaee/7/api/javax/faces/event/PreRenderViewEvent.html?is-external=true" title="class or interface in javax.faces.event"><code>PreRenderViewEvent</code></a>, and the socket is new, then render the
+ <code>init()</code> script, or if it has just switched the <code>connected</code> attribute, then render either
+ the <code>open()</code> script or the <code>close()</code> script. During an ajax request with partial rendering,
+ it's added as <code>&lt;eval&gt;</code> by partial response writer, else it's just added as a script component
+ with <code>target="body"</code>.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="https://docs.oracle.com/javaee/7/api/javax/faces/event/SystemEventListener.html?is-external=true#processEvent-javax.faces.event.SystemEvent-" title="class or interface in javax.faces.event">processEvent</a></code>&nbsp;in interface&nbsp;<code><a href="https://docs.oracle.com/javaee/7/api/javax/faces/event/SystemEventListener.html?is-external=true" title="class or interface in javax.faces.event">SystemEventListener</a></code></dd>

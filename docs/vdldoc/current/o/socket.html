@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html lang="en" xmlns:javaee="http://xmlns.jcp.org/xml/ns/javaee" xmlns:vdldoc="http://vdldoc.omnifaces.org" xmlns:fo="http://www.w3.org/1999/XSL/Format">
+<html lang="en" xmlns:vdldoc="http://vdldoc.omnifaces.org" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:javaee="http://xmlns.jcp.org/xml/ns/javaee">
 <head>
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>socket (OmniFaces VDL Documentation - Generated Documentation)
@@ -131,14 +131,17 @@
 				
 			</td>
 </tr>
-<tr id="enabled" class="rowColor">
-<td class="colFirst"><a href="#enabled"><code>enabled</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<tr id="connected" class="rowColor">
+<td class="colFirst"><a href="#connected"><code>connected</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.Boolean</code>)
 					</td><td class="colLast">
 				
-					Whether the web socket should be enabled or not.
+					Whether to (auto)connect the web socket or not.
 					Defaults to <code>true</code>.
-					This effectively controls the <code>rendered</code> attribute of the auto-included push script.
+					It's interpreted as a JavaScript instruction whether to open or close the web socket push connection.
+					Note that this attribute is re-evaluated on every ajax request.
+					You can also explicitly set it to <code>false</code> and then manually control in JavaScript by
+					<code>OmniFaces.Push.open('channelName')</code> and <code>OmniFaces.Push.close('channelName')</code>.
 				
 			</td>
 </tr>
