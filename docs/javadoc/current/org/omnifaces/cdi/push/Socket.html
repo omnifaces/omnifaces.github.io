@@ -125,6 +125,20 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
  server side via <a href="../../../../org/omnifaces/cdi/PushContext.html" title="interface in org.omnifaces.cdi"><code>PushContext</code></a> interface injected in any CDI/container managed artifact.
 
 
+ <h3>Configuration</h3>
+ <p>
+ First enable the web socket endpoint by below boolean context parameter in <code>web.xml</code>:
+ <pre>
+ &lt;context-param&gt;
+     &lt;param-name&gt;org.omnifaces.ENABLE_SOCKET_ENDPOINT&lt;/param-name&gt;
+     &lt;param-value&gt;true&lt;/param-value&gt;
+ &lt;/context-param&gt;
+ </pre>
+ <p>
+ It will install a web socket endpoint and a security filter on channel name. Lazy initialization of the endpoint and
+ filter is not possible (yet).
+
+
  <h3>Usage (client)</h3>
  <p>
  Declare <code>&lt;o:socket&gt;</code> in the view with at least a <code>channel</code> name and an
@@ -209,7 +223,9 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
  The push is one-way, from server to client. In case you intend to send some data from client to server, just continue
  using Ajax the usual way, if necessary with <code>&lt;o:commandScript&gt;</code> or perhaps
  <code>&lt;p:remoteCommand&gt;</code> or similar. This has among others the advantage of maintaining the JSF view
- state.
+ state, the HTTP session and, importantingly, all security constraints on business service methods (namely, those are
+ not available during an incoming web socket message per se! see also a.o.
+ <a href="https://java.net/jira/browse/WEBSOCKET_SPEC-238">WS spec issue 238</a>).
 
 
  <h3>Conditionally connecting socket</h3>
@@ -287,6 +303,10 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
  Otherwise people can easily manually open a web socket listening on a guessed channel name. For example, in case you
  intend to push a message to users of only a specific role, then encrypt that role name or map it to an UUID and use
  it in place of the session ID in above examples.
+ <p>
+ As extra security, the <code>&lt;o:socket&gt;</code> will remember all so far opened channels in the current HTTP
+ session and the aforementioned security filter will check all incoming web socket handshake requests whether they
+ match the so far opened channels in the current HTTP session, and otherwise send a HTTP 400 error back.
 
 
  <h3>EJB design hints</h3>
@@ -400,42 +420,16 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
  </pre>
  <p>
  If you pass a <code>Map&lt;String,V&gt;</code> or a JavaBean as push message object, then all entries/properties will
- transparently be available as request parameters in the command script method <code>#{bean.pushed}</code>.
-
-
- <h3>Configuration</h3>
- <p>
- The web socket endpoint associated with <code>&lt;o:socket&gt;</code> is only lazily initialized. So as long as
- you don't use <code>&lt;o:socket&gt;</code> anywhere in the application, then the web socket endpoint is not open.
- However, the lazy initialization fails in case Tyrus is used as web socket implementation (GlassFish/Payara). It
- only supports programmatic initialization during webapp's startup, otherwise it will throw the below exception:
- <pre>
- java.lang.IllegalStateException: Not in 'deploy' scope.
-     at org.glassfish.tyrus.server.TyrusServerContainer.addEndpoint
-     at org.omnifaces.cdi.push.Socket.registerEndpointIfNecessary
-     at org.omnifaces.cdi.push.Socket.apply
- </pre>
- <p>
- If you're facing this exception, then you need to add the below context parameter to your webapp's
- <code>web.xml</code> to explicitly register the web socket endpoint during webapp's startup.
- <pre>
- &lt;context-param&gt;
-     &lt;param-name&gt;org.omnifaces.SOCKET_ENDPOINT_ALWAYS_ENABLED&lt;/param-name&gt;
-     &lt;param-value&gt;true&lt;/param-value&gt;
- &lt;/context-param&gt;
- </pre>
- <p>
- This is not necessary if you're not facing an exception like above, but may be useful if you always want to keep it
- open as it's not automatically reopened after a server restart until a page with <code>&lt;o:socket&gt;</code> has
- been requested.</div>
+ transparently be available as request parameters in the command script method <code>#{bean.pushed}</code>.</div>
 <dl>
 <dt><span class="simpleTagLabel">Since:</span></dt>
 <dd>2.3</dd>
 <dt><span class="simpleTagLabel">Author:</span></dt>
 <dd>Bauke Scholtz</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../../org/omnifaces/cdi/push/SocketEventListener.html" title="class in org.omnifaces.cdi.push"><code>SocketEventListener</code></a>, 
-<a href="../../../../org/omnifaces/cdi/push/SocketEndpoint.html" title="class in org.omnifaces.cdi.push"><code>SocketEndpoint</code></a>, 
+<dd><a href="../../../../org/omnifaces/cdi/push/SocketEndpoint.html" title="class in org.omnifaces.cdi.push"><code>SocketEndpoint</code></a>, 
+<a href="../../../../org/omnifaces/cdi/push/SocketChannelFilter.html" title="class in org.omnifaces.cdi.push"><code>SocketChannelFilter</code></a>, 
+<a href="../../../../org/omnifaces/cdi/push/SocketEventListener.html" title="class in org.omnifaces.cdi.push"><code>SocketEventListener</code></a>, 
 <a href="../../../../org/omnifaces/cdi/push/SocketPushContext.html" title="class in org.omnifaces.cdi.push"><code>SocketPushContext</code></a>, 
 <a href="../../../../org/omnifaces/cdi/PushContext.html" title="interface in org.omnifaces.cdi"><code>PushContext</code></a></dd>
 </dl>
@@ -459,8 +453,8 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/cdi/push/Socket.html#PARAM_SOCKET_ENDPOINT_ALWAYS_ENABLED">PARAM_SOCKET_ENDPOINT_ALWAYS_ENABLED</a></span></code>
-<div class="block">The context parameter name to explicitly register web socket endpoint during startup (only required in some containers).</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/cdi/push/Socket.html#PARAM_ENABLE_SOCKET_ENDPOINT">PARAM_ENABLE_SOCKET_ENDPOINT</a></span></code>
+<div class="block">The boolean context parameter name to register web socket endpoint during startup.</div>
 </td>
 </tr>
 </table>
@@ -513,9 +507,8 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/cdi/push/Socket.html#registerEndpointIfNecessary-javax.servlet.ServletContext-boolean-">registerEndpointIfNecessary</a></span>(<a href="https://docs.oracle.com/javaee/7/api/javax/servlet/ServletContext.html?is-external=true" title="class or interface in javax.servlet">ServletContext</a>&nbsp;context,
-                           boolean&nbsp;checkParam)</code>
-<div class="block">Register web socket endpoint if necessary, i.e.</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/cdi/push/Socket.html#registerEndpointAndFilterIfNecessary-javax.servlet.ServletContext-">registerEndpointAndFilterIfNecessary</a></span>(<a href="https://docs.oracle.com/javaee/7/api/javax/servlet/ServletContext.html?is-external=true" title="class or interface in javax.servlet">ServletContext</a>&nbsp;context)</code>
+<div class="block">Register web socket endpoint and channel filter if necessary, i.e.</div>
 </td>
 </tr>
 </table>
@@ -547,17 +540,17 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
 <!--   -->
 </a>
 <h3>Field Detail</h3>
-<a name="PARAM_SOCKET_ENDPOINT_ALWAYS_ENABLED">
+<a name="PARAM_ENABLE_SOCKET_ENDPOINT">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>PARAM_SOCKET_ENDPOINT_ALWAYS_ENABLED</h4>
-<pre>public static final&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> PARAM_SOCKET_ENDPOINT_ALWAYS_ENABLED</pre>
-<div class="block">The context parameter name to explicitly register web socket endpoint during startup (only required in some containers).</div>
+<h4>PARAM_ENABLE_SOCKET_ENDPOINT</h4>
+<pre>public static final&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> PARAM_ENABLE_SOCKET_ENDPOINT</pre>
+<div class="block">The boolean context parameter name to register web socket endpoint during startup.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../../constant-values.html#org.omnifaces.cdi.push.Socket.PARAM_SOCKET_ENDPOINT_ALWAYS_ENABLED">Constant Field Values</a></dd>
+<dd><a href="../../../../constant-values.html#org.omnifaces.cdi.push.Socket.PARAM_ENABLE_SOCKET_ENDPOINT">Constant Field Values</a></dd>
 </dl>
 </li>
 </ul>
@@ -605,26 +598,24 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
  the push endpoint is only activated when the <code>&lt;o:socket&gt;</code> is actually used in the application.</div>
 <dl>
 <dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang">IllegalStateException</a></code> - When the web socket endpoint is not enabled.</dd>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></code> - When the channel name is invalid.
  It may only contain alphanumeric characters, hyphens, underscores and periods.</dd>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd>
 </dl>
 </li>
 </ul>
-<a name="registerEndpointIfNecessary-javax.servlet.ServletContext-boolean-">
+<a name="registerEndpointAndFilterIfNecessary-javax.servlet.ServletContext-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>registerEndpointIfNecessary</h4>
-<pre>public static&nbsp;void&nbsp;registerEndpointIfNecessary(<a href="https://docs.oracle.com/javaee/7/api/javax/servlet/ServletContext.html?is-external=true" title="class or interface in javax.servlet">ServletContext</a>&nbsp;context,
-                                               boolean&nbsp;checkParam)</pre>
-<div class="block">Register web socket endpoint if necessary, i.e. when it's not registered yet, or is explicitly enabled via
- context param.</div>
+<h4>registerEndpointAndFilterIfNecessary</h4>
+<pre>public static&nbsp;void&nbsp;registerEndpointAndFilterIfNecessary(<a href="https://docs.oracle.com/javaee/7/api/javax/servlet/ServletContext.html?is-external=true" title="class or interface in javax.servlet">ServletContext</a>&nbsp;context)</pre>
+<div class="block">Register web socket endpoint and channel filter if necessary, i.e. when it's enabled via context param.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>context</code> - The involved servlet context.</dd>
-<dd><code>checkParam</code> - Whether to check the context param or not.</dd>
 </dl>
 </li>
 </ul>
