@@ -50,7 +50,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li>Prev&nbsp;Class</li>
-<li><a href="../../../../org/omnifaces/cdi/push/SocketChannelFilter.html" title="class in org.omnifaces.cdi.push"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../org/omnifaces/cdi/push/SocketEndpoint.html" title="class in org.omnifaces.cdi.push"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?org/omnifaces/cdi/push/Socket.html" target="_top">Frames</a></li>
@@ -135,8 +135,8 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
  &lt;/context-param&gt;
  </pre>
  <p>
- It will install the <a href="../../../../org/omnifaces/cdi/push/SocketEndpoint.html" title="class in org.omnifaces.cdi.push"><code>SocketEndpoint</code></a> and <a href="../../../../org/omnifaces/cdi/push/SocketChannelFilter.html" title="class in org.omnifaces.cdi.push"><code>SocketChannelFilter</code></a>. Lazy initialization of the endpoint and
- filter is unfortunately not possible across all containers (yet).
+ It will install the <a href="../../../../org/omnifaces/cdi/push/SocketEndpoint.html" title="class in org.omnifaces.cdi.push"><code>SocketEndpoint</code></a>. Lazy initialization of the endpoint is unfortunately not possible across
+ all containers (yet).
  See also <a href="https://java.net/jira/browse/WEBSOCKET_SPEC-211">WS spec issue 211</a>.
 
 
@@ -277,37 +277,59 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
  anyone having a push socket open on the same channel will receive the same push message. This is OK for global push
  messages, but this may not be OK for push messages with sensitive information restricted to specific user(s).
  <p>
- To send a push message to a specific user session, append the session ID to channel ID.
+ To send a push message to a specific user session, append the session ID to channel ID, preferably separated by a
+ forward slash (so you could configure security constraints on it, see later).
  <pre>
- &lt;o:socket channel="foo_#{session.id}" ... /&gt;
+ &lt;o:socket channel="foo/#{session.id}" ... /&gt;
  </pre>
  <pre>
  public void sendMessage(Object message) {
-     pushContext.send("foo_" + Faces.getSessionId(), message);
+     pushContext.send("foo/" + Faces.getSessionId(), message);
  }
  </pre>
+ <p>
+ Although in a decent server the session ID is usually URL safe, caution must be taken that it is indeed really the
+ case, otherwise you need to URL-encode the session ID part, or substitute with an UUID which is stored in session.
  <p>
  If you intend to send only to a specific page within the specific user session, make sure that the channel name
  prefix is specific to the particular page.
  <pre>
- &lt;o:socket channel="pagename_#{session.id}" ... /&gt;
+ &lt;o:socket channel="pagename/#{session.id}" ... /&gt;
  </pre>
  <pre>
  public void sendMessage(Object message) {
-     pushContext.send("pagename_" + Faces.getSessionId(), message);
+     pushContext.send("pagename/" + Faces.getSessionId(), message);
  }
  </pre>
  <p>
  Noted should be that the channel name may only contain alphanumeric characters, hyphens, underscores and periods.
+
+
+ <h3>Security considerations</h3>
  <p>
- Whatever you do, make sure that the user-restricted channel name has an unguessable value, such as the session ID.
- Otherwise people can easily manually open a web socket listening on a guessed channel name. For example, in case you
- intend to push a message to users of only a specific role, then encrypt that role name or map it to an UUID and use
- it in place of the session ID in above examples.
+ Whatever you do, make sure that the user-restricted channel name has an unguessable value, such as the session ID
+ suffix in above examples and thus definitely not e.g. the user name. Otherwise people can easily manually open a web
+ socket listening on a guessed channel name. For example, in case you intend to push a message to users of only a
+ specific role, then encrypt that role name or map it to an UUID and use it in place of the session ID in above
+ examples.
  <p>
- As extra security, the <code>&lt;o:socket&gt;</code> will remember all so far opened channels in the current HTTP
- session and the aforementioned <a href="../../../../org/omnifaces/cdi/push/SocketChannelFilter.html" title="class in org.omnifaces.cdi.push"><code>SocketChannelFilter</code></a> will check all incoming web socket handshake requests
- whether they match the so far opened channels in the current HTTP session, and otherwise send a HTTP 400 error back.
+ If the socket is declared in a page which is only restricted to logged-in users with a specific role, then you may
+ need to add the URL of the push handshake request URL to the set of restricted URLs. The push handshake request URL
+ is composed of the URI prefix <code>/omnifaces.push/</code>, followed by channel name. So, in case of for example
+ container managed security, you could restrict push handshake requests of <code>&lt;o:socket channel="foo"&gt;</code>
+ to users with role <code>USER</code> in <code>web.xml</code> like below, irrespective of any channel name suffix
+ separated by a forward slash such as the session ID in above examples.
+ <pre>
+ &lt;security-constraint&gt;
+     &lt;web-resource-collection&gt;
+         &lt;web-resource-name&gt;Push channel foo.&lt;/web-resource-name&gt;
+         &lt;url-pattern&gt;/omnifaces.push/foo/*&lt;/url-pattern&gt;
+     &lt;/web-resource-collection&gt;
+     &lt;auth-constraint&gt;
+         &lt;role-name&gt;USER&lt;/role-name&gt;
+     &lt;/auth-constraint&gt;
+ &lt;/security-constraint&gt;
+ </pre>
 
 
  <h3>EJB design hints</h3>
@@ -428,7 +450,6 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
 <dd>Bauke Scholtz</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../../org/omnifaces/cdi/push/SocketEndpoint.html" title="class in org.omnifaces.cdi.push"><code>SocketEndpoint</code></a>, 
-<a href="../../../../org/omnifaces/cdi/push/SocketChannelFilter.html" title="class in org.omnifaces.cdi.push"><code>SocketChannelFilter</code></a>, 
 <a href="../../../../org/omnifaces/cdi/push/SocketEventListener.html" title="class in org.omnifaces.cdi.push"><code>SocketEventListener</code></a>, 
 <a href="../../../../org/omnifaces/cdi/push/SocketPushContext.html" title="class in org.omnifaces.cdi.push"><code>SocketPushContext</code></a>, 
 <a href="../../../../org/omnifaces/cdi/PushContext.html" title="interface in org.omnifaces.cdi"><code>PushContext</code></a></dd>
@@ -508,8 +529,8 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/cdi/push/Socket.html#registerEndpointAndFilterIfNecessary-javax.servlet.ServletContext-">registerEndpointAndFilterIfNecessary</a></span>(<a href="https://docs.oracle.com/javaee/7/api/javax/servlet/ServletContext.html?is-external=true" title="class or interface in javax.servlet">ServletContext</a>&nbsp;context)</code>
-<div class="block">Register web socket endpoint and channel filter if necessary, i.e.</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/cdi/push/Socket.html#registerEndpointIfNecessary-javax.servlet.ServletContext-">registerEndpointIfNecessary</a></span>(<a href="https://docs.oracle.com/javaee/7/api/javax/servlet/ServletContext.html?is-external=true" title="class or interface in javax.servlet">ServletContext</a>&nbsp;context)</code>
+<div class="block">Register web socket endpoint if necessary, i.e.</div>
 </td>
 </tr>
 </table>
@@ -605,15 +626,14 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
 </dl>
 </li>
 </ul>
-<a name="registerEndpointAndFilterIfNecessary-javax.servlet.ServletContext-">
+<a name="registerEndpointIfNecessary-javax.servlet.ServletContext-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>registerEndpointAndFilterIfNecessary</h4>
-<pre>public static&nbsp;void&nbsp;registerEndpointAndFilterIfNecessary(<a href="https://docs.oracle.com/javaee/7/api/javax/servlet/ServletContext.html?is-external=true" title="class or interface in javax.servlet">ServletContext</a>&nbsp;context)</pre>
-<div class="block">Register web socket endpoint and channel filter if necessary, i.e. when it's enabled via context param and not
- already installed.</div>
+<h4>registerEndpointIfNecessary</h4>
+<pre>public static&nbsp;void&nbsp;registerEndpointIfNecessary(<a href="https://docs.oracle.com/javaee/7/api/javax/servlet/ServletContext.html?is-external=true" title="class or interface in javax.servlet">ServletContext</a>&nbsp;context)</pre>
+<div class="block">Register web socket endpoint if necessary, i.e. when it's enabled via context param and not already installed.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>context</code> - The involved servlet context.</dd>
@@ -649,7 +669,7 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
 <div class="subNav">
 <ul class="navList">
 <li>Prev&nbsp;Class</li>
-<li><a href="../../../../org/omnifaces/cdi/push/SocketChannelFilter.html" title="class in org.omnifaces.cdi.push"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../org/omnifaces/cdi/push/SocketEndpoint.html" title="class in org.omnifaces.cdi.push"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?org/omnifaces/cdi/push/Socket.html" target="_top">Frames</a></li>
@@ -689,6 +709,6 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
 <!--   -->
 </a></div>
 <!-- ======== END OF BOTTOM NAVBAR ======= -->
-<p class="legalCopy"><small>Copyright &#169; 2012&#x2013;2015 <a href="http://omnifaces.org">OmniFaces</a>. All rights reserved.</small></p>
+<p class="legalCopy"><small>Copyright &#169; 2012&#x2013;2016 <a href="http://omnifaces.org">OmniFaces</a>. All rights reserved.</small></p>
 </body>
 </html>
