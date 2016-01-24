@@ -18,7 +18,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":9,"i13":9};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":9,"i13":9,"i14":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -249,6 +249,12 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </td>
 </tr>
 <tr id="i13" class="rowColor">
+<td class="colFirst"><code>static &lt;S extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/annotation/Annotation.html?is-external=true" title="class or interface in java.lang.annotation">Annotation</a>&gt;<br>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Beans.html#isActive-java.lang.Class-">isActive</a></span>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;S&gt;&nbsp;scope)</code>
+<div class="block">Returns <code>true</code> when the given CDI managed bean scope is active.</div>
+</td>
+</tr>
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;<a href="https://docs.oracle.com/javaee/7/api/javax/enterprise/inject/spi/Bean.html?is-external=true" title="class or interface in javax.enterprise.inject.spi">Bean</a>&lt;T&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Beans.html#resolve-java.lang.Class-">resolve</a></span>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;T&gt;&nbsp;beanClass)</code>
 <div class="block">Returns the CDI managed bean representation of the given bean class.</div>
@@ -310,7 +316,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The CDI managed bean representation of the given bean class, or <code>null</code> if there is none.</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="https://docs.oracle.com/javaee/7/api/javax/enterprise/inject/spi/BeanManager.html?is-external=true#getBeans-java.lang.String-" title="class or interface in javax.enterprise.inject.spi"><code>BeanManager.getBeans(String)</code></a>, 
+<dd><a href="https://docs.oracle.com/javaee/7/api/javax/enterprise/inject/spi/BeanManager.html?is-external=true#getBeans-java.lang.reflect.Type-java.lang.annotation.Annotation...-" title="class or interface in javax.enterprise.inject.spi"><code>BeanManager.getBeans(java.lang.reflect.Type, Annotation...)</code></a>, 
 <a href="https://docs.oracle.com/javaee/7/api/javax/enterprise/inject/spi/BeanManager.html?is-external=true#resolve-java.util.Set-" title="class or interface in javax.enterprise.inject.spi"><code>BeanManager.resolve(java.util.Set)</code></a></dd>
 </dl>
 </li>
@@ -438,6 +444,30 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </dl>
 </li>
 </ul>
+<a name="isActive-java.lang.Class-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isActive</h4>
+<pre>public static&nbsp;&lt;S extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/annotation/Annotation.html?is-external=true" title="class or interface in java.lang.annotation">Annotation</a>&gt;&nbsp;boolean&nbsp;isActive(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;S&gt;&nbsp;scope)</pre>
+<div class="block">Returns <code>true</code> when the given CDI managed bean scope is active. I.e., all beans therein can be
+ accessed without facing <a href="https://docs.oracle.com/javaee/7/api/javax/enterprise/context/ContextNotActiveException.html?is-external=true" title="class or interface in javax.enterprise.context"><code>ContextNotActiveException</code></a>.</div>
+<dl>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>S</code> - The generic CDI managed bean scope type.</dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>scope</code> - The CDI managed bean scope, e.g. <code>SessionScoped.class</code>.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd><code>true</code> when the given CDI managed bean scope is active.</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>2.3</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="https://docs.oracle.com/javaee/7/api/javax/enterprise/inject/spi/BeanManager.html?is-external=true#getContext-java.lang.Class-" title="class or interface in javax.enterprise.inject.spi"><code>BeanManager.getContext(Class)</code></a>, 
+<a href="https://docs.oracle.com/javaee/7/api/javax/enterprise/context/spi/Context.html?is-external=true#isActive--" title="class or interface in javax.enterprise.context.spi"><code>Context.isActive()</code></a></dd>
+</dl>
+</li>
+</ul>
 <a name="getActiveInstances-java.lang.Class-">
 <!--   -->
 </a>
@@ -457,7 +487,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <dt><span class="simpleTagLabel">Since:</span></dt>
 <dd>1.7</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="https://docs.oracle.com/javaee/7/api/javax/enterprise/inject/spi/BeanManager.html?is-external=true#getBeans-java.lang.String-" title="class or interface in javax.enterprise.inject.spi"><code>BeanManager.getBeans(String)</code></a>, 
+<dd><a href="https://docs.oracle.com/javaee/7/api/javax/enterprise/inject/spi/BeanManager.html?is-external=true#getBeans-java.lang.reflect.Type-java.lang.annotation.Annotation...-" title="class or interface in javax.enterprise.inject.spi"><code>BeanManager.getBeans(java.lang.reflect.Type, Annotation...)</code></a>, 
 <a href="https://docs.oracle.com/javaee/7/api/javax/enterprise/inject/spi/BeanManager.html?is-external=true#getContext-java.lang.Class-" title="class or interface in javax.enterprise.inject.spi"><code>BeanManager.getContext(Class)</code></a>, 
 <a href="https://docs.oracle.com/javaee/7/api/javax/enterprise/context/spi/Context.html?is-external=true#get-javax.enterprise.context.spi.Contextual-" title="class or interface in javax.enterprise.context.spi"><code>Context.get(javax.enterprise.context.spi.Contextual)</code></a></dd>
 </dl>

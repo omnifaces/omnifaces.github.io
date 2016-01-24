@@ -160,14 +160,16 @@
 <dd>
 <div class="block">Collection of utility methods for working with <a href="https://docs.oracle.com/javaee/7/api/javax/faces/model/SelectItem.html?is-external=true" title="class or interface in javax.faces.model"><code>SelectItem</code></a> or data represented by them.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="../org/omnifaces/cdi/push/SocketPushContext.html#send-java.lang.String-java.lang.Object-">send(String, Object)</a></span> - Method in class org.omnifaces.cdi.push.<a href="../org/omnifaces/cdi/push/SocketPushContext.html" title="class in org.omnifaces.cdi.push">SocketPushContext</a></dt>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/cdi/push/SocketManager.html#send-java.lang.String-java.lang.Object-">send(String, Object)</a></span> - Method in class org.omnifaces.cdi.push.<a href="../org/omnifaces/cdi/push/SocketManager.html" title="class in org.omnifaces.cdi.push">SocketManager</a></dt>
 <dd>
-<div class="block">Encode the given message object as JSON and send it to all open web socket sessions associated with the given
- channel name.</div>
+<div class="block">Encode the given message object as JSON and send it to all open web socket sessions associated with given web
+ socket channel identifier.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="../org/omnifaces/cdi/PushContext.html#send-java.lang.String-java.lang.Object-">send(String, Object)</a></span> - Method in interface org.omnifaces.cdi.<a href="../org/omnifaces/cdi/PushContext.html" title="interface in org.omnifaces.cdi">PushContext</a></dt>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/cdi/push/SocketPushContext.html#send-java.lang.Object-">send(Object)</a></span> - Method in class org.omnifaces.cdi.push.<a href="../org/omnifaces/cdi/push/SocketPushContext.html" title="class in org.omnifaces.cdi.push">SocketPushContext</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/cdi/PushContext.html#send-java.lang.Object-">send(Object)</a></span> - Method in interface org.omnifaces.cdi.<a href="../org/omnifaces/cdi/PushContext.html" title="interface in org.omnifaces.cdi">PushContext</a></dt>
 <dd>
-<div class="block">Send given message object to given push socket channel.</div>
+<div class="block">Send given message object to the push socket channel as identified by <a href="../org/omnifaces/cdi/Push.html" title="annotation in org.omnifaces.cdi"><code>Push</code></a>.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/util/Faces.html#sendFile-java.io.File-boolean-">sendFile(File, boolean)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Faces.html" title="class in org.omnifaces.util">Faces</a></dt>
 <dd>
@@ -668,15 +670,33 @@
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/cdi/push/SocketEventListener.html#SocketEventListener-java.lang.Integer-java.lang.String-java.lang.String-javax.el.ValueExpression-">SocketEventListener(Integer, String, String, ValueExpression)</a></span> - Constructor for class org.omnifaces.cdi.push.<a href="../org/omnifaces/cdi/push/SocketEventListener.html" title="class in org.omnifaces.cdi.push">SocketEventListener</a></dt>
 <dd>
-<div class="block">Construct an instance of socket event listener based on the given channel name, functions and connected
- expression.</div>
+<div class="block">Construct an instance of socket event listener based on the given channel, functions and connected expression.</div>
 </dd>
+<dt><a href="../org/omnifaces/cdi/push/SocketManager.html" title="class in org.omnifaces.cdi.push"><span class="typeNameLink">SocketManager</span></a> - Class in <a href="../org/omnifaces/cdi/push/package-summary.html">org.omnifaces.cdi.push</a></dt>
+<dd>
+<div class="block">
+ The web socket manager.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/cdi/push/SocketManager.html#SocketManager--">SocketManager()</a></span> - Constructor for class org.omnifaces.cdi.push.<a href="../org/omnifaces/cdi/push/SocketManager.html" title="class in org.omnifaces.cdi.push">SocketManager</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="../org/omnifaces/cdi/push/SocketPushContext.html" title="class in org.omnifaces.cdi.push"><span class="typeNameLink">SocketPushContext</span></a> - Class in <a href="../org/omnifaces/cdi/push/package-summary.html">org.omnifaces.cdi.push</a></dt>
 <dd>
 <div class="block">
- Concrete implementation of <a href="../org/omnifaces/cdi/PushContext.html" title="interface in org.omnifaces.cdi"><code>PushContext</code></a> which is used by <a href="../org/omnifaces/cdi/push/SocketEndpoint.html" title="class in org.omnifaces.cdi.push"><code>SocketEndpoint</code></a>.</div>
+ Concrete implementation of <a href="../org/omnifaces/cdi/PushContext.html" title="interface in org.omnifaces.cdi"><code>PushContext</code></a> which is to be injected by <a href="../org/omnifaces/cdi/Push.html" title="annotation in org.omnifaces.cdi"><code>Push</code></a>.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="../org/omnifaces/cdi/push/SocketPushContext.html#SocketPushContext--">SocketPushContext()</a></span> - Constructor for class org.omnifaces.cdi.push.<a href="../org/omnifaces/cdi/push/SocketPushContext.html" title="class in org.omnifaces.cdi.push">SocketPushContext</a></dt>
+<dt><a href="../org/omnifaces/cdi/push/SocketPushContextProducer.html" title="class in org.omnifaces.cdi.push"><span class="typeNameLink">SocketPushContextProducer</span></a> - Class in <a href="../org/omnifaces/cdi/push/package-summary.html">org.omnifaces.cdi.push</a></dt>
+<dd>
+<div class="block">
+ Producer for injecting a <a href="../org/omnifaces/cdi/PushContext.html" title="interface in org.omnifaces.cdi"><code>PushContext</code></a> as defined by the <a href="../org/omnifaces/cdi/Push.html" title="annotation in org.omnifaces.cdi"><code>Push</code></a> annotation.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/cdi/push/SocketPushContextProducer.html#SocketPushContextProducer--">SocketPushContextProducer()</a></span> - Constructor for class org.omnifaces.cdi.push.<a href="../org/omnifaces/cdi/push/SocketPushContextProducer.html" title="class in org.omnifaces.cdi.push">SocketPushContextProducer</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="../org/omnifaces/cdi/push/SocketScope.html" title="class in org.omnifaces.cdi.push"><span class="typeNameLink">SocketScope</span></a> - Class in <a href="../org/omnifaces/cdi/push/package-summary.html">org.omnifaces.cdi.push</a></dt>
+<dd>
+<div class="block">
+ The web socket scope of <code>&lt;o:socket&gt;</code>.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/cdi/push/SocketScope.html#SocketScope--">SocketScope()</a></span> - Constructor for class org.omnifaces.cdi.push.<a href="../org/omnifaces/cdi/push/SocketScope.html" title="class in org.omnifaces.cdi.push">SocketScope</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="../org/omnifaces/model/tree/SortedTreeModel.html" title="class in org.omnifaces.model.tree"><span class="typeNameLink">SortedTreeModel</span></a>&lt;<a href="../org/omnifaces/model/tree/SortedTreeModel.html" title="type parameter in SortedTreeModel">T</a>&gt; - Class in <a href="../org/omnifaces/model/tree/package-summary.html">org.omnifaces.model.tree</a></dt>
 <dd>

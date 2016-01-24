@@ -143,11 +143,12 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
  <h3>Usage (client)</h3>
  <p>
  Declare <code>&lt;o:socket&gt;</code> in the view with at least a <code>channel</code> name and an
- <code>onmessage</code> JavaScript listener function.
+ <code>onmessage</code> JavaScript listener function. The channel name may only contain alphanumeric characters,
+ hyphens, underscores and periods.
  <p>
  Here's an example which refers an existing JS listener function.
  <pre>
- &lt;o:socket channel="global" onmessage="socketListener" /&gt;
+ &lt;o:socket channel="someChannel" onmessage="socketListener" /&gt;
  </pre>
  <pre>
  function socketListener(message, channel, event) {
@@ -157,7 +158,7 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
  <p>
  Here's an example which declares an inline JS listener function.
  <pre>
- &lt;o:socket channel="global" onmessage="function(message) { console.log(message); }" /&gt;
+ &lt;o:socket channel="someChannel" onmessage="function(message) { console.log(message); }" /&gt;
  </pre>
  <p>
  The <code>onmessage</code> JS listener function will be invoked with three arguments:
@@ -194,6 +195,12 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
  <li><code>event</code>: the raw <a href="https://developer.mozilla.org/en-US/docs/Web/API/CloseEvent"><code>
  CloseEvent</code></a> instance, useful in case you intend to inspect it.</li>
  </ul>
+ <p>By default the web socket is application scoped, i.e. any view/session having the same web socket channel open
+ will receive the same push message. The optional <code>scope</code> attribute can be set to <code>session</code> to
+ restrict the push messages to all views in the current user session only.
+ <pre>
+ &lt;o:socket channel="someChannel" scope="session" ... /&gt;
+ </pre>
  <p>
  In case your server is configured to run WS container on a different TCP port than the HTTP container, then you can
  use the <code>port</code> attribute to explicitly specify the port.
@@ -204,16 +211,25 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
 
  <h3>Usage (server)</h3>
  <p>
- In the WAR side (not in EAR/EJB side!), you can inject <a href="../../../../org/omnifaces/cdi/PushContext.html" title="interface in org.omnifaces.cdi"><code>PushContext</code></a> in any CDI/container managed artifact
- such as <code>@Named</code>, <code>@WebServlet</code>, etc wherever you'd like to send a push message and then invoke
- <a href="../../../../org/omnifaces/cdi/PushContext.html#send-java.lang.String-java.lang.Object-"><code>PushContext.send(String, Object)</code></a> with the channel name and any Java object representing the push message.
+ In the WAR side (not in EAR/EJB side!), you can inject <a href="../../../../org/omnifaces/cdi/PushContext.html" title="interface in org.omnifaces.cdi"><code>PushContext</code></a> via <a href="../../../../org/omnifaces/cdi/Push.html" title="annotation in org.omnifaces.cdi"><code>Push</code></a> on the given channel name
+ in any CDI/container managed artifact such as <code>@Named</code>, <code>@WebServlet</code>, etc wherever you'd like
+ to send a push message and then invoke <a href="../../../../org/omnifaces/cdi/PushContext.html#send-java.lang.Object-"><code>PushContext.send(Object)</code></a> and any Java object representing the push
+ message.
  <pre>
- &#64;Inject
- private PushContext pushContext;
+ &#64;Inject &#64;Push
+ private PushContext someChannel;
 
  public void sendMessage(Object message) {
-     pushContext.send("global", message);
+     someChannel.send(message);
  }
+ </pre>
+ <p>
+ By default the name of the channel is taken from the name of the variable into which injection takes place. The
+ channel name can be optionally specified via the <code>channel</code> attribute. The example below injects the push
+ context for channel name <code>foo</code> into a variable named <code>bar</code>.
+ <pre>
+ &#64;Inject &#64;Push(channel="foo")
+ private PushContext bar;
  </pre>
  <p>
  The message object will be encoded as JSON and be delivered as <code>message</code> argument of the
@@ -271,59 +287,18 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
  manually invoking <code>OmniFaces.Push</code> functions. Mixing them may end up in undefined behavior.
 
 
- <h3>Channel name design hints</h3>
- <p>
- With the channel name you can less or more specify the desired push scope. With a static channel name, basically
- anyone having a push socket open on the same channel will receive the same push message. This is OK for global push
- messages, but this may not be OK for push messages with sensitive information restricted to specific user(s).
- <p>
- To send a push message to a specific user session, append the session ID to channel ID, preferably separated by a
- forward slash (so you could configure security constraints on it, see later).
- <pre>
- &lt;o:socket channel="foo/#{session.id}" ... /&gt;
- </pre>
- <pre>
- public void sendMessage(Object message) {
-     pushContext.send("foo/" + Faces.getSessionId(), message);
- }
- </pre>
- <p>
- Although in a decent server the session ID is usually URL safe, caution must be taken that it is indeed really the
- case, otherwise you need to URL-encode the session ID part, or substitute with an UUID which is stored in session.
- <p>
- If you intend to send only to a specific page within the specific user session, make sure that the channel name
- prefix is specific to the particular page.
- <pre>
- &lt;o:socket channel="pagename/#{session.id}" ... /&gt;
- </pre>
- <pre>
- public void sendMessage(Object message) {
-     pushContext.send("pagename/" + Faces.getSessionId(), message);
- }
- </pre>
- <p>
- Noted should be that the channel name may only contain alphanumeric characters, hyphens, underscores and periods.
-
-
  <h3>Security considerations</h3>
- <p>
- Whatever you do, make sure that the user-restricted channel name has an unguessable value, such as the session ID
- suffix in above examples and thus definitely not e.g. the user name. Otherwise people can easily manually open a web
- socket listening on a guessed channel name. For example, in case you intend to push a message to users of only a
- specific role, then encrypt that role name or map it to an UUID and use it in place of the session ID in above
- examples.
  <p>
  If the socket is declared in a page which is only restricted to logged-in users with a specific role, then you may
  need to add the URL of the push handshake request URL to the set of restricted URLs. The push handshake request URL
  is composed of the URI prefix <code>/omnifaces.push/</code>, followed by channel name. So, in case of for example
  container managed security, you could restrict push handshake requests of <code>&lt;o:socket channel="foo"&gt;</code>
- to users with role <code>USER</code> in <code>web.xml</code> like below, irrespective of any channel name suffix
- separated by a forward slash such as the session ID in above examples.
+ to users with role <code>USER</code> in <code>web.xml</code> like below.
  <pre>
  &lt;security-constraint&gt;
      &lt;web-resource-collection&gt;
          &lt;web-resource-name&gt;Push channel foo.&lt;/web-resource-name&gt;
-         &lt;url-pattern&gt;/omnifaces.push/foo/*&lt;/url-pattern&gt;
+         &lt;url-pattern&gt;/omnifaces.push/foo&lt;/url-pattern&gt;
      &lt;/web-resource-collection&gt;
      &lt;auth-constraint&gt;
          &lt;role-name&gt;USER&lt;/role-name&gt;
@@ -334,9 +309,9 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
 
  <h3>EJB design hints</h3>
  <p>
- In case you'd like to trigger a push from EAR/EJB side, you could make use of CDI events. First create a custom bean
- class representing the push event something like <code>PushEvent</code> taking whatever you'd like to pass as push
- message.
+ In case you'd like to trigger a push from EAR/EJB side to an application scoped push socket, you could make use of
+ CDI events. First create a custom bean class representing the push event something like <code>PushEvent</code> taking
+ whatever you'd like to pass as push message.
  <pre>
  public class PushEvent {
 
@@ -352,7 +327,8 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
  }
  </pre>
  <p>
- Then use <a href="https://docs.oracle.com/javaee/7/api/javax/enterprise/inject/spi/BeanManager.html?is-external=true#fireEvent-java.lang.Object-java.lang.annotation.Annotation...-" title="class or interface in javax.enterprise.inject.spi"><code>BeanManager.fireEvent(Object, java.lang.annotation.Annotation...)</code></a> to fire the CDI event.
+ Then use <a href="https://docs.oracle.com/javaee/7/api/javax/enterprise/inject/spi/BeanManager.html?is-external=true#fireEvent-java.lang.Object-java.lang.annotation.Annotation...-" title="class or interface in javax.enterprise.inject.spi"><code>BeanManager.fireEvent(Object, java.lang.annotation.Annotation...)</code></a> to
+ fire the CDI event.
  <pre>
  &#64;Inject
  private BeanManager beanManager;
@@ -365,18 +341,19 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
  Finally just <a href="https://docs.oracle.com/javaee/7/api/javax/enterprise/event/Observes.html?is-external=true" title="class or interface in javax.enterprise.event"><code>Observes</code></a> it in some request or application scoped CDI managed bean in WAR and delegate to
  <a href="../../../../org/omnifaces/cdi/PushContext.html" title="interface in org.omnifaces.cdi"><code>PushContext</code></a> as below.
  <pre>
- &#64;Inject
- private PushContext pushContext;
+ &#64;Inject &#64;Push
+ private PushContext someChannel;
 
  public void onPushEvent(@Observes PushEvent event) {
-     pushContext.send("someChannel", event.getMessage());
+     someChannel.send(event.getMessage());
  }
  </pre>
  <p>
  Note that a request scoped bean wouldn't be the same one as from the originating page for the simple reason that
  there's no means of a HTTP request anywhere at that moment. For exactly this reason a view and session scoped bean
  would not work at all (as they require respectively the JSF view state and HTTP session which can only be identified
- by a HTTP request). Also, the <a href="https://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context"><code>FacesContext</code></a> will be unavailable in the method.
+ by a HTTP request), and a session scoped push socket also not (so the push socket really needs to be application
+ scoped). Also, the <a href="https://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context"><code>FacesContext</code></a> will be unavailable in the method.
  <p>
  The alternative would be to make use of callbacks. Let the business service method take a callback instance as
  argument, e.g <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang"><code>Runnable</code></a>.
@@ -394,25 +371,27 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
  &#64;Inject
  private SomeService someService;
 
- &#64;Inject
- private PushContext pushContext;
+ &#64;Inject &#64;Push
+ private PushContext someChannel;
 
  public void submit() {
      someService.someAsyncServiceMethod(entity, new Runnable() {
          public void run() {
-             pushContext.send("someChannel", entity.getSomeProperty());
+             someChannel.send(entity.getSomeProperty());
          }
      });
  }
  </pre>
  <p>
- This would be the only way in case you intend to pass something from <a href="https://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context"><code>FacesContext</code></a> or the initial
- request/view/session scope along as (<code>final</code>) argument.
+ This would be the only way in case you intend to asynchronously send a message to a session scoped push socket,
+ and/or want to pass something from <a href="https://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context"><code>FacesContext</code></a> or the initial request/view/session scope along as
+ (<code>final</code>) argument.
  <p>
  Note that OmniFaces own <a href="../../../../org/omnifaces/util/Callback.html" title="class in org.omnifaces.util"><code>Callback</code></a> interfaces are insuitable as you're not supposed to use WAR (front end)
  frameworks and libraries like JSF and OmniFaces in EAR/EJB (back end) side.
  <p>
- In case you're already on Java 8, of course make use of the <code>Consumer</code> functional interface.
+ In case you're already on Java 8, of course make use of the <code>Consumer</code> functional interface instead of
+ the above <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang"><code>Runnable</code></a> example.
  <pre>
  &#64;Asynchronous
  public void someAsyncServiceMethod(Entity entity, Consumer&lt;Object&gt; callback) {
@@ -422,7 +401,7 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
  </pre>
  <pre>
  public void submit() {
-     someService.someAsyncServiceMethod(entity, message -&gt; pushContext.send("someChannel", message);
+     someService.someAsyncServiceMethod(entity, message -&gt; someChannel.send(message);
  }
  </pre>
 
@@ -450,9 +429,13 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
 <dd>Bauke Scholtz</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../../org/omnifaces/cdi/push/SocketEndpoint.html" title="class in org.omnifaces.cdi.push"><code>SocketEndpoint</code></a>, 
+<a href="../../../../org/omnifaces/cdi/push/SocketScope.html" title="class in org.omnifaces.cdi.push"><code>SocketScope</code></a>, 
 <a href="../../../../org/omnifaces/cdi/push/SocketEventListener.html" title="class in org.omnifaces.cdi.push"><code>SocketEventListener</code></a>, 
+<a href="../../../../org/omnifaces/cdi/push/SocketManager.html" title="class in org.omnifaces.cdi.push"><code>SocketManager</code></a>, 
+<a href="../../../../org/omnifaces/cdi/Push.html" title="annotation in org.omnifaces.cdi"><code>Push</code></a>, 
+<a href="../../../../org/omnifaces/cdi/PushContext.html" title="interface in org.omnifaces.cdi"><code>PushContext</code></a>, 
 <a href="../../../../org/omnifaces/cdi/push/SocketPushContext.html" title="class in org.omnifaces.cdi.push"><code>SocketPushContext</code></a>, 
-<a href="../../../../org/omnifaces/cdi/PushContext.html" title="interface in org.omnifaces.cdi"><code>PushContext</code></a></dd>
+<a href="../../../../org/omnifaces/cdi/push/SocketPushContextProducer.html" title="class in org.omnifaces.cdi.push"><code>SocketPushContextProducer</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -523,8 +506,8 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/cdi/push/Socket.html#apply-javax.faces.view.facelets.FaceletContext-javax.faces.component.UIComponent-">apply</a></span>(<a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/FaceletContext.html?is-external=true" title="class or interface in javax.faces.view.facelets">FaceletContext</a>&nbsp;context,
      <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;parent)</code>
-<div class="block">First check if the web socket endpoint is enabled in <code>web.xml</code> and the channel name is valid, then
- subcribe the <a href="../../../../org/omnifaces/cdi/push/SocketEventListener.html" title="class in org.omnifaces.cdi.push"><code>SocketEventListener</code></a>.</div>
+<div class="block">First check if the web socket endpoint is enabled in <code>web.xml</code> and the channel name and scope is
+ valid, then subcribe the <a href="../../../../org/omnifaces/cdi/push/SocketEventListener.html" title="class in org.omnifaces.cdi.push"><code>SocketEventListener</code></a>.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
@@ -615,13 +598,15 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
 <pre>public&nbsp;void&nbsp;apply(<a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/FaceletContext.html?is-external=true" title="class or interface in javax.faces.view.facelets">FaceletContext</a>&nbsp;context,
                   <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;parent)
            throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
-<div class="block">First check if the web socket endpoint is enabled in <code>web.xml</code> and the channel name is valid, then
- subcribe the <a href="../../../../org/omnifaces/cdi/push/SocketEventListener.html" title="class in org.omnifaces.cdi.push"><code>SocketEventListener</code></a>.</div>
+<div class="block">First check if the web socket endpoint is enabled in <code>web.xml</code> and the channel name and scope is
+ valid, then subcribe the <a href="../../../../org/omnifaces/cdi/push/SocketEventListener.html" title="class in org.omnifaces.cdi.push"><code>SocketEventListener</code></a>.</div>
 <dl>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang">IllegalStateException</a></code> - When the web socket endpoint is not enabled in <code>web.xml</code>.</dd>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></code> - When the channel name is invalid.
- It may only contain alphanumeric characters, hyphens, underscores and periods.</dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></code> - When the channel name or scope is invalid.
+ The channel name may only contain alphanumeric characters, hyphens, underscores and periods.
+ The channel scope allowed values are <code>application</code> and <code>session</code>, case insensitive.
+ The channel name must be uniquely tied to the channel scope.</dd>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd>
 </dl>
 </li>
