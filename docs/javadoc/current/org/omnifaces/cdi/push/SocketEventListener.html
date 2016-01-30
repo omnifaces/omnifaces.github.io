@@ -145,8 +145,9 @@ implements <a href="https://docs.oracle.com/javaee/7/api/javax/faces/event/Syste
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/cdi/push/SocketEventListener.html#SocketEventListener-java.lang.Integer-java.lang.String-java.lang.String-javax.el.ValueExpression-">SocketEventListener</a></span>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</a>&nbsp;port,
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/cdi/push/SocketEventListener.html#SocketEventListener-java.lang.Integer-java.lang.String-java.lang.String-java.lang.String-javax.el.ValueExpression-">SocketEventListener</a></span>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</a>&nbsp;port,
                    <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;channel,
+                   <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;scope,
                    <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;functions,
                    <a href="https://docs.oracle.com/javaee/7/api/javax/el/ValueExpression.html?is-external=true" title="class or interface in javax.el">ValueExpression</a>&nbsp;connectedExpression)</code>
 <div class="block">Construct an instance of socket event listener based on the given channel, functions and connected expression.</div>
@@ -202,7 +203,7 @@ implements <a href="https://docs.oracle.com/javaee/7/api/javax/faces/event/Syste
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="SocketEventListener-java.lang.Integer-java.lang.String-java.lang.String-javax.el.ValueExpression-">
+<a name="SocketEventListener-java.lang.Integer-java.lang.String-java.lang.String-java.lang.String-javax.el.ValueExpression-">
 <!--   -->
 </a>
 <ul class="blockListLast">
@@ -210,13 +211,15 @@ implements <a href="https://docs.oracle.com/javaee/7/api/javax/faces/event/Syste
 <h4>SocketEventListener</h4>
 <pre>public&nbsp;SocketEventListener(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Integer.html?is-external=true" title="class or interface in java.lang">Integer</a>&nbsp;port,
                            <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;channel,
+                           <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;scope,
                            <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;functions,
                            <a href="https://docs.oracle.com/javaee/7/api/javax/el/ValueExpression.html?is-external=true" title="class or interface in javax.el">ValueExpression</a>&nbsp;connectedExpression)</pre>
 <div class="block">Construct an instance of socket event listener based on the given channel, functions and connected expression.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>port</code> - The port number.</dd>
-<dd><code>channel</code> - The channel identifier.</dd>
+<dd><code>channel</code> - The channel name.</dd>
+<dd><code>scope</code> - The scope identifier.</dd>
 <dd><code>functions</code> - The onmessage and onclose functions.</dd>
 <dd><code>connectedExpression</code> - The connected expression.</dd>
 </dl>
@@ -257,7 +260,7 @@ implements <a href="https://docs.oracle.com/javaee/7/api/javax/faces/event/Syste
  <code>init()</code> script, or if it has just switched the <code>connected</code> attribute, then render either
  the <code>open()</code> script or the <code>close()</code> script. During an ajax request with partial rendering,
  it's added as <code>&lt;eval&gt;</code> by partial response writer, else it's just added as a script component
- with <code>target="body"</code>.</div>
+ with <code>target="body"</code>. Those scripts will in turn hit <a href="../../../../org/omnifaces/cdi/push/SocketEndpoint.html" title="class in org.omnifaces.cdi.push"><code>SocketEndpoint</code></a>.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="https://docs.oracle.com/javaee/7/api/javax/faces/event/SystemEventListener.html?is-external=true#processEvent-javax.faces.event.SystemEvent-" title="class or interface in javax.faces.event">processEvent</a></code>&nbsp;in interface&nbsp;<code><a href="https://docs.oracle.com/javaee/7/api/javax/faces/event/SystemEventListener.html?is-external=true" title="class or interface in javax.faces.event">SystemEventListener</a></code></dd>

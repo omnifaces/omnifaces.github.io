@@ -183,9 +183,14 @@
 <dd>
 <div class="block">Send the given input stream as a file to the response.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/util/Faces.html#sendFile-java.lang.String-boolean-org.omnifaces.util.Callback.Output-">sendFile(String, boolean, Callback.Output)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Faces.html" title="class in org.omnifaces.util">Faces</a></dt>
+<dd>
+<div class="block">Send a file to the response whose content is provided via given output stream callback.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/util/FacesLocal.html#sendFile-javax.faces.context.FacesContext-java.io.File-boolean-">sendFile(FacesContext, File, boolean)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/FacesLocal.html" title="class in org.omnifaces.util">FacesLocal</a></dt>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/util/FacesLocal.html#sendFile-javax.faces.context.FacesContext-byte:A-java.lang.String-boolean-">sendFile(FacesContext, byte[], String, boolean)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/FacesLocal.html" title="class in org.omnifaces.util">FacesLocal</a></dt>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/util/FacesLocal.html#sendFile-javax.faces.context.FacesContext-java.io.InputStream-java.lang.String-boolean-">sendFile(FacesContext, InputStream, String, boolean)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/FacesLocal.html" title="class in org.omnifaces.util">FacesLocal</a></dt>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/util/FacesLocal.html#sendFile-javax.faces.context.FacesContext-java.lang.String-boolean-org.omnifaces.util.Callback.Output-">sendFile(FacesContext, String, boolean, Callback.Output)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/FacesLocal.html" title="class in org.omnifaces.util">FacesLocal</a></dt>
 <dt><a href="../org/omnifaces/util/copier/SerializationCopier.html" title="class in org.omnifaces.util.copier"><span class="typeNameLink">SerializationCopier</span></a> - Class in <a href="../org/omnifaces/util/copier/package-summary.html">org.omnifaces.util.copier</a></dt>
 <dd>
 <div class="block">Copier that copies an object by serializing and subsequently deserializing it again.</div>
@@ -645,11 +650,21 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/util/MapWrapper.html#size--">size()</a></span> - Method in class org.omnifaces.util.<a href="../org/omnifaces/util/MapWrapper.html" title="class in org.omnifaces.util">MapWrapper</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="../org/omnifaces/taghandler/SkipValidators.html" title="class in org.omnifaces.taghandler"><span class="typeNameLink">SkipValidators</span></a> - Class in <a href="../org/omnifaces/taghandler/package-summary.html">org.omnifaces.taghandler</a></dt>
+<dd>
+<div class="block">
+ The <code>&lt;o:skipValidators&gt;</code> taghandler allows the developer to entirely skip validation when
+ executing an <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UICommand.html?is-external=true" title="class or interface in javax.faces.component"><code>UICommand</code></a> or <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/behavior/ClientBehaviorHolder.html?is-external=true" title="class or interface in javax.faces.component.behavior"><code>ClientBehaviorHolder</code></a> action.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/taghandler/SkipValidators.html#SkipValidators-javax.faces.view.facelets.TagConfig-">SkipValidators(TagConfig)</a></span> - Constructor for class org.omnifaces.taghandler.<a href="../org/omnifaces/taghandler/SkipValidators.html" title="class in org.omnifaces.taghandler">SkipValidators</a></dt>
+<dd>
+<div class="block">The tag constructor.</div>
+</dd>
 <dt><a href="../org/omnifaces/cdi/push/Socket.html" title="class in org.omnifaces.cdi.push"><span class="typeNameLink">Socket</span></a> - Class in <a href="../org/omnifaces/cdi/push/package-summary.html">org.omnifaces.cdi.push</a></dt>
 <dd>
 <div class="block">
  Opens an one-way (server to client) web socket based push connection in client side which can be reached from
- server side via <a href="../org/omnifaces/cdi/PushContext.html" title="interface in org.omnifaces.cdi"><code>PushContext</code></a> interface injected in any CDI/container managed artifact.</div>
+ server side via <a href="../org/omnifaces/cdi/PushContext.html" title="interface in org.omnifaces.cdi"><code>PushContext</code></a> interface injected in any CDI/container managed artifact via <a href="../org/omnifaces/cdi/Push.html" title="annotation in org.omnifaces.cdi"><code>Push</code></a>.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/cdi/push/Socket.html#Socket-javax.faces.view.facelets.TagConfig-">Socket(TagConfig)</a></span> - Constructor for class org.omnifaces.cdi.push.<a href="../org/omnifaces/cdi/push/Socket.html" title="class in org.omnifaces.cdi.push">Socket</a></dt>
 <dd>
@@ -668,7 +683,7 @@
  This system event listener for <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIViewRoot.html?is-external=true" title="class or interface in javax.faces.component"><code>UIViewRoot</code></a> ensures that the necessary scripts for <code>&lt;o:socket&gt;</code>
  are properly rendered.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="../org/omnifaces/cdi/push/SocketEventListener.html#SocketEventListener-java.lang.Integer-java.lang.String-java.lang.String-javax.el.ValueExpression-">SocketEventListener(Integer, String, String, ValueExpression)</a></span> - Constructor for class org.omnifaces.cdi.push.<a href="../org/omnifaces/cdi/push/SocketEventListener.html" title="class in org.omnifaces.cdi.push">SocketEventListener</a></dt>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/cdi/push/SocketEventListener.html#SocketEventListener-java.lang.Integer-java.lang.String-java.lang.String-java.lang.String-javax.el.ValueExpression-">SocketEventListener(Integer, String, String, String, ValueExpression)</a></span> - Constructor for class org.omnifaces.cdi.push.<a href="../org/omnifaces/cdi/push/SocketEventListener.html" title="class in org.omnifaces.cdi.push">SocketEventListener</a></dt>
 <dd>
 <div class="block">Construct an instance of socket event listener based on the given channel, functions and connected expression.</div>
 </dd>

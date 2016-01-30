@@ -877,6 +877,18 @@ public enum Baz {
 		</td>
 </tr>
 <tr class="rowColor">
+<td class="colOne"><b><a href="skipValidators.html">skipValidators</a></b></td><td class="colLast">
+			
+				The <code>&lt;o:skipValidators&gt;</code> allows the developer to skip validators when
+				executing a submit. This taghandler must be placed inside the component that invokes the submit, may be an 
+                <code>UICommand</code> (both ajaxified or not) as well as any <code>ClientBehaviorHolder</code> (ajax enabled) component.
+				<p>
+				Validation will happen, but no validator will be executed since they will be temporary detached from processed components. 
+                Conversion errors could still occur. Note that the model values will be updated for all processed components.
+			
+		</td>
+</tr>
+<tr class="altColor">
 <td class="colOne"><b><a href="enableRestorableView.html">enableRestorableView</a></b></td><td class="colLast">
 			
 				The <code>&lt;o:enableRestorableView&gt;</code> instructs the view handler to recreate the entire view whenever the
@@ -889,7 +901,7 @@ public enum Baz {
 			
 		</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><b><a href="validateBean.html">validateBean</a></b></td><td class="colLast">
 			
 				The <code>&lt;o:validateBean&gt;</code> allows the developer to control bean validation groups on a
@@ -902,7 +914,7 @@ public enum Baz {
 			
 		</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><b><a href="validateUniqueColumn.html">validateUniqueColumn</a></b></td><td class="colLast">
 			
 				<strong>ValidateUniqueColumn</strong> validates if the given <code>UIInput</code> component in an <code>UIData</code> component
@@ -937,7 +949,7 @@ public enum Baz {
 			
 		</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><b><a href="massAttribute.html">massAttribute</a></b></td><td class="colLast">
 			
 				The <strong>&lt;o:massAttribute&gt;</strong> sets an attribute of the given name and value on all nested components,
@@ -987,7 +999,7 @@ public enum Baz {
 			
 		</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><b><a href="viewParamValidationFailed.html">viewParamValidationFailed</a></b></td><td class="colLast">
 			
 				<code>&lt;o:viewParamValidationFailed&gt;</code> allows the developer to handle a view parameter validation failure
@@ -1081,7 +1093,7 @@ public enum Baz {
 			
 		</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><b><a href="commandScript.html">commandScript</a></b></td><td class="colLast">
 			
 				<p><strong>CommandScript</strong> is an extension to <code>&lt;h:commandXxx&gt;</code> which generates a JavaScript
@@ -1131,7 +1143,7 @@ String name2 = Faces.getRequestParameter("name2"); // value2
 			
 		</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><b><a href="param.html">param</a></b></td><td class="colLast">
 			
 				<strong>Param</strong> is a component that extends the standard <code>UIParameter</code> to implement <code>ValueHolder</code>
@@ -1158,7 +1170,7 @@ String name2 = Faces.getRequestParameter("name2"); // value2
 			
 		</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colOne"><b><a href="messages.html">messages</a></b></td><td class="colLast">
 			
 				The <code>&lt;o:messages&gt;</code> is a component that extends the standard <code>&lt;h:messages&gt;</code> with
@@ -1247,7 +1259,7 @@ String name2 = Faces.getRequestParameter("name2"); // value2
 			
 		</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colOne"><b><a href="socket.html">socket</a></b></td><td class="colLast">
 			
 				Opens an one-way (server to client) web socket based push connection in client side which can be reached from

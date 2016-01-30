@@ -18,7 +18,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":9,"i13":9,"i14":9,"i15":9,"i16":9,"i17":9,"i18":9,"i19":9,"i20":9,"i21":9,"i22":9,"i23":9,"i24":9,"i25":9,"i26":9,"i27":9,"i28":9,"i29":9,"i30":9,"i31":9,"i32":9,"i33":9,"i34":9,"i35":9,"i36":9,"i37":9,"i38":9,"i39":9,"i40":9,"i41":9,"i42":9,"i43":9,"i44":9,"i45":9,"i46":9,"i47":9,"i48":9,"i49":9,"i50":9,"i51":9,"i52":9,"i53":9,"i54":9,"i55":9,"i56":9,"i57":9,"i58":9,"i59":9,"i60":9,"i61":9,"i62":9,"i63":9,"i64":9,"i65":9,"i66":9,"i67":9,"i68":9,"i69":9,"i70":9,"i71":9,"i72":9,"i73":9,"i74":9,"i75":9,"i76":9,"i77":9,"i78":9,"i79":9,"i80":9,"i81":9,"i82":9,"i83":9,"i84":9,"i85":9,"i86":9,"i87":9,"i88":9,"i89":9,"i90":9,"i91":9,"i92":9,"i93":9,"i94":9,"i95":9,"i96":9,"i97":9,"i98":9,"i99":9,"i100":9,"i101":9,"i102":9,"i103":9,"i104":9,"i105":9,"i106":9,"i107":9,"i108":9,"i109":9,"i110":9,"i111":9,"i112":9,"i113":9,"i114":9,"i115":9,"i116":9,"i117":9,"i118":9,"i119":9,"i120":9,"i121":9,"i122":9,"i123":9,"i124":9,"i125":9,"i126":9,"i127":9,"i128":9,"i129":9,"i130":9,"i131":9,"i132":9,"i133":9,"i134":9,"i135":9,"i136":9,"i137":9,"i138":9,"i139":9,"i140":9,"i141":9,"i142":9,"i143":9,"i144":9,"i145":9,"i146":9};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":9,"i13":9,"i14":9,"i15":9,"i16":9,"i17":9,"i18":9,"i19":9,"i20":9,"i21":9,"i22":9,"i23":9,"i24":9,"i25":9,"i26":9,"i27":9,"i28":9,"i29":9,"i30":9,"i31":9,"i32":9,"i33":9,"i34":9,"i35":9,"i36":9,"i37":9,"i38":9,"i39":9,"i40":9,"i41":9,"i42":9,"i43":9,"i44":9,"i45":9,"i46":9,"i47":9,"i48":9,"i49":9,"i50":9,"i51":9,"i52":9,"i53":9,"i54":9,"i55":9,"i56":9,"i57":9,"i58":9,"i59":9,"i60":9,"i61":9,"i62":9,"i63":9,"i64":9,"i65":9,"i66":9,"i67":9,"i68":9,"i69":9,"i70":9,"i71":9,"i72":9,"i73":9,"i74":9,"i75":9,"i76":9,"i77":9,"i78":9,"i79":9,"i80":9,"i81":9,"i82":9,"i83":9,"i84":9,"i85":9,"i86":9,"i87":9,"i88":9,"i89":9,"i90":9,"i91":9,"i92":9,"i93":9,"i94":9,"i95":9,"i96":9,"i97":9,"i98":9,"i99":9,"i100":9,"i101":9,"i102":9,"i103":9,"i104":9,"i105":9,"i106":9,"i107":9,"i108":9,"i109":9,"i110":9,"i111":9,"i112":9,"i113":9,"i114":9,"i115":9,"i116":9,"i117":9,"i118":9,"i119":9,"i120":9,"i121":9,"i122":9,"i123":9,"i124":9,"i125":9,"i126":9,"i127":9,"i128":9,"i129":9,"i130":9,"i131":9,"i132":9,"i133":9,"i134":9,"i135":9,"i136":9,"i137":9,"i138":9,"i139":9,"i140":9,"i141":9,"i142":9,"i143":9,"i144":9,"i145":9,"i146":9,"i147":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -167,6 +167,12 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
  // Provide a file as attachment.
  public void download() throws IOException {
      Faces.sendFile(new File("/path/to/file.ext"), true);
+ }
+ </pre>
+ <pre>
+ // Provide a file as attachment via output stream callback.
+ public void download() throws IOException {
+     Faces.sendFile("file.ext", true, o -&gt; Files.copy(Paths.get("/path/to/file.ext"), o));
  }
  </pre>
 
@@ -1056,84 +1062,92 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr id="i134" class="altColor">
 <td class="colFirst"><code>static void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Faces.html#sendFile-java.lang.String-boolean-org.omnifaces.util.Callback.Output-">sendFile</a></span>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;filename,
+        boolean&nbsp;attachment,
+        <a href="../../../org/omnifaces/util/Callback.Output.html" title="interface in org.omnifaces.util">Callback.Output</a>&nbsp;outputCallback)</code>
+<div class="block">Send a file to the response whose content is provided via given output stream callback.</div>
+</td>
+</tr>
+<tr id="i135" class="rowColor">
+<td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Faces.html#setApplicationAttribute-java.lang.String-java.lang.Object-">setApplicationAttribute</a></span>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                        <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)</code>
 <div class="block">Sets the application scope attribute value associated with the given name.</div>
 </td>
 </tr>
-<tr id="i135" class="rowColor">
+<tr id="i136" class="altColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Faces.html#setContext-javax.faces.context.FacesContext-">setContext</a></span>(<a href="https://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context)</code>
 <div class="block">Sets the given faces context as current instance.</div>
 </td>
 </tr>
-<tr id="i136" class="altColor">
+<tr id="i137" class="rowColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Faces.html#setContextAttribute-java.lang.String-java.lang.Object-">setContextAttribute</a></span>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                    <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)</code>
 <div class="block">Sets the Faces context attribute value associated with the given name.</div>
 </td>
 </tr>
-<tr id="i137" class="rowColor">
+<tr id="i138" class="altColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Faces.html#setFaceletAttribute-java.lang.String-java.lang.Object-">setFaceletAttribute</a></span>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                    <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)</code>
 <div class="block">Sets the Facelet attribute value associated with the given name.</div>
 </td>
 </tr>
-<tr id="i138" class="altColor">
+<tr id="i139" class="rowColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Faces.html#setFlashAttribute-java.lang.String-java.lang.Object-">setFlashAttribute</a></span>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                  <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)</code>
 <div class="block">Sets the flash scope attribute value associated with the given name.</div>
 </td>
 </tr>
-<tr id="i139" class="rowColor">
+<tr id="i140" class="altColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Faces.html#setLocale-java.util.Locale-">setLocale</a></span>(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Locale.html?is-external=true" title="class or interface in java.util">Locale</a>&nbsp;locale)</code>
 <div class="block">Set the locale of the current view, which is to be used in localizing of the response.</div>
 </td>
 </tr>
-<tr id="i140" class="altColor">
+<tr id="i141" class="rowColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Faces.html#setRequestAttribute-java.lang.String-java.lang.Object-">setRequestAttribute</a></span>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                    <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)</code>
 <div class="block">Sets the request scope attribute value associated with the given name.</div>
 </td>
 </tr>
-<tr id="i141" class="rowColor">
+<tr id="i142" class="altColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Faces.html#setResponseStatus-int-">setResponseStatus</a></span>(int&nbsp;status)</code>
 <div class="block">Sets the HTTP response status code.</div>
 </td>
 </tr>
-<tr id="i142" class="altColor">
+<tr id="i143" class="rowColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Faces.html#setSessionAttribute-java.lang.String-java.lang.Object-">setSessionAttribute</a></span>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                    <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)</code>
 <div class="block">Sets the session scope attribute value associated with the given name.</div>
 </td>
 </tr>
-<tr id="i143" class="rowColor">
+<tr id="i144" class="altColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Faces.html#setSessionMaxInactiveInterval-int-">setSessionMaxInactiveInterval</a></span>(int&nbsp;seconds)</code>
 <div class="block">Sets the HTTP session timeout in seconds.</div>
 </td>
 </tr>
-<tr id="i144" class="altColor">
+<tr id="i145" class="rowColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Faces.html#setViewAttribute-java.lang.String-java.lang.Object-">setViewAttribute</a></span>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                 <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;value)</code>
 <div class="block">Sets the view scope attribute value associated with the given name.</div>
 </td>
 </tr>
-<tr id="i145" class="rowColor">
+<tr id="i146" class="altColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Faces.html#setViewRoot-java.lang.String-">setViewRoot</a></span>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;viewId)</code>
 <div class="block">Sets the current view root to the given view ID.</div>
 </td>
 </tr>
-<tr id="i146" class="altColor">
+<tr id="i147" class="rowColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Faces.html#validationFailed--">validationFailed</a></span>()</code>
 <div class="block">Signals JSF that the validations phase of the current request has failed.</div>
@@ -4157,7 +4171,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <a name="sendFile-java.io.InputStream-java.lang.String-boolean-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>sendFile</h4>
 <pre>public static&nbsp;void&nbsp;sendFile(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;content,
@@ -4179,6 +4193,35 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - Whenever something fails at I/O level. The caller should preferably not catch it, but just
  redeclare it in the action method. The servletcontainer will handle it.</dd>
+</dl>
+</li>
+</ul>
+<a name="sendFile-java.lang.String-boolean-org.omnifaces.util.Callback.Output-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>sendFile</h4>
+<pre>public static&nbsp;void&nbsp;sendFile(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;filename,
+                            boolean&nbsp;attachment,
+                            <a href="../../../org/omnifaces/util/Callback.Output.html" title="interface in org.omnifaces.util">Callback.Output</a>&nbsp;outputCallback)
+                     throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Send a file to the response whose content is provided via given output stream callback. The content type will be
+ determined based on file name. The content length will not be set because that would require buffering the entire
+ file in memory or temp disk. The client may receive a download of an unknown length and thus the download
+ progress may be unknown to the client. If this is undesirable, write to a temp file instead and then use
+ <a href="../../../org/omnifaces/util/Faces.html#sendFile-java.io.File-boolean-"><code>sendFile(File, boolean)</code></a>. The <a href="https://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true#responseComplete--" title="class or interface in javax.faces.context"><code>FacesContext.responseComplete()</code></a> will implicitly be called
+ after successful streaming.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>filename</code> - The file name which should appear in content disposition header.</dd>
+<dd><code>attachment</code> - Whether the file should be provided as attachment, or just inline.</dd>
+<dd><code>outputCallback</code> - The output stream callback to write the file content to.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - Whenever something fails at I/O level. The caller should preferably not catch it, but just
+ redeclare it in the action method. The servletcontainer will handle it.</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>2.3</dd>
 </dl>
 </li>
 </ul>

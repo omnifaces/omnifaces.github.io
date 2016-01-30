@@ -186,7 +186,7 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/websocket/Endpoint.h
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/cdi/push/SocketEndpoint.html#onClose-javax.websocket.Session-javax.websocket.CloseReason-">onClose</a></span>(<a href="https://docs.oracle.com/javaee/7/api/javax/websocket/Session.html?is-external=true" title="class or interface in javax.websocket">Session</a>&nbsp;session,
        <a href="https://docs.oracle.com/javaee/7/api/javax/websocket/CloseReason.html?is-external=true" title="class or interface in javax.websocket">CloseReason</a>&nbsp;reason)</code>
-<div class="block">Remove given web socket session from the socket manager.</div>
+<div class="block">Remove given web socket session from the <a href="../../../../org/omnifaces/cdi/push/SocketManager.html" title="class in org.omnifaces.cdi.push"><code>SocketManager</code></a>.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
@@ -200,7 +200,7 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/websocket/Endpoint.h
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/cdi/push/SocketEndpoint.html#onOpen-javax.websocket.Session-javax.websocket.EndpointConfig-">onOpen</a></span>(<a href="https://docs.oracle.com/javaee/7/api/javax/websocket/Session.html?is-external=true" title="class or interface in javax.websocket">Session</a>&nbsp;session,
       <a href="https://docs.oracle.com/javaee/7/api/javax/websocket/EndpointConfig.html?is-external=true" title="class or interface in javax.websocket">EndpointConfig</a>&nbsp;config)</code>
-<div class="block">Add given web socket session to the socket manager.</div>
+<div class="block">Add given web socket session to the <a href="../../../../org/omnifaces/cdi/push/SocketManager.html" title="class in org.omnifaces.cdi.push"><code>SocketManager</code></a>.</div>
 </td>
 </tr>
 </table>
@@ -272,7 +272,7 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/websocket/Endpoint.h
 <h4>onOpen</h4>
 <pre>public&nbsp;void&nbsp;onOpen(<a href="https://docs.oracle.com/javaee/7/api/javax/websocket/Session.html?is-external=true" title="class or interface in javax.websocket">Session</a>&nbsp;session,
                    <a href="https://docs.oracle.com/javaee/7/api/javax/websocket/EndpointConfig.html?is-external=true" title="class or interface in javax.websocket">EndpointConfig</a>&nbsp;config)</pre>
-<div class="block">Add given web socket session to the socket manager.</div>
+<div class="block">Add given web socket session to the <a href="../../../../org/omnifaces/cdi/push/SocketManager.html" title="class in org.omnifaces.cdi.push"><code>SocketManager</code></a>.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="https://docs.oracle.com/javaee/7/api/javax/websocket/Endpoint.html?is-external=true#onOpen-javax.websocket.Session-javax.websocket.EndpointConfig-" title="class or interface in javax.websocket">onOpen</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/javaee/7/api/javax/websocket/Endpoint.html?is-external=true" title="class or interface in javax.websocket">Endpoint</a></code></dd>
@@ -308,8 +308,8 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/websocket/Endpoint.h
 <h4>onClose</h4>
 <pre>public&nbsp;void&nbsp;onClose(<a href="https://docs.oracle.com/javaee/7/api/javax/websocket/Session.html?is-external=true" title="class or interface in javax.websocket">Session</a>&nbsp;session,
                     <a href="https://docs.oracle.com/javaee/7/api/javax/websocket/CloseReason.html?is-external=true" title="class or interface in javax.websocket">CloseReason</a>&nbsp;reason)</pre>
-<div class="block">Remove given web socket session from the socket manager. If there is any exception from onError which was not
- caused by a GOING_AWAY, then log it. Tomcat &lt;= 8.0.30 is known to throw an unnecessary exception when client
+<div class="block">Remove given web socket session from the <a href="../../../../org/omnifaces/cdi/push/SocketManager.html" title="class in org.omnifaces.cdi.push"><code>SocketManager</code></a>. If there is any exception from onError which was
+ not caused by GOING_AWAY, then log it. Tomcat &lt;= 8.0.30 is known to throw an unnecessary exception when client
  abruptly disconnects, see also <a href="https://bz.apache.org/bugzilla/show_bug.cgi?id=57489">issue 57489</a>.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>

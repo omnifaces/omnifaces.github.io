@@ -167,7 +167,7 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializabl
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/cdi/push/SocketScope.html#register-java.lang.String-org.omnifaces.cdi.push.Socket.Scope-">register</a></span>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;channel,
         org.omnifaces.cdi.push.Socket.Scope&nbsp;scope)</code>
-<div class="block">Register given channel on given scope and returns the web socket channel identifier if channel does not already
+<div class="block">Register given channel on given scope and returns the web socket scope identifier if channel does not already
  exist on a different scope, else <code>null</code>.</div>
 </td>
 </tr>
@@ -218,15 +218,15 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializabl
 <h4>register</h4>
 <pre>public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;register(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;channel,
                        org.omnifaces.cdi.push.Socket.Scope&nbsp;scope)</pre>
-<div class="block">Register given channel on given scope and returns the web socket channel identifier if channel does not already
+<div class="block">Register given channel on given scope and returns the web socket scope identifier if channel does not already
  exist on a different scope, else <code>null</code>.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>channel</code> - The web socket channel.</dd>
 <dd><code>scope</code> - The web socket scope.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>The web socket channel identifier if channel does not already exist on a different scope, else
- <code>null</code>.</dd>
+<dd>The web socket scope identifier if channel does not already exist on a different scope, else
+ <code>null</code>. An empty string is valid (it represents the application scope).</dd>
 </dl>
 </li>
 </ul>
