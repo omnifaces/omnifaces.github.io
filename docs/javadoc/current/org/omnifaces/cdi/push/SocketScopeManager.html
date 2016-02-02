@@ -18,7 +18,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10};
+var methods = {"i0":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -118,8 +118,7 @@ public class <span class="typeNameLabel">SocketScopeManager</span>
 extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>
 implements <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializable.html?is-external=true" title="class or interface in java.io">Serializable</a></pre>
 <div class="block"><p>
- This manages all web socket scope identifiers explicitly registered by <code>&lt;o:socket&gt;</code>.
- Any incoming web socket handshake request is here validated via <a href="../../../../org/omnifaces/cdi/push/SocketChannelFilter.html" title="class in org.omnifaces.cdi.push"><code>SocketChannelFilter</code></a>.</div>
+ This manages all web socket scope identifiers explicitly registered by <code>&lt;o:socket&gt;</code>.</div>
 <dl>
 <dt><span class="simpleTagLabel">Since:</span></dt>
 <dd>2.3</dd>
@@ -165,13 +164,6 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializabl
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/cdi/push/SocketScopeManager.html#isRegistered-java.lang.String-java.lang.String-">isRegistered</a></span>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;channel,
-            <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;scopeId)</code>
-<div class="block">Returns <code>true</code> if the given channel and scope identifier combination is already registered.</div>
-</td>
-</tr>
-<tr id="i1" class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/cdi/push/SocketScopeManager.html#register-java.lang.String-java.lang.String-">register</a></span>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;channel,
         <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;scope)</code>
@@ -221,7 +213,7 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializabl
 <a name="register-java.lang.String-java.lang.String-">
 <!--   -->
 </a>
-<ul class="blockList">
+<ul class="blockListLast">
 <li class="blockList">
 <h4>register</h4>
 <pre>public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;register(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;channel,
@@ -238,24 +230,6 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializabl
  <code>null</code>.</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></code> - When the scope is invalid.</dd>
-</dl>
-</li>
-</ul>
-<a name="isRegistered-java.lang.String-java.lang.String-">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>isRegistered</h4>
-<pre>public&nbsp;boolean&nbsp;isRegistered(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;channel,
-                            <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;scopeId)</pre>
-<div class="block">Returns <code>true</code> if the given channel and scope identifier combination is already registered.</div>
-<dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>channel</code> - The web socket channel.</dd>
-<dd><code>scopeId</code> - The web socket scope identifier.</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd><code>true</code> if the given channel and scope identifier combination is already registered.</dd>
 </dl>
 </li>
 </ul>
