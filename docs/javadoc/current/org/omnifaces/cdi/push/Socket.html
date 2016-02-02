@@ -50,7 +50,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li>Prev&nbsp;Class</li>
-<li><a href="../../../../org/omnifaces/cdi/push/SocketEndpoint.html" title="class in org.omnifaces.cdi.push"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../org/omnifaces/cdi/push/SocketChannelFilter.html" title="class in org.omnifaces.cdi.push"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?org/omnifaces/cdi/push/Socket.html" target="_top">Frames</a></li>
@@ -127,7 +127,7 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
 
  <h3>Configuration</h3>
  <p>
- First enable the web socket endpoint by below boolean context parameter in <code>web.xml</code>:
+ First enable the web socket endpoint and channel filter by below boolean context parameter in <code>web.xml</code>:
  <pre>
  &lt;context-param&gt;
      &lt;param-name&gt;org.omnifaces.ENABLE_SOCKET_ENDPOINT&lt;/param-name&gt;
@@ -135,8 +135,8 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
  &lt;/context-param&gt;
  </pre>
  <p>
- It will install the <a href="../../../../org/omnifaces/cdi/push/SocketEndpoint.html" title="class in org.omnifaces.cdi.push"><code>SocketEndpoint</code></a>. Lazy initialization of the endpoint is unfortunately not possible across
- all containers (yet).
+ It will install the <a href="../../../../org/omnifaces/cdi/push/SocketEndpoint.html" title="class in org.omnifaces.cdi.push"><code>SocketEndpoint</code></a> and <a href="../../../../org/omnifaces/cdi/push/SocketChannelFilter.html" title="class in org.omnifaces.cdi.push"><code>SocketChannelFilter</code></a>. Lazy initialization of the endpoint is
+ unfortunately not possible across all containers (yet).
  See also <a href="https://java.net/jira/browse/WEBSOCKET_SPEC-211">WS spec issue 211</a>.
 
 
@@ -146,7 +146,7 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
  <code>onmessage</code> JavaScript listener function. The channel name may only contain alphanumeric characters,
  hyphens, underscores and periods.
  <p>
- Here's an example which refers an existing JS listener function (do not include the parentheses!).
+ Here's an example which refers an existing JavaScript listener function (do not include the parentheses!).
  <pre>
  &lt;o:socket channel="someChannel" onmessage="socketListener" /&gt;
  </pre>
@@ -156,12 +156,12 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
  }
  </pre>
  <p>
- Here's an example which declares an inline JS listener function.
+ Here's an example which declares an inline JavaScript listener function.
  <pre>
  &lt;o:socket channel="someChannel" onmessage="function(message) { console.log(message); }" /&gt;
  </pre>
  <p>
- The <code>onmessage</code> JS listener function will be invoked with three arguments:
+ The <code>onmessage</code> JavaScript listener function will be invoked with three arguments:
  <ul>
  <li><code>message</code>: the push message as JSON object.</li>
  <li><code>channel</code>: the channel name, useful in case you intend to have a global listener, or want to manually
@@ -170,7 +170,8 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
  MessageEvent</code></a> instance, useful in case you intend to inspect it.</li>
  </ul>
  <p>
- The optional <code>onclose</code> JS listener function can be used to listen on (ab)normal close of a web socket.
+ The optional <code>onclose</code> JavaScript listener function can be used to listen on (ab)normal close of a web
+ socket.
  <pre>
  &lt;o:socket ... onclose="socketCloseListener" /&gt;
  </pre>
@@ -184,7 +185,7 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
  }
  </pre>
  <p>
- The <code>onclose</code> JS listener function will be invoked with three arguments:
+ The <code>onclose</code> JavaScript listener function will be invoked with three arguments:
  <ul>
  <li><code>code</code>: the close reason code as integer. If this is <code>-1</code>, then the web socket
  is simply not supported by the client. If this is <code>1000</code>, then it was normally closed. Else if this is not
@@ -237,8 +238,9 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
  plain vanilla <code>String</code>, but it can also be a collection, map and even a javabean. For supported argument
  types, see also <a href="../../../../org/omnifaces/util/Json.html#encode-java.lang.Object-"><code>Json.encode(Object)</code></a>.
  <p>
- The push is one-way, from server to client. In case you intend to send some data from client to server, just continue
- using Ajax the usual way, if necessary with <code>&lt;o:commandScript&gt;</code> or perhaps
+ Although web sockets support two-way communication, the <code>&lt;o:socket&gt;</code> push is designed for one-way
+ communication, from server to client. In case you intend to send some data from client to server, just continue
+ using JSF ajax the usual way, if necessary from JavaScript on with <code>&lt;o:commandScript&gt;</code> or perhaps
  <code>&lt;p:remoteCommand&gt;</code> or similar. This has among others the advantage of maintaining the JSF view
  state, the HTTP session and, importantingly, all security constraints on business service methods. Namely, those are
  not available during an incoming web socket message per se. See also a.o.
@@ -258,13 +260,14 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
  cover the <code>&lt;o:socket&gt;</code> tag in ajax render/update. So make sure it's tied to at least a view scoped
  property in case you intend to control it during the view scope.
  <p>
- You can also explicitly set it to <code>false</code> and manually open the push connection from client side by
- invoking <code>OmniFaces.Push.open(channel)</code>, passing the channel name.
+ You can also explicitly set it to <code>false</code> and manually open the push connection in client side by
+ invoking <code>OmniFaces.Push.open(channel)</code>, passing the channel name, for example in an onclick listener
+ function of a command button which initiates a long running asynchronous task in server side.
  <pre>
  &lt;o:socket channel="foo" ... connected="false" /&gt;
  </pre>
  <pre>
- function someFunction() {
+ function someOnclickListener() {
      // ...
      OmniFaces.Push.open("foo");
  }
@@ -272,11 +275,12 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
  <p>
  The web socket is by default open as long as the document is open. It will be implicitly closed once the document is
  unloaded (e.g. navigating away, close of browser window/tab, etc). In case you intend to have an one-time push,
- usually because you only wanted to present the result of an one-time asynchronous action, you can optionally
- explicitly close the push connection from client side by invoking <code>OmniFaces.Push.close(channel)</code>, passing
- the channel name. For example, in the <code>onmessage</code> JS listener function as below:
+ usually because you only wanted to present the result of an one-time asynchronous action in a manually opened push
+ socket as in above example, you can optionally explicitly close the push connection from client side by invoking
+ <code>OmniFaces.Push.close(channel)</code>, passing the channel name. For example, in the <code>onmessage</code>
+ JavaScript listener function as below:
  <pre>
- function socketListener(message, channel) {
+ function someSocketListener(message, channel) {
      // ...
      OmniFaces.Push.close(channel);
  }
@@ -324,6 +328,12 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
      &lt;/auth-constraint&gt;
  &lt;/security-constraint&gt;
  </pre>
+ <p>
+ As extra security, the <code>&lt;o:socket&gt;</code> will remember all so far opened channels in
+ <a href="../../../../org/omnifaces/cdi/push/SocketScopeManager.html" title="class in org.omnifaces.cdi.push"><code>SocketScopeManager</code></a> and the aforementioned <a href="../../../../org/omnifaces/cdi/push/SocketChannelFilter.html" title="class in org.omnifaces.cdi.push"><code>SocketChannelFilter</code></a> will check all incoming web socket
+ handshake requests whether they match the so far opened channels in both the application and session scopes, and
+ otherwise send a HTTP 400 error back. This should prevent users from manually opening arbitrary channels which are
+ nowhere declared via <code>&lt;o:socket channel="..."&gt;</code>.
 
 
  <h3>EJB design hints</h3>
@@ -334,7 +344,7 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
  <pre>
  public class PushEvent {
 
-     private String message;
+     private final String message;
 
      public PushEvent(String message) {
          this.message = message;
@@ -372,7 +382,7 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
  there's no means of a HTTP request anywhere at that moment. For exactly this reason a view and session scoped bean
  would not work at all (as they require respectively the JSF view state and HTTP session which can only be identified
  by a HTTP request). A session scoped push socket would also not work at all (so the push socket really needs to be
- application scoped). The <a href="https://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context"><code>FacesContext</code></a> will be also unavailable in the method.
+ application scoped). The <a href="https://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context"><code>FacesContext</code></a> will also be unavailable in the method.
  <p>
  In case the trigger in EAR/EJB side is in turn initiated in WAR side, then you could make use of callbacks from WAR
  side. Let the business service method take a callback instance as argument, e.g. <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang"><code>Runnable</code></a>.
@@ -428,7 +438,7 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
  <h3>UI update design hints</h3>
  <p>
  In case you'd like to perform complex UI updates, which would be a piece of cake with JSF ajax, then easiest would
- be to combine <code>&lt;o:socket&gt;</code> with <code>&lt;o:commandScript&gt;</code>which simply invokes a bean
+ be to combine <code>&lt;o:socket&gt;</code> with <code>&lt;o:commandScript&gt;</code> which simply invokes a bean
  action and ajax-updates the UI once a push message arrives. The combination can look like below:
  <pre>
  &lt;h:panelGroup id="foo"&gt;
@@ -448,7 +458,8 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
 <dd>Bauke Scholtz</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../../org/omnifaces/cdi/push/SocketEndpoint.html" title="class in org.omnifaces.cdi.push"><code>SocketEndpoint</code></a>, 
-<a href="../../../../org/omnifaces/cdi/push/SocketScope.html" title="class in org.omnifaces.cdi.push"><code>SocketScope</code></a>, 
+<a href="../../../../org/omnifaces/cdi/push/SocketChannelFilter.html" title="class in org.omnifaces.cdi.push"><code>SocketChannelFilter</code></a>, 
+<a href="../../../../org/omnifaces/cdi/push/SocketScopeManager.html" title="class in org.omnifaces.cdi.push"><code>SocketScopeManager</code></a>, 
 <a href="../../../../org/omnifaces/cdi/push/SocketEventListener.html" title="class in org.omnifaces.cdi.push"><code>SocketEventListener</code></a>, 
 <a href="../../../../org/omnifaces/cdi/push/SocketManager.html" title="class in org.omnifaces.cdi.push"><code>SocketManager</code></a>, 
 <a href="../../../../org/omnifaces/cdi/Push.html" title="annotation in org.omnifaces.cdi"><code>Push</code></a>, 
@@ -531,8 +542,8 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/cdi/push/Socket.html#registerEndpointIfNecessary-javax.servlet.ServletContext-">registerEndpointIfNecessary</a></span>(<a href="https://docs.oracle.com/javaee/7/api/javax/servlet/ServletContext.html?is-external=true" title="class or interface in javax.servlet">ServletContext</a>&nbsp;context)</code>
-<div class="block">Register web socket endpoint if necessary, i.e.</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/cdi/push/Socket.html#registerEndpointAndFilterIfNecessary-javax.servlet.ServletContext-">registerEndpointAndFilterIfNecessary</a></span>(<a href="https://docs.oracle.com/javaee/7/api/javax/servlet/ServletContext.html?is-external=true" title="class or interface in javax.servlet">ServletContext</a>&nbsp;context)</code>
+<div class="block">Register web socket endpoint and channel filter if necessary, i.e.</div>
 </td>
 </tr>
 </table>
@@ -630,14 +641,15 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
 </dl>
 </li>
 </ul>
-<a name="registerEndpointIfNecessary-javax.servlet.ServletContext-">
+<a name="registerEndpointAndFilterIfNecessary-javax.servlet.ServletContext-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>registerEndpointIfNecessary</h4>
-<pre>public static&nbsp;void&nbsp;registerEndpointIfNecessary(<a href="https://docs.oracle.com/javaee/7/api/javax/servlet/ServletContext.html?is-external=true" title="class or interface in javax.servlet">ServletContext</a>&nbsp;context)</pre>
-<div class="block">Register web socket endpoint if necessary, i.e. when it's enabled via context param and not already installed.</div>
+<h4>registerEndpointAndFilterIfNecessary</h4>
+<pre>public static&nbsp;void&nbsp;registerEndpointAndFilterIfNecessary(<a href="https://docs.oracle.com/javaee/7/api/javax/servlet/ServletContext.html?is-external=true" title="class or interface in javax.servlet">ServletContext</a>&nbsp;context)</pre>
+<div class="block">Register web socket endpoint and channel filter if necessary, i.e. when it's enabled via context param and not
+ already installed.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>context</code> - The involved servlet context.</dd>
@@ -673,7 +685,7 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
 <div class="subNav">
 <ul class="navList">
 <li>Prev&nbsp;Class</li>
-<li><a href="../../../../org/omnifaces/cdi/push/SocketEndpoint.html" title="class in org.omnifaces.cdi.push"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../org/omnifaces/cdi/push/SocketChannelFilter.html" title="class in org.omnifaces.cdi.push"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?org/omnifaces/cdi/push/Socket.html" target="_top">Frames</a></li>
