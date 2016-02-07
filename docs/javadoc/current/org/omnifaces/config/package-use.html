@@ -101,7 +101,9 @@
 <tr class="altColor">
 <td class="colOne"><a href="../../../org/omnifaces/config/class-use/BeanManager.html#org.omnifaces.config">BeanManager</a>
 <div class="block">
- This configuration enum allows you to get a reference to CDI managed beans without having any direct CDI dependency.</div>
+ This configuration enum allows you to get the CDI <code>BeanManager</code> anyway in cases where
+ <code>&#64;Inject</code> and/or <code>CDI#current()</code> may not work, or when you'd like to test availability of
+ CDI without having any direct CDI dependency (as done in <a href="../../../org/omnifaces/ApplicationListener.html" title="class in org.omnifaces"><code>ApplicationListener</code></a>).</div>
 </td>
 </tr>
 <tr class="rowColor">

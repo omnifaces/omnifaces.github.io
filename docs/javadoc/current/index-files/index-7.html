@@ -955,7 +955,9 @@
 <dt><span class="memberNameLink"><a href="../org/omnifaces/util/FacesLocal.html#getRealPath-javax.faces.context.FacesContext-java.lang.String-">getRealPath(FacesContext, String)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/FacesLocal.html" title="class in org.omnifaces.util">FacesLocal</a></dt>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/config/BeanManager.html#getReference-java.lang.Class-">getReference(Class&lt;T&gt;)</a></span> - Method in enum org.omnifaces.config.<a href="../org/omnifaces/config/BeanManager.html" title="enum in org.omnifaces.config">BeanManager</a></dt>
 <dd>
-<div class="block">Returns the CDI managed bean reference (proxy) of the given class.</div>
+<div class="block"><span class="deprecatedLabel">Deprecated.</span>
+<div class="block"><span class="deprecationComment">Use <a href="../org/omnifaces/util/Beans.html#getReference-java.lang.Class-"><code>Beans.getReference(Class)</code></a> instead.</span></div>
+</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/util/Beans.html#getReference-java.lang.Class-">getReference(Class&lt;T&gt;)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Beans.html" title="class in org.omnifaces.util">Beans</a></dt>
 <dd>
@@ -1541,6 +1543,11 @@
 <div class="block">Returns the view scope map.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/util/FacesLocal.html#getViewMap-javax.faces.context.FacesContext-">getViewMap(FacesContext)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/FacesLocal.html" title="class in org.omnifaces.util">FacesLocal</a></dt>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/util/Faces.html#getViewName--">getViewName()</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Faces.html" title="class in org.omnifaces.util">Faces</a></dt>
+<dd>
+<div class="block">Returns the base name of the current view, without extension, or <code>null</code> if there is no view.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/util/FacesLocal.html#getViewName-javax.faces.context.FacesContext-">getViewName(FacesContext)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/FacesLocal.html" title="class in org.omnifaces.util">FacesLocal</a></dt>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/util/Faces.html#getViewParameterMap--">getViewParameterMap()</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Faces.html" title="class in org.omnifaces.util">Faces</a></dt>
 <dd>
 <div class="block">Returns the view parameters of the current view as a parameter map, or an empty map if there is no view.</div>

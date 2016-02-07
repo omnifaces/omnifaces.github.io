@@ -373,7 +373,11 @@
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/el/functions/Numbers.html#formatNumberDefault-java.lang.Number-">formatNumberDefault(Number)</a></span> - Static method in class org.omnifaces.el.functions.<a href="../org/omnifaces/el/functions/Numbers.html" title="class in org.omnifaces.el.functions">Numbers</a></dt>
 <dd>
-<div class="block">Format the given number in the locale-default pattern.</div>
+<div class="block">Format the given number in the default pattern of the default locale.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/el/functions/Numbers.html#formatNumberDefaultForLocale-java.lang.Number-java.lang.Object-">formatNumberDefaultForLocale(Number, Object)</a></span> - Static method in class org.omnifaces.el.functions.<a href="../org/omnifaces/el/functions/Numbers.html" title="class in org.omnifaces.el.functions">Numbers</a></dt>
+<dd>
+<div class="block">Format the given number in the default pattern of the given locale.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/el/functions/Numbers.html#formatPercent-java.lang.Number-">formatPercent(Number)</a></span> - Static method in class org.omnifaces.el.functions.<a href="../org/omnifaces/el/functions/Numbers.html" title="class in org.omnifaces.el.functions">Numbers</a></dt>
 <dd>
@@ -386,7 +390,13 @@
 <dt><span class="memberNameLink"><a href="../org/omnifaces/el/functions/Numbers.html#formatThousands-java.lang.Number-">formatThousands(Number)</a></span> - Static method in class org.omnifaces.el.functions.<a href="../org/omnifaces/el/functions/Numbers.html" title="class in org.omnifaces.el.functions">Numbers</a></dt>
 <dd>
 <div class="block">Format the given number to nearest 10<sup>n</sup> (rounded to thousands), immediately suffixed (without space)
- with lowercased IEC unit (k, m, g, t, p and e), rounding half up with a precision of 3 digits, whereafter
+ with metric unit (k, M, G, T, P or E), rounding half up with a precision of 3 digits, whereafter trailing zeroes
+ in fraction part are stripped.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/el/functions/Numbers.html#formatThousandsUnit-java.lang.Number-java.lang.String-">formatThousandsUnit(Number, String)</a></span> - Static method in class org.omnifaces.el.functions.<a href="../org/omnifaces/el/functions/Numbers.html" title="class in org.omnifaces.el.functions">Numbers</a></dt>
+<dd>
+<div class="block">Format the given number to nearest 10<sup>n</sup> (rounded to thousands), suffixed with a space, the metric unit
+ prefix (k, M, G, T, P or E) and the given unit, rounding half up with a precision of 3 digits, whereafter
  trailing zeroes in fraction part are stripped.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/util/selectitems/SelectItemsBuilder.html#fromMap-java.util.Map-">fromMap(Map&lt;?, ?&gt;)</a></span> - Static method in class org.omnifaces.util.selectitems.<a href="../org/omnifaces/util/selectitems/SelectItemsBuilder.html" title="class in org.omnifaces.util.selectitems">SelectItemsBuilder</a></dt>

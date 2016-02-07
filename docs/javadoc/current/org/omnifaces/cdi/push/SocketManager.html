@@ -18,7 +18,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":9,"i2":10,"i3":10};
+var methods = {"i0":10,"i1":10,"i2":9,"i3":10,"i4":10,"i5":10,"i6":10};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -113,7 +113,7 @@ var activeTableTab = "activeTableTab";
 public class <span class="typeNameLabel">SocketManager</span>
 extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
 <div class="block"><p>
- The web socket manager. It holds all web socket sessions by their channel/scope identifier.</div>
+ The web socket manager. It holds all web socket sessions by their channel identifier.</div>
 <dl>
 <dt><span class="simpleTagLabel">Since:</span></dt>
 <dd>2.3</dd>
@@ -158,27 +158,45 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/cdi/push/SocketManager.html#add-java.lang.String-javax.websocket.Session-">add</a></span>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;channel,
-   <a href="https://docs.oracle.com/javaee/7/api/javax/websocket/Session.html?is-external=true" title="class or interface in javax.websocket">Session</a>&nbsp;session)</code>
-<div class="block">On open, add given web socket session to the mapping associated with its channel identifier.</div>
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/cdi/push/SocketManager.html#add-javax.websocket.Session-">add</a></span>(<a href="https://docs.oracle.com/javaee/7/api/javax/websocket/Session.html?is-external=true" title="class or interface in javax.websocket">Session</a>&nbsp;session)</code>
+<div class="block">On open, add given web socket session to the mapping associated with its channel identifier and returns
+ <code>true</code> if it's accepted (i.e.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/cdi/push/SocketManager.html#deregister-java.lang.Iterable-">deregister</a></span>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Iterable.html?is-external=true" title="class or interface in java.lang">Iterable</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;channelIds)</code>
+<div class="block">Deregister given channel identifiers and explicitly close all open web socket sessions associated with it.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>static <a href="../../../../org/omnifaces/cdi/push/SocketManager.html" title="class in org.omnifaces.cdi.push">SocketManager</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/cdi/push/SocketManager.html#getInstance--">getInstance</a></span>()</code>
 <div class="block">Returns the CDI managed instance of this class.</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/cdi/push/SocketManager.html#register-java.lang.Iterable-">register</a></span>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Iterable.html?is-external=true" title="class or interface in java.lang">Iterable</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;channelIds)</code>
+<div class="block">Register given channel identifiers.</div>
+</td>
+</tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/cdi/push/SocketManager.html#register-java.lang.String-">register</a></span>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;channelId)</code>
+<div class="block">Register given channel identifier.</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/cdi/push/SocketManager.html#remove-javax.websocket.Session-">remove</a></span>(<a href="https://docs.oracle.com/javaee/7/api/javax/websocket/Session.html?is-external=true" title="class or interface in javax.websocket">Session</a>&nbsp;session)</code>
 <div class="block">On close, remove given web socket session from the mapping.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/cdi/push/SocketManager.html#send-java.lang.String-java.lang.Object-">send</a></span>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;channel,
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/cdi/push/SocketManager.html#send-java.lang.String-java.lang.Object-">send</a></span>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;channelId,
     <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;message)</code>
 <div class="block">Encode the given message object as JSON and send it to all open web socket sessions associated with given web
  socket channel identifier.</div>
@@ -237,19 +255,49 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </dl>
 </li>
 </ul>
-<a name="add-java.lang.String-javax.websocket.Session-">
+<a name="register-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>register</h4>
+<pre>public&nbsp;void&nbsp;register(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;channelId)</pre>
+<div class="block">Register given channel identifier.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>channelId</code> - The channel identifier to register.</dd>
+</dl>
+</li>
+</ul>
+<a name="register-java.lang.Iterable-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>register</h4>
+<pre>public&nbsp;void&nbsp;register(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Iterable.html?is-external=true" title="class or interface in java.lang">Iterable</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;channelIds)</pre>
+<div class="block">Register given channel identifiers.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>channelIds</code> - The channel identifiers to register.</dd>
+</dl>
+</li>
+</ul>
+<a name="add-javax.websocket.Session-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>add</h4>
-<pre>public&nbsp;void&nbsp;add(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;channel,
-                <a href="https://docs.oracle.com/javaee/7/api/javax/websocket/Session.html?is-external=true" title="class or interface in javax.websocket">Session</a>&nbsp;session)</pre>
-<div class="block">On open, add given web socket session to the mapping associated with its channel identifier.</div>
+<pre>public&nbsp;boolean&nbsp;add(<a href="https://docs.oracle.com/javaee/7/api/javax/websocket/Session.html?is-external=true" title="class or interface in javax.websocket">Session</a>&nbsp;session)</pre>
+<div class="block">On open, add given web socket session to the mapping associated with its channel identifier and returns
+ <code>true</code> if it's accepted (i.e. the channel identifier is known) and the same session hasn't been added
+ before, otherwise <code>false</code>.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>channel</code> - The web socket channel identifier.</dd>
 <dd><code>session</code> - The opened web socket session.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd><code>true</code> if given web socket session is accepted and is new, otherwise <code>false</code>.</dd>
 </dl>
 </li>
 </ul>
@@ -259,13 +307,13 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <ul class="blockList">
 <li class="blockList">
 <h4>send</h4>
-<pre>public&nbsp;void&nbsp;send(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;channel,
+<pre>public&nbsp;void&nbsp;send(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;channelId,
                  <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;message)</pre>
 <div class="block">Encode the given message object as JSON and send it to all open web socket sessions associated with given web
  socket channel identifier.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>channel</code> - The web socket channel identifier.</dd>
+<dd><code>channelId</code> - The web socket channel identifier.</dd>
 <dd><code>message</code> - The push message object.</dd>
 </dl>
 </li>
@@ -273,14 +321,30 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <a name="remove-javax.websocket.Session-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>remove</h4>
-<pre>public&nbsp;void&nbsp;remove(<a href="https://docs.oracle.com/javaee/7/api/javax/websocket/Session.html?is-external=true" title="class or interface in javax.websocket">Session</a>&nbsp;session)</pre>
+<pre>public&nbsp;boolean&nbsp;remove(<a href="https://docs.oracle.com/javaee/7/api/javax/websocket/Session.html?is-external=true" title="class or interface in javax.websocket">Session</a>&nbsp;session)</pre>
 <div class="block">On close, remove given web socket session from the mapping.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>session</code> - The closed web socket session.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd><code>true</code> if given web socket session was known in the mapping, otherwise <code>false</code>.</dd>
+</dl>
+</li>
+</ul>
+<a name="deregister-java.lang.Iterable-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>deregister</h4>
+<pre>public&nbsp;void&nbsp;deregister(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Iterable.html?is-external=true" title="class or interface in java.lang">Iterable</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;channelIds)</pre>
+<div class="block">Deregister given channel identifiers and explicitly close all open web socket sessions associated with it.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>channelIds</code> - The channel identifiers to deregister.</dd>
 </dl>
 </li>
 </ul>

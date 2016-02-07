@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html lang="en" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:javaee="http://xmlns.jcp.org/xml/ns/javaee">
+<html lang="en" xmlns:javaee="http://xmlns.jcp.org/xml/ns/javaee" xmlns:fo="http://www.w3.org/1999/XSL/Format">
 <head>
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>formatThousands (OmniFaces VDL Documentation - Generated Documentation)
@@ -72,7 +72,7 @@
 <div class="block">
 			
 				Format the given number to nearest 10<sup>n</sup> (rounded to thousands), immediately suffixed (without space)
-				with lowercased IEC unit (k, m, g, t, p and e), rounding half up with a precision of 3 digits, whereafter
+				with metric unit (k, M, G, T, P or E), rounding half up with a precision of 3 digits, whereafter
 				trailing zeroes in fraction part are stripped. Numbers lower than thousand are not affected.
 				For example (with English locale):
 				<ul>
@@ -87,8 +87,8 @@
 					<li>9994 will appear as 9.99k
 					<li>9995 will appear as 10k
 					<li>99990 will appear as 100k
-					<li>9994999 will appear as 9.99m
-					<li>9995000 will appear as 10.0m
+					<li>9994999 will appear as 9.99M
+					<li>9995000 will appear as 10M
 				</ul>
 				The format locale will be set to the one as obtained by <code>Faces#getLocale()</code>.
 				If the value is <code>null</code>, <code>NaN</code> or infinity, then this will return <code>null</code>.

@@ -2,7 +2,7 @@
 <html lang="en" xmlns:javaee="http://xmlns.jcp.org/xml/ns/javaee" xmlns:fo="http://www.w3.org/1999/XSL/Format">
 <head>
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>addMonths (OmniFaces VDL Documentation - Generated Documentation)
+<title>formatThousandsUnit (OmniFaces VDL Documentation - Generated Documentation)
 			</title>
 <meta name="keywords" content="$title">
 <link rel="stylesheet" type="text/css" title="Style" href="../stylesheet.css">
@@ -29,12 +29,12 @@
 <div class="subNav">
 <ul class="navList">
 <li>
-<a href="../index.html?of/addMonths.fn.html">
+<a href="../index.html?of/formatThousandsUnit.fn.html">
 									Frames
 								</a>
 </li>
 <li>
-<a href="addMonths.fn.html">
+<a href="formatThousandsUnit.fn.html">
 									No Frames
 								</a>
 </li>
@@ -54,7 +54,7 @@
 <div class="header">
 <h1 title="Library" class="title">of</h1>
 <h2 class="title">
-							Function addMonths</h2>
+							Function formatThousandsUnit</h2>
 </div>
 <div class="contentContainer">
 <div class="description">
@@ -63,7 +63,7 @@
 <dl>
 <dt>Signature:</dt>
 <dd>
-<code>java.util.Date<b>&nbsp;addMonths</b>(java.util.Date, int)</code>
+<code>java.lang.String<b>&nbsp;formatThousandsUnit</b>(java.lang.Number, java.lang.String)</code>
 </dd>
 </dl>
 <dl>
@@ -71,7 +71,27 @@
 <dd>
 <div class="block">
 			
-				Returns a new date instance which is a sum of the given date and the given amount of months. The months can be negative.
+				Format the given number to nearest 10<sup>n</sup> (rounded to thousands), suffixed with a space, the metric unit
+				prefix (k, M, G, T, P or E) and the given unit, rounding half up with a precision of 3 digits, whereafter
+				trailing zeroes in fraction part are stripped.
+				For example (with English locale and unit <code>B</code>):
+				<ul>
+				<li>999 will appear as 999 B
+				<li>1000 will appear as 1 kB
+				<li>1004 will appear as 1 kB
+				<li>1005 will appear as 1.01 kB
+				<li>1594 will appear as 1.59 kB
+				<li>1595 will appear as 1.6 kB
+				<li>9000 will appear as 9 kB
+				<li>9900 will appear as 9.9 kB
+				<li>9994 will appear as 9.99 kB
+				<li>9995 will appear as 10 kB
+				<li>99990 will appear as 100 kB
+				<li>9994999 will appear as 9.99 MB
+				<li>9995000 will appear as 10 MB
+				</ul>
+				The format locale will be set to the one as obtained by <code>Faces#getLocale()</code>.
+				If the value is <code>null</code>, <code>NaN</code> or infinity, then this will return <code>null</code>.
 			
 		</div>
 </dd>
@@ -91,10 +111,10 @@
 </thead>
 <tbody>
 <tr class="rowColor">
-<td class="colFirst">Function Class</td><td class="colLast"><code>org.omnifaces.el.functions.Dates</code></td>
+<td class="colFirst">Function Class</td><td class="colLast"><code>org.omnifaces.el.functions.Numbers</code></td>
 </tr>
 <tr class="altColor">
-<td class="colFirst">Function Signature</td><td class="colLast"><code>java.util.Date addMonths(java.util.Date, int)</code></td>
+<td class="colFirst">Function Signature</td><td class="colLast"><code>java.lang.String formatThousandsUnit(java.lang.Number, java.lang.String)</code></td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst">Display Name</td><td class="colLast"><i>None</i></td>
@@ -121,12 +141,12 @@
 <div class="subNav">
 <ul class="navList">
 <li>
-<a href="../index.html?of/addMonths.fn.html">
+<a href="../index.html?of/formatThousandsUnit.fn.html">
 									Frames
 								</a>
 </li>
 <li>
-<a href="addMonths.fn.html">
+<a href="formatThousandsUnit.fn.html">
 									No Frames
 								</a>
 </li>

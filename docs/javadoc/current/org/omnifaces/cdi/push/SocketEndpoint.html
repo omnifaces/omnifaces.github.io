@@ -49,7 +49,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../org/omnifaces/cdi/push/Socket.html" title="class in org.omnifaces.cdi.push"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../org/omnifaces/cdi/push/SocketChannelManager.html" title="class in org.omnifaces.cdi.push"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../../org/omnifaces/cdi/push/SocketEventListener.html" title="class in org.omnifaces.cdi.push"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
@@ -272,7 +272,8 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/websocket/Endpoint.h
 <h4>onOpen</h4>
 <pre>public&nbsp;void&nbsp;onOpen(<a href="https://docs.oracle.com/javaee/7/api/javax/websocket/Session.html?is-external=true" title="class or interface in javax.websocket">Session</a>&nbsp;session,
                    <a href="https://docs.oracle.com/javaee/7/api/javax/websocket/EndpointConfig.html?is-external=true" title="class or interface in javax.websocket">EndpointConfig</a>&nbsp;config)</pre>
-<div class="block">Add given web socket session to the <a href="../../../../org/omnifaces/cdi/push/SocketManager.html" title="class in org.omnifaces.cdi.push"><code>SocketManager</code></a>.</div>
+<div class="block">Add given web socket session to the <a href="../../../../org/omnifaces/cdi/push/SocketManager.html" title="class in org.omnifaces.cdi.push"><code>SocketManager</code></a>. If web socket session is not accepted (i.e. the
+ channel identifier is unknown), then immediately close with reason VIOLATED_POLICY (close code 1008).</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="https://docs.oracle.com/javaee/7/api/javax/websocket/Endpoint.html?is-external=true#onOpen-javax.websocket.Session-javax.websocket.EndpointConfig-" title="class or interface in javax.websocket">onOpen</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/javaee/7/api/javax/websocket/Endpoint.html?is-external=true" title="class or interface in javax.websocket">Endpoint</a></code></dd>
@@ -348,7 +349,7 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/websocket/Endpoint.h
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../org/omnifaces/cdi/push/Socket.html" title="class in org.omnifaces.cdi.push"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
+<li><a href="../../../../org/omnifaces/cdi/push/SocketChannelManager.html" title="class in org.omnifaces.cdi.push"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
 <li><a href="../../../../org/omnifaces/cdi/push/SocketEventListener.html" title="class in org.omnifaces.cdi.push"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">

@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html lang="en" xmlns:vdldoc="http://vdldoc.omnifaces.org" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:javaee="http://xmlns.jcp.org/xml/ns/javaee">
+<html lang="en" xmlns:javaee="http://xmlns.jcp.org/xml/ns/javaee" xmlns:vdldoc="http://vdldoc.omnifaces.org" xmlns:fo="http://www.w3.org/1999/XSL/Format">
 <head>
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>of (OmniFaces VDL Documentation - Generated Documentation)
@@ -553,14 +553,24 @@
 <tr class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="formatNumberDefault.fn.html">formatNumberDefault</a></b>(java.lang.Number)</code></td><td class="colLast">
 			
-				Format the given number in the locale-default pattern. This is useful when you want to format numbers in for 
+				Format the given number in the default pattern of the default locale. This is useful when you want to format numbers in for 
 				example the <code>title</code> attribute of an UI component, or the <code>itemLabel</code> attribute of select
-				item, or wherever you can't use the <code>&lt;f:convertNumber&gt;</code> tag. The format locale will be set to
+				item, or wherever you can't use the <code>&lt;f:convertNumber&gt;</code> tag. The default locale is
 				the one as obtained by <code>Faces#getLocale()</code>.
 			
 		</td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="formatNumberDefaultForLocale.fn.html">formatNumberDefaultForLocale</a></b>(java.lang.Number, java.lang.Object)</code></td><td class="colLast">
+			
+				Format the given number in the default pattern of the given locale. This is useful when you want to format numbers in for 
+				example the <code>title</code> attribute of an UI component, or the <code>itemLabel</code> attribute of select
+				item, or wherever you can't use the <code>&lt;f:convertNumber&gt;</code> tag. The given
+				locale can be a {@link Locale} object or a string representation.
+			
+		</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="formatPercent.fn.html">formatPercent</a></b>(java.lang.Number)</code></td><td class="colLast">
 			
 				Format the given number as percentage. This is useful when you want to format numbers as
@@ -570,11 +580,11 @@
 			
 		</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="formatThousands.fn.html">formatThousands</a></b>(java.lang.Number)</code></td><td class="colLast">
 			
 				Format the given number to nearest 10<sup>n</sup> (rounded to thousands), immediately suffixed (without space)
-				with lowercased IEC unit (k, m, g, t, p and e), rounding half up with a precision of 3 digits, whereafter
+				with metric unit (k, M, G, T, P or E), rounding half up with a precision of 3 digits, whereafter
 				trailing zeroes in fraction part are stripped. Numbers lower than thousand are not affected.
 				For example (with English locale):
 				<ul>
@@ -589,8 +599,35 @@
 					<li>9994 will appear as 9.99k
 					<li>9995 will appear as 10k
 					<li>99990 will appear as 100k
-					<li>9994999 will appear as 9.99m
-					<li>9995000 will appear as 10.0m
+					<li>9994999 will appear as 9.99M
+					<li>9995000 will appear as 10M
+				</ul>
+				The format locale will be set to the one as obtained by <code>Faces#getLocale()</code>.
+				If the value is <code>null</code>, <code>NaN</code> or infinity, then this will return <code>null</code>.
+			
+		</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="formatThousandsUnit.fn.html">formatThousandsUnit</a></b>(java.lang.Number, java.lang.String)</code></td><td class="colLast">
+			
+				Format the given number to nearest 10<sup>n</sup> (rounded to thousands), suffixed with a space, the metric unit
+				prefix (k, M, G, T, P or E) and the given unit, rounding half up with a precision of 3 digits, whereafter
+				trailing zeroes in fraction part are stripped.
+				For example (with English locale and unit <code>B</code>):
+				<ul>
+				<li>999 will appear as 999 B
+				<li>1000 will appear as 1 kB
+				<li>1004 will appear as 1 kB
+				<li>1005 will appear as 1.01 kB
+				<li>1594 will appear as 1.59 kB
+				<li>1595 will appear as 1.6 kB
+				<li>9000 will appear as 9 kB
+				<li>9900 will appear as 9.9 kB
+				<li>9994 will appear as 9.99 kB
+				<li>9995 will appear as 10 kB
+				<li>99990 will appear as 100 kB
+				<li>9994999 will appear as 9.99 MB
+				<li>9995000 will appear as 10 MB
 				</ul>
 				The format locale will be set to the one as obtained by <code>Faces#getLocale()</code>.
 				If the value is <code>null</code>, <code>NaN</code> or infinity, then this will return <code>null</code>.

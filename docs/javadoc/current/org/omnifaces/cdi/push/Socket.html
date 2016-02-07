@@ -50,7 +50,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li>Prev&nbsp;Class</li>
-<li><a href="../../../../org/omnifaces/cdi/push/SocketEndpoint.html" title="class in org.omnifaces.cdi.push"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../org/omnifaces/cdi/push/SocketChannelManager.html" title="class in org.omnifaces.cdi.push"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?org/omnifaces/cdi/push/Socket.html" target="_top">Frames</a></li>
@@ -328,6 +328,11 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
      &lt;/auth-constraint&gt;
  &lt;/security-constraint&gt;
  </pre>
+ <p>
+ As extra security, the <code>&lt;o:socket&gt;</code> will register all so far declared channels in the current HTTP
+ session and any incoming web socket open request will be checked whether they match the so far registered channels in
+ the current HTTP session. In case the channel is unknown (e.g. randomly guessed or spoofed by endusers), then the web
+ socket will immediately be closed with close code <a href="https://docs.oracle.com/javaee/7/api/javax/websocket/CloseReason.CloseCodes.html?is-external=true#VIOLATED_POLICY" title="class or interface in javax.websocket"><code>CloseReason.CloseCodes.VIOLATED_POLICY</code></a> (error code <code>1008</code>).
 
 
  <h3>EJB design hints</h3>
@@ -452,7 +457,7 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
 <dd>Bauke Scholtz</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../../org/omnifaces/cdi/push/SocketEndpoint.html" title="class in org.omnifaces.cdi.push"><code>SocketEndpoint</code></a>, 
-<a href="../../../../org/omnifaces/cdi/push/SocketScopeManager.html" title="class in org.omnifaces.cdi.push"><code>SocketScopeManager</code></a>, 
+<a href="../../../../org/omnifaces/cdi/push/SocketChannelManager.html" title="class in org.omnifaces.cdi.push"><code>SocketChannelManager</code></a>, 
 <a href="../../../../org/omnifaces/cdi/push/SocketEventListener.html" title="class in org.omnifaces.cdi.push"><code>SocketEventListener</code></a>, 
 <a href="../../../../org/omnifaces/cdi/push/SocketManager.html" title="class in org.omnifaces.cdi.push"><code>SocketManager</code></a>, 
 <a href="../../../../org/omnifaces/cdi/Push.html" title="annotation in org.omnifaces.cdi"><code>Push</code></a>, 
@@ -677,7 +682,7 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
 <div class="subNav">
 <ul class="navList">
 <li>Prev&nbsp;Class</li>
-<li><a href="../../../../org/omnifaces/cdi/push/SocketEndpoint.html" title="class in org.omnifaces.cdi.push"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../org/omnifaces/cdi/push/SocketChannelManager.html" title="class in org.omnifaces.cdi.push"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?org/omnifaces/cdi/push/Socket.html" target="_top">Frames</a></li>
