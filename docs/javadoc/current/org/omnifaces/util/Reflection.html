@@ -142,7 +142,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Reflection.html#findMethod-java.lang.Object-java.lang.String-java.lang.Object:A-">findMethod</a></span>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;base,
           <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;methodName,
           <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>[]&nbsp;params)</code>
-<div class="block">Finds a method based on the method name, amount of parameters and limited typing, if necessary prefixed with "get".</div>
+<div class="block">Finds a method based on the method name, amount of parameters and limited typing.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
@@ -271,7 +271,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <pre>public static&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/reflect/Method.html?is-external=true" title="class or interface in java.lang.reflect">Method</a>&nbsp;findMethod(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;base,
                                 <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;methodName,
                                 <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>[]&nbsp;params)</pre>
-<div class="block">Finds a method based on the method name, amount of parameters and limited typing, if necessary prefixed with "get".
+<div class="block">Finds a method based on the method name, amount of parameters and limited typing.
  <p>
  Note that this supports overloading, but a limited one. Given an actual parameter of type Long, this will select
  a method accepting Number when the choice is between Number and a non-compatible type like String. However,

@@ -18,7 +18,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10};
+var methods = {"i0":10,"i1":10,"i2":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -167,6 +167,22 @@ implements <a href="../../../../org/omnifaces/cdi/PushContext.html" title="inter
 <div class="block">Send given message object to the push socket channel as identified by <a href="../../../../org/omnifaces/cdi/Push.html" title="annotation in org.omnifaces.cdi"><code>Push</code></a>.</div>
 </td>
 </tr>
+<tr id="i1" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/cdi/push/SocketPushContext.html#send-java.lang.Object-java.util.Collection-">send</a></span>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;message,
+    <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializable.html?is-external=true" title="class or interface in java.io">Serializable</a>&gt;&nbsp;users)</code>
+<div class="block">Send given message object to the push socket channel as identified by <a href="../../../../org/omnifaces/cdi/Push.html" title="annotation in org.omnifaces.cdi"><code>Push</code></a>, targeted to the given users
+ as identified by <code>&lt;o:socket user&gt;</code>.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/cdi/push/SocketPushContext.html#send-java.lang.Object-java.io.Serializable-">send</a></span>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;message,
+    <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializable.html?is-external=true" title="class or interface in java.io">Serializable</a>&nbsp;user)</code>
+<div class="block">Send given message object to the push socket channel as identified by <a href="../../../../org/omnifaces/cdi/Push.html" title="annotation in org.omnifaces.cdi"><code>Push</code></a>, targeted to the given user as
+ identified by <code>&lt;o:socket user&gt;</code>.</div>
+</td>
+</tr>
 </table>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -192,19 +208,67 @@ implements <a href="../../../../org/omnifaces/cdi/PushContext.html" title="inter
 <a name="send-java.lang.Object-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>send</h4>
 <pre>public&nbsp;void&nbsp;send(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;message)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../org/omnifaces/cdi/PushContext.html#send-java.lang.Object-">PushContext</a></code></span></div>
-<div class="block">Send given message object to the push socket channel as identified by <a href="../../../../org/omnifaces/cdi/Push.html" title="annotation in org.omnifaces.cdi"><code>Push</code></a>. This will be encoded as JSON
- and be available as first argument of the JavaScript listener function declared in
- <code>&lt;o:socket onmessage&gt;</code>.</div>
+<div class="block">Send given message object to the push socket channel as identified by <a href="../../../../org/omnifaces/cdi/Push.html" title="annotation in org.omnifaces.cdi"><code>Push</code></a>.
+ The message object will be encoded as JSON and be available as first argument of the JavaScript listener function
+ declared in <code>&lt;o:socket onmessage&gt;</code>.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../../../../org/omnifaces/cdi/PushContext.html#send-java.lang.Object-">send</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/omnifaces/cdi/PushContext.html" title="interface in org.omnifaces.cdi">PushContext</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>message</code> - The push message object.</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../org/omnifaces/util/Json.html#encode-java.lang.Object-"><code>Json.encode(Object)</code></a></dd>
+</dl>
+</li>
+</ul>
+<a name="send-java.lang.Object-java.io.Serializable-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>send</h4>
+<pre>public&nbsp;void&nbsp;send(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;message,
+                 <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializable.html?is-external=true" title="class or interface in java.io">Serializable</a>&nbsp;user)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../org/omnifaces/cdi/PushContext.html#send-java.lang.Object-java.io.Serializable-">PushContext</a></code></span></div>
+<div class="block">Send given message object to the push socket channel as identified by <a href="../../../../org/omnifaces/cdi/Push.html" title="annotation in org.omnifaces.cdi"><code>Push</code></a>, targeted to the given user as
+ identified by <code>&lt;o:socket user&gt;</code>.
+ The message object will be encoded as JSON and be available as first argument of the JavaScript listener function
+ declared in <code>&lt;o:socket onmessage&gt;</code>.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../org/omnifaces/cdi/PushContext.html#send-java.lang.Object-java.io.Serializable-">send</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/omnifaces/cdi/PushContext.html" title="interface in org.omnifaces.cdi">PushContext</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>message</code> - The push message object.</dd>
+<dd><code>user</code> - The user to which the push message object must be delivered to.</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../../org/omnifaces/util/Json.html#encode-java.lang.Object-"><code>Json.encode(Object)</code></a></dd>
+</dl>
+</li>
+</ul>
+<a name="send-java.lang.Object-java.util.Collection-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>send</h4>
+<pre>public&nbsp;void&nbsp;send(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;message,
+                 <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializable.html?is-external=true" title="class or interface in java.io">Serializable</a>&gt;&nbsp;users)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../org/omnifaces/cdi/PushContext.html#send-java.lang.Object-java.util.Collection-">PushContext</a></code></span></div>
+<div class="block">Send given message object to the push socket channel as identified by <a href="../../../../org/omnifaces/cdi/Push.html" title="annotation in org.omnifaces.cdi"><code>Push</code></a>, targeted to the given users
+ as identified by <code>&lt;o:socket user&gt;</code>.
+ The message object will be encoded as JSON and be available as first argument of the JavaScript listener function
+ declared in <code>&lt;o:socket onmessage&gt;</code>.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../org/omnifaces/cdi/PushContext.html#send-java.lang.Object-java.util.Collection-">send</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../org/omnifaces/cdi/PushContext.html" title="interface in org.omnifaces.cdi">PushContext</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>message</code> - The push message object.</dd>
+<dd><code>users</code> - The users to which the push message object must be delivered to.</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../../org/omnifaces/util/Json.html#encode-java.lang.Object-"><code>Json.encode(Object)</code></a></dd>
 </dl>

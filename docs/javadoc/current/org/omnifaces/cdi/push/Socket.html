@@ -196,12 +196,6 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
  <li><code>event</code>: the raw <a href="https://developer.mozilla.org/en-US/docs/Web/API/CloseEvent"><code>
  CloseEvent</code></a> instance, useful in case you intend to inspect it.</li>
  </ul>
- <p>By default the web socket is application scoped, i.e. any view/session throughout the web application having the
- same web socket channel open will receive the same push message. The optional <code>scope</code> attribute can be set
- to <code>session</code> to restrict the push messages to all views in the current user session only.
- <pre>
- &lt;o:socket channel="someChannel" scope="session" ... /&gt;
- </pre>
  <p>
  In case your server is configured to run WS container on a different TCP port than the HTTP container, then you can
  use the <code>port</code> attribute to explicitly specify the port.
@@ -245,6 +239,59 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
  state, the HTTP session and, importantingly, all security constraints on business service methods. Namely, those are
  not available during an incoming web socket message per se. See also a.o.
  <a href="https://java.net/jira/browse/WEBSOCKET_SPEC-238">WS spec issue 238</a>.
+
+
+ <h3>Scopes and users</h3>
+ <p>
+ By default the web socket is application scoped, i.e. any view/session throughout the web application having the
+ same web socket channel open will receive the same push message. This is useful for application-wide feedback
+ triggered by site itself. The optional <code>scope</code> attribute can be set to <code>session</code> to restrict
+ the push messages to all views in the current user session only. This is useful for session-wide feedback triggered
+ by user itself (e.g. asynchronous updates tied to user specific action).
+ <pre>
+ &lt;o:socket channel="someChannel" scope="session" ... /&gt;
+ </pre>
+ <p>
+ Or to <code>view</code> to restrict the push messages to the current view only. This is useful for view-wide feedback
+ triggered by user itself (e.g. progress bar tied to a view specific action).
+ <pre>
+ &lt;o:socket channel="someChannel" scope="view" ... /&gt;
+ </pre>
+ <p>
+ Additionally, the optional <code>user</code> attribute can be set to the unique user identifier, usually the login
+ name or the user ID. It must at least implement <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializable.html?is-external=true" title="class or interface in java.io"><code>Serializable</code></a> and have a low memory footprint, so putting
+ entire user entity is discouraged.
+ <pre>
+ &lt;o:socket channel="someChannel" user="#{request.remoteUser}" ... /&gt;
+ </pre>
+ <pre>
+ &lt;o:socket channel="someChannel" user="#{someLoggedInUser.id}" ... /&gt;
+ </pre>
+ <p>
+ When the <code>user</code> attribute is specified, then the <code>scope</code> defaults to <code>session</code> and
+ cannot be set to <code>application</code>. It can be set to <code>view</code>, but this is kind of unusual and should
+ only be used if the logged-in user represented by <code>user</code> is not session scoped but view scoped, otherwise
+ undefined behavior may occur when the logged-in user changes during the same HTTP session without invalidating it.
+ <p>
+ In the server side, the push message can be targeted to the user via <a href="../../../../org/omnifaces/cdi/PushContext.html#send-java.lang.Object-java.io.Serializable-"><code>PushContext.send(Object, Serializable)</code></a>.
+ This is useful for user-specific feedback triggered by other users (e.g. chat).
+ <pre>
+ &#64;Inject &#64;Push
+ private PushContext someChannel;
+
+ public void sendMessage(Object message) {
+     someChannel.send(message, recipientUserId);
+ }
+ </pre>
+ <p>
+ Multiple users can be targeted by passing a <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util"><code>Collection</code></a> holding user identifiers to
+ <a href="../../../../org/omnifaces/cdi/PushContext.html#send-java.lang.Object-java.util.Collection-"><code>PushContext.send(Object, Collection)</code></a>.
+ <pre>
+ public void sendMessage(Object message) {
+     Collection&lt;Serializable&gt; userIds = group.getUserIds();
+     someChannel.send(message, userIds);
+ }
+ </pre>
 
 
  <h3>Conditionally connecting socket</h3>
@@ -380,8 +427,8 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
  Note that a request scoped bean wouldn't be the same one as from the originating page for the simple reason that
  there's no means of a HTTP request anywhere at that moment. For exactly this reason a view and session scoped bean
  would not work at all (as they require respectively the JSF view state and HTTP session which can only be identified
- by a HTTP request). A session scoped push socket would also not work at all (so the push socket really needs to be
- application scoped). The <a href="https://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context"><code>FacesContext</code></a> will also be unavailable in the method.
+ by a HTTP request). A view and session scoped push socket would also not work at all (so the push socket really needs
+ to be application scoped). The <a href="https://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context"><code>FacesContext</code></a> will also be unavailable in the method.
  <p>
  In case the trigger in EAR/EJB side is in turn initiated in WAR side, then you could make use of callbacks from WAR
  side. Let the business service method take a callback instance as argument, e.g. <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang"><code>Runnable</code></a>.
@@ -411,8 +458,8 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
  }
  </pre>
  <p>
- This would be the only way in case you intend to asynchronously send a message to a session scoped push socket,
- and/or want to pass something from <a href="https://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context"><code>FacesContext</code></a> or the initial request/view/session scope along as
+ This would be the only way in case you intend to asynchronously send a message to a view or session scoped push
+ socket, and/or want to pass something from <a href="https://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context"><code>FacesContext</code></a> or the initial request/view/session scope along as
  (<code>final</code>) argument.
  <p>
  Note that OmniFaces own <a href="../../../../org/omnifaces/util/Callback.html" title="class in org.omnifaces.util"><code>Callback</code></a> interfaces are insuitable as you're not supposed to use WAR (front end)
@@ -631,10 +678,11 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
 <dl>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang">IllegalStateException</a></code> - When the web socket endpoint is not enabled in <code>web.xml</code>.</dd>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></code> - When the channel name or scope is invalid.
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></code> - When the channel name, scope or user is invalid.
  The channel name may only contain alphanumeric characters, hyphens, underscores and periods.
- The allowed channel scope values are "application" and "session", case insensitive.
- The channel name must be uniquely tied to the channel scope.</dd>
+ The allowed channel scope values are "application", "session" and "view", case insensitive.
+ The channel name must be uniquely tied to the channel scope.
+ The user, if any, must implement <code>Serializable</code>.</dd>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd>
 </dl>
 </li>

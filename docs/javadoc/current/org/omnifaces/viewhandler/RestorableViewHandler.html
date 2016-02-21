@@ -203,7 +203,7 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/application/Vi
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/viewhandler/RestorableViewHandler.html#restoreView-javax.faces.context.FacesContext-java.lang.String-">restoreView</a></span>(<a href="https://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context,
            <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;viewId)</code>
 <div class="block">If the current request is an unload request from <a href="../../../org/omnifaces/cdi/ViewScoped.html" title="annotation in org.omnifaces.cdi"><code>ViewScoped</code></a>, then create a dummy view, restore only the
- view scope state and destroy the view, else restore the view as usual.</div>
+ view root state and then immediately explicitly destroy the view, else restore the view as usual.</div>
 </td>
 </tr>
 </table>
@@ -266,10 +266,10 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/application/Vi
 <pre>public&nbsp;<a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIViewRoot.html?is-external=true" title="class or interface in javax.faces.component">UIViewRoot</a>&nbsp;restoreView(<a href="https://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context,
                               <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;viewId)</pre>
 <div class="block">If the current request is an unload request from <a href="../../../org/omnifaces/cdi/ViewScoped.html" title="annotation in org.omnifaces.cdi"><code>ViewScoped</code></a>, then create a dummy view, restore only the
- view scope state and destroy the view, else restore the view as usual. If the <code>&lt;o:enableRestoreView&gt;</code>
- is used once in the application, and the restored view is null and the current request is a postback, then
- recreate and rebuild the view from scratch. If it indeed contains the <code>&lt;o:enableRestoreView&gt;</code>,
- then return the newly created view, else return <code>null</code>.</div>
+ view root state and then immediately explicitly destroy the view, else restore the view as usual. If the
+ <code>&lt;o:enableRestoreView&gt;</code> is used once in the application, and the restored view is null and the
+ current request is a postback, then recreate and rebuild the view from scratch. If it indeed contains the
+ <code>&lt;o:enableRestoreView&gt;</code>, then return the newly created view, else return <code>null</code>.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code><a href="https://docs.oracle.com/javaee/7/api/javax/faces/application/ViewHandlerWrapper.html?is-external=true#restoreView-javax.faces.context.FacesContext-java.lang.String-" title="class or interface in javax.faces.application">restoreView</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/javaee/7/api/javax/faces/application/ViewHandlerWrapper.html?is-external=true" title="class or interface in javax.faces.application">ViewHandlerWrapper</a></code></dd>

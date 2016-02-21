@@ -167,9 +167,23 @@
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/cdi/push/SocketPushContext.html#send-java.lang.Object-">send(Object)</a></span> - Method in class org.omnifaces.cdi.push.<a href="../org/omnifaces/cdi/push/SocketPushContext.html" title="class in org.omnifaces.cdi.push">SocketPushContext</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/cdi/push/SocketPushContext.html#send-java.lang.Object-java.io.Serializable-">send(Object, Serializable)</a></span> - Method in class org.omnifaces.cdi.push.<a href="../org/omnifaces/cdi/push/SocketPushContext.html" title="class in org.omnifaces.cdi.push">SocketPushContext</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/cdi/push/SocketPushContext.html#send-java.lang.Object-java.util.Collection-">send(Object, Collection&lt;Serializable&gt;)</a></span> - Method in class org.omnifaces.cdi.push.<a href="../org/omnifaces/cdi/push/SocketPushContext.html" title="class in org.omnifaces.cdi.push">SocketPushContext</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/cdi/PushContext.html#send-java.lang.Object-">send(Object)</a></span> - Method in interface org.omnifaces.cdi.<a href="../org/omnifaces/cdi/PushContext.html" title="interface in org.omnifaces.cdi">PushContext</a></dt>
 <dd>
 <div class="block">Send given message object to the push socket channel as identified by <a href="../org/omnifaces/cdi/Push.html" title="annotation in org.omnifaces.cdi"><code>Push</code></a>.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/cdi/PushContext.html#send-java.lang.Object-java.io.Serializable-">send(Object, Serializable)</a></span> - Method in interface org.omnifaces.cdi.<a href="../org/omnifaces/cdi/PushContext.html" title="interface in org.omnifaces.cdi">PushContext</a></dt>
+<dd>
+<div class="block">Send given message object to the push socket channel as identified by <a href="../org/omnifaces/cdi/Push.html" title="annotation in org.omnifaces.cdi"><code>Push</code></a>, targeted to the given user as
+ identified by <code>&lt;o:socket user&gt;</code>.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/cdi/PushContext.html#send-java.lang.Object-java.util.Collection-">send(Object, Collection&lt;Serializable&gt;)</a></span> - Method in interface org.omnifaces.cdi.<a href="../org/omnifaces/cdi/PushContext.html" title="interface in org.omnifaces.cdi">PushContext</a></dt>
+<dd>
+<div class="block">Send given message object to the push socket channel as identified by <a href="../org/omnifaces/cdi/Push.html" title="annotation in org.omnifaces.cdi"><code>Push</code></a>, targeted to the given users
+ as identified by <code>&lt;o:socket user&gt;</code>.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/util/Faces.html#sendFile-java.io.File-boolean-">sendFile(File, boolean)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Faces.html" title="class in org.omnifaces.util">Faces</a></dt>
 <dd>
@@ -673,10 +687,15 @@
 <dt><a href="../org/omnifaces/cdi/push/SocketChannelManager.html" title="class in org.omnifaces.cdi.push"><span class="typeNameLink">SocketChannelManager</span></a> - Class in <a href="../org/omnifaces/cdi/push/package-summary.html">org.omnifaces.cdi.push</a></dt>
 <dd>
 <div class="block">
- This manages all web socket channels explicitly registered by <code>&lt;o:socket&gt;</code>.</div>
+ The web socket channel manager.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/cdi/push/SocketChannelManager.html#SocketChannelManager--">SocketChannelManager()</a></span> - Constructor for class org.omnifaces.cdi.push.<a href="../org/omnifaces/cdi/push/SocketChannelManager.html" title="class in org.omnifaces.cdi.push">SocketChannelManager</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="../org/omnifaces/cdi/push/SocketChannelManager.DeregisterViewScopeChannels.html" title="class in org.omnifaces.cdi.push"><span class="typeNameLink">SocketChannelManager.DeregisterViewScopeChannels</span></a> - Class in <a href="../org/omnifaces/cdi/push/package-summary.html">org.omnifaces.cdi.push</a></dt>
+<dd>
+<div class="block">When current view scope is about to be destroyed, deregister all view scope channels and explicitly close
+ any open web sockets associated with it to avoid stale websockets.</div>
+</dd>
 <dt><a href="../org/omnifaces/cdi/push/SocketEndpoint.html" title="class in org.omnifaces.cdi.push"><span class="typeNameLink">SocketEndpoint</span></a> - Class in <a href="../org/omnifaces/cdi/push/package-summary.html">org.omnifaces.cdi.push</a></dt>
 <dd>
 <div class="block">
@@ -697,7 +716,7 @@
 <dt><a href="../org/omnifaces/cdi/push/SocketManager.html" title="class in org.omnifaces.cdi.push"><span class="typeNameLink">SocketManager</span></a> - Class in <a href="../org/omnifaces/cdi/push/package-summary.html">org.omnifaces.cdi.push</a></dt>
 <dd>
 <div class="block">
- The web socket manager.</div>
+ The web socket session manager.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/cdi/push/SocketManager.html#SocketManager--">SocketManager()</a></span> - Constructor for class org.omnifaces.cdi.push.<a href="../org/omnifaces/cdi/push/SocketManager.html" title="class in org.omnifaces.cdi.push">SocketManager</a></dt>
 <dd>&nbsp;</dd>
