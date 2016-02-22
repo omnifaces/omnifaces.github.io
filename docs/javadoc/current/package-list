@@ -8,6 +8,7 @@ org.omnifaces.cdi.cookie
 org.omnifaces.cdi.eager
 org.omnifaces.cdi.param
 org.omnifaces.cdi.push
+org.omnifaces.cdi.push.event
 org.omnifaces.cdi.validator
 org.omnifaces.cdi.viewscope
 org.omnifaces.component

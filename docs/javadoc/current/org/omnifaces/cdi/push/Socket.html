@@ -338,6 +338,33 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
  manually invoking <code>OmniFaces.Push</code> functions. Mixing them ends up in undefined behavior.
 
 
+ <h3>Events</h3>
+ <p>
+ When a web socket has been opened, a new CDI <a href="../../../../org/omnifaces/cdi/push/SocketEvent.html" title="class in org.omnifaces.cdi.push"><code>SocketEvent</code></a> will be fired with <a href="../../../../org/omnifaces/cdi/push/event/Opened.html" title="annotation in org.omnifaces.cdi.push.event"><code>Opened</code></a> qualifier.
+ When a web socket has been closed, a new CDI <a href="../../../../org/omnifaces/cdi/push/SocketEvent.html" title="class in org.omnifaces.cdi.push"><code>SocketEvent</code></a> will be fired with <a href="../../../../org/omnifaces/cdi/push/event/Closed.html" title="annotation in org.omnifaces.cdi.push.event"><code>Closed</code></a> qualifier.
+ They can only be observed and collected in an application scoped CDI bean as below. A request scoped one is useless
+ and a view/session scoped one wouldn't work as there's no means of a HTTP request anywhere at that moment.
+ <pre>
+ &#64;ApplicationScoped
+ public class SocketObserver {
+
+     public void onOpen(&#64;Observes &#64;Opened SocketEvent event) {
+         String channel = event.getChannel(); // Returns &lt;o:socket channel&gt;.
+         Serializable user = event.getUser(); // Returns &lt;o:socket user&gt;, if any.
+         // Do your thing with it. E.g. collecting them in a concurrent/synchronized collection.
+         // Do note that a single person can open multiple sockets on same channel/user.
+     }
+
+     public void onClose(&#64;Observes &#64;Closed SocketEvent event) {
+         String channel = event.getChannel(); // Returns &lt;o:socket channel&gt;.
+         Serializable user = event.getUser(); // Returns &lt;o:socket user&gt;, if any.
+         // Do your thing with it. E.g. removing them from collection.
+     }
+
+ }
+ </pre>
+
+
  <h3>Security considerations</h3>
  <p>
  If the socket is declared in a page which is only restricted to logged-in users with a specific role, then you may
@@ -506,7 +533,10 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
 <dd><a href="../../../../org/omnifaces/cdi/push/SocketEndpoint.html" title="class in org.omnifaces.cdi.push"><code>SocketEndpoint</code></a>, 
 <a href="../../../../org/omnifaces/cdi/push/SocketChannelManager.html" title="class in org.omnifaces.cdi.push"><code>SocketChannelManager</code></a>, 
 <a href="../../../../org/omnifaces/cdi/push/SocketEventListener.html" title="class in org.omnifaces.cdi.push"><code>SocketEventListener</code></a>, 
-<a href="../../../../org/omnifaces/cdi/push/SocketManager.html" title="class in org.omnifaces.cdi.push"><code>SocketManager</code></a>, 
+<a href="../../../../org/omnifaces/cdi/push/SocketSessionManager.html" title="class in org.omnifaces.cdi.push"><code>SocketSessionManager</code></a>, 
+<a href="../../../../org/omnifaces/cdi/push/SocketEvent.html" title="class in org.omnifaces.cdi.push"><code>SocketEvent</code></a>, 
+<a href="../../../../org/omnifaces/cdi/push/event/Opened.html" title="annotation in org.omnifaces.cdi.push.event"><code>Opened</code></a>, 
+<a href="../../../../org/omnifaces/cdi/push/event/Closed.html" title="annotation in org.omnifaces.cdi.push.event"><code>Closed</code></a>, 
 <a href="../../../../org/omnifaces/cdi/Push.html" title="annotation in org.omnifaces.cdi"><code>Push</code></a>, 
 <a href="../../../../org/omnifaces/cdi/PushContext.html" title="interface in org.omnifaces.cdi"><code>PushContext</code></a>, 
 <a href="../../../../org/omnifaces/cdi/push/SocketPushContext.html" title="class in org.omnifaces.cdi.push"><code>SocketPushContext</code></a>, 
