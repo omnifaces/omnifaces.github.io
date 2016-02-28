@@ -86,9 +86,9 @@
 <td class="colFirst"><a href="../../../../org/omnifaces/cdi/push/Socket.html" title="class in org.omnifaces.cdi.push">Socket</a></td>
 <td class="colLast">
 <div class="block">
- Opens an one-way (server to client) web socket based push connection in client side which can be reached from
- server side via <a href="../../../../org/omnifaces/cdi/PushContext.html" title="interface in org.omnifaces.cdi"><code>PushContext</code></a> interface injected in any CDI/container managed artifact via <a href="../../../../org/omnifaces/cdi/Push.html" title="annotation in org.omnifaces.cdi"><code>Push</code></a>
- annotation.</div>
+ The <code>&lt;o:socket&gt;</code> tag opens an one-way (server to client) web socket based push connection in client
+ side which can be reached from server side via <a href="../../../../org/omnifaces/cdi/PushContext.html" title="interface in org.omnifaces.cdi"><code>PushContext</code></a> interface injected in any CDI/container managed
+ artifact via <a href="../../../../org/omnifaces/cdi/Push.html" title="annotation in org.omnifaces.cdi"><code>Push</code></a> annotation.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -99,10 +99,9 @@
 </td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><a href="../../../../org/omnifaces/cdi/push/SocketChannelManager.DeregisterViewScopeChannels.html" title="class in org.omnifaces.cdi.push">SocketChannelManager.DeregisterViewScopeChannels</a></td>
+<td class="colFirst"><a href="../../../../org/omnifaces/cdi/push/SocketChannelManager.SocketChannelManagerViewScopeIds.html" title="class in org.omnifaces.cdi.push">SocketChannelManager.SocketChannelManagerViewScopeIds</a></td>
 <td class="colLast">
-<div class="block">When current view scope is about to be destroyed, deregister all view scope channels and explicitly close
- any open web sockets associated with it to avoid stale websockets.</div>
+<div class="block">The web socket channel manager for view scoped web socket channels.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -120,11 +119,11 @@
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><a href="../../../../org/omnifaces/cdi/push/SocketEventListener.html" title="class in org.omnifaces.cdi.push">SocketEventListener</a></td>
+<td class="colFirst"><a href="../../../../org/omnifaces/cdi/push/SocketFacesListener.html" title="class in org.omnifaces.cdi.push">SocketFacesListener</a></td>
 <td class="colLast">
 <div class="block">
- This system event listener for <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIViewRoot.html?is-external=true" title="class or interface in javax.faces.component"><code>UIViewRoot</code></a> ensures that the necessary scripts for <code>&lt;o:socket&gt;</code>
- are properly rendered.</div>
+ This JSF system event listener for <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIViewRoot.html?is-external=true" title="class or interface in javax.faces.component"><code>UIViewRoot</code></a> ensures that the necessary scripts for
+ <code>&lt;o:socket&gt;</code> are properly rendered.</div>
 </td>
 </tr>
 <tr class="altColor">

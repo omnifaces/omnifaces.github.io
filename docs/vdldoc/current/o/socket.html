@@ -66,9 +66,11 @@
 <dd>
 <div class="block">
 			
-				Opens an one-way (server to client) web socket based push connection in client side which can be reached from
-				server side via <code>PushContext</code> interface injected in any CDI/container managed artifact.
-				For detailed usage instructions, see <code>Socket</code> javadoc.
+				<strong><code>o:socket</code></strong> opens an one-way (server to client) web socket based push conntection
+				in client side which can be reached from server side via <code>org.omnifaces.cdi.PushContext</code>
+				interface injected in any CDI/container managed artifact via <code>org.omnifaces.cdi.Push</code> annotation.
+				<p>
+				For detailed usage instructions, see <code>org.omnifaces.cdi.push.Socket</code> javadoc.
 			
 		</div>
 </dd>
@@ -135,7 +137,17 @@
 				
 			</td>
 </tr>
-<tr id="onmessage" class="rowColor">
+<tr id="onopen" class="rowColor">
+<td class="colFirst"><a href="#onopen"><code>onopen</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">
+				
+					The JavaScript event handler function that is invoked when the web socket is opened.
+					The function will be invoked with one argument: the channel name.
+				
+			</td>
+</tr>
+<tr id="onmessage" class="altColor">
 <td class="colFirst"><a href="#onmessage"><code>onmessage</code></a></td><td class="colOne"><code>true</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
@@ -145,7 +157,7 @@
 				
 			</td>
 </tr>
-<tr id="onclose" class="altColor">
+<tr id="onclose" class="rowColor">
 <td class="colFirst"><a href="#onclose"><code>onclose</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
@@ -160,7 +172,7 @@
 				
 			</td>
 </tr>
-<tr id="connected" class="rowColor">
+<tr id="connected" class="altColor">
 <td class="colFirst"><a href="#connected"><code>connected</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.Boolean</code>)
 					</td><td class="colLast">
