@@ -161,9 +161,9 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializabl
 </td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code><a href="https://docs.oracle.com/javaee/7/api/javax/websocket/CloseReason.html?is-external=true" title="class or interface in javax.websocket">CloseReason</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/cdi/push/SocketEvent.html#getCloseReason--">getCloseReason</a></span>()</code>
-<div class="block">Returns the close reason.</div>
+<td class="colFirst"><code><a href="https://docs.oracle.com/javaee/7/api/javax/websocket/CloseReason.CloseCode.html?is-external=true" title="class or interface in javax.websocket">CloseReason.CloseCode</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/cdi/push/SocketEvent.html#getCloseCode--">getCloseCode</a></span>()</code>
+<div class="block">Returns the close code.</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
@@ -234,19 +234,19 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializabl
 </dl>
 </li>
 </ul>
-<a name="getCloseReason--">
+<a name="getCloseCode--">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getCloseReason</h4>
-<pre>public&nbsp;<a href="https://docs.oracle.com/javaee/7/api/javax/websocket/CloseReason.html?is-external=true" title="class or interface in javax.websocket">CloseReason</a>&nbsp;getCloseReason()</pre>
-<div class="block">Returns the close reason.
+<h4>getCloseCode</h4>
+<pre>public&nbsp;<a href="https://docs.oracle.com/javaee/7/api/javax/websocket/CloseReason.CloseCode.html?is-external=true" title="class or interface in javax.websocket">CloseReason.CloseCode</a>&nbsp;getCloseCode()</pre>
+<div class="block">Returns the close code.
  If this returns <code>null</code>, then it was <a href="../../../../org/omnifaces/cdi/push/event/Opened.html" title="annotation in org.omnifaces.cdi.push.event"><code>Opened</code></a>.
  If this returns non-<code>null</code>, then it was <a href="../../../../org/omnifaces/cdi/push/event/Closed.html" title="annotation in org.omnifaces.cdi.push.event"><code>Closed</code></a>.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>The close reason.</dd>
+<dd>The close code.</dd>
 </dl>
 </li>
 </ul>

@@ -112,8 +112,12 @@ var activeTableTab = "activeTableTab";
 <pre>public interface <span class="typeNameLabel">PushContext</span>
 extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializable.html?is-external=true" title="class or interface in java.io">Serializable</a></pre>
 <div class="block"><p>
- CDI interface to send a message object to the push socket channel as identified by <a href="../../../org/omnifaces/cdi/Push.html" title="annotation in org.omnifaces.cdi"><code>Push</code></a>.
- This can be injected via <a href="../../../org/omnifaces/cdi/Push.html" title="annotation in org.omnifaces.cdi"><code>Push</code></a> in any container managed artifact in WAR (not in EAR/EJB!).
+ CDI interface to send a message object to the push socket channel as identified by <code>&#64;</code><a href="../../../org/omnifaces/cdi/Push.html" title="annotation in org.omnifaces.cdi"><code>Push</code></a>.
+ This can be injected via <code>&#64;</code><a href="../../../org/omnifaces/cdi/Push.html" title="annotation in org.omnifaces.cdi"><code>Push</code></a> in any container managed artifact in WAR (not in EAR/EJB!).
+ <pre>
+ &#64;Inject &#64;Push
+ private PushContext channelName;
+ </pre>
  <p>
  For detailed usage instructions, see <a href="../../../org/omnifaces/cdi/push/Socket.html" title="class in org.omnifaces.cdi.push"><code>Socket</code></a> javadoc.</div>
 <dl>
