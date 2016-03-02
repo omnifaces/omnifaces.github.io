@@ -118,7 +118,7 @@ var activeTableTab = "activeTableTab";
 <hr>
 <br>
 <pre><a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/ViewScoped.html?is-external=true" title="class or interface in javax.faces.view">@ViewScoped</a>
-public static class <span class="typeNameLabel">SocketChannelManager.SocketChannelManagerViewScopeIds</span>
+protected static class <span class="typeNameLabel">SocketChannelManager.SocketChannelManagerViewScopeIds</span>
 extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>
 implements <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializable.html?is-external=true" title="class or interface in java.io">Serializable</a></pre>
 <div class="block">The web socket channel manager for view scoped web socket channels.</div>
@@ -146,10 +146,12 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializabl
 <table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Constructor Summary table, listing constructors, and an explanation">
 <caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
 <tr>
-<th class="colOne" scope="col">Constructor and Description</th>
+<th class="colFirst" scope="col">Modifier</th>
+<th class="colLast" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/cdi/push/SocketChannelManager.SocketChannelManagerViewScopeIds.html#SocketChannelManagerViewScopeIds--">SocketChannelManagerViewScopeIds</a></span>()</code>&nbsp;</td>
+<td class="colFirst"><code>protected </code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/cdi/push/SocketChannelManager.SocketChannelManagerViewScopeIds.html#SocketChannelManagerViewScopeIds--">SocketChannelManagerViewScopeIds</a></span>()</code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -167,7 +169,7 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializabl
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>void</code></td>
+<td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/cdi/push/SocketChannelManager.SocketChannelManagerViewScopeIds.html#deregisterViewScopeChannels--">deregisterViewScopeChannels</a></span>()</code>
 <div class="block">When current view scope is about to be destroyed, deregister all view scope channels and explicitly close
  any open web sockets associated with it to avoid stale websockets.</div>
@@ -201,7 +203,7 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializabl
 <ul class="blockListLast">
 <li class="blockList">
 <h4>SocketChannelManagerViewScopeIds</h4>
-<pre>public&nbsp;SocketChannelManagerViewScopeIds()</pre>
+<pre>protected&nbsp;SocketChannelManagerViewScopeIds()</pre>
 </li>
 </ul>
 </li>
@@ -219,7 +221,7 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializabl
 <li class="blockList">
 <h4>deregisterViewScopeChannels</h4>
 <pre><a href="https://docs.oracle.com/javaee/7/api/javax/annotation/PreDestroy.html?is-external=true" title="class or interface in javax.annotation">@PreDestroy</a>
-public&nbsp;void&nbsp;deregisterViewScopeChannels()</pre>
+protected&nbsp;void&nbsp;deregisterViewScopeChannels()</pre>
 <div class="block">When current view scope is about to be destroyed, deregister all view scope channels and explicitly close
  any open web sockets associated with it to avoid stale websockets.</div>
 </li>

@@ -438,8 +438,8 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
  When a web socket has been opened, a new CDI <strong><a href="../../../../org/omnifaces/cdi/push/SocketEvent.html" title="class in org.omnifaces.cdi.push"><code>SocketEvent</code></a></strong> will be fired with
  <strong><code>&#64;</code><a href="../../../../org/omnifaces/cdi/push/event/Opened.html" title="annotation in org.omnifaces.cdi.push.event"><code>Opened</code></a></strong> qualifier. When a web socket has been closed, a new CDI
  <a href="../../../../org/omnifaces/cdi/push/SocketEvent.html" title="class in org.omnifaces.cdi.push"><code>SocketEvent</code></a> will be fired with <strong><code>&#64;</code><a href="../../../../org/omnifaces/cdi/push/event/Closed.html" title="annotation in org.omnifaces.cdi.push.event"><code>Closed</code></a></strong> qualifier. They can only be
- observed and collected in an application scoped CDI bean as below. A request scoped one is useless and a view/session
- scoped one wouldn't work as there's no means of a HTTP request anywhere at that moment.
+ observed and collected in an application scoped CDI bean as below. A request/view/session scoped one wouldn't work as
+ there's no means of a HTTP request anywhere at that moment.
  <pre>
  &#64;ApplicationScoped
  public class SocketObserver {
@@ -562,7 +562,7 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
  there's no means of a HTTP request anywhere at that moment. For exactly this reason a view and session scoped bean
  would not work (as they require respectively the JSF view state and HTTP session which can only be identified by a
  HTTP request). A view and session scoped push socket would also not work, so the push socket really needs to be
- application scoped). The <a href="https://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context"><code>FacesContext</code></a> will also be unavailable in the above event listener method.
+ application scoped. The <a href="https://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context"><code>FacesContext</code></a> will also be unavailable in the above event listener method.
  <p>
  In case the trigger in EAR/EJB side is an asynchronous service method which is in turn initiated in WAR side, then
  you could make use of callbacks from WAR side. Let the business service method take a callback instance as argument,
@@ -643,6 +643,7 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
 <dd><a href="../../../../org/omnifaces/cdi/push/SocketEndpoint.html" title="class in org.omnifaces.cdi.push"><code>SocketEndpoint</code></a>, 
 <a href="../../../../org/omnifaces/cdi/push/SocketFacesListener.html" title="class in org.omnifaces.cdi.push"><code>SocketFacesListener</code></a>, 
 <a href="../../../../org/omnifaces/cdi/push/SocketChannelManager.html" title="class in org.omnifaces.cdi.push"><code>SocketChannelManager</code></a>, 
+<a href="../../../../org/omnifaces/cdi/push/SocketUserManager.html" title="class in org.omnifaces.cdi.push"><code>SocketUserManager</code></a>, 
 <a href="../../../../org/omnifaces/cdi/push/SocketSessionManager.html" title="class in org.omnifaces.cdi.push"><code>SocketSessionManager</code></a>, 
 <a href="../../../../org/omnifaces/cdi/push/SocketEvent.html" title="class in org.omnifaces.cdi.push"><code>SocketEvent</code></a>, 
 <a href="../../../../org/omnifaces/cdi/push/event/Opened.html" title="annotation in org.omnifaces.cdi.push.event"><code>Opened</code></a>, 
