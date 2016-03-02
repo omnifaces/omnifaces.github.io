@@ -50,7 +50,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../org/omnifaces/cdi/push/Socket.html" title="class in org.omnifaces.cdi.push"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../org/omnifaces/cdi/push/SocketChannelManager.SocketChannelManagerViewScopeIds.html" title="class in org.omnifaces.cdi.push"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../org/omnifaces/cdi/push/SocketChannelManager.ViewScope.html" title="class in org.omnifaces.cdi.push"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?org/omnifaces/cdi/push/SocketChannelManager.html" target="_top">Frames</a></li>
@@ -118,7 +118,8 @@ public class <span class="typeNameLabel">SocketChannelManager</span>
 extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>
 implements <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializable.html?is-external=true" title="class or interface in java.io">Serializable</a></pre>
 <div class="block"><p>
- The web socket channel manager. It holds all web socket channels registered by <code>&lt;o:socket&gt;</code>.</div>
+ This web socket channel manager holds all application and session scoped web socket channel identifiers registered by
+ <code>&lt;o:socket&gt;</code>.</div>
 <dl>
 <dt><span class="simpleTagLabel">Since:</span></dt>
 <dd>2.3</dd>
@@ -148,8 +149,9 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializabl
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>protected static class&nbsp;</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/cdi/push/SocketChannelManager.SocketChannelManagerViewScopeIds.html" title="class in org.omnifaces.cdi.push">SocketChannelManager.SocketChannelManagerViewScopeIds</a></span></code>
-<div class="block">The web socket channel manager for view scoped web socket channels.</div>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/cdi/push/SocketChannelManager.ViewScope.html" title="class in org.omnifaces.cdi.push">SocketChannelManager.ViewScope</a></span></code>
+<div class="block">This helps the web socket channel manager to hold view scoped web socket channel identifiers registered by
+ <code>&lt;o:socket&gt;</code>.</div>
 </td>
 </tr>
 </table>
@@ -186,7 +188,7 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializabl
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>protected void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/cdi/push/SocketChannelManager.html#deregisterSessionScopeChannels--">deregisterSessionScopeChannels</a></span>()</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/cdi/push/SocketChannelManager.html#deregisterSessionScope--">deregisterSessionScope</a></span>()</code>
 <div class="block">When current session scope is about to be destroyed, deregister all session scope channels and explicitly close
  any open web sockets associated with it to avoid stale websockets.</div>
 </td>
@@ -265,16 +267,16 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializabl
 </dl>
 </li>
 </ul>
-<a name="deregisterSessionScopeChannels--">
+<a name="deregisterSessionScope--">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>deregisterSessionScopeChannels</h4>
+<h4>deregisterSessionScope</h4>
 <pre><a href="https://docs.oracle.com/javaee/7/api/javax/annotation/PreDestroy.html?is-external=true" title="class or interface in javax.annotation">@PreDestroy</a>
-protected&nbsp;void&nbsp;deregisterSessionScopeChannels()</pre>
+protected&nbsp;void&nbsp;deregisterSessionScope()</pre>
 <div class="block">When current session scope is about to be destroyed, deregister all session scope channels and explicitly close
- any open web sockets associated with it to avoid stale websockets. If any, also deregister user IDs.</div>
+ any open web sockets associated with it to avoid stale websockets. If any, also deregister session users.</div>
 </li>
 </ul>
 </li>
@@ -306,7 +308,7 @@ protected&nbsp;void&nbsp;deregisterSessionScopeChannels()</pre>
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../org/omnifaces/cdi/push/Socket.html" title="class in org.omnifaces.cdi.push"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../org/omnifaces/cdi/push/SocketChannelManager.SocketChannelManagerViewScopeIds.html" title="class in org.omnifaces.cdi.push"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../org/omnifaces/cdi/push/SocketChannelManager.ViewScope.html" title="class in org.omnifaces.cdi.push"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?org/omnifaces/cdi/push/SocketChannelManager.html" target="_top">Frames</a></li>

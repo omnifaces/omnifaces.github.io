@@ -95,63 +95,67 @@
 <td class="colFirst"><a href="../../../../org/omnifaces/cdi/push/SocketChannelManager.html" title="class in org.omnifaces.cdi.push">SocketChannelManager</a></td>
 <td class="colLast">
 <div class="block">
- The web socket channel manager.</div>
+ This web socket channel manager holds all application and session scoped web socket channel identifiers registered by
+ <code>&lt;o:socket&gt;</code>.</div>
 </td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><a href="../../../../org/omnifaces/cdi/push/SocketChannelManager.SocketChannelManagerViewScopeIds.html" title="class in org.omnifaces.cdi.push">SocketChannelManager.SocketChannelManagerViewScopeIds</a></td>
+<td class="colFirst"><a href="../../../../org/omnifaces/cdi/push/SocketChannelManager.ViewScope.html" title="class in org.omnifaces.cdi.push">SocketChannelManager.ViewScope</a></td>
 <td class="colLast">
-<div class="block">The web socket channel manager for view scoped web socket channels.</div>
+<div class="block">This helps the web socket channel manager to hold view scoped web socket channel identifiers registered by
+ <code>&lt;o:socket&gt;</code>.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/omnifaces/cdi/push/SocketEndpoint.html" title="class in org.omnifaces.cdi.push">SocketEndpoint</a></td>
 <td class="colLast">
 <div class="block">
- The web socket server endpoint of <code>&lt;o:socket&gt;</code>.</div>
+ This web socket server endpoint handles web socket requests coming from <code>&lt;o:socket&gt;</code>.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><a href="../../../../org/omnifaces/cdi/push/SocketEvent.html" title="class in org.omnifaces.cdi.push">SocketEvent</a></td>
 <td class="colLast">
 <div class="block">
- The socket event.</div>
+ This web socket event will be fired by <a href="../../../../org/omnifaces/cdi/push/SocketSessionManager.html" title="class in org.omnifaces.cdi.push"><code>SocketSessionManager</code></a> when a new socket has been
+ <code>&#64;</code><a href="../../../../org/omnifaces/cdi/push/event/Opened.html" title="annotation in org.omnifaces.cdi.push.event"><code>Opened</code></a> or <code>&#64;</code><a href="../../../../org/omnifaces/cdi/push/event/Closed.html" title="annotation in org.omnifaces.cdi.push.event"><code>Closed</code></a>.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/omnifaces/cdi/push/SocketFacesListener.html" title="class in org.omnifaces.cdi.push">SocketFacesListener</a></td>
 <td class="colLast">
 <div class="block">
- This JSF system event listener for <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIViewRoot.html?is-external=true" title="class or interface in javax.faces.component"><code>UIViewRoot</code></a> ensures that the necessary scripts for
- <code>&lt;o:socket&gt;</code> are properly rendered.</div>
+ This JSF listener for <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIViewRoot.html?is-external=true" title="class or interface in javax.faces.component"><code>UIViewRoot</code></a> ensures that the necessary JavaScript code to initialize, open or close
+ the <code>WebSocket</code> is properly rendered.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><a href="../../../../org/omnifaces/cdi/push/SocketPushContext.html" title="class in org.omnifaces.cdi.push">SocketPushContext</a></td>
 <td class="colLast">
 <div class="block">
- Concrete implementation of <a href="../../../../org/omnifaces/cdi/PushContext.html" title="interface in org.omnifaces.cdi"><code>PushContext</code></a> which is to be injected by <code>&#64;</code><a href="../../../../org/omnifaces/cdi/Push.html" title="annotation in org.omnifaces.cdi"><code>Push</code></a>.</div>
+ This is a concrete implementation of <a href="../../../../org/omnifaces/cdi/PushContext.html" title="interface in org.omnifaces.cdi"><code>PushContext</code></a> interface which is to be injected by
+ <code>&#64;</code><a href="../../../../org/omnifaces/cdi/Push.html" title="annotation in org.omnifaces.cdi"><code>Push</code></a>.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/omnifaces/cdi/push/SocketPushContextProducer.html" title="class in org.omnifaces.cdi.push">SocketPushContextProducer</a></td>
 <td class="colLast">
 <div class="block">
- Producer for injecting a <a href="../../../../org/omnifaces/cdi/PushContext.html" title="interface in org.omnifaces.cdi"><code>PushContext</code></a> as defined by the <code>&#64;</code><a href="../../../../org/omnifaces/cdi/Push.html" title="annotation in org.omnifaces.cdi"><code>Push</code></a> annotation.</div>
+ This producer prepares the <a href="../../../../org/omnifaces/cdi/push/SocketPushContext.html" title="class in org.omnifaces.cdi.push"><code>SocketPushContext</code></a> instance for injection by <code>&#64;</code><a href="../../../../org/omnifaces/cdi/Push.html" title="annotation in org.omnifaces.cdi"><code>Push</code></a>.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><a href="../../../../org/omnifaces/cdi/push/SocketSessionManager.html" title="class in org.omnifaces.cdi.push">SocketSessionManager</a></td>
 <td class="colLast">
 <div class="block">
- The web socket session manager.</div>
+ This web socket session manager holds all web socket sessions by their channel identifier.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><a href="../../../../org/omnifaces/cdi/push/SocketUserManager.html" title="class in org.omnifaces.cdi.push">SocketUserManager</a></td>
 <td class="colLast">
 <div class="block">
- The web socket user manager.</div>
+ This web socket user manager holds all web socket users registered by <code>&lt;o:socket&gt;</code>.</div>
 </td>
 </tr>
 </tbody>
