@@ -50,7 +50,7 @@ var activeTableTab = "activeTableTab";
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../org/omnifaces/cdi/push/SocketEndpoint.html" title="class in org.omnifaces.cdi.push"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../org/omnifaces/cdi/push/SocketFacesListener.html" title="class in org.omnifaces.cdi.push"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../org/omnifaces/cdi/push/SocketEvent.Closed.html" title="annotation in org.omnifaces.cdi.push"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?org/omnifaces/cdi/push/SocketEvent.html" target="_top">Frames</a></li>
@@ -74,7 +74,7 @@ var activeTableTab = "activeTableTab";
 <div>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
@@ -118,7 +118,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 implements <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializable.html?is-external=true" title="class or interface in java.io">Serializable</a></pre>
 <div class="block"><p>
  This web socket event will be fired by <a href="../../../../org/omnifaces/cdi/push/SocketSessionManager.html" title="class in org.omnifaces.cdi.push"><code>SocketSessionManager</code></a> when a new socket has been
- <code>&#64;</code><a href="../../../../org/omnifaces/cdi/push/event/Opened.html" title="annotation in org.omnifaces.cdi.push.event"><code>Opened</code></a> or <code>&#64;</code><a href="../../../../org/omnifaces/cdi/push/event/Closed.html" title="annotation in org.omnifaces.cdi.push.event"><code>Closed</code></a>. An application scoped CDI bean can
+ <code>&#64;</code><a href="../../../../org/omnifaces/cdi/push/SocketEvent.Opened.html" title="annotation in org.omnifaces.cdi.push"><code>SocketEvent.Opened</code></a> or <code>&#64;</code><a href="../../../../org/omnifaces/cdi/push/SocketEvent.Closed.html" title="annotation in org.omnifaces.cdi.push"><code>SocketEvent.Closed</code></a>. An application scoped CDI bean can
  <code>&#64;</code><a href="https://docs.oracle.com/javaee/7/api/javax/enterprise/event/Observes.html?is-external=true" title="class or interface in javax.enterprise.event"><code>Observes</code></a> them.
  <p>
  For detailed usage instructions, see <a href="../../../../org/omnifaces/cdi/push/Socket.html" title="class in org.omnifaces.cdi.push"><code>Socket</code></a> javadoc.</div>
@@ -129,8 +129,6 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializabl
 <dd>Bauke Scholtz</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../../org/omnifaces/cdi/push/Socket.html" title="class in org.omnifaces.cdi.push"><code>Socket</code></a>, 
-<a href="../../../../org/omnifaces/cdi/push/event/Opened.html" title="annotation in org.omnifaces.cdi.push.event"><code>Opened</code></a>, 
-<a href="../../../../org/omnifaces/cdi/push/event/Closed.html" title="annotation in org.omnifaces.cdi.push.event"><code>Closed</code></a>, 
 <a href="../../../../serialized-form.html#org.omnifaces.cdi.push.SocketEvent">Serialized Form</a></dd>
 </dl>
 </li>
@@ -139,6 +137,35 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializabl
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<ul class="blockList">
+<li class="blockList"><a name="nested.class.summary">
+<!--   -->
+</a>
+<h3>Nested Class Summary</h3>
+<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Nested Class Summary table, listing nested classes, and an explanation">
+<caption><span>Nested Classes</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Class and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static interface&nbsp;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/cdi/push/SocketEvent.Closed.html" title="annotation in org.omnifaces.cdi.push">SocketEvent.Closed</a></span></code>
+<div class="block">
+ Indicates that a socket has closed.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>static interface&nbsp;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/cdi/push/SocketEvent.Opened.html" title="annotation in org.omnifaces.cdi.push">SocketEvent.Opened</a></span></code>
+<div class="block">
+ Indicates that a socket has opened.</div>
+</td>
+</tr>
+</table>
+</li>
+</ul>
 <!-- ========== METHOD SUMMARY =========== -->
 <ul class="blockList">
 <li class="blockList"><a name="method.summary">
@@ -243,8 +270,8 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializabl
 <h4>getCloseCode</h4>
 <pre>public&nbsp;<a href="https://docs.oracle.com/javaee/7/api/javax/websocket/CloseReason.CloseCode.html?is-external=true" title="class or interface in javax.websocket">CloseReason.CloseCode</a>&nbsp;getCloseCode()</pre>
 <div class="block">Returns the close code.
- If this returns <code>null</code>, then it was <a href="../../../../org/omnifaces/cdi/push/event/Opened.html" title="annotation in org.omnifaces.cdi.push.event"><code>Opened</code></a>.
- If this returns non-<code>null</code>, then it was <a href="../../../../org/omnifaces/cdi/push/event/Closed.html" title="annotation in org.omnifaces.cdi.push.event"><code>Closed</code></a>.</div>
+ If this returns <code>null</code>, then it was <a href="../../../../org/omnifaces/cdi/push/SocketEvent.Opened.html" title="annotation in org.omnifaces.cdi.push"><code>SocketEvent.Opened</code></a>.
+ If this returns non-<code>null</code>, then it was <a href="../../../../org/omnifaces/cdi/push/SocketEvent.Closed.html" title="annotation in org.omnifaces.cdi.push"><code>SocketEvent.Closed</code></a>.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The close code.</dd>
@@ -319,7 +346,7 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializabl
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../org/omnifaces/cdi/push/SocketEndpoint.html" title="class in org.omnifaces.cdi.push"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../org/omnifaces/cdi/push/SocketFacesListener.html" title="class in org.omnifaces.cdi.push"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../org/omnifaces/cdi/push/SocketEvent.Closed.html" title="annotation in org.omnifaces.cdi.push"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../index.html?org/omnifaces/cdi/push/SocketEvent.html" target="_top">Frames</a></li>
@@ -343,7 +370,7 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializabl
 <div>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>

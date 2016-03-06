@@ -198,8 +198,7 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializabl
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/cdi/push/SocketChannelManager.html#register-java.lang.String-java.lang.String-java.io.Serializable-">register</a></span>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;channel,
         <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;scope,
         <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializable.html?is-external=true" title="class or interface in java.io">Serializable</a>&nbsp;user)</code>
-<div class="block">Register given channel on given scope and returns the web socket channel identifier if channel does not already
- exist on a different scope, else <code>null</code>.</div>
+<div class="block">Register given channel on given scope and returns the web socket channel identifier.</div>
 </td>
 </tr>
 </table>
@@ -250,8 +249,7 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializabl
 <pre>protected&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;register(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;channel,
                           <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;scope,
                           <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializable.html?is-external=true" title="class or interface in java.io">Serializable</a>&nbsp;user)</pre>
-<div class="block">Register given channel on given scope and returns the web socket channel identifier if channel does not already
- exist on a different scope, else <code>null</code>.</div>
+<div class="block">Register given channel on given scope and returns the web socket channel identifier.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>channel</code> - The web socket channel.</dd>
@@ -260,10 +258,9 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializabl
 <dd><code>user</code> - The user object representing the owner of the given channel. If not <code>null</code>, then scope
  may not be <code>application</code>.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>The web socket channel identifier if channel does not already exist on a different scope, else
- <code>null</code>. This can be used as web socket URI.</dd>
+<dd>The web socket channel identifier. This can be used as web socket URI.</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></code> - When the scope is invalid.</dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></code> - When the scope is invalid or when channel already exists on a different scope.</dd>
 </dl>
 </li>
 </ul>

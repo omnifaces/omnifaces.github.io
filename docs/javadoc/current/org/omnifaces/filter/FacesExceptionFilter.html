@@ -18,7 +18,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10};
+var methods = {"i0":10,"i1":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -127,6 +127,9 @@ extends <a href="../../../org/omnifaces/filter/HttpFilter.html" title="class in 
  <li>Root cause needs to be unwrapped from <a href="https://docs.oracle.com/javaee/7/api/javax/faces/FacesException.html?is-external=true" title="class or interface in javax.faces"><code>FacesException</code></a> and <a href="https://docs.oracle.com/javaee/7/api/javax/el/ELException.html?is-external=true" title="class or interface in javax.el"><code>ELException</code></a> to utilize standard
  Servlet API error page handling.
  </ol>
+ <p>
+ Noted should be that this filter won't run on exceptions thrown during ajax requests. To handle them using
+ <code>web.xml</code> configured error pages, use <a href="../../../org/omnifaces/exceptionhandler/FullAjaxExceptionHandler.html" title="class in org.omnifaces.exceptionhandler"><code>FullAjaxExceptionHandler</code></a>.
 
  <h3>Installation</h3>
  <p>
@@ -141,7 +144,22 @@ extends <a href="../../../org/omnifaces/filter/HttpFilter.html" title="class in 
      &lt;filter-name&gt;facesExceptionFilter&lt;/filter-name&gt;
      &lt;servlet-name&gt;facesServlet&lt;/servlet-name&gt;
  &lt;/filter-mapping&gt;
- </pre></div>
+ </pre>
+
+ <h3>Configuration</h3>
+ <p>
+ By default only <a href="https://docs.oracle.com/javaee/7/api/javax/faces/FacesException.html?is-external=true" title="class or interface in javax.faces"><code>FacesException</code></a> and <a href="https://docs.oracle.com/javaee/7/api/javax/el/ELException.html?is-external=true" title="class or interface in javax.el"><code>ELException</code></a> are unwrapped. You can supply a context parameter
+ <a href="../../../org/omnifaces/exceptionhandler/FullAjaxExceptionHandler.html#PARAM_NAME_EXCEPTION_TYPES_TO_UNWRAP">"org.omnifaces.EXCEPTION_TYPES_TO_UNWRAP"</a> to specify
+ additional exception types to unwrap. The context parameter value must be a commaseparated string of fully qualified
+ names of additional exception types.
+ <pre>
+ &lt;context-param&gt;
+     &lt;param-name&gt;org.omnifaces.EXCEPTION_TYPES_TO_UNWRAP&lt;/param-name&gt;
+     &lt;param-value&gt;javax.ejb.EJBException,javax.persistence.RollbackException&lt;/param-value&gt;
+ &lt;/context-param&gt;
+ </pre>
+ <p>
+ This context parameter will also be read and used by <a href="../../../org/omnifaces/exceptionhandler/FullAjaxExceptionHandler.html" title="class in org.omnifaces.exceptionhandler"><code>FullAjaxExceptionHandler</code></a>.</div>
 <dl>
 <dt><span class="simpleTagLabel">Author:</span></dt>
 <dd>Bauke Scholtz</dd>
@@ -190,13 +208,19 @@ extends <a href="../../../org/omnifaces/filter/HttpFilter.html" title="class in 
 <div class="block">Filter the HTTP request.</div>
 </td>
 </tr>
+<tr id="i1" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/filter/FacesExceptionFilter.html#init--">init</a></span>()</code>
+<div class="block">Convenience init() method without FilterConfig parameter which will be called by init(FilterConfig).</div>
+</td>
+</tr>
 </table>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.org.omnifaces.filter.HttpFilter">
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;org.omnifaces.filter.<a href="../../../org/omnifaces/filter/HttpFilter.html" title="class in org.omnifaces.filter">HttpFilter</a></h3>
-<code><a href="../../../org/omnifaces/filter/HttpFilter.html#destroy--">destroy</a>, <a href="../../../org/omnifaces/filter/HttpFilter.html#doFilter-javax.servlet.ServletRequest-javax.servlet.ServletResponse-javax.servlet.FilterChain-">doFilter</a>, <a href="../../../org/omnifaces/filter/HttpFilter.html#getFilterConfig--">getFilterConfig</a>, <a href="../../../org/omnifaces/filter/HttpFilter.html#getInitParameter-java.lang.String-">getInitParameter</a>, <a href="../../../org/omnifaces/filter/HttpFilter.html#getServletContext--">getServletContext</a>, <a href="../../../org/omnifaces/filter/HttpFilter.html#init--">init</a>, <a href="../../../org/omnifaces/filter/HttpFilter.html#init-javax.servlet.FilterConfig-">init</a></code></li>
+<code><a href="../../../org/omnifaces/filter/HttpFilter.html#destroy--">destroy</a>, <a href="../../../org/omnifaces/filter/HttpFilter.html#doFilter-javax.servlet.ServletRequest-javax.servlet.ServletResponse-javax.servlet.FilterChain-">doFilter</a>, <a href="../../../org/omnifaces/filter/HttpFilter.html#getFilterConfig--">getFilterConfig</a>, <a href="../../../org/omnifaces/filter/HttpFilter.html#getInitParameter-java.lang.String-">getInitParameter</a>, <a href="../../../org/omnifaces/filter/HttpFilter.html#getServletContext--">getServletContext</a>, <a href="../../../org/omnifaces/filter/HttpFilter.html#init-javax.servlet.FilterConfig-">init</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -236,6 +260,24 @@ extends <a href="../../../org/omnifaces/filter/HttpFilter.html" title="class in 
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a name="init--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>init</h4>
+<pre>public&nbsp;void&nbsp;init()
+          throws <a href="https://docs.oracle.com/javaee/7/api/javax/servlet/ServletException.html?is-external=true" title="class or interface in javax.servlet">ServletException</a></pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="../../../org/omnifaces/filter/HttpFilter.html#init--">HttpFilter</a></code></span></div>
+<div class="block">Convenience init() method without FilterConfig parameter which will be called by init(FilterConfig).</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="../../../org/omnifaces/filter/HttpFilter.html#init--">init</a></code>&nbsp;in class&nbsp;<code><a href="../../../org/omnifaces/filter/HttpFilter.html" title="class in org.omnifaces.filter">HttpFilter</a></code></dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="https://docs.oracle.com/javaee/7/api/javax/servlet/ServletException.html?is-external=true" title="class or interface in javax.servlet">ServletException</a></code> - When filter's initialization failed.</dd>
+</dl>
+</li>
+</ul>
 <a name="doFilter-javax.servlet.http.HttpServletRequest-javax.servlet.http.HttpServletResponse-javax.servlet.http.HttpSession-javax.servlet.FilterChain-">
 <!--   -->
 </a>
