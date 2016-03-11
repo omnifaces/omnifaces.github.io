@@ -1,15 +1,4 @@
 org.omnifaces
-org.omnifaces.application
-org.omnifaces.cdi
-org.omnifaces.cdi.beans
-org.omnifaces.cdi.contextparam
-org.omnifaces.cdi.converter
-org.omnifaces.cdi.cookie
-org.omnifaces.cdi.eager
-org.omnifaces.cdi.param
-org.omnifaces.cdi.push
-org.omnifaces.cdi.validator
-org.omnifaces.cdi.viewscope
 org.omnifaces.component
 org.omnifaces.component.input
 org.omnifaces.component.input.componentidparam
@@ -19,7 +8,6 @@ org.omnifaces.component.output.cache
 org.omnifaces.component.output.cache.el
 org.omnifaces.component.script
 org.omnifaces.component.tree
-org.omnifaces.component.util
 org.omnifaces.component.validator
 org.omnifaces.config
 org.omnifaces.context
