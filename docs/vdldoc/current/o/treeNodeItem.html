@@ -66,13 +66,13 @@
 <dd>
 <div class="block">
 			
-				<strong><code>o:treeNodeItem</code></strong> is an <code>UIComponent</code> that represents a single child
-				tree node within a parent <code>TreeNode</code> component. Within this component, the <code>var</code>
-				attribute of the parent <code>Tree</code> component will expose the child tree node.
+				The <code>&lt;o:treeNodeItem&gt;</code> represents the child item of the parent tree note as represented by
+				<code>&lt;o:treeNode&gt;</code>. Within this component, the <code>var</code> attribute of the parent
+				<code>&lt;o:tree&gt;</code> component will expose the child tree node.
 				<p>
-				This component allows a child component of type <code>TreeInsertChildren</code> which indicates the
-				place to insert the children of the current child tree node recursively by a <code>TreeNode</code>
-				component associated with the children's level in the same parent <code>Tree</code> component.
+				Within <code>&lt;o:treeNodeItem&gt;</code> you can use <code>&lt;o:treeInsertChildren&gt;</code> to declare the
+				place where to recursively render the <code>&lt;o:treeNode&gt;</code> whereby the current child item is in turn
+				interpreted as a parent tree node (i.e. where you'd like to insert the grand-children).
 			
 		</div>
 </dd>

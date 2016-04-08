@@ -142,8 +142,12 @@ implements <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/N
  attribute. The node itself is exposed as a request attribute under the key specified by the <code>varNode</code>
  attribute.
  <p>
- The <code>&lt;o:tree&gt;</code> supports only children of type <code>&lt;o:treeNode&gt;</code>. There can be multiple
- <code>&lt;o:treeNode&gt;</code> children, each representing a separate parent tree node level.
+ The <code>&lt;o:tree&gt;</code> tag supports only child tags of type <code>&lt;o:treeNode&gt;</code>, representing
+ parent tree nodes. There can be multiple <code>&lt;o:treeNode&gt;</code> tags, each representing a separate parent
+ tree node level, so that different markup could be declared for each tree node level, if necessary. The
+ <code>&lt;o:treeNode&gt;</code> tag in turn supports child tag <code>&lt;o:treeNodeItem&gt;</code> which represents
+ each child of the current parent tree node. The <code>&lt;o:treeNodeItem&gt;</code> in turn supports child tag
+ <code>&lt;o:treeInsertChildren&gt;</code> which represents the insertion point of the grand children.
  <p>
  Here is a basic usage example where each parent tree node level is treated the same way via a single
  <code>&lt;o:treeNode&gt;</code>:
@@ -186,7 +190,8 @@ implements <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/N
 
  <h3>treeInsertChildren</h3>
  <p>
- The <code>&lt;o:treeInsertChildren&gt;</code> represents the insertion point for the grand children.</div>
+ The <code>&lt;o:treeInsertChildren&gt;</code> represents the insertion point for the grand children. This is in turn
+ further interpreted as <code>&lt;o:treeNode&gt;</code>.</div>
 <dl>
 <dt><span class="simpleTagLabel">Author:</span></dt>
 <dd>Bauke Scholtz</dd>

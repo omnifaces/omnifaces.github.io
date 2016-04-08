@@ -66,18 +66,25 @@
 <dd>
 <div class="block">
 			
-				<strong><code>o:tree</code></strong> is an <code>UIComponent</code> that supports data binding to a tree
-				of data objects represented by a <code>TreeModel</code> instance, which is the current value of this
-				component itself (typically established via a <code>ValueExpression</code>). During iterative processing
-				over the nodes of tree in the tree model, the object for the current node is exposed as a request
-				attribute under the key specified by the <code>var</code> attribute. The node itself is exposed as a
-				request attribute under the key specified by the <code>varNode</code> attribute.
+				The <code>&lt;o:tree&gt;</code> allows the developers to have full control over the markup of a tree
+				hierarchy by declaring the appropriate JSF components or HTML elements in the markup. The <code>&lt;o:tree&gt;</code>
+				does namely not render any HTML markup by itself.
 				<p>
-				Only children of type <code>TreeNode</code> are allowed and processed by this component.
+				The component value must point to a tree of data objects represented by a {@link TreeModel} instance, typically
+				established via a {@link ValueExpression}. During iterative processing over the nodes of tree in the tree model,
+				the object for the current node is exposed as a request attribute under the key specified by the <code>var</code>
+				attribute. The node itself is exposed as a request attribute under the key specified by the <code>varNode</code>
+				attribute.
 				<p>
-				This component does not have a renderer since it does not render any markup by itself. This allows the
-				developers to have full control over the markup of the tree by declaring the appropriate JSF components
-				or HTML elements in the markup. Here is a basic usage example:
+				The <code>&lt;o:tree&gt;</code> tag supports only child tags of type <code>&lt;o:treeNode&gt;</code>, representing
+				parent tree nodes. There can be multiple <code>&lt;o:treeNode&gt;</code> tags, each representing a separate parent
+				tree node level, so that different markup could be declared for each tree node level, if necessary. The
+				<code>&lt;o:treeNode&gt;</code> tag in turn supports child tag <code>&lt;o:treeNodeItem&gt;</code> which represents
+				each child of the current parent tree node. The <code>&lt;o:treeNodeItem&gt;</code> in turn supports child tag
+				<code>&lt;o:treeInsertChildren&gt;</code> which represents the insertion point of the grand children.
+				<p>
+				Here is a basic usage example where each parent tree node level is treated the same way via a single
+				<code>&lt;o:treeNode&gt;</code>:
 				<pre>
 &lt;o:tree value="#{bean.treeModel}" var="item" varNode="node"&gt;
   &lt;o:treeNode&gt;
