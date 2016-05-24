@@ -120,6 +120,10 @@
 <dd>
 <div class="block">Attempts to find a value associated with the specified key in the component's state.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/util/Components.html#getActionExpressionsAndListeners-javax.faces.component.UIComponent-">getActionExpressionsAndListeners(UIComponent)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Components.html" title="class in org.omnifaces.util">Components</a></dt>
+<dd>
+<div class="block">Returns a list of all action expressions and listeners associated with given component.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/facesviews/FacesViewsViewHandler.html#getActionURL-javax.faces.context.FacesContext-java.lang.String-">getActionURL(FacesContext, String)</a></span> - Method in class org.omnifaces.facesviews.<a href="../org/omnifaces/facesviews/FacesViewsViewHandler.html" title="class in org.omnifaces.facesviews">FacesViewsViewHandler</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/util/Beans.html#getActiveInstances-java.lang.Class-">getActiveInstances(Class&lt;S&gt;)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Beans.html" title="class in org.omnifaces.util">Beans</a></dt>
@@ -382,12 +386,16 @@
 <div class="block">Returns the Faces context attribute value associated with the given name.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/util/FacesLocal.html#getContextAttribute-javax.faces.context.FacesContext-java.lang.String-">getContextAttribute(FacesContext, String)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/FacesLocal.html" title="class in org.omnifaces.util">FacesLocal</a></dt>
-<dt><span class="memberNameLink"><a href="../org/omnifaces/cdi/param/RequestParameterProducer.html#getConverter-org.omnifaces.cdi.Param-java.lang.Class-">getConverter(Param, Class&lt;?&gt;)</a></span> - Static method in class org.omnifaces.cdi.param.<a href="../org/omnifaces/cdi/param/RequestParameterProducer.html" title="class in org.omnifaces.cdi.param">RequestParameterProducer</a></dt>
-<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/component/output/Param.html#getConverter--">getConverter()</a></span> - Method in class org.omnifaces.component.output.<a href="../org/omnifaces/component/output/Param.html" title="class in org.omnifaces.component.output">Param</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/component/SimpleParam.html#getConverter--">getConverter()</a></span> - Method in class org.omnifaces.component.<a href="../org/omnifaces/component/SimpleParam.html" title="class in org.omnifaces.component">SimpleParam</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/util/Components.html#getCurrentActionSource--">getCurrentActionSource()</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Components.html" title="class in org.omnifaces.util">Components</a></dt>
+<dd>
+<div class="block">Returns the source of the currently invoked action, or <code>null</code> if there is none, which may happen when
+ the current request is not a postback request at all, or when the view has been changed by for example a
+ successful navigation.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/util/Components.html#getCurrentCommand--">getCurrentCommand()</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Components.html" title="class in org.omnifaces.util">Components</a></dt>
 <dd>
 <div class="block">Returns the currently invoked UI command component, or <code>null</code> if there is none, which may happen when
@@ -461,6 +469,10 @@
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/component/util/MoveComponent.html#getDestination--">getDestination()</a></span> - Method in class org.omnifaces.component.util.<a href="../org/omnifaces/component/util/MoveComponent.html" title="class in org.omnifaces.component.util">MoveComponent</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/component/output/Url.html#getDomain--">getDomain()</a></span> - Method in class org.omnifaces.component.output.<a href="../org/omnifaces/component/output/Url.html" title="class in org.omnifaces.component.output">Url</a></dt>
+<dd>
+<div class="block">Returns the domain of the URL.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/util/Faces.html#getELContext--">getELContext()</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Faces.html" title="class in org.omnifaces.util">Faces</a></dt>
 <dd>
 <div class="block">Returns the current EL context.</div>
@@ -1024,6 +1036,10 @@
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/component/output/Param.html#getRendersChildren--">getRendersChildren()</a></span> - Method in class org.omnifaces.component.output.<a href="../org/omnifaces/component/output/Param.html" title="class in org.omnifaces.component.output">Param</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/component/output/Url.html#getRendersChildren--">getRendersChildren()</a></span> - Method in class org.omnifaces.component.output.<a href="../org/omnifaces/component/output/Url.html" title="class in org.omnifaces.component.output">Url</a></dt>
+<dd>
+<div class="block">Returns <code>false</code>.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/component/script/ScriptFamily.html#getRendersChildren--">getRendersChildren()</a></span> - Method in class org.omnifaces.component.script.<a href="../org/omnifaces/component/script/ScriptFamily.html" title="class in org.omnifaces.component.script">ScriptFamily</a></dt>
 <dd>
 <div class="block">Returns <code>true</code>.</div>
@@ -1427,6 +1443,8 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/component/input/ViewParam.html#getSubmittedValue--">getSubmittedValue()</a></span> - Method in class org.omnifaces.component.input.<a href="../org/omnifaces/component/input/ViewParam.html" title="class in org.omnifaces.component.input">ViewParam</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/cdi/param/ParamValue.html#getSubmittedValues--">getSubmittedValues()</a></span> - Method in class org.omnifaces.cdi.param.<a href="../org/omnifaces/cdi/param/ParamValue.html" title="class in org.omnifaces.cdi.param">ParamValue</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/config/FacesConfigXml.html#getSupportedLocales--">getSupportedLocales()</a></span> - Method in enum org.omnifaces.config.<a href="../org/omnifaces/config/FacesConfigXml.html" title="enum in org.omnifaces.config">FacesConfigXml</a></dt>
 <dd>
 <div class="block">Returns an ordered list of all supported locales on this application, with the default locale as the first
@@ -1545,6 +1563,10 @@
 <dd>
 <div class="block">Returns the variable name which exposes the captured output into the request scope.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/component/output/Url.html#getVar--">getVar()</a></span> - Method in class org.omnifaces.component.output.<a href="../org/omnifaces/component/output/Url.html" title="class in org.omnifaces.component.output">Url</a></dt>
+<dd>
+<div class="block">Returns the variable name which exposes the URL into the request scope.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/component/tree/Tree.html#getVar--">getVar()</a></span> - Method in class org.omnifaces.component.tree.<a href="../org/omnifaces/component/tree/Tree.html" title="class in org.omnifaces.component.tree">Tree</a></dt>
 <dd>
 <div class="block">Returns the name of the request attribute which exposes the wrapped data of the current node of the tree model.</div>
@@ -1569,6 +1591,10 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/facesviews/FacesViews.html#getViewHandlerMode-javax.servlet.ServletContext-">getViewHandlerMode(ServletContext)</a></span> - Static method in class org.omnifaces.facesviews.<a href="../org/omnifaces/facesviews/FacesViews.html" title="class in org.omnifaces.facesviews">FacesViews</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/component/output/Url.html#getViewId--">getViewId()</a></span> - Method in class org.omnifaces.component.output.<a href="../org/omnifaces/component/output/Url.html" title="class in org.omnifaces.component.output">Url</a></dt>
+<dd>
+<div class="block">Returns the view ID to create URL for.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/util/Faces.html#getViewId--">getViewId()</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Faces.html" title="class in org.omnifaces.util">Faces</a></dt>
 <dd>
 <div class="block">Returns the ID of the current view root, or <code>null</code> if there is no view.</div>

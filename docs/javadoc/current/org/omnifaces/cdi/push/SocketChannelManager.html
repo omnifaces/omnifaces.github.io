@@ -298,6 +298,10 @@ protected&nbsp;void&nbsp;deregisterSessionScope()</pre>
 <div class="block">For internal usage only. This makes it possible to reference session scope channel IDs during injection time of
  <a href="../../../../org/omnifaces/cdi/push/SocketPushContext.html" title="class in org.omnifaces.cdi.push"><code>SocketPushContext</code></a> (the CDI session scope is not necessarily active during push send time).
  This should actually be package private, but package private methods in CDI beans are subject to memory leaks.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Session scope channel IDs.</dd>
+</dl>
 </li>
 </ul>
 <a name="getViewScope-boolean-">
@@ -310,6 +314,12 @@ protected&nbsp;void&nbsp;deregisterSessionScope()</pre>
 <div class="block">For internal usage only. This makes it possible to reference view scope channel IDs during injection time of
  <a href="../../../../org/omnifaces/cdi/push/SocketPushContext.html" title="class in org.omnifaces.cdi.push"><code>SocketPushContext</code></a> (the JSF view scope is not necessarily active during push send time).
  This should actually be package private, but package private methods in CDI beans are subject to memory leaks.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>create</code> - Whether or not to auto-create the entry in JSF view scope.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>View scope channel IDs.</dd>
+</dl>
 </li>
 </ul>
 </li>

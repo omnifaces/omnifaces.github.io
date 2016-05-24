@@ -362,11 +362,12 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <pre>public static&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;formatThousands(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Number.html?is-external=true" title="class or interface in java.lang">Number</a>&nbsp;number)</pre>
 <div class="block">Format the given number to nearest 10<sup>n</sup> (rounded to thousands), immediately suffixed (without space)
  with metric unit (k, M, G, T, P or E), rounding half up with a precision of 3 digits, whereafter trailing zeroes
- in fraction part are stripped. Numbers lower than thousand are not affected.
+ in fraction part are stripped.
  For example (with English locale):
  <ul>
- <li>999.999 will appear as 999.999
- <li>1000 will appear as 1k
+ <li>1.6666 will appear as 1.67
+ <li>999.4 will appear as 999
+ <li>999.5 will appear as 1k
  <li>1004 will appear as 1k
  <li>1005 will appear as 1.01k
  <li>1594 will appear as 1.59k
@@ -404,8 +405,9 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
  trailing zeroes in fraction part are stripped.
  For example (with English locale and unit <code>B</code>):
  <ul>
- <li>999 will appear as 999 B
- <li>1000 will appear as 1 kB
+ <li>1.6666 will appear as 1.67 B
+ <li>999.4 will appear as 999 B
+ <li>999.5 will appear as 1 kB
  <li>1004 will appear as 1 kB
  <li>1005 will appear as 1.01 kB
  <li>1594 will appear as 1.59 kB

@@ -118,6 +118,13 @@ public @interface <span class="memberNameLabel">Param</span></pre>
  private String bar;
  </pre>
  <p>
+ Multi-valued parameters are also supported by specifying an array type. The support was added in OmniFaces 2.4.
+ Generic collection types like <a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util"><code>List</code></a> are currently not supported.
+ <pre>
+ &#64;Inject &#64;Param(name="bar")
+ private String[] bars;
+ </pre>
+ <p>
  Standard types for which JSF already has a build in converter like <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang"><code>String</code></a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Long.html?is-external=true" title="class or interface in java.lang"><code>Long</code></a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Boolean.html?is-external=true" title="class or interface in java.lang"><code>Boolean</code></a>, etc
  or for which there's already a converter registered via <code>forClass</code>, can be injected without explicitly
  specifying a converter.
@@ -131,6 +138,12 @@ public @interface <span class="memberNameLabel">Param</span></pre>
  <pre>
  &#64;Inject &#64;Param(converter="userConverter", validator="priviledgedUser")
  private User user;
+ </pre>
+ <p>
+ This also works on multi-valued parameters.
+ <pre>
+ &#64;Inject &#64;Param(name="user", converter="userConverter")
+ private User[] users;
  </pre>
  <p>
  Note that the <code>converter</code> and <code>validator</code> attributes can be specified in 3 ways:

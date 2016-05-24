@@ -18,7 +18,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10};
+var methods = {"i0":10,"i1":10,"i2":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -147,10 +147,10 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializabl
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/cdi/param/ParamValue.html#ParamValue-java.lang.String-org.omnifaces.cdi.Param-java.lang.Class-V-">ParamValue</a></span>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;submittedValue,
-          <a href="../../../../org/omnifaces/cdi/Param.html" title="annotation in org.omnifaces.cdi">Param</a>&nbsp;requestParameter,
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/cdi/param/ParamValue.html#ParamValue-java.lang.String:A-org.omnifaces.cdi.Param-java.lang.Class-java.util.List-">ParamValue</a></span>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]&nbsp;submittedValues,
+          <a href="../../../../org/omnifaces/cdi/Param.html" title="annotation in org.omnifaces.cdi">Param</a>&nbsp;param,
           <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;?&gt;&nbsp;targetType,
-          <a href="../../../../org/omnifaces/cdi/param/ParamValue.html" title="type parameter in ParamValue">V</a>&nbsp;value)</code>&nbsp;</td>
+          <a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../../../org/omnifaces/cdi/param/ParamValue.html" title="type parameter in ParamValue">V</a>&gt;&nbsp;values)</code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -172,6 +172,10 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializabl
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/cdi/param/ParamValue.html#getSubmittedValue--">getSubmittedValue</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/cdi/param/ParamValue.html#getSubmittedValues--">getSubmittedValues</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="../../../../org/omnifaces/cdi/param/ParamValue.html" title="type parameter in ParamValue">V</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/cdi/param/ParamValue.html#getValue--">getValue</a></span>()</code>
 <div class="block">Gets the converted version of the value that was retrieved from the request.</div>
@@ -199,18 +203,16 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializabl
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="ParamValue-java.lang.String-org.omnifaces.cdi.Param-java.lang.Class-java.lang.Object-">
-<!--   -->
-</a><a name="ParamValue-java.lang.String-org.omnifaces.cdi.Param-java.lang.Class-V-">
+<a name="ParamValue-java.lang.String:A-org.omnifaces.cdi.Param-java.lang.Class-java.util.List-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>ParamValue</h4>
-<pre>public&nbsp;ParamValue(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;submittedValue,
-                  <a href="../../../../org/omnifaces/cdi/Param.html" title="annotation in org.omnifaces.cdi">Param</a>&nbsp;requestParameter,
+<pre>public&nbsp;ParamValue(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]&nbsp;submittedValues,
+                  <a href="../../../../org/omnifaces/cdi/Param.html" title="annotation in org.omnifaces.cdi">Param</a>&nbsp;param,
                   <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;?&gt;&nbsp;targetType,
-                  <a href="../../../../org/omnifaces/cdi/param/ParamValue.html" title="type parameter in ParamValue">V</a>&nbsp;value)</pre>
+                  <a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="../../../../org/omnifaces/cdi/param/ParamValue.html" title="type parameter in ParamValue">V</a>&gt;&nbsp;values)</pre>
 </li>
 </ul>
 </li>
@@ -242,10 +244,19 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializabl
 <a name="getSubmittedValue--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>getSubmittedValue</h4>
 <pre>public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getSubmittedValue()</pre>
+</li>
+</ul>
+<a name="getSubmittedValues--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getSubmittedValues</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]&nbsp;getSubmittedValues()</pre>
 </li>
 </ul>
 </li>
