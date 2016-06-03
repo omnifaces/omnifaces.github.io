@@ -18,7 +18,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":9};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -113,7 +113,7 @@ var activeTableTab = "activeTableTab";
 extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
 <div class="block"><p>
  Collection of EL functions for array manipulation: <code>of:createArray()</code>, <code>of:createIntegerArray()</code>,
- and <code>of:contains()</code>.</div>
+ <code>of:contains()</code> and <code>of:reverseArray()</code>.</div>
 <dl>
 <dt><span class="simpleTagLabel">Author:</span></dt>
 <dd>Bauke Scholtz</dd>
@@ -155,6 +155,12 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/el/functions/Arrays.html#createIntegerArray-int-int-">createIntegerArray</a></span>(int&nbsp;begin,
                   int&nbsp;end)</code>
 <div class="block">Creates and returns an integer array which starts at the given integer and ends at the given integer, inclusive.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>[]</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/el/functions/Arrays.html#reverseArray-java.lang.Object:A-">reverseArray</a></span>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>[]&nbsp;array)</code>
+<div class="block">Returns a copy of the array with items in reversed order.</div>
 </td>
 </tr>
 </table>
@@ -223,7 +229,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <a name="contains-java.lang.Object:A-java.lang.Object-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>contains</h4>
 <pre>public static&nbsp;boolean&nbsp;contains(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>[]&nbsp;array,
@@ -238,6 +244,24 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd><code>true</code> if the string representation of an item of the given array equals to the string
  representation of the given item.</dd>
+</dl>
+</li>
+</ul>
+<a name="reverseArray-java.lang.Object:A-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>reverseArray</h4>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>[]&nbsp;reverseArray(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>[]&nbsp;array)</pre>
+<div class="block">Returns a copy of the array with items in reversed order.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>array</code> - The array to reverse.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>A copy of the array with items in reversed order.</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>2.4</dd>
 </dl>
 </li>
 </ul>

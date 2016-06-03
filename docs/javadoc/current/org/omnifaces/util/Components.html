@@ -155,6 +155,10 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
  <pre>
  // Programmatically capture HTML output of a given view.
  String mailHtml = Components.encodeHtml(Components.buildView("/WEB-INF/mail-template.xhtml"));
+ </pre>
+ <pre>
+ // Collecting all queued actions and action listeners as method expression strings in a logging phase listener.
+ List&lt;String&gt; actions = Components.getActionExpressionsAndListeners(Components.getCurrentActionSource());
  </pre></div>
 <dl>
 <dt><span class="simpleTagLabel">Author:</span></dt>
