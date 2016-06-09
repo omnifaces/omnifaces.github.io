@@ -18,7 +18,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":9,"i13":9,"i14":9,"i15":9,"i16":9,"i17":9,"i18":9,"i19":9,"i20":9,"i21":9,"i22":9,"i23":9,"i24":9,"i25":9,"i26":9,"i27":9,"i28":9,"i29":9,"i30":9,"i31":9,"i32":9,"i33":9,"i34":9,"i35":9,"i36":9,"i37":9,"i38":9};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9,"i9":9,"i10":9,"i11":9,"i12":9,"i13":9,"i14":9,"i15":9,"i16":9,"i17":9,"i18":9,"i19":9,"i20":9,"i21":9,"i22":9,"i23":9,"i24":9,"i25":9,"i26":9,"i27":9,"i28":9,"i29":9,"i30":9,"i31":9,"i32":9,"i33":9,"i34":9,"i35":9,"i36":9,"i37":9,"i38":9,"i39":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -400,25 +400,34 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </td>
 </tr>
 <tr id="i28" class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Components.html#getParams-javax.faces.component.UIComponent-boolean-boolean-">getParams</a></span>(<a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;component,
+         boolean&nbsp;includeRequestParams,
+         boolean&nbsp;includeViewParams)</code>
+<div class="block">Returns an unmodifiable map with all request query string or view parameters, appended with all child
+ <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIParameter.html?is-external=true" title="class or interface in javax.faces.component"><code>UIParameter</code></a> components (<code>&lt;f|o:param&gt;</code>) of the given parent component.</div>
+</td>
+</tr>
+<tr id="i29" class="rowColor">
 <td class="colFirst"><code>static &lt;T&gt;&nbsp;T</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Components.html#getValue-javax.faces.component.EditableValueHolder-">getValue</a></span>(<a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/EditableValueHolder.html?is-external=true" title="class or interface in javax.faces.component">EditableValueHolder</a>&nbsp;component)</code>
 <div class="block">Returns the value of the given editable value holder component without the need to know if the given component
  has already been converted/validated or not.</div>
 </td>
 </tr>
-<tr id="i29" class="rowColor">
+<tr id="i30" class="altColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Components.html#hasInvokedSubmit-javax.faces.component.UIComponent-">hasInvokedSubmit</a></span>(<a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;component)</code>
 <div class="block">Returns whether the given component has invoked the form submit.</div>
 </td>
 </tr>
-<tr id="i30" class="altColor">
+<tr id="i31" class="rowColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Components.html#hasSubmittedValue-javax.faces.component.EditableValueHolder-">hasSubmittedValue</a></span>(<a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/EditableValueHolder.html?is-external=true" title="class or interface in javax.faces.component">EditableValueHolder</a>&nbsp;component)</code>
 <div class="block">Returns whether the given editable value holder component has a submitted value.</div>
 </td>
 </tr>
-<tr id="i31" class="rowColor">
+<tr id="i32" class="altColor">
 <td class="colFirst"><code>static <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Components.html#includeCompositeComponent-javax.faces.component.UIComponent-java.lang.String-java.lang.String-java.lang.String-">includeCompositeComponent</a></span>(<a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;parent,
                          <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;libraryName,
@@ -428,7 +437,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
  component parent and return the created composite component.</div>
 </td>
 </tr>
-<tr id="i32" class="altColor">
+<tr id="i33" class="rowColor">
 <td class="colFirst"><code>static <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Components.html#includeCompositeComponent-javax.faces.component.UIComponent-java.lang.String-java.lang.String-java.lang.String-java.util.Map-">includeCompositeComponent</a></span>(<a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;parent,
                          <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;libraryName,
@@ -439,39 +448,39 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
  component parent, set the given attributes on it and return the created composite component.</div>
 </td>
 </tr>
-<tr id="i33" class="rowColor">
+<tr id="i34" class="altColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Components.html#includeFacelet-javax.faces.component.UIComponent-java.lang.String-">includeFacelet</a></span>(<a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;parent,
               <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;path)</code>
 <div class="block">Include the Facelet file at the given (relative) path as child of the given UI component parent.</div>
 </td>
 </tr>
-<tr id="i34" class="altColor">
+<tr id="i35" class="rowColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Components.html#isEditable-javax.faces.component.UIInput-">isEditable</a></span>(<a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIInput.html?is-external=true" title="class or interface in javax.faces.component">UIInput</a>&nbsp;input)</code>
 <div class="block">Returns whether the given UI input component is editable.</div>
 </td>
 </tr>
-<tr id="i35" class="rowColor">
+<tr id="i36" class="altColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Components.html#isRendered-javax.faces.component.UIComponent-">isRendered</a></span>(<a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;component)</code>
 <div class="block">Returns whether the given UI component and all of its parents is rendered.</div>
 </td>
 </tr>
-<tr id="i36" class="altColor">
+<tr id="i37" class="rowColor">
 <td class="colFirst"><code>static &lt;C extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&gt;<br>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Components.html#validateHasDirectParent-javax.faces.component.UIComponent-java.lang.Class-">validateHasDirectParent</a></span>(<a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;component,
                        <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;C&gt;&nbsp;parentType)</code>
 <div class="block">Validate if the given component has a direct parent of the given parent type.</div>
 </td>
 </tr>
-<tr id="i37" class="rowColor">
+<tr id="i38" class="altColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Components.html#validateHasNoChildren-javax.faces.component.UIComponent-">validateHasNoChildren</a></span>(<a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;component)</code>
 <div class="block">Validate if the given component has no children.</div>
 </td>
 </tr>
-<tr id="i38" class="altColor">
+<tr id="i39" class="rowColor">
 <td class="colFirst"><code>static &lt;C extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&gt;<br>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Components.html#validateHasParent-javax.faces.component.UIComponent-java.lang.Class-">validateHasParent</a></span>(<a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;component,
                  <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;C&gt;&nbsp;parentType)</code>
@@ -1163,6 +1172,33 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
  disabled.</dd>
 <dt><span class="simpleTagLabel">Since:</span></dt>
 <dd>2.1</dd>
+</dl>
+</li>
+</ul>
+<a name="getParams-javax.faces.component.UIComponent-boolean-boolean-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getParams</h4>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util">List</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&gt;&nbsp;getParams(<a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;component,
+                                                 boolean&nbsp;includeRequestParams,
+                                                 boolean&nbsp;includeViewParams)</pre>
+<div class="block">Returns an unmodifiable map with all request query string or view parameters, appended with all child
+ <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIParameter.html?is-external=true" title="class or interface in javax.faces.component"><code>UIParameter</code></a> components (<code>&lt;f|o:param&gt;</code>) of the given parent component. Those with
+ <code>disabled=true</code> or an empty name or an empty value are skipped. The <code>&lt;f|o:param&gt;</code>
+ will override any included view or request parameters on the same name.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>component</code> - The parent component to retrieve all child <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIParameter.html?is-external=true" title="class or interface in javax.faces.component"><code>UIParameter</code></a> components from.</dd>
+<dd><code>includeRequestParams</code> - Whether or not to include request query string parameters.
+ When set to <code>true</code>, then this overrides the <code>includeViewParams</code>.</dd>
+<dd><code>includeViewParams</code> - Whether or not to include view parameters.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>An unmodifiable list with all request query string or view parameters, appended with all child
+ <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIParameter.html?is-external=true" title="class or interface in javax.faces.component"><code>UIParameter</code></a> components having a non-empty name and not disabled.</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>2.4</dd>
 </dl>
 </li>
 </ul>

@@ -18,7 +18,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -133,8 +133,13 @@ extends <a href="../../../../org/omnifaces/component/output/OutputFamily.html" t
 <div class="block"><p>
  The <code>&lt;o:url&gt;</code> is a component which renders the given JSF view ID as a bookmarkable URL with support
  for exposing it into the request scope by the variable name as specified by the <code>var</code> attribute instead of
- rendering it. This component also supports adding query string parameters to the URL via nested
- <code>&lt;f:param&gt;</code> and <code>&lt;o:param&gt;</code>.
+ rendering it.
+ <p>
+ This component also supports adding query string parameters to the URL via nested <code>&lt;f:param&gt;</code> and
+ <code>&lt;o:param&gt;</code>. This can be used in combination with <code>includeViewParams</code> and
+ <code>includeRequestParams</code>. The <code>&lt;f|o:param&gt;</code> will override any included view or request
+ parameters on the same name. To conditionally add or override, use the <code>disabled</code> attribute of
+ <code>&lt;f|o:param&gt;</code>.
  <p>
  This component fills the gap caused by absence of JSTL <code>&lt;c:url&gt;</code> in Facelets. This component is
  useful for generating URLs for usage in e.g. plain HTML <code>&lt;link&gt;</code> elements and JavaScript variables.
@@ -142,21 +147,28 @@ extends <a href="../../../../org/omnifaces/component/output/OutputFamily.html" t
  <h3>Domain</h3>
  <p>
  The domain of the URL defaults to the current domain. It is possible to provide a full qualified domain name (FQDN)
- which the URL is prefixed with. This can be useful if a canonical page shall point to a different domain or a
- specific subdomain.
+ via the <code>domain</code> attribute which the URL is to be prefixed with. This can be useful if a canonical page
+ shall point to a different domain or a specific subdomain.
  <p>
- Valid formats and values are:
+ Valid formats and values for <code>domain</code> attribute are:
  <ul>
- <li><code>http://example.com</code></li>
- <li><code>//example.com</code></li>
- <li><code>example.com</code></li>
- <li><code>/</code></li>
- <li><code>//</code></li>
+ <li><code>&lt;o:url domain="http://example.com" /&gt;</code></li>
+ <li><code>&lt;o:url domain="//example.com" /&gt;</code></li>
+ <li><code>&lt;o:url domain="example.com" /&gt;</code></li>
+ <li><code>&lt;o:url domain="/" /&gt;</code></li>
+ <li><code>&lt;o:url domain="//" /&gt;</code></li>
  </ul>
  <p>
- The value will be validated by <a href="http://docs.oracle.com/javase/7/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net"><code>URL</code></a>.
+ The <code>domain</code> value will be validated by <a href="http://docs.oracle.com/javase/7/docs/api/java/net/URL.html?is-external=true" title="class or interface in java.net"><code>URL</code></a> and throw an illegal argument exception when invalid.
  If the value equals <code>/</code>, then the URL becomes domain-relative.
  If the value equals or starts with <code>//</code>, or does not contain any scheme, then the URL becomes scheme-relative.
+
+ <h3>Request and view parameters</h3>
+ <p>You can optionally include all GET request query string parameters or only JSF view parameters in the resulting
+ URL via <code>includeRequestParams="true"</code> or <code>includeViewParams="true"</code>.
+ The <code>includeViewParams</code> is ignored when <code>includeRequestParams="true"</code>.
+ The <code>&lt;f|o:param&gt;</code> will override any included request or view parameters on the same name.
+
 
  <h3>Usage</h3>
  <p>
@@ -165,6 +177,7 @@ extends <a href="../../../../org/omnifaces/component/output/OutputFamily.html" t
  &lt;p&gt;Full URL of current page is: &lt;o:url /&gt;&lt;/p&gt;
  &lt;p&gt;Full URL of another page is: &lt;o:url viewId="/another.xhtml" /&gt;&lt;/p&gt;
  &lt;p&gt;Full URL of current page including view params is: &lt;o:url includeViewParams="true" /&gt;&lt;/p&gt;
+ &lt;p&gt;Full URL of current page including query string is: &lt;o:url includeRequestParams="true" /&gt;&lt;/p&gt;
  &lt;p&gt;Domain-relative URL of current page is: &lt;o:url domain="/" /&gt;&lt;/p&gt;
  &lt;p&gt;Scheme-relative URL of current page is: &lt;o:url domain="//" /&gt;&lt;/p&gt;
  &lt;p&gt;Scheme-relative URL of current page on a different domain is: &lt;o:url domain="sub.example.com" /&gt;&lt;/p&gt;
@@ -288,36 +301,48 @@ extends <a href="../../../../org/omnifaces/component/output/OutputFamily.html" t
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/component/output/Url.html#isIncludeRequestParams--">isIncludeRequestParams</a></span>()</code>
+<div class="block">Returns whether or not the request query string parameters should be encoded into the URL.</div>
+</td>
+</tr>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/component/output/Url.html#isIncludeViewParams--">isIncludeViewParams</a></span>()</code>
 <div class="block">Returns whether or not the view parameters should be encoded into the URL.</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/component/output/Url.html#setDomain-java.lang.String-">setDomain</a></span>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;domain)</code>
 <div class="block">Sets the domain of the URL.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/component/output/Url.html#setIncludeRequestParams-boolean-">setIncludeRequestParams</a></span>(boolean&nbsp;includeRequestParams)</code>
+<div class="block">Sets whether or not the request query string parameters should be encoded into the URL.</div>
+</td>
+</tr>
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/component/output/Url.html#setIncludeViewParams-boolean-">setIncludeViewParams</a></span>(boolean&nbsp;includeViewParams)</code>
 <div class="block">Sets whether or not the view parameters should be encoded into the URL.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/component/output/Url.html#setValueExpression-java.lang.String-javax.el.ValueExpression-">setValueExpression</a></span>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name,
                   <a href="https://docs.oracle.com/javaee/7/api/javax/el/ValueExpression.html?is-external=true" title="class or interface in javax.el">ValueExpression</a>&nbsp;binding)</code>
 <div class="block">An override which checks if this isn't been invoked on <code>var</code> attribute.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/component/output/Url.html#setVar-java.lang.String-">setVar</a></span>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;var)</code>
 <div class="block">Sets the variable name which exposes the URL into the request scope.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/component/output/Url.html#setViewId-java.lang.String-">setViewId</a></span>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;viewId)</code>
 <div class="block">Sets the view ID to create URL for.</div>
@@ -544,7 +569,8 @@ extends <a href="../../../../org/omnifaces/component/output/OutputFamily.html" t
 <li class="blockList">
 <h4>isIncludeViewParams</h4>
 <pre>public&nbsp;boolean&nbsp;isIncludeViewParams()</pre>
-<div class="block">Returns whether or not the view parameters should be encoded into the URL. Defaults to <code>false</code>.</div>
+<div class="block">Returns whether or not the view parameters should be encoded into the URL. Defaults to <code>false</code>.
+ This setting is ignored when <code>includeRequestParams</code> is set to <code>true</code>.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>Whether or not the view parameters should be encoded into the URL.</dd>
@@ -554,14 +580,45 @@ extends <a href="../../../../org/omnifaces/component/output/OutputFamily.html" t
 <a name="setIncludeViewParams-boolean-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>setIncludeViewParams</h4>
 <pre>public&nbsp;void&nbsp;setIncludeViewParams(boolean&nbsp;includeViewParams)</pre>
-<div class="block">Sets whether or not the view parameters should be encoded into the URL.</div>
+<div class="block">Sets whether or not the view parameters should be encoded into the URL.
+ This setting is ignored when <code>includeRequestParams</code> is set to <code>true</code>.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>includeViewParams</code> - Whether or not the view parameters should be encoded into the URL.</dd>
+</dl>
+</li>
+</ul>
+<a name="isIncludeRequestParams--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isIncludeRequestParams</h4>
+<pre>public&nbsp;boolean&nbsp;isIncludeRequestParams()</pre>
+<div class="block">Returns whether or not the request query string parameters should be encoded into the URL. Defaults to <code>false</code>.
+ When set to <code>true</code>, then this will override the <code>includeViewParams</code> setting.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Whether or not the request query string parameters should be encoded into the URL.</dd>
+</dl>
+</li>
+</ul>
+<a name="setIncludeRequestParams-boolean-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>setIncludeRequestParams</h4>
+<pre>public&nbsp;void&nbsp;setIncludeRequestParams(boolean&nbsp;includeRequestParams)</pre>
+<div class="block">Sets whether or not the request query string parameters should be encoded into the URL.
+ When set to <code>true</code>, then this will override the <code>includeViewParams</code> setting.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>includeRequestParams</code> - Whether or not the request query string parameters should be encoded into the URL.</dd>
 </dl>
 </li>
 </ul>

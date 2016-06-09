@@ -180,6 +180,18 @@
 				
 					Whether to include view parameters in the URL.
 					Defaults to false.
+					This setting is ignored when <code>includeRequestParams</code> is set to <code>true</code>.
+				
+			</td>
+</tr>
+<tr id="includeRequestParams" class="altColor">
+<td class="colFirst"><a href="#includeRequestParams"><code>includeRequestParams</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>boolean</code>)
+					</td><td class="colLast">
+				
+					Whether to include request query string parameters in the URL.
+					Defaults to false.
+					When this setting is set to <code>true</code>, <code>includeViewParams</code> is ignored.
 				
 			</td>
 </tr>
