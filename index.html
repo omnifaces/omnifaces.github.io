@@ -147,7 +147,22 @@ xmlns:of="http://omnifaces.org/functions"</pre></div>
 </li>
 </ul>
 
+<h2>
+<a id="snapshot" class="anchor" href="#snapshot" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Snapshot</h2>
 
+<p>If you like to play around with the newest of the newest, hereby accepting the risk that new classes/methods may be moved/renamed without notice, then grab the <a href="https://oss.sonatype.org/content/repositories/snapshots/org/omnifaces/omnifaces/2.5-SNAPSHOT/">2.5-SNAPSHOT</a> instead.</p>
+
+<p>Maven users can add OmniFaces SNAPSHOT by adding the following Maven coordinates to pom.xml:</p>
+
+<div class="highlight highlight-text-xml"><pre>&lt;<span class="pl-ent">dependency</span>&gt;
+    &lt;<span class="pl-ent">groupId</span>&gt;org.omnifaces&lt;/<span class="pl-ent">groupId</span>&gt;
+    &lt;<span class="pl-ent">artifactId</span>&gt;omnifaces&lt;/<span class="pl-ent">artifactId</span>&gt;
+    &lt;<span class="pl-ent">version</span>&gt;2.5-SNAPSHOT&lt;/<span class="pl-ent">version</span>&gt;
+&lt;/<span class="pl-ent">dependency</span>&gt;</pre></div>
+
+<p>It is showcased on the <a href="http://snapshot.omnifaces.org">SNAPSHOT showcase</a> instead of the <a href="http://showcase.omnifaces.org">main showcase</a>.</p>
+
+<p>For starters, a "snapshot" is just the current/latest build. It's far from a release. We may make code changes and create snapshots so now and then before final version release. Those changes will then get reflected in your project if you use the snapshot version in your Maven project and forces an update. It will generally work just fine, but imagine if we make some mistake and notice it only a few days or weeks later, or are trying to test something which may not necessarily work in all environments, then your project may be affected. That's why it's advisable to not use snapshots of 3rd party libraries in production, unless you have your own build system which can "lock" a specific snapshot version, or closely track (and understand) any changes in the codebase. See also a.o. <a href="http://stackoverflow.com/q/5901378/157882">What exactly is a Maven snapshot?</a>.</p>
 
 <h2>
 <a id="documentation" class="anchor" href="#documentation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Documentation</h2>
