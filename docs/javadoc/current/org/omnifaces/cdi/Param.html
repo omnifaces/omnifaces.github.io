@@ -94,8 +94,8 @@
 <hr>
 <br>
 <pre><a href="https://docs.oracle.com/javaee/7/api/javax/inject/Qualifier.html?is-external=true" title="class or interface in javax.inject">@Qualifier</a>
- <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/annotation/Retention.html?is-external=true" title="class or interface in java.lang.annotation">@Retention</a>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/annotation/Retention.html?is-external=true#value--" title="class or interface in java.lang.annotation">value</a>=<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/annotation/RetentionPolicy.html?is-external=true#RUNTIME" title="class or interface in java.lang.annotation">RUNTIME</a>)
- <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/annotation/Target.html?is-external=true" title="class or interface in java.lang.annotation">@Target</a>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/annotation/Target.html?is-external=true#value--" title="class or interface in java.lang.annotation">value</a>={<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/annotation/ElementType.html?is-external=true#METHOD" title="class or interface in java.lang.annotation">METHOD</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/annotation/ElementType.html?is-external=true#FIELD" title="class or interface in java.lang.annotation">FIELD</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/annotation/ElementType.html?is-external=true#PARAMETER" title="class or interface in java.lang.annotation">PARAMETER</a>})
+ <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Retention.html?is-external=true" title="class or interface in java.lang.annotation">@Retention</a>(<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Retention.html?is-external=true#value--" title="class or interface in java.lang.annotation">value</a>=<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/annotation/RetentionPolicy.html?is-external=true#RUNTIME" title="class or interface in java.lang.annotation">RUNTIME</a>)
+ <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true" title="class or interface in java.lang.annotation">@Target</a>(<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html?is-external=true#value--" title="class or interface in java.lang.annotation">value</a>={<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html?is-external=true#METHOD" title="class or interface in java.lang.annotation">METHOD</a>,<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html?is-external=true#FIELD" title="class or interface in java.lang.annotation">FIELD</a>,<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/annotation/ElementType.html?is-external=true#PARAMETER" title="class or interface in java.lang.annotation">PARAMETER</a>})
 public @interface <span class="memberNameLabel">Param</span></pre>
 <div class="block"><p>
  The CDI annotation <code>&#64;</code><a href="../../../org/omnifaces/cdi/Param.html" title="annotation in org.omnifaces.cdi"><code>Param</code></a> allows you to inject, convert and validate a HTTP request
@@ -118,7 +118,7 @@ public @interface <span class="memberNameLabel">Param</span></pre>
  private String bar;
  </pre>
  <p>
- Multi-valued parameters are also supported by specifying a <a href="http://docs.oracle.com/javase/7/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util"><code>List</code></a> or array type. The support was added in
+ Multi-valued parameters are also supported by specifying a <a href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util"><code>List</code></a> or array type. The support was added in
  OmniFaces 2.4.
  <pre>
  &#64;Inject &#64;Param(name="foo")
@@ -128,7 +128,7 @@ public @interface <span class="memberNameLabel">Param</span></pre>
  private String[] bars;
  </pre>
  <p>
- Standard types for which JSF already has a build in converter like <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang"><code>String</code></a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Long.html?is-external=true" title="class or interface in java.lang"><code>Long</code></a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Boolean.html?is-external=true" title="class or interface in java.lang"><code>Boolean</code></a>, etc
+ Standard types for which JSF already has a build in converter like <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang"><code>String</code></a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Long.html?is-external=true" title="class or interface in java.lang"><code>Long</code></a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html?is-external=true" title="class or interface in java.lang"><code>Boolean</code></a>, etc
  or for which there's already a converter registered via <code>forClass</code>, can be injected without explicitly
  specifying a converter.
  <pre>
@@ -202,7 +202,7 @@ public @interface <span class="memberNameLabel">Param</span></pre>
 <th class="colLast" scope="col">Optional Element and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/cdi/Param.html#converter--">converter</a></span></code>
 <div class="block">(Optional/Required) The converter to be used for converting the request parameter to the type that is to be injected.</div>
 </td>
@@ -214,13 +214,13 @@ public @interface <span class="memberNameLabel">Param</span></pre>
 </td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;? extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/convert/Converter.html?is-external=true" title="class or interface in javax.faces.convert">Converter</a>&gt;</code></td>
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;? extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/convert/Converter.html?is-external=true" title="class or interface in javax.faces.convert">Converter</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/cdi/Param.html#converterClass--">converterClass</a></span></code>
 <div class="block">(Optional) Class of the converter to be used for converting the request parameter to the type that is to be injected.</div>
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/cdi/Param.html#converterMessage--">converterMessage</a></span></code>
 <div class="block">(Optional) A message that will be used if conversion fails instead of the message set by the converter.</div>
 </td>
@@ -232,13 +232,13 @@ public @interface <span class="memberNameLabel">Param</span></pre>
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/cdi/Param.html#label--">label</a></span></code>
 <div class="block">(Optional) the label used to refer to the request parameter.</div>
 </td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/cdi/Param.html#name--">name</a></span></code>
 <div class="block">(Optional) The name of the request parameter.</div>
 </td>
@@ -256,7 +256,7 @@ public @interface <span class="memberNameLabel">Param</span></pre>
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/cdi/Param.html#requiredMessage--">requiredMessage</a></span></code>
 <div class="block">(Optional) A message that will be used if a non-empty value is submitted instead of the default message associated
  with the <a href="https://docs.oracle.com/javaee/7/api/javax/faces/validator/RequiredValidator.html?is-external=true" title="class or interface in javax.faces.validator"><code>RequiredValidator</code></a>.</div>
@@ -269,19 +269,19 @@ public @interface <span class="memberNameLabel">Param</span></pre>
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;? extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/validator/Validator.html?is-external=true" title="class or interface in javax.faces.validator">Validator</a>&gt;[]</code></td>
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;? extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/validator/Validator.html?is-external=true" title="class or interface in javax.faces.validator">Validator</a>&gt;[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/cdi/Param.html#validatorClasses--">validatorClasses</a></span></code>
 <div class="block">(Optional) Class of one ore more validators to be used for validating the (converted) request parameter.</div>
 </td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/cdi/Param.html#validatorMessage--">validatorMessage</a></span></code>
 <div class="block">(Optional) A message that will be used if validation fails instead of the message set by the validator(s).</div>
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]</code></td>
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/cdi/Param.html#validators--">validators</a></span></code>
 <div class="block">(Optional) The validators to be used for validating the (converted) request parameter.</div>
 </td>
@@ -307,7 +307,7 @@ public @interface <span class="memberNameLabel">Param</span></pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>name</h4>
-<pre>public abstract&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name</pre>
+<pre>public abstract&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;name</pre>
 <div class="block">(Optional) The name of the request parameter. If not specified the name of the injection target field will be used.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -328,7 +328,7 @@ public @interface <span class="memberNameLabel">Param</span></pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>label</h4>
-<pre>public abstract&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;label</pre>
+<pre>public abstract&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;label</pre>
 <div class="block">(Optional) the label used to refer to the request parameter. If not specified the name of the request parameter.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -349,7 +349,7 @@ public @interface <span class="memberNameLabel">Param</span></pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>converter</h4>
-<pre>public abstract&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;converter</pre>
+<pre>public abstract&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;converter</pre>
 <div class="block">(Optional/Required) The converter to be used for converting the request parameter to the type that is to be injected.
  Optional if the target type is String, otherwise required.
  <p>
@@ -403,7 +403,7 @@ public @interface <span class="memberNameLabel">Param</span></pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>validators</h4>
-<pre>public abstract&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]&nbsp;validators</pre>
+<pre>public abstract&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>[]&nbsp;validators</pre>
 <div class="block">(Optional) The validators to be used for validating the (converted) request parameter.
 
  <p>
@@ -436,7 +436,7 @@ public @interface <span class="memberNameLabel">Param</span></pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>converterClass</h4>
-<pre>public abstract&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;? extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/convert/Converter.html?is-external=true" title="class or interface in javax.faces.convert">Converter</a>&gt;&nbsp;converterClass</pre>
+<pre>public abstract&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;? extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/convert/Converter.html?is-external=true" title="class or interface in javax.faces.convert">Converter</a>&gt;&nbsp;converterClass</pre>
 <div class="block">(Optional) Class of the converter to be used for converting the request parameter to the type that is to be injected.
  This is ignored when <a href="../../../org/omnifaces/cdi/Param.html#converter--"><code>converter()</code></a> is specified.</div>
 <dl>
@@ -458,7 +458,7 @@ public @interface <span class="memberNameLabel">Param</span></pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>validatorClasses</h4>
-<pre>public abstract&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;? extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/validator/Validator.html?is-external=true" title="class or interface in javax.faces.validator">Validator</a>&gt;[]&nbsp;validatorClasses</pre>
+<pre>public abstract&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Class.html?is-external=true" title="class or interface in java.lang">Class</a>&lt;? extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/validator/Validator.html?is-external=true" title="class or interface in javax.faces.validator">Validator</a>&gt;[]&nbsp;validatorClasses</pre>
 <div class="block">(Optional) Class of one ore more validators to be used for validating the (converted) request parameter.
  These will run <i>after</i> the ones specified in <a href="../../../org/omnifaces/cdi/Param.html#validators--"><code>validators()</code></a>.</div>
 <dl>
@@ -484,7 +484,7 @@ public @interface <span class="memberNameLabel">Param</span></pre>
 <div class="block">(Optional) Attributes that will be set on the converter instance obtained from <a href="../../../org/omnifaces/cdi/Param.html#converter--"><code>converter()</code></a> or <a href="../../../org/omnifaces/cdi/Param.html#converterClass--"><code>converterClass()</code></a>.
  <p>
  For each attribute the converter instance should have a writable JavaBeans property with the same name. The value can be a string literal
- or an EL expression. String literals are coerced if necessary if there's a <a href="http://docs.oracle.com/javase/7/docs/api/java/beans/PropertyEditor.html?is-external=true" title="class or interface in java.beans"><code>PropertyEditor</code></a> available (the JDK provides these for
+ or an EL expression. String literals are coerced if necessary if there's a <a href="http://docs.oracle.com/javase/8/docs/api/java/beans/PropertyEditor.html?is-external=true" title="class or interface in java.beans"><code>PropertyEditor</code></a> available (the JDK provides these for
  the primitive types and their corresponding boxed types).
  <p>
  Attributes for which the converter doesn't have a property (setter) are silently ignored.</div>
@@ -511,7 +511,7 @@ public @interface <span class="memberNameLabel">Param</span></pre>
 <div class="block">(Optional) Attributes that will be set on each of the validator instances obtained from <a href="../../../org/omnifaces/cdi/Param.html#validators--"><code>validators()</code></a> and <a href="../../../org/omnifaces/cdi/Param.html#validatorClasses--"><code>validatorClasses()</code></a>.
  <p>
  For each attribute the validator instances should have a writable JavaBeans property with the same name. The value can be a string literal
- or an EL expression. String literals are coerced if necessary if there's a <a href="http://docs.oracle.com/javase/7/docs/api/java/beans/PropertyEditor.html?is-external=true" title="class or interface in java.beans"><code>PropertyEditor</code></a> available (the JDK provides these for
+ or an EL expression. String literals are coerced if necessary if there's a <a href="http://docs.oracle.com/javase/8/docs/api/java/beans/PropertyEditor.html?is-external=true" title="class or interface in java.beans"><code>PropertyEditor</code></a> available (the JDK provides these for
  the primitive types and their corresponding boxed types).
  <p>
  Attributes for which any given validator doesn't have a property (setter) are silently ignored.</div>
@@ -534,7 +534,7 @@ public @interface <span class="memberNameLabel">Param</span></pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>converterMessage</h4>
-<pre>public abstract&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;converterMessage</pre>
+<pre>public abstract&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;converterMessage</pre>
 <div class="block">(Optional) A message that will be used if conversion fails instead of the message set by the converter.
  <p>
  The value for which conversion failed is available as <code>{0}</code>. The label associated with this
@@ -558,7 +558,7 @@ public @interface <span class="memberNameLabel">Param</span></pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>validatorMessage</h4>
-<pre>public abstract&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;validatorMessage</pre>
+<pre>public abstract&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;validatorMessage</pre>
 <div class="block">(Optional) A message that will be used if validation fails instead of the message set by the validator(s).
  <p>
  The value for which validation failed is available as <code>{0}</code>. The label associated with this
@@ -582,7 +582,7 @@ public @interface <span class="memberNameLabel">Param</span></pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>requiredMessage</h4>
-<pre>public abstract&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;requiredMessage</pre>
+<pre>public abstract&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;requiredMessage</pre>
 <div class="block">(Optional) A message that will be used if a non-empty value is submitted instead of the default message associated
  with the <a href="https://docs.oracle.com/javaee/7/api/javax/faces/validator/RequiredValidator.html?is-external=true" title="class or interface in javax.faces.validator"><code>RequiredValidator</code></a>.
  <p>

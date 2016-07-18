@@ -97,7 +97,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="contentContainer">
 <ul class="inheritance">
-<li><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</a></li>
+<li><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</a></li>
 <li>
 <ul class="inheritance">
 <li><a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/TagHandler.html?is-external=true" title="class or interface in javax.faces.view.facelets">javax.faces.view.facelets.TagHandler</a></li>
@@ -250,7 +250,7 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
  Additionally, the optional <strong><code>user</code></strong> attribute can be set to the unique identifier of the
  logged-in user, usually the login name or the user ID. This way the push message can be targeted to a specific user
  and can also be sent by other users and the application itself. The value of the <code>user</code> attribute must at
- least implement <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializable.html?is-external=true" title="class or interface in java.io"><code>Serializable</code></a> and have a low memory footprint, so putting entire user entity is not
+ least implement <a href="http://docs.oracle.com/javase/8/docs/api/java/io/Serializable.html?is-external=true" title="class or interface in java.io"><code>Serializable</code></a> and have a low memory footprint, so putting entire user entity is not
  recommended.
  <p>
  E.g. when you're using container managed authentication or a related framework/library:
@@ -286,7 +286,7 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
  }
  </pre>
  <p>
- Multiple users can be targeted by passing a <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util"><code>Collection</code></a> holding user identifiers to
+ Multiple users can be targeted by passing a <a href="http://docs.oracle.com/javase/8/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util"><code>Collection</code></a> holding user identifiers to
  <strong><a href="../../../../org/omnifaces/cdi/PushContext.html#send-java.lang.Object-java.util.Collection-"><code>PushContext.send(Object, Collection)</code></a></strong>.
  <pre>
  public void sendMessage(Object message, Group recipientGroup) {
@@ -594,7 +594,7 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
  socket, and/or want to pass something from <a href="https://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context"><code>FacesContext</code></a> or the initial request/view/session scope along as
  (<code>final</code>) argument.
  <p>
- In case you're not on Java 8 yet, then you can make use of <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang"><code>Runnable</code></a> as callback instance instead of the
+ In case you're not on Java 8 yet, then you can make use of <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html?is-external=true" title="class or interface in java.lang"><code>Runnable</code></a> as callback instance instead of the
  above <code>Consumer</code> functional interface example.
  <pre>
  &#64;Asynchronous
@@ -672,7 +672,7 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
 <th class="colLast" scope="col">Field and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/cdi/push/Socket.html#PARAM_ENABLE_SOCKET_ENDPOINT">PARAM_ENABLE_SOCKET_ENDPOINT</a></span></code>
 <div class="block">The boolean context parameter name to register web socket endpoint during startup.</div>
 </td>
@@ -745,8 +745,8 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
 <!--   -->
 </a>
-<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
-<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone--" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals-java.lang.Object-" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize--" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass--" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode--" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify--" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll--" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait--" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait-long-" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait-long-int-" title="class or interface in java.lang">wait</a></code></li>
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
+<code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#clone--" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#equals-java.lang.Object-" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#finalize--" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#getClass--" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#hashCode--" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#notify--" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#notifyAll--" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#wait--" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#wait-long-" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#wait-long-int-" title="class or interface in java.lang">wait</a></code></li>
 </ul>
 </li>
 </ul>
@@ -768,7 +768,7 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
 <ul class="blockListLast">
 <li class="blockList">
 <h4>PARAM_ENABLE_SOCKET_ENDPOINT</h4>
-<pre>public static final&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> PARAM_ENABLE_SOCKET_ENDPOINT</pre>
+<pre>public static final&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> PARAM_ENABLE_SOCKET_ENDPOINT</pre>
 <div class="block">The boolean context parameter name to register web socket endpoint during startup.</div>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
@@ -814,19 +814,19 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
 <h4>apply</h4>
 <pre>public&nbsp;void&nbsp;apply(<a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/FaceletContext.html?is-external=true" title="class or interface in javax.faces.view.facelets">FaceletContext</a>&nbsp;context,
                   <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;parent)
-           throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+           throws <a href="http://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
 <div class="block">First check if the web socket endpoint is enabled in <code>web.xml</code> and the channel name and scope is
  valid, then register it in <a href="../../../../org/omnifaces/cdi/push/SocketChannelManager.html" title="class in org.omnifaces.cdi.push"><code>SocketChannelManager</code></a> and get the channel ID, then subcribe the
  <a href="../../../../org/omnifaces/cdi/push/SocketFacesListener.html" title="class in org.omnifaces.cdi.push"><code>SocketFacesListener</code></a>.</div>
 <dl>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang">IllegalStateException</a></code> - When the web socket endpoint is not enabled in <code>web.xml</code>.</dd>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></code> - When the channel name, scope or user is invalid.
+<dd><code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang">IllegalStateException</a></code> - When the web socket endpoint is not enabled in <code>web.xml</code>.</dd>
+<dd><code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></code> - When the channel name, scope or user is invalid.
  The channel name may only contain alphanumeric characters, hyphens, underscores and periods.
  The allowed channel scope values are "application", "session" and "view", case insensitive.
  The channel name must be uniquely tied to the channel scope.
  The user, if any, must implement <code>Serializable</code>.</dd>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd>
+<dd><code><a href="http://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd>
 </dl>
 </li>
 </ul>

@@ -72,7 +72,7 @@
 				turn exposes each child of the parent tree node.
 				<p>
 				The optional <code>level</code> attribute can be used to specify for which tree node level as obtained by
-				{@link TreeModel#getLevel()} the <code>&lt;o:treeNode&gt;</code> should be rendered. The root tree node has level 0.
+				<code>TreeModel#getLevel()</code> the <code>&lt;o:treeNode&gt;</code> should be rendered. The root tree node has level 0.
 				If the <code>level</code> attribute is unspecified, then the <code>&lt;o:treeNode&gt;</code> will be rendered for any
 				tree node level which hasn't already a <code>&lt;o:treeNode level="x"&gt;</code> specified.
 			
@@ -131,7 +131,7 @@
 </tr>
 <tr id="rendered" class="altColor">
 <td class="colFirst"><a href="#rendered"><code>rendered</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
-<br>(<i>must evaluate to </i><code>java.lang.Boolean</code>)
+<br>(<i>must evaluate to </i><code>boolean</code>)
 					</td><td class="colLast">
 				
 					Flag indicating whether or not this component should be rendered (during Render Response Phase), or

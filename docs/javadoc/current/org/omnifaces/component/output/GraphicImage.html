@@ -97,7 +97,7 @@ var activeTableTab = "activeTableTab";
 </div>
 <div class="contentContainer">
 <ul class="inheritance">
-<li><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</a></li>
+<li><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">java.lang.Object</a></li>
 <li>
 <ul class="inheritance">
 <li><a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">javax.faces.component.UIComponent</a></li>
@@ -129,7 +129,7 @@ var activeTableTab = "activeTableTab";
 <li class="blockList">
 <dl>
 <dt>All Implemented Interfaces:</dt>
-<dd><a href="http://docs.oracle.com/javase/7/docs/api/java/util/EventListener.html?is-external=true" title="class or interface in java.util">EventListener</a>, <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/behavior/ClientBehaviorHolder.html?is-external=true" title="class or interface in javax.faces.component.behavior">ClientBehaviorHolder</a>, <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/PartialStateHolder.html?is-external=true" title="class or interface in javax.faces.component">PartialStateHolder</a>, <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/StateHolder.html?is-external=true" title="class or interface in javax.faces.component">StateHolder</a>, <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/TransientStateHolder.html?is-external=true" title="class or interface in javax.faces.component">TransientStateHolder</a>, <a href="https://docs.oracle.com/javaee/7/api/javax/faces/event/ComponentSystemEventListener.html?is-external=true" title="class or interface in javax.faces.event">ComponentSystemEventListener</a>, <a href="https://docs.oracle.com/javaee/7/api/javax/faces/event/FacesListener.html?is-external=true" title="class or interface in javax.faces.event">FacesListener</a>, <a href="https://docs.oracle.com/javaee/7/api/javax/faces/event/SystemEventListenerHolder.html?is-external=true" title="class or interface in javax.faces.event">SystemEventListenerHolder</a></dd>
+<dd><a href="http://docs.oracle.com/javase/8/docs/api/java/util/EventListener.html?is-external=true" title="class or interface in java.util">EventListener</a>, <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/behavior/ClientBehaviorHolder.html?is-external=true" title="class or interface in javax.faces.component.behavior">ClientBehaviorHolder</a>, <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/PartialStateHolder.html?is-external=true" title="class or interface in javax.faces.component">PartialStateHolder</a>, <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/StateHolder.html?is-external=true" title="class or interface in javax.faces.component">StateHolder</a>, <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/TransientStateHolder.html?is-external=true" title="class or interface in javax.faces.component">TransientStateHolder</a>, <a href="https://docs.oracle.com/javaee/7/api/javax/faces/event/ComponentSystemEventListener.html?is-external=true" title="class or interface in javax.faces.event">ComponentSystemEventListener</a>, <a href="https://docs.oracle.com/javaee/7/api/javax/faces/event/FacesListener.html?is-external=true" title="class or interface in javax.faces.event">FacesListener</a>, <a href="https://docs.oracle.com/javaee/7/api/javax/faces/event/SystemEventListenerHolder.html?is-external=true" title="class or interface in javax.faces.event">SystemEventListenerHolder</a></dd>
 </dl>
 <hr>
 <br>
@@ -137,7 +137,7 @@ var activeTableTab = "activeTableTab";
 extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/html/HtmlGraphicImage.html?is-external=true" title="class or interface in javax.faces.component.html">HtmlGraphicImage</a></pre>
 <div class="block"><p>
  The <code>&lt;o:graphicImage&gt;</code> is a component that extends the standard <code>&lt;h:graphicImage&gt;</code>
- with support for referencing an <a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io"><code>InputStream</code></a> or <code>byte[]</code> property in the <code>value</code>
+ with support for referencing an <a href="http://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io"><code>InputStream</code></a> or <code>byte[]</code> property in the <code>value</code>
  attribute, optionally as a data URI.
 
  <h3>Data URI</h3>
@@ -157,7 +157,7 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/html
 
  <h3>Image streaming</h3>
  <p>
- When not rendered as data URI, the <a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io"><code>InputStream</code></a> or <code>byte[]</code> property <strong>must</strong> point to
+ When not rendered as data URI, the <a href="http://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io"><code>InputStream</code></a> or <code>byte[]</code> property <strong>must</strong> point to
  a <em>stateless</em> <code>@ApplicationScoped</code> bean (both JSF and CDI scopes are supported). The property will
  namely be evaluated at the moment the browser requests the image content based on the URL as specified in HTML
  <code>&lt;img src&gt;</code>, which is usually a different request than the one which rendered the JSF page.
@@ -209,7 +209,7 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/html
  <p>
  In case the property is a method expression taking arguments, each of those arguments will be converted to a string
  HTTP request parameter and back to actual objects using the converters registered by class as available via
- <a href="https://docs.oracle.com/javaee/7/api/javax/faces/application/Application.html?is-external=true#createConverter-java.lang.Class-" title="class or interface in javax.faces.application"><code>Application.createConverter(Class)</code></a>. So, most of standard types like <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Long.html?is-external=true" title="class or interface in java.lang"><code>Long</code></a> are already implicitly
+ <a href="https://docs.oracle.com/javaee/7/api/javax/faces/application/Application.html?is-external=true#createConverter-java.lang.Class-" title="class or interface in javax.faces.application"><code>Application.createConverter(Class)</code></a>. So, most of standard types like <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Long.html?is-external=true" title="class or interface in java.lang"><code>Long</code></a> are already implicitly
  supported. In case you need to supply a custom object as argument for some reason, you need to explicitly register
  a converter for it yourself via <code>&#64;FacesConverter(forClass)</code>.
 
@@ -217,7 +217,7 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/html
  <p>
  In case your "image" entity supports it, you can also supply the "last modified" property which will be used in the
  <code>ETag</code> and <code>Last-Modified</code> headers and in <code>If-Modified-Since</code> checks, hereby
- improving browser caching. The <code>lastModified</code> attribute supports both <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util"><code>Date</code></a> and <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Long.html?is-external=true" title="class or interface in java.lang"><code>Long</code></a> as
+ improving browser caching. The <code>lastModified</code> attribute supports both <a href="http://docs.oracle.com/javase/8/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util"><code>Date</code></a> and <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Long.html?is-external=true" title="class or interface in java.lang"><code>Long</code></a> as
  timestamp in milliseconds.
  <pre>
  &lt;ui:repeat value="#{bean.images}" var="image"&gt;
@@ -312,11 +312,11 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/html
 <th class="colLast" scope="col">Field and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;</code></td>
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/8/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/component/output/GraphicImage.html#ATTRIBUTE_NAMES">ATTRIBUTE_NAMES</a></span></code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/component/output/GraphicImage.html#COMPONENT_TYPE">COMPONENT_TYPE</a></span></code>&nbsp;</td>
 </tr>
 </table>
@@ -376,14 +376,14 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/html
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/component/output/GraphicImage.html#encodeEnd-javax.faces.context.FacesContext-">encodeEnd</a></span>(<a href="https://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context)</code>&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/component/output/GraphicImage.html#getAlt--">getAlt</a></span>()</code>
 <div class="block">Returns an empty string as default value instead of <code>null</code>, so that the attribute is always rendered,
  as mandated by HTML5.</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colFirst"><code>protected <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/component/output/GraphicImage.html#getSrc-javax.faces.context.FacesContext-">getSrc</a></span>(<a href="https://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context)</code>
 <div class="block">Returns the URL needed for the 'src' attribute.</div>
 </td>
@@ -421,8 +421,8 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/html
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
 <!--   -->
 </a>
-<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
-<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone--" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals-java.lang.Object-" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize--" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass--" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode--" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify--" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll--" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString--" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait--" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait-long-" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait-long-int-" title="class or interface in java.lang">wait</a></code></li>
+<h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
+<code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#clone--" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#equals-java.lang.Object-" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#finalize--" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#getClass--" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#hashCode--" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#notify--" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#notifyAll--" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#toString--" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#wait--" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#wait-long-" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true#wait-long-int-" title="class or interface in java.lang">wait</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.javax.faces.component.behavior.ClientBehaviorHolder">
@@ -451,7 +451,7 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/html
 <ul class="blockList">
 <li class="blockList">
 <h4>COMPONENT_TYPE</h4>
-<pre>public static final&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> COMPONENT_TYPE</pre>
+<pre>public static final&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a> COMPONENT_TYPE</pre>
 <dl>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../../constant-values.html#org.omnifaces.component.output.GraphicImage.COMPONENT_TYPE">Constant Field Values</a></dd>
@@ -464,7 +464,7 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/html
 <ul class="blockListLast">
 <li class="blockList">
 <h4>ATTRIBUTE_NAMES</h4>
-<pre>public static final&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt; ATTRIBUTE_NAMES</pre>
+<pre>public static final&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/util/Map.html?is-external=true" title="class or interface in java.util">Map</a>&lt;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>,<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt; ATTRIBUTE_NAMES</pre>
 </li>
 </ul>
 </li>
@@ -500,12 +500,12 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/html
 <li class="blockList">
 <h4>encodeBegin</h4>
 <pre>public&nbsp;void&nbsp;encodeBegin(<a href="https://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context)
-                 throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+                 throws <a href="http://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code><a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponentBase.html?is-external=true#encodeBegin-javax.faces.context.FacesContext-" title="class or interface in javax.faces.component">encodeBegin</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponentBase.html?is-external=true" title="class or interface in javax.faces.component">UIComponentBase</a></code></dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd>
+<dd><code><a href="http://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -516,12 +516,12 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/html
 <li class="blockList">
 <h4>encodeEnd</h4>
 <pre>public&nbsp;void&nbsp;encodeEnd(<a href="https://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context)
-               throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+               throws <a href="http://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code><a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponentBase.html?is-external=true#encodeEnd-javax.faces.context.FacesContext-" title="class or interface in javax.faces.component">encodeEnd</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponentBase.html?is-external=true" title="class or interface in javax.faces.component">UIComponentBase</a></code></dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd>
+<dd><code><a href="http://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd>
 </dl>
 </li>
 </ul>
@@ -531,8 +531,8 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/html
 <ul class="blockList">
 <li class="blockList">
 <h4>getSrc</h4>
-<pre>protected&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getSrc(<a href="https://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context)
-                 throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<pre>protected&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getSrc(<a href="https://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context)
+                 throws <a href="http://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
 <div class="block">Returns the URL needed for the 'src' attribute.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -540,7 +540,7 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/html
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The URL needed for the 'src' attribute.</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - When something fails at I/O level.</dd>
+<dd><code><a href="http://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - When something fails at I/O level.</dd>
 </dl>
 </li>
 </ul>
@@ -550,7 +550,7 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/html
 <ul class="blockListLast">
 <li class="blockList">
 <h4>getAlt</h4>
-<pre>public&nbsp;<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getAlt()</pre>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getAlt()</pre>
 <div class="block">Returns an empty string as default value instead of <code>null</code>, so that the attribute is always rendered,
  as mandated by HTML5.</div>
 <dl>

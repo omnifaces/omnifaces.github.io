@@ -121,6 +121,10 @@
 <dd>
 <div class="block">Attempts to find a value associated with the specified key in the component's state.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/component/input/InputFile.html#getAccept--">getAccept()</a></span> - Method in class org.omnifaces.component.input.<a href="../org/omnifaces/component/input/InputFile.html" title="class in org.omnifaces.component.input">InputFile</a></dt>
+<dd>
+<div class="block">Returns comma separated string of mime types of files to filter in browse dialog.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/util/Components.html#getActionExpressionsAndListeners-javax.faces.component.UIComponent-">getActionExpressionsAndListeners(UIComponent)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Components.html" title="class in org.omnifaces.util">Components</a></dt>
 <dd>
 <div class="block">Returns a list of all action expressions and listeners associated with given component.</div>
@@ -387,6 +391,11 @@
 <div class="block">Returns the Faces context attribute value associated with the given name.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/util/FacesLocal.html#getContextAttribute-javax.faces.context.FacesContext-java.lang.String-">getContextAttribute(FacesContext, String)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/FacesLocal.html" title="class in org.omnifaces.util">FacesLocal</a></dt>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/component/input/InputFile.html#getConvertedValue-javax.faces.context.FacesContext-java.lang.Object-">getConvertedValue(FacesContext, Object)</a></span> - Method in class org.omnifaces.component.input.<a href="../org/omnifaces/component/input/InputFile.html" title="class in org.omnifaces.component.input">InputFile</a></dt>
+<dd>
+<div class="block">This override checks if multi file upload was enabled and if so, then return a collection of parts instead of
+ only the last part as done in h:inputFile.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/component/output/Param.html#getConverter--">getConverter()</a></span> - Method in class org.omnifaces.component.output.<a href="../org/omnifaces/component/output/Param.html" title="class in org.omnifaces.component.output">Param</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/component/SimpleParam.html#getConverter--">getConverter()</a></span> - Method in class org.omnifaces.component.<a href="../org/omnifaces/component/SimpleParam.html" title="class in org.omnifaces.component">SimpleParam</a></dt>
@@ -887,7 +896,7 @@
 <dt><span class="memberNameLink"><a href="../org/omnifaces/util/FacesLocal.html#getMetadataAttributes-javax.faces.context.FacesContext-">getMetadataAttributes(FacesContext)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/FacesLocal.html" title="class in org.omnifaces.util">FacesLocal</a></dt>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/el/MethodReference.html#getMethod--">getMethod()</a></span> - Method in class org.omnifaces.el.<a href="../org/omnifaces/el/MethodReference.html" title="class in org.omnifaces.el">MethodReference</a></dt>
 <dd>
-<div class="block">Returns the concrete <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/reflect/Method.html?is-external=true" title="class or interface in java.lang.reflect"><code>Method</code></a> instance of the EL method expression.</div>
+<div class="block">Returns the concrete <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/reflect/Method.html?is-external=true" title="class or interface in java.lang.reflect"><code>Method</code></a> instance of the EL method expression.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/el/MethodExpressionValueExpressionAdapter.html#getMethodInfo-javax.el.ELContext-">getMethodInfo(ELContext)</a></span> - Method in class org.omnifaces.el.<a href="../org/omnifaces/el/MethodExpressionValueExpressionAdapter.html" title="class in org.omnifaces.el">MethodExpressionValueExpressionAdapter</a></dt>
 <dd>&nbsp;</dd>
@@ -1212,6 +1221,22 @@
 <div class="block">Returns the HTTP request parameter values map.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/util/FacesLocal.html#getRequestParameterValuesMap-javax.faces.context.FacesContext-">getRequestParameterValuesMap(FacesContext)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/FacesLocal.html" title="class in org.omnifaces.util">FacesLocal</a></dt>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/util/Faces.html#getRequestPart-java.lang.String-">getRequestPart(String)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Faces.html" title="class in org.omnifaces.util">Faces</a></dt>
+<dd>
+<div class="block">Returns the HTTP request part associated with the given name, else return null.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/util/FacesLocal.html#getRequestPart-javax.faces.context.FacesContext-java.lang.String-">getRequestPart(FacesContext, String)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/FacesLocal.html" title="class in org.omnifaces.util">FacesLocal</a></dt>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/util/Faces.html#getRequestParts--">getRequestParts()</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Faces.html" title="class in org.omnifaces.util">Faces</a></dt>
+<dd>
+<div class="block">Returns all HTTP request parts, provided that request is of type <code>multipart/form-data</code>.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/util/Faces.html#getRequestParts-java.lang.String-">getRequestParts(String)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Faces.html" title="class in org.omnifaces.util">Faces</a></dt>
+<dd>
+<div class="block">Returns all HTTP request parts associated with the given name, provided that request is of type
+ <code>multipart/form-data</code>.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/util/FacesLocal.html#getRequestParts-javax.faces.context.FacesContext-">getRequestParts(FacesContext)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/FacesLocal.html" title="class in org.omnifaces.util">FacesLocal</a></dt>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/util/FacesLocal.html#getRequestParts-javax.faces.context.FacesContext-java.lang.String-">getRequestParts(FacesContext, String)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/FacesLocal.html" title="class in org.omnifaces.util">FacesLocal</a></dt>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/resourcehandler/DynamicResource.html#getRequestPath--">getRequestPath()</a></span> - Method in class org.omnifaces.resourcehandler.<a href="../org/omnifaces/resourcehandler/DynamicResource.html" title="class in org.omnifaces.resourcehandler">DynamicResource</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/resourcehandler/GraphicResource.html#getRequestPath--">getRequestPath()</a></span> - Method in class org.omnifaces.resourcehandler.<a href="../org/omnifaces/resourcehandler/GraphicResource.html" title="class in org.omnifaces.resourcehandler">GraphicResource</a></dt>
@@ -1503,6 +1528,10 @@
 <dd>
 <div class="block">Returns the error style class which is to be applied on invalid inputs.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/util/Servlets.html#getSubmittedFileName-javax.servlet.http.Part-">getSubmittedFileName(Part)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Servlets.html" title="class in org.omnifaces.util">Servlets</a></dt>
+<dd>
+<div class="block">Returns the submitted file name of the given part, making sure that any path is stripped off.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/cdi/param/ParamValue.html#getSubmittedValue--">getSubmittedValue()</a></span> - Method in class org.omnifaces.cdi.param.<a href="../org/omnifaces/cdi/param/ParamValue.html" title="class in org.omnifaces.cdi.param">ParamValue</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/component/input/ViewParam.html#getSubmittedValue--">getSubmittedValue()</a></span> - Method in class org.omnifaces.component.input.<a href="../org/omnifaces/component/input/ViewParam.html" title="class in org.omnifaces.component.input">ViewParam</a></dt>
@@ -1575,6 +1604,12 @@
 <dt><span class="memberNameLink"><a href="../org/omnifaces/cdi/param/ParamValue.html#getValue--">getValue()</a></span> - Method in class org.omnifaces.cdi.param.<a href="../org/omnifaces/cdi/param/ParamValue.html" title="class in org.omnifaces.cdi.param">ParamValue</a></dt>
 <dd>
 <div class="block">Gets the converted version of the value that was retrieved from the request.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/component/input/InputFile.html#getValue--">getValue()</a></span> - Method in class org.omnifaces.component.input.<a href="../org/omnifaces/component/input/InputFile.html" title="class in org.omnifaces.component.input">InputFile</a></dt>
+<dd>
+<div class="block">This override returns null during render response as it doesn't make sense to render <code>Part#toString()</code>
+ as value of file input, moreover it's for HTML security reasons discouraged to prefill the value of a file input
+ even though browsers will ignore it.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/component/output/cache/CacheEntry.html#getValue--">getValue()</a></span> - Method in class org.omnifaces.component.output.cache.<a href="../org/omnifaces/component/output/cache/CacheEntry.html" title="class in org.omnifaces.component.output.cache">CacheEntry</a></dt>
 <dd>
@@ -1762,7 +1797,7 @@
 <dd>
 <div class="block">
  The <code>&lt;o:graphicImage&gt;</code> is a component that extends the standard <code>&lt;h:graphicImage&gt;</code>
- with support for referencing an <a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io"><code>InputStream</code></a> or <code>byte[]</code> property in the <code>value</code>
+ with support for referencing an <a href="http://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io"><code>InputStream</code></a> or <code>byte[]</code> property in the <code>value</code>
  attribute, optionally as a data URI.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/component/output/GraphicImage.html#GraphicImage--">GraphicImage()</a></span> - Constructor for class org.omnifaces.component.output.<a href="../org/omnifaces/component/output/GraphicImage.html" title="class in org.omnifaces.component.output">GraphicImage</a></dt>
