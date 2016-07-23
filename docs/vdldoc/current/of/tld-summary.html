@@ -658,6 +658,55 @@
 		</td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="graphicImageURL.fn.html">graphicImageURL</a></b>(java.lang.String)</code></td><td class="colLast">
+			
+				Returns <code>&lt;o:graphicImage&gt;</code> URL based on given expression string.
+				The expression string must be a quoted string. Any nested quotes can be escaped with backslash.
+				<p>
+				Usage example:
+				<pre>
+&lt;a href="#{of:graphicImageURL('bean.getFullImage(image.id)')}"&gt;
+    &lt;o:graphicImage value="#{bean.getThumbnailImage(image.id)}" /&gt;
+&lt;/a&gt;
+				</pre>
+			
+		</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="graphicImageURLWithType.fn.html">graphicImageURLWithType</a></b>(java.lang.String, java.lang.String)</code></td><td class="colLast">
+			
+				Returns <code>&lt;o:graphicImage&gt;</code> URL based on given expression string and image type.
+				The expression string must be a quoted string. Any nested quotes can be escaped with backslash.
+				The image type is represented as file extension. E.g. "jpg", "png", "gif", "ico", "svg", "bmp", "tiff", etc.
+				<p>
+				Usage example:
+				<pre>
+&lt;a href="#{of:graphicImageURL('bean.getFullImage(image.id)', 'png')}"&gt;
+    &lt;o:graphicImage value="#{bean.getThumbnailImage(image.id)}" type="png" /&gt;
+&lt;/a&gt;
+				</pre>
+			
+		</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="graphicImageURLWithTypeAndLastModified.fn.html">graphicImageURLWithTypeAndLastModified</a></b>(java.lang.String, java.lang.String, java.lang.Object)</code></td><td class="colLast">
+			
+				Returns <code>&lt;o:graphicImage&gt;</code> URL based on given expression string, image type and last modified.
+				The expression string must be a quoted string. Any nested quotes can be escaped with backslash.
+				The image type is represented as file extension. E.g. "jpg", "png", "gif", "ico", "svg", "bmp", "tiff", etc.
+				The "last modified" timestamp can be either a <code>java.lang.Long</code>, <code>java.util.Date</code>, 
+				or <code>java.lang.String</code> which is parseable as <code>java.lang.Long</code>.
+				<p>
+				Usage example:
+				<pre>
+&lt;a href="#{of:graphicImageURL('bean.getFullImage(image.id)', 'png', image.lastModified)}"&gt;
+    &lt;o:graphicImage value="#{bean.getThumbnailImage(image.id)}" type="png" lastModified="#{image.lastModified}" /&gt;
+&lt;/a&gt;
+				</pre>
+			
+		</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="getRequestBaseURL.fn.html">getRequestBaseURL</a></b>()</code></td><td class="colLast">
 			
 				Returns the HTTP request base URL. This is the URL from the scheme, domain until with context path, including
@@ -665,14 +714,14 @@
 			
 		</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="getRequestDomainURL.fn.html">getRequestDomainURL</a></b>()</code></td><td class="colLast">
 			
 				Returns the HTTP request domain URL. This is the URL with the scheme and domain, without any trailing slash.
 			
 		</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="getRequestURLWithQueryString.fn.html">getRequestURLWithQueryString</a></b>()</code></td><td class="colLast">
 			
 				Returns the HTTP request URL with query string. This is the full request URL with query string as the enduser
@@ -680,7 +729,7 @@
 			
 		</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="getRemoteAddr.fn.html">getRemoteAddr</a></b>()</code></td><td class="colLast">
 			
 				Returns the Internet Protocol (IP) address of the client that sent the request. This will first check the

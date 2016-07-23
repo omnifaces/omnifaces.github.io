@@ -818,6 +818,11 @@
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/resourcehandler/RemappedResource.html#getLibraryName--">getLibraryName()</a></span> - Method in class org.omnifaces.resourcehandler.<a href="../org/omnifaces/resourcehandler/RemappedResource.html" title="class in org.omnifaces.resourcehandler">RemappedResource</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/util/Faces.html#getLifecycle--">getLifecycle()</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Faces.html" title="class in org.omnifaces.util">Faces</a></dt>
+<dd>
+<div class="block">Returns The <a href="https://docs.oracle.com/javaee/7/api/javax/faces/lifecycle/Lifecycle.html?is-external=true" title="class or interface in javax.faces.lifecycle"><code>Lifecycle</code></a> associated with current Faces application.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/util/FacesLocal.html#getLifecycle-javax.faces.context.FacesContext-">getLifecycle(FacesContext)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/FacesLocal.html" title="class in org.omnifaces.util">FacesLocal</a></dt>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/el/ELContextWrapper.html#getLocale--">getLocale()</a></span> - Method in class org.omnifaces.el.<a href="../org/omnifaces/el/ELContextWrapper.html" title="class in org.omnifaces.el">ELContextWrapper</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/util/Faces.html#getLocale--">getLocale()</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Faces.html" title="class in org.omnifaces.util">Faces</a></dt>
@@ -1803,6 +1808,27 @@
 <dt><span class="memberNameLink"><a href="../org/omnifaces/component/output/GraphicImage.html#GraphicImage--">GraphicImage()</a></span> - Constructor for class org.omnifaces.component.output.<a href="../org/omnifaces/component/output/GraphicImage.html" title="class in org.omnifaces.component.output">GraphicImage</a></dt>
 <dd>
 <div class="block">Constructs the GraphicImage component.</div>
+</dd>
+<dt><a href="../org/omnifaces/cdi/GraphicImageScoped.html" title="annotation in org.omnifaces.cdi"><span class="typeNameLink">GraphicImageScoped</span></a> - Annotation Type in <a href="../org/omnifaces/cdi/package-summary.html">org.omnifaces.cdi</a></dt>
+<dd>
+<div class="block">
+ Stereo type that designates a bean as an application scoped bean for serving graphic images via
+ <code>&lt;o:graphicImage&gt;</code> component or <code>#{of:graphicImageURL()}</code> EL functions.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/el/functions/Components.html#graphicImageURL-java.lang.String-">graphicImageURL(String)</a></span> - Static method in class org.omnifaces.el.functions.<a href="../org/omnifaces/el/functions/Components.html" title="class in org.omnifaces.el.functions">Components</a></dt>
+<dd>
+<div class="block">
+ Returns <a href="../org/omnifaces/cdi/GraphicImageScoped.html" title="annotation in org.omnifaces.cdi"><code>GraphicImageScoped</code></a> URL based on given expression string.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/el/functions/Components.html#graphicImageURLWithType-java.lang.String-java.lang.String-">graphicImageURLWithType(String, String)</a></span> - Static method in class org.omnifaces.el.functions.<a href="../org/omnifaces/el/functions/Components.html" title="class in org.omnifaces.el.functions">Components</a></dt>
+<dd>
+<div class="block">
+ Returns <a href="../org/omnifaces/cdi/GraphicImageScoped.html" title="annotation in org.omnifaces.cdi"><code>GraphicImageScoped</code></a> URL based on given expression string and image type.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/el/functions/Components.html#graphicImageURLWithTypeAndLastModified-java.lang.String-java.lang.String-java.lang.Object-">graphicImageURLWithTypeAndLastModified(String, String, Object)</a></span> - Static method in class org.omnifaces.el.functions.<a href="../org/omnifaces/el/functions/Components.html" title="class in org.omnifaces.el.functions">Components</a></dt>
+<dd>
+<div class="block">
+ Returns <a href="../org/omnifaces/cdi/GraphicImageScoped.html" title="annotation in org.omnifaces.cdi"><code>GraphicImageScoped</code></a> URL based on given expression string, image type and last modified.</div>
 </dd>
 <dt><a href="../org/omnifaces/resourcehandler/GraphicResource.html" title="class in org.omnifaces.resourcehandler"><span class="typeNameLink">GraphicResource</span></a> - Class in <a href="../org/omnifaces/resourcehandler/package-summary.html">org.omnifaces.resourcehandler</a></dt>
 <dd>

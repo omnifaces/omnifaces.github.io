@@ -166,9 +166,11 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/html
 
  public void upload() {
      if (file != null) {
-         System.out.println("Name: " + Servlets.getSubmittedFileName(file));
-         System.out.println("Type: " + file.getContentType());
-         System.out.println("Size: " + file.getSize());
+         String name = Servlets.getSubmittedFileName(file);
+         String type = file.getContentType();
+         long size = file.getSize();
+         InputStream content = file.getInputStream();
+         // ...
      }
  }
  </pre>
@@ -193,9 +195,11 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/html
  public void upload() {
      if (files != null) {
          for (Part file : files) {
-             System.out.println("Name: " + Servlets.getSubmittedFileName(file));
-             System.out.println("Type: " + file.getContentType());
-             System.out.println("Size: " + file.getSize());
+             String name = Servlets.getSubmittedFileName(file);
+             String type = file.getContentType();
+             long size = file.getSize();
+             InputStream content = file.getInputStream();
+             // ...
          }
      }
  }
@@ -218,9 +222,11 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/html
  public void upload() {
      if (files != null) {
          for (Part file : files) {
-             System.out.println("Name: " + Servlets.getSubmittedFileName(file));
-             System.out.println("Type: " + file.getContentType());
-             System.out.println("Size: " + file.getSize());
+             String name = Servlets.getSubmittedFileName(file);
+             String type = file.getContentType();
+             long size = file.getSize();
+             InputStream content = file.getInputStream();
+             // ...
          }
      }
  }
@@ -545,7 +551,10 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/html
                throws <a href="http://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
 <div class="block">This override will render <code>multiple</code>, <code>directory</code> and <code>accept</code> attributes
  accordingly. As the <code>directory</code> attribute is relatively new, for better browser compatibility the
- <code>webkitdirectory</code> attribute will also be written along it.</div>
+ <code>webkitdirectory</code> attribute will also be written along it.
+ <p>
+ They're written as passthrough attributes because in Mojarra the <code>startElement()</code> takes place in
+ <a href="../../../../org/omnifaces/component/input/InputFile.html#encodeEnd-javax.faces.context.FacesContext-"><code>encodeEnd(FacesContext)</code></a> instead of <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponentBase.html?is-external=true#encodeBegin-javax.faces.context.FacesContext-" title="class or interface in javax.faces.component"><code>UIComponentBase.encodeBegin(FacesContext)</code></a>.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code><a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponentBase.html?is-external=true#encodeEnd-javax.faces.context.FacesContext-" title="class or interface in javax.faces.component">encodeEnd</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponentBase.html?is-external=true" title="class or interface in javax.faces.component">UIComponentBase</a></code></dd>
