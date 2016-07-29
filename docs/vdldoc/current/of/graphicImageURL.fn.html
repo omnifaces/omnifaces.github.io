@@ -71,13 +71,13 @@
 <dd>
 <div class="block">
 			
-				Returns <code>&lt;o:graphicImage&gt;</code> URL based on given expression string.
+				Returns <code>@GraphicImageScoped</code> URL based on given expression string.
 				The expression string must be a quoted string. Any nested quotes can be escaped with backslash.
 				<p>
 				Usage example:
 				<pre>
-&lt;a href="#{of:graphicImageURL('bean.getFullImage(image.id)')}"&gt;
-    &lt;o:graphicImage value="#{bean.getThumbnailImage(image.id)}" /&gt;
+&lt;a href="#{of:graphicImageURL('images.full(product.imageId)')}"&gt;
+    &lt;o:graphicImage value="#{images.thumb(product.imageId)}" /&gt;
 &lt;/a&gt;
 				</pre>
 			

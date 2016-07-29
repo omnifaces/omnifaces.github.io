@@ -71,14 +71,14 @@
 <dd>
 <div class="block">
 			
-				Returns <code>&lt;o:graphicImage&gt;</code> URL based on given expression string and image type.
+				Returns <code>@GraphicImageScoped</code> URL based on given expression string and image type.
 				The expression string must be a quoted string. Any nested quotes can be escaped with backslash.
 				The image type is represented as file extension. E.g. "jpg", "png", "gif", "ico", "svg", "bmp", "tiff", etc.
 				<p>
 				Usage example:
 				<pre>
-&lt;a href="#{of:graphicImageURL('bean.getFullImage(image.id)', 'png')}"&gt;
-    &lt;o:graphicImage value="#{bean.getThumbnailImage(image.id)}" type="png" /&gt;
+&lt;a href="#{of:graphicImageURLWithType('images.full(product.imageId)', 'png')}"&gt;
+    &lt;o:graphicImage value="#{images.thumb(product.imageId)}" type="png" /&gt;
 &lt;/a&gt;
 				</pre>
 			
