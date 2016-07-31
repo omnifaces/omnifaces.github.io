@@ -507,8 +507,9 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UICo
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code><a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponentBase.html?is-external=true#encodeBegin-javax.faces.context.FacesContext-" title="class or interface in javax.faces.component">encodeBegin</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponentBase.html?is-external=true" title="class or interface in javax.faces.component">UIComponentBase</a></code></dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></code> - When there is no parent form, or when the <code>name</code> attribute is
- missing, or when the <code>name</code> attribute does not represent a valid script function name.</dd>
+<dd><code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang">IllegalStateException</a></code> - When there is no parent form.</dd>
+<dd><code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></code> - When the <code>name</code> attribute is missing, or when the <code>name</code>
+ attribute does not represent a valid script function name.</dd>
 <dd><code><a href="http://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd>
 </dl>
 </li>

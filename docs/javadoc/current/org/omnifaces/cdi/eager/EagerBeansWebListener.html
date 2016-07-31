@@ -117,9 +117,9 @@ var activeTableTab = "activeTableTab";
 extends <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>
 implements <a href="https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpSessionListener.html?is-external=true" title="class or interface in javax.servlet.http">HttpSessionListener</a>, <a href="https://docs.oracle.com/javaee/7/api/javax/servlet/ServletRequestListener.html?is-external=true" title="class or interface in javax.servlet">ServletRequestListener</a></pre>
 <div class="block"><p>
- A web listener that instantiates eager session and request scoped beans. This is auto-registered by
- <a href="../../../../org/omnifaces/cdi/eager/EagerBeansRepository.html#instantiateApplicationScopedAndRegisterListener-javax.servlet.ServletContext-"><code>EagerBeansRepository.instantiateApplicationScopedAndRegisterListener(javax.servlet.ServletContext)</code></a> when
- any eager session and request scoped beans are available.</div>
+ A web listener that instantiates eager session beans and request/view beans by request URI. This is auto-registered
+ by <a href="../../../../org/omnifaces/cdi/eager/EagerBeansRepository.html#instantiateApplicationScopedAndRegisterListener-javax.servlet.ServletContext-"><code>EagerBeansRepository.instantiateApplicationScopedAndRegisterListener(javax.servlet.ServletContext)</code></a> when
+ any eager session beans or request/view beans by request URI are available.</div>
 <dl>
 <dt><span class="simpleTagLabel">Since:</span></dt>
 <dd>2.0</dd>

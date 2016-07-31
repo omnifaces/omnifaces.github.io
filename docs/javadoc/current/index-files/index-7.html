@@ -123,7 +123,11 @@
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/component/input/InputFile.html#getAccept--">getAccept()</a></span> - Method in class org.omnifaces.component.input.<a href="../org/omnifaces/component/input/InputFile.html" title="class in org.omnifaces.component.input">InputFile</a></dt>
 <dd>
-<div class="block">Returns comma separated string of mime types of files to filter in browse dialog.</div>
+<div class="block">Returns comma separated string of mime types of files to filter in client side file browse dialog.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/component/input/InputFile.html#getAcceptMessage--">getAcceptMessage()</a></span> - Method in class org.omnifaces.component.input.<a href="../org/omnifaces/component/input/InputFile.html" title="class in org.omnifaces.component.input">InputFile</a></dt>
+<dd>
+<div class="block">Returns validation message to be displayed when the condition in <code>accept</code> attribute is violated.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/util/Components.html#getActionExpressionsAndListeners-javax.faces.component.UIComponent-">getActionExpressionsAndListeners(UIComponent)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Components.html" title="class in org.omnifaces.util">Components</a></dt>
 <dd>
@@ -569,6 +573,10 @@
 <dt><span class="memberNameLink"><a href="../org/omnifaces/util/FacesLocal.html#getFaceletContext-javax.faces.context.FacesContext-">getFaceletContext(FacesContext)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/FacesLocal.html" title="class in org.omnifaces.util">FacesLocal</a></dt>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/util/Components.ForEach.html#getFacesContext--">getFacesContext()</a></span> - Method in class org.omnifaces.util.<a href="../org/omnifaces/util/Components.ForEach.html" title="class in org.omnifaces.util">Components.ForEach</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/util/Servlets.html#getFacesLifecycle-javax.servlet.ServletContext-">getFacesLifecycle(ServletContext)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Servlets.html" title="class in org.omnifaces.util">Servlets</a></dt>
+<dd>
+<div class="block">Returns The <a href="https://docs.oracle.com/javaee/7/api/javax/faces/lifecycle/Lifecycle.html?is-external=true" title="class or interface in javax.faces.lifecycle"><code>Lifecycle</code></a> associated with current Faces application.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/facesviews/FacesViews.html#getFacesServletDispatchMethod-javax.servlet.ServletContext-">getFacesServletDispatchMethod(ServletContext)</a></span> - Static method in class org.omnifaces.facesviews.<a href="../org/omnifaces/facesviews/FacesViews.html" title="class in org.omnifaces.facesviews">FacesViews</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/facesviews/FacesViews.html#getFacesServletExtensions-javax.faces.context.FacesContext-">getFacesServletExtensions(FacesContext)</a></span> - Static method in class org.omnifaces.facesviews.<a href="../org/omnifaces/facesviews/FacesViews.html" title="class in org.omnifaces.facesviews">FacesViews</a></dt>
@@ -849,6 +857,14 @@
 <div class="block">Determines and returns the faces servlet mapping used in the current request.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/util/FacesLocal.html#getMapping-javax.faces.context.FacesContext-">getMapping(FacesContext)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/FacesLocal.html" title="class in org.omnifaces.util">FacesLocal</a></dt>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/component/input/InputFile.html#getMaxsize--">getMaxsize()</a></span> - Method in class org.omnifaces.component.input.<a href="../org/omnifaces/component/input/InputFile.html" title="class in org.omnifaces.component.input">InputFile</a></dt>
+<dd>
+<div class="block">Returns maximum size in bytes for each selected file.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/component/input/InputFile.html#getMaxsizeMessage--">getMaxsizeMessage()</a></span> - Method in class org.omnifaces.component.input.<a href="../org/omnifaces/component/input/InputFile.html" title="class in org.omnifaces.component.input">InputFile</a></dt>
+<dd>
+<div class="block">Returns validation message to be displayed when the condition in <code>maxsize</code> attribute is violated.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/component/messages/OmniMessages.html#getMessage--">getMessage()</a></span> - Method in class org.omnifaces.component.messages.<a href="../org/omnifaces/component/messages/OmniMessages.html" title="class in org.omnifaces.component.messages">OmniMessages</a></dt>
 <dd>
 <div class="block">Returns the single INFO message to be shown instead when this component has any faces message.</div>
@@ -856,6 +872,12 @@
 <dt><span class="memberNameLink"><a href="../org/omnifaces/component/validator/ValidateMultipleFields.html#getMessage--">getMessage()</a></span> - Method in class org.omnifaces.component.validator.<a href="../org/omnifaces/component/validator/ValidateMultipleFields.html" title="class in org.omnifaces.component.validator">ValidateMultipleFields</a></dt>
 <dd>
 <div class="block">Returns the validation message to be shown.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/config/OmniFaces.html#getMessage-java.lang.String-">getMessage(String)</a></span> - Static method in class org.omnifaces.config.<a href="../org/omnifaces/config/OmniFaces.html" title="class in org.omnifaces.config">OmniFaces</a></dt>
+<dd>
+<div class="block">Returns resource bundle message associated with given key from application message bundle as identified by
+ <code>&lt;message-bundle&gt;</code> in <code>faces-config.xml</code>, or if it is absent, then return it from
+ OmniFaces internal <code>org.omnifaces.messages</code> bundle.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/exceptionhandler/FullAjaxExceptionHandler.LogReason.html#getMessage--">getMessage()</a></span> - Method in enum org.omnifaces.exceptionhandler.<a href="../org/omnifaces/exceptionhandler/FullAjaxExceptionHandler.LogReason.html" title="enum in org.omnifaces.exceptionhandler">FullAjaxExceptionHandler.LogReason</a></dt>
 <dd>
@@ -875,9 +897,17 @@
  <code>faces-config.xml</code>.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/util/FacesLocal.html#getMessageBundle-javax.faces.context.FacesContext-">getMessageBundle(FacesContext)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/FacesLocal.html" title="class in org.omnifaces.util">FacesLocal</a></dt>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/util/Components.html#getMessageComponent-javax.faces.component.UIInput-">getMessageComponent(UIInput)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Components.html" title="class in org.omnifaces.util">Components</a></dt>
+<dd>
+<div class="block">Returns the <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIMessage.html?is-external=true" title="class or interface in javax.faces.component"><code>UIMessage</code></a> component associated with given <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIInput.html?is-external=true" title="class or interface in javax.faces.component"><code>UIInput</code></a> component.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/renderer/MessagesRenderer.html#getMessages-javax.faces.context.FacesContext-org.omnifaces.component.messages.OmniMessages-">getMessages(FacesContext, OmniMessages)</a></span> - Method in class org.omnifaces.renderer.<a href="../org/omnifaces/renderer/MessagesRenderer.html" title="class in org.omnifaces.renderer">MessagesRenderer</a></dt>
 <dd>
 <div class="block">Collect all messages associated with components identified by <code>for</code> attribute and return it.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/util/Components.html#getMessagesComponent--">getMessagesComponent()</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Components.html" title="class in org.omnifaces.util">Components</a></dt>
+<dd>
+<div class="block">Returns the first <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIMessages.html?is-external=true" title="class or interface in javax.faces.component"><code>UIMessages</code></a> component found in the current view.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/util/Faces.html#getMetadataAttribute-java.lang.String-java.lang.String-">getMetadataAttribute(String, String)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Faces.html" title="class in org.omnifaces.util">Faces</a></dt>
 <dd>
@@ -1513,6 +1543,10 @@
 <dd>
 <div class="block">Returns the URL needed for the 'src' attribute.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/config/OmniFaces.html#getStartupTime--">getStartupTime()</a></span> - Static method in class org.omnifaces.config.<a href="../org/omnifaces/config/OmniFaces.html" title="class in org.omnifaces.config">OmniFaces</a></dt>
+<dd>
+<div class="block">Returns startup time in Epoch milli.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/util/Hacks.html#getStateHelper-javax.faces.component.UIComponent-">getStateHelper(UIComponent)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Hacks.html" title="class in org.omnifaces.util">Hacks</a></dt>
 <dd>
 <div class="block">Expose protected state helper into public.</div>
@@ -1681,6 +1715,10 @@
 <dd>
 <div class="block">Returns the name of the request attribute which exposes the current node of the tree model.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/config/OmniFaces.html#getVersion--">getVersion()</a></span> - Static method in class org.omnifaces.config.<a href="../org/omnifaces/config/OmniFaces.html" title="class in org.omnifaces.config">OmniFaces</a></dt>
+<dd>
+<div class="block">Returns OmniFaces version.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/util/Faces.html#getViewAttribute-java.lang.String-">getViewAttribute(String)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/Faces.html" title="class in org.omnifaces.util">Faces</a></dt>
 <dd>
 <div class="block">Returns the view scope attribute value associated with the given name.</div>
@@ -1818,17 +1856,17 @@
 <dt><span class="memberNameLink"><a href="../org/omnifaces/el/functions/Components.html#graphicImageURL-java.lang.String-">graphicImageURL(String)</a></span> - Static method in class org.omnifaces.el.functions.<a href="../org/omnifaces/el/functions/Components.html" title="class in org.omnifaces.el.functions">Components</a></dt>
 <dd>
 <div class="block">
- Returns <a href="../org/omnifaces/cdi/GraphicImageScoped.html" title="annotation in org.omnifaces.cdi"><code>GraphicImageScoped</code></a> URL based on given expression string.</div>
+ Returns <code>@GraphicImageScoped</code> URL based on given expression string.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/el/functions/Components.html#graphicImageURLWithType-java.lang.String-java.lang.String-">graphicImageURLWithType(String, String)</a></span> - Static method in class org.omnifaces.el.functions.<a href="../org/omnifaces/el/functions/Components.html" title="class in org.omnifaces.el.functions">Components</a></dt>
 <dd>
 <div class="block">
- Returns <a href="../org/omnifaces/cdi/GraphicImageScoped.html" title="annotation in org.omnifaces.cdi"><code>GraphicImageScoped</code></a> URL based on given expression string and image type.</div>
+ Returns <code>@GraphicImageScoped</code> URL based on given expression string and image type.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/el/functions/Components.html#graphicImageURLWithTypeAndLastModified-java.lang.String-java.lang.String-java.lang.Object-">graphicImageURLWithTypeAndLastModified(String, String, Object)</a></span> - Static method in class org.omnifaces.el.functions.<a href="../org/omnifaces/el/functions/Components.html" title="class in org.omnifaces.el.functions">Components</a></dt>
 <dd>
 <div class="block">
- Returns <a href="../org/omnifaces/cdi/GraphicImageScoped.html" title="annotation in org.omnifaces.cdi"><code>GraphicImageScoped</code></a> URL based on given expression string, image type and last modified.</div>
+ Returns <code>@GraphicImageScoped</code> URL based on given expression string, image type and last modified.</div>
 </dd>
 <dt><a href="../org/omnifaces/resourcehandler/GraphicResource.html" title="class in org.omnifaces.resourcehandler"><span class="typeNameLink">GraphicResource</span></a> - Class in <a href="../org/omnifaces/resourcehandler/package-summary.html">org.omnifaces.resourcehandler</a></dt>
 <dd>

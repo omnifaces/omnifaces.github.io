@@ -358,9 +358,10 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/view/facelets/
  <a href="../../../org/omnifaces/taghandler/ViewParamValidationFailed.html#processViewParamValidationFailed-javax.faces.event.ComponentSystemEvent-"><code>processViewParamValidationFailed(ComponentSystemEvent)</code></a> method after validation.</div>
 <dl>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></code> - When the parent component is not an instance of <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIViewRoot.html?is-external=true" title="class or interface in javax.faces.component"><code>UIViewRoot</code></a> or
+<dd><code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang">IllegalStateException</a></code> - When the parent component is not an instance of <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIViewRoot.html?is-external=true" title="class or interface in javax.faces.component"><code>UIViewRoot</code></a> or
  <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIViewParameter.html?is-external=true" title="class or interface in javax.faces.component"><code>UIViewParameter</code></a>, or when there's already another <code>&lt;o:viewParamValidationFailed&gt;</code> tag
- registered on the same parent, or when both <code>sendRedirect</code> and <code>sendError</code> attributes are
+ registered on the same parent.</dd>
+<dd><code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></code> - When both <code>sendRedirect</code> and <code>sendError</code> attributes are
  missing or simultaneously specified.</dd>
 <dd><code><a href="http://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd>
 </dl>

@@ -120,11 +120,11 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>public class <span class="typeNameLabel">EagerBeansPhaseListener</span>
 extends <a href="../../../../org/omnifaces/eventlistener/DefaultPhaseListener.html" title="class in org.omnifaces.eventlistener">DefaultPhaseListener</a></pre>
-<div class="block">A PhaseListener that instantiates eager request scoped beans by JSF view ID.
+<div class="block"><p>
+ A PhaseListener that instantiates eager request/view beans by JSF view ID.
  <p>
- This instantiates beans relatively late during request processing but at a point
- that JSF and the view root corresponding to the current view id are available to the
- bean.</div>
+ This instantiates beans relatively late during request processing but at a point that faces context and the view root
+ corresponding to the current view ID are available to the bean.</div>
 <dl>
 <dt><span class="simpleTagLabel">Since:</span></dt>
 <dd>1.8</dd>
