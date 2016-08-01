@@ -154,11 +154,21 @@ xmlns:of="http://omnifaces.org/functions"</pre></div>
 
 <p>Maven users can add OmniFaces SNAPSHOT by adding the following Maven coordinates to pom.xml:</p>
 
-<div class="highlight highlight-text-xml"><pre>&lt;<span class="pl-ent">dependency</span>&gt;
-    &lt;<span class="pl-ent">groupId</span>&gt;org.omnifaces&lt;/<span class="pl-ent">groupId</span>&gt;
-    &lt;<span class="pl-ent">artifactId</span>&gt;omnifaces&lt;/<span class="pl-ent">artifactId</span>&gt;
-    &lt;<span class="pl-ent">version</span>&gt;2.5-SNAPSHOT&lt;/<span class="pl-ent">version</span>&gt;
-&lt;/<span class="pl-ent">dependency</span>&gt;</pre></div>
+<div class="highlight highlight-text-xml"><pre>&lt;<span class="pl-ent">repositories</span>&gt;
+    &lt;<span class="pl-ent">repository</span>&gt;
+        &lt;<span class="pl-ent">id</span>&gt;oss.sonatype.org-snapshot&lt;/<span class="pl-ent">id</span>&gt;
+        &lt;<span class="pl-ent">url</span>&gt;http://oss.sonatype.org/content/repositories/snapshots&lt;/<span class="pl-ent">url</span>&gt;
+        &lt;<span class="pl-ent">releases</span>&gt;&lt;<span class="pl-ent">enabled</span>&gt;false&lt;/<span class="pl-ent">enabled</span>&gt;&lt;/<span class="pl-ent">releases</span>&gt;
+        &lt;<span class="pl-ent">snapshots</span>&gt;&lt;<span class="pl-ent">enabled</span>&gt;true&lt;/<span class="pl-ent">enabled</span>&gt;&lt;/<span class="pl-ent">snapshots</span>&gt;
+    &lt;/<span class="pl-ent">repository</span>&gt;
+&lt;/<span class="pl-ent">repositories</span>&gt;
+&lt;<span class="pl-ent">dependencies</span>&gt;
+    &lt;<span class="pl-ent">dependency</span>&gt;
+        &lt;<span class="pl-ent">groupId</span>&gt;org.omnifaces&lt;/<span class="pl-ent">groupId</span>&gt;
+        &lt;<span class="pl-ent">artifactId</span>&gt;omnifaces&lt;/<span class="pl-ent">artifactId</span>&gt;
+        &lt;<span class="pl-ent">version</span>&gt;2.5-SNAPSHOT&lt;/<span class="pl-ent">version</span>&gt;
+    &lt;/<span class="pl-ent">dependency</span>&gt;
+&lt;/<span class="pl-ent">dependencies</span>&gt;</pre></div>
 
 <p>It is showcased on the <a href="http://snapshot.omnifaces.org">SNAPSHOT showcase</a> instead of the <a href="http://showcase.omnifaces.org">main showcase</a>.</p>
 
