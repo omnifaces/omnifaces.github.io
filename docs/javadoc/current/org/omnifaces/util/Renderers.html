@@ -18,7 +18,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9,"i5":9,"i6":9,"i7":9,"i8":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -226,6 +226,13 @@ extends <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?
 </td>
 </tr>
 <tr id="i7" class="rowColor">
+<td class="colFirst"><code>static void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Renderers.html#writeIdAttributeIfNecessary-javax.faces.context.ResponseWriter-javax.faces.component.UIComponent-">writeIdAttributeIfNecessary</a></span>(<a href="https://docs.oracle.com/javaee/7/api/javax/faces/context/ResponseWriter.html?is-external=true" title="class or interface in javax.faces.context">ResponseWriter</a>&nbsp;writer,
+                           <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;component)</code>
+<div class="block">Write ID of component if necessary.</div>
+</td>
+</tr>
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Renderers.html#writeText-javax.faces.context.ResponseWriter-javax.faces.component.UIComponent-java.lang.String-boolean-">writeText</a></span>(<a href="https://docs.oracle.com/javaee/7/api/javax/faces/context/ResponseWriter.html?is-external=true" title="class or interface in javax.faces.context">ResponseWriter</a>&nbsp;writer,
          <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;component,
@@ -471,7 +478,7 @@ extends <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?
 <a name="writeAttributes-javax.faces.context.ResponseWriter-javax.faces.component.UIComponent-java.util.Map-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>writeAttributes</h4>
 <pre>public static&nbsp;void&nbsp;writeAttributes(<a href="https://docs.oracle.com/javaee/7/api/javax/faces/context/ResponseWriter.html?is-external=true" title="class or interface in javax.faces.context">ResponseWriter</a>&nbsp;writer,
@@ -487,6 +494,29 @@ extends <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?
 <dd><code>names</code> - Mapping of component property-HTML attribute names of the attributes to be written.</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - When an I/O error occurs.</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="https://docs.oracle.com/javaee/7/api/javax/faces/context/ResponseWriter.html?is-external=true#writeAttribute-java.lang.String-java.lang.Object-java.lang.String-" title="class or interface in javax.faces.context"><code>ResponseWriter.writeAttribute(String, Object, String)</code></a></dd>
+</dl>
+</li>
+</ul>
+<a name="writeIdAttributeIfNecessary-javax.faces.context.ResponseWriter-javax.faces.component.UIComponent-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>writeIdAttributeIfNecessary</h4>
+<pre>public static&nbsp;void&nbsp;writeIdAttributeIfNecessary(<a href="https://docs.oracle.com/javaee/7/api/javax/faces/context/ResponseWriter.html?is-external=true" title="class or interface in javax.faces.context">ResponseWriter</a>&nbsp;writer,
+                                               <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/UIComponent.html?is-external=true" title="class or interface in javax.faces.component">UIComponent</a>&nbsp;component)
+                                        throws <a href="http://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Write ID of component if necessary. That is, when it's explicitly set or the component has client behaviors.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>writer</code> - The involved response writer.</dd>
+<dd><code>component</code> - The associated UI component.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - When an I/O error occurs.</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>2.5</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="https://docs.oracle.com/javaee/7/api/javax/faces/context/ResponseWriter.html?is-external=true#writeAttribute-java.lang.String-java.lang.Object-java.lang.String-" title="class or interface in javax.faces.context"><code>ResponseWriter.writeAttribute(String, Object, String)</code></a></dd>
 </dl>

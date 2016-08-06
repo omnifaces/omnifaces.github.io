@@ -1847,26 +1847,27 @@
 <dd>
 <div class="block">Constructs the GraphicImage component.</div>
 </dd>
-<dt><a href="../org/omnifaces/cdi/GraphicImageScoped.html" title="annotation in org.omnifaces.cdi"><span class="typeNameLink">GraphicImageScoped</span></a> - Annotation Type in <a href="../org/omnifaces/cdi/package-summary.html">org.omnifaces.cdi</a></dt>
+<dt><a href="../org/omnifaces/cdi/GraphicImageBean.html" title="annotation in org.omnifaces.cdi"><span class="typeNameLink">GraphicImageBean</span></a> - Annotation Type in <a href="../org/omnifaces/cdi/package-summary.html">org.omnifaces.cdi</a></dt>
 <dd>
 <div class="block">
- Stereo type that designates a bean as an application scoped bean for serving graphic images via
- <code>&lt;o:graphicImage&gt;</code> component or <code>#{of:graphicImageURL()}</code> EL functions.</div>
+ Stereo type that designates a bean with one or more methods returning <code>byte[]</code> or <code>InputStream</code>
+ as a named application scoped bean specifically for serving graphic images via <code>&lt;o:graphicImage&gt;</code>
+ component or <code>#{of:graphicImageURL()}</code> EL functions.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/el/functions/Components.html#graphicImageURL-java.lang.String-">graphicImageURL(String)</a></span> - Static method in class org.omnifaces.el.functions.<a href="../org/omnifaces/el/functions/Components.html" title="class in org.omnifaces.el.functions">Components</a></dt>
 <dd>
 <div class="block">
- Returns <code>@GraphicImageScoped</code> URL based on given expression string.</div>
+ Returns <code>@GraphicImageBean</code> URL based on given expression string.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/el/functions/Components.html#graphicImageURLWithType-java.lang.String-java.lang.String-">graphicImageURLWithType(String, String)</a></span> - Static method in class org.omnifaces.el.functions.<a href="../org/omnifaces/el/functions/Components.html" title="class in org.omnifaces.el.functions">Components</a></dt>
 <dd>
 <div class="block">
- Returns <code>@GraphicImageScoped</code> URL based on given expression string and image type.</div>
+ Returns <code>@GraphicImageBean</code> URL based on given expression string and image type.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/el/functions/Components.html#graphicImageURLWithTypeAndLastModified-java.lang.String-java.lang.String-java.lang.Object-">graphicImageURLWithTypeAndLastModified(String, String, Object)</a></span> - Static method in class org.omnifaces.el.functions.<a href="../org/omnifaces/el/functions/Components.html" title="class in org.omnifaces.el.functions">Components</a></dt>
 <dd>
 <div class="block">
- Returns <code>@GraphicImageScoped</code> URL based on given expression string, image type and last modified.</div>
+ Returns <code>@GraphicImageBean</code> URL based on given expression string, image type and last modified.</div>
 </dd>
 <dt><a href="../org/omnifaces/resourcehandler/GraphicResource.html" title="class in org.omnifaces.resourcehandler"><span class="typeNameLink">GraphicResource</span></a> - Class in <a href="../org/omnifaces/resourcehandler/package-summary.html">org.omnifaces.resourcehandler</a></dt>
 <dd>

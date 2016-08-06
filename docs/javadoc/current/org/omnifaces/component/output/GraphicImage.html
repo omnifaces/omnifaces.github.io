@@ -158,10 +158,10 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/html
  <h3>Image streaming</h3>
  <p>
  When not rendered as data URI, the <a href="http://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io"><code>InputStream</code></a> or <code>byte[]</code> property <strong>must</strong> point to
- a <em>stateless</em> <code>@GraphicImageScoped</code> or <code>@ApplicationScoped</code> bean (both JSF and CDI
- application scopes are supported). The property will namely be evaluated at the moment the browser requests the image
- content based on the URL as specified in HTML <code>&lt;img src&gt;</code>, which is usually a different request than
- the one which rendered the JSF page. E.g.
+ a <em>stateless</em> <code>&#64;</code><a href="../../../../org/omnifaces/cdi/GraphicImageBean.html" title="annotation in org.omnifaces.cdi"><code>GraphicImageBean</code></a> or <code>@Named @ApplicationScoped</code> bean
+ (both JSF and CDI application scopes are supported). The property will namely be evaluated at the moment the browser
+ requests the image content based on the URL as specified in HTML <code>&lt;img src&gt;</code>, which is usually a
+ different request than the one which rendered the JSF page. E.g.
  <pre>
  &#64;Named
  &#64;RequestScoped
@@ -184,8 +184,7 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/html
  }
  </pre>
  <pre>
- &#64;Named
- &#64;GraphicImageScoped
+ &#64;GraphicImageBean
  public class Images {
 
      &#64;Inject
@@ -275,7 +274,7 @@ extends <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/html
 <dt><span class="simpleTagLabel">Author:</span></dt>
 <dd>Bauke Scholtz</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="../../../../org/omnifaces/cdi/GraphicImageScoped.html" title="annotation in org.omnifaces.cdi"><code>GraphicImageScoped</code></a>, 
+<dd><a href="../../../../org/omnifaces/cdi/GraphicImageBean.html" title="annotation in org.omnifaces.cdi"><code>GraphicImageBean</code></a>, 
 <a href="../../../../org/omnifaces/resourcehandler/GraphicResource.html" title="class in org.omnifaces.resourcehandler"><code>GraphicResource</code></a>, 
 <a href="../../../../org/omnifaces/resourcehandler/DynamicResource.html" title="class in org.omnifaces.resourcehandler"><code>DynamicResource</code></a>, 
 <a href="../../../../org/omnifaces/resourcehandler/GraphicResourceHandler.html" title="class in org.omnifaces.resourcehandler"><code>GraphicResourceHandler</code></a>, 
