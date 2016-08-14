@@ -397,8 +397,7 @@
 <dt><span class="memberNameLink"><a href="../org/omnifaces/util/FacesLocal.html#getContextAttribute-javax.faces.context.FacesContext-java.lang.String-">getContextAttribute(FacesContext, String)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/FacesLocal.html" title="class in org.omnifaces.util">FacesLocal</a></dt>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/component/input/InputFile.html#getConvertedValue-javax.faces.context.FacesContext-java.lang.Object-">getConvertedValue(FacesContext, Object)</a></span> - Method in class org.omnifaces.component.input.<a href="../org/omnifaces/component/input/InputFile.html" title="class in org.omnifaces.component.input">InputFile</a></dt>
 <dd>
-<div class="block">This override checks if multi file upload was enabled and if so, then return a collection of parts instead of
- only the last part as done in h:inputFile.</div>
+<div class="block">This override will convert the individual parts if multi file upload is enabled and collect only non-null parts.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/component/output/Param.html#getConverter--">getConverter()</a></span> - Method in class org.omnifaces.component.output.<a href="../org/omnifaces/component/output/Param.html" title="class in org.omnifaces.component.output">Param</a></dt>
 <dd>&nbsp;</dd>
@@ -1044,6 +1043,8 @@
 <div class="block">Returns a new instance of <a href="../org/omnifaces/context/OmniPartialViewContext.html" title="class in org.omnifaces.context"><code>OmniPartialViewContext</code></a> which wraps the original partial view context.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/facesviews/FacesViews.html#getPathAction-javax.servlet.ServletContext-">getPathAction(ServletContext)</a></span> - Static method in class org.omnifaces.facesviews.<a href="../org/omnifaces/facesviews/FacesViews.html" title="class in org.omnifaces.facesviews">FacesViews</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/facesviews/FacesViews.html#getPathInfo-javax.servlet.http.HttpServletRequest-">getPathInfo(HttpServletRequest)</a></span> - Static method in class org.omnifaces.facesviews.<a href="../org/omnifaces/facesviews/FacesViews.html" title="class in org.omnifaces.facesviews">FacesViews</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/facesviews/UriExtensionRequestWrapper.html#getPathInfo--">getPathInfo()</a></span> - Method in class org.omnifaces.facesviews.<a href="../org/omnifaces/facesviews/UriExtensionRequestWrapper.html" title="class in org.omnifaces.facesviews">UriExtensionRequestWrapper</a></dt>
 <dd>&nbsp;</dd>

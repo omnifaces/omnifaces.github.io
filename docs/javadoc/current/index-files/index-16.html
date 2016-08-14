@@ -77,7 +77,7 @@
 <dt><a href="../org/omnifaces/cdi/Param.html" title="annotation in org.omnifaces.cdi"><span class="typeNameLink">Param</span></a> - Annotation Type in <a href="../org/omnifaces/cdi/package-summary.html">org.omnifaces.cdi</a></dt>
 <dd>
 <div class="block">
- The CDI annotation <code>&#64;</code><a href="../org/omnifaces/cdi/Param.html" title="annotation in org.omnifaces.cdi"><code>Param</code></a> allows you to inject, convert and validate a HTTP request
+ The CDI annotation <code>&#64;</code><a href="../org/omnifaces/cdi/Param.html" title="annotation in org.omnifaces.cdi"><code>Param</code></a> allows you to inject, convert and validate a HTTP request or path
  parameter in a CDI managed bean.</div>
 </dd>
 <dt><a href="../org/omnifaces/component/output/Param.html" title="class in org.omnifaces.component.output"><span class="typeNameLink">Param</span></a> - Class in <a href="../org/omnifaces/component/output/package-summary.html">org.omnifaces.component.output</a></dt>
@@ -164,6 +164,12 @@
  method to return the original, unconverted value and changes the <a href="../org/omnifaces/component/ParamHolder.html#getValue--"><code>ParamHolder.getValue()</code></a> method to return the converted
  value.</div>
 </dd>
+<dt><a href="../org/omnifaces/cdi/param/ParamProducer.html" title="class in org.omnifaces.cdi.param"><span class="typeNameLink">ParamProducer</span></a> - Class in <a href="../org/omnifaces/cdi/param/package-summary.html">org.omnifaces.cdi.param</a></dt>
+<dd>
+<div class="block">Producer for a request or path parameter as defined by the <code>&#64;</code><a href="../org/omnifaces/cdi/Param.html" title="annotation in org.omnifaces.cdi"><code>Param</code></a> annotation.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/cdi/param/ParamProducer.html#ParamProducer--">ParamProducer()</a></span> - Constructor for class org.omnifaces.cdi.param.<a href="../org/omnifaces/cdi/param/ParamProducer.html" title="class in org.omnifaces.cdi.param">ParamProducer</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="../org/omnifaces/cdi/param/ParamValue.html" title="class in org.omnifaces.cdi.param"><span class="typeNameLink">ParamValue</span></a>&lt;<a href="../org/omnifaces/cdi/param/ParamValue.html" title="type parameter in ParamValue">V</a>&gt; - Class in <a href="../org/omnifaces/cdi/param/package-summary.html">org.omnifaces.cdi.param</a></dt>
 <dd>
 <div class="block">The type that's injected via the <code>&#64;</code><a href="../org/omnifaces/cdi/Param.html" title="annotation in org.omnifaces.cdi"><code>Param</code></a> qualifier.</div>
@@ -187,6 +193,8 @@
 <dd>
 <div class="block">The action that is done when a request for a public path from which faces views where scanned is done.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/cdi/param/DynamicParamValueProducer.DefaultParamAnnotationLiteral.html#pathIndex--">pathIndex()</a></span> - Method in class org.omnifaces.cdi.param.<a href="../org/omnifaces/cdi/param/DynamicParamValueProducer.DefaultParamAnnotationLiteral.html" title="class in org.omnifaces.cdi.param">DynamicParamValueProducer.DefaultParamAnnotationLiteral</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="../org/omnifaces/util/Platform.html" title="class in org.omnifaces.util"><span class="typeNameLink">Platform</span></a> - Class in <a href="../org/omnifaces/util/package-summary.html">org.omnifaces.util</a></dt>
 <dd>
 <div class="block">This class provides access to (Java EE 6) platform services from the view point of JSF.</div>
@@ -403,7 +411,7 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/cdi/cookie/RequestCookieProducer.html#produce-javax.enterprise.inject.spi.InjectionPoint-">produce(InjectionPoint)</a></span> - Method in class org.omnifaces.cdi.cookie.<a href="../org/omnifaces/cdi/cookie/RequestCookieProducer.html" title="class in org.omnifaces.cdi.cookie">RequestCookieProducer</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="../org/omnifaces/cdi/param/RequestParameterProducer.html#produce-javax.enterprise.inject.spi.InjectionPoint-">produce(InjectionPoint)</a></span> - Method in class org.omnifaces.cdi.param.<a href="../org/omnifaces/cdi/param/RequestParameterProducer.html" title="class in org.omnifaces.cdi.param">RequestParameterProducer</a></dt>
+<dt><span class="memberNameLink"><a href="../org/omnifaces/cdi/param/ParamProducer.html#produce-javax.enterprise.inject.spi.InjectionPoint-">produce(InjectionPoint)</a></span> - Method in class org.omnifaces.cdi.param.<a href="../org/omnifaces/cdi/param/ParamProducer.html" title="class in org.omnifaces.cdi.param">ParamProducer</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/cdi/push/SocketPushContextProducer.html#produce-javax.enterprise.inject.spi.InjectionPoint-">produce(InjectionPoint)</a></span> - Method in class org.omnifaces.cdi.push.<a href="../org/omnifaces/cdi/push/SocketPushContextProducer.html" title="class in org.omnifaces.cdi.push">SocketPushContextProducer</a></dt>
 <dd>&nbsp;</dd>
