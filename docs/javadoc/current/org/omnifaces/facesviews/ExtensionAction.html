@@ -122,13 +122,18 @@ var activeTableTab = "activeTableTab";
 extends <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Enum.html?is-external=true" title="class or interface in java.lang">Enum</a>&lt;<a href="../../../org/omnifaces/facesviews/ExtensionAction.html" title="enum in org.omnifaces.facesviews">ExtensionAction</a>&gt;</pre>
 <div class="block">The action that is done when a Faces Views request with an extension is done.
  <p>
- Note that this is only used for views that were discovered via Faces Views. It has
- no affect on other resources, even if they have the same extension.</div>
+ Note that this is only used for views that were discovered via Faces Views. It has no affect on other resources, even
+ if they have the same extension.
+ <p>
+ For a guide on FacesViews, please see the <a href="package-summary.html">package summary</a>.</div>
 <dl>
 <dt><span class="simpleTagLabel">Since:</span></dt>
 <dd>1.4</dd>
 <dt><span class="simpleTagLabel">Author:</span></dt>
 <dd>Arjan Tijms</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../org/omnifaces/facesviews/FacesViews.html" title="class in org.omnifaces.facesviews"><code>FacesViews</code></a>, 
+<a href="../../../org/omnifaces/facesviews/FacesViewsForwardingFilter.html" title="class in org.omnifaces.facesviews"><code>FacesViewsForwardingFilter</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -219,6 +224,18 @@ the order they are declared.</div>
 <!--   -->
 </a>
 <h3>Enum Constant Detail</h3>
+<a name="REDIRECT_TO_EXTENSIONLESS">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>REDIRECT_TO_EXTENSIONLESS</h4>
+<pre>public static final&nbsp;<a href="../../../org/omnifaces/facesviews/ExtensionAction.html" title="enum in org.omnifaces.facesviews">ExtensionAction</a> REDIRECT_TO_EXTENSIONLESS</pre>
+<div class="block">Redirects to the same URL, but with the extension removed. E.g. "/foo.xhtml" is redirected to "/foo".
+ <p>
+ This is the default value.</div>
+</li>
+</ul>
 <a name="SEND_404">
 <!--   -->
 </a>
@@ -229,16 +246,6 @@ the order they are declared.</div>
 <div class="block">Send a 404 (not found), makes it look like e.g. "foo.xhtml" never existed and there's only "foo".</div>
 </li>
 </ul>
-<a name="REDIRECT_TO_EXTENSIONLESS">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>REDIRECT_TO_EXTENSIONLESS</h4>
-<pre>public static final&nbsp;<a href="../../../org/omnifaces/facesviews/ExtensionAction.html" title="enum in org.omnifaces.facesviews">ExtensionAction</a> REDIRECT_TO_EXTENSIONLESS</pre>
-<div class="block">Redirects to the same URL, but with the extension removed. E.g. "/foo.xhtml" is redirected to "/foo".</div>
-</li>
-</ul>
 <a name="PROCEED">
 <!--   -->
 </a>
@@ -246,7 +253,8 @@ the order they are declared.</div>
 <li class="blockList">
 <h4>PROCEED</h4>
 <pre>public static final&nbsp;<a href="../../../org/omnifaces/facesviews/ExtensionAction.html" title="enum in org.omnifaces.facesviews">ExtensionAction</a> PROCEED</pre>
-<div class="block">No special action is taken. Both "/foo.xhtml" and "/foo" are processed as-if they were separate views (with same content).</div>
+<div class="block">No special action is taken. Both "/foo.xhtml" and "/foo" are processed as-if they were separate views (with same
+ content).</div>
 </li>
 </ul>
 </li>

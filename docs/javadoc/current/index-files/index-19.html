@@ -82,37 +82,6 @@
 <dd>
 <div class="block">Save state of any <a href="https://docs.oracle.com/javaee/7/api/javax/faces/component/EditableValueHolder.html?is-external=true" title="class or interface in javax.faces.component"><code>EditableValueHolder</code></a> children.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="../org/omnifaces/facesviews/FacesViews.html#SCAN_PATHS">SCAN_PATHS</a></span> - Static variable in class org.omnifaces.facesviews.<a href="../org/omnifaces/facesviews/FacesViews.html" title="class in org.omnifaces.facesviews">FacesViews</a></dt>
-<dd>
-<div class="block">The name of the application scope context parameter under which a Set version of the paths that are to be scanned
- by faces views are kept.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="../org/omnifaces/facesviews/FacesViews.html#scanAndStoreViews-javax.servlet.ServletContext-">scanAndStoreViews(ServletContext)</a></span> - Static method in class org.omnifaces.facesviews.<a href="../org/omnifaces/facesviews/FacesViews.html" title="class in org.omnifaces.facesviews">FacesViews</a></dt>
-<dd>
-<div class="block">Scans for faces-views resources and stores the result at the designated location "org.omnifaces.facesviews" in
- the ServletContext.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="../org/omnifaces/facesviews/FacesViews.html#SCANNED_VIEWS_EXTENSIONLESS">SCANNED_VIEWS_EXTENSIONLESS</a></span> - Static variable in class org.omnifaces.facesviews.<a href="../org/omnifaces/facesviews/FacesViews.html" title="class in org.omnifaces.facesviews">FacesViews</a></dt>
-<dd>
-<div class="block">The name of the application scope context parameter under which a Boolean version of the scanned views always
- exensionless init parameter is kept.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="../org/omnifaces/facesviews/FacesViews.html#SCANNED_VIEWS_MULTIVIEWS_ENABLED">SCANNED_VIEWS_MULTIVIEWS_ENABLED</a></span> - Static variable in class org.omnifaces.facesviews.<a href="../org/omnifaces/facesviews/FacesViews.html" title="class in org.omnifaces.facesviews">FacesViews</a></dt>
-<dd>
-<div class="block">The name of the application scope context parameter under which a Boolean version of MultiViews enabled is kept.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="../org/omnifaces/facesviews/FacesViews.html#scanViews-javax.servlet.ServletContext-java.lang.String-java.util.Set-java.util.Map-java.lang.String-java.util.Set-">scanViews(ServletContext, String, Set&lt;String&gt;, Map&lt;String, String&gt;, String, Set&lt;String&gt;)</a></span> - Static method in class org.omnifaces.facesviews.<a href="../org/omnifaces/facesviews/FacesViews.html" title="class in org.omnifaces.facesviews">FacesViews</a></dt>
-<dd>
-<div class="block">Scans resources (views) recursively starting with the given resource paths for a specific root path, and collects
- those and all unique extensions encountered in a flat map respectively set.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="../org/omnifaces/facesviews/FacesViews.html#scanViews-javax.servlet.ServletContext-">scanViews(ServletContext)</a></span> - Static method in class org.omnifaces.facesviews.<a href="../org/omnifaces/facesviews/FacesViews.html" title="class in org.omnifaces.facesviews">FacesViews</a></dt>
-<dd>
-<div class="block">Scans resources (views) recursively starting with the given resource paths and returns a flat map containing all
- resources encountered.</div>
-</dd>
-<dt><span class="memberNameLink"><a href="../org/omnifaces/facesviews/FacesViews.html#scanViewsFromRootPaths-javax.servlet.ServletContext-java.util.Map-java.util.Set-">scanViewsFromRootPaths(ServletContext, Map&lt;String, String&gt;, Set&lt;String&gt;)</a></span> - Static method in class org.omnifaces.facesviews.<a href="../org/omnifaces/facesviews/FacesViews.html" title="class in org.omnifaces.facesviews">FacesViews</a></dt>
-<dd>&nbsp;</dd>
 <dt><a href="../org/omnifaces/el/ScopedRunner.html" title="class in org.omnifaces.el"><span class="typeNameLink">ScopedRunner</span></a> - Class in <a href="../org/omnifaces/el/package-summary.html">org.omnifaces.el</a></dt>
 <dd>
 <div class="block">This class helps in letting code run within its own scope.</div>
@@ -651,10 +620,6 @@
 <div class="block">Sets the view scope attribute value associated with the given name.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/util/FacesLocal.html#setViewAttribute-javax.faces.context.FacesContext-java.lang.String-java.lang.Object-">setViewAttribute(FacesContext, String, Object)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/FacesLocal.html" title="class in org.omnifaces.util">FacesLocal</a></dt>
-<dt><span class="memberNameLink"><a href="../org/omnifaces/facesviews/FacesViews.html#setViewHander-javax.servlet.ServletContext-">setViewHander(ServletContext)</a></span> - Static method in class org.omnifaces.facesviews.<a href="../org/omnifaces/facesviews/FacesViews.html" title="class in org.omnifaces.facesviews">FacesViews</a></dt>
-<dd>
-<div class="block">Register a view handler that transforms a view id with extension back to an extensionless one.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/component/output/Url.html#setViewId-java.lang.String-">setViewId(String)</a></span> - Method in class org.omnifaces.component.output.<a href="../org/omnifaces/component/output/Url.html" title="class in org.omnifaces.component.output">Url</a></dt>
 <dd>
 <div class="block">Sets the view ID to create URL for.</div>
@@ -879,7 +844,7 @@
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/facesviews/FacesViews.html#stripFacesViewsPrefix-java.lang.String-">stripFacesViewsPrefix(String)</a></span> - Static method in class org.omnifaces.facesviews.<a href="../org/omnifaces/facesviews/FacesViews.html" title="class in org.omnifaces.facesviews">FacesViews</a></dt>
 <dd>
-<div class="block">Strips the special 'faces-views' prefix path from the resource if any.</div>
+<div class="block">Strips the special '/WEB-INF/faces-views' prefix path from the resource if any.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/util/ResourcePaths.html#stripPrefixPath-java.lang.String-java.lang.String-">stripPrefixPath(String, String)</a></span> - Static method in class org.omnifaces.util.<a href="../org/omnifaces/util/ResourcePaths.html" title="class in org.omnifaces.util">ResourcePaths</a></dt>
 <dd>

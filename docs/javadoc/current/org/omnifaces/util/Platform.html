@@ -18,7 +18,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":9,"i1":9,"i2":9,"i3":9};
+var methods = {"i0":9,"i1":9,"i2":9,"i3":9,"i4":9};
 var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -167,12 +167,18 @@ extends <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Platform.html#getBeanValidatorFactory--">getBeanValidatorFactory</a></span>()</code>&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
+<td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/8/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Platform.html#getFacesServletMappings-javax.servlet.ServletContext-">getFacesServletMappings</a></span>(<a href="https://docs.oracle.com/javaee/7/api/javax/servlet/ServletContext.html?is-external=true" title="class or interface in javax.servlet">ServletContext</a>&nbsp;servletContext)</code>
+<div class="block">Returns the mappings associated with the <a href="https://docs.oracle.com/javaee/7/api/javax/faces/webapp/FacesServlet.html?is-external=true" title="class or interface in javax.faces.webapp"><code>FacesServlet</code></a>.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>static <a href="https://docs.oracle.com/javaee/7/api/javax/servlet/ServletRegistration.html?is-external=true" title="class or interface in javax.servlet">ServletRegistration</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Platform.html#getFacesServletRegistration-javax.servlet.ServletContext-">getFacesServletRegistration</a></span>(<a href="https://docs.oracle.com/javaee/7/api/javax/servlet/ServletContext.html?is-external=true" title="class or interface in javax.servlet">ServletContext</a>&nbsp;servletContext)</code>
 <div class="block">Returns the <a href="https://docs.oracle.com/javaee/7/api/javax/servlet/ServletRegistration.html?is-external=true" title="class or interface in javax.servlet"><code>ServletRegistration</code></a> associated with the <a href="https://docs.oracle.com/javaee/7/api/javax/faces/webapp/FacesServlet.html?is-external=true" title="class or interface in javax.faces.webapp"><code>FacesServlet</code></a>.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>static boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/util/Platform.html#isBeanValidationAvailable--">isBeanValidationAvailable</a></span>()</code>&nbsp;</td>
 </tr>
@@ -249,7 +255,7 @@ extends <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?
 <a name="getFacesServletRegistration-javax.servlet.ServletContext-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>getFacesServletRegistration</h4>
 <pre>public static&nbsp;<a href="https://docs.oracle.com/javaee/7/api/javax/servlet/ServletRegistration.html?is-external=true" title="class or interface in javax.servlet">ServletRegistration</a>&nbsp;getFacesServletRegistration(<a href="https://docs.oracle.com/javaee/7/api/javax/servlet/ServletContext.html?is-external=true" title="class or interface in javax.servlet">ServletContext</a>&nbsp;servletContext)</pre>
@@ -261,6 +267,24 @@ extends <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Object.html?
 <dd>ServletRegistration for FacesServlet, or <code>null</code> if the FacesServlet is not installed.</dd>
 <dt><span class="simpleTagLabel">Since:</span></dt>
 <dd>1.8</dd>
+</dl>
+</li>
+</ul>
+<a name="getFacesServletMappings-javax.servlet.ServletContext-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getFacesServletMappings</h4>
+<pre>public static&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/util/Collection.html?is-external=true" title="class or interface in java.util">Collection</a>&lt;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&gt;&nbsp;getFacesServletMappings(<a href="https://docs.oracle.com/javaee/7/api/javax/servlet/ServletContext.html?is-external=true" title="class or interface in javax.servlet">ServletContext</a>&nbsp;servletContext)</pre>
+<div class="block">Returns the mappings associated with the <a href="https://docs.oracle.com/javaee/7/api/javax/faces/webapp/FacesServlet.html?is-external=true" title="class or interface in javax.faces.webapp"><code>FacesServlet</code></a>.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>servletContext</code> - The context to get the <a href="https://docs.oracle.com/javaee/7/api/javax/faces/webapp/FacesServlet.html?is-external=true" title="class or interface in javax.faces.webapp"><code>FacesServlet</code></a> from.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The mappings associated with the <a href="https://docs.oracle.com/javaee/7/api/javax/faces/webapp/FacesServlet.html?is-external=true" title="class or interface in javax.faces.webapp"><code>FacesServlet</code></a>, or an empty set.</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>2.5</dd>
 </dl>
 </li>
 </ul>

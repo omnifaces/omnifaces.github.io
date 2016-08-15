@@ -120,12 +120,17 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>public enum <span class="typeNameLabel">FacesServletDispatchMethod</span>
 extends <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Enum.html?is-external=true" title="class or interface in java.lang">Enum</a>&lt;<a href="../../../org/omnifaces/facesviews/FacesServletDispatchMethod.html" title="enum in org.omnifaces.facesviews">FacesServletDispatchMethod</a>&gt;</pre>
-<div class="block">The method used by FacesViews to invoke the FacesServlet.</div>
+<div class="block">The method used by FacesViews to invoke the FacesServlet.
+ <p>
+ For a guide on FacesViews, please see the <a href="package-summary.html">package summary</a>.</div>
 <dl>
 <dt><span class="simpleTagLabel">Since:</span></dt>
 <dd>1.4</dd>
 <dt><span class="simpleTagLabel">Author:</span></dt>
 <dd>Arjan Tijms</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../org/omnifaces/facesviews/FacesViews.html" title="class in org.omnifaces.facesviews"><code>FacesViews</code></a>, 
+<a href="../../../org/omnifaces/facesviews/FacesViewsForwardingFilter.html" title="class in org.omnifaces.facesviews"><code>FacesViewsForwardingFilter</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -146,8 +151,9 @@ extends <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Enum.html?is
 </tr>
 <tr class="altColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../../org/omnifaces/facesviews/FacesServletDispatchMethod.html#DO_FILTER">DO_FILTER</a></span></code>
-<div class="block">With this method the <a href="../../../org/omnifaces/facesviews/FacesViewsForwardingFilter.html" title="class in org.omnifaces.facesviews"><code>FacesViewsForwardingFilter</code></a> will use a plain <a href="https://docs.oracle.com/javaee/7/api/javax/servlet/FilterChain.html?is-external=true#doFilter-javax.servlet.ServletRequest-javax.servlet.ServletResponse-" title="class or interface in javax.servlet"><code>FilterChain.doFilter(javax.servlet.ServletRequest, javax.servlet.ServletResponse)</code></a> 
- to invoke the <a href="https://docs.oracle.com/javaee/7/api/javax/faces/webapp/FacesServlet.html?is-external=true" title="class or interface in javax.faces.webapp"><code>FacesServlet</code></a>.</div>
+<div class="block">With this method the <a href="../../../org/omnifaces/facesviews/FacesViewsForwardingFilter.html" title="class in org.omnifaces.facesviews"><code>FacesViewsForwardingFilter</code></a> will use a plain
+ <a href="https://docs.oracle.com/javaee/7/api/javax/servlet/FilterChain.html?is-external=true#doFilter-javax.servlet.ServletRequest-javax.servlet.ServletResponse-" title="class or interface in javax.servlet"><code>FilterChain.doFilter(javax.servlet.ServletRequest, javax.servlet.ServletResponse)</code></a> to invoke the
+ <a href="https://docs.oracle.com/javaee/7/api/javax/faces/webapp/FacesServlet.html?is-external=true" title="class or interface in javax.faces.webapp"><code>FacesServlet</code></a>.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -212,36 +218,41 @@ the order they are declared.</div>
 <!--   -->
 </a>
 <h3>Enum Constant Detail</h3>
-<a name="FORWARD">
+<a name="DO_FILTER">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>FORWARD</h4>
-<pre>public static final&nbsp;<a href="../../../org/omnifaces/facesviews/FacesServletDispatchMethod.html" title="enum in org.omnifaces.facesviews">FacesServletDispatchMethod</a> FORWARD</pre>
-<div class="block">With this method the <a href="../../../org/omnifaces/facesviews/FacesViewsForwardingFilter.html" title="class in org.omnifaces.facesviews"><code>FacesViewsForwardingFilter</code></a> will use a forward to invoke the <a href="https://docs.oracle.com/javaee/7/api/javax/faces/webapp/FacesServlet.html?is-external=true" title="class or interface in javax.faces.webapp"><code>FacesServlet</code></a>. Using this
- method the FacesServlet does not have to be mapped to the (extensionless) requested resource or to everything (/*).
+<h4>DO_FILTER</h4>
+<pre>public static final&nbsp;<a href="../../../org/omnifaces/facesviews/FacesServletDispatchMethod.html" title="enum in org.omnifaces.facesviews">FacesServletDispatchMethod</a> DO_FILTER</pre>
+<div class="block">With this method the <a href="../../../org/omnifaces/facesviews/FacesViewsForwardingFilter.html" title="class in org.omnifaces.facesviews"><code>FacesViewsForwardingFilter</code></a> will use a plain
+ <a href="https://docs.oracle.com/javaee/7/api/javax/servlet/FilterChain.html?is-external=true#doFilter-javax.servlet.ServletRequest-javax.servlet.ServletResponse-" title="class or interface in javax.servlet"><code>FilterChain.doFilter(javax.servlet.ServletRequest, javax.servlet.ServletResponse)</code></a> to invoke the
+ <a href="https://docs.oracle.com/javaee/7/api/javax/faces/webapp/FacesServlet.html?is-external=true" title="class or interface in javax.faces.webapp"><code>FacesServlet</code></a>. Using this method necessitates the FacesServlet to be mapped to the (extensionless)
+ requested resource or to everything (/*).
  <p>
- When forwarding any filters being used by the application do have to be taken into account. Filters defined to be run
- <b>AFTER</b> the FacesViewsForwardingFilter will <b>NOT RUN</b> when they are not (also) set to dispatch on FORWARD.
- Filters defined to be run <b>BEFORE</b> the FacesViewsForwardingFilter have to be careful in what they do; forwarding
- is defined to clear the existing response buffer.</div>
+ The first method is relatively easy using the Servlet 3.0 programmatic registration, but may be troublesome
+ for Servlet 2.5 or manual (declarative) registrations. Mapping the FacesServlet to everything (/*) is not
+ recommenced, and mapping it to a path (/somepath/*) with only Facelets views in it pretty much ruins the entire
+ effect of using FacesViews in the first place.
+ <p>
+ This is the default value.</div>
 </li>
 </ul>
-<a name="DO_FILTER">
+<a name="FORWARD">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>DO_FILTER</h4>
-<pre>public static final&nbsp;<a href="../../../org/omnifaces/facesviews/FacesServletDispatchMethod.html" title="enum in org.omnifaces.facesviews">FacesServletDispatchMethod</a> DO_FILTER</pre>
-<div class="block">With this method the <a href="../../../org/omnifaces/facesviews/FacesViewsForwardingFilter.html" title="class in org.omnifaces.facesviews"><code>FacesViewsForwardingFilter</code></a> will use a plain <a href="https://docs.oracle.com/javaee/7/api/javax/servlet/FilterChain.html?is-external=true#doFilter-javax.servlet.ServletRequest-javax.servlet.ServletResponse-" title="class or interface in javax.servlet"><code>FilterChain.doFilter(javax.servlet.ServletRequest, javax.servlet.ServletResponse)</code></a> 
- to invoke the <a href="https://docs.oracle.com/javaee/7/api/javax/faces/webapp/FacesServlet.html?is-external=true" title="class or interface in javax.faces.webapp"><code>FacesServlet</code></a>. Using this method necessitates the FacesServlet to be mapped to the (extensionless) requested 
- resource or to everything (/*). 
+<h4>FORWARD</h4>
+<pre>public static final&nbsp;<a href="../../../org/omnifaces/facesviews/FacesServletDispatchMethod.html" title="enum in org.omnifaces.facesviews">FacesServletDispatchMethod</a> FORWARD</pre>
+<div class="block">With this method the <a href="../../../org/omnifaces/facesviews/FacesViewsForwardingFilter.html" title="class in org.omnifaces.facesviews"><code>FacesViewsForwardingFilter</code></a> will use a forward to invoke the <a href="https://docs.oracle.com/javaee/7/api/javax/faces/webapp/FacesServlet.html?is-external=true" title="class or interface in javax.faces.webapp"><code>FacesServlet</code></a>.
+ Using this method the FacesServlet does not have to be mapped to the (extensionless) requested resource or to
+ everything (/*).
  <p>
- The first method is relatively easy using the Servlet 3.0 programmatic registration, but may be troublesome
- for Servlet 2.5 or manual (declarative) registrations. Mapping the FacesServlet to everything (/*) is not recommenced, and mapping it to a path
- (/somepath/*) with only Facelets views in it pretty much ruins the entire effect of using FacesViews in the first place.</div>
+ When forwarding any filters being used by the application do have to be taken into account. Filters defined to be
+ run <b>AFTER</b> the FacesViewsForwardingFilter will <b>NOT RUN</b> when they are not (also) set to dispatch on
+ <code>FORWARD</code>. Filters defined to be run <b>BEFORE</b> the FacesViewsForwardingFilter have to be careful
+ in what they do; forwarding is defined to clear the existing response buffer.</div>
 </li>
 </ul>
 </li>

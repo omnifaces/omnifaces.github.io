@@ -90,59 +90,52 @@
  Collection of utility methods for the JSF API that are mainly shortcuts for obtaining stuff from the thread local
  <a href="https://docs.oracle.com/javaee/7/api/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context"><code>FacesContext</code></a>.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="../org/omnifaces/facesviews/FacesViews.html#FACES_SERVLET_EXTENSIONS">FACES_SERVLET_EXTENSIONS</a></span> - Static variable in class org.omnifaces.facesviews.<a href="../org/omnifaces/facesviews/FacesViews.html" title="class in org.omnifaces.facesviews">FacesViews</a></dt>
-<dd>
-<div class="block">The name of the application scope context parameter under which a Set that stores the extensions to which
- the FacesServlet is mapped.</div>
-</dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/facesviews/FacesViews.html#FACES_VIEWS_DISPATCH_METHOD_PARAM_NAME">FACES_VIEWS_DISPATCH_METHOD_PARAM_NAME</a></span> - Static variable in class org.omnifaces.facesviews.<a href="../org/omnifaces/facesviews/FacesViews.html" title="class in org.omnifaces.facesviews">FacesViews</a></dt>
 <dd>
-<div class="block">The name of the init parameter (in web.xml) that determines the method used by FacesViews to invoke the FacesServlet.</div>
+<div class="block">The name of the enum context parameter that determines the method used by FacesViews to invoke the FacesServlet.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/facesviews/FacesViews.html#FACES_VIEWS_ENABLED_PARAM_NAME">FACES_VIEWS_ENABLED_PARAM_NAME</a></span> - Static variable in class org.omnifaces.facesviews.<a href="../org/omnifaces/facesviews/FacesViews.html" title="class in org.omnifaces.facesviews">FacesViews</a></dt>
 <dd>
-<div class="block">Web context parameter to switch auto-scanning completely off for Servlet 3.0 containers.</div>
+<div class="block">The name of the boolean context parameter to switch auto-scanning completely off for Servlet 3.0 containers.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/facesviews/FacesViews.html#FACES_VIEWS_EXTENSION_ACTION_PARAM_NAME">FACES_VIEWS_EXTENSION_ACTION_PARAM_NAME</a></span> - Static variable in class org.omnifaces.facesviews.<a href="../org/omnifaces/facesviews/FacesViews.html" title="class in org.omnifaces.facesviews">FacesViews</a></dt>
 <dd>
-<div class="block">The name of the init parameter (in web.xml) that determines the action that is performed whenever a resource
+<div class="block">The name of the enum context parameter that determines the action that is performed whenever a resource
  is requested WITH extension that's also available without an extension.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/facesviews/FacesViews.html#FACES_VIEWS_FILTER_AFTER_DECLARED_FILTERS_PARAM_NAME">FACES_VIEWS_FILTER_AFTER_DECLARED_FILTERS_PARAM_NAME</a></span> - Static variable in class org.omnifaces.facesviews.<a href="../org/omnifaces/facesviews/FacesViews.html" title="class in org.omnifaces.facesviews">FacesViews</a></dt>
 <dd>
-<div class="block">The name of the boolean init parameter (in web.xml) via which the user can set whether the <a href="../org/omnifaces/facesviews/FacesViewsForwardingFilter.html" title="class in org.omnifaces.facesviews"><code>FacesViewsForwardingFilter</code></a>
- should match before declared filters (false) or after declared filters (true);</div>
+<div class="block">The name of the boolean context parameter via which the user can set whether the
+ <a href="../org/omnifaces/facesviews/FacesViewsForwardingFilter.html" title="class in org.omnifaces.facesviews"><code>FacesViewsForwardingFilter</code></a> should match before declared filters (false) or after declared filters (true).</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/facesviews/FacesViews.html#FACES_VIEWS_ORIGINAL_PATH_INFO">FACES_VIEWS_ORIGINAL_PATH_INFO</a></span> - Static variable in class org.omnifaces.facesviews.<a href="../org/omnifaces/facesviews/FacesViews.html" title="class in org.omnifaces.facesviews">FacesViews</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">The name of the request attribute under which the original request path info is stored.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/facesviews/FacesViews.html#FACES_VIEWS_ORIGINAL_SERVLET_PATH">FACES_VIEWS_ORIGINAL_SERVLET_PATH</a></span> - Static variable in class org.omnifaces.facesviews.<a href="../org/omnifaces/facesviews/FacesViews.html" title="class in org.omnifaces.facesviews">FacesViews</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">The name of the request attribute under which the original request servlet path is stored.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/facesviews/FacesViews.html#FACES_VIEWS_PATH_ACTION_PARAM_NAME">FACES_VIEWS_PATH_ACTION_PARAM_NAME</a></span> - Static variable in class org.omnifaces.facesviews.<a href="../org/omnifaces/facesviews/FacesViews.html" title="class in org.omnifaces.facesviews">FacesViews</a></dt>
 <dd>
-<div class="block">The name of the init parameter (in web.xml) that determines the action that is performed whenever a resource
+<div class="block">The name of the enum context parameter that determines the action that is performed whenever a resource
  is requested in a public path that has been used for scanning views by faces views.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="../org/omnifaces/facesviews/FacesViews.html#FACES_VIEWS_RESOURCES">FACES_VIEWS_RESOURCES</a></span> - Static variable in class org.omnifaces.facesviews.<a href="../org/omnifaces/facesviews/FacesViews.html" title="class in org.omnifaces.facesviews">FacesViews</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="../org/omnifaces/facesviews/FacesViews.html#FACES_VIEWS_RESOURCES_EXTENSIONS">FACES_VIEWS_RESOURCES_EXTENSIONS</a></span> - Static variable in class org.omnifaces.facesviews.<a href="../org/omnifaces/facesviews/FacesViews.html" title="class in org.omnifaces.facesviews">FacesViews</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="../org/omnifaces/facesviews/FacesViews.html#FACES_VIEWS_REVERSE_RESOURCES">FACES_VIEWS_REVERSE_RESOURCES</a></span> - Static variable in class org.omnifaces.facesviews.<a href="../org/omnifaces/facesviews/FacesViews.html" title="class in org.omnifaces.facesviews">FacesViews</a></dt>
-<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/facesviews/FacesViews.html#FACES_VIEWS_SCAN_PATHS_PARAM_NAME">FACES_VIEWS_SCAN_PATHS_PARAM_NAME</a></span> - Static variable in class org.omnifaces.facesviews.<a href="../org/omnifaces/facesviews/FacesViews.html" title="class in org.omnifaces.facesviews">FacesViews</a></dt>
 <dd>
-<div class="block">The name of the init parameter (in web.xml) where the value holds a comma separated list of paths that are to be
- scanned by faces views.</div>
+<div class="block">The name of the commaseparated context parameter where the value holds a comma separated list of paths that are
+ to be scanned by faces views.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/facesviews/FacesViews.html#FACES_VIEWS_SCANNED_VIEWS_EXTENSIONLESS_PARAM_NAME">FACES_VIEWS_SCANNED_VIEWS_EXTENSIONLESS_PARAM_NAME</a></span> - Static variable in class org.omnifaces.facesviews.<a href="../org/omnifaces/facesviews/FacesViews.html" title="class in org.omnifaces.facesviews">FacesViews</a></dt>
 <dd>
-<div class="block">The name of the init parameter (in web.xml) via which the user can set scanned views to be always rendered
+<div class="block">The name of the boolean context parameter via which the user can set scanned views to be always rendered
  extensionless.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/facesviews/FacesViews.html#FACES_VIEWS_VIEW_HANDLER_MODE_PARAM_NAME">FACES_VIEWS_VIEW_HANDLER_MODE_PARAM_NAME</a></span> - Static variable in class org.omnifaces.facesviews.<a href="../org/omnifaces/facesviews/FacesViews.html" title="class in org.omnifaces.facesviews">FacesViews</a></dt>
 <dd>
-<div class="block">The name of the boolean init parameter (in web.xml) via which the user can set whether the <a href="../org/omnifaces/facesviews/FacesViewsViewHandler.html" title="class in org.omnifaces.facesviews"><code>FacesViewsViewHandler</code></a>
- should strip the extension from the parent view handler's outcome or construct the URL itself and only take the query
- parameters (if any) from the parent.</div>
+<div class="block">The name of the enum context parameter via which the user can set whether the <a href="../org/omnifaces/facesviews/FacesViewsViewHandler.html" title="class in org.omnifaces.facesviews"><code>FacesViewsViewHandler</code></a>
+ should strip the extension from the parent view handler's outcome or construct the URL itself and only take the
+ query parameters (if any) from the parent.</div>
 </dd>
 <dt><a href="../org/omnifaces/config/FacesConfigXml.html" title="enum in org.omnifaces.config"><span class="typeNameLink">FacesConfigXml</span></a> - Enum in <a href="../org/omnifaces/config/package-summary.html">org.omnifaces.config</a></dt>
 <dd>
@@ -208,8 +201,8 @@
 </dd>
 <dt><a href="../org/omnifaces/facesviews/FacesViewsForwardingFilter.html" title="class in org.omnifaces.facesviews"><span class="typeNameLink">FacesViewsForwardingFilter</span></a> - Class in <a href="../org/omnifaces/facesviews/package-summary.html">org.omnifaces.facesviews</a></dt>
 <dd>
-<div class="block">This filter makes sure extensionless requests arrive at the FacesServlet using an extension on which that Servlet is mapped,
- and that non-extensionless requests are handled according to a set preference.</div>
+<div class="block">This filter makes sure extensionless requests arrive at the FacesServlet using an extension on which that Servlet is
+ mapped, and that non-extensionless requests are handled according to a set preference.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/facesviews/FacesViewsForwardingFilter.html#FacesViewsForwardingFilter--">FacesViewsForwardingFilter()</a></span> - Constructor for class org.omnifaces.facesviews.<a href="../org/omnifaces/facesviews/FacesViewsForwardingFilter.html" title="class in org.omnifaces.facesviews">FacesViewsForwardingFilter</a></dt>
 <dd>&nbsp;</dd>
@@ -222,8 +215,8 @@
 <dd>&nbsp;</dd>
 <dt><a href="../org/omnifaces/facesviews/FacesViewsViewHandler.html" title="class in org.omnifaces.facesviews"><span class="typeNameLink">FacesViewsViewHandler</span></a> - Class in <a href="../org/omnifaces/facesviews/package-summary.html">org.omnifaces.facesviews</a></dt>
 <dd>
-<div class="block">View handler that renders an action URL extensionless if a resource is a mapped one, and faces views has been set to always
- render extensionless or if the current request is extensionless, otherwise as-is.</div>
+<div class="block">View handler that renders an action URL extensionless if a resource is a mapped one, and faces views has been set to
+ always render extensionless or if the current request is extensionless, otherwise as-is.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../org/omnifaces/facesviews/FacesViewsViewHandler.html#FacesViewsViewHandler-javax.faces.application.ViewHandler-">FacesViewsViewHandler(ViewHandler)</a></span> - Constructor for class org.omnifaces.facesviews.<a href="../org/omnifaces/facesviews/FacesViewsViewHandler.html" title="class in org.omnifaces.facesviews">FacesViewsViewHandler</a></dt>
 <dd>&nbsp;</dd>

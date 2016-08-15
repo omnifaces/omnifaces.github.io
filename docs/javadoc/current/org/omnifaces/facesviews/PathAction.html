@@ -120,12 +120,16 @@ var activeTableTab = "activeTableTab";
 <br>
 <pre>public enum <span class="typeNameLabel">PathAction</span>
 extends <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Enum.html?is-external=true" title="class or interface in java.lang">Enum</a>&lt;<a href="../../../org/omnifaces/facesviews/PathAction.html" title="enum in org.omnifaces.facesviews">PathAction</a>&gt;</pre>
-<div class="block">The action that is done when a request for a public path from which faces views where scanned is done.</div>
+<div class="block">The action that is done when a request for a public path from which faces views where scanned is done.
+ <p>
+ For a guide on FacesViews, please see the <a href="package-summary.html">package summary</a>.</div>
 <dl>
 <dt><span class="simpleTagLabel">Since:</span></dt>
 <dd>1.4</dd>
 <dt><span class="simpleTagLabel">Author:</span></dt>
 <dd>Arjan Tijms</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="../../../org/omnifaces/facesviews/FacesViewsForwardingFilter.html" title="class in org.omnifaces.facesviews"><code>FacesViewsForwardingFilter</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -223,7 +227,10 @@ the order they are declared.</div>
 <li class="blockList">
 <h4>SEND_404</h4>
 <pre>public static final&nbsp;<a href="../../../org/omnifaces/facesviews/PathAction.html" title="enum in org.omnifaces.facesviews">PathAction</a> SEND_404</pre>
-<div class="block">Send a 404 (not found), makes it look like e.g. "/path/foo.xhtml" never existed and there's only "/foo" and optionally "/foo.xhtml".</div>
+<div class="block">Send a 404 (not found), makes it look like e.g. "/path/foo.xhtml" never existed and there's only "/foo" and
+ optionally "/foo.xhtml".
+ <p>
+ This is the default value.</div>
 </li>
 </ul>
 <a name="REDIRECT_TO_SCANNED_EXTENSIONLESS">
