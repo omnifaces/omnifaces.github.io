@@ -27,20 +27,20 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <p><a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/2.5/omnifaces-2.5.jar">Download</a> - <a href="http://showcase.omnifaces.org">Showcase</a> - <a href="http://omnifaces.org/docs/javadoc/current/">API docs</a> - <a href="http://omnifaces.org/docs/vdldoc/current/">VDL docs</a> - <a href="https://github.com/omnifaces/omnifaces">Sources</a> - <a href="https://github.com/omnifaces/omnifaces/issues">Issues</a> - <a href="https://twitter.com/OmniFaces">Twitter</a></p>
+        <p><a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/2.5.1/omnifaces-2.5.1.jar">Download</a> - <a href="http://showcase.omnifaces.org">Showcase</a> - <a href="http://omnifaces.org/docs/javadoc/current/">API docs</a> - <a href="http://omnifaces.org/docs/vdldoc/current/">VDL docs</a> - <a href="https://github.com/omnifaces/omnifaces">Sources</a> - <a href="https://github.com/omnifaces/omnifaces/issues">Issues</a> - <a href="https://twitter.com/OmniFaces">Twitter</a></p>
 
 <h2>
-<a id="25" class="anchor" href="#25" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.5</h2>
+<a id="251" class="anchor" href="#251" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.5.1</h2>
 
-<p>15 September 2016: <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/2.5/omnifaces-2.5.jar">OmniFaces 2.5</a> is now available!</p>
+<p>21 September 2016: <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/2.5.1/omnifaces-2.5.1.jar">OmniFaces 2.5.1</a> is now available!</p>
 
 <div class="highlight highlight-text-xml"><pre>&lt;<span class="pl-ent">dependency</span>&gt;
     &lt;<span class="pl-ent">groupId</span>&gt;org.omnifaces&lt;/<span class="pl-ent">groupId</span>&gt;
     &lt;<span class="pl-ent">artifactId</span>&gt;omnifaces&lt;/<span class="pl-ent">artifactId</span>&gt;
-    &lt;<span class="pl-ent">version</span>&gt;2.5&lt;/<span class="pl-ent">version</span>&gt;
+    &lt;<span class="pl-ent">version</span>&gt;2.5.1&lt;/<span class="pl-ent">version</span>&gt;
 &lt;/<span class="pl-ent">dependency</span>&gt;</pre></div>
 
-<p>This features among others a new <code>&lt;o:inputFile&gt;</code> tag with support for multiple file and folder selection, and <code>FacesViews</code> was improved with support for so-called "MultiViews" as known from HTTPD+PHP world, and a new <code>@GraphicImageBean</code> CDI stereotype annotation which should enable hotlinking images served by <code>&lt;o:graphicImage&gt;</code>. See also the blog on the subject: <a href="http://balusc.omnifaces.org/2016/09/omnifaces-25-released-with-oinputfile.html">OmniFaces 2.5 released with o:inputFile, @GraphicImageBean and MultiViews</a></p>
+<p>This features among others a new <code>&lt;o:inputFile&gt;</code> tag with support for multiple file and folder selection, and <code>FacesViews</code> was improved with support for so-called "MultiViews" as known from HTTPD+PHP world, and a new <code>@GraphicImageBean</code> CDI stereotype annotation which should enable hotlinking images served by <code>&lt;o:graphicImage&gt;</code>. See also the blog on the subject: <a href="http://balusc.omnifaces.org/2016/09/omnifaces-25-released-with-oinputfile.html">OmniFaces 2.5.1 released with o:inputFile, @GraphicImageBean and MultiViews</a></p>
 
 <h2>
 <a id="what-is-omnifaces" class="anchor" href="#what-is-omnifaces" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What is OmniFaces?</h2>
@@ -69,14 +69,14 @@
 <h2>
 <a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h2>
 
-<p>It is a matter of dropping the <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/2.5/">OmniFaces 2.5 JAR file</a> in <code>/WEB-INF/lib</code>.</p>
+<p>It is a matter of dropping the <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/2.5.1/">OmniFaces 2.5.1 JAR file</a> in <code>/WEB-INF/lib</code>.</p>
 
 <p>Maven users can add OmniFaces by adding the following Maven coordinates to <code>pom.xml</code> of the WAR project:</p>
 
 <div class="highlight highlight-text-xml"><pre>&lt;<span class="pl-ent">dependency</span>&gt;
     &lt;<span class="pl-ent">groupId</span>&gt;org.omnifaces&lt;/<span class="pl-ent">groupId</span>&gt;
     &lt;<span class="pl-ent">artifactId</span>&gt;omnifaces&lt;/<span class="pl-ent">artifactId</span>&gt;
-    &lt;<span class="pl-ent">version</span>&gt;2.5&lt;/<span class="pl-ent">version</span>&gt;
+    &lt;<span class="pl-ent">version</span>&gt;2.5.1&lt;/<span class="pl-ent">version</span>&gt;
 &lt;/<span class="pl-ent">dependency</span>&gt;</pre></div>
 
 <p>For users on outdated environments who can't/won't use CDI, use <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/1.14/">1.14</a> instead. It doesn't contain anything from CDI nor new things which were added in 2.x, but it does contain enhancements and bugfixes to existing 1.x things. Note that there is no 1.15. The 1.14 is latest version of the 1.x branch which is now in maintenance mode.</p>
@@ -100,7 +100,7 @@ xmlns:of="http://omnifaces.org/functions"</pre></div>
 <strong>Optional</strong>: BV 1.1  </p>
 
 <ul>
-<li>2.5 (15 Sep 2016) - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/2.5/omnifaces-2.5.jar">library</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/2.5/omnifaces-2.5-sources.jar">sources</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/2.4/omnifaces-2.4-javadoc.jar">javadoc</a>
+<li>2.5.1 (15 Sep 2016) - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/2.5.1/omnifaces-2.5.1.jar">library</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/2.5.1/omnifaces-2.5.1-sources.jar">sources</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/2.5.1/omnifaces-2.5.1-javadoc.jar">javadoc</a>
 </li>
 <li>2.4 (1 Jul 2016) - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/2.4/omnifaces-2.4.jar">library</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/2.4/omnifaces-2.4-sources.jar">sources</a> - <a href="http://central.maven.org/maven2/org/omnifaces/omnifaces/2.4/omnifaces-2.4-javadoc.jar">javadoc</a>
 </li>
