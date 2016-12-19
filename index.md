@@ -1,5 +1,6 @@
 [Download](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.5.1/omnifaces-2.5.1.jar) - [Showcase](http://showcase.omnifaces.org) - [API docs](http://omnifaces.org/docs/javadoc/current/) - [VDL docs](http://omnifaces.org/docs/vdldoc/current/) - [Sources](https://github.com/omnifaces/omnifaces) - [Issues](https://github.com/omnifaces/omnifaces/issues) - [Twitter](https://twitter.com/OmniFaces)
 
+<!--
 ##2.5.1
 
 21 September 2016: [OmniFaces 2.5.1](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.5.1/omnifaces-2.5.1.jar) is now available!
@@ -13,6 +14,7 @@
 ```
 
 This features among others a new `<o:inputFile>` tag with support for multiple file and folder selection, and `FacesViews` was improved with support for so-called "MultiViews" as known from HTTPD+PHP world, and a new `@GraphicImageBean` CDI stereotype annotation which should enable hotlinking images served by `<o:graphicImage>`. See also the blog on the subject: [OmniFaces 2.5.1 released with o:inputFile, @GraphicImageBean and MultiViews](http://balusc.omnifaces.org/2016/09/omnifaces-25-released-with-oinputfile.html)
+-->
 
 ##What is OmniFaces?
 
@@ -106,8 +108,6 @@ Version history can be found in "[What's new](http://showcase.omnifaces.org/what
 - 1.1 (10 Jul 2012) - [library](http://central.maven.org/maven2/org/omnifaces/omnifaces/1.1/omnifaces-1.1.jar) - [sources](http://central.maven.org/maven2/org/omnifaces/omnifaces/1.1/omnifaces-1.1-sources.jar) - [javadoc](http://central.maven.org/maven2/org/omnifaces/omnifaces/1.1/omnifaces-1.1-javadoc.jar)
 - 1.0 (1 Jun 2012) - [library](http://omnifaces.org/downloads/omnifaces-1.0.jar) - [sources](http://omnifaces.org/downloads/omnifaces-1.0-sources.jar)
 
-<!--
-
 ##Snapshot
 
 If you like to play around with the newest of the newest, hereby accepting the risk that new classes/methods may be moved/renamed without notice, then grab the [2.6-SNAPSHOT](https://oss.sonatype.org/content/repositories/snapshots/org/omnifaces/omnifaces/2.6-SNAPSHOT/) instead.
@@ -136,7 +136,6 @@ It is showcased on the [SNAPSHOT showcase](http://snapshot.omnifaces.org) instea
 
 For starters, a "snapshot" is just the current/latest build. It's far from a release. We may make code changes and create snapshots so now and then before final version release. Those changes will then get reflected in your project if you use the snapshot version in your Maven project and forces an update. It will generally work just fine, but imagine if we make some mistake and notice it only a few days or weeks later, or are trying to test something which may not necessarily work in all environments, then your project may be affected. That's why it's advisable to not use snapshots of 3rd party libraries in production, unless you have your own build system which can "lock" a specific snapshot version, or closely track (and understand) any changes in the codebase. See also a.o. [What exactly is a Maven snapshot?](http://stackoverflow.com/q/5901378/157882).
 
--->
 
 
 ##Documentation
