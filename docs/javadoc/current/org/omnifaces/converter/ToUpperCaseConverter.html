@@ -124,6 +124,8 @@ extends <a href="../../../org/omnifaces/converter/TrimConverter.html" title="cla
  The <code>omnifaces.ToUpperCaseConverter</code> is intented to convert submitted <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang"><code>String</code></a> values to upper case
  based on current <a href="http://docs.oracle.com/javase/8/docs/api/java/util/Locale.html?is-external=true" title="class or interface in java.util"><code>Locale</code></a>. Additionally, it trims any whitespace from the submitted value. This is useful for
  among others zip code inputs.
+ <p>
+ This converter does by design no conversion in <code>getAsString()</code>.
 
  <h3>Usage</h3>
  <p>
