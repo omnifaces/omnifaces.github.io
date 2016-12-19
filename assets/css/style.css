@@ -3,4 +3,4 @@
 
 @import "";
 
-#downloads { display: none; }
+section#downloads a { display: none; }
