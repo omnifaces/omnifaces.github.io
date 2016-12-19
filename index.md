@@ -1,7 +1,7 @@
 [Download](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.5.1/omnifaces-2.5.1.jar) - [Showcase](http://showcase.omnifaces.org) - [API docs](http://omnifaces.org/docs/javadoc/current/) - [VDL docs](http://omnifaces.org/docs/vdldoc/current/) - [Sources](https://github.com/omnifaces/omnifaces) - [Issues](https://github.com/omnifaces/omnifaces/issues) - [Twitter](https://twitter.com/OmniFaces)
 
 <!--
-##2.5.1
+## 2.5.1
 
 21 September 2016: [OmniFaces 2.5.1](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.5.1/omnifaces-2.5.1.jar) is now available!
 
@@ -16,7 +16,7 @@
 This features among others a new `<o:inputFile>` tag with support for multiple file and folder selection, and `FacesViews` was improved with support for so-called "MultiViews" as known from HTTPD+PHP world, and a new `@GraphicImageBean` CDI stereotype annotation which should enable hotlinking images served by `<o:graphicImage>`. See also the blog on the subject: [OmniFaces 2.5.1 released with o:inputFile, @GraphicImageBean and MultiViews](http://balusc.omnifaces.org/2016/09/omnifaces-25-released-with-oinputfile.html)
 -->
 
-##What is OmniFaces?
+## What is OmniFaces?
 
 Tired of reinventing `JSFUtils` or `FacesUtils` utility classes for every JSF web application and/or homebrewing custom components, taghandlers, etc to workaround or enhance some general shortcomings in JSF? OmniFaces may be what you're looking for!
 
@@ -27,7 +27,7 @@ Contrary to some of the other excellent JSF 2 component libraries out there (lik
 Besides utility classes for working with the JSF API from Java code, such as [Faces](http://showcase.omnifaces.org/utils/Faces) and [Messages](http://showcase.omnifaces.org/utils/Messages), and utility and enhanced components, such as [&lt;o:highlight&gt;](http://showcase.omnifaces.org/components/highlight) and [&lt;o:viewParam&gt;](http://showcase.omnifaces.org/components/viewParam), OmniFaces will include various general converters, validators and Facelets tag handlers. These will range from ["all-or-none" validators](http://showcase.omnifaces.org/validators/validateAllOrNone) to [automatic &lt;f:selectItem(s)&gt; converters](http://showcase.omnifaces.org/converters/SelectItemsConverter). There are also specialized handlers, such as a [full ajax exception handler](http://showcase.omnifaces.org/exceptionhandlers/FullAjaxExceptionHandler) and a [combined resource handler](http://showcase.omnifaces.org/resourcehandlers/CombinedResourceHandler). CDI specific features are available such as transparent support for injection in [@FacesConverter](http://showcase.omnifaces.org/cdi/FacesConverter) and [@FacesValidator](http://showcase.omnifaces.org/cdi/FacesValidator), an improved [@ViewScoped](http://showcase.omnifaces.org/cdi/ViewScoped) which immediately destroys on unload, and web socket based push via [&lt;o:socket&gt;](http://showcase.omnifaces.org/push/socket). For a full overview of what's all available in OmniFaces and several live examples, look at the [showcase](http://showcase.omnifaces.org).
 
 
-##Minimum requirements
+## Minimum requirements
 
 An important design goal will be to have as few dependencies as possible and to be minimally invasive. So far, OmniFaces 2.x requires Java 1.7, JSF 2.2, EL 2.2, Servlet 3.0, CDI 1.1 and WebSocket 1.0 APIs which is already minimally available in a fairly modern servlet container serving a JSF 2.2 web application. Legacy OmniFaces 1.x only requires Java 1.6, JSF 2.0, EL 2.1 and Servlet 2.5 APIs which is already minimally available in a fairly modern servlet container serving a JSF 2.x web application. 
 
@@ -40,7 +40,7 @@ All OmniFaces versions have an *optional* dependency on JSR303 Bean Validation w
 OmniFaces should principally integrate perfectly well with most other JSF component libraries. Even more, the [OmniFaces showcase application](http://showcase.omnifaces.org) uses PrimeFaces. If you encounter problems in combination with a specific component library, then by all means report an [issue](https://github.com/omnifaces/omnifaces/issues). We'll investigate if it's caused by OmniFaces or the component library in question and fix it or propose a workaround solution, depending on the nature of the problem. Note that OmniFaces is due to the mandatory Servlet API dependency **not** compatible with portlets.
 
 
-##Installation
+## Installation
 
 It is a matter of dropping the [OmniFaces 2.5.1 JAR file](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.5.1/) in `/WEB-INF/lib`.
 
@@ -66,11 +66,11 @@ xmlns:of="http://omnifaces.org/functions"
 OmniFaces is designed as a WAR library (web fragment library) and therefore can't be placed elsewhere in the webapp's runtime classpath outside WAR's own `/WEB-INF/lib`, such as EAR's `/lib` or even server's or JRE's own `/lib`. When OmniFaces JAR file is misplaced this way, then the webapp will be unable to find OmniFaces-bundled JSF/CDI annotated classes and throw exceptions related to this during deploy or runtime. To solve it, put back  OmniFaces in WAR's `/WEB-INF/lib`. Also note that you shouldn't have duplicate OmniFaces JAR files, otherwise CDI will throw exceptions related to ambiguous dependencies during deploy.
 
 
-##Download
+## Download
 
 Version history can be found in "[What's new](http://showcase.omnifaces.org/whatsnew)" page at the showcase.
 
-###OmniFaces 2.0 - 2.5
+### OmniFaces 2.0 - 2.5
 
 **Required**: Java 1.7, JSF 2.2, EL 2.2, Servlet 3.0, CDI 1.1 and since 2.3 WS 1.1  
 **Optional**: BV 1.1  
@@ -82,7 +82,7 @@ Version history can be found in "[What's new](http://showcase.omnifaces.org/what
 - 2.1 (3 Jun 2015) - [library](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.1/omnifaces-2.1.jar) - [sources](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.1/omnifaces-2.1-sources.jar) - [javadoc](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.1/omnifaces-2.1-javadoc.jar)
 - 2.0 (24 Nov 2014) - [library](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.0/omnifaces-2.0.jar) - [sources](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.0/omnifaces-2.0-sources.jar) - [javadoc](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.0/omnifaces-2.0-javadoc.jar)
 
-###OmniFaces 1.10 - 1.14
+### OmniFaces 1.10 - 1.14
 
 **Required**: Java 1.6, JSF 2.0, EL 2.1, Servlet 2.5  
 **Optional**: BV 1.0  
@@ -93,7 +93,7 @@ Version history can be found in "[What's new](http://showcase.omnifaces.org/what
 - 1.11 (3 Jun 2015) - [library](http://central.maven.org/maven2/org/omnifaces/omnifaces/1.11/omnifaces-1.11.jar) - [sources](http://central.maven.org/maven2/org/omnifaces/omnifaces/1.11/omnifaces-1.11-sources.jar) - [javadoc](http://central.maven.org/maven2/org/omnifaces/omnifaces/1.11/omnifaces-1.11-javadoc.jar)
 - 1.10 (24 Nov 2014) - [library](http://central.maven.org/maven2/org/omnifaces/omnifaces/1.10/omnifaces-1.10.jar) - [sources](http://central.maven.org/maven2/org/omnifaces/omnifaces/1.10/omnifaces-1.10-sources.jar) - [javadoc](http://central.maven.org/maven2/org/omnifaces/omnifaces/1.10/omnifaces-1.10-javadoc.jar)
 
-###OmniFaces 1.0 - 1.8
+### OmniFaces 1.0 - 1.8
 
 **Required**: Java 1.6, JSF 2.0, EL 2.1, Servlet 2.5  
 **Optional**: BV 1.0 and since 1.6 CDI 1.0
@@ -108,7 +108,8 @@ Version history can be found in "[What's new](http://showcase.omnifaces.org/what
 - 1.1 (10 Jul 2012) - [library](http://central.maven.org/maven2/org/omnifaces/omnifaces/1.1/omnifaces-1.1.jar) - [sources](http://central.maven.org/maven2/org/omnifaces/omnifaces/1.1/omnifaces-1.1-sources.jar) - [javadoc](http://central.maven.org/maven2/org/omnifaces/omnifaces/1.1/omnifaces-1.1-javadoc.jar)
 - 1.0 (1 Jun 2012) - [library](http://omnifaces.org/downloads/omnifaces-1.0.jar) - [sources](http://omnifaces.org/downloads/omnifaces-1.0-sources.jar)
 
-##Snapshot
+
+## Snapshot
 
 If you like to play around with the newest of the newest, hereby accepting the risk that new classes/methods may be moved/renamed without notice, then grab the [2.6-SNAPSHOT](https://oss.sonatype.org/content/repositories/snapshots/org/omnifaces/omnifaces/2.6-SNAPSHOT/) instead.
 
@@ -137,8 +138,7 @@ It is showcased on the [SNAPSHOT showcase](http://snapshot.omnifaces.org) instea
 For starters, a "snapshot" is just the current/latest build. It's far from a release. We may make code changes and create snapshots so now and then before final version release. Those changes will then get reflected in your project if you use the snapshot version in your Maven project and forces an update. It will generally work just fine, but imagine if we make some mistake and notice it only a few days or weeks later, or are trying to test something which may not necessarily work in all environments, then your project may be affected. That's why it's advisable to not use snapshots of 3rd party libraries in production, unless you have your own build system which can "lock" a specific snapshot version, or closely track (and understand) any changes in the codebase. See also a.o. [What exactly is a Maven snapshot?](http://stackoverflow.com/q/5901378/157882).
 
 
-
-##Documentation
+## Documentation
 
  * [OmniFaces API documentation](http://omnifaces.org/docs/javadoc/current/)
    - [2.5](http://omnifaces.org/docs/javadoc/2.5/) - [2.4](http://omnifaces.org/docs/javadoc/2.4/) - [2.3](http://omnifaces.org/docs/javadoc/2.3/) - [2.2](http://omnifaces.org/docs/javadoc/2.2/) - [2.1](http://omnifaces.org/docs/javadoc/2.1/) - [2.0](http://omnifaces.org/docs/javadoc/2.0/) 
@@ -155,9 +155,9 @@ For starters, a "snapshot" is just the current/latest build. It's far from a rel
    * [Combine hardcoded PrimeFaces resources using CombinedResourceHandler](https://github.com/omnifaces/omnifaces/wiki/Combine-hardcoded-PrimeFaces-resources-using-CombinedResourceHandler)
 
 
-##Books
+## Books
 
-###Mastering OmniFaces
+### Mastering OmniFaces
 
 [![Mastering OmniFaces](http://i.imgur.com/VmYCHdLm.jpg)](http://pzz.to/mastering-omnifaces)
 
@@ -167,14 +167,14 @@ A little over 500 pages, this book goes into depth identifying general JSF probl
 
 A must read if you also like [Mastering JSF 2.2](http://pzz.to/mastering-jsf22) from the same author!
 
-###PrimeFaces & OmniFaces powers combined 
+### PrimeFaces & OmniFaces powers combined 
 
 [![PrimeFaces & OmniFaces powers combined](http://i.imgur.com/D3iRI8qm.jpg)](https://leanpub.com/PrimeFaces-OmniFaces-Powers-Combined)
 
 [PrimeFaces & OmniFaces powers combined](https://leanpub.com/PrimeFaces-OmniFaces-Powers-Combined) is an e-book of Anghel Leonard containing complete examples showing off situations when the PrimeFaces UIs take advantage of OmniFaces help.
 
 
-##Support
+## Support
 
 If you have specific programming problems or questions related to the OmniFaces library, feel free to post a question on [Stack Overflow](http://stackoverflow.com) using at least the [`jsf`](http://stackoverflow.com/questions/tagged/jsf) and [`omnifaces`](http://stackoverflow.com/questions/tagged/omnifaces) tags.
 
@@ -183,7 +183,8 @@ If you have found bugs or have new ideas, feel free to open a [new issue](https:
 If you have general feedback that's not either a question, bug report or feature request, or if you have a review/rating, please feel free to leave it at [OpenHUB](https://www.openhub.net/p/omnifaces).
 
 
-##OmniFaces in the worldwide news and literature
+## OmniFaces in the worldwide news and literature
+
  * [Oracle - Java Magazine January/February 2016](http://www.javamagazine.mozaicreader.com/JanFeb2016#&pageSet=23&page=0)
  * [Oracle - Oracle Announces Winners of the 2015 Duke’s Choice Award](https://www.oracle.com/corporate/pressrelease/dukes-award-102815.html)
  * [Oracle - Duke’s Choice Awards 2015](https://community.oracle.com/docs/DOC-949972)
