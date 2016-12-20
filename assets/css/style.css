@@ -263,7 +263,7 @@ Full-Width Styles
 
 .inner {
   position: relative;
-  max-width: 640px;
+  max-width: 1000px;
   padding: 20px 10px;
   margin: 0 auto;
 }
@@ -286,24 +286,25 @@ Full-Width Styles
   padding: 50px 10px 30px 105px;
   background: url(images/OmniFaces-logo-90x90-white.png) no-repeat left center;
   background-size: 90px 90px;
-  max-width: 545px;
+  max-width: 895px;
 }
 
 #project_title {
   margin: 0;
   color: #fff;
-  height: 42px;
   font-size: 42px;
   font-weight: 700;
   text-shadow: #111 0px 0px 10px;
+  line-height: 1em;
 }
 
 #project_tagline {
+  margin: 0;
   color: #fff;
-  font-size: 23px;
+  font-size: 22px;
   font-weight: 300;
-  background: none;
   text-shadow: #111 0px 0px 10px;
+  background: none;
 }
 
 #downloads {
