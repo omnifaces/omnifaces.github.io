@@ -52,7 +52,7 @@ body {
   box-sizing: border-box;
   color:#373737;
   background: #212121;
-  font-size: 16px;
+  font-size: 17px;
   font-family: 'Myriad Pro', Calibri, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
@@ -282,6 +282,7 @@ Full-Width Styles
 }
 
 #header_wrap .inner {
+  left: 10px;
   padding: 50px 10px 30px 105px;
   background: url(images/OmniFaces-logo-90x90-white.png) no-repeat left center;
   background-size: 90px 90px;
@@ -299,7 +300,7 @@ Full-Width Styles
 
 #project_tagline {
   color: #fff;
-  font-size: 22px;
+  font-size: 23px;
   font-weight: 300;
   background: none;
   text-shadow: #111 0px 0px 10px;
@@ -339,15 +340,11 @@ Small Device Styles
     max-width: 480px;
   }
 
-  #project_title {
-  font-size: 32px;
-  }
-
-  h1 {
+  #main_content h1 {
     font-size: 28px;
   }
 
-  h2 {
+  #main_content h2 {
     font-size: 24px;
   }
 
