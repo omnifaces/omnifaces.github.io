@@ -1,4 +1,4 @@
-[Download](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.5.1/omnifaces-2.5.1.jar) - [Showcase](http://showcase.omnifaces.org) - [API docs](http://omnifaces.org/docs/javadoc/current/) - [VDL docs](http://omnifaces.org/docs/vdldoc/current/) - [Sources](https://github.com/omnifaces/omnifaces) - [Issues](https://github.com/omnifaces/omnifaces/issues) - [Twitter](https://twitter.com/OmniFaces)
+[Download](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.5.1/omnifaces-2.5.1.jar) - [Showcase](http://showcase.omnifaces.org) - [API docs](http://omnifaces.org/docs/javadoc/current/) - [VDL docs](http://omnifaces.org/docs/vdldoc/current/) - [GitHub](https://github.com/omnifaces/omnifaces) - [Issues](https://github.com/omnifaces/omnifaces/issues) - [Twitter](https://twitter.com/OmniFaces)
 
 <!--
 ## 2.5.1
