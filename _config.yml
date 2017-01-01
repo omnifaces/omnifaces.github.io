@@ -1,7 +1,6 @@
 title: OmniFaces
 description: To make JSF life easier
 google_analytics: UA-29559297-6
-show_downloads: true
 theme: jekyll-theme-slate
 
 gems:
