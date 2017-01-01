@@ -56,14 +56,13 @@ body {
 h1, h2, h3, h4, h5, h6 {
   margin: .5em 0;
   font-weight: 700;
-  color:#222222;
+  color:#212121;
   font-family: 'Lucida Grande', 'Calibri', Helvetica, Arial, sans-serif;
   letter-spacing: -.05em;
 }
 
 h1 {
   font-size: 2em;
-  font-weight: 700;
 }
 
 h2 {
@@ -157,10 +156,9 @@ pre, code {
   padding: .2em;
   border-radius: .2em;
   box-shadow: 0 0 .5em rgba(0,0,0,.1);
-  color: #222;
   background-color: #fff;
-
   font-family: Consolas, Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
+  letter-spacing: -.05em;
 }
 
 pre {
@@ -273,7 +271,6 @@ Full-Width Styles
   margin: 0;
   color: #fff;
   font-size: 2.4em;
-  font-weight: 700;
   text-shadow: #111 0 0 .4em;
   line-height: 1em;
 }
@@ -313,13 +310,13 @@ Large Device Styles
 
 @media screen {
   body {
-    font-size: 17px;
-    line-height: 1.7;
+    font-size: 110%;
+    line-height: 160%;
     transition: all .3s;
   }
   pre, code {
-    font-size: 14px;
-    line-height: 1.4;
+    font-size: 90%;
+    line-height: 140%;
     transition: all .3s;
   }
 }
@@ -331,13 +328,13 @@ Medium Device Styles
 
 @media screen and (max-width: 1023px) {
   body {
-    font-size: 16px;
-    line-height: 1.6;
+    font-size: 100%;
     transition: all .3s;
   }
-  pre, code {
-    font-size: 13px;
-    line-height: 1.3;
+  #header_wrap .inner {
+    padding-top: 40px;
+    padding-bottom: 20px;
+	background-size: 80px 80px;
     transition: all .3s;
   }
 }
@@ -349,13 +346,13 @@ Small Device Styles
 
 @media screen and (max-width: 480px) {
   body {
-    font-size: 15px;
-    line-height: 1.5;
+    font-size: 90%;
     transition: all .3s;
   }
-  pre, code {
-    font-size: 12px;
-    line-height: 1.2;
+  #header_wrap .inner {
+    padding-top: 30px;
+    padding-bottom: 10px;
+	background-size: 70px 70px;
     transition: all .3s;
   }
 }
