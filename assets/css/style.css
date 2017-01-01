@@ -332,8 +332,7 @@ Medium Device Styles
     transition: all .3s;
   }
   #header_wrap .inner {
-    padding-top: 40px;
-    padding-bottom: 20px;
+    padding: 33px 10px 20px 100px;
 	background-size: 80px 80px;
     transition: all .3s;
   }
@@ -350,8 +349,7 @@ Small Device Styles
     transition: all .3s;
   }
   #header_wrap .inner {
-    padding-top: 30px;
-    padding-bottom: 10px;
+    padding: 22px 10px 10px 90px;
 	background-size: 70px 70px;
     transition: all .3s;
   }
