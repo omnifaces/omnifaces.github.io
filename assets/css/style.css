@@ -272,7 +272,7 @@ Medium Device Styles
 	}
 
 	#header_wrap .inner {
-		padding: 40px 10px 20px 115px;
+		padding: 40px 10px 20px 117px;
 		background-size: 90px 90px;
 		background-position-y: 22px;
 		transition: all .3s;
@@ -293,7 +293,7 @@ Small Device Styles
 	}
 
 	#header_wrap .inner {
-		padding: 30px 10px 18px 105px;
+		padding: 30px 10px 18px 106px;
 		background-size: 80px 80px;
 		background-position-y: 14px;
 		transition: all .3s;
