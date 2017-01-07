@@ -7,300 +7,227 @@ Modified by BalusC
 @import url(github-light.css);
 
 /*******************************************************************************
-MeyerWeb Reset
-*******************************************************************************/
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font: inherit;
-  vertical-align: baseline;
-}
-
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-  display: block;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-/*******************************************************************************
 Theme Styles
 *******************************************************************************/
 
 body {
-  box-sizing: border-box;
-  color:#373737;
-  background: #212121;
-  font-family: 'Myriad Pro', Calibri, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
+	margin: 0;
+	color: #373737;
+	background: #f2f2f2;	
+	font-family: 'Myriad Pro', Calibri, Helvetica, Arial, sans-serif;
+	letter-spacing: -.02em;
+	-webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  margin: .5em 0;
-  font-weight: 700;
-  color:#212121;
-  font-family: 'Lucida Grande', 'Calibri', Helvetica, Arial, sans-serif;
-  letter-spacing: -.05em;
-}
-
-h1 {
-  font-size: 2em;
+	margin: .5em 0;
+	font-weight: 700;
+	color: #212121;
+	font-family: 'Lucida Grande', 'Calibri', Helvetica, Arial, sans-serif;
+	letter-spacing: -.06em;
 }
 
 h2 {
-  padding: .5em 0;
-  font-size: 1.8em;
-  background: url('../images/bg_hr.png') repeat-x bottom;
+	padding: .5em 0;
+	font-size: 1.6em;
+	border-bottom: 1px #ccc dashed;
 }
 
 h3 {
-  font-size: 1.6em;
+	font-size: 1.4em;
 }
 
 h4 {
-  font-size: 1.4em;
+	font-size: 1.2em;
 }
 
 h5 {
-  font-size: 1.2em;
+	font-size: 1.1em;
 }
 
 h6 {
-  font-size: 1em;
+	font-size: 1em;
 }
 
 p {
-  margin: 1em 0;
+	margin: 1em 0;
 }
 
 footer p {
-  color: #f2f2f2;
+	color: #f2f2f2;
 }
 
 a {
-  text-decoration: none;
-  color: #007edf;
-  text-shadow: none;
-
-  transition: color 0.5s ease;
-  transition: text-shadow 0.5s ease;
-  -webkit-transition: color 0.5s ease;
-  -webkit-transition: text-shadow 0.5s ease;
-  -moz-transition: color 0.5s ease;
-  -moz-transition: text-shadow 0.5s ease;
-  -o-transition: color 0.5s ease;
-  -o-transition: text-shadow 0.5s ease;
-  -ms-transition: color 0.5s ease;
-  -ms-transition: text-shadow 0.5s ease;
+	color: #007edf;
+	text-decoration: none;
 }
 
-a:hover, a:focus {text-decoration: underline;}
+a:hover, a:focus {
+	text-decoration: underline;
+}
 
 footer a {
-  color: #F2F2F2;
-  text-decoration: underline;
+	color: #F2F2F2;
+	text-decoration: underline;
 }
 
 em {
-  font-style: italic;
+	font-style: italic;
 }
 
 strong {
-  font-weight: bold;
+	font-weight: bold;
 }
 
-img {
-  position: relative;
-  margin: 0 auto;
-  max-width: 1000px;
-  padding: .2em;
-  margin: .5em 0;
-  border: 1px solid #ebebeb;
-
-  box-shadow: 0 0 .2em #ebebeb;
-  -webkit-box-shadow: 0 0 .2em #ebebeb;
-  -moz-box-shadow: 0 0 .2em #ebebeb;
-  -o-box-shadow: 0 0 .2em #ebebeb;
-  -ms-box-shadow: 0 0 .2em #ebebeb;
+a img {
+	border: 0; /* IE */
 }
 
 p img {
-  display: inline;
-  margin: 0;
-  padding: 0;
-  vertical-align: middle;
-  text-align: center;
-  border: none;
+	display: inline;
+	margin: 0;
+	padding: 0;
+	vertical-align: middle;
+	text-align: center;
+	border: none;
 }
 
 pre, code {
-  width: 99%;
-  padding: .2em;
-  border-radius: .2em;
-  box-shadow: 0 0 .5em rgba(0,0,0,.1);
-  background-color: #fff;
-  font-family: Consolas, Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
-  letter-spacing: -.05em;
+	width: 99%;
+	padding: .2em;
+	border-radius: .2em;
+	box-shadow: 0 0 .5em rgba(0, 0, 0, .1);
+	background-color: #fff;
+	font-family: Consolas, Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
+	letter-spacing: -.05em;
 }
 
 pre {
-  margin: 1em 0;
-  padding: .5em;
-  overflow: auto;
-  overflow-y: hidden;
-  word-wrap: normal;
+	margin: 1em 0;
+	padding: .5em;
+	overflow: auto;
+	overflow-y: hidden;
+	word-wrap: normal;
 }
 
 pre code {
-  width: auto;
-  padding: 0;
-  margin: 0;
-  box-shadow: none;
+	width: auto;
+	padding: 0;
+	margin: 0;
+	box-shadow: none;
 }
 
 blockquote {
-  color: #666;
-  margin-bottom: 1em;
-  padding: 0 0 0 1em;
-  border-left: .2em solid #bbb;
+	color: #666;
+	margin-bottom: 1em;
+	padding: 0 0 0 1em;
+	border-left: .2em solid #bbb;
 }
 
 ul, ol, dl {
-  margin-bottom: 1em;
+	margin-bottom: 1em;
 }
 
 ul, ol, dl dd, dl p {
-  padding-left: 1.5em;
+	padding-left: 1.5em;
 }
 
 dl dt {
-  font-weight: bold;
+	font-weight: bold;
 }
 
 dl dd, dl p {
-  font-style: italic;
+	font-style: italic;
 }
 
 hr {
-  height: 1px;
-  margin-bottom: 5px;
-  border: none;
-  background: url('../images/bg_hr.png') repeat-x center;
+	margin: 2em 0;
+	height: 1px;
+	border: none;
+	background-color: #ccc;
 }
 
 table {
-  border: 1px solid #373737;
-  margin-bottom: 1em;
-  text-align: left;
- }
+	border: 1px solid #373737;
+	margin-bottom: 1em;
+	text-align: left;
+}
 
 th {
-  font-family: 'Lucida Grande', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  padding: .5em;
-  background: #373737;
-  color: #fff;
- }
+	font-family: 'Lucida Grande', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	padding: .5em;
+	background: #373737;
+	color: #fff;
+}
 
 td {
-  padding: .5em;
-  border: 1px solid #373737;
- }
-
-form {
-  background: #f2f2f2;
-  padding: 1em;
+	padding: .5em;
+	border: 1px solid #373737;
 }
+
 
 /*******************************************************************************
 Full-Width Styles
 *******************************************************************************/
-
 .outer {
-  width: 100%;
+	width: 100%;
 }
 
 .inner {
-  position: relative;
-  min-width: 320px;
-  max-width: 1000px;
-  padding: 20px 10px;
-  margin: 0 auto;
+	position: relative;
+	min-width: 320px;
+	max-width: 1000px;
+	padding: 20px 10px;
+	margin: 0 auto;
 }
 
 #forkme_banner {
-  display: none;
+	display: none;
 }
 
 #header_wrap {
-  background: #212121;
-  background: -moz-linear-gradient(top, #373737, #212121);
-  background: -webkit-linear-gradient(top, #373737, #212121);
-  background: -ms-linear-gradient(top, #373737, #212121);
-  background: -o-linear-gradient(top, #373737, #212121);
-  background: linear-gradient(top, #373737, #212121);
+	background: #212121;
+	background: -moz-linear-gradient(top, #373737, #212121);
+	background: -webkit-linear-gradient(top, #373737, #212121);
+	background: -ms-linear-gradient(top, #373737, #212121);
+	background: -o-linear-gradient(top, #373737, #212121);
+	background: linear-gradient(top, #373737, #212121);
 }
 
 #header_wrap .inner {
-  padding: 50px 10px 30px 115px;
-  background: url(images/OmniFaces-logo-90x90-white.png) no-repeat left center;
-  background-size: 90px 90px;
-  background-position-x: 10px;
-  min-width: 215px;
-  max-width: 895px;
+	background: url(images/OmniFaces-logo-90x90-white.png) no-repeat left center;
+	min-width: 215px;
+	max-width: 895px;
 }
 
 #project_title {
-  margin: 0;
-  color: #fff;
-  font-size: 2.4em;
-  text-shadow: #111 0 0 .4em;
-  line-height: 1em;
+	margin: 0;
+	color: white;
+	font-size: 2.4em;
+	text-shadow: #111 0 0 .4em;
+	line-height: 1em;
 }
 
 #project_tagline {
-  margin: 0;
-  padding: 0;
-  color: #fff;
-  font-size: 1.275em;
-  font-weight: 300;
-  text-shadow: #111 0 0 .3em;
-  background: none;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 1.275em;
+	font-weight: 300;
+	color: white;
+	text-shadow: #111 0 0 .3em;
 }
 
 #downloads {
 	display: none;
 }
 
-#main_content_wrap {
-  background: #f2f2f2;
-  border-top: 1px solid #111;
-  border-bottom: 1px solid #111;
-}
-
 #main_content {
-  padding-top: 2em;
+	padding-top: 2em;
 }
 
 #footer_wrap {
-  background: #212121;
+	background: #212121;
 }
 
 
@@ -309,16 +236,27 @@ Large Device Styles
 *******************************************************************************/
 
 @media screen {
-  body {
-    font-size: 110%;
-    line-height: 160%;
-    transition: all .3s;
-  }
-  pre, code {
-    font-size: 90%;
-    line-height: 140%;
-    transition: all .3s;
-  }
+
+	body {
+		font-size: 120%;
+		line-height: 160%;
+		transition: all .3s;
+	}
+
+	pre, code, .code {
+		font-size: 90%;
+		line-height: 120%;
+		transition: all .3s;
+	}
+
+	#header_wrap .inner {
+		padding: 50px 10px 30px 125px;
+		background-size: 100px 100px;
+		background-position-x: 10px;
+		background-position-y: 30px;
+		transition: all .3s;
+	}
+
 }
 
 
@@ -327,15 +265,19 @@ Medium Device Styles
 *******************************************************************************/
 
 @media screen and (max-width: 1023px) {
-  body {
-    font-size: 100%;
-    transition: all .3s;
-  }
-  #header_wrap .inner {
-    padding: 33px 10px 20px 100px;
-	background-size: 80px 80px;
-    transition: all .3s;
-  }
+
+	body {
+		font-size: 110%;
+		transition: all .3s;
+	}
+
+	#header_wrap .inner {
+		padding: 40px 10px 20px 115px;
+		background-size: 90px 90px;
+		background-position-y: 22px;
+		transition: all .3s;
+	}
+
 }
 
 
@@ -343,14 +285,18 @@ Medium Device Styles
 Small Device Styles
 *******************************************************************************/
 
-@media screen and (max-width: 480px) {
-  body {
-    font-size: 90%;
-    transition: all .3s;
-  }
-  #header_wrap .inner {
-    padding: 22px 10px 10px 90px;
-	background-size: 70px 70px;
-    transition: all .3s;
-  }
+@media screen and (max-width: 767px) {
+
+	body {
+		font-size: 100%;
+		transition: all .3s;
+	}
+
+	#header_wrap .inner {
+		padding: 30px 10px 18px 105px;
+		background-size: 80px 80px;
+		background-position-y: 14px;
+		transition: all .3s;
+	}
+
 }
