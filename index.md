@@ -3,7 +3,7 @@
 
 ## 2.6-RC1
 
-14 January 2017: [OmniFaces 2.6-RC1](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.6-RC1/omnifaces-2.6-RC1.jar) is now available for testing! As long as no new issues are reported, the 2.6 final version will be released in a week or two.
+14 January 2017: [OmniFaces 2.6-RC1](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.6-RC1/omnifaces-2.6-RC1.jar) is now available for testing! As long as no new [issues](https://github.com/omnifaces/omnifaces/issues) are reported, the 2.6 final version will be released in a week or two.
 
 ```XML
 <dependency>
@@ -13,7 +13,7 @@
 </dependency>
 ```
 
-This features among others a new `@ViewScoped(saveInViewState=true)` attribute which saves the entire bean in JSF view state when client side state saving is enabled. In fact, this bean never expires as long as the HTML page exists, and several general purpose converters such as `omnifaces.TrimConverter`, `omnifaces.ToLowerCaseConverter`, `omnifaces.ToUpperCaseConverter` and `omnifaces.ToCollectionConverter`. Further several helper methods of `Faces` utility class are now directly available in EL as well via the new implicit EL object `#{faces}`, such as `#{faces.development}`, `#{faces.requestBaseURL}`, etc. See also "What's new in OmniFaces 2.6?" section of the [snapshot showcase](http://snapshot.omnifaces.org/).
+This features among others a new `@ViewScoped(saveInViewState=true)` attribute which saves the entire bean in JSF view state when client side state saving is enabled. In fact, this bean never expires as long as the HTML page exists, and several general purpose converters such as `omnifaces.TrimConverter`, `omnifaces.ToLowerCaseConverter`, `omnifaces.ToUpperCaseConverter` and `omnifaces.ToCollectionConverter`. Further several helper methods of `Faces` utility class are now directly available in EL as well via the new implicit EL object `#{faces}`, such as `#{faces.development}`, `#{faces.requestBaseURL}`, etc. See also [What's new in OmniFaces 2.6?](http://snapshot.omnifaces.org/whatsnew) section of the snapshot showcase.
 
 
 ## What is OmniFaces?
