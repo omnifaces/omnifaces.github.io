@@ -13,7 +13,7 @@
 </dependency>
 ```
 
-This features among others a new `@ViewScoped(saveInViewState=true)` attribute which saves the entire bean in JSF view state when client side state saving is enabled. In fact, this bean never expires as long as the HTML page exists, and several general purpose converters such as `omnifaces.TrimConverter`, `omnifaces.ToLowerCaseConverter`, `omnifaces.ToUpperCaseConverter` and `omnifaces.ToCollectionConverter`. Further several helper methods of `Faces` utility class are now directly available in EL as well via the new implicit EL object `#{faces}`, such as `#{faces.development}`, `#{faces.requestBaseURL}`, etc. See also [What's new in OmniFaces 2.6?](http://snapshot.omnifaces.org/whatsnew) section of the snapshot showcase.
+This features among others a new `@ViewScoped(saveInViewState=true)` attribute which saves the entire bean in JSF view state when client side state saving is enabled (instead of in HTTP session). In fact, such bean never expires as long as the HTML page exists. And, several general purpose converters such as `omnifaces.TrimConverter`, `omnifaces.ToLowerCaseConverter`, `omnifaces.ToUpperCaseConverter` and `omnifaces.ToCollectionConverter`. Further several helper methods of `Faces` utility class are now directly available in EL as well via the new implicit EL object `#{faces}`, such as `#{faces.development}`, `#{faces.requestBaseURL}`, etc. See also [What's new in OmniFaces 2.6?](http://snapshot.omnifaces.org/whatsnew) section of the snapshot showcase.
 
 
 ## What is OmniFaces?
