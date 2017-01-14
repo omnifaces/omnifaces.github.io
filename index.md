@@ -3,7 +3,7 @@
 
 ## 2.6-RC1
 
-14 January 2017: [OmniFaces 2.6-RC1](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.6-RC1/omnifaces-2.6-RC1.jar) is now available!
+14 January 2017: [OmniFaces 2.6-RC1](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.6-RC1/omnifaces-2.6-RC1.jar) is now available for testing! As long as no new issues are reported, the 2.6 final version will be released in a week or two.
 
 ```XML
 <dependency>
