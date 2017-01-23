@@ -1,15 +1,15 @@
 [Download](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.5.1/omnifaces-2.5.1.jar) - [Showcase](http://showcase.omnifaces.org) - [API docs](http://omnifaces.org/docs/javadoc/current/) - [VDL docs](http://omnifaces.org/docs/vdldoc/current/) - [GitHub](https://github.com/omnifaces/omnifaces) - [Issues](https://github.com/omnifaces/omnifaces/issues) - [Twitter](https://twitter.com/OmniFaces)
 
 
-## 2.6-RC1
+## 2.6-RC2
 
-14 January 2017: [OmniFaces 2.6-RC1](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.6-RC1/omnifaces-2.6-RC1.jar) is now available for testing! As long as no new [issues](https://github.com/omnifaces/omnifaces/issues) are reported, the 2.6 final version will be released in a week or two.
+23 January 2017: [OmniFaces 2.6-RC2](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.6-RC2/omnifaces-2.6-RC2.jar) is now available for testing! As long as no new [issues](https://github.com/omnifaces/omnifaces/issues) are reported, the 2.6 final version will be released in a week or two.
 
 ```XML
 <dependency>
     <groupId>org.omnifaces</groupId>
     <artifactId>omnifaces</artifactId>
-    <version>2.6-RC1</version>
+    <version>2.6-RC2</version>
 </dependency>
 ```
 
