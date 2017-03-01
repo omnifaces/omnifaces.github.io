@@ -42,7 +42,7 @@ OmniFaces should principally integrate perfectly well with most other JSF compon
 
 ## Installation
 
-It is a matter of dropping the [OmniFaces 2.6 JAR file](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.6/) in `/WEB-INF/lib`.
+It is a matter of dropping the [OmniFaces 2.6.1 JAR file](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.6.1/) in `/WEB-INF/lib`.
 
 Maven users can add OmniFaces by adding the following Maven coordinates to `pom.xml` of the WAR project:
 
