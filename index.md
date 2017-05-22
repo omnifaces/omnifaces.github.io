@@ -148,8 +148,6 @@ For starters, a "snapshot" is just the current/latest build. It's far from a rel
    - [2.6](http://omnifaces.org/docs/vdldoc/2.6/) - [2.5](http://omnifaces.org/docs/vdldoc/2.5/) - [2.4](http://omnifaces.org/docs/vdldoc/2.4/) - [2.3](http://omnifaces.org/docs/vdldoc/2.3/) - [2.2](http://omnifaces.org/docs/vdldoc/2.2/) - [2.1](http://omnifaces.org/docs/vdldoc/2.1/) - [2.0](http://omnifaces.org/docs/vdldoc/2.0/) 
    - [1.8](http://omnifaces.org/docs/vdldoc/1.8/) - [1.7](http://omnifaces.org/docs/vdldoc/1.7/) - [1.6](http://omnifaces.org/docs/vdldoc/1.6/) - [1.5](http://omnifaces.org/docs/vdldoc/1.5/) - [1.4](http://omnifaces.org/docs/vdldoc/1.4/) - [1.3](http://omnifaces.org/docs/vdldoc/1.3/) - [1.2](http://omnifaces.org/docs/vdldoc/1.2/) - [1.1](http://omnifaces.org/docs/vdldoc/1.1/) - [1.0](http://omnifaces.org/docs/vdldoc/1.0/)
  * [OmniFaces wiki pages](https://github.com/omnifaces/omnifaces/wiki)
-   * [Java EE 6 and 7 compatibility for OmniFaces 2.x](https://github.com/omnifaces/omnifaces/wiki/Java-EE-6-and-7-compatibility-for-OmniFaces-2.x)
-   * [Java EE 5 and 6 compatibility for OmniFaces 1.x](https://github.com/omnifaces/omnifaces/wiki/Java-EE-5-and-6-compatibility-for-OmniFaces-1.x)
    * [Compatibility Matrix](https://github.com/omnifaces/omnifaces/wiki/Compatibility-Matrix)
    * [Known Issues (general)](https://github.com/omnifaces/omnifaces/wiki/Known-Issues-(general))
    * [Known Issues (CDI)](https://github.com/omnifaces/omnifaces/wiki/Known-Issues-(CDI))
