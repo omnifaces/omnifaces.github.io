@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en" xmlns:javaee="http://xmlns.jcp.org/xml/ns/javaee" xmlns:vdldoc="http://vdldoc.omnifaces.org" xmlns:fo="http://www.w3.org/1999/XSL/Format">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>massAttribute (OmniFaces VDL Documentation - Generated Documentation)
+			</title>
+<meta name="keywords" content="$title">
+<link rel="stylesheet" type="text/css" title="Style" href="../stylesheet.css">
+</head>
+<body>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<div class="topNav">
+<a name="navbar_top"></a><a href="#skip-navbar_top" title="Skip navigation links"></a><a name="navbar_top_firstrow"></a>
+<ul class="navList" title="Navigation">
+<li>
+<a href="../overview-summary.html">Overview</a>
+</li>
+<li>
+<a href="tld-summary.html">Library</a>
+</li>
+<li class="navBarCell1Rev">Tag</li>
+<li>
+<a href="../help-doc.html">Help</a>
+</li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li>
+<a target="_top" href="../index.html?o/massAttribute.html">
+									Frames
+								</a>
+</li>
+<li>
+<a target="_top" href="massAttribute.html">
+									No Frames
+								</a>
+</li>
+</ul>
+<ul class="navList" id="alltags_navbar_top">
+<li>
+<a href="../alltags-noframe.html">All Tags</a>
+</li>
+</ul>
+<div>
+<script type="text/javascript">
+								document.getElementById("alltags_navbar_top").style.display = (window == top) ? "block" : "none";
+							</script>
+</div>
+<a name="skip-navbar_top"></a>
+</div>
+<div class="header">
+<h1 title="Library" class="title">o</h1>
+<h2 class="title">
+							Tag
+							massAttribute</h2>
+</div>
+<div class="contentContainer">
+<div class="description">
+<ul class="blockList">
+<li class="blockList">
+<dl>
+<dt>Description:</dt>
+<dd>
+<div class="block">
+			
+				The <strong>&lt;o:massAttribute&gt;</strong> sets an attribute of the given name and value on all nested components,
+				if they don't already have an attribute set. On boolean attributes like <code>disabled</code>, <code>readonly</code>
+				and <code>rendered</code>, any literal (static) attribute value will be ignored and overridden. Only if they have
+				already a value expression <code>#{...}</code> as attribute value, then it won't be overridden. This is a technical
+				limitation specifically for boolean attributes as they don't default to <code>null</code>.
+				<p>
+				For example, the following setup
+				<pre>
+&lt;o:massAttribute name="disabled" value="true"&gt;
+    &lt;h:inputText id="input1" /&gt;
+    &lt;h:inputText id="input2" disabled="true" /&gt;
+    &lt;h:inputText id="input3" disabled="false" /&gt;
+    &lt;h:inputText id="input4" disabled="#{true}" /&gt;
+    &lt;h:inputText id="input5" disabled="#{false}" /&gt;
+&lt;/o:massAttribute&gt;
+				</pre>
+				will set the <code>disabled="true"</code> attribute in <code>input1</code>, <code>input2</code> and
+				<code>input3</code> as those are the only components <strong>without</strong> a value expression on the boolean attribute.
+				<p>
+				As another general example without booleans, the following setup
+				<pre>
+&lt;o:massAttribute name="styleClass" value="#{component.valid ? '' : 'error'}"&gt;
+    &lt;h:inputText id="input1" /&gt;
+    &lt;h:inputText id="input2" styleClass="some" /&gt;
+    &lt;h:inputText id="input3" styleClass="#{'some'}" /&gt;
+    &lt;h:inputText id="input4" styleClass="#{null}" /&gt;
+&lt;/o:massAttribute&gt;
+				</pre>
+				will only set the <code>styleClass="#{component.valid ? '' : 'error'}"</code> attribute in <code>input1</code> as
+				that's the only component on which the attribute is absent.
+				Do note that the specified EL expression will actually be evaluated on a per-component basis.
+				<p>
+				To target a specific component (super)class, use the <code>target</code> attribute. The example below skips labels
+				(as that would otherwise fail in the example below because they don't have a <code>valid</code> property):
+				<pre>
+&lt;o:massAttribute name="styleClass" value="#{component.valid ? '' : 'error'}" target="javax.faces.component.UIInput"&gt;
+    &lt;h:outputLabel for="input1" /&gt;
+    &lt;h:inputText id="input1" /&gt;
+    &lt;h:outputLabel for="input2" /&gt;
+    &lt;h:inputText id="input2" /&gt;
+    &lt;h:outputLabel for="input3" /&gt;
+    &lt;h:inputText id="input3" /&gt;
+&lt;/o:massAttribute&gt;
+				</pre>
+			
+		</div>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="summary">
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Attribute summary table, listing attribute information">
+<caption>
+<span>Attributes</span><span class="tabEnd">&nbsp;</span>
+</caption>
+<thead>
+<tr>
+<th class="colFirst">Name</th><th class="colOne">Required</th><th class="colOne">Type</th><th class="colLast">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr id="name" class="rowColor">
+<td class="colFirst"><a href="#name"><code>name</code></a></td><td class="colOne"><code>true</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">
+				
+					The name of the attribute to be set on all nested components. This cannot be set to <code>id</code>
+					or <code>binding</code> as those are already evaluated during view build time and they shouldn't be
+					shared among components anyway.
+				
+			</td>
+</tr>
+<tr id="value" class="altColor">
+<td class="colFirst"><a href="#value"><code>value</code></a></td><td class="colOne"><code>true</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.Object</code>)
+					</td><td class="colLast">
+				
+					The value of the attribute to be set on all nested components. This will be evaluated on a
+					per-component basis. In other words, <code>#{component}</code> can be used here to refer the 
+					"current" component.
+				
+			</td>
+</tr>
+<tr id="target" class="rowColor">
+<td class="colFirst"><a href="#target"><code>target</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">
+				
+					The FQN (fully qualified name) of the specific <code>UIComponent</code> (super)class for which the
+					attribute should be set. For example, <code>javax.faces.component.UIInput</code> which has the
+					<code>valid</code> property.
+				
+			</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="bottomNav">
+<a name="navbar_bottom"></a><a href="#skip-navbar_bottom" title="Skip navigation links"></a><a name="navbar_bottom_firstrow"></a>
+<ul class="navList" title="Navigation">
+<li>
+<a href="../overview-summary.html">Overview</a>
+</li>
+<li>
+<a href="tld-summary.html">Library</a>
+</li>
+<li class="navBarCell1Rev">Tag</li>
+<li>
+<a href="../help-doc.html">Help</a>
+</li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li>
+<a target="_bottom" href="../index.html?o/massAttribute.html">
+									Frames
+								</a>
+</li>
+<li>
+<a target="_bottom" href="massAttribute.html">
+									No Frames
+								</a>
+</li>
+</ul>
+<ul class="navList" id="alltags_navbar_bottom">
+<li>
+<a href="../alltags-noframe.html">All Tags</a>
+</li>
+</ul>
+<script type="text/javascript">
+							document.getElementById("alltags_navbar_bottom").style.display = (window == top) ? "block" : "none";
+						</script><a name="skip-navbar_bottom"></a>
+</div>
+<p class="about">Output generated by <a href="http://vdldoc.omnifaces.org" target="_blank">Vdldoc</a> View Declaration Language Documentation Generator.</p>
+</body>
+</html>
