@@ -137,7 +137,7 @@ It is showcased on the [SNAPSHOT showcase](http://snapshot.omnifaces.org) instea
 -->
 
 For starters, a "snapshot" is just the current/latest build. It's far from a release. We may make code changes and create snapshots so now and then before final version release. Those changes will then get reflected in your project if you use the snapshot version in your Maven project and forces an update. It will generally work just fine, but imagine if we make some mistake and notice it only a few days or weeks later, or are trying to test something which may not necessarily work in all environments, then your project may be affected. That's why it's advisable to not use snapshots of 3rd party libraries in production, unless you have your own build system which can "lock" a specific snapshot version, or closely track (and understand) any changes in the codebase. See also a.o. [What exactly is a Maven snapshot?](http://stackoverflow.com/q/5901378/157882).
--->
+
 
 ## Documentation
 
