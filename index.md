@@ -109,10 +109,9 @@ Version history can be found in "[What's new](http://showcase.omnifaces.org/what
 - 1.1 (10 Jul 2012) - [library](http://central.maven.org/maven2/org/omnifaces/omnifaces/1.1/omnifaces-1.1.jar) - [sources](http://central.maven.org/maven2/org/omnifaces/omnifaces/1.1/omnifaces-1.1-sources.jar) - [javadoc](http://central.maven.org/maven2/org/omnifaces/omnifaces/1.1/omnifaces-1.1-javadoc.jar)
 - 1.0 (1 Jun 2012) - [library](http://omnifaces.org/downloads/omnifaces-1.0.jar) - [sources](http://omnifaces.org/downloads/omnifaces-1.0-sources.jar)
 
-<!--
 ## Snapshot
 
-If you like to play around with the newest of the newest, hereby accepting the risk that new classes/methods may be moved/renamed without notice, then grab the [2.6-SNAPSHOT](https://oss.sonatype.org/content/repositories/snapshots/org/omnifaces/omnifaces/2.6-SNAPSHOT/) instead.
+If you like to play around with the newest of the newest, hereby accepting the risk that new classes/methods may be moved/renamed without notice, then grab the [3.0-SNAPSHOT](https://oss.sonatype.org/content/repositories/snapshots/org/omnifaces/omnifaces/3.0-SNAPSHOT/) instead.
 
 Maven users can add OmniFaces SNAPSHOT by adding the following Maven coordinates to pom.xml:
 
@@ -129,12 +128,13 @@ Maven users can add OmniFaces SNAPSHOT by adding the following Maven coordinates
     <dependency>
         <groupId>org.omnifaces</groupId>
         <artifactId>omnifaces</artifactId>
-        <version>2.6-SNAPSHOT</version>
+        <version>3.0-SNAPSHOT</version>
     </dependency>
 </dependencies>
 ```
-
+<!--
 It is showcased on the [SNAPSHOT showcase](http://snapshot.omnifaces.org) instead of the [main showcase](http://showcase.omnifaces.org).
+-->
 
 For starters, a "snapshot" is just the current/latest build. It's far from a release. We may make code changes and create snapshots so now and then before final version release. Those changes will then get reflected in your project if you use the snapshot version in your Maven project and forces an update. It will generally work just fine, but imagine if we make some mistake and notice it only a few days or weeks later, or are trying to test something which may not necessarily work in all environments, then your project may be affected. That's why it's advisable to not use snapshots of 3rd party libraries in production, unless you have your own build system which can "lock" a specific snapshot version, or closely track (and understand) any changes in the codebase. See also a.o. [What exactly is a Maven snapshot?](http://stackoverflow.com/q/5901378/157882).
 -->
