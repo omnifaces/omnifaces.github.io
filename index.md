@@ -1,4 +1,4 @@
-[Download](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.6.6/omnifaces-2.6.6.jar) - [Showcase](http://showcase.omnifaces.org) - [API docs](http://omnifaces.org/docs/javadoc/current/) - [VDL docs](http://omnifaces.org/docs/vdldoc/current/) - [GitHub](https://github.com/omnifaces/omnifaces) - [Issues](https://github.com/omnifaces/omnifaces/issues) - [Twitter](https://twitter.com/OmniFaces)
+[Download](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.6.7/omnifaces-2.6.7.jar) - [Showcase](http://showcase.omnifaces.org) - [API docs](http://omnifaces.org/docs/javadoc/current/) - [VDL docs](http://omnifaces.org/docs/vdldoc/current/) - [GitHub](https://github.com/omnifaces/omnifaces) - [Issues](https://github.com/omnifaces/omnifaces/issues) - [Twitter](https://twitter.com/OmniFaces)
 
 <!--
 ## 2.6-RC2
@@ -42,7 +42,7 @@ OmniFaces should principally integrate perfectly well with most other JSF compon
 
 ## Installation
 
-It is a matter of dropping the [OmniFaces 2.6.6 JAR file](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.6.6/) in `/WEB-INF/lib`.
+It is a matter of dropping the [OmniFaces 2.6.7 JAR file](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.6.7/) in `/WEB-INF/lib`.
 
 Maven users can add OmniFaces by adding the following Maven coordinates to `pom.xml` of the WAR project:
 
@@ -50,7 +50,7 @@ Maven users can add OmniFaces by adding the following Maven coordinates to `pom.
 <dependency>
     <groupId>org.omnifaces</groupId>
     <artifactId>omnifaces</artifactId>
-    <version>2.6.6</version>
+    <version>2.6.7</version>
 </dependency>
 ```
 
@@ -75,7 +75,7 @@ Version history can be found in "[What's new](http://showcase.omnifaces.org/what
 **Required**: Java 1.7, JSF 2.2, EL 2.2, Servlet 3.0, CDI 1.1 and since 2.3 WS 1.1  
 **Optional**: BV 1.1  
 
-- 2.6.6 (10 Nov 2017) - [library](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.6.6/omnifaces-2.6.6.jar) - [sources](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.6.6/omnifaces-2.6.6-sources.jar) - [javadoc](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.6.6/omnifaces-2.6.6-javadoc.jar)
+- 2.6.7 (14 Dec 2017) - [library](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.6.7/omnifaces-2.6.7.jar) - [sources](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.6.7/omnifaces-2.6.7-sources.jar) - [javadoc](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.6.7/omnifaces-2.6.7-javadoc.jar)
 - 2.5.1 (21 Sep 2016) - [library](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.5.1/omnifaces-2.5.1.jar) - [sources](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.5.1/omnifaces-2.5.1-sources.jar) - [javadoc](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.5.1/omnifaces-2.5.1-javadoc.jar)
 - 2.4 (1 Jul 2016) - [library](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.4/omnifaces-2.4.jar) - [sources](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.4/omnifaces-2.4-sources.jar) - [javadoc](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.4/omnifaces-2.4-javadoc.jar)
 - 2.3 (1 Apr 2016) - [library](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.3/omnifaces-2.3.jar) - [sources](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.3/omnifaces-2.3-sources.jar) - [javadoc](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.3/omnifaces-2.3-javadoc.jar)
