@@ -1,4 +1,4 @@
-[Download](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.6.7/omnifaces-2.6.7.jar) - [Showcase](http://showcase.omnifaces.org) - [API docs](http://omnifaces.org/docs/javadoc/current/) - [VDL docs](http://omnifaces.org/docs/vdldoc/current/) - [GitHub](https://github.com/omnifaces/omnifaces) - [Issues](https://github.com/omnifaces/omnifaces/issues) - [Twitter](https://twitter.com/OmniFaces)
+[Download](http://central.maven.org/maven2/org/omnifaces/omnifaces/3.0/omnifaces-3.0.jar) - [Showcase](http://showcase.omnifaces.org) - [API docs](http://omnifaces.org/docs/javadoc/current/) - [VDL docs](http://omnifaces.org/docs/vdldoc/current/) - [GitHub](https://github.com/omnifaces/omnifaces) - [Issues](https://github.com/omnifaces/omnifaces/issues) - [Twitter](https://twitter.com/OmniFaces)
 
 <!--
 ## 2.6-RC2
@@ -29,7 +29,11 @@ Besides utility classes for working with the JSF API from Java code, such as [Fa
 
 ## Minimum requirements
 
-An important design goal will be to have as few dependencies as possible and to be minimally invasive. So far, OmniFaces 2.x requires Java 1.7, JSF 2.2, EL 2.2, Servlet 3.0, CDI 1.1 and WebSocket 1.0 APIs which is already minimally available in a fairly modern servlet container serving a JSF 2.2 web application. Legacy OmniFaces 1.x only requires Java 1.6, JSF 2.0, EL 2.1 and Servlet 2.5 APIs which is already minimally available in a fairly modern servlet container serving a JSF 2.x web application. 
+An important design goal will be to have as few dependencies as possible and to be minimally invasive.
+
+- OmniFaces 3.x requires Java 1.8, JSF 2.3, EL 3.0, Servlet 3.1, CDI 2.0, WS 1.1
+- OmniFaces 2.x requires Java 1.7, JSF 2.2, EL 2.2, Servlet 3.0, CDI 1.1, WS 1.1
+- OmniFaces 1.x requires Java 1.6, JSF 2.0, EL 2.1, Servlet 2.5
 
 Since OmniFaces 1.6 there was an *optional* dependency on CDI, which turned out to be troublesome in some outdated environments, so they were since version 1.10 removed from version 1.x for a better compatibility with those environments. The CDI specific features remain in version 2.x whereby the CDI dependency is thus made [required](http://omnifaces.org/cdi). Version 1.x users who are already using CDI specific features on a JSF 2.1 environment should be able to effortlessly migrate to version 2.x. OmniFaces 2.0/2.1 is unofficially backwards compatible with JSF 2.1. OmniFaces 2.2 is not anymore backwards compatible with JSF 2.1.
 
@@ -42,7 +46,7 @@ OmniFaces should principally integrate perfectly well with most other JSF compon
 
 ## Installation
 
-It is a matter of dropping the [OmniFaces 2.6.7 JAR file](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.6.7/) in `/WEB-INF/lib`.
+It is a matter of dropping the [OmniFaces 3.0 JAR file](http://central.maven.org/maven2/org/omnifaces/omnifaces/3.0/) in `/WEB-INF/lib`.
 
 Maven users can add OmniFaces by adding the following Maven coordinates to `pom.xml` of the WAR project:
 
@@ -50,11 +54,11 @@ Maven users can add OmniFaces by adding the following Maven coordinates to `pom.
 <dependency>
     <groupId>org.omnifaces</groupId>
     <artifactId>omnifaces</artifactId>
-    <version>2.6.7</version>
+    <version>3.0</version>
 </dependency>
 ```
 
-For users on outdated environments who can't/won't use CDI, use [1.14.1](http://central.maven.org/maven2/org/omnifaces/omnifaces/1.14.1/) instead. It doesn't contain anything from CDI nor new things which were added in 2.x, but it does contain enhancements and bugfixes to existing 1.x things. Note that there is no 1.15 nor 1.16. The 1.14.1 is latest version of the 1.x branch which is now in maintenance mode.
+For users who are still on JSF 2.2, use [2.6.8](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.6.8/) instead. The 2.x branch is in maintenance mode. For users on yet more outdated environments who can't/won't use CDI, use [1.14.1](http://central.maven.org/maven2/org/omnifaces/omnifaces/1.14.1/) instead. It doesn't contain anything from CDI nor new things which were added in 2.x, but it does contain enhancements and bugfixes to existing 1.x things. Note that there is no 1.15 nor 1.16. The 1.14.1 is latest version of the 1.x branch which is also in maintenance mode.
 
 The OmniFaces UI components/taghandlers and EL functions are available under the following XML namespaces:
 
@@ -70,12 +74,19 @@ OmniFaces is designed as a WAR library (web fragment library) and therefore can'
 
 Version history can be found in "[What's new](http://showcase.omnifaces.org/whatsnew)" page at the showcase.
 
-### OmniFaces 2.0 - 2.6
+### OmniFaces 3.x
+
+**Required**: Java 1.8, JSF 2.3, EL 3.0, Servlet 3.1, CDI 2.0, WS 1.1  
+**Optional**: BV 2.0  
+
+- 3.0 (3 Jan 2018) - [library](http://central.maven.org/maven2/org/omnifaces/omnifaces/3.0/omnifaces-3.0.jar) - [sources](http://central.maven.org/maven2/org/omnifaces/omnifaces/3.0/omnifaces-3.0-sources.jar) - [javadoc](http://central.maven.org/maven2/org/omnifaces/omnifaces/3.0/omnifaces-3.0-javadoc.jar)
+
+### OmniFaces 2.x
 
 **Required**: Java 1.7, JSF 2.2, EL 2.2, Servlet 3.0, CDI 1.1 and since 2.3 WS 1.1  
 **Optional**: BV 1.1  
 
-- 2.6.7 (14 Dec 2017) - [library](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.6.7/omnifaces-2.6.7.jar) - [sources](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.6.7/omnifaces-2.6.7-sources.jar) - [javadoc](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.6.7/omnifaces-2.6.7-javadoc.jar)
+- 2.6.8 (3 Jan 2018) - [library](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.6.8/omnifaces-2.6.8.jar) - [sources](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.6.8/omnifaces-2.6.8-sources.jar) - [javadoc](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.6.8/omnifaces-2.6.8-javadoc.jar)
 - 2.5.1 (21 Sep 2016) - [library](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.5.1/omnifaces-2.5.1.jar) - [sources](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.5.1/omnifaces-2.5.1-sources.jar) - [javadoc](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.5.1/omnifaces-2.5.1-javadoc.jar)
 - 2.4 (1 Jul 2016) - [library](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.4/omnifaces-2.4.jar) - [sources](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.4/omnifaces-2.4-sources.jar) - [javadoc](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.4/omnifaces-2.4-javadoc.jar)
 - 2.3 (1 Apr 2016) - [library](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.3/omnifaces-2.3.jar) - [sources](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.3/omnifaces-2.3-sources.jar) - [javadoc](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.3/omnifaces-2.3-javadoc.jar)
@@ -83,7 +94,7 @@ Version history can be found in "[What's new](http://showcase.omnifaces.org/what
 - 2.1 (3 Jun 2015) - [library](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.1/omnifaces-2.1.jar) - [sources](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.1/omnifaces-2.1-sources.jar) - [javadoc](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.1/omnifaces-2.1-javadoc.jar)
 - 2.0 (24 Nov 2014) - [library](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.0/omnifaces-2.0.jar) - [sources](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.0/omnifaces-2.0-sources.jar) - [javadoc](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.0/omnifaces-2.0-javadoc.jar)
 
-### OmniFaces 1.10 - 1.14
+### OmniFaces 1.1x
 
 **Required**: Java 1.6, JSF 2.0, EL 2.1, Servlet 2.5  
 **Optional**: BV 1.0  
@@ -94,7 +105,7 @@ Version history can be found in "[What's new](http://showcase.omnifaces.org/what
 - 1.11 (3 Jun 2015) - [library](http://central.maven.org/maven2/org/omnifaces/omnifaces/1.11/omnifaces-1.11.jar) - [sources](http://central.maven.org/maven2/org/omnifaces/omnifaces/1.11/omnifaces-1.11-sources.jar) - [javadoc](http://central.maven.org/maven2/org/omnifaces/omnifaces/1.11/omnifaces-1.11-javadoc.jar)
 - 1.10 (24 Nov 2014) - [library](http://central.maven.org/maven2/org/omnifaces/omnifaces/1.10/omnifaces-1.10.jar) - [sources](http://central.maven.org/maven2/org/omnifaces/omnifaces/1.10/omnifaces-1.10-sources.jar) - [javadoc](http://central.maven.org/maven2/org/omnifaces/omnifaces/1.10/omnifaces-1.10-javadoc.jar)
 
-### OmniFaces 1.0 - 1.8
+### OmniFaces 1.x
 
 **Required**: Java 1.6, JSF 2.0, EL 2.1, Servlet 2.5  
 **Optional**: BV 1.0 and since 1.6 CDI 1.0
@@ -109,6 +120,7 @@ Version history can be found in "[What's new](http://showcase.omnifaces.org/what
 - 1.1 (10 Jul 2012) - [library](http://central.maven.org/maven2/org/omnifaces/omnifaces/1.1/omnifaces-1.1.jar) - [sources](http://central.maven.org/maven2/org/omnifaces/omnifaces/1.1/omnifaces-1.1-sources.jar) - [javadoc](http://central.maven.org/maven2/org/omnifaces/omnifaces/1.1/omnifaces-1.1-javadoc.jar)
 - 1.0 (1 Jun 2012) - [library](http://omnifaces.org/downloads/omnifaces-1.0.jar) - [sources](http://omnifaces.org/downloads/omnifaces-1.0-sources.jar)
 
+<!--
 ## Snapshot
 
 If you like to play around with the newest of the newest, hereby accepting the risk that new classes/methods may be moved/renamed without notice, then grab the [3.0-SNAPSHOT](https://oss.sonatype.org/content/repositories/snapshots/org/omnifaces/omnifaces/3.0-SNAPSHOT/) instead.
@@ -132,20 +144,19 @@ Maven users can add OmniFaces SNAPSHOT by adding the following Maven coordinates
     </dependency>
 </dependencies>
 ```
-<!--
-It is showcased on the [SNAPSHOT showcase](http://snapshot.omnifaces.org) instead of the [main showcase](http://showcase.omnifaces.org).
--->
 
 For starters, a "snapshot" is just the current/latest build. It's far from a release. We may make code changes and create snapshots so now and then before final version release. Those changes will then get reflected in your project if you use the snapshot version in your Maven project and forces an update. It will generally work just fine, but imagine if we make some mistake and notice it only a few days or weeks later, or are trying to test something which may not necessarily work in all environments, then your project may be affected. That's why it's advisable to not use snapshots of 3rd party libraries in production, unless you have your own build system which can "lock" a specific snapshot version, or closely track (and understand) any changes in the codebase. See also a.o. [What exactly is a Maven snapshot?](http://stackoverflow.com/q/5901378/157882).
-
+-->
 
 ## Documentation
 
  * [OmniFaces API documentation](http://omnifaces.org/docs/javadoc/current/)
+   - [3.0](http://omnifaces.org/docs/javadoc/3.0/) 
    - [2.6](http://omnifaces.org/docs/javadoc/2.6/) - [2.5](http://omnifaces.org/docs/javadoc/2.5/) - [2.4](http://omnifaces.org/docs/javadoc/2.4/) - [2.3](http://omnifaces.org/docs/javadoc/2.3/) - [2.2](http://omnifaces.org/docs/javadoc/2.2/) - [2.1](http://omnifaces.org/docs/javadoc/2.1/) - [2.0](http://omnifaces.org/docs/javadoc/2.0/) 
    - [1.14](http://omnifaces.org/docs/javadoc/1.14/) - [1.13](http://omnifaces.org/docs/javadoc/1.13/) - [1.12](http://omnifaces.org/docs/javadoc/1.12/) - [1.11](http://omnifaces.org/docs/javadoc/1.11/) - [1.10](http://omnifaces.org/docs/javadoc/1.10/)
    - [1.8](http://omnifaces.org/docs/javadoc/1.8/) - [1.7](http://omnifaces.org/docs/javadoc/1.7/) - [1.6](http://omnifaces.org/docs/javadoc/1.6/) - [1.5](http://omnifaces.org/docs/javadoc/1.5/) - [1.4](http://omnifaces.org/docs/javadoc/1.4/) - [1.3](http://omnifaces.org/docs/javadoc/1.3/) - [1.2](http://omnifaces.org/docs/javadoc/1.2/) - [1.1](http://omnifaces.org/docs/javadoc/1.1/) - [1.0](http://omnifaces.org/docs/javadoc/1.0/)
  * [OmniFaces VDL documentation](http://omnifaces.org/docs/vdldoc/current/)
+   - [3.0](http://omnifaces.org/docs/vdldoc/3.0/) 
    - [2.6](http://omnifaces.org/docs/vdldoc/2.6/) - [2.5](http://omnifaces.org/docs/vdldoc/2.5/) - [2.4](http://omnifaces.org/docs/vdldoc/2.4/) - [2.3](http://omnifaces.org/docs/vdldoc/2.3/) - [2.2](http://omnifaces.org/docs/vdldoc/2.2/) - [2.1](http://omnifaces.org/docs/vdldoc/2.1/) - [2.0](http://omnifaces.org/docs/vdldoc/2.0/) 
    - [1.14](http://omnifaces.org/docs/vdldoc/1.14/) - [1.13](http://omnifaces.org/docs/vdldoc/1.13/) - [1.12](http://omnifaces.org/docs/vdldoc/1.12/) - [1.11](http://omnifaces.org/docs/vdldoc/1.11/) - [1.10](http://omnifaces.org/docs/vdldoc/1.10/)
    - [1.8](http://omnifaces.org/docs/vdldoc/1.8/) - [1.7](http://omnifaces.org/docs/vdldoc/1.7/) - [1.6](http://omnifaces.org/docs/vdldoc/1.6/) - [1.5](http://omnifaces.org/docs/vdldoc/1.5/) - [1.4](http://omnifaces.org/docs/vdldoc/1.4/) - [1.3](http://omnifaces.org/docs/vdldoc/1.3/) - [1.2](http://omnifaces.org/docs/vdldoc/1.2/) - [1.1](http://omnifaces.org/docs/vdldoc/1.1/) - [1.0](http://omnifaces.org/docs/vdldoc/1.0/)
@@ -186,6 +197,9 @@ If you have general feedback that's not either a question, bug report or feature
 
 ## OmniFaces in the worldwide news and literature
 
+ * [Mojarra vs. OmniFaces @ViewScoped: @PreDestroy and garbage collection](https://stackoverflow.com/q/40569971/157882)
+ * [Mocking JSF's FacesContext](https://blog.andresteingress.com/2017/09/24/mocking-the-facescontext.html)
+ * [JAXenter - OmniFaces 2.6 will das JSF-Leben leichter machen](https://jaxenter.de/omnifaces-jsf-52496)
  * [Oracle - Java Magazine January/February 2016](http://www.javamagazine.mozaicreader.com/JanFeb2016#&pageSet=23&page=0)
  * [Oracle - Oracle Announces Winners of the 2015 Duke’s Choice Award](https://www.oracle.com/corporate/pressrelease/dukes-award-102815.html)
  * [Oracle - Duke’s Choice Awards 2015](https://community.oracle.com/docs/DOC-949972)
