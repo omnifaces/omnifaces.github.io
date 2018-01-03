@@ -23,29 +23,29 @@
 <p>So, you got the following error in server log when using OmniFaces 2.x?</p>
 
 <div class="highlight highlight-sh"><pre style="line-height:14px">
-org.omnifaces.ApplicationInitializer checkCDIAvailable
+org.omnifaces.ApplicationInitializer checkCDI11Available
 SEVERE: 
 ████████████████████████████████████████████████████████████████████████████████
 ▌                         ▐█     ▐                                             ▐
 ▌    ▄                  ▄█▓█▌    ▐ OmniFaces failed to initialize!             ▐
 ▌   ▐██▄               ▄▓░░▓▓    ▐                                             ▐
-▌   ▐█░██▓            ▓▓░░░▓▌    ▐ This OmniFaces version requires CDI, but    ▐
-▌   ▐█▌░▓██          █▓░░░░▓     ▐ none was found on this environment.         ▐
+▌   ▐█░██▓            ▓▓░░░▓▌    ▐ This OmniFaces version requires CDI,        ▐
+▌   ▐█▌░▓██          █▓░░░░▓     ▐ but none was found on this environment.     ▐
 ▌    ▓█▌░░▓█▄███████▄███▓░▓█     ▐                                             ▐
-▌    ▓██▌░▓██░░░░░░░░░░▓█░▓▌     ▐ OmniFaces 2.x requires a minimum of JSF 2.2.▐
+▌    ▓██▌░▓██░░░░░░░░░░▓█░▓▌     ▐ OmniFaces 3.x requires a minimum of JSF 2.3.▐
 ▌     ▓█████░░░░░░░░░░░░▓██      ▐ Since this JSF version, the JSF managed bean▐
-▌     ▓██▓░░░░░░░░░░░░░░░▓█      ▐ facility @ManagedBean is semi-official      ▐
-▌     ▐█▓░░░░░░█▓░░▓█░░░░▓█▌     ▐ deprecated in favour of CDI. JSF 2.2 users  ▐
-▌     ▓█▌░▓█▓▓██▓░█▓▓▓▓▓░▓█▌     ▐ are strongly encouraged to move to CDI.     ▐
+▌     ▓██▓░░░░░░░░░░░░░░░▓█      ▐ facility @ManagedBean is DEPRECATED in      ▐
+▌     ▐█▓░░░░░░█▓░░▓█░░░░▓█▌     ▐ in favour of CDI and CDI has become a       ▐
+▌     ▓█▌░▓█▓▓██▓░█▓▓▓▓▓░▓█▌     ▐ REQUIRED dependency for JSF 2.3.            ▐
 ▌     ▓▓░▓██████▓░▓███▓▓▌░█▓     ▐                                             ▐
-▌    ▐▓▓░█▄▐▓▌█▓░░▓█▐▓▌▄▓░██     ▐ OmniFaces goes a step further by making CDI ▐
-▌    ▓█▓░▓█▄▄▄█▓░░▓█▄▄▄█▓░██▌    ▐ a REQUIRED dependency next to JSF 2.2. This ▐
-▌    ▓█▌░▓█████▓░░░▓███▓▀░▓█▓    ▐ not only ensures that your web application  ▐
-▌   ▐▓█░░░▀▓██▀░░░░░ ▀▓▀░░▓█▓    ▐ represents the state of art, but this also  ▐
-▌   ▓██░░░░░░░░▀▄▄▄▄▀░░░░░░▓▓    ▐ makes for us easier to develop OmniFaces,   ▐
-▌   ▓█▌░░░░░░░░░░▐▌░░░░░░░░▓▓▌   ▐ without the need for all sorts of hacks in  ▐
-▌   ▓█░░░░░░░░░▄▀▀▀▀▄░░░░░░░█▓   ▐ in order to get OmniFaces to deploy on      ▐
-▌  ▐█▌░░░░░░░░▀░░░░░░▀░░░░░░█▓▌  ▐ environments without CDI.                   ▐
+▌    ▐▓▓░█▄▐▓▌█▓░░▓█▐▓▌▄▓░██     ▐                                             ▐
+▌    ▓█▓░▓█▄▄▄█▓░░▓█▄▄▄█▓░██▌    ▐                                             ▐
+▌    ▓█▌░▓█████▓░░░▓███▓▀░▓█▓    ▐                                             ▐
+▌   ▐▓█░░░▀▓██▀░░░░░ ▀▓▀░░▓█▓    ▐                                             ▐
+▌   ▓██░░░░░░░░▀▄▄▄▄▀░░░░░░▓▓    ▐                                             ▐
+▌   ▓█▌░░░░░░░░░░▐▌░░░░░░░░▓▓▌   ▐                                             ▐
+▌   ▓█░░░░░░░░░▄▀▀▀▀▄░░░░░░░█▓   ▐                                             ▐
+▌  ▐█▌░░░░░░░░▀░░░░░░▀░░░░░░█▓▌  ▐                                             ▐
 ▌  ▓█░░░░░░░░░░░░░░░░░░░░░░░██▓  ▐                                             ▐
 ▌  ▓█░░░░░░░░░░░░░░░░░░░░░░░▓█▓  ▐ You have 3 options:                         ▐
 ██████████████████████████████████ 1. Downgrade to OmniFaces 1.x.              ▐
