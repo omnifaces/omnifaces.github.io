@@ -2,6 +2,7 @@ org.omnifaces
 org.omnifaces.application
 org.omnifaces.cdi
 org.omnifaces.cdi.beans
+org.omnifaces.cdi.config
 org.omnifaces.cdi.contextparam
 org.omnifaces.cdi.converter
 org.omnifaces.cdi.cookie
@@ -18,6 +19,7 @@ org.omnifaces.component.model
 org.omnifaces.component.output
 org.omnifaces.component.output.cache.el
 org.omnifaces.component.script
+org.omnifaces.component.search
 org.omnifaces.component.tree
 org.omnifaces.component.util
 org.omnifaces.component.validator
