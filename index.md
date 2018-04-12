@@ -66,7 +66,7 @@ Maven users can add OmniFaces by adding the following Maven coordinates to `pom.
 </dependency>
 ```
 
-For users who are still on JSF 2.2, use [2.6.8](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.6.8/) instead. The 2.x branch is in maintenance mode. For users on yet more outdated environments who can't/won't use CDI, use [1.14.1](http://central.maven.org/maven2/org/omnifaces/omnifaces/1.14.1/) instead. It doesn't contain anything from CDI nor new things which were added in 2.x, but it does contain enhancements and bugfixes to existing 1.x things. Note that there is no 1.15 nor 1.16. The 1.14.1 is latest version of the 1.x branch which is also in maintenance mode.
+For users who are still on JSF 2.2, use [2.6.9](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.6.9/) instead. The 2.x branch is in maintenance mode. For users on yet more outdated environments who can't/won't use CDI, use [1.14.1](http://central.maven.org/maven2/org/omnifaces/omnifaces/1.14.1/) instead. It doesn't contain anything from CDI nor new things which were added in 2.x, but it does contain enhancements and bugfixes to existing 1.x things. Note that there is no 1.15 nor 1.16. The 1.14.1 is latest version of the 1.x branch which is also in maintenance mode.
 
 The OmniFaces UI components/taghandlers and EL functions are available under the following XML namespaces:
 
@@ -96,7 +96,6 @@ Version history can be found in "[What's new](http://showcase.omnifaces.org/what
 **Optional**: BV 1.1  
 
 - 2.6.9 (12 Apr 2018) - [library](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.6.9/omnifaces-2.6.9.jar) - [sources](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.6.9/omnifaces-2.6.9-sources.jar) - [javadoc](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.6.9/omnifaces-2.6.9-javadoc.jar)
-- 2.6.8 (3 Jan 2018) - [library](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.6.8/omnifaces-2.6.8.jar) - [sources](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.6.8/omnifaces-2.6.8-sources.jar) - [javadoc](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.6.8/omnifaces-2.6.8-javadoc.jar)
 - 2.5.1 (21 Sep 2016) - [library](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.5.1/omnifaces-2.5.1.jar) - [sources](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.5.1/omnifaces-2.5.1-sources.jar) - [javadoc](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.5.1/omnifaces-2.5.1-javadoc.jar)
 - 2.4 (1 Jul 2016) - [library](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.4/omnifaces-2.4.jar) - [sources](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.4/omnifaces-2.4-sources.jar) - [javadoc](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.4/omnifaces-2.4-javadoc.jar)
 - 2.3 (1 Apr 2016) - [library](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.3/omnifaces-2.3.jar) - [sources](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.3/omnifaces-2.3-sources.jar) - [javadoc](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.3/omnifaces-2.3-javadoc.jar)
