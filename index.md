@@ -16,12 +16,13 @@
 This features among others a new `@ViewScoped(saveInViewState=true)` attribute which saves the entire bean in JSF view state when client side state saving is enabled (instead of in HTTP session). In fact, such bean never expires as long as the HTML page exists. And, several general purpose converters have been added, such as `omnifaces.TrimConverter`, `omnifaces.ToLowerCaseConverter`, `omnifaces.ToUpperCaseConverter` and `omnifaces.ToCollectionConverter`. Further several helper methods of `Faces` utility class are now directly available in EL as well via the new implicit EL object `#{faces}`, such as `#{faces.development}`, `#{faces.requestBaseURL}`, etc. See also [What's new in OmniFaces 2.6?](http://snapshot.omnifaces.org/whatsnew) section of the snapshot showcase.
 -->
 
+## Java Survey
 
-<script>
-    
-    (function(t,e,s,n){var o,a,c;t.SMCX=t.SMCX||[],e.getElementById(n)||(o=e.getElementsByTagName(s),a=o[o.length-1],c=e.createElement(s),c.type="text/javascript",c.async=!0,c.id=n,c.src=["https:"===location.protocol?"https://":"http://","widget.surveymonkey.com/collect/website/js/tRaiETqnLgj758hTBazgdzJj0faLKdgK1TFqrr7wIMk0Uji9iKfrnrvfb8NOAYeM.js"].join(""),a.parentNode.insertBefore(c,a))})(window,document,"script","smcx-sdk");
+The great Java Ecosystem Survey of 2018 is now live! Brought to you by Java Magazine and Snyksec. Includes questions on Java EE and JSF usage:
 
-</script>
+**[Take the survey here](https://snykteam.typeform.com/to/V4LOUZ) (open until the end of June)**
+
+![image of snyk and java magazine](https://pbs.twimg.com/media/DdH8pgLUQAAr_CL.jpg)
 
 ## What is OmniFaces?
 
