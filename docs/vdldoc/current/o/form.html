@@ -128,17 +128,32 @@
 <td class="colFirst"><a href="#useRequestURI"><code>useRequestURI</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>boolean</code>)
 					</td><td class="colLast">
-				Whether to use current request URI with query string as action URI. Defaults to true.
+				
+					Whether to use current request URI with query string as action URI. 
+					Defaults to true.
+					This setting is ignored when <code>includeRequestParams</code> is set to <code>true</code>.
+				
 			</td>
 </tr>
-<tr id="partialSubmit" class="rowColor">
+<tr id="includeRequestParams" class="rowColor">
+<td class="colFirst"><a href="#includeRequestParams"><code>includeRequestParams</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>boolean</code>)
+					</td><td class="colLast">
+				
+					Whether to include request query string parameters in the URL.
+					Defaults to false.
+					When this setting is set to <code>true</code>, <code>useRequestURI</code> is ignored.
+				
+			</td>
+</tr>
+<tr id="partialSubmit" class="altColor">
 <td class="colFirst"><a href="#partialSubmit"><code>partialSubmit</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>boolean</code>)
 					</td><td class="colLast">
 				Whether to send only the form data which actually need to be processed as opposed to the entire form. Defaults to true.
 			</td>
 </tr>
-<tr id="rendered" class="altColor">
+<tr id="rendered" class="rowColor">
 <td class="colFirst"><a href="#rendered"><code>rendered</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>boolean</code>)
 					</td><td class="colLast">
@@ -147,7 +162,7 @@
 				form submit. The default value for this property is true.
 			</td>
 </tr>
-<tr id="accept" class="rowColor">
+<tr id="accept" class="altColor">
 <td class="colFirst"><a href="#accept"><code>accept</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
@@ -155,7 +170,7 @@
 				will handle correctly
 			</td>
 </tr>
-<tr id="acceptcharset" class="altColor">
+<tr id="acceptcharset" class="rowColor">
 <td class="colFirst"><a href="#acceptcharset"><code>acceptcharset</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
@@ -164,7 +179,7 @@
 				this form.
 			</td>
 </tr>
-<tr id="dir" class="rowColor">
+<tr id="dir" class="altColor">
 <td class="colFirst"><a href="#dir"><code>dir</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
@@ -174,7 +189,7 @@
 				(right-to-left).
 			</td>
 </tr>
-<tr id="enctype" class="altColor">
+<tr id="enctype" class="rowColor">
 <td class="colFirst"><a href="#enctype"><code>enctype</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
@@ -183,7 +198,7 @@
 				"application/x-www-form-urlencoded".
 			</td>
 </tr>
-<tr id="lang" class="rowColor">
+<tr id="lang" class="altColor">
 <td class="colFirst"><a href="#lang"><code>lang</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
@@ -191,7 +206,7 @@
 				for this component.
 			</td>
 </tr>
-<tr id="onclick" class="altColor">
+<tr id="onclick" class="rowColor">
 <td class="colFirst"><a href="#onclick"><code>onclick</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
@@ -199,7 +214,7 @@
 				clicked over this element.
 			</td>
 </tr>
-<tr id="ondblclick" class="rowColor">
+<tr id="ondblclick" class="altColor">
 <td class="colFirst"><a href="#ondblclick"><code>ondblclick</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
@@ -207,7 +222,7 @@
 				double clicked over this element.
 			</td>
 </tr>
-<tr id="onkeydown" class="altColor">
+<tr id="onkeydown" class="rowColor">
 <td class="colFirst"><a href="#onkeydown"><code>onkeydown</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
@@ -215,7 +230,7 @@
 				pressed down over this element.
 			</td>
 </tr>
-<tr id="onkeypress" class="rowColor">
+<tr id="onkeypress" class="altColor">
 <td class="colFirst"><a href="#onkeypress"><code>onkeypress</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
@@ -223,7 +238,7 @@
 				pressed and released over this element.
 			</td>
 </tr>
-<tr id="onkeyup" class="altColor">
+<tr id="onkeyup" class="rowColor">
 <td class="colFirst"><a href="#onkeyup"><code>onkeyup</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
@@ -231,7 +246,7 @@
 				released over this element.
 			</td>
 </tr>
-<tr id="onmousedown" class="rowColor">
+<tr id="onmousedown" class="altColor">
 <td class="colFirst"><a href="#onmousedown"><code>onmousedown</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
@@ -239,7 +254,7 @@
 				pressed down over this element.
 			</td>
 </tr>
-<tr id="onmousemove" class="altColor">
+<tr id="onmousemove" class="rowColor">
 <td class="colFirst"><a href="#onmousemove"><code>onmousemove</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
@@ -247,7 +262,7 @@
 				moved within this element.
 			</td>
 </tr>
-<tr id="onmouseout" class="rowColor">
+<tr id="onmouseout" class="altColor">
 <td class="colFirst"><a href="#onmouseout"><code>onmouseout</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
@@ -255,7 +270,7 @@
 				moved away from this element.
 			</td>
 </tr>
-<tr id="onmouseover" class="altColor">
+<tr id="onmouseover" class="rowColor">
 <td class="colFirst"><a href="#onmouseover"><code>onmouseover</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
@@ -263,7 +278,7 @@
 				moved onto this element.
 			</td>
 </tr>
-<tr id="onmouseup" class="rowColor">
+<tr id="onmouseup" class="altColor">
 <td class="colFirst"><a href="#onmouseup"><code>onmouseup</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
@@ -271,28 +286,28 @@
 				released over this element.
 			</td>
 </tr>
-<tr id="onreset" class="altColor">
+<tr id="onreset" class="rowColor">
 <td class="colFirst"><a href="#onreset"><code>onreset</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
 				Javascript code executed when this form is reset.
 			</td>
 </tr>
-<tr id="onsubmit" class="rowColor">
+<tr id="onsubmit" class="altColor">
 <td class="colFirst"><a href="#onsubmit"><code>onsubmit</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
 				Javascript code executed when this form is submitted.
 			</td>
 </tr>
-<tr id="style" class="altColor">
+<tr id="style" class="rowColor">
 <td class="colFirst"><a href="#style"><code>style</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
 				CSS style(s) to be applied when this component is rendered.
 			</td>
 </tr>
-<tr id="styleClass" class="rowColor">
+<tr id="styleClass" class="altColor">
 <td class="colFirst"><a href="#styleClass"><code>styleClass</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
@@ -301,7 +316,7 @@
 				as the "class" attribute on generated markup.
 			</td>
 </tr>
-<tr id="target" class="altColor">
+<tr id="target" class="rowColor">
 <td class="colFirst"><a href="#target"><code>target</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
@@ -310,7 +325,7 @@
 				be displayed.
 			</td>
 </tr>
-<tr id="title" class="rowColor">
+<tr id="title" class="altColor">
 <td class="colFirst"><a href="#title"><code>title</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
@@ -318,7 +333,7 @@
 				for this component.
 			</td>
 </tr>
-<tr id="binding" class="altColor">
+<tr id="binding" class="rowColor">
 <td class="colFirst"><a href="#binding"><code>binding</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
 <br>(<i>must evaluate to </i><code>javax.faces.component.UIComponent</code>)
 					</td><td class="colLast">

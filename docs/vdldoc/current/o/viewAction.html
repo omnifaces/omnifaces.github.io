@@ -88,6 +88,15 @@
 					<p>
 					Only when you set <code>immediate="true"</code>, then it will behave the same as the standard
 					<code>&lt;f:viewAction&gt;</code>.
+					<h3>Messaging</h3>
+					<p>
+					You can use the <code>message</code> attribute to add a global flash warning message.
+					<pre>
+					&lt;o:viewAction ... message="Please use a valid link from within the site" /&gt;
+					</pre>
+					<p>
+					Note that the message will only be shown when the redirect has actually taken place. The support was added in
+					OmniFaces 3.2.
  				
 		</div>
 </dd>
@@ -198,6 +207,15 @@
 					Flag indicating that, if this component is activated by the user, notifications should be delivered
 					to interested listeners and actions immediately (that is, during Apply Request Values phase) rather
 					than waiting until Invoke Application phase.
+				
+			</td>
+</tr>
+<tr id="message" class="rowColor">
+<td class="colFirst"><a href="#message"><code>message</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">
+				
+					The message to send along with the redirect, if any.
 				
 			</td>
 </tr>
