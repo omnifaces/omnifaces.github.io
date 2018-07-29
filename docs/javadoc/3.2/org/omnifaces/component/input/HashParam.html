@@ -199,7 +199,20 @@ extends <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/compo
  <p>
  When <code>#{bean.foo}</code> is <code>"baz"</code> and <code>#{bean.bar}</code> is <code>"kaz"</code> or empty,
  then the reflected hash query string will become <code>http://example.com/page.xhtml#foo=baz</code>.
- If <code>#{bean.bar}</code> is any other value, then it will appear in the hash query string.</div>
+ If <code>#{bean.bar}</code> is any other value, then it will appear in the hash query string.
+
+ <h3>Events</h3>
+ <p>
+ When the hash query string is changed by the client side, e.g. by following a <code>#foo=baz&amp;bar=kaz</code> link,
+ or by manually manipulating the URL, then a CDI <a href="../../../../org/omnifaces/event/HashChangeEvent.html" title="class in org.omnifaces.event"><code>HashChangeEvent</code></a> will be fired which can be observed in any
+ CDI managed bean as below:
+ <pre>
+ public void onHashChange(&#64;Observes HashChangeEvent event) {
+     String oldHashString = event.getOldValue();
+     String newHashString = event.getNewValue();
+     // ...
+ }
+ </pre></div>
 <dl>
 <dt><span class="simpleTagLabel">Since:</span></dt>
 <dd>3.2</dd>
@@ -208,7 +221,8 @@ extends <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/compo
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../../../org/omnifaces/util/Faces.html#getHashParameters--"><code>Faces.getHashParameters()</code></a>, 
 <a href="../../../../org/omnifaces/util/Faces.html#getHashParameterMap--"><code>Faces.getHashParameterMap()</code></a>, 
-<a href="../../../../org/omnifaces/util/Faces.html#getHashQueryString--"><code>Faces.getHashQueryString()</code></a></dd>
+<a href="../../../../org/omnifaces/util/Faces.html#getHashQueryString--"><code>Faces.getHashQueryString()</code></a>, 
+<a href="../../../../org/omnifaces/event/HashChangeEvent.html" title="class in org.omnifaces.event"><code>HashChangeEvent</code></a></dd>
 </dl>
 </li>
 </ul>
@@ -319,8 +333,8 @@ extends <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/compo
 <tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../org/omnifaces/component/input/HashParam.html#getRenderedValue-javax.faces.context.FacesContext-">getRenderedValue</a></span>(<a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context)</code>
-<div class="block">Convert the value to string using any converter and ensure that an empty string is returned when the resulting
- string is null or represents the default value.</div>
+<div class="block">Convert the value to string using any converter and ensure that an empty string is returned when the component
+ is invalid or the resulting string is null or represents the default value.</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
@@ -512,8 +526,8 @@ extends <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/compo
 <li class="blockList">
 <h4>getRenderedValue</h4>
 <pre>public&nbsp;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getRenderedValue(<a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context)</pre>
-<div class="block">Convert the value to string using any converter and ensure that an empty string is returned when the resulting
- string is null or represents the default value.</div>
+<div class="block">Convert the value to string using any converter and ensure that an empty string is returned when the component
+ is invalid or the resulting string is null or represents the default value.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The rendered value.</dd>
@@ -583,7 +597,9 @@ extends <a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/compo
 <li class="blockList">
 <h4>isHashParamRequest</h4>
 <pre>public static&nbsp;boolean&nbsp;isHashParamRequest(<a href="https://javaee.github.io/javaee-spec/javadocs/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context)</pre>
-<div class="block">Returns <code>true</code> if the current request is triggered by a hash param request.</div>
+<div class="block">Returns <code>true</code> if the current request is triggered by a hash param request.
+ I.e. if it is initiated by <code>OmniFaces.HashParam.setHashParamValues()</code> script which runs on page load
+ when the <code>window.location.hash</code> is present, and on every <code>window.onhashchange</code> event.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>context</code> - The involved faces context.</dd>
