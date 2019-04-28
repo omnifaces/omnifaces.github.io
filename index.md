@@ -1,14 +1,5 @@
 [Download](http://central.maven.org/maven2/org/omnifaces/omnifaces/3.2/omnifaces-3.2.jar) - [Showcase](http://showcase.omnifaces.org) - [API docs](http://omnifaces.org/docs/javadoc/current/) - [VDL docs](http://omnifaces.org/docs/vdldoc/current/) - [GitHub](https://github.com/omnifaces/omnifaces) - [Issues](https://github.com/omnifaces/omnifaces/issues) - [Twitter](https://twitter.com/OmniFaces)
 
-## Java Survey
-
-The great Java Ecosystem Survey of 2018 is now live! Brought to you by Java Magazine and Snyksec. Includes questions on Java EE and JSF usage:
-
-**[Take the survey here](https://snykteam.typeform.com/to/V4LOUZ) (open until the end of June)**
-
-![image of snyk and java magazine](https://pbs.twimg.com/media/DdH8pgLUQAAr_CL.jpg)
-
-
 ## What is OmniFaces?
 
 Tired of reinventing `JSFUtils` or `FacesUtils` utility classes for every JSF web application and/or homebrewing custom components, taghandlers, etc to workaround or enhance some general shortcomings in JSF? OmniFaces may be what you're looking for!
