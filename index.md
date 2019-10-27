@@ -1,4 +1,4 @@
-[Download](http://central.maven.org/maven2/org/omnifaces/omnifaces/3.3/omnifaces-3.3.jar) - [Showcase](http://showcase.omnifaces.org) - [API docs](http://omnifaces.org/docs/javadoc/current/) - [VDL docs](http://omnifaces.org/docs/vdldoc/current/) - [GitHub](https://github.com/omnifaces/omnifaces) - [Issues](https://github.com/omnifaces/omnifaces/issues) - [Twitter](https://twitter.com/OmniFaces)
+[Download](http://central.maven.org/maven2/org/omnifaces/omnifaces/3.4/omnifaces-3.4.jar) - [Showcase](http://showcase.omnifaces.org) - [API docs](http://omnifaces.org/docs/javadoc/current/) - [VDL docs](http://omnifaces.org/docs/vdldoc/current/) - [GitHub](https://github.com/omnifaces/omnifaces) - [Issues](https://github.com/omnifaces/omnifaces/issues) - [Twitter](https://twitter.com/OmniFaces)
 
 ## What is OmniFaces?
 
@@ -31,7 +31,7 @@ OmniFaces should principally integrate perfectly well with most other JSF compon
 
 ## Installation
 
-It is a matter of dropping the [OmniFaces 3.3 JAR file](http://central.maven.org/maven2/org/omnifaces/omnifaces/3.3/) in `/WEB-INF/lib`.
+It is a matter of dropping the [OmniFaces 3.4 JAR file](http://central.maven.org/maven2/org/omnifaces/omnifaces/3.4/) in `/WEB-INF/lib`.
 
 Maven users can add OmniFaces by adding the following Maven coordinates to `pom.xml` of the WAR project:
 
@@ -39,11 +39,11 @@ Maven users can add OmniFaces by adding the following Maven coordinates to `pom.
 <dependency>
     <groupId>org.omnifaces</groupId>
     <artifactId>omnifaces</artifactId>
-    <version>3.3</version>
+    <version>3.4</version>
 </dependency>
 ```
 
-For users who are still on JSF 2.2, use [2.7.1](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.7.1/) instead. The 2.x branch is in maintenance mode. For users on yet more outdated environments who can't/won't use CDI, use [1.14.1](http://central.maven.org/maven2/org/omnifaces/omnifaces/1.14.1/) instead. It doesn't contain anything from CDI nor new things which were added in 2.x, but it does contain enhancements and bugfixes to existing 1.x things. Note that there is no 1.15 nor 1.16. The 1.14.1 is latest version of the 1.x branch which is also in maintenance mode.
+For users who are still on JSF 2.2, use [2.7.2](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.7.2/) instead. The 2.x branch is in maintenance mode. For users on yet more outdated environments who can't/won't use CDI, use [1.14.1](http://central.maven.org/maven2/org/omnifaces/omnifaces/1.14.1/) instead. It doesn't contain anything from CDI nor new things which were added in 2.x, but it does contain enhancements and bugfixes to existing 1.x things. Note that there is no 1.15 nor 1.16. The 1.14.1 is latest version of the 1.x branch which is also in maintenance mode.
 
 The OmniFaces UI components/taghandlers and EL functions are available under the following XML namespaces:
 
@@ -64,6 +64,7 @@ Version history can be found in "[What's new](http://showcase.omnifaces.org/what
 **Required**: Java 1.8, JSF 2.3, EL 3.0, Servlet 3.1, CDI 2.0, WS 1.1  
 **Optional**: BV 2.0  
 
+- 3.4 (27 Oct 2019) - [library](http://central.maven.org/maven2/org/omnifaces/omnifaces/3.4/omnifaces-3.4.jar) - [sources](http://central.maven.org/maven2/org/omnifaces/omnifaces/3.4/omnifaces-3.4-sources.jar) - [javadoc](http://central.maven.org/maven2/org/omnifaces/omnifaces/3.4/omnifaces-3.4-javadoc.jar)
 - 3.3 (5 May 2019) - [library](http://central.maven.org/maven2/org/omnifaces/omnifaces/3.3/omnifaces-3.3.jar) - [sources](http://central.maven.org/maven2/org/omnifaces/omnifaces/3.3/omnifaces-3.3-sources.jar) - [javadoc](http://central.maven.org/maven2/org/omnifaces/omnifaces/3.3/omnifaces-3.3-javadoc.jar)
 - 3.2 (29 July 2018) - [library](http://central.maven.org/maven2/org/omnifaces/omnifaces/3.2/omnifaces-3.2.jar) - [sources](http://central.maven.org/maven2/org/omnifaces/omnifaces/3.2/omnifaces-3.2-sources.jar) - [javadoc](http://central.maven.org/maven2/org/omnifaces/omnifaces/3.2/omnifaces-3.2-javadoc.jar)
 - 3.1 (12 Apr 2018) - [library](http://central.maven.org/maven2/org/omnifaces/omnifaces/3.1/omnifaces-3.1.jar) - [sources](http://central.maven.org/maven2/org/omnifaces/omnifaces/3.1/omnifaces-3.1-sources.jar) - [javadoc](http://central.maven.org/maven2/org/omnifaces/omnifaces/3.1/omnifaces-3.1-javadoc.jar)
@@ -74,7 +75,7 @@ Version history can be found in "[What's new](http://showcase.omnifaces.org/what
 **Required**: Java 1.7, JSF 2.2, EL 2.2, Servlet 3.0, CDI 1.1 and since 2.3 WS 1.1  
 **Optional**: BV 1.1  
 
-- 2.7.1 (5 May 2019) - [library](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.7.1/omnifaces-2.7.1.jar) - [sources](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.7.1/omnifaces-2.7.1-sources.jar) - [javadoc](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.7.1/omnifaces-2.7.1-javadoc.jar)
+- 2.7.2 (27 Oct 2019) - [library](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.7.2/omnifaces-2.7.2.jar) - [sources](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.7.2/omnifaces-2.7.2-sources.jar) - [javadoc](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.7.2/omnifaces-2.7.2-javadoc.jar)
 - 2.6.9 (12 Apr 2018) - [library](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.6.9/omnifaces-2.6.9.jar) - [sources](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.6.9/omnifaces-2.6.9-sources.jar) - [javadoc](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.6.9/omnifaces-2.6.9-javadoc.jar)
 - 2.5.1 (21 Sep 2016) - [library](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.5.1/omnifaces-2.5.1.jar) - [sources](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.5.1/omnifaces-2.5.1-sources.jar) - [javadoc](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.5.1/omnifaces-2.5.1-javadoc.jar)
 - 2.4 (1 Jul 2016) - [library](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.4/omnifaces-2.4.jar) - [sources](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.4/omnifaces-2.4-sources.jar) - [javadoc](http://central.maven.org/maven2/org/omnifaces/omnifaces/2.4/omnifaces-2.4-javadoc.jar)
@@ -140,12 +141,12 @@ For starters, a "snapshot" is just the current/latest build. It's far from a rel
 ## Documentation
 
  * [OmniFaces API documentation](http://omnifaces.org/docs/javadoc/current/)
-   - [3.3](http://omnifaces.org/docs/javadoc/3.3/) - [3.2](http://omnifaces.org/docs/javadoc/3.2/) - [3.1](http://omnifaces.org/docs/javadoc/3.1/) - [3.0](http://omnifaces.org/docs/javadoc/3.0/) 
+   - [3.4](http://omnifaces.org/docs/javadoc/3.4/) - [3.3](http://omnifaces.org/docs/javadoc/3.3/) - [3.2](http://omnifaces.org/docs/javadoc/3.2/) - [3.1](http://omnifaces.org/docs/javadoc/3.1/) - [3.0](http://omnifaces.org/docs/javadoc/3.0/) 
    - [2.7](http://omnifaces.org/docs/javadoc/2.7/) - [2.6](http://omnifaces.org/docs/javadoc/2.6/) - [2.5](http://omnifaces.org/docs/javadoc/2.5/) - [2.4](http://omnifaces.org/docs/javadoc/2.4/) - [2.3](http://omnifaces.org/docs/javadoc/2.3/) - [2.2](http://omnifaces.org/docs/javadoc/2.2/) - [2.1](http://omnifaces.org/docs/javadoc/2.1/) - [2.0](http://omnifaces.org/docs/javadoc/2.0/) 
    - [1.14](http://omnifaces.org/docs/javadoc/1.14/) - [1.13](http://omnifaces.org/docs/javadoc/1.13/) - [1.12](http://omnifaces.org/docs/javadoc/1.12/) - [1.11](http://omnifaces.org/docs/javadoc/1.11/) - [1.10](http://omnifaces.org/docs/javadoc/1.10/)
    - [1.8](http://omnifaces.org/docs/javadoc/1.8/) - [1.7](http://omnifaces.org/docs/javadoc/1.7/) - [1.6](http://omnifaces.org/docs/javadoc/1.6/) - [1.5](http://omnifaces.org/docs/javadoc/1.5/) - [1.4](http://omnifaces.org/docs/javadoc/1.4/) - [1.3](http://omnifaces.org/docs/javadoc/1.3/) - [1.2](http://omnifaces.org/docs/javadoc/1.2/) - [1.1](http://omnifaces.org/docs/javadoc/1.1/) - [1.0](http://omnifaces.org/docs/javadoc/1.0/)
  * [OmniFaces VDL documentation](http://omnifaces.org/docs/vdldoc/current/)
-   - [3.3](http://omnifaces.org/docs/vdldoc/3.3/) - [3.2](http://omnifaces.org/docs/vdldoc/3.2/) - [3.1](http://omnifaces.org/docs/vdldoc/3.1/) - [3.0](http://omnifaces.org/docs/vdldoc/3.0/) 
+   - [3.4](http://omnifaces.org/docs/vdldoc/3.4/) - [3.3](http://omnifaces.org/docs/vdldoc/3.3/) - [3.2](http://omnifaces.org/docs/vdldoc/3.2/) - [3.1](http://omnifaces.org/docs/vdldoc/3.1/) - [3.0](http://omnifaces.org/docs/vdldoc/3.0/) 
    - [2.7](http://omnifaces.org/docs/vdldoc/2.7/) - [2.6](http://omnifaces.org/docs/vdldoc/2.6/) - [2.5](http://omnifaces.org/docs/vdldoc/2.5/) - [2.4](http://omnifaces.org/docs/vdldoc/2.4/) - [2.3](http://omnifaces.org/docs/vdldoc/2.3/) - [2.2](http://omnifaces.org/docs/vdldoc/2.2/) - [2.1](http://omnifaces.org/docs/vdldoc/2.1/) - [2.0](http://omnifaces.org/docs/vdldoc/2.0/) 
    - [1.14](http://omnifaces.org/docs/vdldoc/1.14/) - [1.13](http://omnifaces.org/docs/vdldoc/1.13/) - [1.12](http://omnifaces.org/docs/vdldoc/1.12/) - [1.11](http://omnifaces.org/docs/vdldoc/1.11/) - [1.10](http://omnifaces.org/docs/vdldoc/1.10/)
    - [1.8](http://omnifaces.org/docs/vdldoc/1.8/) - [1.7](http://omnifaces.org/docs/vdldoc/1.7/) - [1.6](http://omnifaces.org/docs/vdldoc/1.6/) - [1.5](http://omnifaces.org/docs/vdldoc/1.5/) - [1.4](http://omnifaces.org/docs/vdldoc/1.4/) - [1.3](http://omnifaces.org/docs/vdldoc/1.3/) - [1.2](http://omnifaces.org/docs/vdldoc/1.2/) - [1.1](http://omnifaces.org/docs/vdldoc/1.1/) - [1.0](http://omnifaces.org/docs/vdldoc/1.0/)
