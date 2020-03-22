@@ -1,4 +1,4 @@
-[Download](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/3.4.1/omnifaces-3.4.1.jar) - [Showcase](http://showcase.omnifaces.org) - [API docs](http://omnifaces.org/docs/javadoc/current/) - [VDL docs](http://omnifaces.org/docs/vdldoc/current/) - [GitHub](https://github.com/omnifaces/omnifaces) - [Issues](https://github.com/omnifaces/omnifaces/issues) - [Twitter](https://twitter.com/OmniFaces)
+[Download](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/3.4.1/omnifaces-3.4.1.jar) - [Showcase](http://showcase.omnifaces.org) - [API docs](https://omnifaces.org/docs/javadoc/current/) - [VDL docs](https://omnifaces.org/docs/vdldoc/current/) - [GitHub](https://github.com/omnifaces/omnifaces) - [Issues](https://github.com/omnifaces/omnifaces/issues) - [Twitter](https://twitter.com/OmniFaces)
 
 ## What is OmniFaces?
 
@@ -20,7 +20,7 @@ An important design goal will be to have as few dependencies as possible and to 
 - OmniFaces 2.x requires Java 1.7, JSF 2.2, EL 2.2, Servlet 3.0, CDI 1.1, WS 1.1
 - OmniFaces 1.x requires Java 1.6, JSF 2.0, EL 2.1, Servlet 2.5
 
-Since OmniFaces 1.6 there was an *optional* dependency on CDI, which turned out to be troublesome in some outdated environments, so they were since version 1.10 removed from version 1.x for a better compatibility with those environments. The CDI specific features remain in version 2.x whereby the CDI dependency is thus made [required](http://omnifaces.org/cdi). Version 1.x users who are already using CDI specific features on a JSF 2.1 environment should be able to effortlessly migrate to version 2.x. OmniFaces 2.0/2.1 is unofficially backwards compatible with JSF 2.1. OmniFaces 2.2 is not anymore backwards compatible with JSF 2.1.
+Since OmniFaces 1.6 there was an *optional* dependency on CDI, which turned out to be troublesome in some outdated environments, so they were since version 1.10 removed from version 1.x for a better compatibility with those environments. The CDI specific features remain in version 2.x whereby the CDI dependency is thus made [required](https://omnifaces.org/cdi). Version 1.x users who are already using CDI specific features on a JSF 2.1 environment should be able to effortlessly migrate to version 2.x. OmniFaces 2.0/2.1 is unofficially backwards compatible with JSF 2.1. OmniFaces 2.2 is not anymore backwards compatible with JSF 2.1.
 
 Since OmniFaces 2.3 there is a *required* dependency on JSR356 WebSocket which is already available in any Java EE 7 container and in even earlier versions of servletcontainers (Tomcat supports it since 7.0.27 and Jetty supports it since 9.1.0).
 
@@ -48,8 +48,8 @@ For users who are still on JSF 2.2, use [2.7.3](https://repo.maven.apache.org/ma
 The OmniFaces UI components/taghandlers and EL functions are available under the following XML namespaces:
 
 ```XML
-xmlns:o="http://omnifaces.org/ui"
-xmlns:of="http://omnifaces.org/functions"
+xmlns:o="https://omnifaces.org/ui"
+xmlns:of="https://omnifaces.org/functions"
 ```
 
 OmniFaces is designed as a WAR library (web fragment library) and therefore can't be placed elsewhere in the webapp's runtime classpath outside WAR's own `/WEB-INF/lib`, such as EAR's `/lib` or even server's or JRE's own `/lib`. When OmniFaces JAR file is misplaced this way, then the webapp will be unable to find OmniFaces-bundled JSF/CDI annotated classes and throw exceptions related to this during deploy or runtime. To solve it, put back  OmniFaces in WAR's `/WEB-INF/lib`. Also note that you shouldn't have duplicate OmniFaces JAR files, otherwise CDI will throw exceptions related to ambiguous dependencies during deploy.
@@ -108,7 +108,7 @@ Version history can be found in "[What's new](http://showcase.omnifaces.org/what
 - 1.3 (20 Dec 2012) - [library](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/1.3/omnifaces-1.3.jar) - [sources](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/1.3/omnifaces-1.3-sources.jar) - [javadoc](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/1.3/omnifaces-1.3-javadoc.jar)
 - 1.2 (20 Oct 2012) - [library](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/1.2/omnifaces-1.2.jar) - [sources](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/1.2/omnifaces-1.2-sources.jar) - [javadoc](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/1.2/omnifaces-1.2-javadoc.jar)
 - 1.1 (10 Jul 2012) - [library](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/1.1/omnifaces-1.1.jar) - [sources](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/1.1/omnifaces-1.1-sources.jar) - [javadoc](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/1.1/omnifaces-1.1-javadoc.jar)
-- 1.0 (1 Jun 2012) - [library](http://omnifaces.org/downloads/omnifaces-1.0.jar) - [sources](http://omnifaces.org/downloads/omnifaces-1.0-sources.jar)
+- 1.0 (1 Jun 2012) - [library](https://omnifaces.org/downloads/omnifaces-1.0.jar) - [sources](https://omnifaces.org/downloads/omnifaces-1.0-sources.jar)
 
 <!--
 ## Snapshot
@@ -135,21 +135,21 @@ Maven users can add OmniFaces SNAPSHOT by adding the following Maven coordinates
 </dependencies>
 ```
 
-For starters, a "snapshot" is just the current/latest build. It's far from a release. We may make code changes and create snapshots so now and then before final version release. Those changes will then get reflected in your project if you use the snapshot version in your Maven project and forces an update. It will generally work just fine, but imagine if we make some mistake and notice it only a few days or weeks later, or are trying to test something which may not necessarily work in all environments, then your project may be affected. That's why it's advisable to not use snapshots of 3rd party libraries in production, unless you have your own build system which can "lock" a specific snapshot version, or closely track (and understand) any changes in the codebase. See also a.o. [What exactly is a Maven snapshot?](http://stackoverflow.com/q/5901378/157882).
+For starters, a "snapshot" is just the current/latest build. It's far from a release. We may make code changes and create snapshots so now and then before final version release. Those changes will then get reflected in your project if you use the snapshot version in your Maven project and forces an update. It will generally work just fine, but imagine if we make some mistake and notice it only a few days or weeks later, or are trying to test something which may not necessarily work in all environments, then your project may be affected. That's why it's advisable to not use snapshots of 3rd party libraries in production, unless you have your own build system which can "lock" a specific snapshot version, or closely track (and understand) any changes in the codebase. See also a.o. [What exactly is a Maven snapshot?](https://stackoverflow.com/q/5901378/157882).
 -->
 
 ## Documentation
 
- * [OmniFaces API documentation](http://omnifaces.org/docs/javadoc/current/)
-   - [3.4](http://omnifaces.org/docs/javadoc/3.4/) - [3.3](http://omnifaces.org/docs/javadoc/3.3/) - [3.2](http://omnifaces.org/docs/javadoc/3.2/) - [3.1](http://omnifaces.org/docs/javadoc/3.1/) - [3.0](http://omnifaces.org/docs/javadoc/3.0/) 
-   - [2.7](http://omnifaces.org/docs/javadoc/2.7/) - [2.6](http://omnifaces.org/docs/javadoc/2.6/) - [2.5](http://omnifaces.org/docs/javadoc/2.5/) - [2.4](http://omnifaces.org/docs/javadoc/2.4/) - [2.3](http://omnifaces.org/docs/javadoc/2.3/) - [2.2](http://omnifaces.org/docs/javadoc/2.2/) - [2.1](http://omnifaces.org/docs/javadoc/2.1/) - [2.0](http://omnifaces.org/docs/javadoc/2.0/) 
-   - [1.14](http://omnifaces.org/docs/javadoc/1.14/) - [1.13](http://omnifaces.org/docs/javadoc/1.13/) - [1.12](http://omnifaces.org/docs/javadoc/1.12/) - [1.11](http://omnifaces.org/docs/javadoc/1.11/) - [1.10](http://omnifaces.org/docs/javadoc/1.10/)
-   - [1.8](http://omnifaces.org/docs/javadoc/1.8/) - [1.7](http://omnifaces.org/docs/javadoc/1.7/) - [1.6](http://omnifaces.org/docs/javadoc/1.6/) - [1.5](http://omnifaces.org/docs/javadoc/1.5/) - [1.4](http://omnifaces.org/docs/javadoc/1.4/) - [1.3](http://omnifaces.org/docs/javadoc/1.3/) - [1.2](http://omnifaces.org/docs/javadoc/1.2/) - [1.1](http://omnifaces.org/docs/javadoc/1.1/) - [1.0](http://omnifaces.org/docs/javadoc/1.0/)
- * [OmniFaces VDL documentation](http://omnifaces.org/docs/vdldoc/current/)
-   - [3.4](http://omnifaces.org/docs/vdldoc/3.4/) - [3.3](http://omnifaces.org/docs/vdldoc/3.3/) - [3.2](http://omnifaces.org/docs/vdldoc/3.2/) - [3.1](http://omnifaces.org/docs/vdldoc/3.1/) - [3.0](http://omnifaces.org/docs/vdldoc/3.0/) 
-   - [2.7](http://omnifaces.org/docs/vdldoc/2.7/) - [2.6](http://omnifaces.org/docs/vdldoc/2.6/) - [2.5](http://omnifaces.org/docs/vdldoc/2.5/) - [2.4](http://omnifaces.org/docs/vdldoc/2.4/) - [2.3](http://omnifaces.org/docs/vdldoc/2.3/) - [2.2](http://omnifaces.org/docs/vdldoc/2.2/) - [2.1](http://omnifaces.org/docs/vdldoc/2.1/) - [2.0](http://omnifaces.org/docs/vdldoc/2.0/) 
-   - [1.14](http://omnifaces.org/docs/vdldoc/1.14/) - [1.13](http://omnifaces.org/docs/vdldoc/1.13/) - [1.12](http://omnifaces.org/docs/vdldoc/1.12/) - [1.11](http://omnifaces.org/docs/vdldoc/1.11/) - [1.10](http://omnifaces.org/docs/vdldoc/1.10/)
-   - [1.8](http://omnifaces.org/docs/vdldoc/1.8/) - [1.7](http://omnifaces.org/docs/vdldoc/1.7/) - [1.6](http://omnifaces.org/docs/vdldoc/1.6/) - [1.5](http://omnifaces.org/docs/vdldoc/1.5/) - [1.4](http://omnifaces.org/docs/vdldoc/1.4/) - [1.3](http://omnifaces.org/docs/vdldoc/1.3/) - [1.2](http://omnifaces.org/docs/vdldoc/1.2/) - [1.1](http://omnifaces.org/docs/vdldoc/1.1/) - [1.0](http://omnifaces.org/docs/vdldoc/1.0/)
+ * [OmniFaces API documentation](https://omnifaces.org/docs/javadoc/current/)
+   - [3.4](https://omnifaces.org/docs/javadoc/3.4/) - [3.3](https://omnifaces.org/docs/javadoc/3.3/) - [3.2](https://omnifaces.org/docs/javadoc/3.2/) - [3.1](https://omnifaces.org/docs/javadoc/3.1/) - [3.0](https://omnifaces.org/docs/javadoc/3.0/) 
+   - [2.7](https://omnifaces.org/docs/javadoc/2.7/) - [2.6](https://omnifaces.org/docs/javadoc/2.6/) - [2.5](https://omnifaces.org/docs/javadoc/2.5/) - [2.4](https://omnifaces.org/docs/javadoc/2.4/) - [2.3](https://omnifaces.org/docs/javadoc/2.3/) - [2.2](https://omnifaces.org/docs/javadoc/2.2/) - [2.1](https://omnifaces.org/docs/javadoc/2.1/) - [2.0](https://omnifaces.org/docs/javadoc/2.0/) 
+   - [1.14](https://omnifaces.org/docs/javadoc/1.14/) - [1.13](https://omnifaces.org/docs/javadoc/1.13/) - [1.12](https://omnifaces.org/docs/javadoc/1.12/) - [1.11](https://omnifaces.org/docs/javadoc/1.11/) - [1.10](https://omnifaces.org/docs/javadoc/1.10/)
+   - [1.8](https://omnifaces.org/docs/javadoc/1.8/) - [1.7](https://omnifaces.org/docs/javadoc/1.7/) - [1.6](https://omnifaces.org/docs/javadoc/1.6/) - [1.5](https://omnifaces.org/docs/javadoc/1.5/) - [1.4](https://omnifaces.org/docs/javadoc/1.4/) - [1.3](https://omnifaces.org/docs/javadoc/1.3/) - [1.2](https://omnifaces.org/docs/javadoc/1.2/) - [1.1](https://omnifaces.org/docs/javadoc/1.1/) - [1.0](https://omnifaces.org/docs/javadoc/1.0/)
+ * [OmniFaces VDL documentation](https://omnifaces.org/docs/vdldoc/current/)
+   - [3.4](https://omnifaces.org/docs/vdldoc/3.4/) - [3.3](https://omnifaces.org/docs/vdldoc/3.3/) - [3.2](https://omnifaces.org/docs/vdldoc/3.2/) - [3.1](https://omnifaces.org/docs/vdldoc/3.1/) - [3.0](https://omnifaces.org/docs/vdldoc/3.0/) 
+   - [2.7](https://omnifaces.org/docs/vdldoc/2.7/) - [2.6](https://omnifaces.org/docs/vdldoc/2.6/) - [2.5](https://omnifaces.org/docs/vdldoc/2.5/) - [2.4](https://omnifaces.org/docs/vdldoc/2.4/) - [2.3](https://omnifaces.org/docs/vdldoc/2.3/) - [2.2](https://omnifaces.org/docs/vdldoc/2.2/) - [2.1](https://omnifaces.org/docs/vdldoc/2.1/) - [2.0](https://omnifaces.org/docs/vdldoc/2.0/) 
+   - [1.14](https://omnifaces.org/docs/vdldoc/1.14/) - [1.13](https://omnifaces.org/docs/vdldoc/1.13/) - [1.12](https://omnifaces.org/docs/vdldoc/1.12/) - [1.11](https://omnifaces.org/docs/vdldoc/1.11/) - [1.10](https://omnifaces.org/docs/vdldoc/1.10/)
+   - [1.8](https://omnifaces.org/docs/vdldoc/1.8/) - [1.7](https://omnifaces.org/docs/vdldoc/1.7/) - [1.6](https://omnifaces.org/docs/vdldoc/1.6/) - [1.5](https://omnifaces.org/docs/vdldoc/1.5/) - [1.4](https://omnifaces.org/docs/vdldoc/1.4/) - [1.3](https://omnifaces.org/docs/vdldoc/1.3/) - [1.2](https://omnifaces.org/docs/vdldoc/1.2/) - [1.1](https://omnifaces.org/docs/vdldoc/1.1/) - [1.0](https://omnifaces.org/docs/vdldoc/1.0/)
  * [OmniFaces wiki pages](https://github.com/omnifaces/omnifaces/wiki)
    * [Compatibility Matrix](https://github.com/omnifaces/omnifaces/wiki/Compatibility-Matrix)
    * [Known Issues (general)](https://github.com/omnifaces/omnifaces/wiki/Known-Issues-(general))
@@ -161,31 +161,31 @@ For starters, a "snapshot" is just the current/latest build. It's far from a rel
 
 ### The Definitive Guide to JSF in Java EE 8
 
-[![The Definitive Guide to JSF in Java EE 8](https://i.imgur.com/Xv9EVv4m.jpg)](http://pzz.to/T9g3fD)
+[![The Definitive Guide to JSF in Java EE 8](https://i.imgur.com/Xv9EVv4m.jpg)](https://pzz.to/T9g3fD)
 
-[The Definitive Guide to JSF in Java EE 8](http://pzz.to/T9g3fD) is since July 11, 2018 available at Amazon.com. This book is authored by the creators of OmniFaces, Bauke Scholtz and Arjan Tijms. This book is definitely a must read for anyone working with JSF or interested in JSF. It uncovers the best practices and hidden gems of JSF. The source code of the book's examples can be found at [GitHub](https://github.com/omnifaces/definitive-guide-to-jsf-in-javaee8).
+[The Definitive Guide to JSF in Java EE 8](https://pzz.to/T9g3fD) is since July 11, 2018 available at Amazon.com. This book is authored by the creators of OmniFaces, Bauke Scholtz and Arjan Tijms. This book is definitely a must read for anyone working with JSF or interested in JSF. It uncovers the best practices and hidden gems of JSF. The source code of the book's examples can be found at [GitHub](https://github.com/omnifaces/definitive-guide-to-jsf-in-javaee8).
 
 
 ### Mastering OmniFaces
 
-[![Mastering OmniFaces](http://i.imgur.com/VmYCHdLm.jpg)](http://pzz.to/mastering-omnifaces)
+[![Mastering OmniFaces](https://i.imgur.com/VmYCHdLm.jpg)](https://pzz.to/mastering-omnifaces)
 
-[Mastering OmniFaces](http://pzz.to/mastering-omnifaces) is since October 5, 2015 available at Amazon.com. This book was created in cooperation with the creators of OmniFaces, Bauke Scholtz and Arjan Tijms. From the beginning on, they worked together with Anghel Leonard and Constantin Alin to get this book ready, and have reviewed it from top to bottom.
+[Mastering OmniFaces](https://pzz.to/mastering-omnifaces) is since October 5, 2015 available at Amazon.com. This book was created in cooperation with the creators of OmniFaces, Bauke Scholtz and Arjan Tijms. From the beginning on, they worked together with Anghel Leonard and Constantin Alin to get this book ready, and have reviewed it from top to bottom.
 
 A little over 500 pages, this book goes into depth identifying general JSF problems and describing how OmniFaces has solved it, hereby uncovering several patterns and tricks. Basically, the working of every OmniFaces component, taghandler, converter, validator, and several handlers and listeners is break down in the book in a problem-to-solution approach. Reading this book is a true learning exercise as to exploiting JSF API, creating custom components, renderers, tagfiles and what not provided by JSF API in order to solve common problems.
 
-A must read if you also like [Mastering JSF 2.2](http://pzz.to/mastering-jsf22) from the same author!
+A must read if you also like [Mastering JSF 2.2](https://pzz.to/mastering-jsf22) from the same author!
 
 ### PrimeFaces & OmniFaces powers combined 
 
-[![PrimeFaces & OmniFaces powers combined](http://i.imgur.com/D3iRI8qm.jpg)](https://leanpub.com/PrimeFaces-OmniFaces-Powers-Combined)
+[![PrimeFaces & OmniFaces powers combined](https://i.imgur.com/D3iRI8qm.jpg)](https://leanpub.com/PrimeFaces-OmniFaces-Powers-Combined)
 
 [PrimeFaces & OmniFaces powers combined](https://leanpub.com/PrimeFaces-OmniFaces-Powers-Combined) is an e-book of Anghel Leonard containing complete examples showing off situations when the PrimeFaces UIs take advantage of OmniFaces help.
 
 
 ## Support
 
-If you have specific programming problems or questions related to the OmniFaces library, feel free to post a question on [Stack Overflow](http://stackoverflow.com) using at least the [`jsf`](http://stackoverflow.com/questions/tagged/jsf) and [`omnifaces`](http://stackoverflow.com/questions/tagged/omnifaces) tags.
+If you have specific programming problems or questions related to the OmniFaces library, feel free to post a question on [Stack Overflow](https://stackoverflow.com) using at least the [`jsf`](https://stackoverflow.com/questions/tagged/jsf) and [`omnifaces`](https://stackoverflow.com/questions/tagged/omnifaces) tags.
 
 If you have found bugs or have new ideas, feel free to open a [new issue](https://github.com/omnifaces/omnifaces/issues).
 
@@ -202,25 +202,25 @@ If you have general feedback that's not either a question, bug report or feature
  * [Oracle - Duke’s Choice Awards 2015](https://community.oracle.com/docs/DOC-949972)
  * [YouTube - Programação Web com Java - 177: Introdução ao OmniFaces](https://www.youtube.com/watch?v=xojCLTjN9n4) - [193: SelectItemsConverter](https://www.youtube.com/watch?v=_sNP0RyPMtg) - [197: ResetInputAjaxActionListener](https://www.youtube.com/watch?v=bkbhxR76PTM) (Portuguese)
  * [ZEEF - OmniFaces Utilities by Anghel Leonard](https://omnifaces-utilities.zeef.com/anghel.leonard)
- * [Beyond Java - OmniFaces CombinedResourceHandler Gives Your Application a Boost](http://www.beyondjava.net/blog/omnifaces-combinedresourcehandler-gives-your-application-a-boost/)
- * [JAXenter - JSF-Bibliothek OmniFaces 2.0 erschienen](http://jaxenter.de/news/jsf-bibliothek-omnifaces-2-0-177727) (German)
- * [OSChina - OmniFaces 2.0 发布，JSF2 工具库](http://www.oschina.net/news/57372/omnifaces-2-0-released) (Chinese)
+ * [Beyond Java - OmniFaces CombinedResourceHandler Gives Your Application a Boost](https://www.beyondjava.net/blog/omnifaces-combinedresourcehandler-gives-your-application-a-boost/)
+ * [JAXenter - JSF-Bibliothek OmniFaces 2.0 erschienen](https://jaxenter.de/news/jsf-bibliothek-omnifaces-2-0-177727) (German)
+ * [OSChina - OmniFaces 2.0 发布，JSF2 工具库](https://www.oschina.net/news/57372/omnifaces-2-0-released) (Chinese)
  * [OmniFaces Fans - OmniFaces 2.0 is here!](http://omnifaces-fans.blogspot.nl/2014/11/omnifaces-20-is-here_88.html)
- * [Beyond Java - OmniFaces 2.0 released](http://www.beyondjava.net/blog/newsflash-omnifaces-2-0-released/)
+ * [Beyond Java - OmniFaces 2.0 released](https://www.beyondjava.net/blog/newsflash-omnifaces-2-0-released/)
  * [Thoughts on software development - Building dynamic responsive multi-level menus with plain HTML and OmniFaces](http://ovaraksin.blogspot.nl/2014/12/building-dynamic-responsive-multi-level.html)
- * [Java vs .NET SQLWorld presentation](http://slideshare.net/odashinsuke/java-36899088/9) (Japanese)
- * [Mastering JavaServer Faces 2.2 - a.o. Chapter 7](http://my.safaribooksonline.com/book/programming/java/9781782176466/7dot-jsf-and-ajax/ch07_html) 
- * [Bytes Lounge - How to cache component rendering in JSF example](http://byteslounge.com/tutorials/how-to-cache-component-rendering-in-jsf-example)
- * [Beyond Java - Why JSF 2.0 Hides Exceptions When Using AJAX (about FullAjaxExceptionHandlerFactory)](http://beyondjava.net/blog/jsf-2-0-hides-exceptions-ajax)
- * [Adictos al Trabajo - Omnifaces: una librería de utilidades para JSF2](http://adictosaltrabajo.com/tutoriales/tutoriales.php?pagina=omnifacesJSF2UtilityLibrary) (Spanish)
+ * [Java vs .NET SQLWorld presentation](https://slideshare.net/odashinsuke/java-36899088/9) (Japanese)
+ * [Mastering JavaServer Faces 2.2 - a.o. Chapter 7](https://my.safaribooksonline.com/book/programming/java/9781782176466/7dot-jsf-and-ajax/ch07_html) 
+ * [Bytes Lounge - How to cache component rendering in JSF example](https://byteslounge.com/tutorials/how-to-cache-component-rendering-in-jsf-example)
+ * [Beyond Java - Why JSF 2.0 Hides Exceptions When Using AJAX (about FullAjaxExceptionHandlerFactory)](https://beyondjava.net/blog/jsf-2-0-hides-exceptions-ajax)
+ * [Adictos al Trabajo - Omnifaces: una librería de utilidades para JSF2](https://www.adictosaltrabajo.com/2013/09/29/omnifaces-jsf2-utility-library/) (Spanish)
  * [JSFCentral - Arjan Tijms and Bauke Scholtz (BalusC) Talk about OmniFaces and Building zeef.com](http://content.jsfcentral.com/c/journal_articles/view_article_content?groupId=35702&articleId=91827&version=1.7)
- * [OIO - JSF Performance Tuning (with CombinedResourceHandler)](http://blog.oio.de/2013/05/06/jsf-performance-tuning/)
- * [Challenge Java EE - JSFでPDFファイルを開いたりダウンロードしたりしてみる (download PDF files in JSF)](http://kikutaro777.hatenablog.com/entry/2013/04/09/181002) (Japanese)
- * [OSChina - OmniFaces 1.4 发布，JSF2 工具库](http://oschina.net/news/38546/omnifaces-1-4) (Chinese)
- * [JAXenter - JSF-Bibliothek OmniFaces vereinfacht HTML Messages](http://jaxenter.de/news/JSF-Bibliothek-OmniFaces-vereinfacht-HTML-Messages) (German)
- * [JAXenter - Besser spät als nie: JSF-Bibliothek OmniFaces 1.4 mit überarbeiteten FacesViews](http://it-republik.de/jaxenter/news/Besser-spaet-als-nie-JSF-Bibliothek-OmniFaces-1.4-mit-ueberarbeiteten-FacesViews-066860.html) (German)
- * [JAXenter - Nie wieder "View Expired": JSF-Bibliothek OmniFaces 1.3 erschienen](http://it-republik.de/jaxenter/news/Nie-wieder-View-Expired-JSF-Bibliothek-OmniFaces-1.3-erschienen-066319.html) (German)
+ * [OIO - JSF Performance Tuning (with CombinedResourceHandler)](https://blog.oio.de/2013/05/06/jsf-performance-tuning/)
+ * [Challenge Java EE - JSFでPDFファイルを開いたりダウンロードしたりしてみる (download PDF files in JSF)](https://kikutaro777.hatenablog.com/entry/2013/04/09/181002) (Japanese)
+ * [OSChina - OmniFaces 1.4 发布，JSF2 工具库](https://oschina.net/news/38546/omnifaces-1-4) (Chinese)
+ * [JAXenter - JSF-Bibliothek OmniFaces vereinfacht HTML Messages](https://jaxenter.de/news/JSF-Bibliothek-OmniFaces-vereinfacht-HTML-Messages) (German)
+ * [JAXenter - Besser spät als nie: JSF-Bibliothek OmniFaces 1.4 mit überarbeiteten FacesViews](https://jaxenter.de/besser-spat-als-nie-jsf-bibliothek-omnifaces-1-4-mit-uberarbeiteten-facesviews-3594) (German)
+ * [JAXenter - Nie wieder "View Expired": JSF-Bibliothek OmniFaces 1.3 erschienen](https://jaxenter.de/nie-wieder-quotview-expiredquot-jsf-bibliothek-omnifaces-1-3-erschienen-3942) (German)
  * [Entwicklertagebuch - OmniFaces - Das Schweizer Taschenmescher für JSF-Entwickler](http://entwicklertagebuch.com/blog/2012/10/omnifaces-das-schweizer-taschenmesser-fur-jsf-entwickler-2/) (German)
- * [Un Poco de Java - OmniFaces: librería de utilidad para JSF](http://unpocodejava.wordpress.com/2012/07/26/omnifaces-libreria-de-utilidad-para-jsf) (Spanish)
- * [InfoQ - OmniFaces: uma biblioteca de utilitários para JSF](http://www.infoq.com/br/news/2012/09/jsf-omnifaces) (the Brazilian-Portuguese translation of previous English article)
- * [InfoQ - OmniFaces: A Utility Library for Java Server Faces](http://www.infoq.com/news/2012/07/omnifaces-1)
+ * [Un Poco de Java - OmniFaces: librería de utilidad para JSF](https://unpocodejava.wordpress.com/2012/07/26/omnifaces-libreria-de-utilidad-para-jsf) (Spanish)
+ * [InfoQ - OmniFaces: uma biblioteca de utilitários para JSF](https://www.infoq.com/br/news/2012/09/jsf-omnifaces) (the Brazilian-Portuguese translation of previous English article)
+ * [InfoQ - OmniFaces: A Utility Library for Java Server Faces](https://www.infoq.com/news/2012/07/omnifaces-1)
