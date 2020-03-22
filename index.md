@@ -48,8 +48,8 @@ For users who are still on JSF 2.2, use [2.7.3](https://repo.maven.apache.org/ma
 The OmniFaces UI components/taghandlers and EL functions are available under the following XML namespaces:
 
 ```XML
-xmlns:o="https://omnifaces.org/ui"
-xmlns:of="https://omnifaces.org/functions"
+xmlns:o="http://omnifaces.org/ui"
+xmlns:of="http://omnifaces.org/functions"
 ```
 
 OmniFaces is designed as a WAR library (web fragment library) and therefore can't be placed elsewhere in the webapp's runtime classpath outside WAR's own `/WEB-INF/lib`, such as EAR's `/lib` or even server's or JRE's own `/lib`. When OmniFaces JAR file is misplaced this way, then the webapp will be unable to find OmniFaces-bundled JSF/CDI annotated classes and throw exceptions related to this during deploy or runtime. To solve it, put back  OmniFaces in WAR's `/WEB-INF/lib`. Also note that you shouldn't have duplicate OmniFaces JAR files, otherwise CDI will throw exceptions related to ambiguous dependencies during deploy.
