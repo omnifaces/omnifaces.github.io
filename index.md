@@ -4,7 +4,7 @@
 
 **The third annual Jakarta EE Developer Survey is now open:**
 
-https://surveymonkey.com/r/Z9WBXSC
+[2020 Jakarta EE Developer Survey](https://surveymonkey.com/r/Z9WBXSC)
 
 **We love to hear from you! Please vote and help us determine the future of Jakarta EE!**
 <hr>
