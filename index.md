@@ -1,5 +1,14 @@
 [Download](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/3.4.1/omnifaces-3.4.1.jar) - [Showcase](http://showcase.omnifaces.org) - [API docs](https://omnifaces.org/docs/javadoc/current/) - [VDL docs](https://omnifaces.org/docs/vdldoc/current/) - [GitHub](https://github.com/omnifaces/omnifaces) - [Issues](https://github.com/omnifaces/omnifaces/issues) - [Twitter](https://twitter.com/OmniFaces)
 
+<hr>
+
+**The third annual Jakarta EE Developer Survey is now open:**
+
+https://surveymonkey.com/r/Z9WBXSC
+
+**We love to hear from you! Please vote and help us determine the future of Jakarta EE!**
+<hr>
+
 ## What is OmniFaces?
 
 Tired of reinventing `JSFUtils` or `FacesUtils` utility classes for every JSF web application and/or homebrewing custom components, taghandlers, etc to workaround or enhance some general shortcomings in JSF? OmniFaces may be what you're looking for!
