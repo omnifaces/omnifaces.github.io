@@ -1,0 +1,330 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en" xmlns:javaee="http://xmlns.jcp.org/xml/ns/javaee" xmlns:vdldoc="http://vdldoc.omnifaces.org" xmlns:fo="http://www.w3.org/1999/XSL/Format">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>cache (OmniFaces VDL Documentation - Generated Documentation)
+			</title>
+<meta name="keywords" content="$title">
+<link rel="stylesheet" type="text/css" title="Style" href="../stylesheet.css">
+</head>
+<body>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<div class="topNav">
+<a name="navbar_top"></a><a href="#skip-navbar_top" title="Skip navigation links"></a><a name="navbar_top_firstrow"></a>
+<ul class="navList" title="Navigation">
+<li>
+<a href="../overview-summary.html">Overview</a>
+</li>
+<li>
+<a href="tld-summary.html">Library</a>
+</li>
+<li class="navBarCell1Rev">Tag</li>
+<li>
+<a href="../help-doc.html">Help</a>
+</li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li>
+<a target="_top" href="../index.html?o/cache.html">
+									Frames
+								</a>
+</li>
+<li>
+<a target="_top" href="cache.html">
+									No Frames
+								</a>
+</li>
+</ul>
+<ul class="navList" id="alltags_navbar_top">
+<li>
+<a href="../alltags-noframe.html">All Tags</a>
+</li>
+</ul>
+<div>
+<script type="text/javascript">
+								document.getElementById("alltags_navbar_top").style.display = (window == top) ? "block" : "none";
+							</script>
+</div>
+<a name="skip-navbar_top"></a>
+</div>
+<div class="header">
+<h1 title="Library" class="title">o</h1>
+<h2 class="title">
+							Tag
+							cache</h2>
+</div>
+<div class="contentContainer">
+<div class="description">
+<ul class="blockList">
+<li class="blockList">
+<dl>
+<dt>Description:</dt>
+<dd>
+<div class="block">
+		   	
+		   		<strong>Cache</strong> is a component that initially renders the output of its children into a buffer
+		   		instead of to the response. This output is then inserted into a cache and on subsequent requests the
+		   		content retrieved from the cache is used.
+		   		<p>
+		   		By default the viewid concatenated to the component id via an underscore is used as the cache key.
+		   		<p>
+		   		Note that this component <strong>does not</strong> support a cache loader and locking mechanism. This mean several
+		   		simultaenous page requests may render the same content and it's undetermined which of those will end up being cached.
+		   		<p>
+		   		An optional caching provider (see below) can be set to control the caching implementation that is used for the actual caching.
+		   		If no such provider is installed, a default caching implementation is used that's based on
+		   		<a href="https://github.com/ben-manes/concurrentlinkedhashmap">https://github.com/ben-manes/concurrentlinkedhashmap</a> in case
+		   		a maximum cache capacity is set, or on a plain ConcurrentMap if no capacity is set.
+		   		<hr>
+				<h3>Setting a custom caching provider</h3>
+				<p>A custom caching provider can be set by using the <code>org.omnifaces.CACHE_PROVIDER</code> context
+				parameter in web.xml to point to an implementation of <code>org.omnifaces.component.output.cache.CacheProvider</code>.
+				For example:
+				<pre>
+&lt;context-param&gt;
+	&lt;param-name&gt;org.omnifaces.CACHE_PROVIDER&lt;/param-name&gt;
+	&lt;param-value&gt;com.example.MyProvider&lt;/param-value&gt;
+&lt;/context-param&gt;
+				</pre>
+				<p>
+				The default provider, <code>org.omnifaces.component.output.cache.DefaultCacheProvider</code> can be used as an
+				example.
+				<hr>
+				<h3>Global settings</h3>
+				<p>For the default provider, the maximum capacity and the default time to live can be specified for the
+				supported scopes "session" and "application". If the maximum capacity is reached, an entry will be
+				evicted following a least recently used policy. The default time to live specifies for how long
+				entries are considered to be valid. A value for the <code>time</code> attribute on this component
+				will override this global default time to live. The following context parameters can be used in web.xml:
+				<p>
+				<table>
+				<tr>
+ 				<td nowrap><code>org.omnifaces.CACHE_SETTING_APPLICATION_MAX_CAPACITY</code></td>
+				<td>Sets the maximum number of elements that will be stored per web module (application scope). Default: no limit</td>
+ 				</tr>
+ 				<tr>
+ 				<td nowrap><code>org.omnifaces.CACHE_SETTING_SESSION_MAX_CAPACITY</code></td>
+				<td>Sets the maximum number of elements that will be stored per session. Default: no limit</td>
+ 				</tr>
+ 				<tr>
+ 				<td nowrap><code>org.omnifaces.CACHE_SETTING_APPLICATION_TTL</code></td>
+				<td>Sets the maximum amount of time in seconds that cached content is valid for the application scope.
+				Can be overriden by individal cache components. Default: no limit</td>
+ 				</tr>
+ 				<tr>
+ 				<td nowrap><code>org.omnifaces.CACHE_SETTING_SESSION_TTL</code></td>
+				<td>Sets the maximum amount of time in seconds that cached content is valid for the session scope.
+				Can be overriden by individal cache components. Default: no limit</td>
+ 				</tr>
+ 				<tr>
+ 				<td nowrap><code>org.omnifaces.CACHE_INSTALL_BUFFER_FILTER</code></td>
+				<td>Boolean that when true installs a Servlet Filter (Servlet 3.0+ only) that works in conjunction with the <code>useBuffer</code> attribute of the Cache component
+					to enable an alternative way to grab the content that needs to be cached. This is a convenience setting that is a short-cut
+					for installing the <code>org.omnifaces.servlet.BufferedHttpServletResponse</code> filter manually. If more finegrained control
+					is needed regarding which place in the filter chain the filter appears and which resources it exactly filters, this setting
+					should not be used and the mentioned filter should be manually configured. Default: <code>false</code>)
+				 </td>
+ 				</tr>
+ 				</table>
+			
+		</div>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="summary">
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Component summary table, listing component information">
+<caption>
+<span>Component Information</span><span class="tabEnd">&nbsp;</span>
+</caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Info</th><th class="colLast" scope="col">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="rowColor">
+<td class="colFirst">Component Type</td><td class="colLast"><code>org.omnifaces.component.output.Cache</code></td>
+</tr>
+<tr class="altColor">
+<td class="colFirst">Handler Class</td><td class="colLast"><i>None</i></td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst">Renderer Type</td><td class="colLast"><i>None</i></td>
+</tr>
+<tr class="altColor">
+<td class="colFirst">Description</td><td class="colLast"><i>None</i></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="summary">
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Attribute summary table, listing attribute information">
+<caption>
+<span>Attributes</span><span class="tabEnd">&nbsp;</span>
+</caption>
+<thead>
+<tr>
+<th class="colFirst">Name</th><th class="colOne">Required</th><th class="colOne">Type</th><th class="colLast">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr id="key" class="rowColor">
+<td class="colFirst"><a href="#key"><code>key</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">
+				
+					Optional key used to store content in the cache. If no key is specified, a key is calculated
+					based on the client Id of this component.
+					<p>
+					While auto-generated keys can be convenient, note that in the face of dynamic behavior on a view the
+					id of a component and thus the cache key can change in ways that are difficult to predict.
+					<p>
+					Keys are relative to the scope for which they are defined, meaning a key "foo" for the a session scoped
+					cache will not conflict with a key of the same name for an application scoped cache.
+				 
+			</td>
+</tr>
+<tr id="scope" class="altColor">
+<td class="colFirst"><a href="#scope"><code>scope</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">
+				
+					Optional scope identifier used to set the scope in which caching takes place. If no scope is specified,
+					the default scope "session" will be used.
+					<p>
+					The supported scopes depent on the caching provider that is installed via the
+					<code>org.omnifaces.CACHE_PROVIDER</code>. If no such provider is installed, a default one is used
+					that supports scopes "session" and "application".
+					<p>
+					A runtime exception will be thrown if an unsupported value for scope is used.
+				 
+			</td>
+</tr>
+<tr id="time" class="rowColor">
+<td class="colFirst"><a href="#time"><code>time</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">
+				
+					Optional amount of time in seconds for which the cached content is valid (TTL). This is counted
+					from the moment content is actually added to the cache. If no time is provided the content will be subject
+					to the global cache settings, and in absence of these are subject to the behavior of the cache implementation
+					that is used. The default cache implementation will simply cache indefinitely.
+					<p>
+					Whether the content is actually removed from the cache (to preserve memory) after the given time has elapsed is
+					dependend on the actual cache implementation that is used. The default cache implementation will
+					<strong>NOT</strong> do this automatically, but will instead remove it only when the cache item is being accessed
+					again.
+					<p>
+					Following the above, new content will only be inserted into the cache following a page request. A time of e.g. <code>30</code>
+					<strong>will not</strong> cause new content to be inserted into the cache at <code>30</code> seconds intervals.
+					<p>
+					Note that this component <strong>does not</strong> support a cache loader and locking mechanism. This means after content times out,
+					several simultaneous page requests may render the same content and it's undetermined which of those will end up being cached.
+				 
+			</td>
+</tr>
+<tr id="useBuffer" class="altColor">
+<td class="colFirst"><a href="#useBuffer"><code>useBuffer</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>boolean</code>)
+					</td><td class="colLast">
+				
+					Switches to an alternative method to grab the content generated by the children of this component. Default is <code>false</code>.
+					<p>
+					Normally this content is obtained by replacing the so-called response writer when the parent Cache
+					component delegates rendering to its children. However, in some cases (like <code>h:form</code>) there is an amount
+					of post-processing being done on the response outside the context of this parent - child delegation.
+					<p>
+					Via this switch, the full response is buffered if the cache doesn't contain content for this component and special
+					markers are inserted surrounding the children's rendering. Afterwards, the content between the markers (if any) is
+					extracted and inserted into the cache. Note that the full response is only buffered incase there's no value in the cache.
+					For all other requests this buffering will not happen.
+					<p>
+					Since this is clearly a more resource intensive and invasive method to grab content, it's not enabled by default.
+					In addition to setting this attribute to <code>true</code>, the <code>org.omnifaces.servlet.BufferedHttpServletResponse</code>
+					Servlet Filter needs to be configured to filter the Faces Servlet (or alternatively just the pages for which the buffering
+					method should be used).
+				 
+			</td>
+</tr>
+<tr id="reset" class="rowColor">
+<td class="colFirst"><a href="#reset"><code>reset</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>boolean</code>)
+					</td><td class="colLast">
+				
+					Resets the cache when set to <code>true</code>. Default is <code>false</code>.
+					<p>
+					This attribute can be used to reset the cache, meaning that the first time the cache component is rendered
+					again, it will re-render its children and will cause any cached value expressions (via <code>o:cacheValue</code>) to be
+					re-evaluated when its next referenced.
+					<p>
+					Note that this value has to remain true until the cache component is rendered, after that it should be set to false
+					again otherwise the cached content will be reset again at the next rendering.
+				 
+			</td>
+</tr>
+<tr id="disabled" class="altColor">
+<td class="colFirst"><a href="#disabled"><code>disabled</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>boolean</code>)
+					</td><td class="colLast">
+				
+					Disables the cache when set to <code>true</code>. Default is <code>false</code>.
+					<p>
+					This attribute can be used to disable the cache (temporarily). In disabled state the children will be rendered directly
+					and cached content (if any) will not be used, nor will the rendering outcome of the children be cached.
+					<p>
+					When the attribute is set to <code>false</code> again any content that was cached before the cache was disabled will be
+					shown again if said content is still available in the cache. The content that was rendered when the cache was disabled
+					has no effect on any such previously cached content.
+				 
+			</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="bottomNav">
+<a name="navbar_bottom"></a><a href="#skip-navbar_bottom" title="Skip navigation links"></a><a name="navbar_bottom_firstrow"></a>
+<ul class="navList" title="Navigation">
+<li>
+<a href="../overview-summary.html">Overview</a>
+</li>
+<li>
+<a href="tld-summary.html">Library</a>
+</li>
+<li class="navBarCell1Rev">Tag</li>
+<li>
+<a href="../help-doc.html">Help</a>
+</li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li>
+<a target="_bottom" href="../index.html?o/cache.html">
+									Frames
+								</a>
+</li>
+<li>
+<a target="_bottom" href="cache.html">
+									No Frames
+								</a>
+</li>
+</ul>
+<ul class="navList" id="alltags_navbar_bottom">
+<li>
+<a href="../alltags-noframe.html">All Tags</a>
+</li>
+</ul>
+<script type="text/javascript">
+							document.getElementById("alltags_navbar_bottom").style.display = (window == top) ? "block" : "none";
+						</script><a name="skip-navbar_bottom"></a>
+</div>
+<p class="about">Output generated by <a href="http://vdldoc.omnifaces.org" target="_blank">Vdldoc</a> View Declaration Language Documentation Generator.</p>
+</body>
+</html>

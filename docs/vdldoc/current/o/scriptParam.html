@@ -1,0 +1,359 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en" xmlns:javaee="http://xmlns.jcp.org/xml/ns/javaee" xmlns:vdldoc="http://vdldoc.omnifaces.org" xmlns:fo="http://www.w3.org/1999/XSL/Format">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>scriptParam (OmniFaces VDL Documentation - Generated Documentation)
+			</title>
+<meta name="keywords" content="$title">
+<link rel="stylesheet" type="text/css" title="Style" href="../stylesheet.css">
+</head>
+<body>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<div class="topNav">
+<a name="navbar_top"></a><a href="#skip-navbar_top" title="Skip navigation links"></a><a name="navbar_top_firstrow"></a>
+<ul class="navList" title="Navigation">
+<li>
+<a href="../overview-summary.html">Overview</a>
+</li>
+<li>
+<a href="tld-summary.html">Library</a>
+</li>
+<li class="navBarCell1Rev">Tag</li>
+<li>
+<a href="../help-doc.html">Help</a>
+</li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li>
+<a target="_top" href="../index.html?o/scriptParam.html">
+									Frames
+								</a>
+</li>
+<li>
+<a target="_top" href="scriptParam.html">
+									No Frames
+								</a>
+</li>
+</ul>
+<ul class="navList" id="alltags_navbar_top">
+<li>
+<a href="../alltags-noframe.html">All Tags</a>
+</li>
+</ul>
+<div>
+<script type="text/javascript">
+								document.getElementById("alltags_navbar_top").style.display = (window == top) ? "block" : "none";
+							</script>
+</div>
+<a name="skip-navbar_top"></a>
+</div>
+<div class="header">
+<h1 title="Library" class="title">o</h1>
+<h2 class="title">
+							Tag
+							scriptParam</h2>
+</div>
+<div class="contentContainer">
+<div class="description">
+<ul class="blockList">
+<li class="blockList">
+<dl>
+<dt>Description:</dt>
+<dd>
+<div class="block">
+				
+<p>
+The <code>&lt;o:scriptParam&gt;</code> is a component that extends the standard <code>&lt;f:viewParam&gt;</code>
+with support for setting results of client-side evaluated JavaScript code in bean.
+
+<h3>Usage</h3>
+<p>
+It's similar to the <code>&lt;f:viewParam&gt;</code>.
+<pre>
+&lt;f:metadata&gt;
+    &lt;o:scriptParam script="new Date().getTimezoneOffset()" value="#{bean.clientTimeZoneOffset}" /&gt;
+    &lt;o:scriptParam script="window.screen.width" value="#{bean.clientScreenWidth}" /&gt;
+    &lt;o:scriptParam script="someFunctionName()" value="#{bean.resultOfSomeFunctionName}" /&gt;
+&lt;/f:metadata&gt;
+</pre>
+<p>
+You can use the <code>render</code> attribute to declare which components should be updated when a script parameter
+has been set.
+<pre>
+&lt;f:metadata&gt;
+    &lt;o:scriptParam script="foo()" value="#{bean.resultOfFoo}" render="fooResult" /&gt;
+&lt;/f:metadata&gt;
+...
+&lt;h:body&gt;
+    ...
+    &lt;h:panelGroup id="fooResult"&gt;
+        &lt;ui:fragment rendered="#{not empty bean.resultOfFoo}"&gt;
+            The result of foo() script is: #{bean.resultOfFoo}
+        &lt;/ui:fragment&gt;
+    &lt;/h:panelGroup&gt;
+    ...
+&lt;/h:body&gt;
+</pre>
+<p>
+Note that as it extends from the standard <code>&lt;f:viewParam&gt;</code>, its built-in conversion and validation
+functionality is also supported on this component. So, the following is also possible:
+<pre>
+&lt;f:metadata&gt;
+    &lt;o:scriptParam script="window.navigator" value="#{bean.clientNavigator}" /&gt;
+&lt;/f:metadata&gt;
+</pre>
+With a <code>clientNavigator</code> being an instance of <code>javax.json.JsonObject</code>:
+<pre>
+private JsonObject clientNavigator;
+</pre>
+And this converter:
+<pre>
+package com.example;
+
+import java.io.StringReader;
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
+import javax.faces.convert.Converter;
+import javax.faces.convert.ConverterException;
+import javax.faces.convert.FacesConverter;
+import javax.json.Json;
+import javax.json.JsonObject;
+
+&#64;FacesConverter(forClass = JsonObject.class)
+public class JsobObjectConverter implements Converter&lt;JsonObject&gt; {
+
+    &#64;Override
+    public String getAsString(FacesContext context, UIComponent component, JsonObject modelValue) {
+        if (modelValue == null) {
+            return "";
+        }
+
+        return modelValue.toString();
+    }
+
+    &#64;Override
+    public JsonObject getAsObject(FacesContext context, UIComponent component, String submittedValue) {
+        if (submittedValue == null || submittedValue.isEmpty()) {
+            return null;
+        }
+
+        try {
+            return Json.createReader(new StringReader(submittedValue)).readObject();
+        }
+        catch (Exception e) {
+            throw new ConverterException("Not a valid JSON object", e);
+        }
+    }
+}
+</pre>
+				
+		</div>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="summary">
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Component summary table, listing component information">
+<caption>
+<span>Component Information</span><span class="tabEnd">&nbsp;</span>
+</caption>
+<thead>
+<tr>
+<th class="colFirst" scope="col">Info</th><th class="colLast" scope="col">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="rowColor">
+<td class="colFirst">Component Type</td><td class="colLast"><code>org.omnifaces.component.input.ScriptParam</code></td>
+</tr>
+<tr class="altColor">
+<td class="colFirst">Handler Class</td><td class="colLast"><i>None</i></td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst">Renderer Type</td><td class="colLast"><i>None</i></td>
+</tr>
+<tr class="altColor">
+<td class="colFirst">Description</td><td class="colLast"><i>None</i></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="summary">
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Attribute summary table, listing attribute information">
+<caption>
+<span>Attributes</span><span class="tabEnd">&nbsp;</span>
+</caption>
+<thead>
+<tr>
+<th class="colFirst">Name</th><th class="colOne">Required</th><th class="colOne">Type</th><th class="colLast">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr id="script" class="rowColor">
+<td class="colFirst"><a href="#script"><code>script</code></a></td><td class="colOne"><code>true</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">
+				
+					The script to be evaluated.
+				
+			</td>
+</tr>
+<tr id="converter" class="altColor">
+<td class="colFirst"><a href="#converter"><code>converter</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>javax.faces.convert.Converter</code>)
+					</td><td class="colLast">
+				
+					Converter instance registered with this component.
+				</td>
+</tr>
+<tr id="converterMessage" class="rowColor">
+<td class="colFirst"><a href="#converterMessage"><code>converterMessage</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">
+				
+					A ValueExpression enabled attribute that, if present, will be
+					used as the text of the converter message, replacing any message
+					that comes from the converter.
+				
+			</td>
+</tr>
+<tr id="id" class="altColor">
+<td class="colFirst"><a href="#id"><code>id</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">
+				
+					The component identifier for this component. This value must be
+					unique within the closest parent component that is a naming
+					container.
+				
+			</td>
+</tr>
+<tr id="required" class="rowColor">
+<td class="colFirst"><a href="#required"><code>required</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>boolean</code>)
+					</td><td class="colLast">
+				
+					Flag indicating that the user is required to provide a submitted
+					value for this input component. This component extends the behavior of
+					this by only making this required for a non-faces request.
+				
+			</td>
+</tr>
+<tr id="requiredMessage" class="altColor">
+<td class="colFirst"><a href="#requiredMessage"><code>requiredMessage</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">
+				
+					A ValueExpression enabled attribute that, if present, will be
+					used as the text of the validation message for the "required"
+					facility, if the "required" facility is used.
+				
+			</td>
+</tr>
+<tr id="validator" class="rowColor">
+<td class="colFirst"><a href="#validator"><code>validator</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.MethodExpression</code>
+<br>(<i>signature must match </i><code>void validate(javax.faces.context.FacesContext,
+				javax.faces.component.UIComponent, java.lang.Object)
+			</code>)
+					</td><td class="colLast">
+				
+					MethodExpression representing a validator method that will be
+					called
+					during Process Validations to perform correctness checks on the
+					value of this component. The expression must evaluate to a
+					public
+					method that takes FacesContext, UIComponent, and Object
+					parameters,
+					with a return type of void.
+				
+			</td>
+</tr>
+<tr id="validatorMessage" class="altColor">
+<td class="colFirst"><a href="#validatorMessage"><code>validatorMessage</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">
+				
+					A ValueExpression enabled attribute that, if present, will be
+					used as the text of the validator message, replacing any
+					message that comes from the validator.
+				
+			</td>
+</tr>
+<tr id="value" class="rowColor">
+<td class="colFirst"><a href="#value"><code>value</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.Object</code>)
+					</td><td class="colLast">
+				
+					A ValueExpression to which the value representing the evaluated result of the script, as
+					determined by the script attribute, is bound.
+				
+			</td>
+</tr>
+<tr id="render" class="altColor">
+<td class="colFirst"><a href="#render"><code>render</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">
+				
+					A space separated string of client IDs to update after the script param has been set in bean on page load.
+				
+			</td>
+</tr>
+<tr id="binding" class="rowColor">
+<td class="colFirst"><a href="#binding"><code>binding</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>javax.el.ValueExpression</code>
+<br>(<i>must evaluate to </i><code>javax.faces.component.UIComponent</code>)
+					</td><td class="colLast">
+				
+					The ValueExpression linking this component to a property in a
+					backing bean
+				
+			</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="bottomNav">
+<a name="navbar_bottom"></a><a href="#skip-navbar_bottom" title="Skip navigation links"></a><a name="navbar_bottom_firstrow"></a>
+<ul class="navList" title="Navigation">
+<li>
+<a href="../overview-summary.html">Overview</a>
+</li>
+<li>
+<a href="tld-summary.html">Library</a>
+</li>
+<li class="navBarCell1Rev">Tag</li>
+<li>
+<a href="../help-doc.html">Help</a>
+</li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li>
+<a target="_bottom" href="../index.html?o/scriptParam.html">
+									Frames
+								</a>
+</li>
+<li>
+<a target="_bottom" href="scriptParam.html">
+									No Frames
+								</a>
+</li>
+</ul>
+<ul class="navList" id="alltags_navbar_bottom">
+<li>
+<a href="../alltags-noframe.html">All Tags</a>
+</li>
+</ul>
+<script type="text/javascript">
+							document.getElementById("alltags_navbar_bottom").style.display = (window == top) ? "block" : "none";
+						</script><a name="skip-navbar_bottom"></a>
+</div>
+<p class="about">Output generated by <a href="http://vdldoc.omnifaces.org" target="_blank">Vdldoc</a> View Declaration Language Documentation Generator.</p>
+</body>
+</html>
