@@ -169,9 +169,9 @@ For starters, a "snapshot" is just the current/latest build. It's far from a rel
 
 ### Pro CDI 2 in Java EE 8
 
-[![Pro CDI 2 in Java EE 8](https://i.imgur.com/prQvurz.png)](https://pzz.to/T9g3fD)
+[![Pro CDI 2 in Java EE 8](https://i.imgur.com/prQvurz.png)](https://amazon.com/dp/1484243625)
 
-[Pro CDI 2 in Java EE 8](https://pzz.to/T9g3fD) is available on Amazon.com since September 7, 2019. This book too is authored by members of the OmniFaces team, Jan Beernink and Arjan Tijms. It covers the history of CDI in great depth, and discusses core concepts, in addition to explaning many practical cases. CDI is the ultimate companion to JSF and therefor this book is a must-read for any JSF developer. The source code of the book's examples can be found at [GitHub](https://github.com/omnifaces/https://github.com/omnifaces/pro-cdi-2-in-java-ee-8).
+[Pro CDI 2 in Java EE 8](https://amazon.com/dp/1484243625) is available on Amazon.com since September 7, 2019. This book too is authored by members of the OmniFaces team, Jan Beernink and Arjan Tijms. It covers the history of CDI in great depth, and discusses core concepts, in addition to explaning many practical cases. CDI is the ultimate companion to JSF and therefor this book is a must-read for any JSF developer. The source code of the book's examples can be found at [GitHub](https://github.com/omnifaces/https://github.com/omnifaces/pro-cdi-2-in-java-ee-8).
 
 
 ### Mastering OmniFaces
