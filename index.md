@@ -1,14 +1,5 @@
 [Download](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/3.6.1/omnifaces-3.6.1.jar) - [Showcase](http://showcase.omnifaces.org) - [API docs](https://omnifaces.org/docs/javadoc/current/) - [VDL docs](https://omnifaces.org/docs/vdldoc/current/) - [GitHub](https://github.com/omnifaces/omnifaces) - [Issues](https://github.com/omnifaces/omnifaces/issues) - [Twitter](https://twitter.com/OmniFaces)
 
-<hr>
-
-**The third annual Jakarta EE Developer Survey is now open:**
-
-[2020 Jakarta EE Developer Survey](https://surveymonkey.com/r/Z9WBXSC)
-
-**We love to hear from you! Please vote and help us determine the future of Jakarta EE!**
-<hr>
-
 ## What is OmniFaces?
 
 Tired of reinventing `JSFUtils` or `FacesUtils` utility classes for every JSF web application and/or homebrewing custom components, taghandlers, etc to workaround or enhance some general shortcomings in JSF? OmniFaces may be what you're looking for!
@@ -175,6 +166,12 @@ For starters, a "snapshot" is just the current/latest build. It's far from a rel
 [![The Definitive Guide to JSF in Java EE 8](https://i.imgur.com/Xv9EVv4m.jpg)](https://pzz.to/T9g3fD)
 
 [The Definitive Guide to JSF in Java EE 8](https://pzz.to/T9g3fD) is since July 11, 2018 available at Amazon.com. This book is authored by the creators of OmniFaces, Bauke Scholtz and Arjan Tijms. This book is definitely a must read for anyone working with JSF or interested in JSF. It uncovers the best practices and hidden gems of JSF. The source code of the book's examples can be found at [GitHub](https://github.com/omnifaces/definitive-guide-to-jsf-in-javaee8).
+
+### Pro CDI 2 in Java EE 8
+
+[![Pro CDI 2 in Java EE 8](https://i.imgur.com/prQvurz.png)](https://pzz.to/T9g3fD)
+
+[Pro CDI 2 in Java EE 8](https://pzz.to/T9g3fD) is available on Amazon.com since September 7, 2019. This book too is authored by members of the OmniFaces team, Jan Beernink and Arjan Tijms. It covers the history of CDI in great depth, and discusses core concepts, in addition to explaning many practical cases. CDI is the ultimate companion to JSF and therefor this book is a must-read for any JSF developer. The source code of the book's examples can be found at [GitHub](https://github.com/omnifaces/https://github.com/omnifaces/pro-cdi-2-in-java-ee-8).
 
 
 ### Mastering OmniFaces
