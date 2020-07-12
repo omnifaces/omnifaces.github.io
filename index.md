@@ -1,4 +1,4 @@
-[Download](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/3.7/omnifaces-3.7.jar) - [Showcase](http://showcase.omnifaces.org) - [API docs](https://omnifaces.org/docs/javadoc/current/) - [VDL docs](https://omnifaces.org/docs/vdldoc/current/) - [GitHub](https://github.com/omnifaces/omnifaces) - [Issues](https://github.com/omnifaces/omnifaces/issues) - [Twitter](https://twitter.com/OmniFaces)
+[Download](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/3.7.1/omnifaces-3.7.1.jar) - [Showcase](http://showcase.omnifaces.org) - [API docs](https://omnifaces.org/docs/javadoc/current/) - [VDL docs](https://omnifaces.org/docs/vdldoc/current/) - [GitHub](https://github.com/omnifaces/omnifaces) - [Issues](https://github.com/omnifaces/omnifaces/issues) - [Twitter](https://twitter.com/OmniFaces)
 
 ## What is OmniFaces?
 
@@ -31,7 +31,7 @@ OmniFaces should principally integrate perfectly well with most other JSF compon
 
 ## Installation
 
-It is a matter of dropping the [OmniFaces 3.7 JAR file](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/3.7/) in `/WEB-INF/lib`.
+It is a matter of dropping the [OmniFaces 3.7.1 JAR file](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/3.7.1/) in `/WEB-INF/lib`.
 
 Maven users can add OmniFaces by adding the following Maven coordinates to `pom.xml` of the WAR project:
 
@@ -39,7 +39,7 @@ Maven users can add OmniFaces by adding the following Maven coordinates to `pom.
 <dependency>
     <groupId>org.omnifaces</groupId>
     <artifactId>omnifaces</artifactId>
-    <version>3.7</version>
+    <version>3.7.1</version>
 </dependency>
 ```
 
@@ -64,7 +64,7 @@ Version history can be found in "[What's new](http://showcase.omnifaces.org/what
 **Required**: Java 1.8, JSF 2.3, EL 3.0, Servlet 3.1, CDI 2.0, WS 1.1  
 **Optional**: BV 2.0  
 
-- 3.7 (12 July 2020) - [library](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/3.7/omnifaces-3.7.jar) - [sources](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/3.7/omnifaces-3.7-sources.jar) - [javadoc](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/3.7/omnifaces-3.7-javadoc.jar)
+- 3.7.1 (12 July 2020) - [library](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/3.7.1/omnifaces-3.7.1.jar) - [sources](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/3.7.1/omnifaces-3.7.1-sources.jar) - [javadoc](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/3.7.1/omnifaces-3.7.1-javadoc.jar)
 - 3.6.1 (22 May 2020) - [library](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/3.6.1/omnifaces-3.6.1.jar) - [sources](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/3.6.1/omnifaces-3.6.1-sources.jar) - [javadoc](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/3.6.1/omnifaces-3.6.1-javadoc.jar)
 - 3.5 (12 Apr 2020) - [library](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/3.5/omnifaces-3.5.jar) - [sources](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/3.5/omnifaces-3.5-sources.jar) - [javadoc](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/3.5/omnifaces-3.5-javadoc.jar)
 - 3.4.1 (30 Nov 2019) - [library](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/3.4.1/omnifaces-3.4.1.jar) - [sources](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/3.4.1/omnifaces-3.4.1-sources.jar) - [javadoc](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/3.4.1/omnifaces-3.4.1-javadoc.jar)
