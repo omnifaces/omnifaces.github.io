@@ -16,6 +16,7 @@ Besides utility classes for working with the JSF API from Java code, such as [Fa
 
 An important design goal will be to have as few dependencies as possible and to be minimally invasive.
 
+- OmniFaces 4.x requires Java 1.8, JSF 3.0, EL 4.0, Servlet 5.0, CDI 3.0, WS 2.0
 - OmniFaces 3.x requires Java 1.8, JSF 2.3, EL 3.0, Servlet 3.1, CDI 2.0, WS 1.1
 - OmniFaces 2.x requires Java 1.7, JSF 2.2, EL 2.2, Servlet 3.0, CDI 1.1, WS 1.1
 - OmniFaces 1.x requires Java 1.6, JSF 2.0, EL 2.1, Servlet 2.5
@@ -58,6 +59,14 @@ OmniFaces is designed as a WAR library (web fragment library) and therefore can'
 ## Download
 
 Version history can be found in "[What's new](http://showcase.omnifaces.org/whatsnew)" page at the showcase.
+
+### OmniFaces 4.x
+
+**Required**: Java 1.8, JSF 3.0, EL 4.0, Servlet 5.0, CDI 3.0, WS 2.0  
+**Optional**: BV 3.0
+
+- 4.0-M1 (18 Jul 2020) - [library](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.0-M1/omnifaces-4.0-M1.jar) - [sources](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.0-M1/omnifaces-4.0-M1-sources.jar) - [javadoc](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.0-M1/omnifaces-4.0-M1-javadoc.jar)
+
 
 ### OmniFaces 3.x
 
