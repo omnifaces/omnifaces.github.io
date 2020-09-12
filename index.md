@@ -67,7 +67,8 @@ Version history can be found in "[What's new](http://showcase.omnifaces.org/what
 **Required**: Java 1.8, JSF 3.0, EL 4.0, Servlet 5.0, CDI 3.0, WS 2.0  
 **Optional**: BV 3.0
 
-- 4.0-M2 (12 Sep 2020) - [library](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.0-M2/omnifaces-4.0-M2.jar) - [sources](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.0-M2/omnifaces-4.0-M2-sources.jar) - [javadoc](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.0-M2/omnifaces-4.0-M2-javadoc.jar)
+- 4.0-M2 (12 Sep 2020, Jakartified 3.8) - [library](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.0-M2/omnifaces-4.0-M2.jar) - [sources](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.0-M2/omnifaces-4.0-M2-sources.jar) - [javadoc](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.0-M2/omnifaces-4.0-M2-javadoc.jar)
+- 4.0-M1 (18 Jul 2020, Jakartified 3.7.1) - [library](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.0-M1/omnifaces-4.0-M1.jar) - [sources](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.0-M1/omnifaces-4.0-M1-sources.jar) - [javadoc](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.0-M1/omnifaces-4.0-M1-javadoc.jar)
 
 
 ### OmniFaces 3.x
