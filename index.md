@@ -1,7 +1,8 @@
 [Download](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/3.8/omnifaces-3.8.jar) - [Showcase](http://showcase.omnifaces.org) - [API docs](https://omnifaces.org/docs/javadoc/current/) - [VDL docs](https://omnifaces.org/docs/vdldoc/current/) - [GitHub](https://github.com/omnifaces/omnifaces) - [Issues](https://github.com/omnifaces/omnifaces/issues) - [Twitter](https://twitter.com/OmniFaces)
 
 <script>(function(t,e,s,n){var o,a,c;t.SMCX=t.SMCX||[],e.getElementById(n)||(o=e.getElementsByTagName(s),a=o[o.length-1],c=e.createElement(s),c.type="text/javascript",c.async=!0,c.id=n,c.src="https://widget.surveymonkey.com/collect/website/js/tRaiETqnLgj758hTBazgdwFH3uMw0ug9ff20ZUAiq7FuZhmyJADaO_2FtKET2utyAM.js",a.parentNode.insertBefore(c,a))})(window,document,"script","smcx-sdk");</script>
-<a style="font: 12px Helvetica, sans-serif; color: #999; text-decoration: none;" href=surveymonkey.com/r/jakarta2020> Take survey fullscreen </a>
+[Take survey fullscreen](https://surveymonkey.com/r/jakarta2020)
+
 
 ## What is OmniFaces?
 
