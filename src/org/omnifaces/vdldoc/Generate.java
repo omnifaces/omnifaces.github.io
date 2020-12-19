@@ -24,7 +24,6 @@ public class Generate {
 		generator.setWindowTitle(VDLDOC_TITLE);
 		generator.setDocTitle(VDLDOC_TITLE);
 		generator.setOutputDirectory(new File(omniFacesHomepageProject, "/docs/vdldoc/current"));
-		generator.setFacesConfig(new File(omniFacesProject, "/src/main/resources/META-INF/faces-config.xml"));
 		generator.addTaglib(new File(omniFacesProject, "/src/main/resources/META-INF/omnifaces-ui.taglib.xml"));
 		generator.addTaglib(new File(omniFacesProject, "/src/main/resources/META-INF/omnifaces-functions.taglib.xml"));
 		generator.generate();
