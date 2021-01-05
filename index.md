@@ -1,9 +1,5 @@
 [Download](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/3.9/omnifaces-3.9.jar) - [Showcase](http://showcase.omnifaces.org) - [API docs](https://omnifaces.org/docs/javadoc/current/) - [VDL docs](https://omnifaces.org/docs/vdldoc/current/) - [GitHub](https://github.com/omnifaces/omnifaces) - [Issues](https://github.com/omnifaces/omnifaces/issues) - [Twitter](https://twitter.com/OmniFaces)
 
-<script>(function(t,e,s,n){var o,a,c;t.SMCX=t.SMCX||[],e.getElementById(n)||(o=e.getElementsByTagName(s),a=o[o.length-1],c=e.createElement(s),c.type="text/javascript",c.async=!0,c.id=n,c.src="https://widget.surveymonkey.com/collect/website/js/tRaiETqnLgj758hTBazgdwFH3uMw0ug9ff20ZUAiq7FuZhmyJADaO_2FtKET2utyAM.js",a.parentNode.insertBefore(c,a))})(window,document,"script","smcx-sdk");</script>
-[Take survey fullscreen](https://surveymonkey.com/r/jakarta2020)
-
-
 ## What is OmniFaces?
 
 Tired of reinventing `JSFUtils` or `FacesUtils` utility classes for every JSF web application and/or homebrewing custom components, taghandlers, etc to workaround or enhance some general shortcomings in JSF? OmniFaces may be what you're looking for!
