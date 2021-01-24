@@ -46,7 +46,7 @@ Maven users can add OmniFaces by adding the following Maven coordinates to `pom.
 
 For users who are still on JSF 2.2, use [2.7.10](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/2.7.10/) instead. The 2.x branch is in maintenance mode. For users on yet more outdated environments who can't/won't use CDI, use [1.14.1](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/1.14.1/) instead. It doesn't contain anything from CDI nor new things which were added in 2.x, but it does contain enhancements and bugfixes to existing 1.x things. Note that there is no 1.15 nor 1.16. The 1.14.1 is latest version of the 1.x branch which is also in maintenance mode.
 
-If you are already on Jakarta EE 9 (e.g. GlassFish 6), then use [4.0-M4](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.0-M4/) instead. It's the Jakartified version of 3.10.
+If you are already on Jakarta EE 9 (e.g. WildFly 22, OpenLiberty 21, etc), then use [4.0-M5](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.0-M5/) instead. It's the Jakartified version of 3.10.
 
 The OmniFaces UI components/taghandlers and EL functions are available under the following XML namespaces:
 
