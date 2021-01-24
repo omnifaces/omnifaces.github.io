@@ -171,7 +171,19 @@
 				
 			</td>
                         </tr>
-                        <tr id="type" class="altColor">
+                        <tr id="lazy" class="altColor">
+                            <td class="colFirst"><a href="#lazy"><code>lazy</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>boolean</code>)
+					</td><td class="colLast">
+				
+					When set to <code>true</code> then the referenced image will only be loaded when the window is finished
+					loading and the image is visible in the viewport.
+					This attribute is ignored when 'dataURI' attribute is specified.
+				
+			</td>
+                        </tr>
+                        <tr id="type" class="rowColor">
                             <td class="colFirst"><a href="#type"><code>type</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
                                 <br>
                                 (<i>must evaluate to </i><code>java.lang.String</code>)
@@ -182,7 +194,7 @@
 				
 			</td>
                         </tr>
-                        <tr id="lastModified" class="rowColor">
+                        <tr id="lastModified" class="altColor">
                             <td class="colFirst"><a href="#lastModified"><code>lastModified</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
                                 <br>
                                 (<i>must evaluate to </i><code>java.lang.Object</code>)
@@ -194,7 +206,7 @@
 				
 			</td>
                         </tr>
-                        <tr id="fragment" class="altColor">
+                        <tr id="fragment" class="rowColor">
                             <td class="colFirst"><a href="#fragment"><code>fragment</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
                                 <br>
                                 (<i>must evaluate to </i><code>java.lang.String</code>)
@@ -206,7 +218,7 @@
 				
 			</td>
                         </tr>
-                        <tr id="name" class="rowColor">
+                        <tr id="name" class="altColor">
                             <td class="colFirst"><a href="#name"><code>name</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
                                 <br>
                                 (<i>must evaluate to </i><code>java.lang.String</code>)
@@ -217,7 +229,7 @@
 				
 			</td>
                         </tr>
-                        <tr id="library" class="altColor">
+                        <tr id="library" class="rowColor">
                             <td class="colFirst"><a href="#library"><code>library</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
                                 <br>
                                 (<i>must evaluate to </i><code>java.lang.String</code>)
@@ -228,7 +240,7 @@
 				
 			</td>
                         </tr>
-                        <tr id="alt" class="rowColor">
+                        <tr id="alt" class="altColor">
                             <td class="colFirst"><a href="#alt"><code>alt</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
                                 <br>
                                 (<i>must evaluate to </i><code>java.lang.String</code>)
@@ -236,7 +248,7 @@
 				Alternate textual description of the element rendered by this component.
 			</td>
                         </tr>
-                        <tr id="dir" class="altColor">
+                        <tr id="dir" class="rowColor">
                             <td class="colFirst"><a href="#dir"><code>dir</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
                                 <br>
                                 (<i>must evaluate to </i><code>java.lang.String</code>)
@@ -246,7 +258,7 @@
 				These attributes are case sensitive when rendering to XHTML, so care must be taken to have the correct case.
 			</td>
                         </tr>
-                        <tr id="height" class="rowColor">
+                        <tr id="height" class="altColor">
                             <td class="colFirst"><a href="#height"><code>height</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
                                 <br>
                                 (<i>must evaluate to </i><code>java.lang.String</code>)
@@ -254,7 +266,7 @@
 				Override for the height of this image.
 			</td>
                         </tr>
-                        <tr id="ismap" class="altColor">
+                        <tr id="ismap" class="rowColor">
                             <td class="colFirst"><a href="#ismap"><code>ismap</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
                                 <br>
                                 (<i>must evaluate to </i><code>boolean</code>)
@@ -264,7 +276,7 @@
 				A value of false causes no attribute to be rendered, while a value of true causes the attribute to be rendered as ismap="ismap".
 			</td>
                         </tr>
-                        <tr id="lang" class="rowColor">
+                        <tr id="lang" class="altColor">
                             <td class="colFirst"><a href="#lang"><code>lang</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
                                 <br>
                                 (<i>must evaluate to </i><code>java.lang.String</code>)
@@ -272,7 +284,7 @@
 				Code describing the language used in the generated markup for this component.
 			</td>
                         </tr>
-                        <tr id="longdesc" class="altColor">
+                        <tr id="longdesc" class="rowColor">
                             <td class="colFirst"><a href="#longdesc"><code>longdesc</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
                                 <br>
                                 (<i>must evaluate to </i><code>java.lang.String</code>)
@@ -280,7 +292,7 @@
 				URI to a long description of the image represented by this element.
 			</td>
                         </tr>
-                        <tr id="onclick" class="rowColor">
+                        <tr id="onclick" class="altColor">
                             <td class="colFirst"><a href="#onclick"><code>onclick</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
                                 <br>
                                 (<i>must evaluate to </i><code>java.lang.String</code>)
@@ -288,7 +300,7 @@
 				Javascript code executed when a pointer button is clicked over this element.
 			</td>
                         </tr>
-                        <tr id="ondblclick" class="altColor">
+                        <tr id="ondblclick" class="rowColor">
                             <td class="colFirst"><a href="#ondblclick"><code>ondblclick</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
                                 <br>
                                 (<i>must evaluate to </i><code>java.lang.String</code>)
@@ -296,7 +308,7 @@
 				Javascript code executed when a pointer button is double clicked over this element.
 			</td>
                         </tr>
-                        <tr id="onkeydown" class="rowColor">
+                        <tr id="onkeydown" class="altColor">
                             <td class="colFirst"><a href="#onkeydown"><code>onkeydown</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
                                 <br>
                                 (<i>must evaluate to </i><code>java.lang.String</code>)
@@ -304,7 +316,7 @@
 				Javascript code executed when a key is pressed down over this element.
 			</td>
                         </tr>
-                        <tr id="onkeypress" class="altColor">
+                        <tr id="onkeypress" class="rowColor">
                             <td class="colFirst"><a href="#onkeypress"><code>onkeypress</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
                                 <br>
                                 (<i>must evaluate to </i><code>java.lang.String</code>)
@@ -312,7 +324,7 @@
 				Javascript code executed when a key is pressed and released over this element.
 			</td>
                         </tr>
-                        <tr id="onkeyup" class="rowColor">
+                        <tr id="onkeyup" class="altColor">
                             <td class="colFirst"><a href="#onkeyup"><code>onkeyup</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
                                 <br>
                                 (<i>must evaluate to </i><code>java.lang.String</code>)
@@ -320,7 +332,7 @@
 				Javascript code executed when a key is released over this element.
 			</td>
                         </tr>
-                        <tr id="onmousedown" class="altColor">
+                        <tr id="onmousedown" class="rowColor">
                             <td class="colFirst"><a href="#onmousedown"><code>onmousedown</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
                                 <br>
                                 (<i>must evaluate to </i><code>java.lang.String</code>)
@@ -328,7 +340,7 @@
 				Javascript code executed when a pointer button is pressed down over this element.
 			</td>
                         </tr>
-                        <tr id="onmousemove" class="rowColor">
+                        <tr id="onmousemove" class="altColor">
                             <td class="colFirst"><a href="#onmousemove"><code>onmousemove</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
                                 <br>
                                 (<i>must evaluate to </i><code>java.lang.String</code>)
@@ -336,7 +348,7 @@
 				Javascript code executed when a pointer button is moved within this element.
 			</td>
                         </tr>
-                        <tr id="onmouseout" class="altColor">
+                        <tr id="onmouseout" class="rowColor">
                             <td class="colFirst"><a href="#onmouseout"><code>onmouseout</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
                                 <br>
                                 (<i>must evaluate to </i><code>java.lang.String</code>)
@@ -344,7 +356,7 @@
 				Javascript code executed when a pointer button is moved away from this element.
 			</td>
                         </tr>
-                        <tr id="onmouseover" class="rowColor">
+                        <tr id="onmouseover" class="altColor">
                             <td class="colFirst"><a href="#onmouseover"><code>onmouseover</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
                                 <br>
                                 (<i>must evaluate to </i><code>java.lang.String</code>)
@@ -352,7 +364,7 @@
 				Javascript code executed when a pointer button is moved onto this element.
 			</td>
                         </tr>
-                        <tr id="onmouseup" class="altColor">
+                        <tr id="onmouseup" class="rowColor">
                             <td class="colFirst"><a href="#onmouseup"><code>onmouseup</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
                                 <br>
                                 (<i>must evaluate to </i><code>java.lang.String</code>)
@@ -360,7 +372,7 @@
 				Javascript code executed when a pointer button is released over this element.
 			</td>
                         </tr>
-                        <tr id="role" class="rowColor">
+                        <tr id="role" class="altColor">
                             <td class="colFirst"><a href="#role"><code>role</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
                                 <br>
                                 (<i>must evaluate to </i><code>java.lang.String</code>)
@@ -372,7 +384,7 @@
 				It is the page author's responsibility to ensure that the user agent is capable of correctly interpreting the value of this attribute.
 			</td>
                         </tr>
-                        <tr id="style" class="altColor">
+                        <tr id="style" class="rowColor">
                             <td class="colFirst"><a href="#style"><code>style</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
                                 <br>
                                 (<i>must evaluate to </i><code>java.lang.String</code>)
@@ -380,7 +392,7 @@
 				CSS style(s) to be applied when this component is rendered.
 			</td>
                         </tr>
-                        <tr id="styleClass" class="rowColor">
+                        <tr id="styleClass" class="altColor">
                             <td class="colFirst"><a href="#styleClass"><code>styleClass</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
                                 <br>
                                 (<i>must evaluate to </i><code>java.lang.String</code>)
@@ -389,7 +401,7 @@
 				This value must be passed through as the "class" attribute on generated markup.
 			</td>
                         </tr>
-                        <tr id="title" class="altColor">
+                        <tr id="title" class="rowColor">
                             <td class="colFirst"><a href="#title"><code>title</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
                                 <br>
                                 (<i>must evaluate to </i><code>java.lang.String</code>)
@@ -397,7 +409,7 @@
 				Advisory title information about markup elements generated for this component (simply put: the tooltip).
 			</td>
                         </tr>
-                        <tr id="usemap" class="rowColor">
+                        <tr id="usemap" class="altColor">
                             <td class="colFirst"><a href="#usemap"><code>usemap</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
                                 <br>
                                 (<i>must evaluate to </i><code>java.lang.String</code>)
@@ -405,7 +417,7 @@
 				The name of a client side image map (an HTML "map" element) for which this element provides the image.
 			</td>
                         </tr>
-                        <tr id="width" class="altColor">
+                        <tr id="width" class="rowColor">
                             <td class="colFirst"><a href="#width"><code>width</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
                                 <br>
                                 (<i>must evaluate to </i><code>java.lang.String</code>)
