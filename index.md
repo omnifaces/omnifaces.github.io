@@ -5,7 +5,7 @@
 <img src="jakarta2021.png" width="624"/>
 </a>
 
-<a style="font: 12px Helvetica, sans-serif; color: #999; text-decoration: none;" href="https://www.surveymonkey.com/r/62C5ZDW">Take survey</a>
+<a style="font: 14px Helvetica, sans-serif; color: #999; text-decoration: none;" href="https://www.surveymonkey.com/r/62C5ZDW">Take survey</a>
 
 ## What is OmniFaces?
 
