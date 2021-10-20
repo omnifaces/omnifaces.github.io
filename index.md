@@ -46,7 +46,7 @@ Maven users can add OmniFaces by adding the following Maven coordinates to `pom.
 
 For users who are still on JSF 2.2, use [2.7.13](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/2.7.13/) instead. The 2.x branch is in maintenance mode. For users on yet more outdated environments who can't/won't use CDI, use [1.14.1](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/1.14.1/) instead. It doesn't contain anything from CDI nor new things which were added in 2.x, but it does contain enhancements and bugfixes to existing 1.x things. Note that there is no 1.15 nor 1.16. The 1.14.1 is latest version of the 1.x branch which is also in maintenance mode.
 
-If you are already on Jakarta EE 9 (e.g. WildFly 22, OpenLiberty 21, etc), then use [4.0-M10](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.0-M10/) instead. It's the Jakartified version of 3.11.2.
+If you are already on Jakarta EE 9 (e.g. WildFly 22, OpenLiberty 21, etc), then use [4.0-M11](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.0-M11/) instead. It's the Jakartified version of 3.11.2.
 
 The OmniFaces UI components/taghandlers and EL functions are available under the following XML namespaces:
 
@@ -67,7 +67,7 @@ Version history can be found in "[What's new](http://showcase.omnifaces.org/what
 **Required**: Java 11, JSF 3.0, EL 4.0, Servlet 5.0, CDI 3.0, WS 2.0  
 **Optional**: BV 3.0
 
-- 4.0-M10 (15 Oct 2021, Jakartified 3.11.2, using Java 11) - [library](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.0-M10/omnifaces-4.0-M10.jar) - [sources](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.0-M10/omnifaces-4.0-M10-sources.jar) - [javadoc](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.0-M10/omnifaces-4.0-M10-javadoc.jar)
+- 4.0-M11 (20 Oct 2021, Jakartified 3.11.2, using Java 11) - [library](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.0-M11/omnifaces-4.0-M11.jar) - [sources](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.0-M11/omnifaces-4.0-M11-sources.jar) - [javadoc](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.0-M11/omnifaces-4.0-M11-javadoc.jar)
 - 4.0-M7 (28 Jan 2021, Jakartified 3.10.1, using Java 11) - [library](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.0-M7/omnifaces-4.0-M7.jar) - [sources](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.0-M7/omnifaces-4.0-M7-sources.jar) - [javadoc](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.0-M7/omnifaces-4.0-M7-javadoc.jar)
 - 4.0-M4 (19 Dec 2020, Jakartified 3.9, still using Java 1.8) - [library](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.0-M4/omnifaces-4.0-M4.jar) - [sources](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.0-M4/omnifaces-4.0-M4-sources.jar) - [javadoc](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.0-M4/omnifaces-4.0-M4-javadoc.jar)
 - 4.0-M3 (25 Oct 2020, Jakartified 3.8.1, still using Java 1.8) - [library](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.0-M3/omnifaces-4.0-M3.jar) - [sources](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.0-M3/omnifaces-4.0-M3-sources.jar) - [javadoc](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.0-M3/omnifaces-4.0-M3-javadoc.jar)
