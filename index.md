@@ -1,14 +1,5 @@
 [Download](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/3.12/omnifaces-3.12.jar) - [Showcase](http://showcase.omnifaces.org) - [API docs](https://omnifaces.org/docs/javadoc/current/) - [VDL docs](https://omnifaces.org/docs/vdldoc/current/) - [GitHub](https://github.com/omnifaces/omnifaces) - [Issues](https://github.com/omnifaces/omnifaces/issues) - [Twitter](https://twitter.com/OmniFaces)
 
-OmniFaces team members will be speaking at the JakartaOne Livestream. This will be the biggest Jakarta EE event of 2021 and one you can't miss.
-
-<a href="https://jakartaone.org/2021">
-<img src="https://pbs.twimg.com/media/FE4VMVJXEAQ7lwx?format=jpg&name=medium" width="624"/>
-</a>
-
-<a style="font: 14px Helvetica, sans-serif; color: #999; text-decoration: none;" href="https://jakartaone.org/2021">JakartaOne Livestream registration</a>
-
-
 ## What is OmniFaces?
 
 Tired of reinventing `JSFUtils` or `FacesUtils` utility classes for every JSF web application and/or homebrewing custom components, taghandlers, etc to workaround or enhance some general shortcomings in JSF? OmniFaces may be what you're looking for!
