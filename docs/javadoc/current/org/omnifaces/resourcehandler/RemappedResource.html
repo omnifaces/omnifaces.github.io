@@ -18,7 +18,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -254,10 +254,18 @@ implements <a href="https://docs.oracle.com/javase/8/docs/api/java/io/Externaliz
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/resourcehandler/RemappedResource.html#readExternal-java.io.ObjectInput-">readExternal</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/io/ObjectInput.html?is-external=true" title="class or interface in java.io">ObjectInput</a>&nbsp;input)</code>&nbsp;</td>
 </tr>
 <tr id="i11" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/resourcehandler/RemappedResource.html#setLibraryName-java.lang.String-">setLibraryName</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;libraryName)</code>&nbsp;</td>
+</tr>
+<tr id="i12" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/resourcehandler/RemappedResource.html#setResourceName-java.lang.String-">setResourceName</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;resourceName)</code>&nbsp;</td>
+</tr>
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/resourcehandler/RemappedResource.html#userAgentNeedsUpdate-javax.faces.context.FacesContext-">userAgentNeedsUpdate</a></span>(<a href="https://jakarta.ee/specifications/platform/8/apidocs/javax/faces/context/FacesContext.html?is-external=true" title="class or interface in javax.faces.context">FacesContext</a>&nbsp;context)</code>&nbsp;</td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../org/omnifaces/resourcehandler/RemappedResource.html#writeExternal-java.io.ObjectOutput-">writeExternal</a></span>(<a href="https://docs.oracle.com/javase/8/docs/api/java/io/ObjectOutput.html?is-external=true" title="class or interface in java.io">ObjectOutput</a>&nbsp;output)</code>&nbsp;</td>
 </tr>
@@ -267,7 +275,7 @@ implements <a href="https://docs.oracle.com/javase/8/docs/api/java/io/Externaliz
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;javax.faces.application.<a href="https://jakarta.ee/specifications/platform/8/apidocs/javax/faces/application/ResourceWrapper.html?is-external=true" title="class or interface in javax.faces.application">ResourceWrapper</a></h3>
-<code><a href="https://jakarta.ee/specifications/platform/8/apidocs/javax/faces/application/ResourceWrapper.html?is-external=true#setContentType-java.lang.String-" title="class or interface in javax.faces.application">setContentType</a>, <a href="https://jakarta.ee/specifications/platform/8/apidocs/javax/faces/application/ResourceWrapper.html?is-external=true#setLibraryName-java.lang.String-" title="class or interface in javax.faces.application">setLibraryName</a>, <a href="https://jakarta.ee/specifications/platform/8/apidocs/javax/faces/application/ResourceWrapper.html?is-external=true#setResourceName-java.lang.String-" title="class or interface in javax.faces.application">setResourceName</a></code></li>
+<code><a href="https://jakarta.ee/specifications/platform/8/apidocs/javax/faces/application/ResourceWrapper.html?is-external=true#setContentType-java.lang.String-" title="class or interface in javax.faces.application">setContentType</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.javax.faces.application.Resource">
@@ -377,6 +385,19 @@ implements <a href="https://docs.oracle.com/javase/8/docs/api/java/io/Externaliz
 </dl>
 </li>
 </ul>
+<a name="setResourceName-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setResourceName</h4>
+<pre>public&nbsp;void&nbsp;setResourceName(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;resourceName)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="https://jakarta.ee/specifications/platform/8/apidocs/javax/faces/application/ResourceWrapper.html?is-external=true#setResourceName-java.lang.String-" title="class or interface in javax.faces.application">setResourceName</a></code>&nbsp;in class&nbsp;<code><a href="https://jakarta.ee/specifications/platform/8/apidocs/javax/faces/application/ResourceWrapper.html?is-external=true" title="class or interface in javax.faces.application">ResourceWrapper</a></code></dd>
+</dl>
+</li>
+</ul>
 <a name="getLibraryName--">
 <!--   -->
 </a>
@@ -387,6 +408,19 @@ implements <a href="https://docs.oracle.com/javase/8/docs/api/java/io/Externaliz
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code><a href="https://jakarta.ee/specifications/platform/8/apidocs/javax/faces/application/ResourceWrapper.html?is-external=true#getLibraryName--" title="class or interface in javax.faces.application">getLibraryName</a></code>&nbsp;in class&nbsp;<code><a href="https://jakarta.ee/specifications/platform/8/apidocs/javax/faces/application/ResourceWrapper.html?is-external=true" title="class or interface in javax.faces.application">ResourceWrapper</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="setLibraryName-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setLibraryName</h4>
+<pre>public&nbsp;void&nbsp;setLibraryName(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;libraryName)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code><a href="https://jakarta.ee/specifications/platform/8/apidocs/javax/faces/application/ResourceWrapper.html?is-external=true#setLibraryName-java.lang.String-" title="class or interface in javax.faces.application">setLibraryName</a></code>&nbsp;in class&nbsp;<code><a href="https://jakarta.ee/specifications/platform/8/apidocs/javax/faces/application/ResourceWrapper.html?is-external=true" title="class or interface in javax.faces.application">ResourceWrapper</a></code></dd>
 </dl>
 </li>
 </ul>
