@@ -1,6 +1,9 @@
 [Download](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/3.13.4/omnifaces-3.13.4.jar) - [Showcase](http://showcase.omnifaces.org) - [API docs](https://omnifaces.org/docs/javadoc/current/) - [VDL docs](https://omnifaces.org/docs/vdldoc/current/) - [GitHub](https://github.com/omnifaces/omnifaces) - [Issues](https://github.com/omnifaces/omnifaces/issues) - [Twitter](https://twitter.com/OmniFaces)
 
-<script>(function(t,e,s,n){var o,a,c;t.SMCX=t.SMCX||[],e.getElementById(n)||(o=e.getElementsByTagName(s),a=o[o.length-1],c=e.createElement(s),c.type="text/javascript",c.async=!0,c.id=n,c.src="https://widget.surveymonkey.com/collect/website/js/tRaiETqnLgj758hTBazgdymTQmN5VsRrekTd4GkTBf5xiRZ1qCViOLW8wCWK1a4R.js",a.parentNode.insertBefore(c,a))})(window,document,"script","smcx-sdk");</script><a style="font: 12px Helvetica, sans-serif; color: #999; text-decoration: none;" href=https://www.surveymonkey.com/r/jakarta2022-omnifaces> Take survey full screen </a>
+<script>(function(t,e,s,n){var o,a,c;t.SMCX=t.SMCX||[],e.getElementById(n)||(o=e.getElementsByTagName(s),a=o[o.length-1],c=e.createElement(s),c.type="text/javascript",c.async=!0,c.id=n,c.src="https://widget.surveymonkey.com/collect/website/js/tRaiETqnLgj758hTBazgdymTQmN5VsRrekTd4GkTBf5xiRZ1qCViOLW8wCWK1a4R.js",a.parentNode.insertBefore(c,a))})(window,document,"script","smcx-sdk");</script>
+[Take survey fullscreen](https://www.surveymonkey.com/r/jakarta2022-omnifaces)
+
+
 
 
 ## What is OmniFaces?
