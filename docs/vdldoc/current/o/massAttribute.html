@@ -101,7 +101,7 @@
 				To target a specific component (super)class, use the <code>target</code> attribute. The example below skips labels
 				(as that would otherwise fail in the example below because they don't have a <code>valid</code> property):
 				<pre>
-&lt;o:massAttribute name="styleClass" value="#{component.valid ? '' : 'error'}" target="javax.faces.component.UIInput"&gt;
+&lt;o:massAttribute name="styleClass" value="#{component.valid ? '' : 'error'}" target="jakarta.faces.component.UIInput"&gt;
 	&lt;h:outputLabel for="input1" /&gt;
 	&lt;h:inputText id="input1" /&gt;
 	&lt;h:outputLabel for="input2" /&gt;
@@ -153,7 +153,7 @@
                             <td class="colFirst"><a href="#target"><code>target</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>java.lang.String</code></td><td class="colLast">
 				
 					The FQN (fully qualified name) of the specific <code>UIComponent</code> (super)class for which the
-					attribute should be set. For example, <code>javax.faces.component.UIInput</code> which has the
+					attribute should be set. For example, <code>jakarta.faces.component.UIInput</code> which has the
 					<code>valid</code> property. Since OmniFaces 3.10, this value can be a comma separated string of FQNs.
 				
 			</td>

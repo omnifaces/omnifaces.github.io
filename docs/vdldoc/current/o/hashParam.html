@@ -80,7 +80,8 @@ https://example.com/page.xhtml#foo=baz&bar=kaz
 This specific part of the URL (also called hash fragment identifier) is by default not sent to the server. This
 component will on page load send it anyway and on every ajax request update the hash query string in client side
 when the model value has changed in server side.
-<h3>Usage</h3>
+ *
+<h2>Usage</h2>
 <p>
 It's very similar to the <code>&lt;o:viewParam&gt;</code>.
 <pre>
@@ -184,7 +185,7 @@ If <code>#{bean.bar}</code> is any other value, then it will appear in the hash 
                         <tr id="converter" class="altColor">
                             <td class="colFirst"><a href="#converter"><code>converter</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
                                 <br>
-                                (<i>must evaluate to </i><code>javax.faces.convert.Converter</code>)
+                                (<i>must evaluate to </i><code>jakarta.faces.convert.Converter</code>)
 					</td><td class="colLast">
 				
 					Converter instance registered with this component.
@@ -241,8 +242,8 @@ If <code>#{bean.bar}</code> is any other value, then it will appear in the hash 
                         <tr id="validator" class="rowColor">
                             <td class="colFirst"><a href="#validator"><code>validator</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.MethodExpression</code>
                                 <br>
-                                (<i>signature must match </i><code>void validate(javax.faces.context.FacesContext,
-				javax.faces.component.UIComponent, java.lang.Object)
+                                (<i>signature must match </i><code>void validate(jakarta.faces.context.FacesContext,
+				jakarta.faces.component.UIComponent, java.lang.Object)
 			</code>)
 					</td><td class="colLast">
 				
@@ -308,7 +309,7 @@ If <code>#{bean.bar}</code> is any other value, then it will appear in the hash 
                             <td class="colFirst"><a href="#valueChangeListener"><code>valueChangeListener</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.MethodExpression</code>
                                 <br>
                                 (<i>signature must match </i><code>void
-				valueChange(javax.faces.event.ValueChangeEvent)
+				valueChange(jakarta.faces.event.ValueChangeEvent)
 			</code>)
 					</td><td class="colLast">
 				
@@ -340,7 +341,7 @@ If <code>#{bean.bar}</code> is any other value, then it will appear in the hash 
                         <tr id="binding" class="altColor">
                             <td class="colFirst"><a href="#binding"><code>binding</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
                                 <br>
-                                (<i>must evaluate to </i><code>javax.faces.component.UIComponent</code>)
+                                (<i>must evaluate to </i><code>jakarta.faces.component.UIComponent</code>)
 					</td><td class="colLast">
 				
 					The ValueExpression linking this component to a property in a

@@ -263,7 +263,7 @@ input.error, select.error, textarea.error {
   &lt;link rel="stylesheet" href="ie6-ie7.css" /&gt;
 &lt;![endif]--&gt;
 				</pre>
-				<p>However, Facelets renders them HTML-escaped and if <code>javax.faces.FACELETS_SKIP_COMMENTS</code> context param is
+				<p>However, Facelets renders them HTML-escaped and if <code>jakarta.faces.FACELETS_SKIP_COMMENTS</code> context param is
 				set to <code>true</code> then it will even not be rendered at all. You would need to workaround this with an ugly
 				<code>&lt;h:outputText escape="false"&gt;</code>.
 				<pre>
@@ -287,7 +287,7 @@ input.error, select.error, textarea.error {
 				components have been filled out. The default message is
 				<blockquote>{0}: Please fill out all of those fields</blockquote>
 				<hr>
-				<h3>General usage of all multiple field validators</h3>
+				<h2>General usage of all multiple field validators</h2>
 				<p>
 				This validator must be placed inside the same <code>UIForm</code> as the <code>UIInput</code> components
 				in question. The <code>UIInput</code> components must be referenced by a space separated collection of
@@ -512,11 +512,11 @@ public class ValidateValuesBean implements MultiFieldValidator {
 				</pre>
 				<p>Note that not all available attributes are listed. This depends on the validator you're specifying.
 				When you specify for example the standard <code>&lt;f:validateLongRange&gt;</code> by
-				<code>validatorId="javax.faces.LongRange"</code>, then you'll be able to use all its attributes such as
+				<code>validatorId="jakarta.faces.LongRange"</code>, then you'll be able to use all its attributes such as
 				<code>minimum</code> and <code>maximum</code> as per its documentation, but then with the possibility to supply
 				request based value expressions.
 				<pre>
-&lt;o:validator validatorId="javax.faces.LongRange" minimum="#{item.minimum}" maximum="#{item.maximum}" /&gt;
+&lt;o:validator validatorId="jakarta.faces.LongRange" minimum="#{item.minimum}" maximum="#{item.maximum}" /&gt;
 				</pre>
 			
 		</td>
@@ -529,11 +529,11 @@ public class ValidateValuesBean implements MultiFieldValidator {
 				build time basis. This allows the developer to change the attributes on a per request basis.
 				<p>
 				When you specify for example the standard <code>&lt;f:convertDateTime&gt;</code> by
-				<code>converterId="javax.faces.DateTime"</code>, then you'll be able to use all its attribuces such as
+				<code>converterId="jakarta.faces.DateTime"</code>, then you'll be able to use all its attribuces such as
 				<code>pattern</code> and <code>locale</code> as per its documentation, but then with the possibility to supply
 				request based value expressions.
 				<pre>
-&lt;o:converter converterId="javax.faces.DateTime" pattern="#{item.pattern}" locale="#{item.locale}" /&gt;
+&lt;o:converter converterId="jakarta.faces.DateTime" pattern="#{item.pattern}" locale="#{item.locale}" /&gt;
 				</pre>
 			
 		</td>
@@ -594,7 +594,7 @@ public class ValidateValuesBean implements MultiFieldValidator {
 The <code>&lt;o:scriptParam&gt;</code> is a component that extends the standard <code>&lt;f:viewParam&gt;</code>
 with support for setting results of client-side evaluated JavaScript code in bean.
 
-<h3>Usage</h3>
+<h2>Usage</h2>
 <p>
 It's similar to the <code>&lt;f:viewParam&gt;</code>.
 <pre>
@@ -630,7 +630,7 @@ functionality is also supported on this component. So, the following is also pos
     &lt;o:scriptParam script="window.navigator" value="#{bean.clientNavigator}" /&gt;
 &lt;/f:metadata&gt;
 </pre>
-With a <code>clientNavigator</code> being an instance of <code>javax.json.JsonObject</code>:
+With a <code>clientNavigator</code> being an instance of <code>jakarta.json.JsonObject</code>:
 <pre>
 private JsonObject clientNavigator;
 </pre>
@@ -639,13 +639,13 @@ And this converter:
 package com.example;
 
 import java.io.StringReader;
-import javax.faces.component.UIComponent;
-import javax.faces.context.FacesContext;
-import javax.faces.convert.Converter;
-import javax.faces.convert.ConverterException;
-import javax.faces.convert.FacesConverter;
-import javax.json.Json;
-import javax.json.JsonObject;
+import jakarta.faces.component.UIComponent;
+import jakarta.faces.context.FacesContext;
+import jakarta.faces.convert.Converter;
+import jakarta.faces.convert.ConverterException;
+import jakarta.faces.convert.FacesConverter;
+import jakarta.json.Json;
+import jakarta.json.JsonObject;
 
 &#64;FacesConverter(forClass = JsonObject.class)
 public class JsobObjectConverter implements Converter&lt;JsonObject&gt; {
@@ -694,7 +694,8 @@ https://example.com/page.xhtml#foo=baz&bar=kaz
 This specific part of the URL (also called hash fragment identifier) is by default not sent to the server. This
 component will on page load send it anyway and on every ajax request update the hash query string in client side
 when the model value has changed in server side.
-<h3>Usage</h3>
+ *
+<h2>Usage</h2>
 <p>
 It's very similar to the <code>&lt;o:viewParam&gt;</code>.
 <pre>
@@ -767,7 +768,7 @@ If <code>#{bean.bar}</code> is any other value, then it will appear in the hash 
 					<p>
 					Only when you set <code>immediate="true"</code>, then it will behave the same as the standard
 					<code>&lt;f:viewAction&gt;</code>.
-					<h3>Messaging</h3>
+					<h2>Messaging</h2>
 					<p>
 					You can use the <code>message</code> attribute to add a global flash warning message.
 					<pre>
@@ -940,7 +941,7 @@ If <code>#{bean.bar}</code> is any other value, then it will appear in the hash 
 		   		<a href="https://github.com/ben-manes/concurrentlinkedhashmap">https://github.com/ben-manes/concurrentlinkedhashmap</a> in case
 		   		a maximum cache capacity is set, or on a plain ConcurrentMap if no capacity is set.
 		   		<hr>
-				<h3>Setting a custom caching provider</h3>
+				<h2>Setting a custom caching provider</h2>
 				<p>A custom caching provider can be set by using the <code>org.omnifaces.CACHE_PROVIDER</code> context
 				parameter in web.xml to point to an implementation of <code>org.omnifaces.component.output.cache.CacheProvider</code>.
 				For example:
@@ -954,7 +955,7 @@ If <code>#{bean.bar}</code> is any other value, then it will appear in the hash 
 				The default provider, <code>org.omnifaces.component.output.cache.DefaultCacheProvider</code> can be used as an
 				example.
 				<hr>
-				<h3>Global settings</h3>
+				<h2>Global settings</h2>
 				<p>For the default provider, the maximum capacity and the default time to live can be specified for the
 				supported scopes "session" and "application". If the maximum capacity is reached, an entry will be
 				evicted following a least recently used policy. The default time to live specifies for how long
@@ -1124,7 +1125,7 @@ public enum Baz {
 				per-<code>UICommand</code> or <code>UIInput</code> component basis. Usage example:
 				<pre>
 &lt;h:commandButton&gt;
-	&lt;o:validateBean groups="javax.validation.groups.Default,com.example.MyGroup"/&gt;
+	&lt;o:validateBean groups="jakarta.validation.groups.Default,com.example.MyGroup"/&gt;
 &lt;/h:commandButton&gt;
 				</pre>
 			
@@ -1203,7 +1204,7 @@ public enum Baz {
 				To target a specific component (super)class, use the <code>target</code> attribute. The example below skips labels
 				(as that would otherwise fail in the example below because they don't have a <code>valid</code> property):
 				<pre>
-&lt;o:massAttribute name="styleClass" value="#{component.valid ? '' : 'error'}" target="javax.faces.component.UIInput"&gt;
+&lt;o:massAttribute name="styleClass" value="#{component.valid ? '' : 'error'}" target="jakarta.faces.component.UIInput"&gt;
 	&lt;h:outputLabel for="input1" /&gt;
 	&lt;h:inputText id="input1" /&gt;
 	&lt;h:outputLabel for="input2" /&gt;
@@ -1232,7 +1233,7 @@ public enum Baz {
 				error, so you can customize HTTP error pages via <code>&lt;error-page&gt;</code> entries in <code>web.xml</code>,
 				otherwise the server-default one will be displayed instead.
 				 *
-				<h3>f:viewParam required="true" fail</h3>
+				<h2>f:viewParam required="true" fail</h2>
 				<p>
 				As a precaution, the <code>&lt;f:viewParam required="true"&gt;</code> has in current Mojarra and MyFaces releases
 				(as of now, Mojarra 2.2.7 and MyFaces 2.2.4) a design error. When the parameter is not specified in the query string,
@@ -1242,7 +1243,7 @@ public enum Baz {
 				<code>&lt;o:viewParamValidationFailed&gt;</code> is actually relying on. This is fixed in
 				<code>&lt;o:viewParam</code>.
 				 *
-				<h3>Examples</h3>
+				<h2>Examples</h2>
 				<p>
 				With the example below, when at least one view param is absent, then the client will be returned a HTTP 400 error.
 				<pre>
@@ -1283,7 +1284,7 @@ public enum Baz {
 				applied in the same order as they are declared in the view. So, with the example above, the one nested in
 				<code>&lt;f|o:viewParam&gt;</code> takes precedence over the one nested in <code>&lt;f:metadata&gt;</code>.
 				 *
-				<h3>Messaging</h3>
+				<h2>Messaging</h2>
 				<p>
 				By default, the first occurring faces message on the parent component will be copied, or when there is none, then
 				the first occurring global faces message will be copied. When <code>sendRedirect</code> is used, then it will be set
@@ -1297,7 +1298,7 @@ public enum Baz {
 				&lt;o:viewParamValidationFailed sendError="401" message="Authentication failed. You need to login." /&gt;
 				</pre>
 				 *
-				<h3>Design notes</h3>
+				<h2>Design notes</h2>
 				<p>
 				You can technically nest multiple <code>&lt;o:viewParamValidationFailed&gt;</code> inside the same parent, but this
 				is not the documented approach and the behavior is unspecified.
@@ -1490,7 +1491,7 @@ String name2 = Faces.getRequestParameter("name2"); // value2
                             <td class="colOne"><b><a href="selectItemGroups.html">selectItemGroups</a></b></td><td class="colLast">
 			
 				The <code>o:selectItemGroups</code> is an extension of {@link UISelectItems} which allows you to iterate over a nested collection representing groups of select items.
-				This is the {@link UIComponent} counterpart of <code>javax.faces.model.SelectItemGroup</code>.
+				This is the {@link UIComponent} counterpart of <code>jakarta.faces.model.SelectItemGroup</code>.
 				There is no equivalent (yet) in the standard JSF API. Currently the only way to represent {@link SelectItemGroup} in UI is to manually create and populate them in a backing bean which can end up to be quite verbose.
 				<p>
 				Below example assumes a <code>List&lt;Category&gt;</code> as value wherein <code>Category</code> in turn has a <code>List&lt;Product&gt;</code>.
@@ -1507,41 +1508,41 @@ String name2 = Faces.getRequestParameter("name2"); // value2
                         </tr>
                         <tr class="altColor">
                             <td class="colOne"><b><a href="pathParam.html">pathParam</a></b></td><td class="colLast">
-                
-                        <strong>The <code>PathParam</code> is a component that extends the OmniFaces <code>Param</code> to support 
-                        <code>MultiViews</code> feature of <code>FacesViews</code>.</strong> It is done by rendering the supplied parameters 
-                        of such components as <code>&lt;h:link&gt;</code> and <code>&lt;h:button&gt;</code> among others as path parameters and not as 
-                        query parameters as otherwise will be produced by <code>&lt;o:param&gt;</code> and <code>&lt;f:param&gt;</code> tags. 
-                        <p>
-                        The component has built-in support for a <code>Converter</code> to convert the supplied value to string by usual means via 
-                        the <code>converter</code> attribute of the tag, or the nested <code>&lt;f:converter&gt;</code> tag, or just automatically 
-                        if a converter is already registered for the target class via <code>@FacesConverter(forClass)</code>.
-                        <p>
-                        This component doesn't support returning encoded output of its children as parameter value in case no value is present.
-                        This feature is provided by <code>Param</code> component instead.
-                        <p>
-                        Also, the name attribute must not be specified for this component as it already evaluates to a predefined one.
-                        <p>
-                        This component is used to create bookmarkable URLs via standard outcome target components that take into account
-                        <code>&lt;o:pathParam&gt;</code> tags nested in the components. The path parameters will be rendered 
-                        in the order they were declared for a view id that is defined as a multi view and if the view was
-                        not defined as a multi view then they won't be rendered at all. Additionally, declaring path parameters
-                        for a non-multi view will be logged as a warning and a faces warning message will be added for any
-                        stage different from <code>Production</code>.
-                        <p>
-                        In the following example the link to the multi view page will be rendered with two path parameters:
-                        <pre>
+		
+			<strong>The <code>PathParam</code> is a component that extends the OmniFaces <code>Param</code> to support 
+			<code>MultiViews</code> feature of <code>FacesViews</code>.</strong> It is done by rendering the supplied parameters 
+			of such components as <code>&lt;h:link&gt;</code> and <code>&lt;h:button&gt;</code> among others as path parameters and not as 
+			query parameters as otherwise will be produced by <code>&lt;o:param&gt;</code> and <code>&lt;f:param&gt;</code> tags. 
+			<p>
+			The component has built-in support for a <code>Converter</code> to convert the supplied value to string by usual means via 
+			the <code>converter</code> attribute of the tag, or the nested <code>&lt;f:converter&gt;</code> tag, or just automatically 
+			if a converter is already registered for the target class via <code>@FacesConverter(forClass)</code>.
+			<p>
+			This component doesn't support returning encoded output of its children as parameter value in case no value is present.
+			This feature is provided by <code>Param</code> component instead.
+			<p>
+			Also, the name attribute must not be specified for this component as it already evaluates to a predefined one.
+			<p>
+			This component is used to create bookmarkable URLs via standard outcome target components that take into account
+			<code>&lt;o:pathParam&gt;</code> tags nested in the components. The path parameters will be rendered 
+			in the order they were declared for a view id that is defined as a multi view and if the view was
+			not defined as a multi view then they won't be rendered at all. Additionally, declaring path parameters
+			for a non-multi view will be logged as a warning and a faces warning message will be added for any
+			stage different from <code>Production</code>.
+			<p>
+			In the following example the link to the multi view page will be rendered with two path parameters:
+			<pre>
 &lt;h:link value="Link" outcome="multiview-supported-path"&gt;
     &lt;o:pathParam value="first" /&gt;
     &lt;o:pathParam value="second" /&gt;
 &lt;/h:link&gt;
-                        </pre>
-                        The code above will be rendered as: 
-                        <code>&lt;a id="..." name="..." href="/context-path/multiview-supported-path/first/second"&gt;Link&lt;/a&gt;</code>.
-                        The path parameters will be available via <code>@Inject @Param(pathIndex=0) private String first;</code> and
-                        <code>@Inject @Param(pathIndex=1) private String second;</code> the usual way.
-                
-                </td>
+			</pre>
+			The code above will be rendered as: 
+			<code>&lt;a id="..." name="..." href="/context-path/multiview-supported-path/first/second"&gt;Link&lt;/a&gt;</code>.
+			The path parameters will be available via <code>@Inject @Param(pathIndex=0) private String first;</code> and
+			<code>@Inject @Param(pathIndex=1) private String second;</code> the usual way.
+		
+		</td>
                         </tr>
                     </tbody>
                 </table>

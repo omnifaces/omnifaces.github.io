@@ -80,7 +80,7 @@
 		   		<a href="https://github.com/ben-manes/concurrentlinkedhashmap">https://github.com/ben-manes/concurrentlinkedhashmap</a> in case
 		   		a maximum cache capacity is set, or on a plain ConcurrentMap if no capacity is set.
 		   		<hr>
-				<h3>Setting a custom caching provider</h3>
+				<h2>Setting a custom caching provider</h2>
 				<p>A custom caching provider can be set by using the <code>org.omnifaces.CACHE_PROVIDER</code> context
 				parameter in web.xml to point to an implementation of <code>org.omnifaces.component.output.cache.CacheProvider</code>.
 				For example:
@@ -94,7 +94,7 @@
 				The default provider, <code>org.omnifaces.component.output.cache.DefaultCacheProvider</code> can be used as an
 				example.
 				<hr>
-				<h3>Global settings</h3>
+				<h2>Global settings</h2>
 				<p>For the default provider, the maximum capacity and the default time to live can be specified for the
 				supported scopes "session" and "application". If the maximum capacity is reached, an entry will be
 				evicted following a least recently used policy. The default time to live specifies for how long

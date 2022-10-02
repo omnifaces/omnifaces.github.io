@@ -70,7 +70,7 @@
 The <code>&lt;o:scriptParam&gt;</code> is a component that extends the standard <code>&lt;f:viewParam&gt;</code>
 with support for setting results of client-side evaluated JavaScript code in bean.
 
-<h3>Usage</h3>
+<h2>Usage</h2>
 <p>
 It's similar to the <code>&lt;f:viewParam&gt;</code>.
 <pre>
@@ -106,7 +106,7 @@ functionality is also supported on this component. So, the following is also pos
     &lt;o:scriptParam script="window.navigator" value="#{bean.clientNavigator}" /&gt;
 &lt;/f:metadata&gt;
 </pre>
-With a <code>clientNavigator</code> being an instance of <code>javax.json.JsonObject</code>:
+With a <code>clientNavigator</code> being an instance of <code>jakarta.json.JsonObject</code>:
 <pre>
 private JsonObject clientNavigator;
 </pre>
@@ -115,13 +115,13 @@ And this converter:
 package com.example;
 
 import java.io.StringReader;
-import javax.faces.component.UIComponent;
-import javax.faces.context.FacesContext;
-import javax.faces.convert.Converter;
-import javax.faces.convert.ConverterException;
-import javax.faces.convert.FacesConverter;
-import javax.json.Json;
-import javax.json.JsonObject;
+import jakarta.faces.component.UIComponent;
+import jakarta.faces.context.FacesContext;
+import jakarta.faces.convert.Converter;
+import jakarta.faces.convert.ConverterException;
+import jakarta.faces.convert.FacesConverter;
+import jakarta.json.Json;
+import jakarta.json.JsonObject;
 
 &#64;FacesConverter(forClass = JsonObject.class)
 public class JsobObjectConverter implements Converter&lt;JsonObject&gt; {
@@ -207,7 +207,7 @@ public class JsobObjectConverter implements Converter&lt;JsonObject&gt; {
                         <tr id="converter" class="altColor">
                             <td class="colFirst"><a href="#converter"><code>converter</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
                                 <br>
-                                (<i>must evaluate to </i><code>javax.faces.convert.Converter</code>)
+                                (<i>must evaluate to </i><code>jakarta.faces.convert.Converter</code>)
 					</td><td class="colLast">
 				
 					Converter instance registered with this component.
@@ -264,8 +264,8 @@ public class JsobObjectConverter implements Converter&lt;JsonObject&gt; {
                         <tr id="validator" class="rowColor">
                             <td class="colFirst"><a href="#validator"><code>validator</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.MethodExpression</code>
                                 <br>
-                                (<i>signature must match </i><code>void validate(javax.faces.context.FacesContext,
-				javax.faces.component.UIComponent, java.lang.Object)
+                                (<i>signature must match </i><code>void validate(jakarta.faces.context.FacesContext,
+				jakarta.faces.component.UIComponent, java.lang.Object)
 			</code>)
 					</td><td class="colLast">
 				
@@ -316,7 +316,7 @@ public class JsobObjectConverter implements Converter&lt;JsonObject&gt; {
                         <tr id="binding" class="rowColor">
                             <td class="colFirst"><a href="#binding"><code>binding</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
                                 <br>
-                                (<i>must evaluate to </i><code>javax.faces.component.UIComponent</code>)
+                                (<i>must evaluate to </i><code>jakarta.faces.component.UIComponent</code>)
 					</td><td class="colLast">
 				
 					The ValueExpression linking this component to a property in a

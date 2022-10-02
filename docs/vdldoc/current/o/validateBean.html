@@ -70,7 +70,7 @@
 				per-<code>UICommand</code> or <code>UIInput</code> component basis. Usage example:
 				<pre>
 &lt;h:commandButton&gt;
-	&lt;o:validateBean groups="javax.validation.groups.Default,com.example.MyGroup"/&gt;
+	&lt;o:validateBean groups="jakarta.validation.groups.Default,com.example.MyGroup"/&gt;
 &lt;/h:commandButton&gt;
 				</pre>
 			
@@ -172,7 +172,7 @@
                                 (<i>must evaluate to </i><code>java.lang.String</code>)
 					</td><td class="colLast">
 				
-					The faces message uses a predefined message format, which corresponds to the value of <code>javax.faces.validator.BeanValidator.MESSAGE</code>
+					The faces message uses a predefined message format, which corresponds to the value of <code>jakarta.faces.validator.BeanValidator.MESSAGE</code>
 					in the message bundle. The default message format of <code>{1}: {0}</code> prepends all the validated labels which
 					were checked when the error message occurred. This is useful in the case of validating a single bean property, but
 					sometimes confusing in the case of validating a bean with many properties.

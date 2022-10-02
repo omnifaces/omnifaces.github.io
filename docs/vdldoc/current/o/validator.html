@@ -75,11 +75,11 @@
 				</pre>
 				<p>Note that not all available attributes are listed. This depends on the validator you're specifying.
 				When you specify for example the standard <code>&lt;f:validateLongRange&gt;</code> by
-				<code>validatorId="javax.faces.LongRange"</code>, then you'll be able to use all its attributes such as
+				<code>validatorId="jakarta.faces.LongRange"</code>, then you'll be able to use all its attributes such as
 				<code>minimum</code> and <code>maximum</code> as per its documentation, but then with the possibility to supply
 				request based value expressions.
 				<pre>
-&lt;o:validator validatorId="javax.faces.LongRange" minimum="#{item.minimum}" maximum="#{item.maximum}" /&gt;
+&lt;o:validator validatorId="jakarta.faces.LongRange" minimum="#{item.minimum}" maximum="#{item.maximum}" /&gt;
 				</pre>
 			
 		</div>
@@ -125,10 +125,10 @@
                         <tr id="binding" class="rowColor">
                             <td class="colFirst"><a href="#binding"><code>binding</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
                                 <br>
-                                (<i>must evaluate to </i><code>javax.faces.validator.Validator</code>)
+                                (<i>must evaluate to </i><code>jakarta.faces.validator.Validator</code>)
 					</td><td class="colLast">
 				
-					A ValueExpression that evaluates to an object that implements the javax.faces.validator.Validator
+					A ValueExpression that evaluates to an object that implements the jakarta.faces.validator.Validator
 					interface.
 				
 			</td>
