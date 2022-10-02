@@ -80,7 +80,7 @@ Version history can be found in "[What's new](http://showcase.omnifaces.org/what
 **Required**: Java 11, Faces 3.0, EL 4.0, Servlet 5.0, CDI 3.0, WS 2.0  
 **Optional**: BV 3.0
 
-- 4.0 (2 Okt 2022, Jakartified 3.14, using Java 11) - [library](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.0/omnifaces-4.0.jar) - [sources](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.0/omnifaces-4.0-sources.jar) - [javadoc](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.0/omnifaces-4.0-javadoc.jar)
+- 4.0 (2 Okt 2022) - [library](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.0/omnifaces-4.0.jar) - [sources](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.0/omnifaces-4.0-sources.jar) - [javadoc](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.0/omnifaces-4.0-javadoc.jar)
 
 ### OmniFaces 3.x
 
