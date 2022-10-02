@@ -1,0 +1,338 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en" xmlns:vdldoc="http://vdldoc.omnifaces.org" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:jakartaee="https://jakarta.ee/xml/ns/jakartaee">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>commandScript (OmniFaces VDL Documentation - Generated Documentation)
+			</title>
+        <meta name="keywords" content="$title">
+        <link rel="stylesheet" type="text/css" title="Style" href="../stylesheet.css">
+    </head>
+    <body>
+        <noscript>
+            <div>JavaScript is disabled on your browser.</div>
+        </noscript>
+        <div class="topNav">
+            <a name="navbar_top"></a><a href="#skip-navbar_top" title="Skip navigation links"></a><a name="navbar_top_firstrow"></a>
+            <ul class="navList" title="Navigation">
+                <li>
+                    <a href="../overview-summary.html">Overview</a>
+                </li>
+                <li>
+                    <a href="tld-summary.html">Library</a>
+                </li>
+                <li class="navBarCell1Rev">Tag</li>
+                <li>
+                    <a href="../help-doc.html">Help</a>
+                </li>
+            </ul>
+        </div>
+        <div class="subNav">
+            <ul class="navList">
+                <li>
+                    <a target="_top" href="../index.html?o/commandScript.html">
+									Frames
+								</a>
+                </li>
+                <li>
+                    <a target="_top" href="commandScript.html">
+									No Frames
+								</a>
+                </li>
+            </ul>
+            <ul class="navList" id="alltags_navbar_top">
+                <li>
+                    <a href="../alltags-noframe.html">All Tags</a>
+                </li>
+            </ul>
+            <div>
+                <script type="text/javascript">
+								document.getElementById("alltags_navbar_top").style.display = (window == top) ? "block" : "none";
+							</script>
+            </div>
+            <a name="skip-navbar_top"></a>
+        </div>
+        <div class="header">
+            <h1 title="Library" class="title">o</h1>
+            <h2 class="title">
+							Tag
+							commandScript</h2>
+        </div>
+        <div class="contentContainer">
+            <div class="description">
+                <ul class="blockList">
+                    <li class="blockList">
+                        <dl>
+                            <dt>Description:</dt>
+                            <dd>
+                                <div class="block">
+			
+				<p><strong>CommandScript</strong> is an extension to <code>&lt;h:commandXxx&gt;</code> which generates a JavaScript
+				function in the global JavaScript scope which allows the enduser to execute a JSF ajax request by a just function
+				call <code>functionName()</code> in the JavaScript context.
+				<p>
+				The <code>&lt;o:commandScript&gt;</code> component is required to be enclosed in an <code>UIForm</code> component. The
+				<code>name</code> attribute is required and it represents the JavaScript function name. The <code>execute</code>
+				and <code>render</code> attributes work exactly the same as in <code>&lt;f:ajax&gt;</code>. The <code>onbegin</code>
+				and <code>oncomplete</code> attributes must represent (valid!) JavaScript code which will be executed before sending
+				the ajax request and after processing the ajax response respectively. The <code>action</code>,
+				<code>actionListener</code> and <code>immediate</code> attributes work exactly the same as in
+				<code>&lt;h:commandXxx&gt;</code>.
+				<p>
+				Basic usage example of <code>&lt;o:commandScript&gt;</code> which submits the entire form on click of a plain HTML
+				button:
+				<pre>
+&lt;h:form&gt;
+  &lt;h:inputText value="#{bean.input1}" ... /&gt;
+  &lt;h:inputText value="#{bean.input2}" ... /&gt;
+  &lt;h:inputText value="#{bean.input3}" ... /&gt;
+  &lt;o:commandScript name="submitForm" action="#{bean.submit}" render="@form" /&gt;
+&lt;/h:form&gt;
+&lt;input type="button" value="submit" onclick="submitForm()" /&gt;
+				</pre>
+				<p>
+				Usage example which uses the <code>&lt;o:commandScript&gt;</code> as a poll function which updates every 3 seconds:
+				<pre>
+&lt;h:form&gt;
+  &lt;h:dataTable id="data" value="#{bean.data}" ...&gt;...&lt;/h:dataTable&gt;
+  &lt;o:commandScript name="updateData" action="#{bean.reloadData}" render="data" /&gt;
+&lt;/h:form&gt;
+&lt;h:outputScript target="body"&gt;setInterval(updateData, 3000);&lt;/h:outputScript&gt;
+				</pre>
+				The component also supports nesting of <code>&lt;f:param&gt;</code>, <code>&lt;f:actionListener&gt;</code> and
+				<code>&lt;f:setPropertyActionListener&gt;</code>, exactly like as in <code>&lt;h:commandXxx&gt;</code>. The function
+				also supports a JS object as argument which will then end up in the HTTP request parameter map:
+				<pre>
+functionName({ name1: "value1", name2: "value2" });
+				</pre>
+				<p>
+				With the above example, the parameters are in the action method available as follows:
+				<pre>
+String name1 = Faces.getRequestParameter("name1"); // value1
+String name2 = Faces.getRequestParameter("name2"); // value2
+				</pre>
+			
+		</div>
+                            </dd>
+                        </dl>
+                    </li>
+                </ul>
+            </div>
+            <div class="summary">
+                <table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Component summary table, listing component information">
+                    <caption>
+                        <span>Component Information</span><span class="tabEnd">&nbsp;</span>
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th class="colFirst" scope="col">Info</th><th class="colLast" scope="col">Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="rowColor">
+                            <td class="colFirst">Component Type</td><td class="colLast"><code>org.omnifaces.component.script.CommandScript</code></td>
+                        </tr>
+                        <tr class="altColor">
+                            <td class="colFirst">Handler Class</td><td class="colLast"><i>None</i></td>
+                        </tr>
+                        <tr class="rowColor">
+                            <td class="colFirst">Renderer Type</td><td class="colLast"><i>None</i></td>
+                        </tr>
+                        <tr class="altColor">
+                            <td class="colFirst">Description</td><td class="colLast"><i>None</i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="summary">
+                <table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Attribute summary table, listing attribute information">
+                    <caption>
+                        <span>Attributes</span><span class="tabEnd">&nbsp;</span>
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th class="colFirst">Name</th><th class="colOne">Required</th><th class="colOne">Type</th><th class="colLast">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="id" class="rowColor">
+                            <td class="colFirst"><a href="#id"><code>id</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">
+				
+					The component identifier for this component. This value must be unique within the closest parent
+					component that is a naming container.
+				
+			</td>
+                        </tr>
+                        <tr id="rendered" class="altColor">
+                            <td class="colFirst"><a href="#rendered"><code>rendered</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>boolean</code>)
+					</td><td class="colLast">
+				
+					Flag indicating whether or not this component should be rendered (during Render Response Phase), or
+					processed on any subsequent form submit. The default value for this property is true.
+				
+			</td>
+                        </tr>
+                        <tr id="binding" class="rowColor">
+                            <td class="colFirst"><a href="#binding"><code>binding</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>javax.faces.component.UIComponent</code>)
+					</td><td class="colLast">
+				
+					The <code>ValueExpression</code> linking this component to a property in a backing bean.
+				
+			</td>
+                        </tr>
+                        <tr id="name" class="altColor">
+                            <td class="colFirst"><a href="#name"><code>name</code></a></td><td class="colOne"><code>true</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">
+				
+					The script function name.
+				
+			</td>
+                        </tr>
+                        <tr id="execute" class="rowColor">
+                            <td class="colFirst"><a href="#execute"><code>execute</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">
+				
+					A space separated string of client IDs to process on ajax request.
+				
+			</td>
+                        </tr>
+                        <tr id="render" class="altColor">
+                            <td class="colFirst"><a href="#render"><code>render</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">
+				
+					A space separated string of client IDs to update on ajax response.
+				
+			</td>
+                        </tr>
+                        <tr id="onbegin" class="rowColor">
+                            <td class="colFirst"><a href="#onbegin"><code>onbegin</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">
+				
+					A script to execute before ajax request is fired.
+				
+			</td>
+                        </tr>
+                        <tr id="oncomplete" class="altColor">
+                            <td class="colFirst"><a href="#oncomplete"><code>oncomplete</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>java.lang.String</code>)
+					</td><td class="colLast">
+				
+					A script to execute after ajax response is processed.
+				
+			</td>
+                        </tr>
+                        <tr id="autorun" class="rowColor">
+                            <td class="colFirst"><a href="#autorun"><code>autorun</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>boolean</code>)
+					</td><td class="colLast">
+				
+					Whether the command script should automatically run inline during page load.
+					Note that this thus runs immediately at the moment the script is been interpreted by the web browser
+					and thus not in end of HTML body or during window load event. So if the script logic depends on the
+					HTML DOM tree composition, then it will depend on location of the command script component itself.
+				
+			</td>
+                        </tr>
+                        <tr id="action" class="altColor">
+                            <td class="colFirst"><a href="#action"><code>action</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.MethodExpression</code>
+                                <br>
+                                (<i>signature must match </i><code>java.lang.Object action()</code>)
+					</td><td class="colLast">
+				
+					<code>MethodExpression</code> representing the application action to invoke when this component is
+					activated by the user. The expression must evaluate to a public method that takes no parameters, and
+					returns an <code>Object</code> (the <code>toString()</code> of which is called to derive the logical
+					outcome) which is passed to the <code>NavigationHandler</code> for this application.
+				
+			</td>
+                        </tr>
+                        <tr id="actionListener" class="rowColor">
+                            <td class="colFirst"><a href="#actionListener"><code>actionListener</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.MethodExpression</code>
+                                <br>
+                                (<i>signature must match </i><code>void actionListener(javax.faces.event.ActionEvent)
+			</code>)
+					</td><td class="colLast">
+				
+					<code>MethodExpression</code> representing an action listener method that will be notified when this
+					component is activated by the user. The expression must evaluate to a public method that takes an 
+					<code>ActionEvent</code> parameter, with a return type of void, or to a public method that takes no
+					arguments with a return type of void. In the latter case, the method has no way of easily knowing
+					where the event came from, but this can be useful in cases where a notification is needed that
+					"some action happened".
+				
+			</td>
+                        </tr>
+                        <tr id="immediate" class="altColor">
+                            <td class="colFirst"><a href="#immediate"><code>immediate</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>boolean</code>)
+					</td><td class="colLast">
+				
+					Flag indicating that, if this component is activated by the user, notifications should be delivered
+					to interested listeners and actions immediately (that is, during Apply Request Values phase) rather
+					than waiting until Invoke Application phase.
+				
+			</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="bottomNav">
+            <a name="navbar_bottom"></a><a href="#skip-navbar_bottom" title="Skip navigation links"></a><a name="navbar_bottom_firstrow"></a>
+            <ul class="navList" title="Navigation">
+                <li>
+                    <a href="../overview-summary.html">Overview</a>
+                </li>
+                <li>
+                    <a href="tld-summary.html">Library</a>
+                </li>
+                <li class="navBarCell1Rev">Tag</li>
+                <li>
+                    <a href="../help-doc.html">Help</a>
+                </li>
+            </ul>
+        </div>
+        <div class="subNav">
+            <ul class="navList">
+                <li>
+                    <a target="_bottom" href="../index.html?o/commandScript.html">
+									Frames
+								</a>
+                </li>
+                <li>
+                    <a target="_bottom" href="commandScript.html">
+									No Frames
+								</a>
+                </li>
+            </ul>
+            <ul class="navList" id="alltags_navbar_bottom">
+                <li>
+                    <a href="../alltags-noframe.html">All Tags</a>
+                </li>
+            </ul>
+            <script type="text/javascript">
+							document.getElementById("alltags_navbar_bottom").style.display = (window == top) ? "block" : "none";
+						</script><a name="skip-navbar_bottom"></a>
+        </div>
+        <p class="about">
+            Output generated by <a href="http://vdldoc.omnifaces.org" target="_blank">Vdldoc</a> View Declaration Language Documentation Generator.
+        </p>
+    </body>
+</html>
