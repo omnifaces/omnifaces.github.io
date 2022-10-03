@@ -196,6 +196,8 @@ For starters, a "snapshot" is just the current/latest build. It's far from a rel
 
 ### The Definitive Guide to Jakarta Faces in Jakarta EE 10
 
+[![The Definitive Guide to Jakarta Faces in Jakarta EE 10](https://i.imgur.com/z2b7eWj.jpg)](https://amazon.com/dp/1484273095)
+
 [The Definitive Guide to Jakarta Faces in Jakarta EE 10](https://amazon.com/dp/1484273095) is since March 16, 2022 available at Amazon.com. This book is authored by the creators of OmniFaces, Bauke Scholtz and Arjan Tijms. This book is definitely a must read for anyone working with Jakarta Faces or interested in Jakarta Faces. It uncovers the best practices and hidden gems of Jakarta Faces.
 
 ### The Definitive Guide to JSF in Java EE 8
