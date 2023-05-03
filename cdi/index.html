@@ -29,10 +29,48 @@
 <!-- Just copypasted from homepage. -->
 <h2>CDI</h2>
 
-<p>So, you got the following error in server log when using OmniFaces 3.x?</p>
+<p>So, you got the following error in server log when using OmniFaces 4.x?</p>
 
 <div class="highlight highlight-sh"><pre style="line-height:14px;font-size:13px;">
-org.omnifaces.ApplicationInitializer checkCDI11Available
+org.omnifaces.ApplicationListener checkCDIAvailable
+SEVERE: 
+████████████████████████████████████████████████████████████████████████████████
+▌                         ▐█     ▐                                             ▐
+▌    ▄                  ▄█▓█▌    ▐ OmniFaces failed to initialize!             ▐
+▌   ▐██▄               ▄▓░░▓▓    ▐                                             ▐
+▌   ▐█░██▓            ▓▓░░░▓▌    ▐ This OmniFaces version requires CDI,        ▐
+▌   ▐█▌░▓██          █▓░░░░▓     ▐ but none was found on this environment.     ▐
+▌    ▓█▌░░▓█▄███████▄███▓░▓█     ▐                                             ▐
+▌    ▓██▌░▓██░░░░░░░░░░▓█░▓▌     ▐                                             ▐
+▌     ▓█████░░░░░░░░░░░░▓██      ▐                                             ▐
+▌     ▓██▓░░░░░░░░░░░░░░░▓█      ▐                                             ▐
+▌     ▐█▓░░░░░░█▓░░▓█░░░░▓█▌     ▐                                             ▐
+▌     ▓█▌░▓█▓▓██▓░█▓▓▓▓▓░▓█▌     ▐                                             ▐
+▌     ▓▓░▓██████▓░▓███▓▓▌░█▓     ▐                                             ▐
+▌    ▐▓▓░█▄▐▓▌█▓░░▓█▐▓▌▄▓░██     ▐                                             ▐
+▌    ▓█▓░▓█▄▄▄█▓░░▓█▄▄▄█▓░██▌    ▐                                             ▐
+▌    ▓█▌░▓█████▓░░░▓███▓▀░▓█▓    ▐                                             ▐
+▌   ▐▓█░░░▀▓██▀░░░░░ ▀▓▀░░▓█▓    ▐                                             ▐
+▌   ▓██░░░░░░░░▀▄▄▄▄▀░░░░░░▓▓    ▐                                             ▐
+▌   ▓█▌░░░░░░░░░░▐▌░░░░░░░░▓▓▌   ▐                                             ▐
+▌   ▓█░░░░░░░░░▄▀▀▀▀▄░░░░░░░█▓   ▐                                             ▐
+▌  ▐█▌░░░░░░░░▀░░░░░░▀░░░░░░█▓▌  ▐                                             ▐
+▌  ▓█░░░░░░░░░░░░░░░░░░░░░░░██▓  ▐                                             ▐
+▌  ▓█░░░░░░░░░░░░░░░░░░░░░░░▓█▓  ▐ You have 3 options:                         ▐
+██████████████████████████████████ 1. Downgrade to CDI-less OmniFaces 1.x.     ▐
+█░▀░░░░▀█▀░░░░░░▀█░░░░░░▀█▀░░░░░▀█ 2. Install CDI in this environment.         ▐
+█░░▐█▌░░█░░░██░░░█░░██░░░█░░░██░░█ 3. Switch to a CDI capable environment.     ▐
+█░░▐█▌░░█░░░██░░░█░░██░░░█░░░██░░█                                             ▐
+█░░▐█▌░░█░░░██░░░█░░░░░░▄█░░▄▄▄▄▄█ For additional instructions, check          ▐
+█░░▐█▌░░█░░░██░░░█░░░░████░░░░░░░█ https://omnifaces.org/cdi                   ▐
+█░░░█░░░█▄░░░░░░▄█░░░░████▄░░░░░▄█                                             ▐
+████████████████████████████████████████████████████████████████████████████████
+</pre></div> 
+
+<p>Or this one when using OmniFaces 3.x?</p>
+
+<div class="highlight highlight-sh"><pre style="line-height:14px;font-size:13px;">
+org.omnifaces.ApplicationListener checkCDI11Available
 SEVERE: 
 ████████████████████████████████████████████████████████████████████████████████
 ▌                         ▐█     ▐                                             ▐
@@ -105,6 +143,9 @@ SEVERE:
 ████████████████████████████████████████████████████████████████████████████████
 </pre></div> 
 
+<p>Or you didn't got any error because you're using Spring Boot and you didn't register the <code>org.omnifaces.ApplicationListener</code> and possibly even not <code>org.omnifaces.ApplicationInitializer</code>?</p>
+
+<h2>Additional Instructions</h2>
 <p>Okay, here are the additional instructions:</p>
 <ol>
 <li>
@@ -112,21 +153,24 @@ SEVERE:
 <br/>
 This version doesn't require CDI. So you should be able to run it on CDI-less environments. You can find download links in the <a href="https://omnifaces.org">homepage</a>.
 <br/>
-When you're using JSF 2.3, you should also be downgrading it to JSF 2.2! JSF 2.3 itself already explicitly requires CDI while this was still optional in JSF 2.2 and older.
+When you're using JSF 2.3, you should also be downgrading to JSF 2.2! JSF 2.3 itself also explicitly requires CDI while this was still optional in JSF 2.2 and older.
 </li>
 <li>
-<strong>Install CDI 1.1+ in this environment.</strong>
+<strong>Install CDI in this environment.</strong>
 <br/>
 For Tomcat users who don't have freedom in server choice, refer this article: <a href="https://balusc.omnifaces.org/2013/10/how-to-install-cdi-in-tomcat.html">How to install CDI in Tomcat?</a>
 <br/>
 When installing Weld, make sure that you're using a minimum of version 2.2.0! Older versions have initialization ordering bugs.
 </li>
 <li>
-<strong>Switch to a CDI 1.1 capable environment.</strong>
+<strong>Switch to a CDI capable environment.</strong>
 <br/>
-For Tomcat users who have full freedom in server choice, just replace Tomcat by <a href="https://tomee.apache.org/">TomEE</a>, or perhaps even by <a href="https://wildfly.org/">WildFly</a> or <a href="https://payara.fish">Payara</a>.
+For Tomcat users who have full freedom in server choice, just replace Tomcat by <a href="https://tomee.apache.org/">TomEE</a>, or perhaps even by <a href="https://wildfly.org/">WildFly</a>, <a href="https://openliberty.io/">Liberty</a> or <a href="https://glassfish.org">GlassFish</a>.
 </li>
 </ol>
+
+<h2>Spring Boot</h2>
+<p>In case you're actually using Spring Boot, whereby basically the servlet components are completely ignored by default, you'll need either add <code>@ServletComponentScan</code> or explicitly register the <code>org.omnifaces.ApplicationListener</code> as a <code>@Bean ServletListenerRegistrationBean&lt;ApplicationListener&gt;</code></p>
 
 <h2>Got it</h2>
 
