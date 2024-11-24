@@ -33,7 +33,7 @@
 	This is actually not supposed to be a public web page.
 </p>
 <p>
-	The <code>http://omnifaces.org/functions</code> is supposed to be the XML namespace URI of OmniFaces functions.
+	The <code>http://omnifaces.org/functions</code> is supposed to be the XML namespace URI of OmniFaces functions for OmniFaces versions until 4.x.
 	Usually, you declare this URI in the XML root element of your XHTML file as below in order to use OmniFaces functions within the element.
 </p>
 
@@ -43,6 +43,14 @@
 	Normally, XML namespace URIs do not represent actual web resources. 
 	That they start with <code>http://</code> is indeed confusing to starters, but that's so far the best way to have a unique resource identifier (URI) for a XML namespace.
 </p>
+
+<p>
+    Since OmniFaces 5.0, the XML namespace URI is finally in URN format instead of URL format, aligned with the same change in Faces 4.0.
+    So you won't anymore be confused it being in URL format.
+    Upgrade to OmniFaces 5.0 and adjust all XML namespace URIs to be in URN format instead of URL format as soon as you can.
+</p>
+
+<div class="highlight highlight-XML"><pre>&lt;html ... xmlns:o="omnifaces"&gt;</pre></div>
 
 <h2>How does it work then?</h2>
 
