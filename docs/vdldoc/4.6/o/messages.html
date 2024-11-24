@@ -1,0 +1,532 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en" xmlns:vdldoc="http://vdldoc.omnifaces.org" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:jakartaee="https://jakarta.ee/xml/ns/jakartaee">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>messages (OmniFaces VDL Documentation - Generated Documentation)
+            </title>
+        <meta name="keywords" content="$title">
+        <link rel="stylesheet" type="text/css" title="Style" href="../stylesheet.css">
+    </head>
+    <body>
+        <noscript>
+            <div>JavaScript is disabled on your browser.</div>
+        </noscript>
+        <div class="topNav">
+            <a name="navbar_top"></a><a href="#skip-navbar_top" title="Skip navigation links"></a><a name="navbar_top_firstrow"></a>
+            <ul class="navList" title="Navigation">
+                <li>
+                    <a href="../overview-summary.html">Overview</a>
+                </li>
+                <li>
+                    <a href="tld-summary.html">Library</a>
+                </li>
+                <li class="navBarCell1Rev">Tag</li>
+                <li>
+                    <a href="../help-doc.html">Help</a>
+                </li>
+            </ul>
+        </div>
+        <div class="subNav">
+            <ul class="navList">
+                <li>
+                    <a target="_top" href="../index.html?o/messages.html">
+                                    Frames
+                                </a>
+                </li>
+                <li>
+                    <a target="_top" href="messages.html">
+                                    No Frames
+                                </a>
+                </li>
+            </ul>
+            <ul class="navList" id="alltags_navbar_top">
+                <li>
+                    <a href="../alltags-noframe.html">All Tags</a>
+                </li>
+            </ul>
+            <div>
+                <script type="text/javascript">
+                                document.getElementById("alltags_navbar_top").style.display = (window == top) ? "block" : "none";
+                            </script>
+            </div>
+            <a name="skip-navbar_top"></a>
+        </div>
+        <div class="header">
+            <h1 title="Library" class="title">o</h1>
+            <h2 class="title">
+                            Tag
+                            messages</h2>
+        </div>
+        <div class="contentContainer">
+            <div class="description">
+                <ul class="blockList">
+                    <li class="blockList">
+                        <dl>
+                            <dt>Description:</dt>
+                            <dd>
+                                <div class="block">
+            
+                The <code>&lt;o:messages&gt;</code> is a component that extends the standard <code>&lt;h:messages&gt;</code> with
+                the following new features:
+                <dl>
+                <dt>Multiple <code>for</code> components</dt>
+                <dd>Possibility to specify multiple client IDs space separated in the <code>for</code> attribute. The example below
+                would only display messages for <code>input1</code> and <code>input3</code>:
+                <pre><code>
+&lt;h:form&gt;
+  &lt;o:messages for="input1 input3" /&gt;
+  &lt;h:inputText id="input1" /&gt;
+  &lt;h:inputText id="input2" /&gt;
+  &lt;h:inputText id="input3" /&gt;
+  &lt;h:inputText id="input4" /&gt;
+&lt;/h:form&gt;
+                </code></pre>
+                It can even refer non-input components which in turn contains input components. The example below would only display
+                messages for <code>input1</code> and <code>input2</code>:
+                <pre><code>
+&lt;h:form&gt;
+  &lt;o:messages for="inputs" /&gt;
+  &lt;h:panelGroup id="inputs"&gt;
+    &lt;h:inputText id="input1" /&gt;
+    &lt;h:inputText id="input2" /&gt;
+  &lt;/h:panelGroup&gt;
+  &lt;h:inputText id="input3" /&gt;
+  &lt;h:inputText id="input4" /&gt;
+&lt;/h:form&gt;
+                </code></pre>
+                You can even combine them. The example below would only display messages for <code>input1</code>,
+                <code>input2</code> and <code>input4</code>.
+                <pre><code>
+&lt;h:form&gt;
+  &lt;o:messages for="inputs input4" /&gt;
+  &lt;h:panelGroup id="inputs"&gt;
+    &lt;h:inputText id="input1" /&gt;
+    &lt;h:inputText id="input2" /&gt;
+  &lt;/h:panelGroup&gt;
+  &lt;h:inputText id="input3" /&gt;
+  &lt;h:inputText id="input4" /&gt;
+&lt;/h:form&gt;
+                </code></pre>
+                </dd>
+                <dt>Displaying single message</dt>
+                <dd>Show a single custom message whenever the component has received any faces message. This is particularly useful
+                when you want to display a global message in case any of the in <code>for</code> specified components has a faces
+                message. For example:
+                <pre><code>
+&lt;o:messages for="form" message="There are validation errors. Please fix them." /&gt;
+&lt;h:form id="form"&gt;
+  &lt;h:inputText id="input1" /&gt;&lt;h:message for="input1" /&gt;
+  &lt;h:inputText id="input2" /&gt;&lt;h:message for="input2" /&gt;
+  &lt;h:inputText id="input3" /&gt;&lt;h:message for="input3" /&gt;
+&lt;/h:form&gt;
+                </code></pre>
+                </dd>
+                <dt>HTML escaping</dt>
+                <dd>Control HTML escaping by the new <code>escape</code> attribute.
+                <pre><code>
+&lt;o:messages escape="false" /&gt;
+                </code></pre>
+                Beware of potential XSS attack holes when user-controlled input is redisplayed through messages!
+                </dd>
+                <dt>Iteration markup control</dt>
+                <dd>Control iteration markup fully by the new <code>var</code> attribute which sets the current <code>FacesMessage</code>
+                in the request scope and disables the default table/list rendering. For example,
+                <pre><code>
+&lt;dl&gt;
+  &lt;o:messages var="message"&gt;
+    &lt;dt&gt;#{message.severity}&lt;/dt&gt;
+    &lt;dd title="#{message.detail}"&gt;#{message.summary}&lt;/dd&gt;
+  &lt;/o:messages&gt;
+&lt;/dl&gt;
+                </code></pre>
+                Note: the iteration is by design completely stateless. It's therefore not recommended to nest form components inside
+                the <code>&lt;o:messages&gt;</code> component. It should be used for pure output only, like as the standard
+                <code>&lt;h:messages&gt;</code>. Plain output links are however no problem. Also note that the <code>message</code>
+                and <code>escape</code> attributes have in this case no effect. With a single message, there's no point of
+                iteration. As to escaping, just use <code>&lt;h:outputText escape="false"&gt;</code> the usual way.
+                </dd>
+                </dl>
+                <p>
+                Design notice: the component class is named <code>OmniMessages</code> instead of <code>Messages</code> to avoid
+                confusion with the <code>Messages</code> utility class.
+            
+        </div>
+                            </dd>
+                        </dl>
+                    </li>
+                </ul>
+            </div>
+            <div class="summary">
+                <table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Component summary table, listing component information">
+                    <caption>
+                        <span>Component Information</span><span class="tabEnd">&nbsp;</span>
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th class="colFirst" scope="col">Info</th><th class="colLast" scope="col">Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="rowColor">
+                            <td class="colFirst">Component Type</td><td class="colLast"><code>org.omnifaces.component.messages.OmniMessages</code></td>
+                        </tr>
+                        <tr class="altColor">
+                            <td class="colFirst">Handler Class</td><td class="colLast"><i>None</i></td>
+                        </tr>
+                        <tr class="rowColor">
+                            <td class="colFirst">Renderer Type</td><td class="colLast"><code>org.omnifaces.Messages</code></td>
+                        </tr>
+                        <tr class="altColor">
+                            <td class="colFirst">Description</td><td class="colLast"><i>None</i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="summary">
+                <table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Attribute summary table, listing attribute information">
+                    <caption>
+                        <span>Attributes</span><span class="tabEnd">&nbsp;</span>
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th class="colFirst">Name</th><th class="colOne">Required</th><th class="colOne">Type</th><th class="colLast">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="binding" class="rowColor">
+                            <td class="colFirst"><a href="#binding"><code>binding</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>jakarta.faces.component.UIComponent</code>)
+                    </td><td class="colLast">
+                
+                    The <code>ValueExpression</code> linking this component to a property in a backing bean.
+                
+            </td>
+                        </tr>
+                        <tr id="dir" class="altColor">
+                            <td class="colFirst"><a href="#dir"><code>dir</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>java.lang.String</code>)
+                    </td><td class="colLast">
+                
+                    Direction indication for text that does not inherit directionality.
+                    Valid values are "LTR" (left-to-right) and "RTL" (right-to-left).
+                    This attribute is ignored when the var attribute is specified.
+                
+            </td>
+                        </tr>
+                        <tr id="errorClass" class="rowColor">
+                            <td class="colFirst"><a href="#errorClass"><code>errorClass</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>java.lang.String</code>)
+                    </td><td class="colLast">
+                
+                    CSS style class to apply to HTML tr or li with any message with a severity class of "ERROR".
+                    This attribute is ignored when the var attribute is specified.
+                
+            </td>
+                        </tr>
+                        <tr id="errorStyle" class="altColor">
+                            <td class="colFirst"><a href="#errorStyle"><code>errorStyle</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>java.lang.String</code>)
+                    </td><td class="colLast">
+                
+                    CSS style(s) to apply to HTML tr or li with any message with a severity class of "ERROR".
+                    This attribute is ignored when the var attribute is specified.
+                
+            </td>
+                        </tr>
+                        <tr id="escape" class="rowColor">
+                            <td class="colFirst"><a href="#escape"><code>escape</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>boolean</code>)
+                    </td><td class="colLast">
+                
+                    Flag indicating that characters in summary and detail that are sensitive in HTML and XML markup must be escaped.
+                    Default value is "true".
+                    This attribute is ignored when the var attribute is specified.
+                
+            </td>
+                        </tr>
+                        <tr id="fatalClass" class="altColor">
+                            <td class="colFirst"><a href="#fatalClass"><code>fatalClass</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>java.lang.String</code>)
+                    </td><td class="colLast">
+                
+                    CSS style class to apply to HTML tr or li with any message with a severity class of "FATAL".
+                    This attribute is ignored when the var attribute is specified.
+                
+            </td>
+                        </tr>
+                        <tr id="fatalStyle" class="rowColor">
+                            <td class="colFirst"><a href="#fatalStyle"><code>fatalStyle</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>java.lang.String</code>)
+                    </td><td class="colLast">
+                
+                    CSS style(s) to apply to HTML tr or li with any message with a severity class of "FATAL".
+                    This attribute is ignored when the var attribute is specified.
+                
+            </td>
+                        </tr>
+                        <tr id="for" class="altColor">
+                            <td class="colFirst"><a href="#for"><code>for</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>java.lang.String</code>)
+                    </td><td class="colLast">
+                
+                    The space separated collection of client IDs of UI input components whose messages needs to be displayed.
+                    It is also possible to specify the client ID of a parent component containing UI input components of interest.
+                    This attribute is ignored when the globalOnly attribute is set to "true".
+                
+            </td>
+                        </tr>
+                        <tr id="globalOnly" class="rowColor">
+                            <td class="colFirst"><a href="#globalOnly"><code>globalOnly</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>boolean</code>)
+                    </td><td class="colLast">
+                
+                    Flag indicating that only global messages (that is, messages not associated with any client identifier) are to be displayed.
+                    Default value is "false".
+                
+            </td>
+                        </tr>
+                        <tr id="id" class="altColor">
+                            <td class="colFirst"><a href="#id"><code>id</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>java.lang.String</code>)
+                    </td><td class="colLast">
+                
+                    The component identifier for this component. This value must be unique within the closest parent
+                    component that is a naming container.
+                
+            </td>
+                        </tr>
+                        <tr id="infoClass" class="rowColor">
+                            <td class="colFirst"><a href="#infoClass"><code>infoClass</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>java.lang.String</code>)
+                    </td><td class="colLast">
+                
+                    CSS style class to apply to HTML tr or li with any message with a severity class of "INFO".
+                    This attribute is ignored when the var attribute is specified.
+                
+            </td>
+                        </tr>
+                        <tr id="infoStyle" class="altColor">
+                            <td class="colFirst"><a href="#infoStyle"><code>infoStyle</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>java.lang.String</code>)
+                    </td><td class="colLast">
+                
+                    CSS style(s) to apply to HTML tr or li with any message with a severity class of "INFO".
+                    This attribute is ignored when the var attribute is specified.
+                
+            </td>
+                        </tr>
+                        <tr id="lang" class="rowColor">
+                            <td class="colFirst"><a href="#lang"><code>lang</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>java.lang.String</code>)
+                    </td><td class="colLast">
+                
+                    Code describing the language used in the generated markup for this component.
+                    This attribute is ignored when the var attribute is specified.
+                
+            </td>
+                        </tr>
+                        <tr id="layout" class="altColor">
+                            <td class="colFirst"><a href="#layout"><code>layout</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>java.lang.String</code>)
+                    </td><td class="colLast">
+                
+                    The type of layout markup to use when rendering error messages.
+                    Valid values are "table" (an HTML table) and "list" (an HTML unordered list).
+                    Default value is "list".
+                    This attribute is ignored when the var attribute is specified.
+                
+            </td>
+                        </tr>
+                        <tr id="message" class="rowColor">
+                            <td class="colFirst"><a href="#message"><code>message</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>java.lang.String</code>)
+                    </td><td class="colLast">
+                
+                    The single INFO message to be shown instead when this component has any faces message.
+                    This attribute is ignored when the var attribute is specified.
+                
+            </td>
+                        </tr>
+                        <tr id="redisplay" class="altColor">
+                            <td class="colFirst"><a href="#redisplay"><code>redisplay</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>boolean</code>)
+                    </td><td class="colLast">
+                
+                    Flag indicating whether the message should be redisplayed if already displayed by another message(s) component beforehand.
+                    Default value is "true".
+                
+            </td>
+                        </tr>
+                        <tr id="rendered" class="rowColor">
+                            <td class="colFirst"><a href="#rendered"><code>rendered</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>boolean</code>)
+                    </td><td class="colLast">
+                
+                    Flag indicating whether or not this component should be rendered (during Render Response Phase), or processed on any subsequent form submit.
+                    Default value is "true".
+                
+            </td>
+                        </tr>
+                        <tr id="showDetail" class="altColor">
+                            <td class="colFirst"><a href="#showDetail"><code>showDetail</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>boolean</code>)
+                    </td><td class="colLast">
+                
+                    Flag indicating whether the detail portion of displayed messages should be included.
+                    Default value is "false".
+                    This attribute is ignored when the var attribute is specified.
+                
+            </td>
+                        </tr>
+                        <tr id="showSummary" class="rowColor">
+                            <td class="colFirst"><a href="#showSummary"><code>showSummary</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>boolean</code>)
+                    </td><td class="colLast">
+                
+                    Flag indicating whether the summary portion of displayed messages should be included.
+                    Default value is "true".
+                    This attribute is ignored when the var attribute is specified.
+                
+            </td>
+                        </tr>
+                        <tr id="style" class="altColor">
+                            <td class="colFirst"><a href="#style"><code>style</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>java.lang.String</code>)
+                    </td><td class="colLast">
+                
+                    CSS style(s) to be applied on the HTML table or HTML ul when this component is rendered.
+                    This attribute is ignored when the var attribute is specified.
+                
+            </td>
+                        </tr>
+                        <tr id="styleClass" class="rowColor">
+                            <td class="colFirst"><a href="#styleClass"><code>styleClass</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>java.lang.String</code>)
+                    </td><td class="colLast">
+                
+                    Space-separated list of CSS style class(es) to be applied on the HTML table or ul when this component is rendered.
+                    This value must be passed through as the "class" attribute on generated markup.
+                    This attribute is ignored when the var attribute is specified.
+                
+            </td>
+                        </tr>
+                        <tr id="title" class="altColor">
+                            <td class="colFirst"><a href="#title"><code>title</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>java.lang.String</code>)
+                    </td><td class="colLast">
+                
+                    The tooltip to be applied on the of HTML table or ul when this component is rendered.
+                    This attribute is ignored when the var attribute is specified.
+                
+            </td>
+                        </tr>
+                        <tr id="tooltip" class="rowColor">
+                            <td class="colFirst"><a href="#tooltip"><code>tooltip</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>boolean</code>)
+                    </td><td class="colLast">
+                
+                    Flag indicating whether the detail portion of the message should be displayed as a tooltip.
+                    Default value is "false".
+                    This attribute is ignored when the var or title attribute is specified.
+                
+            </td>
+                        </tr>
+                        <tr id="var" class="altColor">
+                            <td class="colFirst"><a href="#var"><code>var</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>java.lang.String</code></td><td class="colLast">
+                
+                    The name of the request attribute which exposes the current faces message in the request scope.
+                    This will trigger rendering without any HTML markup and delegate the markup control to the developer like as ui:repeat.
+                
+            </td>
+                        </tr>
+                        <tr id="warnClass" class="rowColor">
+                            <td class="colFirst"><a href="#warnClass"><code>warnClass</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>java.lang.String</code>)
+                    </td><td class="colLast">
+                
+                    CSS style class to apply to HTML tr or li with any message with a severity class of "WARN".
+                    This attribute is ignored when the var attribute is specified.
+                
+            </td>
+                        </tr>
+                        <tr id="warnStyle" class="altColor">
+                            <td class="colFirst"><a href="#warnStyle"><code>warnStyle</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>java.lang.String</code>)
+                    </td><td class="colLast">
+                
+                    CSS style(s) to apply to HTML tr or li with any message with a severity class of "WARN".
+                    This attribute is ignored when the var attribute is specified.
+                
+            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="bottomNav">
+            <a name="navbar_bottom"></a><a href="#skip-navbar_bottom" title="Skip navigation links"></a><a name="navbar_bottom_firstrow"></a>
+            <ul class="navList" title="Navigation">
+                <li>
+                    <a href="../overview-summary.html">Overview</a>
+                </li>
+                <li>
+                    <a href="tld-summary.html">Library</a>
+                </li>
+                <li class="navBarCell1Rev">Tag</li>
+                <li>
+                    <a href="../help-doc.html">Help</a>
+                </li>
+            </ul>
+        </div>
+        <div class="subNav">
+            <ul class="navList">
+                <li>
+                    <a target="_bottom" href="../index.html?o/messages.html">
+                                    Frames
+                                </a>
+                </li>
+                <li>
+                    <a target="_bottom" href="messages.html">
+                                    No Frames
+                                </a>
+                </li>
+            </ul>
+            <ul class="navList" id="alltags_navbar_bottom">
+                <li>
+                    <a href="../alltags-noframe.html">All Tags</a>
+                </li>
+            </ul>
+            <script type="text/javascript">
+                            document.getElementById("alltags_navbar_bottom").style.display = (window == top) ? "block" : "none";
+                        </script><a name="skip-navbar_bottom"></a>
+        </div>
+        <p class="about">
+            Output generated by <a href="http://vdldoc.omnifaces.org" target="_blank">Vdldoc</a> View Declaration Language Documentation Generator.
+        </p>
+    </body>
+</html>
