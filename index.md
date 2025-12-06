@@ -1,4 +1,4 @@
-[Download](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.7/omnifaces-4.7.jar) - [Showcase](https://showcase.omnifaces.org) - [API docs](https://omnifaces.org/docs/javadoc/current/) - [VDL docs](https://omnifaces.org/docs/vdldoc/current/) - [GitHub](https://github.com/omnifaces/omnifaces) - [Issues](https://github.com/omnifaces/omnifaces/issues) - [X](https://x.com/OmniFaces)
+[Download](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.7.1/omnifaces-4.7.1.jar) - [Showcase](https://showcase.omnifaces.org) - [API docs](https://omnifaces.org/docs/javadoc/current/) - [VDL docs](https://omnifaces.org/docs/vdldoc/current/) - [GitHub](https://github.com/omnifaces/omnifaces) - [Issues](https://github.com/omnifaces/omnifaces/issues) - [X](https://x.com/OmniFaces)
 
 
 ## What is OmniFaces?
@@ -26,6 +26,8 @@ Since OmniFaces 1.6 there was an *optional* dependency on CDI, which turned out 
 
 Since OmniFaces 2.3 there is a *required* dependency on JSR356 WebSocket which is already available in any Java EE 7 container and in even earlier versions of servletcontainers (Tomcat supports it since 7.0.27 and Jetty supports it since 9.1.0).
 
+While OmniFaces 4.x requires Faces 3.0, it is fully compatible with Faces 4.0 and 4.1.
+
 All OmniFaces versions have an *optional* dependency on JSR303 Bean Validation which is only required when you start to actually use `<o:validateBean>` or `JsfLabelMessageInterpolator`.
 
 OmniFaces should principally integrate perfectly well with most other Faces component libraries. Even more, the [OmniFaces showcase application](https://showcase.omnifaces.org) uses PrimeFaces. If you encounter problems in combination with a specific component library, then by all means report an [issue](https://github.com/omnifaces/omnifaces/issues). We'll investigate if it's caused by OmniFaces or the component library in question and fix it or propose a workaround solution, depending on the nature of the problem. Note that OmniFaces is due to the mandatory Servlet API dependency **not** compatible with portlets.
@@ -33,7 +35,7 @@ OmniFaces should principally integrate perfectly well with most other Faces comp
 
 ## Installation
 
-It is a matter of dropping the [OmniFaces 4.7 JAR file](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.7/) in `/WEB-INF/lib`.
+It is a matter of dropping the [OmniFaces 4.7.1 JAR file](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.7.1/) in `/WEB-INF/lib`.
 
 Maven users can add OmniFaces by adding the following Maven coordinates to `pom.xml` of the WAR project:
 
@@ -41,7 +43,7 @@ Maven users can add OmniFaces by adding the following Maven coordinates to `pom.
 <dependency>
     <groupId>org.omnifaces</groupId>
     <artifactId>omnifaces</artifactId>
-    <version>4.7</version>
+    <version>4.7.1</version>
 </dependency>
 ```
 
@@ -64,7 +66,7 @@ xmlns:o="http://omnifaces.org/ui"
 xmlns:of="http://omnifaces.org/functions"
 ```
 
-Since OmniFaces 5.0 (currently only available as milestone release, with [5.0-M5](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/5.0-M5/) as latest), these are available under a single XML namespace:
+Since OmniFaces 5.0 (currently only available as milestone release, with [5.0-M6](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/5.0-M6/) as latest), these are available under a single XML namespace:
 
 ```XML
 xmlns:o="omnifaces"
@@ -82,7 +84,7 @@ Version history can be found in "[What's new](https://showcase.omnifaces.org/wha
 **Required**: Java 11, Faces 3.0, EL 4.0, Servlet 5.0, CDI 3.0, WS 2.0  
 **Optional**: BV 3.0
 
-- 4.7 (9 Nov 2025) - [library](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.7/omnifaces-4.7.jar) - [sources](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.7/omnifaces-4.7-sources.jar) - [javadoc](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.7/omnifaces-4.7-javadoc.jar)
+- 4.7.1 (6 Dec 2025) - [library](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.7.1/omnifaces-4.7.1.jar) - [sources](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.7.1/omnifaces-4.7.1-sources.jar) - [javadoc](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.7.1/omnifaces-4.7.1-javadoc.jar)
 - 4.6.5 (8 Jun 2025) - [library](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.6.5/omnifaces-4.6.5.jar) - [sources](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.6.5/omnifaces-4.6.5-sources.jar) - [javadoc](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.6.5/omnifaces-4.6.5-javadoc.jar)
 - 4.5.1 (2 Sep 2024) - [library](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.5.1/omnifaces-4.5.1.jar) - [sources](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.5.1/omnifaces-4.5.1-sources.jar) - [javadoc](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.5.1/omnifaces-4.5.1-javadoc.jar)
 - 4.4.1 (5 May 2024) - [library](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.4.1/omnifaces-4.4.1.jar) - [sources](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.4.1/omnifaces-4.4.1-sources.jar) - [javadoc](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.4.1/omnifaces-4.4.1-javadoc.jar)
