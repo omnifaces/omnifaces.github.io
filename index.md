@@ -16,11 +16,11 @@ Besides utility classes for working with the Faces API from Java code, such as [
 
 An important design goal will be to have as few dependencies as possible and to be minimally invasive.
 
-- OmniFaces 5.x requires Java 17, Faces 4.1, EL 6.0, Servlet 6.1, CDI 4.1, WS 2.2
-- OmniFaces 4.x requires Java 11, Faces 3.0, EL 4.0, Servlet 5.0, CDI 3.0, WS 2.0
-- OmniFaces 3.x requires Java 1.8, JSF 2.3, EL 3.0, Servlet 3.1, CDI 2.0, WS 1.1
-- OmniFaces 2.x requires Java 1.7, JSF 2.2, EL 2.2, Servlet 3.0, CDI 1.1, WS 1.1
-- OmniFaces 1.x requires Java 1.6, JSF 2.0, EL 2.1, Servlet 2.5
+- OmniFaces 5.x requires a minimum of Java 17, Faces 4.1, EL 6.0, Servlet 6.1, CDI 4.1, WS 2.2
+- OmniFaces 4.x requires a minimum of Java 11, Faces 3.0, EL 4.0, Servlet 5.0, CDI 3.0, WS 2.0
+- OmniFaces 3.x requires a minimum of Java 1.8, JSF 2.3, EL 3.0, Servlet 3.1, CDI 2.0, WS 1.1
+- OmniFaces 2.x requires a minimum of Java 1.7, JSF 2.2, EL 2.2, Servlet 3.0, CDI 1.1, WS 1.1
+- OmniFaces 1.x requires a minimum of Java 1.6, JSF 2.0, EL 2.1, Servlet 2.5
 
 Since OmniFaces 1.6 there was an *optional* dependency on CDI, which turned out to be troublesome in some outdated environments, so they were since version 1.10 removed from version 1.x for a better compatibility with those environments. The CDI specific features remain in version 2.x whereby the CDI dependency is thus made [required](https://omnifaces.org/cdi). Version 1.x users who are already using CDI specific features on a JSF 2.1 environment should be able to effortlessly migrate to version 2.x. OmniFaces 2.0/2.1 is unofficially backwards compatible with JSF 2.1. OmniFaces 2.2 is not anymore backwards compatible with JSF 2.1.
 
