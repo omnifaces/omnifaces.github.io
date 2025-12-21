@@ -1,0 +1,232 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en" xmlns:vdldoc="http://vdldoc.omnifaces.org" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:jakartaee="https://jakarta.ee/xml/ns/jakartaee">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>validateBean (OmniFaces VDL Documentation - Generated Documentation)
+            </title>
+        <meta name="keywords" content="$title">
+        <link rel="stylesheet" type="text/css" title="Style" href="../stylesheet.css">
+    </head>
+    <body>
+        <noscript>
+            <div>JavaScript is disabled on your browser.</div>
+        </noscript>
+        <div class="topNav">
+            <a name="navbar_top"></a><a href="#skip-navbar_top" title="Skip navigation links"></a><a name="navbar_top_firstrow"></a>
+            <ul class="navList" title="Navigation">
+                <li>
+                    <a href="../overview-summary.html">Overview</a>
+                </li>
+                <li>
+                    <a href="tld-summary.html">Library</a>
+                </li>
+                <li class="navBarCell1Rev">Tag</li>
+                <li>
+                    <a href="../help-doc.html">Help</a>
+                </li>
+            </ul>
+        </div>
+        <div class="subNav">
+            <ul class="navList">
+                <li>
+                    <a target="_top" href="../index.html?o/validateBean.html">
+                                    Frames
+                                </a>
+                </li>
+                <li>
+                    <a target="_top" href="validateBean.html">
+                                    No Frames
+                                </a>
+                </li>
+            </ul>
+            <ul class="navList" id="alltags_navbar_top">
+                <li>
+                    <a href="../alltags-noframe.html">All Tags</a>
+                </li>
+            </ul>
+            <div>
+                <script type="text/javascript">
+                                document.getElementById("alltags_navbar_top").style.display = (window == top) ? "block" : "none";
+                            </script>
+            </div>
+            <a name="skip-navbar_top"></a>
+        </div>
+        <div class="header">
+            <h1 title="Library" class="title">o</h1>
+            <h2 class="title">
+                            Tag
+                            validateBean</h2>
+        </div>
+        <div class="contentContainer">
+            <div class="description">
+                <ul class="blockList">
+                    <li class="blockList">
+                        <dl>
+                            <dt>Description:</dt>
+                            <dd>
+                                <div class="block">
+            
+                The <code>&lt;o:validateBean&gt;</code> allows the developer to control bean validation groups on a
+                per-<code>UICommand</code> or <code>UIInput</code> component basis. Usage example:
+                <pre>
+&lt;h:commandButton&gt;
+    &lt;o:validateBean groups="jakarta.validation.groups.Default,com.example.MyGroup"/&gt;
+&lt;/h:commandButton&gt;
+                </pre>
+            
+        </div>
+                            </dd>
+                        </dl>
+                    </li>
+                </ul>
+            </div>
+            <div class="summary">
+                <table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Attribute summary table, listing attribute information">
+                    <caption>
+                        <span>Attributes</span><span class="tabEnd">&nbsp;</span>
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th class="colFirst">Name</th><th class="colOne">Required</th><th class="colOne">Type</th><th class="colLast">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="copier" class="rowColor">
+                            <td class="colFirst"><a href="#copier"><code>copier</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>java.lang.Object</code>)
+                    </td><td class="colLast">
+                
+                    Set the bean copy strategy to use in case 'value' attribute is specified and the 'method' attribute is set (or defaulted) to 'validateCopy'.
+                    This can be either an EL expression referring a concrete instance, or a String representing the fully qualified name of the instance of the org.omnifaces.util.copier.Copier interface, which must be stateless and/or threadsafe.
+                    If unspecified, then it defaults to the best possibility in this order: Cloneable, or Serializable, or copy constructor, or default constructor.
+                    This attribute is ignored when the 'value' attribute is unspecified, or when the 'method' attribute is not set to 'validateCopy'.
+                
+            </td>
+                        </tr>
+                        <tr id="disabled" class="altColor">
+                            <td class="colFirst"><a href="#disabled"><code>disabled</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>boolean</code>)
+                    </td><td class="colLast">
+                
+                    A boolean value enabling page level determination of whether or not this validator is enabled.
+                
+            </td>
+                        </tr>
+                        <tr id="messageFormat" class="rowColor">
+                            <td class="colFirst"><a href="#messageFormat"><code>messageFormat</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>java.lang.String</code>)
+                    </td><td class="colLast">
+                
+                    The faces message uses a predefined message format, which corresponds to the value of <code>jakarta.faces.validator.BeanValidator.MESSAGE</code>
+                    in the message bundle. The default message format of <code>{1}: {0}</code> prepends all the validated labels which
+                    were checked when the error message occurred. This is useful in the case of validating a single bean property, but
+                    sometimes confusing in the case of validating a bean with many properties.
+                    <p>
+                    In case you'd like to fine-tune the bean
+                    validation message on a per-<code>&lt;o:validateBean&gt;</code>-basis, then you can since OmniFaces 3.12 use the
+                    <code>messageFormat</code> attribute. Any <code>{0}</code> placeholder will be substituted with the error message
+                    and any <code>{1}</code> placeholder will be substituted with the labels of all validated fields.
+                
+            </td>
+                        </tr>
+                        <tr id="method" class="altColor">
+                            <td class="colFirst"><a href="#method"><code>method</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>java.lang.String</code>)
+                    </td><td class="colLast">
+                
+                    Set the class level validation method, which can be either 'validateCopy' or 'validateActual'.
+                    If set to 'validateCopy', then it will perform the validation on a copy/clone of the actual bean. 
+                    This has the advantage that the validation can be performed before the model is updated.
+                    If set to 'validateActual', then it will perform the validation on the actual bean instance.
+                    This has the disadvantage that the validation can only be performed after the model is updated 
+                    and thus the action method will always be invoked regardless of the validation outcome.
+                    Defaults to 'validateCopy'.
+                    This attribute is ignored when the 'value' attribute is unspecified.
+                
+            </td>
+                        </tr>
+                        <tr id="showMessageFor" class="rowColor">
+                            <td class="colFirst"><a href="#showMessageFor"><code>showMessageFor</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>java.lang.String</code>)
+                    </td><td class="colLast">
+                
+                    The identifier for which this validator should show the message. Defaults to "@form" which is the
+                    parent <code>UIForm</code>. Other available values are "@all" which will show the message for all
+                    invalidated components, "@global" which will show a global message, and "@violating" which will
+                    match components by ConstraintViolation Property Path. Any other space separated value will be
+                    treated as client ID of UI input component.
+                
+            </td>
+                        </tr>
+                        <tr id="validationGroups" class="altColor">
+                            <td class="colFirst"><a href="#validationGroups"><code>validationGroups</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>java.lang.String</code>)
+                    </td><td class="colLast">
+                
+                    A comma-separated list of validation groups. A validation group is a fully-qualified class name.
+                
+            </td>
+                        </tr>
+                        <tr id="value" class="rowColor">
+                            <td class="colFirst"><a href="#value"><code>value</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>java.lang.Object</code>)
+                    </td><td class="colLast">
+                
+                    If specified, then only the given bean will be validated at class level.
+                    If unspecified, then only the bean properties bound to the in the current request processed/executed input fields will be validated "as usual".
+                
+            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="bottomNav">
+            <a name="navbar_bottom"></a><a href="#skip-navbar_bottom" title="Skip navigation links"></a><a name="navbar_bottom_firstrow"></a>
+            <ul class="navList" title="Navigation">
+                <li>
+                    <a href="../overview-summary.html">Overview</a>
+                </li>
+                <li>
+                    <a href="tld-summary.html">Library</a>
+                </li>
+                <li class="navBarCell1Rev">Tag</li>
+                <li>
+                    <a href="../help-doc.html">Help</a>
+                </li>
+            </ul>
+        </div>
+        <div class="subNav">
+            <ul class="navList">
+                <li>
+                    <a target="_bottom" href="../index.html?o/validateBean.html">
+                                    Frames
+                                </a>
+                </li>
+                <li>
+                    <a target="_bottom" href="validateBean.html">
+                                    No Frames
+                                </a>
+                </li>
+            </ul>
+            <ul class="navList" id="alltags_navbar_bottom">
+                <li>
+                    <a href="../alltags-noframe.html">All Tags</a>
+                </li>
+            </ul>
+            <script type="text/javascript">
+                            document.getElementById("alltags_navbar_bottom").style.display = (window == top) ? "block" : "none";
+                        </script><a name="skip-navbar_bottom"></a>
+        </div>
+        <p class="about">
+            Output generated by <a href="http://vdldoc.omnifaces.org" target="_blank">Vdldoc</a> View Declaration Language Documentation Generator.
+        </p>
+    </body>
+</html>
