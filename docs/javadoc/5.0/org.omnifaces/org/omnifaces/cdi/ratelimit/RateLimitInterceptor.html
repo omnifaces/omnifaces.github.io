@@ -86,7 +86,7 @@ loadScripts(document, 'script');</script>
  CDI interceptor that enforces rate limiting on methods annotated with <a href="../RateLimit.html" title="annotation interface in org.omnifaces.cdi"><code>RateLimit</code></a>.
  <p>
  This interceptor intercepts method invocations and checks if the rate limit has been exceeded
- for the specified client identifier. If the rate limit is exceeded, a <a href="RateLimiter.RateLimitExceededException.html" title="class in org.omnifaces.cdi.ratelimit"><code>RateLimiter.RateLimitExceededException</code></a>
+ for the specified client identifier. If the rate limit is exceeded, a <a href="RateLimitExceededException.html" title="class in org.omnifaces.cdi.ratelimit"><code>RateLimitExceededException</code></a>
  is thrown. Otherwise, the method execution continues normally.
  <p>
  The interceptor automatically resolves the client identifier from the annotation configuration,
@@ -98,10 +98,10 @@ loadScripts(document, 'script');</script>
 <dd>Bauke Scholtz</dd>
 <dt>See Also:</dt>
 <dd>
-<ul class="see-list-long">
+<ul class="see-list">
 <li><a href="../RateLimit.html" title="annotation interface in org.omnifaces.cdi"><code>RateLimit</code></a></li>
 <li><a href="RateLimiter.html" title="class in org.omnifaces.cdi.ratelimit"><code>RateLimiter</code></a></li>
-<li><a href="RateLimiter.RateLimitExceededException.html" title="class in org.omnifaces.cdi.ratelimit"><code>RateLimiter.RateLimitExceededException</code></a></li>
+<li><a href="RateLimitExceededException.html" title="class in org.omnifaces.cdi.ratelimit"><code>RateLimitExceededException</code></a></li>
 </ul>
 </dd>
 </dl>

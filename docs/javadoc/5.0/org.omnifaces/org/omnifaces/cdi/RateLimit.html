@@ -83,9 +83,9 @@ loadScripts(document, 'script');</script>
  <p>
  The rate limiting is enforced by the <a href="ratelimit/RateLimitInterceptor.html" title="class in org.omnifaces.cdi.ratelimit"><code>RateLimitInterceptor</code></a> which uses a sliding window algorithm
  to track request counts per client identifier. When the rate limit is exceeded, the interceptor will by default
- immediately throw a <a href="ratelimit/RateLimiter.RateLimitExceededException.html" title="class in org.omnifaces.cdi.ratelimit"><code>RateLimiter.RateLimitExceededException</code></a>. Optionally, you can configure automatic retries via the
+ immediately throw a <a href="ratelimit/RateLimitExceededException.html" title="class in org.omnifaces.cdi.ratelimit"><code>RateLimitExceededException</code></a>. Optionally, you can configure automatic retries via the
  <a href="#maxRetries()"><code>maxRetries()</code></a> attribute, which will retry the request after a calculated delay based on the remaining
- time window. If all retries are exhausted, a <a href="ratelimit/RateLimiter.RateLimitExceededException.html" title="class in org.omnifaces.cdi.ratelimit"><code>RateLimiter.RateLimitExceededException</code></a> is thrown.
+ time window. If all retries are exhausted, a <a href="ratelimit/RateLimitExceededException.html" title="class in org.omnifaces.cdi.ratelimit"><code>RateLimitExceededException</code></a> is thrown.
 
  <h2>Usage</h2>
  <p>
@@ -125,10 +125,10 @@ loadScripts(document, 'script');</script>
 <dd>Bauke Scholtz</dd>
 <dt>See Also:</dt>
 <dd>
-<ul class="see-list-long">
+<ul class="see-list">
 <li><a href="ratelimit/RateLimiter.html" title="class in org.omnifaces.cdi.ratelimit"><code>RateLimiter</code></a></li>
 <li><a href="ratelimit/RateLimitInterceptor.html" title="class in org.omnifaces.cdi.ratelimit"><code>RateLimitInterceptor</code></a></li>
-<li><a href="ratelimit/RateLimiter.RateLimitExceededException.html" title="class in org.omnifaces.cdi.ratelimit"><code>RateLimiter.RateLimitExceededException</code></a></li>
+<li><a href="ratelimit/RateLimitExceededException.html" title="class in org.omnifaces.cdi.ratelimit"><code>RateLimitExceededException</code></a></li>
 </ul>
 </dd>
 </dl>
@@ -254,7 +254,7 @@ loadScripts(document, 'script');</script>
 <div class="block">(Optional) The client identifier to check, whether client IP, user ID, API key, etc.
  Defaults to client IP address associated with the current <a href="https://jakarta.ee/specifications/platform/11/apidocs/jakarta/servlet/http/HttpServletRequest.html" title="class or interface in jakarta.servlet.http" class="external-link"><code>HttpServletRequest</code></a>.
  <p>
- Note thus that when you cannot guarantee that a <a href="https://jakarta.ee/specifications/platform/11/apidocs/jakarta/servlet/http/HttpServletRequest.html" title="class or interface in jakarta.servlet.http" class="external-link"><code>HttpServletRequest</code></a> is available in the 
+ Note thus that when you cannot guarantee that a <a href="https://jakarta.ee/specifications/platform/11/apidocs/jakarta/servlet/http/HttpServletRequest.html" title="class or interface in jakarta.servlet.http" class="external-link"><code>HttpServletRequest</code></a> is available in the
  context of the annotated method, then you'll definitely need to explicitly provide a client ID,
  otherwise the <a href="ratelimit/RateLimitInterceptor.html" title="class in org.omnifaces.cdi.ratelimit"><code>RateLimitInterceptor</code></a> will throw an <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/IllegalArgumentException.html" title="class or interface in java.lang" class="external-link"><code>IllegalArgumentException</code></a>.</div>
 <dl class="notes">
