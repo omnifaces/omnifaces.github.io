@@ -1,4 +1,4 @@
-[Download](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.7.1/omnifaces-4.7.1.jar) - [Showcase](https://showcase.omnifaces.org) - [API docs](https://omnifaces.org/docs/javadoc/current/) - [VDL docs](https://omnifaces.org/docs/vdldoc/current/) - [GitHub](https://github.com/omnifaces/omnifaces) - [Issues](https://github.com/omnifaces/omnifaces/issues) - [X](https://x.com/OmniFaces)
+[Download](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/5.0/omnifaces-5.0.jar) - [Showcase](https://showcase.omnifaces.org) - [API docs](https://omnifaces.org/docs/javadoc/current/) - [VDL docs](https://omnifaces.org/docs/vdldoc/current/) - [GitHub](https://github.com/omnifaces/omnifaces) - [Issues](https://github.com/omnifaces/omnifaces/issues) - [X](https://x.com/OmniFaces)
 
 
 ## What is OmniFaces?
@@ -26,20 +26,42 @@ Since OmniFaces 1.6 there was an *optional* dependency on CDI, which turned out 
 
 Since OmniFaces 2.3 there is a *required* dependency on JSR356 WebSocket which is already available in any Java EE 7 container and in even earlier versions of servletcontainers (Tomcat supports it since 7.0.27 and Jetty supports it since 9.1.0).
 
-While OmniFaces 4.x requires Faces 3.0, it is fully compatible with Faces 4.0 and 4.1.
-
-All OmniFaces versions have an *optional* dependency on JSR303 Bean Validation which is only required when you start to actually use `<o:validateBean>` or `JsfLabelMessageInterpolator`.
+All OmniFaces versions have an *optional* dependency on JSR303 Bean Validation which is only required when you start to actually use `<o:validateBean>` or `FacesLabelMessageInterpolator`.
 
 OmniFaces should principally integrate perfectly well with most other Faces component libraries. Even more, the [OmniFaces showcase application](https://showcase.omnifaces.org) uses PrimeFaces. If you encounter problems in combination with a specific component library, then by all means report an [issue](https://github.com/omnifaces/omnifaces/issues). We'll investigate if it's caused by OmniFaces or the component library in question and fix it or propose a workaround solution, depending on the nature of the problem. Note that OmniFaces is due to the mandatory Servlet API dependency **not** compatible with portlets.
 
+### Quick reference
+
+| OmniFaces     | Java | Faces   | EL  | Servlet | CDI    | WS  | BV^*^ | SEC^*^ | Status              |
+|---------------|------|---------|-----|---------|--------|-----|-------|--------|---------------------|
+| **5.x**       | 17   | 4.1     | 6.0 | 6.1     | 4.1    | 2.2 | 3.1   | 4.0    | Active              |
+| **4.x**       | 11   | 3.0/4.0 | 4.0 | 5.0     | 3.0    | 2.0 | 3.0   | -      | Bug fixes only      |
+| **3.x**       | 1.8  | 2.3     | 3.0 | 3.1     | 2.0    | 1.1 | 2.0   | -      | Bug fixes only      |
+| **2.3-2.7**   | 1.7  | 2.2     | 2.2 | 3.0     | 1.1    | 1.1 | 1.1   | -      | Security fixes only |
+| **2.0-2.2**   | 1.7  | 2.2     | 2.2 | 3.0     | 1.1    | -   | 1.1   | -      | -                   |
+| **1.10-1.14** | 1.6  | 2.0     | 2.1 | 2.5     | -      | -   | 1.0   | -      | Security fixes only |
+| **1.6-1.8**   | 1.6  | 2.0     | 2.1 | 2.5     | 1.0^*^ | -   | 1.0   | -      | -                   |
+| **1.0-1.5**   | 1.6  | 2.0     | 2.1 | 2.5     | -      | -   | 1.0   | -      | -                   |
+
+^*^: optional dependency
 
 ## Installation
 
-It is a matter of dropping the [OmniFaces 4.7.1 JAR file](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.7.1/) in `/WEB-INF/lib`.
+It is a matter of dropping the [OmniFaces 5.0 JAR file](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/5.0/) in `/WEB-INF/lib`.
 
 Maven users can add OmniFaces by adding the following Maven coordinates to `pom.xml` of the WAR project:
 
-```XML
+```xml
+<dependency>
+    <groupId>org.omnifaces</groupId>
+    <artifactId>omnifaces</artifactId>
+    <version>5.0</version>
+</dependency>
+```
+
+Or when you're using Faces 4.0 or 3.0, pick [OmniFaces 4.7.1](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/4.7.1/): 
+
+```xml
 <dependency>
     <groupId>org.omnifaces</groupId>
     <artifactId>omnifaces</artifactId>
@@ -47,9 +69,9 @@ Maven users can add OmniFaces by adding the following Maven coordinates to `pom.
 </dependency>
 ```
 
-Or when you're using JSF 2.3, pick [OmniFaces 3.14.12](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/3.14.12/): 
+Or when you're still using JSF 2.3, pick [OmniFaces 3.14.12](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/3.14.12/): 
 
-```XML
+```xml
 <dependency>
     <groupId>org.omnifaces</groupId>
     <artifactId>omnifaces</artifactId>
@@ -57,27 +79,52 @@ Or when you're using JSF 2.3, pick [OmniFaces 3.14.12](https://repo.maven.apache
 </dependency>
 ```
 
-The 3.x branch is in maintenance mode. New things won't be added there. For users who are still on JSF 2.2, use [2.7.30](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/2.7.30/) instead. The 2.x branch is also in maintenance mode. I.e. it'll also only receive bugfixes. For users on yet more outdated environments who can't/won't use CDI, use [1.14.1](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/1.14.1/) instead. It doesn't contain anything from CDI nor new things which were added in 2.x, but it does contain enhancements and bugfixes to existing 1.x things. Note that there is no 1.15 nor 1.16. The 1.14.1 is latest version of the 1.x branch which is in securityfix mode. I.e. it'll only receive security fixes.
+The 4.x branch is in maintenance mode. I.e. New things won't be added there, but it'll receive bugfixes. For users who are still on JSF 2.3, use [3.14.12](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/3.14.12/). The 3.x branch is also in maintenance mode. I.e. it'll also only receive bugfixes.
 
-The OmniFaces UI components/taghandlers and EL functions are available under the following XML namespaces:
+And users who are still on JSF 2.2, use [2.7.30](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/2.7.30/) instead. For users on yet more outdated environments who can't/won't use CDI, use [1.14.1](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/1.14.1/) instead. It doesn't contain anything from CDI nor new things which were added in 2.x, but it does contain enhancements and bugfixes to existing 1.x things. Note that there is no 1.15 nor 1.16. The 1.14.1 is latest version of the 1.x branch. The 2.x and 1.x branches are in securityfix mode. I.e. it'll only receive security fixes.
 
-```XML
+OmniFaces is designed as a WAR library (web fragment library) and therefore shouldn't be placed elsewhere in the webapp's runtime classpath outside WAR's own `/WEB-INF/lib`, such as EAR's `/lib` or even server's or JRE's own `/lib`. When OmniFaces JAR file is misplaced this way, then the webapp will be unable to find OmniFaces-bundled Faces/CDI annotated classes and throw exceptions related to this during deploy or runtime. To solve it, put back  OmniFaces in WAR's `/WEB-INF/lib`. Also note that you shouldn't have duplicate OmniFaces JAR files, otherwise CDI will throw exceptions related to ambiguous dependencies during deploy.
+
+
+## XML namespaces
+
+The OmniFaces UI components/taghandlers and EL functions are since 5.0 available under the following XML namespace in URN format:
+
+```xml
+xmlns:o="omnifaces"
+```
+
+The OmniFaces Security tags are since 5.0 available under the following XML namespace:
+
+```xml
+xmlns:sec="omnifaces.security"
+```
+
+Previous OmniFaces versions (1.x - 4.x) had the EL functions in a separate XML namespace in URL format, and didn't have security tags:
+
+```xml
 xmlns:o="http://omnifaces.org/ui"
 xmlns:of="http://omnifaces.org/functions"
 ```
 
-Since OmniFaces 5.0 (currently only available as milestone release, with [5.0-M6](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/5.0-M6/) as latest), these are available under a single XML namespace:
+For backwards compatibility, you can still use these old XML namespaces in URL format in OmniFaces 5.x, but they are deprecated **and will be removed in 6.x**, so migration is nonetheless strongly recommended.
+Migration involves the following steps:
 
-```XML
-xmlns:o="omnifaces"
-```
-
-OmniFaces is designed as a WAR library (web fragment library) and therefore can't be placed elsewhere in the webapp's runtime classpath outside WAR's own `/WEB-INF/lib`, such as EAR's `/lib` or even server's or JRE's own `/lib`. When OmniFaces JAR file is misplaced this way, then the webapp will be unable to find OmniFaces-bundled Faces/CDI annotated classes and throw exceptions related to this during deploy or runtime. To solve it, put back  OmniFaces in WAR's `/WEB-INF/lib`. Also note that you shouldn't have duplicate OmniFaces JAR files, otherwise CDI will throw exceptions related to ambiguous dependencies during deploy.
+1. Change `xmlns:o="http://omnifaces.org/ui"` to `xmlns:o="omnifaces"`
+2. Rename `#{of:xyz(...)}` to `#{o:xyz(...)}`
+3. Remove `xmlns:of="http://omnifaces.org/functions"`
 
 
 ## Download
 
 Version history can be found in "[What's new](https://showcase.omnifaces.org/whatsnew)" page at the showcase.
+
+### OmniFaces 5.x
+
+**Required**: Java 17, Faces 4.1, EL 6.0, Servlet 6.1, CDI 4.1, WS 2.2  
+**Optional**: BV 3.1
+
+- 5.0 (28 Dec 2025) - [library](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/5.0/omnifaces-5.0.jar) - [sources](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/5.0/omnifaces-5.0-sources.jar) - [javadoc](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/5.0/omnifaces-5.0-javadoc.jar)
 
 ### OmniFaces 4.x
 
@@ -161,7 +208,7 @@ If you like to play around with the newest of the newest, hereby accepting the r
 
 Maven users can add OmniFaces SNAPSHOT by adding the following Maven coordinates to pom.xml:
 
-```XML
+```xml
 <repositories>
     <repository>
         <id>oss.sonatype.org-snapshot</id>
@@ -221,7 +268,7 @@ For starters, a "snapshot" is just the current/latest build. It's far from a rel
 
 [![Pro CDI 2 in Java EE 8](https://i.imgur.com/prQvurz.png)](https://amazon.com/dp/1484243625)
 
-[Pro CDI 2 in Java EE 8](https://amazon.com/dp/1484243625) is available on Amazon.com since September 7, 2019. This book too is authored by members of the OmniFaces team, Jan Beernink and Arjan Tijms. It covers the history of CDI in great depth, and discusses core concepts, in addition to explaning many practical cases. CDI is the ultimate companion to JSF and therefor this book is a must-read for any JSF developer. The source code of the book's examples can be found at [GitHub](https://github.com/omnifaces/https://github.com/omnifaces/pro-cdi-2-in-java-ee-8).
+[Pro CDI 2 in Java EE 8](https://amazon.com/dp/1484243625) is available on Amazon.com since September 7, 2019. This book too is authored by members of the OmniFaces team, Jan Beernink and Arjan Tijms. It covers the history of CDI in great depth, and discusses core concepts, in addition to explaning many practical cases. CDI is the ultimate companion to JSF and therefor this book is a must-read for any JSF developer. The source code of the book's examples can be found at [GitHub](https://github.com/omnifaces/pro-cdi-2-in-java-ee-8).
 
 
 ### Mastering OmniFaces

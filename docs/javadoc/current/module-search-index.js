@@ -1,1 +1,1 @@
-moduleSearchIndex = [{"l":"org.omnifaces"}]
+moduleSearchIndex = [{"l":"org.omnifaces"}];updateSearchResults();

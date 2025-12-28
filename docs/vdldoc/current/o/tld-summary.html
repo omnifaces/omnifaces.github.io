@@ -57,14 +57,14 @@
                             <dt>XML Declaration Syntax:</dt>
                             <dd>
                                 <code>
-                                                    &lt;anyxmlelement xmlns:o="http://omnifaces.org/ui"/&gt;
+                                                    &lt;anyxmlelement xmlns:o="omnifaces"/&gt;
                                                 </code>
                             </dd>
                         </dl>
                         <dl>
                             <dt>Description:</dt>
                             <dd>
-                                <div class="block">OmniFaces UI components.</div>
+                                <div class="block">OmniFaces UI components and EL functions.</div>
                             </dd>
                         </dl>
                     </li>
@@ -85,7 +85,7 @@
                             <td class="colFirst">ID (tag prefix)</td><td class="colLast"><code>o</code></td>
                         </tr>
                         <tr class="altColor">
-                            <td class="colFirst">URI</td><td class="colLast"><code>http://omnifaces.org/ui</code></td>
+                            <td class="colFirst">URI</td><td class="colLast"><code>omnifaces</code></td>
                         </tr>
                     </tbody>
                 </table>
@@ -192,7 +192,7 @@
                             <td class="colOne"><b><a href="commandScript.html">commandScript</a></b></td><td class="colLast">
             
                 <p><strong>CommandScript</strong> is an extension to <code>&lt;h:commandXxx&gt;</code> which generates a JavaScript
-                function in the global JavaScript scope which allows the enduser to execute a JSF ajax request by a just function
+                function in the global JavaScript scope which allows the enduser to execute a Facesaces ajax request by a just function
                 call <code>functionName()</code> in the JavaScript context.
                 <p>
                 The <code>&lt;o:commandScript&gt;</code> component is required to be enclosed in an <code>UIForm</code> component. The
@@ -354,7 +354,7 @@ String name2 = Faces.getRequestParameter("name2"); // value2
             
                 The <code>&lt;o:graphicImage&gt;</code> is a component that extends the standard <code>&lt;h:graphicImage&gt;</code>
                 with support for referencing an <code>InputStream</code> or <code>byte[]</code> property in <code>value</code> attribute.
-                This property must point to a <strong>stateless</strong> <code>@ApplicationScoped</code> bean (both JSF and CDI
+                This property must point to a <strong>stateless</strong> <code>@ApplicationScoped</code> bean (both Faces and CDI
                 scopes are supported).
              
         </td>
@@ -387,7 +387,7 @@ It's very similar to the <code>&lt;o:viewParam&gt;</code>.
 &lt;/f:metadata&gt;
 </pre>
 <p>
-This only requires that the JSF page has at least one {@link UIForm} component, such as <code>&lt;h:form&gt;</code>
+This only requires that the Faces page has at least one <code>UIForm</code> component, such as <code>&lt;h:form&gt;</code>
 or <code>&lt;o:form&gt;</code>, otherwise the <code>&lt;o:hashParam&gt;</code> won't be able to fire the ajax
 request which sets the with hash query parameter values in bean. In such case an error will be printed to JS console
 when the project stage is <code>Development</code>.
@@ -552,10 +552,8 @@ public enum Baz {
                             <td class="colOne"><b><a href="inputFile.html">inputFile</a></b></td><td class="colLast">
             
                 The <code>&lt;o:inputFile&gt;</code> is a component that extends the standard <code>&lt;h:inputFile&gt;</code> and
-                adds support for <code>multiple</code>, <code>directory</code>, <code>accept</code> and <code>maxsize</code>
+                adds support for <code>directory</code> and <code>maxsize</code>
                 attributes, along with built-in server side validation on <code>accept</code> and <code>maxsize</code> attributes.
-                Additionally, it makes sure that the value of HTML file input element is never rendered. The standard
-                <code>&lt;h:inputFile&gt;</code> renders <code>Part#toString()</code> to it which is unnecessary.
             
         </td>
                         </tr>
@@ -591,16 +589,16 @@ public enum Baz {
                             <td class="colOne"><b><a href="loadBundle.html">loadBundle</a></b></td><td class="colLast">
             
                 The <code>&lt;o:loadBundle&gt;</code> taghandler basically extends the standard <code>&lt;f:loadBundle&gt;</code>
-                with a new <code>loader</code> attribute allowing you to explicitly set the desired {@link ClassLoader} where
-                the resource bundle should be looked up. Also the {@link Locale} of the bundle is obtained with better default values
+                with a new <code>loader</code> attribute allowing you to explicitly set the desired <code>ClassLoader</code> where
+                the resource bundle should be looked up. Also the <code>Locale</code> of the bundle is obtained with better default values
                 than the default Faces implementation.
                 <p>
                 You can use the <code>loader</code> attribute to specify an object whose class loader will be used to load the
                 resource bundle specified in the <code>basename</code> attribute. The class loader of the given object is resolved as
-                specified in {@link Utils#getClassLoader(Object)}. In the end this should allow you to use a more specific resource
+                specified in <code>Utils#getClassLoader(Object)</code>. In the end this should allow you to use a more specific resource
                 bundle when there are duplicate instances in the runtime classpath, e.g. via multiple (plugin) libraries.
                 <p>
-                The locale of the resource bundle is obtained as specified in {@link Faces#getLocale()}.
+                The locale of the resource bundle is obtained as specified in <code>Faces#getLocale()</code>.
                 <h2>Usage</h2>
                 <p>
                 You can use it the same way as <code>&lt;f:loadBundle&gt;</code>, you only need to change <code>f:</code> into
@@ -757,10 +755,9 @@ public enum Baz {
                 made available as a value expression. This handler should be placed inside a Facelets tag as follows:
                 <pre>
 &lt;ui:composition
-    xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-    xmlns:h="http://xmlns.jcp.org/jsf/html"
-    xmlns:o="http://omnifaces.org/ui"
+    xmlns:ui="jakarta.faces.facelets"
+    xmlns:h="jakarta.faces.html"
+    xmlns:o="omnifaces"
 &gt;
     &lt;o:methodParam name="method" value="#{action}"/&gt;
 
@@ -844,7 +841,7 @@ public enum Baz {
                 attribute of the tag, or the nested <code>&lt;f:converter&gt;</code> tag, or just automatically if a converter is
                 already registered for the target class.
                 Also, if no value is specified, but children are present, then the encoded output of children will be returned as
-                value. This is useful when you want to supply JSF components or HTML as parameter of an unescaped
+                value. This is useful when you want to supply Faces components or HTML as parameter of an unescaped
                 <code>&lt;h:outputFormat&gt;</code>. For example,
                 <pre>
                 &lt;h:outputFormat value="#{bundle.paragraph}" escape="false"&gt;
@@ -1009,9 +1006,9 @@ public class JsobObjectConverter implements Converter&lt;JsonObject&gt; {
                         <tr class="altColor">
                             <td class="colOne"><b><a href="selectItemGroups.html">selectItemGroups</a></b></td><td class="colLast">
             
-                The <code>o:selectItemGroups</code> is an extension of {@link UISelectItems} which allows you to iterate over a nested collection representing groups of select items.
-                This is the {@link UIComponent} counterpart of <code>jakarta.faces.model.SelectItemGroup</code>.
-                There is no equivalent (yet) in the standard JSF API. Currently the only way to represent {@link SelectItemGroup} in UI is to manually create and populate them in a backing bean which can end up to be quite verbose.
+                The <code>o:selectItemGroups</code> is an extension of <code>UISelectItems</code> which allows you to iterate over a nested collection representing groups of select items.
+                This is the <code>UIComponent</code> counterpart of <code>jakarta.faces.model.SelectItemGroup</code>.
+                There is no equivalent (yet) in the standard Faces API. Currently the only way to represent <code>SelectItemGroup</code> in UI is to manually create and populate them in a backing bean which can end up to be quite verbose.
                 <p>
                 Below example assumes a <code>List&lt;Category&gt;</code> as value wherein <code>Category</code> in turn has a <code>List&lt;Product&gt;</code>.
                 <pre>
@@ -1034,7 +1031,7 @@ public class JsobObjectConverter implements Converter&lt;JsonObject&gt; {
                         <tr class="rowColor">
                             <td class="colOne"><b><a href="sitemapUrl.html">sitemapUrl</a></b></td><td class="colLast">
             
-                The <code>&lt;o:sitemapUrl&gt;</code> is a component which renders the given target URL or JSF view ID as a sitemap
+                The <code>&lt;o:sitemapUrl&gt;</code> is a component which renders the given target URL or Faces view ID as a sitemap
                 URL with support for adding additional query string parameters to the URL via nested <code>&lt;f:param&gt;</code>
                 and <code>&lt;o:param&gt;</code>.
              
@@ -1084,7 +1081,7 @@ public class JsobObjectConverter implements Converter&lt;JsonObject&gt; {
                             <td class="colOne"><b><a href="tree.html">tree</a></b></td><td class="colLast">
             
                 The <code>&lt;o:tree&gt;</code> allows the developers to have full control over the markup of a tree
-                hierarchy by declaring the appropriate JSF components or HTML elements in the markup. The <code>&lt;o:tree&gt;</code>
+                hierarchy by declaring the appropriate Faces components or HTML elements in the markup. The <code>&lt;o:tree&gt;</code>
                 does namely not render any HTML markup by itself.
                 <p>
                 The component value must point to a tree of data objects represented by a <code>TreeModel</code> instance, typically
@@ -1161,7 +1158,7 @@ public class JsobObjectConverter implements Converter&lt;JsonObject&gt; {
                         <tr class="rowColor">
                             <td class="colOne"><b><a href="url.html">url</a></b></td><td class="colLast">
             
-                The <code>&lt;o:url&gt;</code> is a component which renders the given target URL or JSF view ID as a bookmarkable
+                The <code>&lt;o:url&gt;</code> is a component which renders the given target URL or Faces view ID as a bookmarkable
                 URL with support for adding additional query string parameters to the URL via nested <code>&lt;f:param&gt;</code>
                 and <code>&lt;o:param&gt;</code>, and for exposing it into the request scope by the variable name as specified by
                 the <code>var</code> attribute instead of rendering it.
@@ -1608,10 +1605,808 @@ public class ValidateValuesBean implements MultiFieldValidator {
                 You can technically nest multiple <code>&lt;o:viewParamValidationFailed&gt;</code> inside the same parent, but this
                 is not the documented approach and the behavior is unspecified.
                 <p>
-                You can <strong>not</strong> change the HTTP status code of a redirect. This is not a JSF limitation, but a HTTP
+                You can <strong>not</strong> change the HTTP status code of a redirect. This is not a Faces limitation, but a HTTP
                 limitation. The status code of a redirect will <strong>always</strong> end up the one of the redirected response.
                 If you intend to "redirect" with a different HTTP status code, then you should be using <code>sendError</code>
                 instead and specify the desired page as <code>&lt;error-page&gt;</code> in <code>web.xml</code>.
+            
+        </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Function Summary table, listing function information">
+                    <caption>
+                        <span>Function Summary</span><span class="tabEnd">&nbsp;</span>
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th class="colFirst" scope="col">Type</th><th class="colOne" scope="col">Function</th><th class="colLast" scope="col">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="rowColor">
+                            <td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="abbreviate.fn.html">abbreviate</a></b>(java.lang.String, int)</code></td><td class="colLast">
+            
+                Abbreviate the given text on the given size limit with ellipsis.
+            
+        </td>
+                        </tr>
+                        <tr class="altColor">
+                            <td class="colFirst"><code>java.lang.Object</code></td><td class="colOne"><code><b><a href="addDays.fn.html">addDays</a></b>(java.lang.Object, int)</code></td><td class="colLast">
+            
+                Returns a new date instance which is a sum of the given date and the given amount of days. The days can be negative.
+                <code>java.time.Temporal</code>, <code>java.util.Calendar</code>, <code>java.util.Date</code> and <code>java.lang.Long</code> as epoch milli are supported.
+            
+        </td>
+                        </tr>
+                        <tr class="rowColor">
+                            <td class="colFirst"><code>java.lang.Object</code></td><td class="colOne"><code><b><a href="addHours.fn.html">addHours</a></b>(java.lang.Object, int)</code></td><td class="colLast">
+            
+                Returns a new date instance which is a sum of the given date and the given amount of hours. The hours can be negative.
+                <code>java.time.Temporal</code>, <code>java.util.Calendar</code>, <code>java.util.Date</code> and <code>java.lang.Long</code> as epoch milli are supported.
+            
+        </td>
+                        </tr>
+                        <tr class="altColor">
+                            <td class="colFirst"><code>java.lang.Object</code></td><td class="colOne"><code><b><a href="addMinutes.fn.html">addMinutes</a></b>(java.lang.Object, int)</code></td><td class="colLast">
+            
+                Returns a new date instance which is a sum of the given date and the given amount of minutes. The minutes can be negative.
+                <code>java.time.Temporal</code>, <code>java.util.Calendar</code>, <code>java.util.Date</code> and <code>java.lang.Long</code> as epoch milli are supported.
+            
+        </td>
+                        </tr>
+                        <tr class="rowColor">
+                            <td class="colFirst"><code>java.lang.Object</code></td><td class="colOne"><code><b><a href="addMonths.fn.html">addMonths</a></b>(java.lang.Object, int)</code></td><td class="colLast">
+            
+                Returns a new date instance which is a sum of the given date and the given amount of months. The months can be negative.
+                <code>java.time.Temporal</code>, <code>java.util.Calendar</code>, <code>java.util.Date</code> and <code>java.lang.Long</code> as epoch milli are supported.
+            
+        </td>
+                        </tr>
+                        <tr class="altColor">
+                            <td class="colFirst"><code>java.lang.Object</code></td><td class="colOne"><code><b><a href="addSeconds.fn.html">addSeconds</a></b>(java.lang.Object, int)</code></td><td class="colLast">
+            
+                Returns a new date instance which is a sum of the given date and the given amount of seconds. The seconds can be negative.
+                <code>java.time.Temporal</code>, <code>java.util.Calendar</code>, <code>java.util.Date</code> and <code>java.lang.Long</code> as epoch milli are supported.
+            
+        </td>
+                        </tr>
+                        <tr class="rowColor">
+                            <td class="colFirst"><code>java.lang.Object</code></td><td class="colOne"><code><b><a href="addWeeks.fn.html">addWeeks</a></b>(java.lang.Object, int)</code></td><td class="colLast">
+            
+                Returns a new date instance which is a sum of the given date and the given amount of weeks. The weeks can be negative.
+                <code>java.time.Temporal</code>, <code>java.util.Calendar</code>, <code>java.util.Date</code> and <code>java.lang.Long</code> as epoch milli are supported.
+            
+        </td>
+                        </tr>
+                        <tr class="altColor">
+                            <td class="colFirst"><code>java.lang.Object</code></td><td class="colOne"><code><b><a href="addYears.fn.html">addYears</a></b>(java.lang.Object, int)</code></td><td class="colLast">
+            
+                Returns a new date instance which is a sum of the given date and the given amount of years. The years can be negative.
+                <code>java.time.Temporal</code>, <code>java.util.Calendar</code>, <code>java.util.Date</code> and <code>java.lang.Long</code> as epoch milli are supported.
+            
+        </td>
+                        </tr>
+                        <tr class="rowColor">
+                            <td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="capitalize.fn.html">capitalize</a></b>(java.lang.String)</code></td><td class="colLast">
+            
+                Capitalize the given string, i.e. uppercase the first character.
+            
+        </td>
+                        </tr>
+                        <tr class="altColor">
+                            <td class="colFirst"><code>java.lang.Object</code></td><td class="colOne"><code><b><a href="coalesce.fn.html">coalesce</a></b>(java.lang.Object, java.lang.Object)</code></td><td class="colLast">
+            
+                Return the first non-<code>null</code> object from the two objects.
+            
+        </td>
+                        </tr>
+                        <tr class="rowColor">
+                            <td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="concat.fn.html">concat</a></b>(java.lang.Object, java.lang.Object)</code></td><td class="colLast">
+            
+                Concatenate the string representation of the given objects. This is useful when you don't know
+                beforehand if one of the both hands is a string or is <code>null</code>, otherwise the new EL 2.2
+                <code>#{bean.string1.concat(bean.string2)}</code> can just be used.
+            
+        </td>
+                        </tr>
+                        <tr class="altColor">
+                            <td class="colFirst"><code>boolean</code></td><td class="colOne"><code><b><a href="contains.fn.html">contains</a></b>(java.lang.Object[], java.lang.Object)</code></td><td class="colLast">
+            
+                Returns <code>true</code> if the string representation of an item of the given array equals to the
+                string representation of the given item. This returns <code>false</code> if either the array or the
+                item is null. This is useful if you want to for example check if <code>#{paramValues.foo}</code>
+                contains a certain value.
+            
+        </td>
+                        </tr>
+                        <tr class="rowColor">
+                            <td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="convert.fn.html">convert</a></b>(java.lang.String, java.lang.Object)</code></td><td class="colLast">
+            
+                Convert given object to string using <code>Converter#getAsString(FacesContext, UIComponent, Object)</code> of the
+                converter identified by the given converter ID, invoked with <code>FacesContext#getCurrentInstance()</code>,
+                <code>UIComponent#getCurrentComponent(FacesContext)</code> and given object as arguments.
+            
+        </td>
+                        </tr>
+                        <tr class="altColor">
+                            <td class="colFirst"><code>java.lang.Object[]</code></td><td class="colOne"><code><b><a href="createArray.fn.html">createArray</a></b>(int)</code></td><td class="colLast">
+            
+                Creates and returns a dummy object array of the given size. This is useful if you want to iterate
+                <i>n</i> times over an <code>&lt;ui:repeat&gt;</code>, which doesn't support EL in <code>begin</code>
+                and <code>end</code> attributes.
+            
+        </td>
+                        </tr>
+                        <tr class="rowColor">
+                            <td class="colFirst"><code>java.lang.int[]</code></td><td class="colOne"><code><b><a href="createIntegerArray.fn.html">createIntegerArray</a></b>(int, int)</code></td><td class="colLast">
+            
+                Creates and returns an integer array which starts at the given integer and ends at the given integer, inclusive. This is
+                useful if you want to for example populate a <code>&lt;f:selectItems&gt;</code> which shows an integer range to
+                represent days and years.
+            
+        </td>
+                        </tr>
+                        <tr class="altColor">
+                            <td class="colFirst"><code>int</code></td><td class="colOne"><code><b><a href="daysBetween.fn.html">daysBetween</a></b>(java.lang.Object, java.lang.Object)</code></td><td class="colLast">
+            
+                Returns the amount of days between two given dates. This will be negative when the end date is before the start date.
+                <code>java.time.Temporal</code>, <code>java.util.Calendar</code>, <code>java.util.Date</code> and <code>java.lang.Long</code> as epoch milli are supported.
+            
+        </td>
+                        </tr>
+                        <tr class="rowColor">
+                            <td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="encodeBase64.fn.html">encodeBase64</a></b>(java.lang.String)</code></td><td class="colLast">
+            
+                Base64-encode the given string using UTF-8. This is useful for cases where you need to create data URLs.
+            
+        </td>
+                        </tr>
+                        <tr class="altColor">
+                            <td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="encodeURI.fn.html">encodeURI</a></b>(java.lang.String)</code></td><td class="colLast">
+            
+                URI-encode the given string using UTF-8. This is useful for cases where you need to embed path parameters in URLs.
+            
+        </td>
+                        </tr>
+                        <tr class="rowColor">
+                            <td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="encodeURL.fn.html">encodeURL</a></b>(java.lang.String)</code></td><td class="colLast">
+            
+                URL-encode the given string using UTF-8. This is useful for cases where you can't use
+                <code>&lt;f:param&gt;</code>.
+            
+        </td>
+                        </tr>
+                        <tr class="altColor">
+                            <td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="escapeJS.fn.html">escapeJS</a></b>(java.lang.String)</code></td><td class="colLast">
+            
+                Escapes the given string according the JavaScript code rules. This escapes among others the special
+                characters, the whitespace, the quotes and the unicode characters. Useful whenever you want to use a
+                Java string variable as a JavaScript string variable.
+            
+        </td>
+                        </tr>
+                        <tr class="rowColor">
+                            <td class="colFirst"><code>java.lang.Object</code></td><td class="colOne"><code><b><a href="evalAttribute.fn.html">evalAttribute</a></b>(jakarta.faces.component.UIComponent, java.lang.String)</code></td><td class="colLast">
+            
+                Gets the value of a component's attribute by trying to evaluate a value expression associated with the
+                attribute first, and if none exists goes via the regular attribute mechanism (which will likely call
+                a getter on the component if indeed no value expression is associated).
+            
+        </td>
+                        </tr>
+                        <tr class="altColor">
+                            <td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="format1.fn.html">format1</a></b>(java.lang.String, java.lang.Object)</code></td><td class="colLast">
+            
+                Format the given string with 1 parameter using <code>java.text.MessageFormat</code> API.
+                Design notice: There are five formatX() functions, each taking 1 to 5 format parameters because EL
+                functions does not support varargs methods nor overloaded function names.
+            
+        </td>
+                        </tr>
+                        <tr class="rowColor">
+                            <td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="format2.fn.html">format2</a></b>(java.lang.String, java.lang.Object, java.lang.Object)</code></td><td class="colLast">
+            
+                Format the given string with 2 parameters using <code>java.text.MessageFormat</code> API.
+                Design notice: There are five formatX() functions, each taking 1 to 5 format parameters because EL
+                functions does not support varargs methods nor overloaded function names.
+            
+        </td>
+                        </tr>
+                        <tr class="altColor">
+                            <td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="format3.fn.html">format3</a></b>(java.lang.String, java.lang.Object, java.lang.Object, java.lang.Object)</code></td><td class="colLast">
+            
+                Format the given string with 3 parameters using <code>java.text.MessageFormat</code> API.
+                Design notice: There are five formatX() functions, each taking 1 to 5 format parameters because EL
+                functions does not support varargs methods nor overloaded function names.
+            
+        </td>
+                        </tr>
+                        <tr class="rowColor">
+                            <td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="format4.fn.html">format4</a></b>(java.lang.String, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object)</code></td><td class="colLast">
+            
+                Format the given string with 4 parameters using <code>java.text.MessageFormat</code> API.
+                Design notice: There are five formatX() functions, each taking 1 to 5 format parameters because EL
+                functions does not support varargs methods nor overloaded function names.
+            
+        </td>
+                        </tr>
+                        <tr class="altColor">
+                            <td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="format5.fn.html">format5</a></b>(java.lang.String, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object)</code></td><td class="colLast">
+            
+                Format the given string with 5 parameters using <code>java.text.MessageFormat</code> API.
+                Design notice: There are five formatX() functions, each taking 1 to 5 format parameters because EL
+                functions does not support varargs methods nor overloaded function names.
+            
+        </td>
+                        </tr>
+                        <tr class="rowColor">
+                            <td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="formatBytes.fn.html">formatBytes</a></b>(java.lang.Long)</code></td><td class="colLast">
+            
+                Format the given bytes to nearest 10<sup>n</sup> in the default pattern of the default locale with IEC binary unit (KiB, MiB, etc) with rounding
+                precision of 1 fraction. For example:
+                <ul>
+                    <li>1023 bytes will appear as 1023 B
+                    <li>1024 bytes will appear as 1.0 KiB
+                    <li>500000 bytes will appear as 488.3 KiB
+                    <li>1048576 bytes will appear as 1.0 GiB
+                </ul>
+            
+        </td>
+                        </tr>
+                        <tr class="altColor">
+                            <td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="formatBytesForLocale.fn.html">formatBytesForLocale</a></b>(java.lang.Long, java.lang.Object)</code></td><td class="colLast">
+            
+                Format the given bytes to nearest 10<sup>n</sup> in the default pattern of the given locale with IEC binary unit (KiB, MiB, etc) with rounding
+                precision of 1 fraction. For example:
+                <ul>
+                    <li>1023 bytes will appear as 1023 B
+                    <li>1024 bytes will appear as 1.0 KiB
+                    <li>500000 bytes will appear as 488.3 KiB
+                    <li>1048576 bytes will appear as 1.0 GiB
+                </ul>
+                The given locale can be a <code>Locale</code> object or a string representation.
+            
+        </td>
+                        </tr>
+                        <tr class="rowColor">
+                            <td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="formatCurrency.fn.html">formatCurrency</a></b>(java.lang.Number, java.lang.String)</code></td><td class="colLast">
+            
+                Format the given number as currency with the given symbol in the default pattern of the default locale. This is useful when you want to format numbers as
+                currency in for example the <code>title</code> attribute of an UI component, or the <code>itemLabel</code>
+                attribute of select item, or wherever you can't use the <code>&lt;f:convertNumber&gt;</code> tag. The default locale is
+                the one as obtained by <code>Faces#getLocale()</code>.
+            
+        </td>
+                        </tr>
+                        <tr class="altColor">
+                            <td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="formatCurrencyForLocale.fn.html">formatCurrencyForLocale</a></b>(java.lang.Number, java.lang.String, java.lang.Object)</code></td><td class="colLast">
+            
+                Format the given number as currency with the given symbol in the default pattern of the given locale. This is useful when you want to format numbers as
+                currency in for example the <code>title</code> attribute of an UI component, or the <code>itemLabel</code>
+                attribute of select item, or wherever you can't use the <code>&lt;f:convertNumber&gt;</code> tag.
+                The given locale can be a <code>Locale</code> object or a string representation.
+            
+        </td>
+                        </tr>
+                        <tr class="rowColor">
+                            <td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="formatDate.fn.html">formatDate</a></b>(java.lang.Object, java.lang.String)</code></td><td class="colLast">
+            
+                Format the given date in the given pattern and system default timezone. This is useful when you want to
+                format dates in for example the <code>title</code> attribute of an UI component, or the
+                <code>itemLabel</code> attribute of select item, or wherever you can't use the
+                <code>&lt;f:convertDateTime&gt;</code> tag.
+                <code>java.time.Temporal</code>, <code>java.util.Calendar</code>, <code>java.util.Date</code> and <code>java.lang.Long</code> as epoch milli are supported.
+            
+        </td>
+                        </tr>
+                        <tr class="altColor">
+                            <td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="formatDateWithTimezone.fn.html">formatDateWithTimezone</a></b>(java.lang.Object, java.lang.String, java.lang.Object)</code></td><td class="colLast">
+            
+                Format the given date in the given pattern with given timezone. This is useful when you want to format
+                dates in for example the <code>title</code> attribute of an UI component, or the <code>itemLabel</code>
+                attribute of select item, or wherever you can't use the <code>&lt;f:convertDateTime&gt;</code> tag.
+                <code>java.time.Temporal</code>, <code>java.util.Calendar</code>, <code>java.util.Date</code> and <code>java.lang.Long</code> as epoch milli are supported.
+            
+        </td>
+                        </tr>
+                        <tr class="rowColor">
+                            <td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="formatNumber.fn.html">formatNumber</a></b>(java.lang.Number, java.lang.String)</code></td><td class="colLast">
+            
+                Format the given number in the given pattern. This is useful when you want to format numbers in for example the
+                <code>title</code> attribute of an UI component, or the <code>itemLabel</code> attribute of select item, or
+                wherever you can't use the <code>&lt;f:convertNumber&gt;</code> tag. The format locale will be set to the one as
+                obtained by <code>Faces#getLocale()</code>.
+            
+        </td>
+                        </tr>
+                        <tr class="altColor">
+                            <td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="formatNumberDefault.fn.html">formatNumberDefault</a></b>(java.lang.Number)</code></td><td class="colLast">
+            
+                Format the given number in the default pattern of the default locale. This is useful when you want to format numbers in for 
+                example the <code>title</code> attribute of an UI component, or the <code>itemLabel</code> attribute of select
+                item, or wherever you can't use the <code>&lt;f:convertNumber&gt;</code> tag. The default locale is
+                the one as obtained by <code>Faces#getLocale()</code>.
+            
+        </td>
+                        </tr>
+                        <tr class="rowColor">
+                            <td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="formatNumberDefaultForLocale.fn.html">formatNumberDefaultForLocale</a></b>(java.lang.Number, java.lang.Object)</code></td><td class="colLast">
+            
+                Format the given number in the default pattern of the given locale. This is useful when you want to format numbers in for 
+                example the <code>title</code> attribute of an UI component, or the <code>itemLabel</code> attribute of select
+                item, or wherever you can't use the <code>&lt;f:convertNumber&gt;</code> tag. The given
+                locale can be a <code>Locale</code> object or a string representation.
+            
+        </td>
+                        </tr>
+                        <tr class="altColor">
+                            <td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="formatPercent.fn.html">formatPercent</a></b>(java.lang.Number)</code></td><td class="colLast">
+            
+                Format the given number as percentage in the default pattern of the default locale. This is useful when you want to format numbers as
+                percentage in for example the <code>title</code> attribute of an UI component, or the <code>itemLabel</code>
+                attribute of select item, or wherever you can't use the <code>&lt;f:convertNumber&gt;</code> tag. The default locale is
+                the one as obtained by <code>Faces#getLocale()</code>.
+            
+        </td>
+                        </tr>
+                        <tr class="rowColor">
+                            <td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="formatPercentForLocale.fn.html">formatPercentForLocale</a></b>(java.lang.Number, java.lang.Object)</code></td><td class="colLast">
+            
+                Format the given number as percentage in the default pattern of the given locale. This is useful when you want to format numbers as
+                percentage in for example the <code>title</code> attribute of an UI component, or the <code>itemLabel</code>
+                attribute of select item, or wherever you can't use the <code>&lt;f:convertNumber&gt;</code> tag. The given
+                locale can be a <code>Locale</code> object or a string representation.
+            
+        </td>
+                        </tr>
+                        <tr class="altColor">
+                            <td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="formatThousands.fn.html">formatThousands</a></b>(java.lang.Number)</code></td><td class="colLast">
+            
+                Format the given number to nearest 10<sup>n</sup> (rounded to thousands) in the default pattern of the default locale, immediately suffixed (without space)
+                with metric unit (k, M, G, T, P or E), rounding half up with a precision of 3 digits, whereafter
+                trailing zeroes in fraction part are stripped. Numbers lower than thousand are not affected.
+                For example (with English locale):
+                <ul>
+                    <li>999.999 will appear as 999.999
+                    <li>1000 will appear as 1k
+                    <li>1004 will appear as 1k
+                    <li>1005 will appear as 1.01k
+                    <li>1594 will appear as 1.59k
+                    <li>1595 will appear as 1.6k
+                    <li>9000 will appear as 9k
+                    <li>9900 will appear as 9.9k
+                    <li>9994 will appear as 9.99k
+                    <li>9995 will appear as 10k
+                    <li>99990 will appear as 100k
+                    <li>9994999 will appear as 9.99M
+                    <li>9995000 will appear as 10M
+                </ul>
+                The default locale is the one as obtained by <code>Faces#getLocale()</code>.
+                If the value is <code>null</code>, <code>NaN</code> or infinity, then this will return <code>null</code>.
+            
+        </td>
+                        </tr>
+                        <tr class="rowColor">
+                            <td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="formatThousandsForLocale.fn.html">formatThousandsForLocale</a></b>(java.lang.Number, java.lang.Object)</code></td><td class="colLast">
+            
+                Format the given number to nearest 10<sup>n</sup> (rounded to thousands) in the default pattern of the given locale, immediately suffixed (without space)
+                with metric unit (k, M, G, T, P or E), rounding half up with a precision of 3 digits, whereafter
+                trailing zeroes in fraction part are stripped. Numbers lower than thousand are not affected.
+                For example (with English locale):
+                <ul>
+                    <li>999.999 will appear as 999.999
+                    <li>1000 will appear as 1k
+                    <li>1004 will appear as 1k
+                    <li>1005 will appear as 1.01k
+                    <li>1594 will appear as 1.59k
+                    <li>1595 will appear as 1.6k
+                    <li>9000 will appear as 9k
+                    <li>9900 will appear as 9.9k
+                    <li>9994 will appear as 9.99k
+                    <li>9995 will appear as 10k
+                    <li>99990 will appear as 100k
+                    <li>9994999 will appear as 9.99M
+                    <li>9995000 will appear as 10M
+                </ul>
+                The given locale can be a <code>Locale</code> object or a string representation.
+                If the value is <code>null</code>, <code>NaN</code> or infinity, then this will return <code>null</code>.
+            
+        </td>
+                        </tr>
+                        <tr class="altColor">
+                            <td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="formatThousandsUnit.fn.html">formatThousandsUnit</a></b>(java.lang.Number, java.lang.String)</code></td><td class="colLast">
+            
+                Format the given number to nearest 10<sup>n</sup> (rounded to thousands) in the default pattern of the default locale, suffixed with a space, the metric unit
+                prefix (k, M, G, T, P or E) and the given unit, rounding half up with a precision of 3 digits, whereafter
+                trailing zeroes in fraction part are stripped.
+                For example (with English locale and unit <code>B</code>):
+                <ul>
+                <li>999 will appear as 999 B
+                <li>1000 will appear as 1 kB
+                <li>1004 will appear as 1 kB
+                <li>1005 will appear as 1.01 kB
+                <li>1594 will appear as 1.59 kB
+                <li>1595 will appear as 1.6 kB
+                <li>9000 will appear as 9 kB
+                <li>9900 will appear as 9.9 kB
+                <li>9994 will appear as 9.99 kB
+                <li>9995 will appear as 10 kB
+                <li>99990 will appear as 100 kB
+                <li>9994999 will appear as 9.99 MB
+                <li>9995000 will appear as 10 MB
+                </ul>
+                The default locale is the one as obtained by <code>Faces#getLocale()</code>.
+                If the value is <code>null</code>, <code>NaN</code> or infinity, then this will return <code>null</code>.
+            
+        </td>
+                        </tr>
+                        <tr class="rowColor">
+                            <td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="formatThousandsUnitForLocale.fn.html">formatThousandsUnitForLocale</a></b>(java.lang.Number, java.lang.String, java.lang.Object)</code></td><td class="colLast">
+            
+                Format the given number to nearest 10<sup>n</sup> (rounded to thousands) in the default pattern of the given locale, suffixed with a space, the metric unit
+                prefix (k, M, G, T, P or E) and the given unit, rounding half up with a precision of 3 digits, whereafter
+                trailing zeroes in fraction part are stripped.
+                For example (with English locale and unit <code>B</code>):
+                <ul>
+                <li>999 will appear as 999 B
+                <li>1000 will appear as 1 kB
+                <li>1004 will appear as 1 kB
+                <li>1005 will appear as 1.01 kB
+                <li>1594 will appear as 1.59 kB
+                <li>1595 will appear as 1.6 kB
+                <li>9000 will appear as 9 kB
+                <li>9900 will appear as 9.9 kB
+                <li>9994 will appear as 9.99 kB
+                <li>9995 will appear as 10 kB
+                <li>99990 will appear as 100 kB
+                <li>9994999 will appear as 9.99 MB
+                <li>9995000 will appear as 10 MB
+                </ul>
+                The given locale can be a <code>Locale</code> object or a string representation.
+                If the value is <code>null</code>, <code>NaN</code> or infinity, then this will return <code>null</code>.
+            
+        </td>
+                        </tr>
+                        <tr class="altColor">
+                            <td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="getDayOfWeek.fn.html">getDayOfWeek</a></b>(java.lang.Integer)</code></td><td class="colLast">
+            
+                Returns the day of week name from the mapping associated with the given day of week number in ISO 8601 order
+                (Monday first) for the current locale. For example: "1=Monday", "2=Tuesday", etc. The locale is obtained by
+                Faces#getLocale().
+            
+        </td>
+                        </tr>
+                        <tr class="rowColor">
+                            <td class="colFirst"><code>java.util.Map</code></td><td class="colOne"><code><b><a href="getDaysOfWeek.fn.html">getDaysOfWeek</a></b>()</code></td><td class="colLast">
+            
+                Returns a mapping of day of week names in ISO 8601 order for the current locale. For example: "Monday=1", "Tuesday=2",
+                etc. This is useful if you want to for example populate a <code>&lt;f:selectItems&gt;</code> which shows all
+                days of week. The locale is obtained by Faces#getLocale(). The mapping is per locale stored in a local cache
+                to improve retrieving performance.
+            
+        </td>
+                        </tr>
+                        <tr class="altColor">
+                            <td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="getMonth.fn.html">getMonth</a></b>(java.lang.Integer)</code></td><td class="colLast">
+            
+                Returns the month name from the mapping associated with the given month number for the current locale. For
+                example: "1=January", "2=February", etc. The locale is obtained by Faces#getLocale().
+            
+        </td>
+                        </tr>
+                        <tr class="rowColor">
+                            <td class="colFirst"><code>java.util.Map</code></td><td class="colOne"><code><b><a href="getMonths.fn.html">getMonths</a></b>()</code></td><td class="colLast">
+            
+                Returns a mapping of month names by month numbers for the current locale. For example: "January=1", "February=2",
+                etc. This is useful if you want to for example populate a <code>&lt;f:selectItems&gt;</code> which shows all
+                months. The locale is obtained by Faces#getLocale(). The mapping is per locale stored in a local cache
+                to improve retrieving performance.
+            
+        </td>
+                        </tr>
+                        <tr class="altColor">
+                            <td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="getRemoteAddr.fn.html">getRemoteAddr</a></b>()</code></td><td class="colLast">
+            
+                Returns the Internet Protocol (IP) address of the client that sent the request. This will first check the
+                <code>X-Forwarded-For</code> request header and if it's present, then return its first IP address, else just
+                return <code>HttpServletRequest#getRemoteAddr()</code> unmodified.
+            
+        </td>
+                        </tr>
+                        <tr class="rowColor">
+                            <td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="getRequestBaseURL.fn.html">getRequestBaseURL</a></b>()</code></td><td class="colLast">
+            
+                Returns the HTTP request base URL. This is the URL from the scheme, domain until with context path, including
+                the trailing slash. This is the value you could use in HTML <code>&lt;base&gt;</code> tag.
+            
+        </td>
+                        </tr>
+                        <tr class="altColor">
+                            <td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="getRequestDomainURL.fn.html">getRequestDomainURL</a></b>()</code></td><td class="colLast">
+            
+                Returns the HTTP request domain URL. This is the URL with the scheme and domain, without any trailing slash.
+            
+        </td>
+                        </tr>
+                        <tr class="rowColor">
+                            <td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="getRequestURLWithQueryString.fn.html">getRequestURLWithQueryString</a></b>()</code></td><td class="colLast">
+            
+                Returns the HTTP request URL with query string. This is the full request URL with query string as the enduser
+                sees in browser address bar.
+            
+        </td>
+                        </tr>
+                        <tr class="altColor">
+                            <td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="getShortDayOfWeek.fn.html">getShortDayOfWeek</a></b>(java.lang.Integer)</code></td><td class="colLast">
+            
+                Returns the short day of week name from the mapping associated with the given day of week number in ISO 8601
+                order (Monday first) for the current locale. For example: "1=Mon", "2=Tue", etc. The locale is obtained by
+                Faces#getLocale().
+            
+        </td>
+                        </tr>
+                        <tr class="rowColor">
+                            <td class="colFirst"><code>java.util.Map</code></td><td class="colOne"><code><b><a href="getShortDaysOfWeek.fn.html">getShortDaysOfWeek</a></b>()</code></td><td class="colLast">
+            
+                Returns a mapping of short day of week names in ISO 8601 order for the current locale. For example: "Mon=1", "Tue=2",
+                etc. This is useful if you want to for example populate a <code>&lt;f:selectItems&gt;</code> which shows all
+                short days of week. The locale is obtained by Faces#getLocale(). The mapping is per locale stored in a local
+                cache to improve retrieving performance.
+            
+        </td>
+                        </tr>
+                        <tr class="altColor">
+                            <td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="getShortMonth.fn.html">getShortMonth</a></b>(java.lang.Integer)</code></td><td class="colLast">
+            
+                Returns the short month name from the mapping associated with the given month number for the current locale. For
+                example: "1=Jan", "2=Feb", etc. The locale is obtained by Faces#getLocale().
+            
+        </td>
+                        </tr>
+                        <tr class="rowColor">
+                            <td class="colFirst"><code>java.util.Map</code></td><td class="colOne"><code><b><a href="getShortMonths.fn.html">getShortMonths</a></b>()</code></td><td class="colLast">
+            
+                Returns a mapping of short month names by month numbers for the current locale. For example: "Jan=1", "Feb=2",
+                etc. This is useful if you want to for example populate a <code>&lt;f:selectItems&gt;</code> which shows all
+                short months. The locale is obtained by Faces#getLocale(). The mapping is per locale stored in a local
+                cache to improve retrieving performance.
+            
+        </td>
+                        </tr>
+                        <tr class="altColor">
+                            <td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="graphicImageURL.fn.html">graphicImageURL</a></b>(java.lang.String)</code></td><td class="colLast">
+            
+                Returns <code>@GraphicImageBean</code> URL based on given expression string.
+                The expression string must be a quoted string. Any nested quotes can be escaped with backslash.
+                <p>
+                Usage example:
+                <pre>
+&lt;a href="#{o:graphicImageURL('images.full(product.imageId)')}"&gt;
+    &lt;o:graphicImage value="#{images.thumb(product.imageId)}" /&gt;
+&lt;/a&gt;
+                </pre>
+            
+        </td>
+                        </tr>
+                        <tr class="rowColor">
+                            <td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="graphicImageURLWithType.fn.html">graphicImageURLWithType</a></b>(java.lang.String, java.lang.String)</code></td><td class="colLast">
+            
+                Returns <code>@GraphicImageBean</code> URL based on given expression string and image type.
+                The expression string must be a quoted string. Any nested quotes can be escaped with backslash.
+                The image type is represented as file extension. E.g. "webp", "jpg", "png", "gif", "ico", "svg", "bmp", "tiff", etc.
+                <p>
+                Usage example:
+                <pre>
+&lt;a href="#{o:graphicImageURLWithType('images.full(product.imageId)', 'png')}"&gt;
+    &lt;o:graphicImage value="#{images.thumb(product.imageId)}" type="png" /&gt;
+&lt;/a&gt;
+                </pre>
+            
+        </td>
+                        </tr>
+                        <tr class="altColor">
+                            <td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="graphicImageURLWithTypeAndLastModified.fn.html">graphicImageURLWithTypeAndLastModified</a></b>(java.lang.String, java.lang.String, java.lang.Object)</code></td><td class="colLast">
+            
+                Returns <code>@GraphicImageBean</code> URL based on given expression string, image type and last modified.
+                The expression string must be a quoted string. Any nested quotes can be escaped with backslash.
+                The image type is represented as file extension. E.g. "webp", "jpg", "png", "gif", "ico", "svg", "bmp", "tiff", etc.
+                The "last modified" timestamp can be either a <code>java.lang.Long</code>, <code>java.util.Date</code>, 
+                or <code>java.lang.String</code> which is parseable as <code>java.lang.Long</code>.
+                <p>
+                Usage example:
+                <pre>
+&lt;a href="#{o:graphicImageURLWithTypeAndLastModified('images.full(product.imageId)', 'png', product.lastModified)}"&gt;
+    &lt;o:graphicImage value="#{images.thumb(product.imageId)}" type="png" lastModified="#{product.lastModified}" /&gt;
+&lt;/a&gt;
+                </pre>
+            
+        </td>
+                        </tr>
+                        <tr class="rowColor">
+                            <td class="colFirst"><code>int</code></td><td class="colOne"><code><b><a href="hoursBetween.fn.html">hoursBetween</a></b>(java.lang.Object, java.lang.Object)</code></td><td class="colLast">
+            
+                Returns the amount of hours between two given dates. This will be negative when the end date is before the start date.
+                <code>java.time.Temporal</code>, <code>java.util.Calendar</code>, <code>java.util.Date</code> and <code>java.lang.Long</code> as epoch milli are supported.
+            
+        </td>
+                        </tr>
+                        <tr class="altColor">
+                            <td class="colFirst"><code>boolean</code></td><td class="colOne"><code><b><a href="isInstance.fn.html">isInstance</a></b>(java.lang.String, java.lang.Object)</code></td><td class="colLast">
+            
+                Returns <code>true</code> if given object is an instance of the class as identified by given class name.
+            
+        </td>
+                        </tr>
+                        <tr class="rowColor">
+                            <td class="colFirst"><code>java.util.List</code></td><td class="colOne"><code><b><a href="iterableToList.fn.html">iterableToList</a></b>(java.lang.Iterable)</code></td><td class="colLast">
+            
+                Converts any iterable, like a Collection or more specifically a Set into a List so it can 
+                be used with components like <code>&lt;ui:repeat&gt;</code> and <code>&lt;h:datatable&gt;</code>.
+            
+        </td>
+                        </tr>
+                        <tr class="altColor">
+                            <td class="colFirst"><code>jakarta.faces.model.DataModel</code></td><td class="colOne"><code><b><a href="iterableToModel.fn.html">iterableToModel</a></b>(java.lang.Iterable)</code></td><td class="colLast">
+            
+                Wraps any iterable, like a Collection or more specifically a Set into a DataModel so it can 
+                be used with components like <code>&lt;ui:repeat&gt;</code> and <code>&lt;h:datatable&gt;</code>.
+            
+        </td>
+                        </tr>
+                        <tr class="rowColor">
+                            <td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="joinArray.fn.html">joinArray</a></b>(java.lang.Object, java.lang.String)</code></td><td class="colLast">
+            
+                Joins all elements of the given array to a single string, separated by the given separator.
+            
+        </td>
+                        </tr>
+                        <tr class="altColor">
+                            <td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="joinCollection.fn.html">joinCollection</a></b>(java.util.Collection, java.lang.String)</code></td><td class="colLast">
+            
+                Joins all elements of the given collection to a single string, separated by the given separator.
+            
+        </td>
+                        </tr>
+                        <tr class="rowColor">
+                            <td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="joinMap.fn.html">joinMap</a></b>(java.util.Map, java.lang.String, java.lang.String)</code></td><td class="colLast">
+            
+                Joins all elements of the given map to a single string, separated by the given key-value pair separator and
+                entry separator.
+            
+        </td>
+                        </tr>
+                        <tr class="altColor">
+                            <td class="colFirst"><code>java.util.List</code></td><td class="colOne"><code><b><a href="mapToList.fn.html">mapToList</a></b>(java.util.Map)</code></td><td class="colLast">
+            
+                Converts a <code>Map&lt;K, V&gt;</code> to a <code>List&lt;Map.Entry&ltK, V&gt;&gt;</code>. Useful when
+                you want to iterate over a <code>Map</code> in for example <code>&lt;ui:repeat&gt;</code>. Each of the
+                entries has the usual <code>getKey()</code> and <code>getValue()</code> methods.
+            
+        </td>
+                        </tr>
+                        <tr class="rowColor">
+                            <td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="matches.fn.html">matches</a></b>(java.lang.String, java.lang.String)</code></td><td class="colLast">
+            
+                Returns true if the given string matches the given pattern.
+            
+        </td>
+                        </tr>
+                        <tr class="altColor">
+                            <td class="colFirst"><code>int</code></td><td class="colOne"><code><b><a href="minutesBetween.fn.html">minutesBetween</a></b>(java.lang.Object, java.lang.Object)</code></td><td class="colLast">
+            
+                Returns the amount of minutes between two given dates. This will be negative when the end date is before the start date.
+                <code>java.time.Temporal</code>, <code>java.util.Calendar</code>, <code>java.util.Date</code> and <code>java.lang.Long</code> as epoch milli are supported.
+            
+        </td>
+                        </tr>
+                        <tr class="rowColor">
+                            <td class="colFirst"><code>int</code></td><td class="colOne"><code><b><a href="monthsBetween.fn.html">monthsBetween</a></b>(java.lang.Object, java.lang.Object)</code></td><td class="colLast">
+            
+                Returns the amount of months between two given dates. This will be negative when the end date is before the start date.
+                <code>java.time.Temporal</code>, <code>java.util.Calendar</code>, <code>java.util.Date</code> and <code>java.lang.Long</code> as epoch milli are supported.
+            
+        </td>
+                        </tr>
+                        <tr class="altColor">
+                            <td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="parenthesize.fn.html">parenthesize</a></b>(java.lang.Object)</code></td><td class="colLast">
+            
+                Parenthesize the given object. This will only wrap the given object in parenthesis when it's not empty or zero.
+            
+        </td>
+                        </tr>
+                        <tr class="rowColor">
+                            <td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="prettyURL.fn.html">prettyURL</a></b>(java.lang.String)</code></td><td class="colLast">
+            
+                URL-prettify the given string. It performs the following tasks:
+                <ul>
+                <li>Lowercase the string.
+                <li>Remove combining diacritical marks.
+                <li>Replace non-alphanumeric characters by hyphens.
+                </ul>
+                This is useful when populating links with dynamic paths obtained from user controlled variables, such
+                as blog titles.
+            
+        </td>
+                        </tr>
+                        <tr class="altColor">
+                            <td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="printStackTrace.fn.html">printStackTrace</a></b>(java.lang.Throwable)</code></td><td class="colLast">
+            
+                Print the stack trace of the given exception.
+            
+        </td>
+                        </tr>
+                        <tr class="rowColor">
+                            <td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="replaceAll.fn.html">replaceAll</a></b>(java.lang.String, java.lang.String, java.lang.String)</code></td><td class="colLast">
+            
+                Replace all matches of the given pattern on the given string with the given replacement.
+            
+        </td>
+                        </tr>
+                        <tr class="altColor">
+                            <td class="colFirst"><code>java.lang.Object[]</code></td><td class="colOne"><code><b><a href="reverseArray.fn.html">reverseArray</a></b>(java.lang.Object[])</code></td><td class="colLast">
+            
+                Returns a copy of the array with items in reversed order.
+            
+        </td>
+                        </tr>
+                        <tr class="rowColor">
+                            <td class="colFirst"><code>int</code></td><td class="colOne"><code><b><a href="secondsBetween.fn.html">secondsBetween</a></b>(java.lang.Object, java.lang.Object)</code></td><td class="colLast">
+            
+                Returns the amount of seconds between two given dates. This will be negative when the end date is before the start date.
+                <code>java.time.Temporal</code>, <code>java.util.Calendar</code>, <code>java.util.Date</code> and <code>java.lang.Long</code> as epoch milli are supported.
+            
+        </td>
+                        </tr>
+                        <tr class="altColor">
+                            <td class="colFirst"><code>java.util.List</code></td><td class="colOne"><code><b><a href="setToList.fn.html">setToList</a></b>(java.util.Set)</code></td><td class="colLast">
+            
+                Converts a <code>Set&lt;E&gt;</code> to a <code>List&lt;E&gt;</code>. Useful when you want to iterate
+                over a <code>Set</code> in for example <code>&lt;ui:repeat&gt;</code>.
+            
+        </td>
+                        </tr>
+                        <tr class="rowColor">
+                            <td class="colFirst"><code>java.lang.Object[]</code></td><td class="colOne"><code><b><a href="splitArray.fn.html">splitArray</a></b>(java.lang.Object, int)</code></td><td class="colLast">
+            
+                Splits the given array into an array of subarrays of the given fragment size.
+            
+        </td>
+                        </tr>
+                        <tr class="altColor">
+                            <td class="colFirst"><code>java.util.List</code></td><td class="colOne"><code><b><a href="splitList.fn.html">splitList</a></b>(java.util.List, int)</code></td><td class="colLast">
+            
+                Splits the given list into a list of sublists of the given fragment size. 
+            
+        </td>
+                        </tr>
+                        <tr class="rowColor">
+                            <td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="stripTags.fn.html">stripTags</a></b>(java.lang.String)</code></td><td class="colLast">
+            
+                Remove XML tags from a given text and return plain text.
+            
+        </td>
+                        </tr>
+                        <tr class="altColor">
+                            <td class="colFirst"><code>java.lang.String</code></td><td class="colOne"><code><b><a href="toJson.fn.html">toJson</a></b>(java.lang.Object)</code></td><td class="colLast">
+            
+                Encode given object as JSON.
+            
+        </td>
+                        </tr>
+                        <tr class="rowColor">
+                            <td class="colFirst"><code>int</code></td><td class="colOne"><code><b><a href="weeksBetween.fn.html">weeksBetween</a></b>(java.lang.Object, java.lang.Object)</code></td><td class="colLast">
+            
+                Returns the amount of weeks between two given dates. This will be negative when the end date is before the start date.
+                <code>java.time.Temporal</code>, <code>java.util.Calendar</code>, <code>java.util.Date</code> and <code>java.lang.Long</code> as epoch milli are supported.
+            
+        </td>
+                        </tr>
+                        <tr class="altColor">
+                            <td class="colFirst"><code>int</code></td><td class="colOne"><code><b><a href="yearsBetween.fn.html">yearsBetween</a></b>(java.lang.Object, java.lang.Object)</code></td><td class="colLast">
+            
+                Returns the amount of years between two given dates. This will be negative when the end date is before the start date.
+                <code>java.time.Temporal</code>, <code>java.util.Calendar</code>, <code>java.util.Date</code> and <code>java.lang.Long</code> as epoch milli are supported.
             
         </td>
                         </tr>

@@ -10,6 +10,7 @@ org.omnifaces.cdi.cookie
 org.omnifaces.cdi.eager
 org.omnifaces.cdi.param
 org.omnifaces.cdi.push
+org.omnifaces.cdi.ratelimit
 org.omnifaces.cdi.validator
 org.omnifaces.cdi.viewscope
 org.omnifaces.component
@@ -39,7 +40,9 @@ org.omnifaces.io
 org.omnifaces.model
 org.omnifaces.model.tree
 org.omnifaces.renderer
+org.omnifaces.renderkit
 org.omnifaces.resourcehandler
+org.omnifaces.security
 org.omnifaces.servlet
 org.omnifaces.taghandler
 org.omnifaces.util
