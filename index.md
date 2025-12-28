@@ -32,7 +32,7 @@ OmniFaces should principally integrate perfectly well with most other Faces comp
 
 ### Quick reference
 
-| OmniFaces     | Java | Faces   | EL  | Servlet | CDI    | WS  | BV^*^ | SEC^*^ | Status              |
+| OmniFaces     | Java | Faces   | EL  | Servlet | CDI    | WS  | BV<sup>*</sup> | SEC<sup>*</sup> | Status              |
 |---------------|------|---------|-----|---------|--------|-----|-------|--------|---------------------|
 | **5.x**       | 17   | 4.1     | 6.0 | 6.1     | 4.1    | 2.2 | 3.1   | 4.0    | Active              |
 | **4.x**       | 11   | 3.0/4.0 | 4.0 | 5.0     | 3.0    | 2.0 | 3.0   | -      | Bug fixes only      |
@@ -40,10 +40,10 @@ OmniFaces should principally integrate perfectly well with most other Faces comp
 | **2.3-2.7**   | 1.7  | 2.2     | 2.2 | 3.0     | 1.1    | 1.1 | 1.1   | -      | Security fixes only |
 | **2.0-2.2**   | 1.7  | 2.2     | 2.2 | 3.0     | 1.1    | -   | 1.1   | -      | -                   |
 | **1.10-1.14** | 1.6  | 2.0     | 2.1 | 2.5     | -      | -   | 1.0   | -      | Security fixes only |
-| **1.6-1.8**   | 1.6  | 2.0     | 2.1 | 2.5     | 1.0^*^ | -   | 1.0   | -      | -                   |
+| **1.6-1.8**   | 1.6  | 2.0     | 2.1 | 2.5     | 1.0<sup>*</sup> | -   | 1.0   | -      | -                   |
 | **1.0-1.5**   | 1.6  | 2.0     | 2.1 | 2.5     | -      | -   | 1.0   | -      | -                   |
 
-^*^: optional dependency
+<sup>*</sup>: optional dependency
 
 ## Installation
 
