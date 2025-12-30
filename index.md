@@ -45,6 +45,8 @@ OmniFaces should principally integrate perfectly well with most other Faces comp
 
 **($)**: optional dependency; only needed when actually using the feature depending on the API
 
+**NOTE**: newer dependency versions will usually work, but there is no guarantee as that in turn depends on the backwards compatibility of the very dependency itself
+
 
 ## Installation
 
