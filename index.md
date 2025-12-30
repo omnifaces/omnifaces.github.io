@@ -30,9 +30,9 @@ All OmniFaces versions have an *optional* dependency on JSR303 Bean Validation w
 
 OmniFaces should principally integrate perfectly well with most other Faces component libraries. Even more, the [OmniFaces showcase application](https://showcase.omnifaces.org) uses PrimeFaces. If you encounter problems in combination with a specific component library, then by all means report an [issue](https://github.com/omnifaces/omnifaces/issues). We'll investigate if it's caused by OmniFaces or the component library in question and fix it or propose a workaround solution, depending on the nature of the problem. Note that OmniFaces is due to the mandatory Servlet API dependency **not** compatible with portlets.
 
-### Quick reference
+### Compatibility matrix
 
-| OmniFaces     | Java | Faces   | EL  | Servlet | CDI    | WS  | BV(+) | SEC(+) | Status              |
+| OmniFaces     | Java | Faces   | EL  | Servlet | CDI    | WS  | BV($) | SEC($) | Status              |
 |---------------|------|---------|-----|---------|--------|-----|-------|--------|---------------------|
 | **5.x**       | 17   | 4.1     | 6.0 | 6.1     | 4.1    | 2.2 | 3.1   | 4.0    | Active              |
 | **4.x**       | 11   | 3.0/4.0 | 4.0 | 5.0     | 3.0    | 2.0 | 3.0   | -      | Bug fixes only      |
@@ -40,10 +40,11 @@ OmniFaces should principally integrate perfectly well with most other Faces comp
 | **2.3-2.7**   | 1.7  | 2.2     | 2.2 | 3.0     | 1.1    | 1.1 | 1.1   | -      | Security fixes only |
 | **2.0-2.2**   | 1.7  | 2.2     | 2.2 | 3.0     | 1.1    | -   | 1.1   | -      | -                   |
 | **1.10-1.14** | 1.6  | 2.0     | 2.1 | 2.5     | -      | -   | 1.0   | -      | Security fixes only |
-| **1.6-1.8**   | 1.6  | 2.0     | 2.1 | 2.5     | 1.0(+) | -   | 1.0   | -      | -                   |
+| **1.6-1.8**   | 1.6  | 2.0     | 2.1 | 2.5     | 1.0($) | -   | 1.0   | -      | -                   |
 | **1.0-1.5**   | 1.6  | 2.0     | 2.1 | 2.5     | -      | -   | 1.0   | -      | -                   |
 
-**(+)**: optional dependency
+**($)**: optional dependency; only needed when actually using the feature depending on the API
+
 
 ## Installation
 
