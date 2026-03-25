@@ -32,7 +32,7 @@ OmniFaces should principally integrate perfectly well with most other Faces comp
 
 ### Compatibility matrix
 
-| version       | Java | Faces   | EL  | Servlet | CDI    | WS  | BV($) | SEC($) | Status        }
+| version       | Java | Faces   | EL  | Servlet | CDI    | WS  | BV($) | SEC($) | Status        |
 |---------------|------|---------|-----|---------|--------|-----|-------|--------|---------------|
 | **5.x**       | 17   | 4.1     | 6.0 | 6.1     | 4.1    | 2.2 | 3.1   | 4.0    | Active        |
 | **4.x**       | 11   | 3.0/4.0 | 4.0 | 5.0     | 3.0    | 2.0 | 3.0   | -      | Bugfix-only   |
