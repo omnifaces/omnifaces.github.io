@@ -1,0 +1,254 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en" xmlns:vdldoc="http://vdldoc.omnifaces.org" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:jakartaee="https://jakarta.ee/xml/ns/jakartaee">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>scriptErrorHandler (OmniFaces 5.2 VDL Documentation)
+            </title>
+        <meta name="keywords" content="$title">
+        <link rel="stylesheet" type="text/css" title="Style" href="../stylesheet.css">
+    </head>
+    <body>
+        <noscript>
+            <div>JavaScript is disabled on your browser.</div>
+        </noscript>
+        <div class="topNav">
+            <a name="navbar_top"></a><a href="#skip-navbar_top" title="Skip navigation links"></a><a name="navbar_top_firstrow"></a>
+            <ul class="navList" title="Navigation">
+                <li>
+                    <a href="../overview-summary.html">Overview</a>
+                </li>
+                <li>
+                    <a href="tld-summary.html">Library</a>
+                </li>
+                <li class="navBarCell1Rev">Tag</li>
+                <li>
+                    <a href="../help-doc.html">Help</a>
+                </li>
+            </ul>
+        </div>
+        <div class="subNav">
+            <ul class="navList">
+                <li>
+                    <a target="_top" href="../index.html?o/scriptErrorHandler.html">
+                                    Frames
+                                </a>
+                </li>
+                <li>
+                    <a target="_top" href="scriptErrorHandler.html">
+                                    No Frames
+                                </a>
+                </li>
+            </ul>
+            <ul class="navList" id="alltags_navbar_top">
+                <li>
+                    <a href="../alltags-noframe.html">All Tags</a>
+                </li>
+            </ul>
+            <div>
+                <script type="text/javascript">
+                                document.getElementById("alltags_navbar_top").style.display = (window == top) ? "block" : "none";
+                            </script>
+            </div>
+            <a name="skip-navbar_top"></a>
+        </div>
+        <div class="header">
+            <h1 title="Library" class="title">o</h1>
+            <h2 class="title">
+                            Tag
+                            scriptErrorHandler</h2>
+        </div>
+        <div class="contentContainer">
+            <div class="description">
+                <ul class="blockList">
+                    <li class="blockList">
+                        <dl>
+                            <dt>Description:</dt>
+                            <dd>
+                                <div class="block"><p>
+ The <code>&lt;o:scriptErrorHandler&gt;</code> is a component that catches uncaught JavaScript errors and unhandled
+ promise rejections on the client and sends them to the server via <code>navigator.sendBeacon()</code>, where they are
+ fired as <code>ScriptError</code> CDI events. This allows server-side logging of client-side JavaScript errors without
+ any additional endpoint boilerplate.
+
+
+ <h2 id="usage-client"><a href="#usage-client">Usage (client)</a></h2>
+ <p>
+ Just put the component in the <code>&lt;h:head&gt;</code> of the master template. It will automatically move itself to
+ <code>head</code> even when placed elsewhere, but placing it in <code>&lt;h:head&gt;</code> makes the intent explicit.
+ <pre>
+ &lt;h:head&gt;
+     &lt;o:scriptErrorHandler /&gt;
+ &lt;/h:head&gt;
+ </pre>
+ <p>
+ This will register <code>window.onerror</code> and <code>unhandledrejection</code> event listeners which report
+ any uncaught client-side errors to the server. You can optionally specify a CSS selector via
+ <code>ignoreSelector</code> to suppress error reporting when a matching element exists in the document (e.g. on
+ error pages where errors are expected).
+ <pre>
+ &lt;o:scriptErrorHandler ignoreSelector="body.errorPage" /&gt;
+ </pre>
+
+
+ <h2 id="usage-server"><a href="#usage-server">Usage (server)</a></h2>
+ <p>
+ Create a CDI bean (typically application scoped) that observes the <code>ScriptError</code> event.
+ <pre>
+ &#64;ApplicationScoped
+ public class ScriptErrorObserver {
+
+     private static final Logger logger = Logger.getLogger(ScriptErrorObserver.class.getName());
+
+     public void onScriptError(&#64;Observes ScriptError error) {
+         logger.warning(error.toString());
+     }
+ }
+ </pre>
+ <p>
+ The <code>ScriptError</code> event provides the following information:
+ <ul>
+ <li><code>ScriptError#pageURL()</code>: the URL of the page where the error occurred.</li>
+ <li><code>ScriptError#errorMessage()</code>: the error message.</li>
+ <li><code>ScriptError#sourceURL()</code>: the URL of the script file where the error occurred.</li>
+ <li><code>ScriptError#lineNumber()</code>: the line number in the script.</li>
+ <li><code>ScriptError#columnNumber()</code>: the column number in the script.</li>
+ <li><code>ScriptError#errorName()</code>: the error type (e.g. "TypeError", "ReferenceError").</li>
+ <li><code>ScriptError#errorStack()</code>: the full stack trace.</li>
+ <li><code>ScriptError#remoteAddr()</code>: the remote address.</li>
+ <li><code>ScriptError#userAgent()</code>: the User-Agent header.</li>
+ <li><code>ScriptError#userPrincipal()</code>: the authenticated user principal name.</li>
+ </ul>
+
+
+ <h2 id="deduplication"><a href="#deduplication">Deduplication</a></h2>
+ <p>
+ To prevent flooding the server with repeated errors (e.g. from a <code>requestAnimationFrame</code> loop), the
+ client-side script deduplicates errors by message, source URL, and line number. The deduplication queue size and
+ expiry time can be configured via the <code>maxRecentErrors</code> and <code>errorExpiry</code> attributes.</div>
+                            </dd>
+                        </dl>
+                    </li>
+                </ul>
+            </div>
+            <div class="summary">
+                <table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Component summary table, listing component information">
+                    <caption>
+                        <span>Component Information</span><span class="tabEnd">&nbsp;</span>
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th class="colFirst" scope="col">Info</th><th class="colLast" scope="col">Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="rowColor">
+                            <td class="colFirst">Component Type</td><td class="colLast"><code>org.omnifaces.component.script.ScriptErrorHandler</code></td>
+                        </tr>
+                        <tr class="altColor">
+                            <td class="colFirst">Handler Class</td><td class="colLast"><i>None</i></td>
+                        </tr>
+                        <tr class="rowColor">
+                            <td class="colFirst">Renderer Type</td><td class="colLast"><i>None</i></td>
+                        </tr>
+                        <tr class="altColor">
+                            <td class="colFirst">Description</td><td class="colLast"><i>None</i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="summary">
+                <table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Attribute summary table, listing attribute information">
+                    <caption>
+                        <span>Attributes</span><span class="tabEnd">&nbsp;</span>
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th class="colFirst">Name</th><th class="colOne">Required</th><th class="colOne">Type</th><th class="colLast">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="binding" class="rowColor">
+                            <td class="colFirst"><a href="#binding"><code>binding</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>jakarta.faces.component.UIComponent</code>)
+                    </td><td class="colLast">The ValueExpression linking this component to a property in a backing bean.</td>
+                        </tr>
+                        <tr id="errorExpiry" class="altColor">
+                            <td class="colFirst"><a href="#errorExpiry"><code>errorExpiry</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>int</code>)
+                    </td><td class="colLast">The time in milliseconds after which a recent error entry expires for deduplication.
+ Defaults to  (1 minute).</td>
+                        </tr>
+                        <tr id="id" class="rowColor">
+                            <td class="colFirst"><a href="#id"><code>id</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>java.lang.String</code>)
+                    </td><td class="colLast">The component identifier for this component. This value must be unique within the closest parent component that is a naming container.</td>
+                        </tr>
+                        <tr id="ignoreSelector" class="altColor">
+                            <td class="colFirst"><a href="#ignoreSelector"><code>ignoreSelector</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>java.lang.String</code>)
+                    </td><td class="colLast">The CSS selector for elements whose presence suppresses error reporting.
+ When an element matching this selector exists in the document, errors will not be sent to the server.</td>
+                        </tr>
+                        <tr id="maxRecentErrors" class="rowColor">
+                            <td class="colFirst"><a href="#maxRecentErrors"><code>maxRecentErrors</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>int</code>)
+                    </td><td class="colLast">The maximum number of recent errors to keep for deduplication.
+ Defaults to .</td>
+                        </tr>
+                        <tr id="rendered" class="altColor">
+                            <td class="colFirst"><a href="#rendered"><code>rendered</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>boolean</code>)
+                    </td><td class="colLast">Flag indicating whether or not this component should be rendered (during Render Response Phase), or processed on any subsequent form submit. The default value for this property is true.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="bottomNav">
+            <a name="navbar_bottom"></a><a href="#skip-navbar_bottom" title="Skip navigation links"></a><a name="navbar_bottom_firstrow"></a>
+            <ul class="navList" title="Navigation">
+                <li>
+                    <a href="../overview-summary.html">Overview</a>
+                </li>
+                <li>
+                    <a href="tld-summary.html">Library</a>
+                </li>
+                <li class="navBarCell1Rev">Tag</li>
+                <li>
+                    <a href="../help-doc.html">Help</a>
+                </li>
+            </ul>
+        </div>
+        <div class="subNav">
+            <ul class="navList">
+                <li>
+                    <a target="_bottom" href="../index.html?o/scriptErrorHandler.html">
+                                    Frames
+                                </a>
+                </li>
+                <li>
+                    <a target="_bottom" href="scriptErrorHandler.html">
+                                    No Frames
+                                </a>
+                </li>
+            </ul>
+            <ul class="navList" id="alltags_navbar_bottom">
+                <li>
+                    <a href="../alltags-noframe.html">All Tags</a>
+                </li>
+            </ul>
+            <script type="text/javascript">
+                            document.getElementById("alltags_navbar_bottom").style.display = (window == top) ? "block" : "none";
+                        </script><a name="skip-navbar_bottom"></a>
+        </div>
+        <p class="about">
+            Output generated by <a href="http://vdldoc.omnifaces.org" target="_blank">Vdldoc</a> View Declaration Language Documentation Generator.
+        </p>
+    </body>
+</html>

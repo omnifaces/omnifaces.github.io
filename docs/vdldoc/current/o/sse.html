@@ -1,0 +1,818 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en" xmlns:vdldoc="http://vdldoc.omnifaces.org" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:jakartaee="https://jakarta.ee/xml/ns/jakartaee">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>sse (OmniFaces 5.2 VDL Documentation)
+            </title>
+        <meta name="keywords" content="$title">
+        <link rel="stylesheet" type="text/css" title="Style" href="../stylesheet.css">
+    </head>
+    <body>
+        <noscript>
+            <div>JavaScript is disabled on your browser.</div>
+        </noscript>
+        <div class="topNav">
+            <a name="navbar_top"></a><a href="#skip-navbar_top" title="Skip navigation links"></a><a name="navbar_top_firstrow"></a>
+            <ul class="navList" title="Navigation">
+                <li>
+                    <a href="../overview-summary.html">Overview</a>
+                </li>
+                <li>
+                    <a href="tld-summary.html">Library</a>
+                </li>
+                <li class="navBarCell1Rev">Tag</li>
+                <li>
+                    <a href="../help-doc.html">Help</a>
+                </li>
+            </ul>
+        </div>
+        <div class="subNav">
+            <ul class="navList">
+                <li>
+                    <a target="_top" href="../index.html?o/sse.html">
+                                    Frames
+                                </a>
+                </li>
+                <li>
+                    <a target="_top" href="sse.html">
+                                    No Frames
+                                </a>
+                </li>
+            </ul>
+            <ul class="navList" id="alltags_navbar_top">
+                <li>
+                    <a href="../alltags-noframe.html">All Tags</a>
+                </li>
+            </ul>
+            <div>
+                <script type="text/javascript">
+                                document.getElementById("alltags_navbar_top").style.display = (window == top) ? "block" : "none";
+                            </script>
+            </div>
+            <a name="skip-navbar_top"></a>
+        </div>
+        <div class="header">
+            <h1 title="Library" class="title">o</h1>
+            <h2 class="title">
+                            Tag
+                            sse</h2>
+        </div>
+        <div class="contentContainer">
+            <div class="description">
+                <ul class="blockList">
+                    <li class="blockList">
+                        <dl>
+                            <dt>Description:</dt>
+                            <dd>
+                                <div class="block"><p>
+ The <code>&lt;o:sse&gt;</code> is an <code>UIComponent</code> which opens an one-way (server to client) SSE (Server-Sent
+ Events) based push connection in client side which can be reached from server side via <code>PushContext</code> interface
+ injected in any CDI/container managed artifact via <code>&#64;</code><code>Push</code><code>(type=SSE)</code> annotation.
+ <p>
+ <strong>Important:</strong> All servlet filters mapped on <code>/*</code> must have <code>asyncSupported=true</code> for SSE to
+ work.
+
+
+ <h2 id="sse-vs-websocket"><a href="#sse-vs-websocket">SSE vs WebSocket</a></h2>
+ <p>
+ Both <code>&lt;o:sse&gt;</code> and <code>&lt;o:socket&gt;</code> provide one-way (server to client) push.
+ The table below summarizes the key differences to help you choose the right transport.
+
+ <table>
+ <caption>SSE (<code>&lt;o:sse&gt;</code>) vs WebSocket (<code>&lt;o:socket&gt;</code>)</caption>
+ <thead>
+ <tr><th></th><th>SSE (<code>&lt;o:sse&gt;</code>)</th><th>WebSocket (<code>&lt;o:socket&gt;</code>)</th></tr>
+ </thead>
+ <tbody>
+ <tr><td><b>Transport</b></td><td>Plain HTTP</td><td>WebSocket protocol upgrade</td></tr>
+ <tr><td><b>Dependencies</b></td><td>None (async servlet)</td><td>Requires <code>jakarta.websocket</code></td></tr>
+ <tr><td><b>Proxy/CDN/firewall</b></td><td>Works through HTTP infrastructure</td><td>May be blocked by proxies or corporate firewalls</td></tr>
+ <tr><td><b>Reconnect</b></td><td>Built-in (<code>EventSource</code> API)</td><td>Manual (with cumulative backoff)</td></tr>
+ <tr><td><b>HTTP/2 multiplexing</b></td><td>Yes (shares TCP connection)</td><td>No (separate TCP connection)</td></tr>
+ <tr><td><b>Connection limit</b></td><td>Max 6 per origin without HTTP/2</td><td>Not affected (protocol upgrade)</td></tr>
+ <tr><td><b>CDI events</b></td><td><code>SseEvent</code> on open/close/switch</td><td><code>SocketEvent</code> on open/close/switch</td></tr>
+ <tr><td><b>Dynamic connect/disconnect</b></td><td>Not available</td><td><code>connected</code> attribute</td></tr>
+ </tbody>
+ </table>
+ <p>
+ <b>When to prefer SSE:</b> for typical unidirectional push use cases (notifications, live updates, dashboards) where
+ HTTP infrastructure compatibility and simplicity are important. SSE is the simpler and more robust choice for most
+ server-to-client push scenarios.
+ <p>
+ <b>When to prefer WebSocket:</b> when you need dynamic connect/disconnect via the <code>connected</code> attribute, or when
+ your server does not support HTTP/2.
+ <p>
+ <b>Note:</b> browsers limit concurrent HTTP/1.1 connections to 6 per origin. When the server does not support
+ HTTP/2, multiple SSE channels across multiple tabs may exhaust this limit and queue further HTTP requests (including
+ Ajax requests!). This can be resolved by configuring the server to use HTTP/2, where SSE streams are multiplexed
+ over a single TCP connection.
+
+
+ <h2 id="configuration"><a href="#configuration">Configuration</a></h2>
+ <p>
+ No explicit configuration is needed. The SSE endpoint is automatically registered during application startup when at
+ least one <code>&#64;</code><code>Push</code><code>(type=SSE)</code> qualified injection point is detected.
+
+
+ <h2 id="usage-client"><a href="#usage-client">Usage (client)</a></h2>
+ <p>
+ Declare <strong><code>&lt;o:sse&gt;</code></strong> tag in the Faces view with at least a
+ <strong><code>channel</code></strong> name and an <strong><code>onmessage</code></strong> JavaScript listener
+ function. The channel name may not be an EL expression and it may only contain alphanumeric characters, hyphens,
+ underscores and periods.
+ <p>
+ Here's an example which refers an existing JavaScript listener function (do not include the parentheses!).
+ <pre>
+ &lt;o:sse channel="someChannel" onmessage="sseListener" /&gt;
+ </pre>
+ <pre>
+ function sseListener(message, channel, event) {
+     console.log(message);
+ }
+ </pre>
+ <p>
+ Here's an example which declares an inline JavaScript listener function.
+ <pre>
+ &lt;o:sse channel="someChannel" onmessage="function(message) { console.log(message); }" /&gt;
+ </pre>
+ <p>
+ The <code>onmessage</code> JavaScript listener function will be invoked with three arguments:
+ <ul>
+ <li><code>message</code>: the push message as JSON object.</li>
+ <li><code>channel</code>: the channel name, useful in case you intend to have a global listener.</li>
+ <li><code>event</code>: the raw <a href="https://developer.mozilla.org/en-US/docs/Web/API/MessageEvent"><code>
+ MessageEvent</code></a> instance, useful in case you intend to inspect it.</li>
+ </ul>
+ <p>
+ The SSE connection is automatically established when the page loads and will auto-reconnect when the connection is
+ lost due to e.g. a network error or server restart. This is a built-in feature of the browser's
+ <a href="https://developer.mozilla.org/en-US/docs/Web/API/EventSource"><code>EventSource</code></a> API. The SSE
+ connection will be implicitly closed once the document is unloaded (e.g. navigating away, close of browser window/tab, etc).
+ <p>
+ In order to successfully reconnect after a server restart, or when switching to a new server node, you need to ensure
+ that session persistence is enabled on the server.
+
+
+ <h2 id="usage-server"><a href="#usage-server">Usage (server)</a></h2>
+ <p>
+ In WAR side, you can inject <strong><code>PushContext</code></strong> via <strong><code>&#64;</code><code>Push</code><code>(type=SSE)</code></strong>
+ annotation on the given channel name in any CDI/container managed artifact such as <code>&#64;Named</code>,
+ <code>&#64;WebServlet</code>, etc wherever you'd like to send a push message and then invoke
+ <strong><code>PushContext#send(Object)</code></strong> with any Java object representing the push message.
+ <pre>
+ &#64;Inject &#64;Push(type=SSE)
+ private PushContext someChannel;
+
+ public void sendMessage(Object message) {
+     someChannel.send(message);
+ }
+ </pre>
+ <p>
+ By default the name of the channel is taken from the name of the variable into which injection takes place. The
+ channel name can be optionally specified via the <code>channel</code> attribute. The example below injects the push
+ context for channel name <code>foo</code> into a variable named <code>bar</code>.
+ <pre>
+ &#64;Inject &#64;Push(type=SSE, channel="foo")
+ private PushContext bar;
+ </pre>
+ <p>
+ The message object will be encoded as JSON and be delivered as <code>message</code> argument of the
+ <code>onmessage</code> JavaScript listener function associated with the <code>channel</code> name. It can be a
+ plain vanilla <code>String</code>, but it can also be a collection, map and even a javabean. For supported argument
+ types, see also <code>Json#encode(Object)</code>.
+
+
+ <h2 id="scopes-and-users"><a href="#scopes-and-users">Scopes and users</a></h2>
+ <p>
+ By default the SSE channel is <code>application</code> scoped, i.e. any view/session throughout the web application
+ having the same SSE channel open will receive the same push message. The push message can be sent by all users
+ and the application itself. This is useful for application-wide feedback triggered by site itself such as real time
+ updates of a certain page (e.g. site-wide statistics, top100 lists, stock updates, etc).
+ <p>
+ The optional <strong><code>scope</code></strong> attribute can be set to <code>session</code> to restrict the push
+ messages to all views in the current user session only. The push message can only be sent by the user itself and not
+ by the application. This is useful for session-wide feedback triggered by user itself (e.g. as result of asynchronous
+ tasks triggered by user specific action).
+ <pre>
+ &lt;o:sse channel="someChannel" scope="session" ... /&gt;
+ </pre>
+ <p>
+ The <code>scope</code> attribute can also be set to <code>view</code> to restrict the push messages to the current
+ view only. The push message will not show up in other views in the same session even if it's the same URL. The push
+ message can only be sent by the user itself and not by the application. This is useful for view-wide feedback
+ triggered by user itself (e.g. progress bar tied to a user specific action on current view).
+ <pre>
+ &lt;o:sse channel="someChannel" scope="view" ... /&gt;
+ </pre>
+ <p>
+ The <code>scope</code> attribute may not be an EL expression and allowed values are <code>application</code>,
+ <code>session</code> and <code>view</code>, case insensitive.
+ <p>
+ Additionally, the optional <strong><code>user</code></strong> attribute can be set to the unique identifier of the
+ logged-in user, usually the login name or the user ID. This way the push message can be targeted to a specific user
+ and can also be sent by other users and the application itself. The value of the <code>user</code> attribute must at
+ least implement <code>Serializable</code> and have a low memory footprint, so putting entire user entity is not
+ recommended.
+ <p>
+ E.g. when you're using container managed authentication or a related framework/library:
+ <pre>
+ &lt;o:sse channel="someChannel" user="#{request.remoteUser}" ... /&gt;
+ </pre>
+ <p>
+ Or when you have a custom user entity around in EL as <code>#{someLoggedInUser}</code> which has an <code>id</code>
+ property representing its identifier:
+ <pre>
+ &lt;o:sse channel="someChannel" user="#{someLoggedInUser.id}" ... /&gt;
+ </pre>
+ When the <code>user</code> attribute is specified, then the <code>scope</code> defaults to <code>session</code> and
+ cannot be set to <code>application</code>. It can be set to <code>view</code>, but this is kind of unusual and should
+ only be used if the logged-in user represented by <code>user</code> has a shorter lifetime than the HTTP session
+ (e.g. when your application allows changing a logged-in user during same HTTP session without invaliding it &mdash;
+ which is in turn poor security practice). If in such case a session scoped channel is reused, undefined behavior may
+ occur when user-targeted push message is sent. It may target previously logged-in user only. This can be solved by
+ setting the scope to <code>view</code>, but better is to fix the logout to invalidate the HTTP session altogether.
+ <p>
+ When the <code>user</code> attribute is an EL expression and it changes during an ajax request, then the SSE
+ user will be actually switched, even though you did not cover the <code>&lt;o:sse&gt;</code> component in any ajax
+ render/update. So make sure the value is tied to at least a view scoped property in case you intend to control it
+ during the view scope.
+ <p>
+ In the server side, the push message can be targeted to the user specified in the <code>user</code> attribute via
+ <strong><code>PushContext#send(Object, Serializable)</code></strong>. The push message can be sent by all users and the
+ application itself. This is useful for user-specific feedback triggered by other users (e.g. chat, admin messages,
+ etc) or by application's background tasks (e.g. notifications, event listeners, etc).
+ <pre>
+ &#64;Inject &#64;Push(type=SSE)
+ private PushContext someChannel;
+
+ public void sendMessage(Object message, User recipientUser) {
+     Long recipientUserId = recipientUser.getId();
+     someChannel.send(message, recipientUserId);
+ }
+ </pre>
+ <p>
+ Multiple users can be targeted by passing a <code>Collection</code> holding user identifiers to
+ <strong><code>PushContext#send(Object, Collection)</code></strong>.
+ <pre>
+ public void sendMessage(Object message, Group recipientGroup) {
+     Collection&lt;Long&gt; recipientUserIds = recipientGroup.getUserIds();
+     someChannel.send(message, recipientUserIds);
+ }
+ </pre>
+
+
+ <h2 id="channels"><a href="#channels">Channel design hints</a></h2>
+ <p>
+ You can declare multiple push channels on different scopes with or without user target throughout the application.
+ Be however aware that the same channel name can easily be reused across multiple views, even if it's view scoped.
+ It's more efficient if you use as few different channel names as possible and tie the channel name to a specific
+ push channel scope/user combination, not to a specific Faces view. In case you intend to have multiple view scoped
+ channels for different purposes, best is to use only one view scoped channel and have a global JavaScript listener
+ which can distinguish its task based on the delivered message. E.g. by sending the message in server as below:
+ <pre>
+ Map&lt;String, Object&gt; message = new HashMap&lt;&gt;();
+ message.put("functionName", "someFunction");
+ message.put("functionData", functionData); // Can be Map or Bean.
+ someChannel.send(message);
+ </pre>
+ <p>
+ Which is processed in the <code>onmessage</code> JavaScript listener function as below:
+ <pre>
+ function someSseListener(message) {
+     window[message.functionName](message.functionData);
+ }
+
+ function someFunction(data) {
+     // ...
+ }
+
+ function otherFunction(data) {
+     // ...
+ }
+
+ // ...
+ </pre>
+
+
+ <h2 id="events-client"><a href="#events-client">Events (client)</a></h2>
+ <p>
+ The optional <strong><code>onopen</code></strong> JavaScript listener function can be used to listen on open of an
+ SSE connection in client side. It will be invoked with one argument:
+ <ul>
+ <li><code>channel</code>: the channel name, useful in case you intend to have a global listener.</li>
+ </ul>
+ <pre>
+ &lt;o:sse ... onopen="sseOpenListener" /&gt;
+ </pre>
+ <pre>
+ function sseOpenListener(channel) {
+     // ...
+ }
+ </pre>
+ <p>
+ The optional <strong><code>onerror</code></strong> JavaScript listener function can be used to listen on a
+ connection error whereby the browser will automatically attempt to reconnect. This will be invoked when a transient
+ connection error occurs (e.g. temporary network interruption) while the browser's <code>EventSource</code> is still
+ attempting to reconnect. This will <em>not</em> be invoked when the server has explicitly closed the connection
+ (e.g. unknown channel, or expired session or view), or when the <code>EventSource</code> API is not supported.
+ Instead, the <code>onclose</code> will be invoked.
+ <pre>
+ &lt;o:sse ... onerror="sseErrorListener" /&gt;
+ </pre>
+ <pre>
+ function sseErrorListener(code, channel, event) {
+     if (code == 500) {
+         // Connection error. The browser will automatically attempt to reconnect.
+     }
+ }
+ </pre>
+ <p>
+ The <code>onerror</code> JavaScript listener function will be invoked with three arguments:
+ <ul>
+ <li><code>code</code>: synthetic HTTP-based close code as integer. Currently this is always <code>500</code>
+ (connection error, browser will auto-reconnect).</li>
+ <li><code>channel</code>: the channel name, useful in case you intend to have a global listener.</li>
+ <li><code>event</code>: the raw <a href="https://developer.mozilla.org/en-US/docs/Web/API/EventSource/error_event">
+ <code>Event</code></a> instance from the <code>EventSource</code> API. Note that unlike WebSocket's
+ <code>CloseEvent</code>, the SSE error event does not carry a close code or reason.</li>
+ </ul>
+ <p>
+ The optional <strong><code>onclose</code></strong> JavaScript listener function can be used to listen on the final
+ close of an SSE connection. This will be invoked when the <code>EventSource</code> API is not supported by the
+ client, or when the server has explicitly closed the connection (e.g. on session or view expiry, or unknown channel), or when the client
+ has explicitly closed the connection via <code>OmniFaces.Push.close(channel)</code>. This will <em>not</em> be
+ invoked when the browser can make an auto-reconnect attempt. Instead, the <code>onerror</code> will be invoked.
+ <pre>
+ &lt;o:sse ... onclose="sseCloseListener" /&gt;
+ </pre>
+ <pre>
+ function sseCloseListener(code, channel, event) {
+     if (code == -1) {
+         // EventSource API not supported by client.
+     } else if (code == 200) {
+         // Server explicitly closed the connection (e.g. expired session or view).
+     } else if (code == 204) {
+         // Client explicitly closed the connection via OmniFaces.Push.close().
+     } else if (code == 404) {
+         // Unknown channel (e.g. randomly guessed or spoofed by endusers or manually reconnected after session expiry).
+     } else {
+         // Abnormal close reason (as result of an error).
+     }
+ }
+ </pre>
+ <p>
+ The <code>onclose</code> JavaScript listener function will be invoked with three arguments:
+ <ul>
+ <li><code>code</code>: synthetic HTTP-based close code as integer. If this is <code>-1</code>, then the
+ <code>EventSource</code> API is simply not
+ <a href="https://caniuse.com/eventsource">supported</a> by the client. If this is <code>200</code>, then the server
+ explicitly closed the connection (e.g. due to an expired session or view). If this is <code>204</code>, then the
+ client explicitly closed the connection via <code>OmniFaces.Push.close(channel)</code>. If this is <code>404</code>,
+ then the channel is unknown (e.g. randomly guessed or spoofed by endusers or manually reconnected after the session
+ is expired).</li>
+ <li><code>channel</code>: the channel name, useful in case you intend to have a global listener.</li>
+ <li><code>event</code>: the raw <a href="https://developer.mozilla.org/en-US/docs/Web/API/EventSource/error_event">
+ <code>Event</code></a> instance, if available. This is present when the server closed the connection (codes
+ <code>200</code> and <code>404</code>), but absent when the <code>EventSource</code> API is not supported (code
+ <code>-1</code>) or the client explicitly closed the connection (code <code>204</code>).</li>
+ </ul>
+
+
+ <h2 id="events-server"><a href="#events-server">Events (server)</a></h2>
+ <p>
+ When an SSE connection has been opened, a new CDI <strong><code>SseEvent</code></strong> will be fired with
+ <strong><code>&#64;</code><code>Opened</code></strong> qualifier. When the <code>user</code> attribute of the
+ <code>&lt;o:sse&gt;</code> changes, a new CDI <strong><code>SseEvent</code></strong> will be fired with
+ <strong><code>&#64;</code><code>Switched</code></strong> qualifier. When an SSE connection has been closed, a new CDI
+ <code>SseEvent</code> will be fired with <strong><code>&#64;</code><code>Closed</code></strong> qualifier. They can only be
+ observed and collected in an application scoped CDI bean as below. Observing in a request/view/session scoped CDI
+ bean is not possible as there's no means of a HTTP request anywhere at that moment.
+ <pre>
+ &#64;ApplicationScoped
+ public class SseObserver {
+
+     public void onOpen(&#64;Observes &#64;Opened SseEvent event) {
+         String channel = event.getChannel(); // Returns &lt;o:sse channel&gt;.
+         Long userId = event.getUser(); // Returns &lt;o:sse user&gt;, if any.
+         // Do your thing with it. E.g. collecting them in a concurrent/synchronized collection.
+         // Do note that a single person can open multiple SSE connections on same channel/user.
+     }
+
+     public void onSwitch(&#64;Observes &#64;Switched SseEvent event) {
+         String channel = event.getChannel(); // Returns &lt;o:sse channel&gt;.
+         Long currentUserId = event.getUser(); // Returns current &lt;o:sse user&gt;, if any.
+         Long previousUserId = event.getPreviousUser(); // Returns previous &lt;o:sse user&gt;, if any.
+         // Do your thing with it. E.g. updating in a concurrent/synchronized collection.
+     }
+
+     public void onClose(&#64;Observes &#64;Closed SseEvent event) {
+         String channel = event.getChannel(); // Returns &lt;o:sse channel&gt;.
+         Long userId = event.getUser(); // Returns &lt;o:sse user&gt;, if any.
+         // Do your thing with it. E.g. removing them from collection.
+     }
+
+ }
+ </pre>
+ <p>
+ You could take the opportunity to send another push message to an application scoped channel, e.g. "User X has been
+ logged in" (or out) when a session scoped channel is opened (or closed).
+
+
+ <h2 id="security"><a href="#security">Security considerations</a></h2>
+ <p>
+ If the SSE channel is declared in a page which is only restricted to logged-in users with a specific role, then you may
+ want to add the URL of the SSE connection to the set of restricted URLs.
+ <p>
+ The SSE request URL is composed of the URI prefix <strong><code>/omnifaces.sse/</code></strong>, followed
+ by channel name. So, in case of for example container managed security which has already restricted an example page
+ <code>/user/foo.xhtml</code> to logged-in users with the example role <code>USER</code> on the example URL pattern
+ <code>/user/*</code> in <code>web.xml</code> like below,
+ <pre>
+ &lt;security-constraint&gt;
+     &lt;web-resource-collection&gt;
+         &lt;web-resource-name&gt;Restrict access to role USER.&lt;/web-resource-name&gt;
+         &lt;url-pattern&gt;/user/*&lt;/url-pattern&gt;
+     &lt;/web-resource-collection&gt;
+     &lt;auth-constraint&gt;
+         &lt;role-name&gt;USER&lt;/role-name&gt;
+     &lt;/auth-constraint&gt;
+ &lt;/security-constraint&gt;
+ </pre>
+ <p>
+ .. and the page <code>/user/foo.xhtml</code> in turn contains a <code>&lt;o:sse channel="foo"&gt;</code>, then you
+ need to add a restriction on SSE connection request URL pattern of <code>/omnifaces.sse/foo</code> like below.
+ <pre>
+ &lt;security-constraint&gt;
+     &lt;web-resource-collection&gt;
+         &lt;web-resource-name&gt;Restrict access to role USER.&lt;/web-resource-name&gt;
+         &lt;url-pattern&gt;/user/*&lt;/url-pattern&gt;
+         &lt;url-pattern&gt;/omnifaces.sse/foo&lt;/url-pattern&gt;
+     &lt;/web-resource-collection&gt;
+     &lt;auth-constraint&gt;
+         &lt;role-name&gt;USER&lt;/role-name&gt;
+     &lt;/auth-constraint&gt;
+ &lt;/security-constraint&gt;
+ </pre>
+ <p>
+ As extra security, particularly for those public channels which can't be restricted by security constraints, the
+ <code>&lt;o:sse&gt;</code> will register all so far declared channels in the current HTTP session, and any
+ incoming SSE connection request will be checked whether it matches a registered channel in the current HTTP session.
+ In case the channel is unknown (e.g. randomly guessed or spoofed by endusers or manually reconnected after the
+ session is expired), then the SSE connection will immediately be completed. Also, when the HTTP session gets
+ destroyed, all session and view scoped channels which are still open will explicitly be closed from server side.
+ Only application scoped channels remain open and are still reachable from server end even when the session or view
+ associated with the page in client side is expired.
+
+
+ <h2 id="business-service"><a href="#business-service">Business service design hints</a></h2>
+ <p>
+ In case you'd like to trigger a push from business service side to an application scoped push channel, then you could make use
+ of CDI events. First create a custom bean class representing the push event something like <code>PushEvent</code>
+ below taking whatever you'd like to pass as push message.
+ <pre>
+ public final class PushEvent {
+
+     private final String message;
+
+     public PushEvent(String message) {
+         this.message = message;
+     }
+
+     public String getMessage() {
+         return message;
+     }
+ }
+ </pre>
+ <p>
+ Then use <code>jakarta.enterprise.inject.spi.BeanManager#getEvent()</code> to fire the CDI event.
+ <pre>
+ &#64;Inject
+ private BeanManager beanManager;
+
+ public void onSomeEntityChange(Entity entity) {
+     beanManager.getEvent().select().fire(new PushEvent(entity.getSomeProperty()));
+ }
+ </pre>
+ <p>
+ Note that OmniFaces own <code>Beans#fireEvent(Object, java.lang.annotation.Annotation...)</code> utility method is
+ insuitable as it is not allowed to use WAR (front end) frameworks and libraries like Faces and OmniFaces in business
+ service (back end) side.
+ <p>
+ Finally just <code>&#64;</code><code>Observes</code> it in some request or application scoped CDI managed bean in WAR and
+ delegate to <code>PushContext</code> as below.
+ <pre>
+ &#64;Inject &#64;Push(type=SSE)
+ private PushContext someChannel;
+
+ public void onPushEvent(@Observes PushEvent event) {
+     someChannel.send(event.getMessage());
+ }
+ </pre>
+ <p>
+ Note that a request scoped bean wouldn't be the same one as from the originating page for the simple reason that
+ there's no means of a HTTP request anywhere at that moment. For exactly this reason a view and session scoped bean
+ would not work (as they require respectively the Faces view state and HTTP session which can only be identified by a
+ HTTP request). A view and session scoped push channel would also not work, so the push channel really needs to be
+ application scoped. The <code>FacesContext</code> will also be unavailable in the above event listener method.
+ <p>
+ In case the trigger in business service side is an asynchronous service method which is in turn initiated in WAR side, then
+ you could make use of callbacks from WAR side. Let the business service method take a callback instance as argument,
+ e.g. the <code>java.util.function.Consumer</code> functional interface.
+ <pre>
+ &#64;Asynchronous
+ public void someAsyncServiceMethod(Entity entity, Consumer&lt;Object&gt; callback) {
+     // ... (some long process)
+     callback.accept(entity.getSomeProperty());
+ }
+ </pre>
+ <p>
+ And invoke the asynchronous service method in WAR as below.
+ <pre>
+ &#64;Inject
+ private SomeService someService;
+
+ &#64;Inject &#64;Push(type=SSE)
+ private PushContext someChannel;
+
+ public void someAction() {
+     someService.someAsyncServiceMethod(entity, message -&gt; someChannel.send(message));
+ }
+ </pre>
+ <p>
+ This would be the only way in case you intend to asynchronously send a message to a view or session scoped push
+ channel, and/or want to pass something from <code>FacesContext</code> or the initial request/view/session scope along as
+ (<code>final</code>) argument.
+
+
+ <h2 id="cluster"><a href="#cluster">Cluster design hints</a></h2>
+ <p>
+ In case your web application is deployed to a server cluster with multiple nodes, and the push event could be
+ triggered in a different node than where the client is connected to, then it won't reach the client. One solution is
+ to activate and configure a JMS topic in the server configuration, trigger the push event via JMS instead of CDI,
+ and use a JMS listener (a message driven bean, MDB) to delegate the push event to CDI.</p>
+ <p>
+ Below is an example extending on the above given business service example.
+ <pre>
+ &#64;ApplicationScoped
+ public class PushManager {
+
+     &#64;Resource(lookup = "java:/jms/topic/push")
+     private Topic jmsTopic;
+
+     &#64;Inject
+     private JMSContext jmsContext;
+
+     public void fireEvent(PushEvent pushEvent) {
+         try {
+             Message jmsMessage = jmsContext.createMessage();
+             jmsMessage.setStringProperty("message", pushEvent.getMessage());
+             jmsContext.createProducer().send(jmsTopic, jmsMessage);
+         }
+         catch (Exception e) {
+             // Handle.
+         }
+     }
+ }
+ </pre>
+ <pre>
+ &#64;MessageDriven(activationConfig = {
+     &#64;ActivationConfigProperty(propertyName = "destination", propertyValue = "java:/jms/topic/push")
+ })
+ public class PushListener implements MessageListener {
+
+     &#64;Inject
+     private BeanManager beanManager;
+
+     &#64;Override
+     public void onMessage(Message jmsMessage) {
+         try {
+             String message = jmsMessage.getStringProperty("message");
+             beanManager.fireEvent(new PushEvent(message));
+         }
+         catch (Exception e) {
+             // Handle.
+         }
+     }
+ }
+ </pre>
+ <p>
+ Then, in your business service, instead of using <code>BeanManager#fireEvent()</code> to fire the CDI event,
+ <pre>
+ &#64;Inject
+ private BeanManager beanManager;
+
+ public void onSomeEntityChange(Entity entity) {
+     beanManager.fireEvent(new PushEvent(entity.getSomeProperty()));
+ }
+ </pre>
+ <p>
+ use the newly created <code>PushManager#fireEvent()</code> to fire the JMS event from one server node of the cluster,
+ which in turn will fire the CDI event in all server nodes of the cluster.
+ <pre>
+ &#64;Inject
+ private PushManager pushManager;
+
+ public void onSomeEntityChange(Entity entity) {
+     pushManager.fireEvent(new PushEvent(entity.getSomeProperty()));
+ }
+ </pre>
+
+
+ <h2 id="ui"><a href="#ui">UI update design hints</a></h2>
+ <p>
+ In case you'd like to perform complex UI updates, then easiest would be to put <code>&lt;f:ajax&gt;</code> inside
+ <code>&lt;o:sse&gt;</code>. Here's an example:
+ <pre>
+ &lt;h:panelGroup id="foo"&gt;
+     ... (some complex UI here) ...
+ &lt;/h:panelGroup&gt;
+
+ &lt;h:form&gt;
+     &lt;o:sse channel="someChannel" scope="view"&gt;
+         &lt;f:ajax event="someEvent" listener="#{bean.pushed}" render=":foo" /&gt;
+     &lt;/o:sse&gt;
+ &lt;/h:form&gt;
+ </pre>
+ <p>
+ Here, the push message simply represents the ajax event name. You can use any custom event name.
+ <pre>
+ someChannel.send("someEvent");
+ </pre>
+ <p>
+ An alternative is to combine <code>&lt;o:sse&gt;</code> with <code>&lt;h:commandScript&gt;</code>. E.g.
+ <pre>
+ &lt;h:panelGroup id="foo"&gt;
+     ... (some complex UI here) ...
+ &lt;/h:panelGroup&gt;
+
+ &lt;o:sse channel="someChannel" scope="view" onmessage="someCommandScript" /&gt;
+ &lt;h:form&gt;
+     &lt;h:commandScript name="someCommandScript" action="#{bean.pushed}" render=":foo" /&gt;
+ &lt;/h:form&gt;
+ </pre>
+ <p>
+ If you pass a <code>Map&lt;String,V&gt;</code> or a JavaBean as push message object, then all entries/properties will
+ transparently be available as request parameters in the command script method <code>#{bean.pushed}</code>.</div>
+                            </dd>
+                        </dl>
+                    </li>
+                </ul>
+            </div>
+            <div class="summary">
+                <table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Component summary table, listing component information">
+                    <caption>
+                        <span>Component Information</span><span class="tabEnd">&nbsp;</span>
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th class="colFirst" scope="col">Info</th><th class="colLast" scope="col">Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="rowColor">
+                            <td class="colFirst">Component Type</td><td class="colLast"><code>org.omnifaces.cdi.push.SseComponent</code></td>
+                        </tr>
+                        <tr class="altColor">
+                            <td class="colFirst">Handler Class</td><td class="colLast"><i>None</i></td>
+                        </tr>
+                        <tr class="rowColor">
+                            <td class="colFirst">Renderer Type</td><td class="colLast"><i>None</i></td>
+                        </tr>
+                        <tr class="altColor">
+                            <td class="colFirst">Description</td><td class="colLast"><i>None</i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="summary">
+                <table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Attribute summary table, listing attribute information">
+                    <caption>
+                        <span>Attributes</span><span class="tabEnd">&nbsp;</span>
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th class="colFirst">Name</th><th class="colOne">Required</th><th class="colOne">Type</th><th class="colLast">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="binding" class="rowColor">
+                            <td class="colFirst"><a href="#binding"><code>binding</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>jakarta.faces.component.UIComponent</code>)
+                    </td><td class="colLast">The ValueExpression linking this component to a property in a backing bean.</td>
+                        </tr>
+                        <tr id="channel" class="altColor">
+                            <td class="colFirst"><a href="#channel"><code>channel</code></a></td><td class="colOne"><code>true</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>java.lang.String</code>)
+                    </td><td class="colLast">The name of the push channel.
+ It may not be an EL expression and it may only contain alphanumeric characters, hyphens, underscores and periods.
+ All open connections on the same channel will receive the same push message from the server.</td>
+                        </tr>
+                        <tr id="id" class="rowColor">
+                            <td class="colFirst"><a href="#id"><code>id</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>java.lang.String</code>)
+                    </td><td class="colLast">The component identifier for this component. This value must be unique within the closest parent component that is a naming container.</td>
+                        </tr>
+                        <tr id="onclose" class="altColor">
+                            <td class="colFirst"><a href="#onclose"><code>onclose</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>java.lang.String</code>)
+                    </td><td class="colLast">The JavaScript event handler function that is invoked when the push connection is closed.</td>
+                        </tr>
+                        <tr id="onerror" class="rowColor">
+                            <td class="colFirst"><a href="#onerror"><code>onerror</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>java.lang.String</code>)
+                    </td><td class="colLast">The JavaScript event handler function that is invoked when a connection error has occurred.</td>
+                        </tr>
+                        <tr id="onmessage" class="altColor">
+                            <td class="colFirst"><a href="#onmessage"><code>onmessage</code></a></td><td class="colOne"><code>true</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>java.lang.String</code>)
+                    </td><td class="colLast">The JavaScript event handler function that is invoked when a push message is received from the server.
+ The function will be invoked with three arguments: the push message, the channel name and the raw
+ <code>MessageEvent</code> itself.</td>
+                        </tr>
+                        <tr id="onopen" class="rowColor">
+                            <td class="colFirst"><a href="#onopen"><code>onopen</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>java.lang.String</code>)
+                    </td><td class="colLast">The JavaScript event handler function that is invoked when the push connection is opened.
+ The function will be invoked with one argument: the channel name.</td>
+                        </tr>
+                        <tr id="rendered" class="altColor">
+                            <td class="colFirst"><a href="#rendered"><code>rendered</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>boolean</code>)
+                    </td><td class="colLast">Flag indicating whether or not this component should be rendered (during Render Response Phase), or processed on any subsequent form submit. The default value for this property is true.</td>
+                        </tr>
+                        <tr id="scope" class="rowColor">
+                            <td class="colFirst"><a href="#scope"><code>scope</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>java.lang.String</code>)
+                    </td><td class="colLast">The scope of the push channel.
+ It may not be an EL expression and allowed values are <code>application</code>, <code>session</code> and
+ <code>view</code>, case insensitive. When the value is <code>application</code>, then all channels with the same
+ name throughout the application will receive the same push message. When the value is <code>session</code>, then
+ only the channels with the same name in the current user session will receive the same push message. When the
+ value is <code>view</code>, then only the channel in the current view will receive the push message. The default
+ scope is <code>application</code>. When the <code>user</code> attribute is specified, then the default scope is
+ <code>session</code>.</td>
+                        </tr>
+                        <tr id="user" class="altColor">
+                            <td class="colFirst"><a href="#user"><code>user</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>java.io.Serializable</code>)
+                    </td><td class="colLast">The user identifier of the push channel, so that user-targeted push messages can be sent.
+ All open connections on the same channel and user will receive the same push message from the server.
+ It must implement <code>Serializable</code> and preferably have low memory footprint.
+ Suggestion: use <code>#{request.remoteUser}</code> or <code>#{someLoggedInUser.id}</code>.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="bottomNav">
+            <a name="navbar_bottom"></a><a href="#skip-navbar_bottom" title="Skip navigation links"></a><a name="navbar_bottom_firstrow"></a>
+            <ul class="navList" title="Navigation">
+                <li>
+                    <a href="../overview-summary.html">Overview</a>
+                </li>
+                <li>
+                    <a href="tld-summary.html">Library</a>
+                </li>
+                <li class="navBarCell1Rev">Tag</li>
+                <li>
+                    <a href="../help-doc.html">Help</a>
+                </li>
+            </ul>
+        </div>
+        <div class="subNav">
+            <ul class="navList">
+                <li>
+                    <a target="_bottom" href="../index.html?o/sse.html">
+                                    Frames
+                                </a>
+                </li>
+                <li>
+                    <a target="_bottom" href="sse.html">
+                                    No Frames
+                                </a>
+                </li>
+            </ul>
+            <ul class="navList" id="alltags_navbar_bottom">
+                <li>
+                    <a href="../alltags-noframe.html">All Tags</a>
+                </li>
+            </ul>
+            <script type="text/javascript">
+                            document.getElementById("alltags_navbar_bottom").style.display = (window == top) ? "block" : "none";
+                        </script><a name="skip-navbar_bottom"></a>
+        </div>
+        <p class="about">
+            Output generated by <a href="http://vdldoc.omnifaces.org" target="_blank">Vdldoc</a> View Declaration Language Documentation Generator.
+        </p>
+    </body>
+</html>
