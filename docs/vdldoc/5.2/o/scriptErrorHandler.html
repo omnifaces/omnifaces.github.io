@@ -109,11 +109,11 @@
  <ul>
  <li><code>ScriptError#pageURL()</code>: the URL of the page where the error occurred.</li>
  <li><code>ScriptError#errorMessage()</code>: the error message.</li>
+ <li><code>ScriptError#errorName()</code>: the error type (e.g. "TypeError", "ReferenceError").</li>
+ <li><code>ScriptError#errorStack()</code>: the full stack trace.</li>
  <li><code>ScriptError#sourceURL()</code>: the URL of the script file where the error occurred.</li>
  <li><code>ScriptError#lineNumber()</code>: the line number in the script.</li>
  <li><code>ScriptError#columnNumber()</code>: the column number in the script.</li>
- <li><code>ScriptError#errorName()</code>: the error type (e.g. "TypeError", "ReferenceError").</li>
- <li><code>ScriptError#errorStack()</code>: the full stack trace.</li>
  <li><code>ScriptError#remoteAddr()</code>: the remote address.</li>
  <li><code>ScriptError#userAgent()</code>: the User-Agent header.</li>
  <li><code>ScriptError#userPrincipal()</code>: the authenticated user principal name.</li>
@@ -124,7 +124,8 @@
  <p>
  To prevent flooding the server with repeated errors (e.g. from a <code>requestAnimationFrame</code> loop), the
  client-side script deduplicates errors by message, source URL, and line number. The deduplication queue size and
- expiry time can be configured via the <code>maxRecentErrors</code> and <code>errorExpiry</code> attributes.</div>
+ expiry time can be configured via the <code>maxRecentErrors</code> and <code>errorExpiry</code> attributes, which
+ default to 100 and 1 minute respectively.</div>
                             </dd>
                         </dl>
                     </li>
