@@ -1,0 +1,276 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en" xmlns:vdldoc="http://vdldoc.omnifaces.org" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:jakartaee="https://jakarta.ee/xml/ns/jakartaee">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>lazyPanel (OmniFaces 5.3 VDL Documentation)
+            </title>
+        <meta name="keywords" content="$title">
+        <link rel="stylesheet" type="text/css" title="Style" href="../stylesheet.css">
+    </head>
+    <body>
+        <noscript>
+            <div>JavaScript is disabled on your browser.</div>
+        </noscript>
+        <div class="topNav">
+            <a name="navbar_top"></a><a href="#skip-navbar_top" title="Skip navigation links"></a><a name="navbar_top_firstrow"></a>
+            <ul class="navList" title="Navigation">
+                <li>
+                    <a href="../overview-summary.html">Overview</a>
+                </li>
+                <li>
+                    <a href="tld-summary.html">Library</a>
+                </li>
+                <li class="navBarCell1Rev">Tag</li>
+                <li>
+                    <a href="../help-doc.html">Help</a>
+                </li>
+            </ul>
+        </div>
+        <div class="subNav">
+            <ul class="navList">
+                <li>
+                    <a target="_top" href="../index.html?o/lazyPanel.html">
+                                    Frames
+                                </a>
+                </li>
+                <li>
+                    <a target="_top" href="lazyPanel.html">
+                                    No Frames
+                                </a>
+                </li>
+            </ul>
+            <ul class="navList" id="alltags_navbar_top">
+                <li>
+                    <a href="../alltags-noframe.html">All Tags</a>
+                </li>
+            </ul>
+            <div>
+                <script type="text/javascript">
+                                document.getElementById("alltags_navbar_top").style.display = (window == top) ? "block" : "none";
+                            </script>
+            </div>
+            <a name="skip-navbar_top"></a>
+        </div>
+        <div class="header">
+            <h1 title="Library" class="title">o</h1>
+            <h2 class="title">
+                            Tag
+                            lazyPanel</h2>
+        </div>
+        <div class="contentContainer">
+            <div class="description">
+                <ul class="blockList">
+                    <li class="blockList">
+                        <dl>
+                            <dt>Description:</dt>
+                            <dd>
+                                <div class="block"><p>
+ The <code>&lt;o:lazyPanel&gt;</code> is a component that defers rendering of its children until the panel has scrolled into view. This is useful for
+ expensive regions below the fold, where building the children would otherwise happen on every page load even though the user may never scroll far enough to
+ see them.
+ <p>
+ On initial render, the component writes a wrapper element with a placeholder (optional, see "Placeholder" below) and schedules a viewport intersection
+ listener on it via <code>OmniFaces.js</code>, which uses <code>IntersectionObserver</code> when available and falls back to
+ <code>scroll</code>/<code>resize</code>/<code>orientationChange</code> listeners otherwise. As soon as the wrapper intersects the viewport, a single
+ <code>faces.ajax.request</code> targeting its own client id is fired. During that request, the component detects the trigger, invokes the optional listener
+ with a <code>LazyPanelEvent</code> argument, flips its <code>loaded</code> flag, and renders its children in place of the placeholder.
+
+ <h2>Usage</h2>
+
+ <pre>
+ &lt;o:lazyPanel&gt;
+     &lt;h:dataTable value="#{bean.expensiveList}" var="row"&gt;
+         ...
+     &lt;/h:dataTable&gt;
+ &lt;/o:lazyPanel&gt;
+ </pre>
+ <p>
+ The <code>loaded</code> attribute is a server-side escape hatch: when <code>true</code>, the children are rendered immediately without any client side
+ observer. This is useful for print views, SEO crawlers, or tests.
+
+ <h2>Listener</h2>
+ <p>
+ The <code>listener</code> attribute can be used to invoke a bean method with an optional <code>LazyPanelEvent</code> argument. It is invoked exactly once, when
+ the component is triggered by the client side intersection.
+
+ <pre>
+ &lt;o:lazyPanel listener="#{bean.load}"&gt;
+     ...
+ &lt;/o:lazyPanel&gt;
+ </pre>
+ <p>
+ The listener is invoked from <code>#decode(FacesContext)</code>, which then jumps straight to the render response phase. The component therefore effectively
+ behaves like a <code>jakarta.faces.component.UICommand</code> with <code>immediate="true"</code>: the process validations, update model values and invoke
+ application phases are skipped for the lazy panel ajax request, so any concurrently submitted input values in the enclosing form are <em>not</em> processed,
+ validated, or applied. If you need those values on the server, submit them through a separate ajax request before the lazy panel triggers.
+
+ <h2>Request parameters</h2>
+ <p>
+ Nested <code>&lt;f:param&gt;</code> or <code>&lt;o:param&gt;</code> children are sent along with the lazy panel ajax request and can be retrieved by the
+ listener via <code>org.omnifaces.util.Faces#getRequestParameter(String)</code>. This is useful to pass context (like an entity id, filter key, or page number) so
+ that a single listener can serve multiple panels.
+
+ <pre>
+ &lt;o:lazyPanel listener="#{bean.load}"&gt;
+     &lt;f:param name="productId" value="#{product.id}" /&gt;
+     ...
+ &lt;/o:lazyPanel&gt;
+ </pre>
+ <p>
+ Parameter values are <em>evaluated at initial render</em> (snapshot semantics), consistent with <code>jakarta.faces.component.UIParameter</code> usage elsewhere
+ in Faces. For values that must be fresh at trigger time, read them from the surrounding bean state in the listener itself.
+
+ <h2>Layout</h2>
+ <p>
+ By default the wrapper is rendered as a <code>&lt;div&gt;</code>. Set <code>layout="inline"</code> to render a <code>&lt;span&gt;</code> instead:
+
+ <pre>
+ &lt;o:lazyPanel layout="inline"&gt;
+     ...
+ &lt;/o:lazyPanel&gt;
+ </pre>
+
+ <h2>Placeholder</h2>
+ <p>
+ To show a skeleton or spinner while the lazy region is still off-screen, put it in a facet named <code>placeholder</code>:
+
+ <pre>
+ &lt;o:lazyPanel&gt;
+     &lt;f:facet name="placeholder"&gt;
+         &lt;div class="skeleton"&gt;Loading...&lt;/div&gt;
+     &lt;/f:facet&gt;
+     ...
+ &lt;/o:lazyPanel&gt;
+ </pre></div>
+                            </dd>
+                        </dl>
+                    </li>
+                </ul>
+            </div>
+            <div class="summary">
+                <table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Component summary table, listing component information">
+                    <caption>
+                        <span>Component Information</span><span class="tabEnd">&nbsp;</span>
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th class="colFirst" scope="col">Info</th><th class="colLast" scope="col">Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="rowColor">
+                            <td class="colFirst">Component Type</td><td class="colLast"><code>org.omnifaces.component.output.LazyPanel</code></td>
+                        </tr>
+                        <tr class="altColor">
+                            <td class="colFirst">Handler Class</td><td class="colLast"><code>org.omnifaces.component.output.LazyPanelHandler</code></td>
+                        </tr>
+                        <tr class="rowColor">
+                            <td class="colFirst">Renderer Type</td><td class="colLast"><i>None</i></td>
+                        </tr>
+                        <tr class="altColor">
+                            <td class="colFirst">Description</td><td class="colLast"><i>None</i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="summary">
+                <table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Attribute summary table, listing attribute information">
+                    <caption>
+                        <span>Attributes</span><span class="tabEnd">&nbsp;</span>
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th class="colFirst">Name</th><th class="colOne">Required</th><th class="colOne">Type</th><th class="colLast">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="binding" class="rowColor">
+                            <td class="colFirst"><a href="#binding"><code>binding</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>jakarta.faces.component.UIComponent</code>)
+                    </td><td class="colLast">The ValueExpression linking this component to a property in a backing bean.</td>
+                        </tr>
+                        <tr id="id" class="altColor">
+                            <td class="colFirst"><a href="#id"><code>id</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>java.lang.String</code>)
+                    </td><td class="colLast">The component identifier for this component. This value must be unique within the closest parent component that is a naming container.</td>
+                        </tr>
+                        <tr id="layout" class="rowColor">
+                            <td class="colFirst"><a href="#layout"><code>layout</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>java.lang.String</code>)
+                    </td><td class="colLast">The layout of the wrapper element. Supported values are <code>"block"</code> (renders a <code>&lt;div&gt;</code>) and <code>"inline"</code> (renders
+ a <code>&lt;span&gt;</code>).</td>
+                        </tr>
+                        <tr id="listener" class="altColor">
+                            <td class="colFirst"><a href="#listener"><code>listener</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>jakarta.el.MethodExpression</code>)
+                    </td><td class="colLast">The method expression to invoke when the lazy panel is triggered.</td>
+                        </tr>
+                        <tr id="loaded" class="rowColor">
+                            <td class="colFirst"><a href="#loaded"><code>loaded</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>boolean</code>)
+                    </td><td class="colLast">Whether the children are considered loaded and should be rendered immediately. This can be used as a server-side escape hatch for print views, SEO
+ crawlers, or tests.</td>
+                        </tr>
+                        <tr id="rendered" class="altColor">
+                            <td class="colFirst"><a href="#rendered"><code>rendered</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>boolean</code>)
+                    </td><td class="colLast">Flag indicating whether or not this component should be rendered (during Render Response Phase), or processed on any subsequent form submit. The default value for this property is true.</td>
+                        </tr>
+                        <tr id="styleClass" class="rowColor">
+                            <td class="colFirst"><a href="#styleClass"><code>styleClass</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
+                                <br>
+                                (<i>must evaluate to </i><code>java.lang.String</code>)
+                    </td><td class="colLast">The CSS style class to render on the wrapper element.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="bottomNav">
+            <a name="navbar_bottom"></a><a href="#skip-navbar_bottom" title="Skip navigation links"></a><a name="navbar_bottom_firstrow"></a>
+            <ul class="navList" title="Navigation">
+                <li>
+                    <a href="../overview-summary.html">Overview</a>
+                </li>
+                <li>
+                    <a href="tld-summary.html">Library</a>
+                </li>
+                <li class="navBarCell1Rev">Tag</li>
+                <li>
+                    <a href="../help-doc.html">Help</a>
+                </li>
+            </ul>
+        </div>
+        <div class="subNav">
+            <ul class="navList">
+                <li>
+                    <a target="_bottom" href="../index.html?o/lazyPanel.html">
+                                    Frames
+                                </a>
+                </li>
+                <li>
+                    <a target="_bottom" href="lazyPanel.html">
+                                    No Frames
+                                </a>
+                </li>
+            </ul>
+            <ul class="navList" id="alltags_navbar_bottom">
+                <li>
+                    <a href="../alltags-noframe.html">All Tags</a>
+                </li>
+            </ul>
+            <script type="text/javascript">
+                            document.getElementById("alltags_navbar_bottom").style.display = (window == top) ? "block" : "none";
+                        </script><a name="skip-navbar_bottom"></a>
+        </div>
+        <p class="about">
+            Output generated by <a href="http://vdldoc.omnifaces.org" target="_blank">Vdldoc</a> View Declaration Language Documentation Generator.
+        </p>
+    </body>
+</html>
