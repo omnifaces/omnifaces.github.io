@@ -32,15 +32,13 @@ OmniFaces should principally integrate perfectly well with most other Faces comp
 
 ### Compatibility matrix
 
-| version       | Java | Faces   | EL  | Servlet | CDI    | WS  | BV($) | SEC($) | Status        |
-|---------------|------|---------|-----|---------|--------|-----|-------|--------|---------------|
-| **5.x**       | 17   | 4.1     | 6.0 | 6.1     | 4.1    | 2.2 | 3.1   | 4.0    | Active        |
-| **4.x**       | 11   | 3.0/4.0 | 4.0 | 5.0     | 3.0    | 2.0 | 3.0   | -      | Bugfix-only   |
-| **3.x**       | 1.8  | 2.3     | 3.0 | 3.1     | 2.0    | 1.1 | 2.0   | -      | Bugfix-only   |
-| **2.x**       | 1.7  | 2.2     | 2.2 | 3.0     | 1.1    | 1.1 | 1.1   | -      | Security-only |
-| **1.10-1.14** | 1.6  | 2.0     | 2.1 | 2.5     | -      | -   | 1.0   | -      | Security-only |
-| **1.6-1.8**   | 1.6  | 2.0     | 2.1 | 2.5     | 1.0($) | -   | 1.0   | -      | EOL           |
-| **1.0-1.5**   | 1.6  | 2.0     | 2.1 | 2.5     | -      | -   | 1.0   | -      | EOL           |
+| version | Java | Faces   | EL  | Servlet | CDI    | WS  | BV($) | SEC($) | Status        |
+|---------|------|---------|-----|---------|--------|-----|-------|--------|---------------|
+| **5.x** | 17   | 4.1/5.0 | 6.0 | 6.1     | 4.1    | 2.2 | 3.1   | 4.0    | Active        |
+| **4.x** | 11   | 3.0/4.0 | 4.0 | 5.0     | 3.0    | 2.0 | 3.0   | -      | Bugfix-only   |
+| **3.x** | 1.8  | 2.3     | 3.0 | 3.1     | 2.0    | 1.1 | 2.0   | -      | Bugfix-only   |
+| **2.x** | 1.7  | 2.2     | 2.2 | 3.0     | 1.1    | 1.1 | 1.1   | -      | Security-only |
+| **1.x** | 1.6  | 2.0/2.1 | 2.1 | 2.5     | 1.0($) | -   | 1.0   | -      | Security-only |
 
 **($)**: optional dependency; only needed when actually using the feature depending on the API
 
@@ -181,7 +179,7 @@ Version history can be found in "[What's new](https://showcase.omnifaces.org/wha
 - 2.1 (3 Jun 2015) - [library](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/2.1/omnifaces-2.1.jar) - [sources](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/2.1/omnifaces-2.1-sources.jar) - [javadoc](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/2.1/omnifaces-2.1-javadoc.jar)
 - 2.0 (24 Nov 2014) - [library](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/2.0/omnifaces-2.0.jar) - [sources](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/2.0/omnifaces-2.0-sources.jar) - [javadoc](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/2.0/omnifaces-2.0-javadoc.jar)
 
-### OmniFaces 1.1x
+### OmniFaces 1.x
 
 **Required**: Java 1.6, JSF 2.0, EL 2.1, Servlet 2.5  
 **Optional**: BV 1.0  
@@ -191,12 +189,6 @@ Version history can be found in "[What's new](https://showcase.omnifaces.org/wha
 - 1.12.1 (26 Nov 2015) - [library](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/1.12.1/omnifaces-1.12.1.jar) - [sources](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/1.12.1/omnifaces-1.12.1-sources.jar) - [javadoc](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/1.12.1/omnifaces-1.12.1-javadoc.jar)
 - 1.11 (3 Jun 2015) - [library](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/1.11/omnifaces-1.11.jar) - [sources](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/1.11/omnifaces-1.11-sources.jar) - [javadoc](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/1.11/omnifaces-1.11-javadoc.jar)
 - 1.10 (24 Nov 2014) - [library](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/1.10/omnifaces-1.10.jar) - [sources](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/1.10/omnifaces-1.10-sources.jar) - [javadoc](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/1.10/omnifaces-1.10-javadoc.jar)
-
-### OmniFaces 1.x
-
-**Required**: Java 1.6, JSF 2.0, EL 2.1, Servlet 2.5  
-**Optional**: BV 1.0 and since 1.6 CDI 1.0
-
 - 1.8.3 (3 Jun 2015) - [library](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/1.8.3/omnifaces-1.8.3.jar) - [sources](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/1.8.3/omnifaces-1.8.3-sources.jar) - [javadoc](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/1.8.3/omnifaces-1.8.3-javadoc.jar)
 - 1.7 (12 Jan 2014) - [library](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/1.7/omnifaces-1.7.jar) - [sources](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/1.7/omnifaces-1.7-sources.jar) - [javadoc](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/1.7/omnifaces-1.7-javadoc.jar)
 - 1.6.3 (18 Oct 2013) - [library](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/1.6.3/omnifaces-1.6.3.jar) - [sources](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/1.6.3/omnifaces-1.6.3-sources.jar) - [javadoc](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/1.6.3/omnifaces-1.6.3-javadoc.jar)
@@ -242,15 +234,13 @@ For starters, a "snapshot" is just the current/latest build. It's far from a rel
    - [4.7](https://omnifaces.org/docs/javadoc/4.7/) - [4.6](https://omnifaces.org/docs/javadoc/4.6/) - [4.5](https://omnifaces.org/docs/javadoc/4.5/) - [4.4](https://omnifaces.org/docs/javadoc/4.4/) - [4.3](https://omnifaces.org/docs/javadoc/4.3/) - [4.2](https://omnifaces.org/docs/javadoc/4.2/) - [4.1](https://omnifaces.org/docs/javadoc/4.1/) - [4.0](https://omnifaces.org/docs/javadoc/4.0/)
    - [3.14](https://omnifaces.org/docs/javadoc/3.14/) - [3.13](https://omnifaces.org/docs/javadoc/3.13/) - [3.12](https://omnifaces.org/docs/javadoc/3.12/) - [3.11](https://omnifaces.org/docs/javadoc/3.11/) - [3.10](https://omnifaces.org/docs/javadoc/3.10/) - [3.9](https://omnifaces.org/docs/javadoc/3.9/) - [3.8](https://omnifaces.org/docs/javadoc/3.8/) - [3.7](https://omnifaces.org/docs/javadoc/3.7/) - [3.6](https://omnifaces.org/docs/javadoc/3.6/) - [3.5](https://omnifaces.org/docs/javadoc/3.5/) - [3.4](https://omnifaces.org/docs/javadoc/3.4/) - [3.3](https://omnifaces.org/docs/javadoc/3.3/) - [3.2](https://omnifaces.org/docs/javadoc/3.2/) - [3.1](https://omnifaces.org/docs/javadoc/3.1/) - [3.0](https://omnifaces.org/docs/javadoc/3.0/) 
    - [2.7](https://omnifaces.org/docs/javadoc/2.7/) - [2.6](https://omnifaces.org/docs/javadoc/2.6/) - [2.5](https://omnifaces.org/docs/javadoc/2.5/) - [2.4](https://omnifaces.org/docs/javadoc/2.4/) - [2.3](https://omnifaces.org/docs/javadoc/2.3/) - [2.2](https://omnifaces.org/docs/javadoc/2.2/) - [2.1](https://omnifaces.org/docs/javadoc/2.1/) - [2.0](https://omnifaces.org/docs/javadoc/2.0/) 
-   - [1.14](https://omnifaces.org/docs/javadoc/1.14/) - [1.13](https://omnifaces.org/docs/javadoc/1.13/) - [1.12](https://omnifaces.org/docs/javadoc/1.12/) - [1.11](https://omnifaces.org/docs/javadoc/1.11/) - [1.10](https://omnifaces.org/docs/javadoc/1.10/)
-   - [1.8](https://omnifaces.org/docs/javadoc/1.8/) - [1.7](https://omnifaces.org/docs/javadoc/1.7/) - [1.6](https://omnifaces.org/docs/javadoc/1.6/) - [1.5](https://omnifaces.org/docs/javadoc/1.5/) - [1.4](https://omnifaces.org/docs/javadoc/1.4/) - [1.3](https://omnifaces.org/docs/javadoc/1.3/) - [1.2](https://omnifaces.org/docs/javadoc/1.2/) - [1.1](https://omnifaces.org/docs/javadoc/1.1/) - [1.0](https://omnifaces.org/docs/javadoc/1.0/)
+   - [1.14](https://omnifaces.org/docs/javadoc/1.14/) - [1.13](https://omnifaces.org/docs/javadoc/1.13/) - [1.12](https://omnifaces.org/docs/javadoc/1.12/) - [1.11](https://omnifaces.org/docs/javadoc/1.11/) - [1.10](https://omnifaces.org/docs/javadoc/1.10/) - [1.8](https://omnifaces.org/docs/javadoc/1.8/) - [1.7](https://omnifaces.org/docs/javadoc/1.7/) - [1.6](https://omnifaces.org/docs/javadoc/1.6/) - [1.5](https://omnifaces.org/docs/javadoc/1.5/) - [1.4](https://omnifaces.org/docs/javadoc/1.4/) - [1.3](https://omnifaces.org/docs/javadoc/1.3/) - [1.2](https://omnifaces.org/docs/javadoc/1.2/) - [1.1](https://omnifaces.org/docs/javadoc/1.1/) - [1.0](https://omnifaces.org/docs/javadoc/1.0/)
  * [OmniFaces VDL documentation](https://omnifaces.org/docs/vdldoc/current/)
    - [5.4](https://omnifaces.org/docs/vdldoc/5.4/) - [5.3](https://omnifaces.org/docs/vdldoc/5.3/) - [5.2](https://omnifaces.org/docs/vdldoc/5.2/) - [5.1](https://omnifaces.org/docs/vdldoc/5.1/) - [5.0](https://omnifaces.org/docs/vdldoc/5.0/)
    - [4.7](https://omnifaces.org/docs/vdldoc/4.7/) - [4.6](https://omnifaces.org/docs/vdldoc/4.6/) - [4.5](https://omnifaces.org/docs/vdldoc/4.5/) - [4.4](https://omnifaces.org/docs/vdldoc/4.4/) - [4.3](https://omnifaces.org/docs/vdldoc/4.3/) - [4.2](https://omnifaces.org/docs/vdldoc/4.2/) - [4.1](https://omnifaces.org/docs/vdldoc/4.1/) - [4.0](https://omnifaces.org/docs/vdldoc/4.0/)
    - [3.14](https://omnifaces.org/docs/vdldoc/3.14/) - [3.13](https://omnifaces.org/docs/vdldoc/3.13/) - [3.12](https://omnifaces.org/docs/vdldoc/3.12/) - [3.11](https://omnifaces.org/docs/vdldoc/3.11/) - [3.10](https://omnifaces.org/docs/vdldoc/3.10/) - [3.9](https://omnifaces.org/docs/vdldoc/3.9/) - [3.8](https://omnifaces.org/docs/vdldoc/3.8/) - [3.7](https://omnifaces.org/docs/vdldoc/3.7/) - [3.6](https://omnifaces.org/docs/vdldoc/3.6/) - [3.5](https://omnifaces.org/docs/vdldoc/3.5/) - [3.4](https://omnifaces.org/docs/vdldoc/3.4/) - [3.3](https://omnifaces.org/docs/vdldoc/3.3/) - [3.2](https://omnifaces.org/docs/vdldoc/3.2/) - [3.1](https://omnifaces.org/docs/vdldoc/3.1/) - [3.0](https://omnifaces.org/docs/vdldoc/3.0/) 
    - [2.7](https://omnifaces.org/docs/vdldoc/2.7/) - [2.6](https://omnifaces.org/docs/vdldoc/2.6/) - [2.5](https://omnifaces.org/docs/vdldoc/2.5/) - [2.4](https://omnifaces.org/docs/vdldoc/2.4/) - [2.3](https://omnifaces.org/docs/vdldoc/2.3/) - [2.2](https://omnifaces.org/docs/vdldoc/2.2/) - [2.1](https://omnifaces.org/docs/vdldoc/2.1/) - [2.0](https://omnifaces.org/docs/vdldoc/2.0/) 
-   - [1.14](https://omnifaces.org/docs/vdldoc/1.14/) - [1.13](https://omnifaces.org/docs/vdldoc/1.13/) - [1.12](https://omnifaces.org/docs/vdldoc/1.12/) - [1.11](https://omnifaces.org/docs/vdldoc/1.11/) - [1.10](https://omnifaces.org/docs/vdldoc/1.10/)
-   - [1.8](https://omnifaces.org/docs/vdldoc/1.8/) - [1.7](https://omnifaces.org/docs/vdldoc/1.7/) - [1.6](https://omnifaces.org/docs/vdldoc/1.6/) - [1.5](https://omnifaces.org/docs/vdldoc/1.5/) - [1.4](https://omnifaces.org/docs/vdldoc/1.4/) - [1.3](https://omnifaces.org/docs/vdldoc/1.3/) - [1.2](https://omnifaces.org/docs/vdldoc/1.2/) - [1.1](https://omnifaces.org/docs/vdldoc/1.1/) - [1.0](https://omnifaces.org/docs/vdldoc/1.0/)
+   - [1.14](https://omnifaces.org/docs/vdldoc/1.14/) - [1.13](https://omnifaces.org/docs/vdldoc/1.13/) - [1.12](https://omnifaces.org/docs/vdldoc/1.12/) - [1.11](https://omnifaces.org/docs/vdldoc/1.11/) - [1.10](https://omnifaces.org/docs/vdldoc/1.10/) - [1.8](https://omnifaces.org/docs/vdldoc/1.8/) - [1.7](https://omnifaces.org/docs/vdldoc/1.7/) - [1.6](https://omnifaces.org/docs/vdldoc/1.6/) - [1.5](https://omnifaces.org/docs/vdldoc/1.5/) - [1.4](https://omnifaces.org/docs/vdldoc/1.4/) - [1.3](https://omnifaces.org/docs/vdldoc/1.3/) - [1.2](https://omnifaces.org/docs/vdldoc/1.2/) - [1.1](https://omnifaces.org/docs/vdldoc/1.1/) - [1.0](https://omnifaces.org/docs/vdldoc/1.0/)
  * [OmniFaces wiki pages](https://github.com/omnifaces/omnifaces/wiki)
    * [Compatibility Matrix](https://github.com/omnifaces/omnifaces/wiki/Compatibility-Matrix)
    * [Known Issues (general)](https://github.com/omnifaces/omnifaces/wiki/Known-Issues-(general))
