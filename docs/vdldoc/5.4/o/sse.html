@@ -2,7 +2,7 @@
 <html lang="en" xmlns:vdldoc="http://vdldoc.omnifaces.org" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:jakartaee="https://jakarta.ee/xml/ns/jakartaee">
     <head>
         <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>sse (OmniFaces 5.4.1 VDL Documentation)
+        <title>sse (OmniFaces 5.4.3 VDL Documentation)
             </title>
         <meta name="keywords" content="$title">
         <link rel="stylesheet" type="text/css" title="Style" href="../stylesheet.css">
@@ -148,6 +148,25 @@
  <p>
  No explicit configuration is needed. The SSE endpoint is automatically registered during application startup when at least one
  <code>&#64;</code><code>Push</code><code>(type=SSE)</code> qualified injection point is detected.
+ <p>
+ You can optionally set the maximum idle timeout in milliseconds of the SSE endpoint by below context parameter. The default is <code>0</code> (i.e. never
+ automatically expire; a push connection is idle by nature as it only awaits server side messages).
+
+ <pre>
+ &lt;context-param&gt;
+     &lt;param-name&gt;org.omnifaces.SSE_ENDPOINT_IDLE_TIMEOUT&lt;/param-name&gt;
+     &lt;param-value&gt;300000&lt;/param-value&gt; &lt;!-- 5 minutes --&gt;
+ &lt;/context-param&gt;
+ </pre>
+ <p>
+ You can optionally set the maximum number of concurrent SSE connections per channel by below context parameter. The default is unbounded.
+
+ <pre>
+ &lt;context-param&gt;
+     &lt;param-name&gt;org.omnifaces.SSE_MAX_SESSIONS_PER_CHANNEL&lt;/param-name&gt;
+     &lt;param-value&gt;1000&lt;/param-value&gt;
+ &lt;/context-param&gt;
+ </pre>
 
 
  <h2 id="usage-client"><a href="#usage-client">Usage (client)</a></h2>
