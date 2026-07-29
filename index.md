@@ -1,4 +1,4 @@
-[Download](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/5.4.3/omnifaces-5.4.3.jar) - [Showcase](https://showcase.omnifaces.org) - [API docs](https://omnifaces.org/docs/javadoc/current/) - [VDL docs](https://omnifaces.org/docs/vdldoc/current/) - [GitHub](https://github.com/omnifaces/omnifaces) - [Issues](https://github.com/omnifaces/omnifaces/issues) - [X](https://x.com/OmniFaces)
+[Download](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/5.4.4/omnifaces-5.4.4.jar) - [Showcase](https://showcase.omnifaces.org) - [API docs](https://omnifaces.org/docs/javadoc/current/) - [VDL docs](https://omnifaces.org/docs/vdldoc/current/) - [GitHub](https://github.com/omnifaces/omnifaces) - [Issues](https://github.com/omnifaces/omnifaces/issues) - [X](https://x.com/OmniFaces)
 
 
 ## What is OmniFaces?
@@ -47,7 +47,7 @@ OmniFaces should principally integrate perfectly well with most other Faces comp
 
 ## Installation
 
-It is a matter of dropping the [OmniFaces 5.4.3 JAR file](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/5.4.3/) in `/WEB-INF/lib`.
+It is a matter of dropping the [OmniFaces 5.4.4 JAR file](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/5.4.4/) in `/WEB-INF/lib`.
 
 Maven users can add OmniFaces by adding the following Maven coordinates to `pom.xml` of the WAR project:
 
@@ -55,7 +55,7 @@ Maven users can add OmniFaces by adding the following Maven coordinates to `pom.
 <dependency>
     <groupId>org.omnifaces</groupId>
     <artifactId>omnifaces</artifactId>
-    <version>5.4.3</version>
+    <version>5.4.4</version>
 </dependency>
 ```
 
@@ -124,7 +124,7 @@ Version history can be found in "[What's new](https://showcase.omnifaces.org/wha
 **Required**: Java 17, Faces 4.1, EL 6.0, Servlet 6.1, CDI 4.1, WS 2.2  
 **Optional**: BV 3.1
 
-- 5.4.3 (28 Jul 2026) - [library](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/5.4.3/omnifaces-5.4.3.jar) - [sources](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/5.4.3/omnifaces-5.4.3-sources.jar) - [javadoc](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/5.4.3/omnifaces-5.4.3-javadoc.jar)
+- 5.4.4 (29 Jul 2026) - [library](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/5.4.4/omnifaces-5.4.4.jar) - [sources](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/5.4.4/omnifaces-5.4.4-sources.jar) - [javadoc](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/5.4.4/omnifaces-5.4.4-javadoc.jar)
 - 5.3.4 (20 May 2026) - [library](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/5.3.4/omnifaces-5.3.4.jar) - [sources](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/5.3.4/omnifaces-5.3.4-sources.jar) - [javadoc](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/5.3.4/omnifaces-5.3.4-javadoc.jar)
 - 5.2.3 (15 Apr 2026) - [library](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/5.2.3/omnifaces-5.2.3.jar) - [sources](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/5.2.3/omnifaces-5.2.3-sources.jar) - [javadoc](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/5.2.3/omnifaces-5.2.3-javadoc.jar)
 - 5.1 (9 Mar 2026) - [library](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/5.1/omnifaces-5.1.jar) - [sources](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/5.1/omnifaces-5.1-sources.jar) - [javadoc](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/5.1/omnifaces-5.1-javadoc.jar)
