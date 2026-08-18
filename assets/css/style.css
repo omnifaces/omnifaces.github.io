@@ -111,8 +111,13 @@ pre {
 	word-wrap: normal;
 }
 
+code {
+	overflow-wrap: anywhere;
+}
+
 pre code {
 	width: auto;
+	overflow-wrap: normal;
 	padding: 0;
 	margin: 0;
 	box-shadow: none;
