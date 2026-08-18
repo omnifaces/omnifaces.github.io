@@ -203,8 +203,6 @@ Full-Width Styles
 
 #header_wrap .inner {
 	background: url(images/OmniFaces-logo-90x90-white.png) no-repeat left center;
-	min-width: 215px;
-	max-width: 1000px;
 }
 
 #project_title {
