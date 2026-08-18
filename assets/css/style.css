@@ -93,7 +93,8 @@ p img {
 }
 
 pre, code {
-	width: 99%;
+	box-sizing: border-box;
+	width: 100%;
 	padding: .2em;
 	border-radius: .2em;
 	box-shadow: 0 0 .5em rgba(0, 0, 0, .1);
@@ -175,6 +176,7 @@ Full-Width Styles
 
 .inner {
 	position: relative;
+	box-sizing: border-box;
 	min-width: 320px;
 	max-width: 1000px;
 	padding: 20px 10px;
@@ -197,7 +199,7 @@ Full-Width Styles
 #header_wrap .inner {
 	background: url(images/OmniFaces-logo-90x90-white.png) no-repeat left center;
 	min-width: 215px;
-	max-width: 895px;
+	max-width: 1000px;
 }
 
 #project_title {
@@ -297,6 +299,28 @@ Small Device Styles
 		background-size: 80px 80px;
 		background-position-y: 14px;
 		transition: all .3s;
+	}
+
+	#main_content table {
+		display: block;
+		box-sizing: border-box;
+		width: 100%;
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	#main_content th, #main_content td {
+		padding: .3em;
+		white-space: nowrap;
+	}
+
+	#main_content th:first-child, #main_content td:first-child {
+		position: sticky;
+		left: 0;
+	}
+
+	#main_content td:first-child {
+		background: #f2f2f2;
 	}
 
 }
