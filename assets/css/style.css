@@ -177,12 +177,12 @@ Full-Width Styles
 *******************************************************************************/
 .outer {
 	width: 100%;
+	min-width: 320px;
 }
 
 .inner {
 	position: relative;
 	box-sizing: border-box;
-	min-width: 320px;
 	max-width: 1000px;
 	padding: 20px 10px;
 	margin: 0 auto;
