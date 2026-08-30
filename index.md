@@ -40,9 +40,9 @@ OmniFaces should principally integrate perfectly well with most other Faces comp
 | **2.x** | 1.7  | 2.2     | 2.2 | 3.0     | 1.1    | 1.1 | 1.1   | -      | Security-only |
 | **1.x** | 1.6  | 2.0/2.1 | 2.1 | 2.5     | 1.0($) | -   | 1.0   | -      | Security-only |
 
-**($)**: optional dependency; only needed when actually using the feature depending on the API
+**($)**: optional dependency; only needed when actually using the feature depending on the API.
 
-**NOTE**: newer dependency versions will usually work, but there is no guarantee as that in turn depends on the backwards compatibility of the very dependency itself
+**NOTE**: newer dependency versions will usually work, but there is no guarantee as that in turn depends on the backwards compatibility of the very dependency itself.
 
 
 ## Installation
@@ -79,9 +79,9 @@ Or when you're still using JSF 2.3, pick [OmniFaces 3.14.24](https://repo.maven.
 </dependency>
 ```
 
-The 4.x branch is in maintenance mode. I.e. New things won't be added there, but it'll receive bugfixes. For users who are still on JSF 2.3, use [3.14.24](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/3.14.24/). The 3.x branch is also in maintenance mode. I.e. it'll also only receive bugfixes.
+The 4.x and 3.x branches are in maintenance mode. I.e. New things won't be added there, but they'll receive same bugfixes as 5.x.
 
-And users who are still on JSF 2.2, use [2.7.33](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/2.7.33/) instead. For users on yet more outdated environments who can't/won't use CDI, use [1.14.3](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/1.14.3/) instead. It doesn't contain anything from CDI nor new things which were added in 2.x, but it does contain enhancements and bugfixes to existing 1.x things. Note that there is no 1.15 nor 1.16. The 1.14.3 is latest version of the 1.x branch. The 2.x and 1.x branches are in securityfix mode. I.e. it'll only receive security fixes.
+For users who are still on JSF 2.2, use [2.7.33](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/2.7.33/) instead. For users on yet more outdated environments who can't/won't use CDI, use [1.14.3](https://repo.maven.apache.org/maven2/org/omnifaces/omnifaces/1.14.3/) instead. It doesn't contain anything from CDI nor new things which were added in 2.x, but it does contain the same bugfixes as 2.x and 3.x. The 2.x and 1.x branches are in securityfix mode. I.e. they'll only receive security fixes.
 
 OmniFaces is designed as a WAR library (web fragment library) and therefore shouldn't be placed elsewhere in the webapp's runtime classpath outside WAR's own `/WEB-INF/lib`, such as EAR's `/lib` or even server's or JRE's own `/lib`. When OmniFaces JAR file is misplaced this way, then the webapp will be unable to find OmniFaces-bundled Faces/CDI annotated classes and throw exceptions related to this during deploy or runtime. To solve it, put back  OmniFaces in WAR's `/WEB-INF/lib`. Also note that you shouldn't have duplicate OmniFaces JAR files, otherwise CDI will throw exceptions related to ambiguous dependencies during deploy.
 
