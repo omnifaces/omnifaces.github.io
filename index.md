@@ -295,6 +295,8 @@ If you have found bugs or have new ideas, feel free to open a [new issue](https:
 
 If you have general feedback that's not either a question, bug report or feature request, or if you have a review/rating, please feel free to leave it at [OpenHUB](https://www.openhub.net/p/omnifaces).
 
+If you need commercial support, Jakarta Faces consulting or migration work, contact [BalusC BV](https://balusc.org) at <bauke@balusc.org>.
+
 
 ## OmniFaces in the worldwide news and literature
 
