@@ -2,7 +2,7 @@
 <html lang="en" xmlns:vdldoc="http://vdldoc.omnifaces.org" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:jakartaee="https://jakarta.ee/xml/ns/jakartaee">
     <head>
         <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>validateBean (OmniFaces 5.5.5 VDL Documentation)
+        <title>validateBean (OmniFaces 5.5.6 VDL Documentation)
             </title>
         <meta name="keywords" content="$title">
         <link rel="stylesheet" type="text/css" title="Style" href="../stylesheet.css">
@@ -215,14 +215,12 @@
  </pre>
  <p>
  The faces message can also be shown for components which match <code>jakarta.validation.ConstraintViolation#getPropertyPath() Property Path of the
- ConstraintViolation</code> using <code>showMessageFor="@violating"</code>, and when no matching component can be found, the message will fallback to being added
- with client ID of the parent <code>UIForm</code>.
+ ConstraintViolation</code> using <code>showMessageFor="@violating"</code>. When no matching component can be found, the violation is not displayed and does not
+ fail validation, so that bean properties which are not bound to any input component in the form cannot block the form submit. A class level constraint
+ violation matches all components bound to the validated bean.
 
  <pre>
- &lt;h:form id="formId"&gt;
-     ...
-     &lt;!-- Unmatched messages shown here: --&gt;
-     &lt;h:message for="formId" /&gt;
+ &lt;h:form&gt;
      ...
      &lt;h:inputText id="foo" value="#{bean.product.item}" /&gt;
 
@@ -233,8 +231,33 @@
  &lt;/h:form&gt;
  </pre>
  <p>
- The <code>showMessageFor</code> attribute is new since OmniFaces 2.6 and it defaults to <code>@form</code>. The <code>showMessageFor</code> attribute does by
- design not have any effect when <code>validateMethod="actual"</code> is used.
+ Since OmniFaces 3.14.28, a fallback can be specified after <code>@violating</code>, separated by a space. This can be <code>@form</code>, <code>@all</code>,
+ <code>@global</code>, or a space separated collection of client IDs. Class level constraint violations and violations without a matching component will then
+ fail validation and be shown for the fallback. With <code>@all</code> and client IDs, the components are invalidated and labeled as described above. With
+ <code>@form</code> and <code>@global</code>, the message is only added, without label and without invalidating any component.
+
+ <pre>
+ &lt;h:form id="formId"&gt;
+     ...
+     &lt;!-- Class level and unmatched messages are shown here: --&gt;
+     &lt;h:message for="formId" /&gt;
+     ...
+     &lt;h:inputText id="foo" value="#{bean.product.item}" /&gt;
+
+     &lt;!-- Messages where ConstraintViolation PropertyPath is "item" are shown here: --&gt;
+     &lt;h:message for="foo" /&gt;
+     ...
+     &lt;o:validateBean ... value="#{bean.product}" showMessageFor="@violating @form" /&gt;
+ &lt;/h:form&gt;
+ </pre>
+ <p>
+ The <code>showMessageFor</code> attribute accepts at most two keywords, and only in the form of <code>@violating</code> followed by a fallback keyword. Any
+ other combination of keywords, or of keywords and client IDs, is logged as warning, and then only its first valid part is used. For example,
+ <code>@all @global</code> is treated as <code>@all</code>, and <code>@violating @global @form</code> is treated as <code>@violating @global</code>.
+ <p>
+ The <code>showMessageFor</code> attribute is new since OmniFaces 2.6 and it defaults to <code>@form</code>. When <code>method="validateActual"</code> is
+ used, the validated input components are not collected. In that case <code>@all</code>, also as fallback of <code>@violating</code>, does not show any
+ message, and <code>@form</code> and <code>@global</code> show the message without labels.
 
  <h3>Message format</h3>
  <p>
@@ -306,7 +329,7 @@
                             <td class="colFirst"><a href="#showMessageFor"><code>showMessageFor</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
                                 <br>
                                 (<i>must evaluate to </i><code>java.lang.String</code>)
-                    </td><td class="colLast">The identifier for which this validator should show the message. Defaults to "@form" which is the parent UIForm. Other available values are "@all", "@invalid", "@global" and "@violating". Any other space separated value will be treated as client ID of UI input component.</td>
+                    </td><td class="colLast">The identifier for which this validator should show the message. Defaults to "@form" which is the parent UIForm. Other available values are "@all", "@invalid", "@global" and "@violating". Any other space separated value will be treated as client ID of UI input component. Since OmniFaces 3.14.28, "@violating" can be followed by a space separated fallback, e.g. "@violating @global", which will be used for class level constraint violations and violations without a matching component.</td>
                         </tr>
                         <tr id="validationGroups" class="altColor">
                             <td class="colFirst"><a href="#validationGroups"><code>validationGroups</code></a></td><td class="colOne"><code>false</code></td><td class="colOne"><code>jakarta.el.ValueExpression</code>
